@@ -1,0 +1,22 @@
+#!/bin/sh
+mkdir /tmp2/.s3 2>/dev/null
+# -s means single threaded not good for performance, do we need it?
+example/hello -s -o fsname=S3DISK -o large_read -o allow_other /mnt/loop
+#example/hello -o fsname=S3DISK -o large_read -o allow_other /mnt/loop
+#sudo losetup -e DES  /dev/loop0 /mnt/loop/S3DISK
+sudo losetup /dev/loop0 /mnt/loop/S3DISK
+#exit
+sudo fsck -C -a /dev/loop0 # we need to we are prototyping here
+sudo tune2fs -j /dev/loop0 # put journal bk if we lost it
+sudo mount -t ext3 -onoatime /dev/loop0 /mnt/ssh
+#sudo mount -t vfat -onoatime,uid=hans,gid=fcf /dev/loop0 /mnt/ssh
+
+exit
+
+example/fusexmp -o allow_other /mnt/loop
+sudo losetup /dev/loop0 /mnt/loop/tmp/S3DISK
+sudo fsck -C /dev/loop0
+sudo mount -t ext3 -onoatime /dev/loop0 /mnt/ssh
+
+exit
+
