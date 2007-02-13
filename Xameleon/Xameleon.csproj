@@ -1,4 +1,4 @@
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -28,6 +28,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IKVM.GNU.Classpath, Version=0.32.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\IKVM.GNU.Classpath.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=0.32.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="saxon8, Version=8.9.0.1, Culture=neutral, PublicKeyToken=e1fdd002d5083fe6">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\saxon8.dll</HintPath>
+    </Reference>
+    <Reference Include="saxon8api, Version=8.9.0.1, Culture=neutral, PublicKeyToken=e1fdd002d5083fe6">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\saxon8api.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -40,12 +56,6 @@
     <Compile Include="Transform\Init.cs" />
     <Compile Include="Transform\Process.cs" />
     <Compile Include="Transform\Transform.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\VendorExtensions\Saxonica\VS.NET2005\Saxon.Api\Saxon.Api.csproj">
-      <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
-      <Name>Saxon.Api</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Configuration\App.config" />
