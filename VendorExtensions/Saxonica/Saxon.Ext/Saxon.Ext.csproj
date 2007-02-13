@@ -1,0 +1,272 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{01234180-5350-4440-92B2-1ADF9E00C35B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Saxon.Ext</RootNamespace>
+    <AssemblyName>Saxon.Ext</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>X5.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IKVM.GNU.Classpath, Version=0.30.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Vendor-Binary-Dependencies\IKVM.GNU.Classpath.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=0.30.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Vendor-Binary-Dependencies\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="saxon8, Version=8.8.0.1, Culture=neutral, PublicKeyToken=6b0ce5733267504a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Vendor-Binary-Dependencies\saxon8.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Query" />
+    <Reference Include="System.Data.DLinq" />
+    <Reference Include="System.Data.Extensions" />
+    <Reference Include="System.Xml.XLinq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Resources\ResourceManager.cs" />
+    <Compile Include="Transform.Context.cs" />
+    <Compile Include="Transform.Process.cs" />
+    <Compile Include="Transform.cs" />
+    <Compile Include="Extensions\Clipboard\ClipData.cs" />
+    <Compile Include="Transform.Init.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\AspNet\Agent.cs" />
+    <Compile Include="Extensions\AspNet\Context.cs" />
+    <Compile Include="Extensions\AspNet\Init.cs" />
+    <Compile Include="Extensions\AspNet\Operation.cs" />
+    <Compile Include="Extensions\AspNet\Process.cs" />
+    <Compile Include="Extensions\AspNet\Transformer.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Base\Extf.Net.Base.csproj">
+      <Project>{0EFC77D9-E940-4C1C-805F-F236FDB64B32}</Project>
+      <Name>Extf.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VS.NET2005\Saxon.Api\Saxon.Api.csproj">
+      <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
+      <Name>Saxon.Api</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="X5.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FXSL\f\addTree.xsl" />
+    <Content Include="Resources\FXSL\f\allTrue.xsl" />
+    <Content Include="Resources\FXSL\f\allTrueP.xsl" />
+    <Content Include="Resources\FXSL\f\append.xsl" />
+    <Content Include="Resources\FXSL\f\arcHTrignm.xsl" />
+    <Content Include="Resources\FXSL\f\arcTrignm.xsl" />
+    <Content Include="Resources\FXSL\f\buildListUntil.xsl" />
+    <Content Include="Resources\FXSL\f\buildListWhile.xsl" />
+    <Content Include="Resources\FXSL\f\buildListWhileMap.xsl" />
+    <Content Include="Resources\FXSL\f\combinatorics.xsl" />
+    <Content Include="Resources\FXSL\f\compose-flist.xsl" />
+    <Content Include="Resources\FXSL\f\compose.xsl" />
+    <Content Include="Resources\FXSL\f\concat.xsl" />
+    <Content Include="Resources\FXSL\f\curry.xsl" />
+    <Content Include="Resources\FXSL\f\doubleall.xsl" />
+    <Content Include="Resources\FXSL\f\drop.xsl" />
+    <Content Include="Resources\FXSL\f\dropWhile.xsl" />
+    <Content Include="Resources\FXSL\f\dvc-foldl.xsl" />
+    <Content Include="Resources\FXSL\f\dvc-str-foldl.xsl" />
+    <Content Include="Resources\FXSL\f\easyDiffList.xsl" />
+    <Content Include="Resources\FXSL\f\elimError.xsl" />
+    <Content Include="Resources\FXSL\f\elimError2.xsl" />
+    <Content Include="Resources\FXSL\f\exp.xsl" />
+    <Content Include="Resources\FXSL\f\filter.xsl" />
+    <Content Include="Resources\FXSL\f\findRoot.xsl" />
+    <Content Include="Resources\FXSL\f\foldl-tree.xsl" />
+    <Content Include="Resources\FXSL\f\foldl.xsl" />
+    <Content Include="Resources\FXSL\f\foldr.xsl" />
+    <Content Include="Resources\FXSL\f\func-addTree.xsl" />
+    <Content Include="Resources\FXSL\f\func-allTrue.xsl" />
+    <Content Include="Resources\FXSL\f\func-allTrueP.xsl" />
+    <Content Include="Resources\FXSL\f\func-append.xsl" />
+    <Content Include="Resources\FXSL\f\func-apply.xsl" />
+    <Content Include="Resources\FXSL\f\func-apply2.xsl" />
+    <Content Include="Resources\FXSL\f\func-arcTrignm.xsl" />
+    <Content Include="Resources\FXSL\f\func-binRetrieve.xsl" />
+    <Content Include="Resources\FXSL\f\func-binSearch.xsl" />
+    <Content Include="Resources\FXSL\f\func-compose-flist.xsl" />
+    <Content Include="Resources\FXSL\f\func-compose.xsl" />
+    <Content Include="Resources\FXSL\f\func-curry.xsl" />
+    <Content Include="Resources\FXSL\f\func-doubleall.xsl" />
+    <Content Include="Resources\FXSL\f\func-drop.xsl" />
+    <Content Include="Resources\FXSL\f\func-dvc-foldl-oldStyle.xsl" />
+    <Content Include="Resources\FXSL\f\func-dvc-foldl.xsl" />
+    <Content Include="Resources\FXSL\f\func-dvc-str-foldl.xsl" />
+    <Content Include="Resources\FXSL\f\func-exp.xsl" />
+    <Content Include="Resources\FXSL\f\func-Fibonacci.xsl" />
+    <Content Include="Resources\FXSL\f\func-filter.xsl" />
+    <Content Include="Resources\FXSL\f\func-flip.xsl" />
+    <Content Include="Resources\FXSL\f\func-foldl-tree.xsl" />
+    <Content Include="Resources\FXSL\f\func-foldl.xsl" />
+    <Content Include="Resources\FXSL\f\func-foldl2.xsl" />
+    <Content Include="Resources\FXSL\f\func-foldr.xsl" />
+    <Content Include="Resources\FXSL\f\func-getWords.xsl" />
+    <Content Include="Resources\FXSL\f\func-hex-to-decimal.xsl" />
+    <Content Include="Resources\FXSL\f\func-id.xsl" />
+    <Content Include="Resources\FXSL\f\func-iter.xsl" />
+    <Content Include="Resources\FXSL\f\func-map.xsl" />
+    <Content Include="Resources\FXSL\f\func-maxDepth.xsl" />
+    <Content Include="Resources\FXSL\f\func-maximum.xsl" />
+    <Content Include="Resources\FXSL\f\func-minimum.xsl" />
+    <Content Include="Resources\FXSL\f\func-Operators.xsl" />
+    <Content Include="Resources\FXSL\f\func-partition.xsl" />
+    <Content Include="Resources\FXSL\f\func-partitionCC.xsl" />
+    <Content Include="Resources\FXSL\f\func-pick.xsl" />
+    <Content Include="Resources\FXSL\f\func-Primes.xsl" />
+    <Content Include="Resources\FXSL\f\func-Primes2.xsl" />
+    <Content Include="Resources\FXSL\f\func-Primes3.xsl" />
+    <Content Include="Resources\FXSL\f\func-Primes4.xsl" />
+    <Content Include="Resources\FXSL\f\func-product.xsl" />
+    <Content Include="Resources\FXSL\f\func-progressions.xsl" />
+    <Content Include="Resources\FXSL\f\func-qsort.xsl" />
+    <Content Include="Resources\FXSL\f\func-qsort2.xsl" />
+    <Content Include="Resources\FXSL\f\func-qsort3.xsl" />
+    <Content Include="Resources\FXSL\f\func-repeat.xsl" />
+    <Content Include="Resources\FXSL\f\func-reverse.xsl" />
+    <Content Include="Resources\FXSL\f\func-scanl.xsl" />
+    <Content Include="Resources\FXSL\f\func-scanlDVC.xsl" />
+    <Content Include="Resources\FXSL\f\func-someTrue.xsl" />
+    <Content Include="Resources\FXSL\f\func-someTrueP.xsl" />
+    <Content Include="Resources\FXSL\f\func-Spell.xsl" />
+    <Content Include="Resources\FXSL\f\func-split.xsl" />
+    <Content Include="Resources\FXSL\f\func-sqrt.xsl" />
+    <Content Include="Resources\FXSL\f\func-standardXpathFunctions.xsl" />
+    <Content Include="Resources\FXSL\f\func-str-dropWhile.xsl" />
+    <Content Include="Resources\FXSL\f\func-str-dvc-map.xsl" />
+    <Content Include="Resources\FXSL\f\func-str-filter.xsl" />
+    <Content Include="Resources\FXSL\f\func-str-filterDVC.xsl" />
+    <Content Include="Resources\FXSL\f\func-str-foldl.xsl" />
+    <Content Include="Resources\FXSL\f\func-str-map.xsl" />
+    <Content Include="Resources\FXSL\f\func-str-reverse.xsl" />
+    <Content Include="Resources\FXSL\f\func-str-takeWhile.xsl" />
+    <Content Include="Resources\FXSL\f\func-sum.xsl" />
+    <Content Include="Resources\FXSL\f\func-transform-and-sum.xsl" />
+    <Content Include="Resources\FXSL\f\func-trignm.xsl" />
+    <Content Include="Resources\FXSL\f\func-trim.xsl" />
+    <Content Include="Resources\FXSL\f\func-type.xsl" />
+    <Content Include="Resources\FXSL\f\func-XpathConstructors.xsl" />
+    <Content Include="Resources\FXSL\f\func-zipWith.xsl" />
+    <Content Include="Resources\FXSL\f\func-zipWith3.xsl" />
+    <Content Include="Resources\FXSL\f\func-zipWithDVC.xsl" />
+    <Content Include="Resources\FXSL\f\generateFromTo.xsl" />
+    <Content Include="Resources\FXSL\f\hex-to-decimal.xsl" />
+    <Content Include="Resources\FXSL\f\hyper-trignm.xsl" />
+    <Content Include="Resources\FXSL\f\identity.xsl" />
+    <Content Include="Resources\FXSL\f\improve.xsl" />
+    <Content Include="Resources\FXSL\f\improvedDiff.xsl" />
+    <Content Include="Resources\FXSL\f\improvedDiffList.xsl" />
+    <Content Include="Resources\FXSL\f\improvedIntegration.xsl" />
+    <Content Include="Resources\FXSL\f\iter.xsl" />
+    <Content Include="Resources\FXSL\f\makeDistinct.xsl" />
+    <Content Include="Resources\FXSL\f\map.xsl" />
+    <Content Include="Resources\FXSL\f\mapTree.xsl" />
+    <Content Include="Resources\FXSL\f\maximum.xsl" />
+    <Content Include="Resources\FXSL\f\minimum.xsl" />
+    <Content Include="Resources\FXSL\f\monteCarlo.xsl" />
+    <Content Include="Resources\FXSL\f\multiIntegrate.xsl" />
+    <Content Include="Resources\FXSL\f\PartialSumsList.xsl" />
+    <Content Include="Resources\FXSL\f\partition.xsl" />
+    <Content Include="Resources\FXSL\f\pow.xsl" />
+    <Content Include="Resources\FXSL\f\processConcordPass1.xsl" />
+    <Content Include="Resources\FXSL\f\product.xsl" />
+    <Content Include="Resources\FXSL\f\productTree.xsl" />
+    <Content Include="Resources\FXSL\f\random.xsl" />
+    <Content Include="Resources\FXSL\f\randomList.xsl" />
+    <Content Include="Resources\FXSL\f\reverse.xsl" />
+    <Content Include="Resources\FXSL\f\roundLog2.xsl" />
+    <Content Include="Resources\FXSL\f\runningTotal.xsl" />
+    <Content Include="Resources\FXSL\f\salesMap.xsl" />
+    <Content Include="Resources\FXSL\f\scanl.xsl" />
+    <Content Include="Resources\FXSL\f\scanlDVC.xsl" />
+    <Content Include="Resources\FXSL\f\simpleIntegration.xsl" />
+    <Content Include="Resources\FXSL\f\someTrue.xsl" />
+    <Content Include="Resources\FXSL\f\someTrueP.xsl" />
+    <Content Include="Resources\FXSL\f\span.xsl" />
+    <Content Include="Resources\FXSL\f\split-to-lines.xsl" />
+    <Content Include="Resources\FXSL\f\split.xsl" />
+    <Content Include="Resources\FXSL\f\sqrt.xsl" />
+    <Content Include="Resources\FXSL\f\stdDev.xsl" />
+    <Content Include="Resources\FXSL\f\store.xsl" />
+    <Content Include="Resources\FXSL\f\str-dropWhile.xsl" />
+    <Content Include="Resources\FXSL\f\str-dvc-map.xsl" />
+    <Content Include="Resources\FXSL\f\str-filter.xsl" />
+    <Content Include="Resources\FXSL\f\str-filterDVC.xsl" />
+    <Content Include="Resources\FXSL\f\str-foldl.xsl" />
+    <Content Include="Resources\FXSL\f\str-map.xsl" />
+    <Content Include="Resources\FXSL\f\str-takeWhile.xsl" />
+    <Content Include="Resources\FXSL\f\strReverse.xsl" />
+    <Content Include="Resources\FXSL\f\strSpan.xsl" />
+    <Content Include="Resources\FXSL\f\strSplit-to-Lines.xsl" />
+    <Content Include="Resources\FXSL\f\strSplit-to-Words.xsl" />
+    <Content Include="Resources\FXSL\f\strSplit-to-Words2.xsl" />
+    <Content Include="Resources\FXSL\f\sum.xsl" />
+    <Content Include="Resources\FXSL\f\sumTree.xsl" />
+    <Content Include="Resources\FXSL\f\take.xsl" />
+    <Content Include="Resources\FXSL\f\takeWhile.xsl" />
+    <Content Include="Resources\FXSL\f\transform-and-sum.xsl" />
+    <Content Include="Resources\FXSL\f\tree-labels-list.xsl" />
+    <Content Include="Resources\FXSL\f\trignm.xsl" />
+    <Content Include="Resources\FXSL\f\trim.xsl" />
+    <Content Include="Resources\FXSL\f\within.xsl" />
+    <Content Include="Resources\FXSL\f\withinRelative.xsl" />
+    <Content Include="Resources\FXSL\f\zipWith.xsl" />
+    <Content Include="Resources\FXSL\f\zipWith3.xsl" />
+    <Content Include="Resources\FXSL\f\zipWithDVC.xsl" />
+    <Content Include="Resources\FXSL\Readme.txt" />
+    <Content Include="Resources\InitializationData\Base.xsl" />
+    <Content Include="Resources\InitializationData\Init.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(ProgramFiles)\LINQ Preview\Misc\Linq.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>gacutil -i Saxon.Ext.dll</PostBuildEvent>
+  </PropertyGroup>
+</Project>

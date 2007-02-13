@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="addTree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\addTree.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="allTrue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\allTrue.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="allTrueP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\allTrueP.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="append" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\append.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="arcHTrignm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\arcHTrignm.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="arcTrignm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\arcTrignm.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Base" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InitializationData\Base.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="buildListUntil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\buildListUntil.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="buildListWhile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\buildListWhile.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="buildListWhileMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\buildListWhileMap.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="combinatorics" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\combinatorics.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="compose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\compose.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="compose_flist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\compose-flist.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="concat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\concat.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="curry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\curry.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="doubleall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\doubleall.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="drop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\drop.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="dropWhile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\dropWhile.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="dvc_foldl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\dvc-foldl.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="dvc_str_foldl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\dvc-str-foldl.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="easyDiffList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\easyDiffList.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="elimError" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\elimError.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="elimError2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\elimError2.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="exp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\exp.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\filter.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="findRoot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\findRoot.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="foldl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\foldl.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="foldl_tree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\foldl-tree.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="foldr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\foldr.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_addTree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-addTree.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_allTrue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-allTrue.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_allTrueP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-allTrueP.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_append" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-append.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_apply" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-apply.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_apply2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-apply2.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_arcTrignm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-arcTrignm.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_binRetrieve" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-binRetrieve.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_binSearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-binSearch.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_compose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-compose.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_compose_flist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-compose-flist.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_curry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-curry.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_doubleall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-doubleall.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_drop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-drop.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_dvc_foldl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-dvc-foldl.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_dvc_foldl_oldStyle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-dvc-foldl-oldStyle.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_dvc_str_foldl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-dvc-str-foldl.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_exp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-exp.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_Fibonacci" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-Fibonacci.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-filter.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_flip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-flip.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_foldl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-foldl.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_foldl_tree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-foldl-tree.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_foldl2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-foldl2.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_foldr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-foldr.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_getWords" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-getWords.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_hex_to_decimal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-hex-to-decimal.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_id" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-id.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_iter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-iter.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_map" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-map.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_maxDepth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-maxDepth.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_maximum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-maximum.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_minimum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-minimum.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_Operators" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-Operators.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_partition" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-partition.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_partitionCC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-partitionCC.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_pick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-pick.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_Primes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-Primes.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_Primes2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-Primes2.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_Primes3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-Primes3.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_Primes4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-Primes4.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_product" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-product.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_progressions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-progressions.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_qsort" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-qsort.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_qsort2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-qsort2.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_qsort3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-qsort3.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_repeat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-repeat.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_reverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-reverse.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_scanl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-scanl.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_scanlDVC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-scanlDVC.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_someTrue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-someTrue.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_someTrueP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-someTrueP.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_Spell" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-Spell.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_split" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-split.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_sqrt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-sqrt.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_standardXpathFunctions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-standardXpathFunctions.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_str_dropWhile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-str-dropWhile.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_str_dvc_map" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-str-dvc-map.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_str_filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-str-filter.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_str_filterDVC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-str-filterDVC.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_str_foldl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-str-foldl.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_str_map" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-str-map.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_str_reverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-str-reverse.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_str_takeWhile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-str-takeWhile.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_sum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-sum.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_transform_and_sum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-transform-and-sum.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_trignm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-trignm.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="func_trim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-trim.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_type" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-type.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_XpathConstructors" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-XpathConstructors.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_zipWith" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-zipWith.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_zipWith3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-zipWith3.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="func_zipWithDVC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\func-zipWithDVC.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="generateFromTo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\generateFromTo.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="hex_to_decimal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\hex-to-decimal.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="hyper_trignm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\hyper-trignm.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="identity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\identity.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="improve" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\improve.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="improvedDiff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\improvedDiff.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="improvedDiffList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\improvedDiffList.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="improvedIntegration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\improvedIntegration.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Init" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InitializationData\Init.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="iter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\iter.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="makeDistinct" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\makeDistinct.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="map" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\map.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="mapTree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\mapTree.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="maximum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\maximum.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="minimum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\minimum.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="monteCarlo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\monteCarlo.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="multiIntegrate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\multiIntegrate.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PartialSumsList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\PartialSumsList.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="partition" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\partition.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="pow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\pow.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="processConcordPass1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\processConcordPass1.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="product" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\product.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="productTree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\productTree.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="random" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\random.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="randomList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\randomList.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="reverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\reverse.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="roundLog2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\roundLog2.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="runningTotal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\runningTotal.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="salesMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\salesMap.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="scanl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\scanl.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="scanlDVC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\scanlDVC.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="simpleIntegration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\simpleIntegration.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="someTrue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\someTrue.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="someTrueP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\someTrueP.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SourceXml" xml:space="preserve">
+    <value>http://xslt.googlecode.com/svn/trunk/Modules/DataFilter/init.xml</value>
+  </data>
+  <data name="SourceXslt" xml:space="preserve">
+    <value>http://xslt.googlecode.com/svn/test/extensionfunction.xsl</value>
+  </data>
+  <data name="span" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\span.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="split" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\split.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="split_to_lines" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\split-to-lines.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="sqrt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\sqrt.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="stdDev" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\stdDev.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="store" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\store.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="str_dropWhile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\str-dropWhile.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="str_dvc_map" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\str-dvc-map.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="str_filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\str-filter.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="str_filterDVC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\str-filterDVC.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="str_foldl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\str-foldl.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="str_map" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\str-map.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="str_takeWhile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\str-takeWhile.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="strReverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\strReverse.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="strSpan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\strSpan.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="strSplit_to_Lines" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\strSplit-to-Lines.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="strSplit_to_Words" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\strSplit-to-Words.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="strSplit_to_Words2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\strSplit-to-Words2.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="sum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\sum.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="sumTree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\sumTree.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="take" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\take.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="takeWhile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\takeWhile.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="transform_and_sum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\transform-and-sum.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="tree_labels_list" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\tree-labels-list.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="trignm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\trignm.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="trim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\trim.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="within" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\within.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="withinRelative" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\withinRelative.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="zipWith" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\zipWith.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="zipWith3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\zipWith3.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="zipWithDVC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FXSL\f\zipWithDVC.xsl;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+</root>
