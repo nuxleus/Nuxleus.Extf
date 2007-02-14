@@ -22,28 +22,12 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\Dependencies\</OutputPath>
+    <OutputPath>..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IKVM.GNU.Classpath, Version=0.32.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\IKVM.GNU.Classpath.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.Runtime, Version=0.32.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\IKVM.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="saxon8, Version=8.9.0.1, Culture=neutral, PublicKeyToken=e1fdd002d5083fe6">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\saxon8.dll</HintPath>
-    </Reference>
-    <Reference Include="saxon8api, Version=8.9.0.1, Culture=neutral, PublicKeyToken=e1fdd002d5083fe6">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\saxon8api.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -59,6 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Configuration\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
+      <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
+      <Name>Saxon.Api</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
