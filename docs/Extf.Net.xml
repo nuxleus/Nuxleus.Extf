@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Extf.Net</name>
+    </assembly>
+    <members>
+        <member name="M:Extf.Net.ACL.#ctor">
+            <summary>
+            Create a new Generics-based Dictionary to hold our group of ACL XML files.
+            </summary>
+            
+        </member>
+        <member name="T:Extf.Net.Properties.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Extf.Net.Properties.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Extf.Net.Properties.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Extf.Net.Properties.Resource.DefaultRSSText">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+            &lt;rss version=&quot;2.0&quot;&gt;
+            	&lt;channel&gt;
+            		&lt;title&gt;RSS Feed Not Available&lt;/title&gt;
+            		&lt;link&gt;http://msdn.microsoft.com/vcsharp/rss.xml&lt;/link&gt;
+            		&lt;description&gt;The RSS feed could not be loaded.&lt;/description&gt;
+            		&lt;language&gt;en-us&lt;/language&gt;
+            		&lt;ttl&gt;1440&lt;/ttl&gt;
+            		&lt;item&gt;
+            			&lt;title&gt;You may not be subscribed to any feeds. &lt;/title&gt;
+            			&lt;description&gt;If you are want to subscribe to a feed run Microsoft Internet Explorer and subscribe to a picture feed.&lt;/description&gt;
+            			&lt;link&gt;http://msdn. [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="T:Extf.Net.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Extf.Net.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Extf.Net.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

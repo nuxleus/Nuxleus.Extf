@@ -1,0 +1,3286 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Saxon.Ext</name>
+    </assembly>
+    <members>
+        <member name="T:Saxon.Ext.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.addTree">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:add-tree=&quot;add-tree&quot; 
+            exclude-result-prefixes=&quot;f add-tree&quot;
+            &gt;
+                &lt;xsl:import href=&quot;foldl-tree.xsl&quot;/&gt;
+            
+                &lt;add-tree:add-tree/&gt;
+                
+                &lt;xsl:output method=&quot;text&quot;/&gt;
+                
+                &lt;xsl:template match=&quot;/&quot;&gt;
+                  &lt;xsl:variable name=&quot;vAdd&quot; select=&quot;document(&apos;&apos;)/*/add-tree:*[1]&quot;/&gt;
+                  
+                  &lt;xsl:call-template name=&quot;foldl-tree&quot;&gt;
+            	    &lt;xsl:with-param name=&quot;pFuncNode&quot; select=&quot;$vAdd&quot;/&gt;
+            	    [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.allTrue">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:allTrue-And=&quot;f allTrue-And&quot;
+            &gt;
+              &lt;xsl:import href=&quot;foldr.xsl&quot;/&gt;
+              
+              &lt;allTrue-And:allTrue-And/&gt;
+              
+              &lt;xsl:template name=&quot;allTrue&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vAnd&quot; select=&quot;document(&apos;&apos;)/*/allTrue-And:*[1]&quot;/&gt;
+              
+                &lt;xsl:call-template name=&quot;foldr&quot;&gt;
+                  &lt;xsl:with-param name=&quot;pFunc&quot; select=&quot;$vAnd&quot;/&gt;
+                  &lt;xsl:with-param name=&quot;pA0&quot; sele [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.allTrueP">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;1.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            &gt;
+              &lt;xsl:import href=&quot;map.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;allTrue.xsl&quot;/&gt;
+            
+              &lt;xsl:template name=&quot;allTrueP&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pPredicate&quot; select=&quot;/..&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vMappedList&quot;&gt;
+                  &lt;xsl:call-template name=&quot;map&quot;&gt;
+                    &lt;xsl:with-param name=&quot;pFun&quot; select=&quot;$pPredicate&quot;/&gt;
+                    &lt;xsl:with-param name=&quot;pList1&quot; select=&quot;$pList&quot;/&gt;
+             [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.append">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:append-foldr-func=&quot;append-foldr-func&quot;
+            exclude-result-prefixes=&quot;f append-foldr-func&quot;
+            &gt;
+               &lt;xsl:import href=&quot;foldr.xsl&quot;/&gt;
+            
+               &lt;append-foldr-func:append-foldr-func/&gt;
+            
+                &lt;xsl:template name=&quot;append&quot;&gt;
+                  &lt;xsl:param name=&quot;pList1&quot; select=&quot;/..&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList2&quot; select=&quot;/..&quot;/&gt;
+            
+                  &lt;xsl:variable name=&quot;vFoldrFun&quot; select=&quot;document(&apos;&apos;)/*/append-foldr-func:*[1]&quot;/&gt;
+            
+                 [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.arcHTrignm">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: arcHTrignm.xsl    INVERSE  HYPERBOLIC TRIGONOMETRIC  FUNCTIONS
+                Version: 1.0 (2002-03-24)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.arcTrignm">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: func-arcTrignm.xsl       INVERSE  TRIGONOMETRIC  FUNCTIONS    
+                Version: 1.0 (2005-02-25)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.Base">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+            &lt;xsl:stylesheet 
+                xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; 
+                version=&quot;2.0&quot; 
+                xmlns:clitype=&quot;http://saxon.sf.net/clitype&quot;
+                xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+                exclude-result-prefixes=&quot;xs clitype&quot;&gt;
+              &lt;xsl:template match=&quot;/&quot;&gt;
+                &lt;xsl:variable name=&quot;arg&quot; as=&quot;xs:double&quot;&gt;2&lt;/xsl:variable&gt;
+                &lt;hello-world&gt;
+                  &lt;output&gt;
+                    &lt;xsl:value-of select=&quot;math:Sqrt($arg)&quot; xmlns:math=&quot;clitype:System.Math&quot;/&gt;
+                  &lt;/output&gt;
+                &lt;/hello-w [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.buildListUntil">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:template name=&quot;buildListUntil&quot;&gt;
+                &lt;xsl:param name=&quot;pGenerator&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pParam0&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pParamGenerator&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElementName&quot; select=&quot;&apos;el&apos;&quot;/&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+            
+                &lt;xsl:if test=&quot;not($pCont [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.buildListWhile">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:template name=&quot;buildListWhile&quot;&gt;
+                &lt;xsl:param name=&quot;pGenerator&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pParamGenerator&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pParam0&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pContollerParam&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElementName&quot; select=&quot;&apos;el&apos;&quot;/&gt;
+                &lt;xsl:param name=&quot;p [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.buildListWhileMap">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+             
+              &lt;xsl:template name=&quot;buildListWhileMap&quot;&gt;
+                &lt;xsl:param name=&quot;pGenerator&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pParam0&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pContollerParam&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pMap&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pMapParams&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElementN [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.combinatorics">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: combinatorics.xsl    COMBINATORIAL ALGORITHMS                 
+                Version: 1.0 (2002-03-24)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.compose">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              
+              &lt;xsl:template name=&quot;compose&quot;&gt;
+                &lt;xsl:param name=&quot;pFun1&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pFun2&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pArg1&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vrtfFun2&quot;&gt;
+                  &lt;xsl:apply-templates select=&quot;$pFun2&quot; mode=&quot;f:FXSL&quot;&gt;
+                    &lt;xsl:with-param name=&quot;pArg1&quot; select=&quot;$pArg1&quot;/&gt;
+                  &lt;/xsl:apply-templates&gt;
+                &lt;/xsl:variable&gt;
+             [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.compose_flist">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              
+              &lt;xsl:template name=&quot;compose-flist&quot;&gt;
+                &lt;xsl:param name=&quot;pFunList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pArg1&quot;/&gt;
+                
+                &lt;xsl:choose&gt;
+                  &lt;xsl:when test=&quot;not($pFunList)&quot;&gt;
+                    &lt;xsl:copy-of select=&quot;$pArg1&quot;/&gt;
+                  &lt;/xsl:when&gt;
+                  &lt;xsl:otherwise&gt;
+            	    &lt;xsl:variable name=&quot;vrtfFunRest&quot;&gt;
+            	      &lt;xsl:call-template name=&quot;compose-flist&quot;&gt;
+                        [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.concat">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:myAppend=&quot;f:fxsl-concat-append&quot; 
+             exclude-result-prefixes=&quot;f myAppend&quot;
+             &gt;
+             
+             &lt;xsl:import href=&quot;append.xsl&quot;/&gt;
+             
+             &lt;myAppend:myAppend/&gt;
+             
+              &lt;xsl:template match=&quot;/&quot;&gt;
+              &lt;/xsl:template&gt;
+            &lt;!--  
+              &gt;  concat           :: [[a]] -&gt; [a]
+              &gt;  concat            = foldr (++) []
+            --&gt;  
+              &lt;xsl:template name=&quot;concat&quot;&gt;
+                &lt;xsl:param name=&quot;arg1&quot; select=&quot;/..&quot;/&gt; &lt;!-- List of lists --&gt;
+                
+               [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.curry">
+            <summary>
+              Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:curryPartialApplicator=&quot;f:curryPartialApplicator&quot;
+            exclude-result-prefixes=&quot;f curryPartialApplicator&quot;
+            &gt;
+            
+             &lt;xsl:template name=&quot;curry&quot;&gt;
+               &lt;xsl:param name=&quot;pFun&quot; select=&quot;/..&quot;/&gt;
+               &lt;xsl:param name=&quot;pNargs&quot; select=&quot;2&quot;/&gt;
+               &lt;xsl:param name=&quot;pStripAuxNamespace&quot;/&gt;
+               &lt;xsl:param name=&quot;args&quot; select=&quot;/..&quot;/&gt;
+               &lt;xsl:param name=&quot;arg1&quot; select=&quot;/..&quot;/&gt;
+               &lt;xsl:param name=&quot;arg2&quot; selec [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.doubleall">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:doubleall=&quot;doubleall&quot;
+            exclude-result-prefixes=&quot;f doubleall&quot;
+            &gt;
+               &lt;xsl:import href=&quot;map.xsl&quot;/&gt;
+               
+               &lt;doubleall:doubleall/&gt;
+               
+               &lt;xsl:template name=&quot;doubleall&quot;&gt;
+                 &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                 
+                 &lt;xsl:variable name=&quot;vFunDouble&quot; select=&quot;document(&apos;&apos;)/*/doubleall:*[1]&quot;/&gt;
+                 
+                 &lt;xsl:call-template name=&quot;map&quot;&gt;
+                   &lt;xsl:with-param name=&quot;pFun&quot; select=&quot;$vFu [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.drop">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            &gt;
+              &lt;xsl:template name=&quot;drop&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pN&quot; select=&quot;0&quot;/&gt;
+                
+                &lt;xsl:copy-of select=&quot;$pList[position() &gt; $pN]&quot;/&gt;
+              &lt;/xsl:template&gt;
+            
+            &lt;/xsl:stylesheet&gt;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.dropWhile">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:vendor=&quot;http://icl.com/saxon&quot;
+            exclude-result-prefixes=&quot;f vendor&quot;
+            &gt;
+              &lt;xsl:template name=&quot;dropWhile&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pContollerParam&quot; select=&quot;/..&quot;/&gt;
+            
+                &lt;xsl:if test=&quot;not($pController)&quot;&gt;
+                  &lt;xsl:message terminate=&quot;yes&quot;&gt;[dropWhile]Error: pController not specified.&lt;/xsl:message&gt;
+                 [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.dvc_foldl">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+                &lt;xsl:template name=&quot;foldl&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; select=&quot;/..&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+            
+                  &lt;xsl:choose&gt;
+                     &lt;xsl:when test=&quot;not($pList)&quot;&gt;
+                        &lt;xsl:copy-of select=&quot;$pA0&quot;/&gt;
+                     &lt;/xsl:when&gt;
+                     &lt;xsl:otherwise&gt;
+                        &lt;xsl:variable name=&quot;vcntList&quot; select=&quot;count($pL [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.dvc_str_foldl">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+                &lt;xsl:template name=&quot;dvc-str-foldl&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; select=&quot;/..&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pStr&quot;/&gt;
+            
+                  &lt;xsl:choose&gt;
+                     &lt;xsl:when test=&quot;not($pStr)&quot;&gt;
+                        &lt;xsl:copy-of select=&quot;$pA0&quot;/&gt;
+                     &lt;/xsl:when&gt;
+                     &lt;xsl:otherwise&gt;
+                        &lt;xsl:variable name=&quot;vcntList&quot; select=&quot;string-length($p [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.easyDiffList">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:myHalve=&quot;myHalve&quot; 
+            xmlns:myTenXController=&quot;myTenXController&quot; 
+            xmlns:myEasyDiffMap=&quot;myEasyDiffMap&quot;
+            xmlns:myWithinController=&quot;myWithinController&quot;
+            exclude-result-prefixes=&quot;f myHalve myTenXController
+             myEasyDiffMap myWithinController&quot;
+            &gt;
+              &lt;xsl:import href=&quot;buildListWhileMap.xsl&quot;/&gt;
+              &lt;myHalve:myHalve/&gt;
+              &lt;myWithinController:myWithinController/&gt;
+              &lt;myTenXController:myTenXController/&gt;
+               [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.elimError">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:math=&quot;java:java.lang.Math&quot;
+            exclude-result-prefixes=&quot;f math&quot;
+            &gt;
+            
+              &lt;xsl:variable name=&quot;vLn-2&quot; select=&quot;0.69314718056&quot;/&gt;  
+              &lt;xsl:template name=&quot;elimError&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pOrder&quot; select=&quot;-9999999&quot;/&gt;
+                &lt;xsl:param name=&quot;pv2__N&quot; select=&quot;0&quot;/&gt;
+                
+                &lt;xsl:choose&gt;
+                  &lt;xsl:when test=&quot;count($pList) &amp;lt; 3&quot;&gt;
+                    &lt;xsl:copy-of select [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.elimError2">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:roundLog2=&quot;roundLog2&quot;
+             exclude-result-prefixes=&quot;f roundLog2&quot;
+            &gt;
+              &lt;xsl:import href=&quot;roundLog2.xsl&quot;/&gt;
+              
+              &lt;xsl:template name=&quot;elimError&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pOrder&quot; select=&quot;-9999999&quot;/&gt;
+                &lt;xsl:param name=&quot;pv2__N&quot; select=&quot;0&quot;/&gt;
+                
+                &lt;xsl:choose&gt;
+                  &lt;xsl:when test=&quot;count($pList) &amp;lt; 3&quot;&gt;
+                    &lt;xsl:copy-of select=&quot;$pList&quot;/&gt;
+              [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.exp">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: exp.xsl                                                       
+                Version: 1.0 (2002-03-16)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.filter">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+            
+              &lt;xsl:template name=&quot;filter&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pListName&quot; select=&quot;&apos;list&apos;&quot;/&gt;
+                
+                &lt;xsl:if test=&quot;not($pController)&quot;&gt;
+                  &lt;xsl:message terminate=&quot;yes&quot;&gt;[filter]Error: pController not specified.&lt;/xsl:message&gt;
+                &lt;/xsl:if&gt;
+                
+                &lt;xsl:element name=&quot;{$pL [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.findRoot">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: findRoot.xsl                                                  
+                Version: 1.0 (2002-03-16)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.foldl">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:vendor=&quot;http://saxon.sf.net/&quot;
+            &gt;
+                &lt;xsl:template name=&quot;foldl&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; select=&quot;/..&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+            
+                  &lt;xsl:choose&gt;
+                     &lt;xsl:when test=&quot;not($pList)&quot;&gt;
+                        &lt;xsl:copy-of select=&quot;$pA0&quot;/&gt;
+                     &lt;/xsl:when&gt;
+                     &lt;xsl:otherwise&gt;
+            
+                        &lt;xsl:variable name=&quot;vFunResult&quot;&gt;
+             [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.foldl_tree">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+                &lt;xsl:template name=&quot;foldl-tree&quot;&gt;
+                  &lt;xsl:param name=&quot;pFuncNode&quot; select=&quot;/..&quot;/&gt;
+                  &lt;xsl:param name=&quot;pFuncSubtrees&quot; select=&quot;/..&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pNode&quot; select=&quot;/..&quot;/&gt;
+            
+                  &lt;xsl:choose&gt;
+                     &lt;xsl:when test=&quot;not($pNode)&quot;&gt;
+                        &lt;xsl:copy-of select=&quot;$pA0&quot;/&gt;
+                     &lt;/xsl:when&gt;
+                     &lt;xsl:otherwis [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.foldr">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+            
+                &lt;xsl:template name=&quot;foldr&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; select=&quot;/..&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                  
+                  &lt;xsl:choose&gt;
+                     &lt;xsl:when test=&quot;not($pList)&quot;&gt;
+                        &lt;xsl:copy-of select=&quot;$pA0&quot;/&gt;
+                     &lt;/xsl:when&gt;
+                     &lt;xsl:otherwise&gt;
+            
+                        &lt;xsl:variable name=&quot;vFunResult&quot;&gt;
+             [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_addTree">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;xs f&quot;
+            &gt;
+               &lt;xsl:import href=&quot;func-foldl-tree.xsl&quot;/&gt;
+               &lt;xsl:import href=&quot;func-Operators.xsl&quot;/&gt;
+                
+               &lt;f:add-tree/&gt;
+               &lt;xsl:template match=&quot;f:add-tree&quot; mode=&quot;f:FXSL&quot;&gt;
+                 &lt;xsl:param name=&quot;arg1&quot;/&gt;
+                 &lt;xsl:sequence select=&quot;f:add-tree($arg1)&quot;/&gt;
+               &lt;/xsl:template&gt;
+               
+               &lt;xsl:function name=&quot;f:add-tree&quot; as=&quot;node()&quot;&gt;
+             [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_allTrue">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-foldl.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;func-Operators.xsl&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:allTrue&quot; as=&quot;xs:boolean&quot; &gt;
+                &lt;xsl:param name=&quot;pList&quot; as=&quot;xs:boolean*&quot;/&gt;
+              
+                &lt;xsl:copy-of select=&quot;f:foldl(f:and(), true(), $pList)&quot;/&gt;
+              &lt;/xsl:function&gt;
+            &lt;/xsl:stylesheet&gt;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_allTrueP">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-map.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;func-allTrue.xsl&quot;/&gt;
+            
+              &lt;f:allTrueP/&gt;
+              &lt;xsl:template match=&quot;f:allTrueP&quot; mode=&quot;f:FXSL&quot;&gt;
+                &lt;xsl:param name=&quot;arg1&quot; as=&quot;node()*&quot;/&gt;
+                &lt;xsl:param name=&quot;arg2&quot; as=&quot;element()&quot;/&gt;
+                
+                &lt;xsl:sequence select=&quot;f:allTrueP($arg1, $arg2)&quot;/&gt;
+              &lt;/xsl:template&gt;
+              
+             [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_append">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:append-foldr-func=&quot;append-foldr-func&quot;
+            exclude-result-prefixes=&quot;f xs append-foldr-func&quot;
+            &gt;
+               &lt;xsl:import href=&quot;func-foldr.xsl&quot;/&gt;
+            
+               &lt;append-foldr-func:append-foldr-func/&gt;
+            
+                &lt;f:append/&gt;
+                
+                &lt;xsl:function name=&quot;f:append&quot; as=&quot;node()&quot;&gt;
+                  &lt;xsl:sequence select=&quot;document(&apos;&apos;)/*/f:append[1]&quot;/&gt;
+                &lt;/xsl:function&gt;
+                
+                &lt;xsl:templ [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_apply">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+            
+              &lt;xsl:function name=&quot;f:apply&quot;&gt;
+               &lt;xsl:param name=&quot;pFunc&quot; as=&quot;element()&quot;/&gt;
+               &lt;xsl:param name=&quot;arg1&quot;/&gt;
+               
+                &lt;xsl:apply-templates select=&quot;$pFunc&quot; mode=&quot;f:FXSL&quot;&gt;
+                  &lt;xsl:with-param name=&quot;arg1&quot; select=&quot;$arg1&quot;/&gt;
+                &lt;/xsl:apply-templates&gt;
+              &lt;/xsl:function&gt;
+            
+              &lt;xsl:function name=&quot;f:apply&quot;&gt;
+               &lt;xsl:param name=&quot;pFunc&quot; as=&quot;element()&quot;/&gt;
+               &lt;xsl:param  [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_apply2">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+            
+              &lt;xsl:function name=&quot;f:apply2&quot;&gt;
+               &lt;xsl:param name=&quot;pFunc&quot; as=&quot;element()&quot;/&gt;
+               &lt;xsl:param name=&quot;pArgs&quot; as=&quot;item()*&quot;/&gt;
+               
+                &lt;xsl:if test=&quot;count($pArgs) &gt; 10&quot;&gt;
+                  &lt;xsl:message terminate=&quot;yes&quot;&gt;
+                    [fxsl:apply]Error: More than 10 arguments specified.
+                  &lt;/xsl:message&gt;
+                &lt;/xsl:if&gt;
+                &lt;xsl:apply-templates select=&quot;$pFunc&quot;&gt;
+                  &lt;xsl:with- [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_arcTrignm">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: func-arcTrignm.xsl       INVERSE  TRIGONOMETRIC  FUNCTIONS    
+                Version: 1.0 (2005-02-25)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_binRetrieve">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs&quot;
+             &gt;
+             
+             &lt;xsl:import href=&quot;../f/func-apply.xsl&quot;/&gt;
+             
+              &lt;xsl:function name=&quot;f:binRetrieve&quot; as=&quot;item()?&quot;&gt;
+               &lt;xsl:param name=&quot;pSeq&quot; as=&quot;item()+&quot;/&gt;
+               &lt;xsl:param name=&quot;pVal&quot; as=&quot;item()&quot;/&gt;
+               &lt;xsl:sequence select=&quot;f:binRetrieve($pSeq,$pVal,1,count($pSeq))&quot;/&gt;
+            &lt;/xsl:function&gt;
+             
+              &lt;xsl:function name=&quot;f:binRetrieve&quot; as= [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_binSearch">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs&quot;
+             &gt;
+             
+             &lt;xsl:import href=&quot;../f/func-apply.xsl&quot;/&gt;
+             
+              &lt;xsl:function name=&quot;f:binSearch&quot; as=&quot;xs:boolean&quot;&gt;
+               &lt;xsl:param name=&quot;pSeq&quot; as=&quot;item()+&quot;/&gt;
+               &lt;xsl:param name=&quot;pVal&quot; as=&quot;item()&quot;/&gt;
+               &lt;xsl:sequence select=&quot;f:binSearch($pSeq,$pVal,1,count($pSeq))&quot;/&gt;
+            &lt;/xsl:function&gt;
+             
+              &lt;xsl:function name=&quot;f:binSearch&quot; as=&quot;xs [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_compose">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;func-curry.xsl&quot;/&gt;
+              
+              &lt;f:compose/&gt;
+             &lt;xsl:template match=&quot;f:compose&quot; mode=&quot;f:FXSL&quot;&gt;
+               &lt;xsl:param name=&quot;arg1&quot; as=&quot;element()&quot;/&gt;
+               &lt;xsl:param name=&quot;arg2&quot; as=&quot;element()&quot;/&gt;
+               &lt;xsl:param name=&quot;arg3&quot;/&gt;
+               
+               &lt;xsl:sequence select=&quot;f:compose($arg1,$arg2,$arg3)&quot;/&gt;
+             &lt;/xsl:template&gt;
+            
+              &lt;xsl:function n [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_compose_flist">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:compose-flist&quot;&gt;
+                &lt;xsl:param name=&quot;pFunList&quot; as=&quot;element()*&quot;/&gt;
+                &lt;xsl:param name=&quot;pArg1&quot;/&gt;
+                
+                &lt;xsl:sequence select=
+                 &quot;if(empty($pFunList))
+                   then $pArg1
+                   else
+                     f:apply($pFunList[1], f:compose-flist($pFunList[position() &gt; 1], $pArg1))&quot;
+                /&gt;
+              &lt;/xsl:func [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_curry">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:int=&quot;http://fxsl.sf.net/internal/curry&quot;
+             xmlns:f-curry=&quot;http://fxsl.sf.net/curry&quot;
+             exclude-result-prefixes=&quot;xs f f-curry int&quot;
+             &gt;
+              &lt;xsl:import href=&quot;../f/func-type.xsl&quot;/&gt;
+            
+              &lt;xsl:function name=&quot;f:curry&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; as=&quot;node()&quot;/&gt;
+                &lt;xsl:param name=&quot;pNargs&quot; as=&quot;xs:integer&quot;/&gt;
+                &lt;xsl:param name=&quot;arg1&quot;/&gt;
+                
+                &lt;xs [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_doubleall">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:doubleall=&quot;doubleall&quot;
+            exclude-result-prefixes=&quot;f doubleall&quot;
+            &gt;
+               &lt;xsl:import href=&quot;func-map.xsl&quot;/&gt;
+               
+               &lt;doubleall:doubleall/&gt;
+               
+               &lt;xsl:function name=&quot;f:doubleall&quot;&gt;
+                 &lt;xsl:param name=&quot;pList&quot; as=&quot;node()*&quot;/&gt;
+                 
+                 &lt;xsl:variable name=&quot;vFunDouble&quot; select=&quot;document(&apos;&apos;)/*/doubleall:*[1]&quot;/&gt;
+                 
+                 &lt;xsl:copy-of select=&quot;f:map($vFunDouble, $pList)&quot;/&gt;
+               &lt;/xsl:function&gt;
+             [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_drop">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+              &lt;xsl:function name=&quot;f:drop&quot; as=&quot;item()*&quot;&gt;
+                &lt;xsl:param name=&quot;pN&quot; as=&quot;xs:integer&quot;/&gt;
+                &lt;xsl:param name=&quot;pList&quot; as=&quot;item()*&quot;/&gt;
+                
+                &lt;xsl:sequence select=&quot;$pList[position() &gt; $pN]&quot;/&gt;
+              &lt;/xsl:function&gt;
+            
+            &lt;/xsl:stylesheet&gt;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_dvc_foldl">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             exclude-result-prefixes=&quot;f&quot;&gt;
+             
+                &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+                &lt;xsl:import href=&quot;func-drop.xsl&quot;/&gt;
+                
+                &lt;xsl:function name=&quot;f:foldl&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; as=&quot;element()&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList&quot; as=&quot;item()*&quot;/&gt;
+            
+                  &lt;xsl:sequence select=
+                   &quot;if(empty($pList))
+                      then 
+                         $pA0
+                      else
+                    [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_dvc_foldl_oldStyle">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             exclude-result-prefixes=&quot;f&quot;&gt;
+             
+                &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+             
+                &lt;xsl:function name=&quot;f:foldl&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; as=&quot;element()&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList&quot; as=&quot;item()*&quot;/&gt;
+            
+                  &lt;xsl:choose&gt;
+                     &lt;xsl:when test=&quot;not($pList)&quot;&gt;
+                        &lt;xsl:copy-of select=&quot;$pA0&quot;/&gt;
+                     &lt;/xsl:when&gt;
+                     &lt;xsl:otherwise&gt;
+                     [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_dvc_str_foldl">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs&quot; 
+             &gt;
+                &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+                
+                &lt;xsl:function name=&quot;f:str-foldl&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; as=&quot;element()&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pStr&quot; as=&quot;xs:string&quot;/&gt;
+            
+                &lt;xsl:sequence select=
+                  &quot;if(not($pStr))
+                     then
+                        $pA0
+                     else
+               [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_exp">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: exp.xsl                                                       
+                Version: 1.0 (2002-03-16)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_Fibonacci">
+            <summary>
+              Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:saxon=&quot;http://saxon.sf.net/&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f xs saxon&quot;
+            &gt;
+             
+            &lt;xsl:function name=&quot;f:fiboLimitedSeq&quot; as=&quot;xs:integer*&quot;&gt;
+              &lt;xsl:param name=&quot;pLimit&quot; as=&quot;xs:double&quot;/&gt;
+              &lt;xsl:param name=&quot;pN&quot;  as=&quot;xs:integer&quot;/&gt;
+              
+              &lt;xsl:variable name=&quot;vVal&quot; select=&quot;f:fibo($pN)&quot;/&gt;
+              
+              &lt;xsl:if test=&quot;$vVal le $pLimit&quot; &gt;
+                &lt;xsl:sequence  [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_filter">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+            
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:filter&quot; as=&quot;item()*&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot;  as=&quot;item()*&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; as=&quot;element()&quot;/&gt;
+                
+                &lt;xsl:sequence select=&quot;$pList[f:apply($pController, .)]&quot;/&gt;
+              &lt;/xsl:function&gt;
+            &lt;/xsl:stylesheet&gt;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_flip">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+            
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;func-curry.xsl&quot;/&gt;
+            
+              &lt;f:flip/&gt;
+              &lt;xsl:function name=&quot;f:flip&quot; as=&quot;element()&quot;&gt;
+                &lt;xsl:sequence select=&quot;document(&apos;&apos;)/*/f:flip[1]&quot;/&gt;
+              &lt;/xsl:function&gt;
+              
+              &lt;xsl:function name=&quot;f:flip&quot;&gt;
+               &lt;xsl:param name=&quot;pFunc&quot; as=&quot;element()&quot;/&gt;
+               &lt;xsl:param name=&quot;arg1&quot; /&gt;
+               &lt;xsl:param name=&quot;arg2&quot;/&gt;
+               
+                [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_foldl">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+                &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+                &lt;xsl:import href=&quot;func-curry.xsl&quot;/&gt;
+                
+                &lt;xsl:function name=&quot;f:foldl&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; as=&quot;element()&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot; as=&quot;item()*&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList&quot; as=&quot;item()*&quot;/&gt;
+            
+                  &lt;xsl:sequence select=
+                         &quot;if (empty($pList))
+                              then 
+                          [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_foldl_tree">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:int=&quot;http://fxsl.sf.net/int/folfl-tree&quot;
+            exclude-result-prefixes=&quot;f int&quot;
+            &gt;
+                &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+            
+                &lt;xsl:function name=&quot;f:foldl-tree&quot;&gt;
+                  &lt;xsl:param name=&quot;pFuncNode&quot; as=&quot;element()&quot;/&gt;
+                  &lt;xsl:param name=&quot;pFuncSubtrees&quot; as=&quot;element()&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pNode&quot; as=&quot;element()&quot;/&gt;
+            
+                  &lt;xsl:choose&gt;
+                     &lt;xsl:when test= [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_foldl2">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+                &lt;xsl:import href=&quot;func-apply2.xsl&quot;/&gt;
+                
+                &lt;xsl:function name=&quot;f:foldl2&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; as=&quot;element()&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList&quot; as=&quot;item()*&quot;/&gt;
+            
+                  &lt;xsl:sequence select=
+                         &quot;if (empty($pList))
+                              then 
+                                  $pA0
+                              else
+                          [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_foldr">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+                &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+                
+                &lt;xsl:function name=&quot;f:foldr&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; as=&quot;element()&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList&quot; as=&quot;item()*&quot;/&gt;
+            
+                  &lt;xsl:sequence select=
+                         &quot;if (empty($pList))
+                              then 
+                                  $pA0
+                              else
+                            [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_getWords">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:MyTakeController=&quot;f:MyTakeController&quot; 
+            exclude-result-prefixes=&quot;xs f MyTakeController&quot;
+            &gt;
+            
+              &lt;xsl:import href=&quot;../f/func-str-takeWhile.xsl&quot;/&gt;
+                &lt;xsl:function name=&quot;f:getWords&quot; as=&quot;element()*&quot;&gt;
+                  &lt;xsl:param name=&quot;str&quot; as=&quot;xs:string&quot;/&gt;
+                  &lt;xsl:param name=&quot;delims&quot; as=&quot;xs:string&quot;/&gt;
+                  &lt;xsl:param name=&quot;start&quot; as=&quot;xs:integer&quot; /&gt;
+            
+               [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_hex_to_decimal">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:hex-converter=&quot;http://fxsl.sf.net/hex-converter&quot;
+             exclude-result-prefixes=&quot;f xs hex-converter&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-str-foldl.xsl&quot;/&gt;
+              
+              &lt;hex-converter:hex-converter/&gt;
+              
+              &lt;xsl:variable name=&quot;f:hexDigits&quot; select=&quot;&apos;0123456789ABCDEF&apos;&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:hex-to-decimal&quot;&gt;
+                &lt;xsl:param name=&quot;pxNumber&quot;/&gt;
+                
+                &lt;xsl [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_id">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+                &lt;f:id/&gt;
+                
+                &lt;xsl:function name=&quot;f:id&quot; as=&quot;node()&quot;&gt;
+                  &lt;xsl:sequence select=&quot;document(&apos;&apos;)/*/f:id[1]&quot;/&gt;
+                &lt;/xsl:function&gt;
+                
+                &lt;xsl:template match=&quot;f:id&quot; mode=&quot;f:FXSL&quot;&gt;
+                  &lt;xsl:param name=&quot;arg1&quot; as=&quot;item()*&quot;/&gt;
+                  
+                    &lt;xsl:sequence select=&quot;f:id($arg1)&quot;/&gt;
+                &lt;/xsl:template&gt;
+            
+                &lt;xs [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_iter">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: iter.xsl       General Iteration of a Function                
+                Version: 1.0 (2002-03-16)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_map">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+                &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+                &lt;xsl:import href=&quot;func-curry.xsl&quot;/&gt;
+                
+                &lt;f:map/&gt;
+                &lt;xsl:function name=&quot;f:map&quot; as=&quot;item()*&quot;&gt;
+                  &lt;xsl:param name=&quot;pFun&quot; as=&quot;element()&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList1&quot; as=&quot;item()*&quot;/&gt;
+            
+                  &lt;xsl:sequence select=
+                   &quot;for $this in $pList1 return
+                      f:apply($pFun, $this)&quot;
+                  /&gt;
+                &lt;/xsl:fun [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_maxDepth">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:MyMaxDepth=&quot;MyMaxDepth&quot;
+            exclude-result-prefixes=&quot;xs f MyMaxDepth&quot;
+            &gt;
+               &lt;xsl:import href=&quot;func-map.xsl&quot;/&gt;
+               
+                &lt;xsl:variable name=&quot;vfunMaxDepth&quot; 
+                              select=&quot;document(&apos;&apos;)/*/MyMaxDepth:*[1]&quot;/&gt;
+                 
+                 &lt;xsl:function name=&quot;f:maxDepth&quot; as=&quot;xs:integer&quot;&gt;
+                   &lt;xsl:param name=&quot;pNode&quot; as=&quot;node()&quot;/&gt;
+                   
+                   &lt;xsl:value [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_maximum">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:maximum-pick-bigger=&quot;f:maximum-pick-bigger&quot;
+            exclude-result-prefixes=&quot;f xs maximum-pick-bigger&quot;
+            &gt;
+               &lt;xsl:import href=&quot;func-dvc-foldl.xsl&quot;/&gt;
+            
+            
+                &lt;xsl:function name=&quot;f:maximum&quot; as=&quot;item()&quot;&gt;
+                  &lt;xsl:param name=&quot;pList&quot; as=&quot;item()+&quot;/&gt;
+                  &lt;xsl:param name=&quot;pCMPFun&quot; as=&quot;element()&quot;/&gt;
+            
+                  &lt;xsl:sequence select=&quot;f:foldl($pCMPFun, $pList[1 [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_minimum">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:minimum-pick-smaller=&quot;minimum-pick-smaller&quot;
+            exclude-result-prefixes=&quot;f xs minimum-pick-smaller&quot;
+            &gt;
+               &lt;xsl:import href=&quot;func-dvc-foldl.xsl&quot;/&gt;
+            
+                &lt;xsl:function name=&quot;f:minimum&quot; as=&quot;item()&quot;&gt;
+                  &lt;xsl:param name=&quot;pList&quot; as=&quot;item()+&quot;/&gt;
+                  &lt;xsl:param name=&quot;pCMPFun&quot; as=&quot;element()&quot;/&gt;
+            
+                  &lt;xsl:sequence select=&quot;f:foldl($pCMPFun, $pList[1] [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_Operators">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs f&quot;
+            &gt;
+            
+             &lt;xsl:import href=&quot;func-curry.xsl&quot;/&gt;
+             &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+            
+             
+            &lt;!--
+                   This module contains the FXSL versions of the &quot;builtin&quot; XPath operators
+                                                                                          
+                   These are intended as convenience functions, so that they ca [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_partition">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:int=&quot;http://fxsl.sf.net/partition/int&quot;
+            exclude-result-prefixes=&quot;f int xs&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:partition&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; as=&quot;item()*&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; as=&quot;element()&quot;/&gt;
+                &lt;xsl:param name=&quot;pDelim&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vS1&quot; select=&quot;()&quot;/&gt;
+                &lt;xsl:va [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_partitionCC">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:int=&quot;http://fxsl.sf.net/partition/int&quot;
+            exclude-result-prefixes=&quot;f int xs&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-partition.xsl&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:partitionCC&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; as=&quot;item()*&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; as=&quot;element()&quot;/&gt;
+                &lt;xsl:param name=&quot;pDelim&quot; as=&quot;item()&quot;/&gt;
+                &lt;xsl:param name=&quot;pFunL&quot; as=&quot;element()&quot;/ [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_pick">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs f&quot;
+            &gt;
+            
+             &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+             &lt;xsl:import href=&quot;func-curry.xsl&quot;/&gt;
+             
+             &lt;f:pick/&gt;
+             
+             &lt;xsl:function name=&quot;f:pick&quot; as=&quot;node()&quot;&gt;
+               &lt;xsl:param name=&quot;pItem&quot; as=&quot;item()?&quot;/&gt;
+               
+               &lt;xsl:sequence select=&quot;f:curry(f:pick(), 2, $pItem)&quot;/&gt;
+             &lt;/xsl:function&gt;
+             
+             &lt;xsl:function name=&quot;f:pick&quot; as=&quot;node()&quot;&gt;
+               &lt;xsl [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_Primes">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:saxon=&quot;http://saxon.sf.net/&quot;
+             xmlns:gexslt=&quot;http://www.gobosoft.com/eiffel/gobo/gexslt/extension&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs saxon f&quot; 
+             &gt;
+              &lt;xsl:import href=&quot;func-sqrt.xsl&quot;/&gt;
+            
+             &lt;xsl:output method=&quot;text&quot;/&gt;
+            
+              &lt;xsl:function name=&quot;f:isPrime&quot; as=&quot;xs:boolean&quot; saxon:memo-function=&quot;yes&quot; gexslt:memo-function=&quot;yes&quot;&gt;
+                &lt;xsl:param name=&quot;pNum [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_Primes2">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:saxon=&quot;http://saxon.sf.net/&quot;
+             xmlns:gexslt=&quot;http://www.gobosoft.com/eiffel/gobo/gexslt/extension&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs saxon f gexslt&quot; 
+             &gt;
+              &lt;xsl:import href=&quot;func-sqrt.xsl&quot;/&gt;
+            
+             &lt;xsl:output method=&quot;text&quot;/&gt;
+             
+              &lt;xsl:template match=&quot;/*&quot;&gt;
+               &lt;xsl:value-of select=&quot;f:allPrimes(100000)&quot; separator=&quot;&amp;#xA;&quot;/&gt;
+              &lt;/xsl:template&gt;
+              
+               [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_Primes3">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:saxon=&quot;http://saxon.sf.net/&quot;
+             xmlns:gexslt=&quot;http://www.gobosoft.com/eiffel/gobo/gexslt/extension&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs saxon f&quot; 
+             &gt;
+              &lt;xsl:import href=&quot;func-sqrt.xsl&quot;/&gt;
+            
+             &lt;xsl:output method=&quot;text&quot;/&gt;
+             
+              &lt;xsl:template match=&quot;/*&quot;&gt;
+               &lt;!--&lt;xsl:value-of select=&quot;f:isPrime(7427466391)&quot; separator=&quot;&amp;#xA;&quot;/&gt;--&gt;
+               &lt;xsl:value-of select [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_Primes4">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:saxon=&quot;http://saxon.sf.net/&quot;
+             xmlns:gexslt=&quot;http://www.gobosoft.com/eiffel/gobo/gexslt/extension&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs saxon f&quot; 
+             &gt;
+              &lt;xsl:import href=&quot;func-sqrt.xsl&quot;/&gt;
+            
+             &lt;xsl:output method=&quot;text&quot;/&gt;
+             
+             &lt;xsl:variable name=&quot;vE&quot; select=
+             &quot;concat(&apos;2.71828182845904523536&apos;,
+                     &apos;02874713526624977572470&apos;,
+                     &apos;93699959574 [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_product">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+               &lt;xsl:import href=&quot;func-foldl.xsl&quot;/&gt;
+               &lt;xsl:import href=&quot;../f/func-Operators.xsl&quot;/&gt;
+            
+                &lt;xsl:function name=&quot;f:product&quot;&gt;
+                  &lt;xsl:param name=&quot;pList&quot;/&gt;
+                  &lt;xsl:sequence select=&quot;f:foldl(f:mult(), 1, $pList)&quot;/&gt;
+                &lt;/xsl:function&gt;
+            
+            &lt;/xsl:stylesheet&gt;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_progressions">
+            <summary>
+              Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:myIncrement=&quot;f:myIncrement&quot; 
+             exclude-result-prefixes=&quot;f xs myIncrement&quot; 
+            &gt;
+            
+            &lt;xsl:import href=&quot;func-iter.xsl&quot;/&gt;
+             
+             &lt;xsl:function name=&quot;f:arithmetic-progression&quot;&gt;
+               &lt;xsl:param name=&quot;pFrom&quot; as=&quot;xs:double&quot;/&gt;
+               &lt;xsl:param name=&quot;pTo&quot; as=&quot;xs:double&quot;/&gt;
+               &lt;xsl:param name=&quot;pIncr&quot; as=&quot;xs:double&quot;/&gt;
+               
+               &lt;xsl:if test=&quot;$pInc [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_qsort">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs f&quot;
+            &gt;
+            
+             &lt;xsl:import href=&quot;func-Operators.xsl&quot;/&gt;
+             &lt;xsl:import href=&quot;func-filter.xsl&quot;/&gt;
+             
+             &lt;xsl:function name=&quot;f:qsort&quot; as=&quot;item()*&quot;&gt;
+               &lt;xsl:param name=&quot;pSeq&quot;/&gt;
+                
+               &lt;xsl:if test=&quot;exists($pSeq)&quot;&gt;
+                 &lt;xsl:variable name=&quot;v1st&quot; select=&quot;$pSeq[1]&quot;/&gt;
+                  
+                 &lt;xsl:variable name=&quot;vTail&quot; select=&quot;remove($pSeq, 1) [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_qsort2">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs f&quot;
+            &gt;
+            
+             &lt;xsl:import href=&quot;func-Operators.xsl&quot;/&gt;
+             &lt;xsl:import href=&quot;func-partitionCC.xsl&quot;/&gt;
+             
+             &lt;xsl:function name=&quot;f:qsort&quot; as=&quot;item()*&quot;&gt;
+               &lt;xsl:param name=&quot;pSeq&quot;/&gt;
+                
+               &lt;xsl:if test=&quot;exists($pSeq)&quot;&gt;
+                 &lt;xsl:variable name=&quot;v1st&quot; select=&quot;$pSeq[1]&quot;/&gt;
+                  
+                 &lt;xsl:variable name=&quot;vTail&quot; select=&quot;remove($pSe [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_qsort3">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs f&quot;
+            &gt;
+            
+             &lt;xsl:import href=&quot;func-Operators.xsl&quot;/&gt;
+             &lt;xsl:import href=&quot;func-map.xsl&quot;/&gt;
+             &lt;xsl:import href=&quot;func-flip.xsl&quot;/&gt;
+             &lt;xsl:import href=&quot;func-pick.xsl&quot;/&gt;
+             
+             &lt;xsl:function name=&quot;f:qsort&quot; as=&quot;item()*&quot;&gt;
+               &lt;xsl:param name=&quot;pSeq&quot; as=&quot;item()*&quot;/&gt;
+                
+               &lt;xsl:if test=&quot;exists($pSeq)&quot;&gt;
+                 &lt;xsl:variable name=&quot;v1st&quot; s [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_repeat">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs f&quot;
+            &gt;
+            
+              &lt;xsl:function name=&quot;f:repeat&quot; as=&quot;item()+&quot;&gt;
+                &lt;xsl:param name=&quot;pThis&quot; as=&quot;item()&quot;/&gt;
+                &lt;xsl:param name=&quot;pTimes&quot; as=&quot;xs:integer&quot;/&gt;
+                
+                &lt;xsl:for-each select=&quot;1 to $pTimes&quot;&gt;
+                  &lt;xsl:sequence select=&quot;$pThis&quot;/&gt;
+                &lt;/xsl:for-each&gt;
+              &lt;/xsl:function&gt;
+            &lt;/xsl:stylesheet&gt;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_reverse">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:str-reverse-func=&quot;f:str-reverse-func&quot;
+            exclude-result-prefixes=&quot;f xs str-reverse-func&quot;
+            &gt;
+            
+               &lt;xsl:import href=&quot;func-dvc-str-foldl.xsl&quot;/&gt;
+            
+                &lt;xsl:function name=&quot;f:reverse&quot;&gt;
+                  &lt;xsl:param name=&quot;pSeq&quot; as=&quot;item()*&quot;/&gt;
+                  
+                  &lt;xsl:sequence select=
+                          &quot;for $i in 1 to count($pSeq) return
+                              $pSeq[count($pSeq) [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_scanl">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+                &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+                
+                &lt;xsl:function name=&quot;f:scanl&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; as=&quot;element()&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList&quot; as=&quot;item()*&quot;/&gt;
+            
+                  &lt;xsl:sequence select=
+                         &quot;$pA0,
+                         (if (exists($pList))
+                           then
+                             f:scanl($pFunc, 
+                              [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_scanlDVC">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:int=&quot;http://fxsl.sf.net/dvc-scanl/int&quot;
+             exclude-result-prefixes=&quot;f int xs&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:scanl&quot; as=&quot;item()*&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; as=&quot;element()&quot;/&gt;
+                &lt;xsl:param name=&quot;pQ0&quot;/&gt;
+                &lt;xsl:param name=&quot;pList&quot; as=&quot;item()*&quot;/&gt;
+                
+                &lt;xsl:sequence select=&quot;int:scanl($pFun, $pQ0, $p [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_someTrue">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:someTrue-Or=&quot;someTrue-Or&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f xs someTrue-Or&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-foldr.xsl&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:someTrue&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; as=&quot;item()*&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vOr&quot; select=&quot;document(&apos;&apos;)/*/someTrue-Or:*[1]&quot;/&gt;
+                
+                &lt;xsl:value-of select=&quot;f:foldr($vOr, false(), $pList)&quot;/&gt;
+              &lt;/x [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_someTrueP">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:someTrueP-Or=&quot;someTrueP-Or&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f someTrueP-Or&quot;&gt;
+              &lt;xsl:import href=&quot;func-someTrue.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;func-map.xsl&quot;/&gt;
+              
+              &lt;someTrueP-Or:someTrueP-Or/&gt;
+              
+              &lt;xsl:variable name=&quot;someTrueP-Or:vP-Or&quot; 
+               select=&quot;document(&apos;&apos;)/*/someTrueP-Or:*[1]&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:someTrueP&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; as=&quot;item()*&quot;/&gt;
+                &lt;xsl:param name=&quot;pPre [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_Spell">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:saxon=&quot;http://saxon.sf.net/&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs saxon&quot;
+             &gt;
+             &lt;xsl:import href=&quot;../f/func-binSearch.xsl&quot;/&gt;
+             
+             &lt;xsl:variable name=&quot;vDict&quot; as=&quot;xs:string+&quot;
+              select=&quot;document(&apos;../data/dictEnglish.xml&apos;)/*/*&quot;/&gt;
+             &lt;xsl:variable name=&quot;vcntWords&quot; select=&quot;count($vDict)&quot;/&gt;
+            
+             &lt;xsl:function name=&quot;f:spell&quot; as=&quot;xs:boolean&quot; saxon:memo-functi [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_split">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+              &lt;xsl:function name=&quot;f:split&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; as=&quot;item()+&quot;/&gt;
+                &lt;xsl:param name=&quot;pN&quot; as=&quot;xs:integer&quot;/&gt;
+                &lt;xsl:variable name=&quot;pDelim&quot; select=&quot;number(&apos;x&apos;)&quot;/&gt;
+                
+                &lt;xsl:sequence select=&quot;f:split($pList, $pN, $pDelim)&quot;/&gt;
+              &lt;/xsl:function&gt;
+              
+              &lt;xsl:function name=&quot;f:split&quot;&gt;
+                &lt;xsl:param n [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_sqrt">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:saxon=&quot;http://saxon.sf.net/&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:MyRepeatGenerator=&quot;MyRepeatGenerator&quot; 
+             xmlns:MyRepeatableFunction=&quot;MyRepeatableFunction&quot;
+             exclude-result-prefixes=&quot;xs saxon f MyRepeatGenerator MyRepeatableFunction&quot; 
+            &gt;
+            
+              &lt;xsl:import href=&quot;within.xsl&quot;/&gt;
+              &lt;!-- &lt;xsl:import href=&quot;withinRelative.xsl&quot;/&gt; --&gt;
+            
+              &lt;MyRepeatGenerator:MyRepeatGenerator/&gt;
+              [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_standardXpathFunctions">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:xdt=&quot;http://www.w3.org/2005/04/xpath-datatypes&quot; 
+             xmlns:xdtOld=&quot;http://www.w3.org/2005/02/xpath-datatypes&quot; 
+             xmlns:xdtOld2=&quot;http://www.w3.org/2004/10/xpath-datatypes&quot; 
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs xdt f&quot;
+            &gt;
+            
+             &lt;xsl:import href=&quot;func-curry.xsl&quot;/&gt;
+             &lt;xsl:import href=&quot;func-compose-flist.xsl&quot;/&gt;
+             
+            &lt;!--
+                   This module contains the FXSL ve [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_str_dropWhile">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:str-dropWhile&quot;&gt;
+                &lt;xsl:param name=&quot;pStr&quot; as=&quot;xs:string&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; as=&quot;element()&quot;/&gt;
+                &lt;xsl:param name=&quot;pContollerParam&quot;/&gt;
+            
+                &lt;xsl:sequence select=
+                 &quot;if(not($pStr))
+                    then ()
+                    else
+                      fo [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_str_dvc_map">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;1.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs&quot; 
+            &gt;
+               &lt;xsl:function name=&quot;f:str-map&quot; as=&quot;xs:string&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; as=&quot;element()&quot;/&gt;
+                &lt;xsl:param name=&quot;pStr&quot; as=&quot;xs:string&quot;/&gt;
+                
+                &lt;xsl:if test=&quot;$pStr&quot;&gt;
+                  &lt;xsl:variable name=&quot;vLen&quot; select=&quot;string-length($pStr)&quot;/&gt;
+                  &lt;xsl:choose&gt;
+                    &lt;xsl:when test=&quot;$vLen = 1&quot;&gt;
+                      &lt;xsl:appl [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_str_filter">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:str-filter&quot;&gt;
+                &lt;xsl:param name=&quot;pStr&quot; as=&quot;xs:string&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; as=&quot;element()&quot;/&gt;
+                
+                &lt;xsl:sequence select=
+                 &quot;if(string-length($pStr) = 0)
+                    then ()
+                    else
+                      (for $vthisChar in substrin [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_str_filterDVC">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:str-filter&quot;&gt;
+                &lt;xsl:param name=&quot;pStr&quot; as=&quot;xs:string&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; as=&quot;element()&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vLen&quot; select=&quot;string-length($pStr)&quot;/&gt;
+            
+                &lt;xsl:sequence select=
+                 &quot;for $vLen in string-length($pStr) [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_str_foldl">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+                &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+                &lt;xsl:function name=&quot;f:str-foldl&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; as=&quot;element()&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pStr&quot; as=&quot;xs:string&quot;/&gt;
+            
+                  &lt;xsl:sequence select=
+                   &quot;if(not(string($pStr)))
+                      then
+                         $pA0
+                      e [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_str_map">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;1.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs&quot; 
+            &gt;
+               &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+               
+               &lt;xsl:function name=&quot;f:str-map&quot; &gt;
+                &lt;xsl:param name=&quot;pFun&quot; as=&quot;element()&quot;/&gt;
+                &lt;xsl:param name=&quot;pStr&quot; as=&quot;xs:string&quot;/&gt;
+            
+                &lt;xsl:sequence select=
+                  &quot;if($pStr)
+                     then
+                     (
+                      f:apply($pFun, substring($pStr, 1, 1))
+                      ,
+                  [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_str_reverse">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:str-reverse-func=&quot;f:str-reverse-func&quot;
+            exclude-result-prefixes=&quot;f xs str-reverse-func&quot;
+            &gt;
+            
+               &lt;xsl:import href=&quot;func-dvc-str-foldl.xsl&quot;/&gt;
+            
+                &lt;xsl:function name=&quot;f:str-reverse&quot;&gt;
+                  &lt;xsl:param name=&quot;pStr&quot; as=&quot;xs:string&quot;/&gt;
+            
+                  &lt;xsl:variable name=&quot;vReverseFun&quot; 
+                                select=&quot;document(&apos;&apos;)/*/str-reverse-func:*[1]&quot;/&gt;
+            
+                 [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_str_takeWhile">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+            
+              &lt;xsl:function name=&quot;f:str-takeWhile&quot;&gt;
+                &lt;xsl:param name=&quot;pStr&quot; as=&quot;xs:string&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; as=&quot;element()&quot;/&gt;
+                &lt;xsl:param name=&quot;pContollerParam&quot;/&gt;
+            
+            	  &lt;xsl:if test=&quot;$pStr&quot;&gt;
+                &lt;xsl:sequence select=
+                  &quot;for $vFirstChar in substring($pStr, 1, [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_sum">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:sum-fold-func=&quot;sum-fold-func&quot;
+            exclude-result-prefixes=&quot;f xs sum-fold-func&quot;
+            &gt;
+               &lt;xsl:import href=&quot;func-foldl.xsl&quot;/&gt;
+            
+                &lt;xsl:function name=&quot;f:sum&quot;&gt;
+                  &lt;xsl:param name=&quot;pList&quot;/&gt;
+            
+                  &lt;xsl:variable name=&quot;sum-fold-func&quot; 
+                                select=&quot;document(&apos;&apos;)/*/sum-fold-func:*[1]&quot;/&gt;
+                  
+                  &lt;xsl:sequence select=&quot;f:foldl($sum-f [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_transform_and_sum">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:tr-sum=&quot;http://fxsl.sf.net/int/tr-sum&quot;
+            exclude-result-prefixes=&quot;xs f tr-sum&quot;
+            &gt;
+               &lt;xsl:import href=&quot;func-dvc-foldl.xsl&quot;/&gt;
+               
+                &lt;xsl:variable name=&quot;vfunTrSum&quot; 
+                 select=&quot;document(&apos;&apos;)/*/tr-sum:*[1]&quot;/&gt;
+                 
+                &lt;xsl:function name=&quot;f:transform-and-sum&quot;&gt;
+                  &lt;xsl:param name=&quot;pFuncTransform&quot; as=&quot;element()&quot;/&gt;
+                  &lt;xsl:param name=&quot;pLi [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_trignm">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: func-trignm.xsl                                               
+                Version: 3.0 (2005-02-25)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_trim">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:myTrimDropController=&quot;f:myTrimDropController&quot; 
+             xmlns:myTrim1=&quot;f:myTrim1&quot; 
+             xmlns:myReverse=&quot;f:myReverse&quot; 
+             exclude-result-prefixes=&quot;f xsl myTrimDropController myTrim1 myReverse&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-str-dropWhile.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;func-compose-flist.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;func-str-reverse.xsl&quot;/&gt;
+              
+              &lt;myTrimDropCo [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_type">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xdt=&quot;http://www.w3.org/2005/04/xpath-datatypes&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs xdt&quot;
+             &gt;
+              &lt;xsl:import href=&quot;../f/func-XpathConstructors.xsl&quot;/&gt;
+            
+              &lt;xsl:output omit-xml-declaration=&quot;yes&quot;/&gt;
+              
+              &lt;xsl:key name=&quot;kConstructor&quot; match=&quot;*&quot; use=&quot;@t&quot;/&gt;
+              
+              &lt;xsl:variable name=&quot;f:vTypeConstructors&quot;&gt;
+                &lt;f:unsignedByte t=&quot;xs:unsignedByte&quot;/&gt;
+                 [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_XpathConstructors">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:xdt=&quot;http://www.w3.org/2005/02/xpath-datatypes&quot; 
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs xdt f&quot;
+            &gt;
+            
+             &lt;xsl:import href=&quot;func-compose-flist.xsl&quot;/&gt;
+             
+            &lt;!--
+                   This module contains the FXSL versions of the &quot;standard&quot;                
+                   XPath constructors.                                                     
+            --&gt;
+            
+            &lt;!--
+                   Numeric construc [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_zipWith">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f xs&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:zipWith&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; as=&quot;element()&quot;/&gt;
+                &lt;xsl:param name=&quot;pList1&quot; as=&quot;item()*&quot;/&gt;
+                &lt;xsl:param name=&quot;pList2&quot; as=&quot;item()*&quot;/&gt;
+            
+                &lt;xsl:sequence select=
+                 &quot;if(exists($pList1) and exists($pList2))
+                   then (f:apply($pFun, [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_zipWith3">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+              
+              &lt;xsl:function name=&quot;f:zipWith3&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; as=&quot;element()&quot;/&gt;
+                &lt;xsl:param name=&quot;pList1&quot; as=&quot;item()*&quot;/&gt;
+                &lt;xsl:param name=&quot;pList2&quot; as=&quot;item()*&quot;/&gt;
+                &lt;xsl:param name=&quot;pList3&quot; as=&quot;item()*&quot;/&gt;
+            
+                &lt;xsl:sequence select=
+                 &quot;if(exists($pList1) and exists($pList2) and exists($pList3))
+                   the [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.func_zipWithDVC">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:import href=&quot;func-apply.xsl&quot;/&gt;
+            
+              &lt;xsl:function name=&quot;f:zipWith&quot; as=&quot;item()*&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; as=&quot;element()&quot;/&gt;
+                &lt;xsl:param name=&quot;pList1&quot; as=&quot;item()*&quot;/&gt;
+                &lt;xsl:param name=&quot;pList2&quot; as=&quot;item()*&quot;/&gt;
+            
+                &lt;xsl:sequence select=
+                 &quot;if(exists($pList1) and exists($pList2))
+                   then for $vLength in count($pList1) return
+                           [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.generateFromTo">
+            <summary>
+              Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:vendor=&quot;http://icl.com/saxon&quot;
+             xmlns:myIncrement=&quot;f:myIncrement&quot; 
+             exclude-result-prefixes=&quot;f vendor myIncrement&quot; 
+            &gt;
+            
+            &lt;xsl:import href=&quot;iter.xsl&quot;/&gt;
+            &lt;!-- To be applied on any xml file --&gt;
+            
+            &lt;xsl:output omit-xml-declaration=&quot;yes&quot; indent=&quot;yes&quot;/&gt;
+            
+             &lt;xsl:template match=&quot;/&quot;&gt;
+               &lt;xsl:call-template name=&quot;generateBatch&quot;&gt;
+                 &lt;xsl:with-param name=&quot;pFrom&quot; select=&quot;3&quot;/&gt;
+              [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.hex_to_decimal">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:hex-converter=&quot;f:hex-converter&quot;
+             exclude-result-prefixes=&quot;f hex-converter&quot;
+            &gt;
+              &lt;xsl:import href=&quot;str-foldl.xsl&quot;/&gt;
+              
+              &lt;hex-converter:hex-converter/&gt;
+              
+              &lt;xsl:variable name=&quot;hexDigits&quot; select=&quot;&apos;0123456789ABCDEF&apos;&quot;/&gt;
+              
+              &lt;xsl:template name=&quot;hex-to-decimal&quot;&gt;
+                &lt;xsl:param name=&quot;pxNumber&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vFunXConvert&quot; 
+                              select=&quot;document(&apos;&apos;)/*/he [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.hyper_trignm">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: hyper-trignm.xsl.                                             
+                Version: 1.0 (2002-03-24)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.identity">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+             &lt;xsl:output omit-xml-declaration=&quot;yes&quot; indent=&quot;yes&quot;/&gt;
+             
+              &lt;xsl:template match=&quot;node()|@*&quot;&gt;
+                &lt;xsl:copy&gt;
+                  &lt;xsl:apply-templates select=&quot;node()|@*&quot;/&gt;
+                &lt;/xsl:copy&gt;
+              &lt;/xsl:template&gt;
+            &lt;/xsl:stylesheet&gt;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.improve">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            &gt;
+              &lt;xsl:import href=&quot;elimError.xsl&quot;/&gt;
+            
+              &lt;xsl:template name=&quot;improve&quot;&gt;
+                 &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                 
+                 &lt;xsl:variable name=&quot;vOrder&quot;&gt;
+                    &lt;xsl:call-template name=&quot;getOrder&quot;&gt;
+                      &lt;xsl:with-param name=&quot;pList&quot; select=&quot;$pList&quot;/&gt;
+                    &lt;/xsl:call-template&gt;
+                 &lt;/xsl:variable&gt;
+                 
+                 &lt;xsl:variable name=&quot;v1Order&quot;&gt;
+                   &lt;xsl:choose&gt;
+                     &lt;xsl:when test=&quot;$vOrder = 0&quot;&gt;1&lt;/xsl:when&gt; [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.improvedDiff">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:myImproveGenerator=&quot;myImproveGenerator&quot;
+            xmlns:myImproveController=&quot;myImproveController&quot; 
+            exclude-result-prefixes=&quot;f myImproveGenerator myImproveController&quot;
+            &gt;
+              &lt;xsl:import href=&quot;improve.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;takeWhile.xsl&quot;/&gt; 
+              &lt;xsl:import href=&quot;easyDiffList.xsl&quot;/&gt;
+            
+              &lt;myImproveGenerator:myImproveGenerator/&gt;
+              &lt;myImproveController:myImproveController/&gt;
+              
+              &lt;xsl:output inden [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.improvedDiffList">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:myImproveGenerator=&quot;myImproveGenerator&quot;
+            xmlns:myImproveController=&quot;myImproveController&quot; 
+            exclude-result-prefixes=&quot;f myImproveGenerator myImproveController&quot;
+            &gt;
+              &lt;xsl:import href=&quot;improve.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;take.xsl&quot;/&gt; 
+              &lt;xsl:import href=&quot;takeWhile.xsl&quot;/&gt; 
+              &lt;xsl:import href=&quot;easyDiffList.xsl&quot;/&gt;
+            
+              &lt;myImproveGenerator:myImproveGenerator/&gt;
+              &lt;myImproveController:myImproveCon [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.improvedIntegration">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:myImproveGenerator=&quot;myImproveGenerator&quot;
+            xmlns:myImproveController=&quot;myImproveController&quot; 
+            exclude-result-prefixes=&quot;f myImproveGenerator myImproveController&quot;
+            &gt;
+              &lt;xsl:import href=&quot;improve.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;take.xsl&quot;/&gt; 
+              &lt;xsl:import href=&quot;takeWhile.xsl&quot;/&gt; 
+              &lt;xsl:import href=&quot;PartialSumsList.xsl&quot;/&gt;
+            
+              &lt;myImproveGenerator:myImproveGenerator/&gt;
+              &lt;myImproveController:myImprove [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.Init">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+            &lt;init xmlns=&quot;http://xsltransformations.com/init&quot;&gt;
+              &lt;key value=&quot;foobar&quot; /&gt;
+            &lt;/init&gt;
+            .
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.iter">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: iter.xsl       General Iteration of a Function                
+                Version: 1.0 (2002-03-16)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.makeDistinct">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:mytestElem=&quot;f:mytestElem&quot;
+            exclude-result-prefixes=&quot;f mytestElem&quot;
+            &gt;
+                &lt;xsl:import href=&quot;foldl.xsl&quot;/&gt;
+                
+                &lt;xsl:output indent=&quot;yes&quot; omit-xml-declaration=&quot;yes&quot;/&gt;
+                &lt;mytestElem:mytestElem/&gt;
+                &lt;xsl:template match=&quot;/&quot;&gt;
+                  &lt;xsl:variable name=&quot;vFun-testElem&quot;
+                                select=&quot;document(&apos;&apos;)/*/mytestElem:*[1]&quot;/&gt;
+            
+                  &lt;xsl:call-template name=&quot;foldl&quot;&gt;
+                    &lt;xsl:wit [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.map">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+                &lt;xsl:template name=&quot;map&quot;&gt;
+                  &lt;xsl:param name=&quot;pFun&quot; select=&quot;/..&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList1&quot; select=&quot;/..&quot;/&gt;
+                  
+                  &lt;xsl:for-each select=&quot;$pList1&quot;&gt;
+                    &lt;xsl:copy&gt;
+                      &lt;xsl:apply-templates select=&quot;$pFun&quot; mode=&quot;f:FXSL&quot;&gt;
+                        &lt;xsl:with-param name=&quot;arg1&quot; select=&quot;.&quot;/&gt;
+                      &lt;/xsl:apply-templates&gt;
+                    &lt;/xsl:copy&gt;
+                   [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.mapTree">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:mapTree-cons=&quot;mapTree-cons&quot; 
+             xmlns:mapTree-makeNode-f=&quot;mapTree-makeNode-f&quot; 
+             exclude-result-prefixes=&quot;f mapTree-cons mapTree-makeNode-f&quot;
+            &gt;
+                &lt;xsl:import href=&quot;foldl-tree.xsl&quot;/&gt;
+            
+                &lt;mapTree-cons:mapTree-cons/&gt;
+                &lt;mapTree-makeNode-f:mapTree-makeNode-f/&gt;
+                
+                &lt;xsl:template name=&quot;mapTree&quot;&gt;
+                  &lt;xsl:param name=&quot;pTree&quot;/&gt;
+                  &lt;xsl:param name=&quot;pFun&quot;/&gt;
+                  
+                  &lt;xs [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.maximum">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:maximum-pick-bigger=&quot;f:maximum-pick-bigger&quot;
+            xmlns:maximum-own-compare=&quot;f:maximum-own-compare&quot;
+            exclude-result-prefixes=&quot;f maximum-own-compare maximum-pick-bigger&quot;
+            &gt;
+               &lt;xsl:import href=&quot;dvc-foldl.xsl&quot;/&gt;
+            
+               &lt;maximum-pick-bigger:maximum-pick-bigger/&gt;
+               &lt;maximum-own-compare:maximum-own-compare/&gt;
+            
+                &lt;xsl:template name=&quot;maximum&quot;&gt;
+                  &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                  &lt;x [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.minimum">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:minimum-fold-func=&quot;minimum-fold-func&quot;
+            xmlns:minimum-pick-smaller=&quot;minimum-pick-smaller&quot;
+            xmlns:minimum-own-compare=&quot;minimum-own-compare&quot;
+            exclude-result-prefixes=&quot;f minimum-fold-func minimum-own-compare minimum-pick-smaller&quot;
+            &gt;
+               &lt;xsl:import href=&quot;foldl.xsl&quot;/&gt;
+            
+               &lt;minimum-fold-func:minimum-fold-func/&gt;
+               &lt;minimum-pick-smaller:minimum-pick-smaller/&gt;
+               &lt;minimum-own-compare:minimum-own [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.monteCarlo">
+            <summary>
+              Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:genTest=&quot;f:genTest&quot; 
+            xmlns:rFloat=&quot;f:rFloat&quot;
+            exclude-result-prefixes=&quot;f xs genTest rFloat&quot;
+            &gt;
+            
+             &lt;xsl:import href=&quot;random.xsl&quot;/&gt;
+             &lt;xsl:import href=&quot;iter.xsl&quot;/&gt;
+             
+             &lt;!-- Fun: GenerateAndTest --&gt;
+             &lt;genTest:genTest/&gt;  
+             &lt;!-- Fun: rFloat --&gt;
+             &lt;rFloat:rFloat/&gt;    
+             
+             &lt;xsl:template name=&quot;monteCarlo&quot;&gt;
+               &lt;!-- n (Iterations)  [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.multiIntegrate">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:easy-integrate=&quot;easy-integrate&quot;
+            &gt;
+              &lt;xsl:import href=&quot;foldl.xsl&quot;/&gt;
+              
+              &lt;xsl:output method=&quot;text&quot;/&gt;
+              
+              &lt;easy-integrate:easy-integrate/&gt;
+              
+              &lt;xsl:template name=&quot;multiIntegrate&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vmyeasyIntegrateFn&quot; select=&quot;document(&apos;&apos;)/*/easy-integrate:*[1]&quot;/&gt;
+                
+                  &lt;xsl:call-template name=&quot;foldl&quot;&gt;
+                    &lt;xsl:with [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.PartialSumsList">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            xmlns:pGenerator=&quot;pGenerator&quot;
+            xmlns:pController=&quot;pController&quot;
+            xmlns:IntervalParams=&quot;IntervalParams&quot;
+            xmlns:mapEasyIntegrate=&quot;mapEasyIntegrate&quot;
+            xmlns:easy-integrate=&quot;easy-integrate&quot;
+            exclude-result-prefixes=&quot;f xs pGenerator pController IntervalParams easy-integrate&quot;
+            &gt;
+              &lt;xsl:import href=&quot;buildListWhileMap.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;foldl.xsl&quot;/&gt;
+            
+              [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.partition">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            &gt;
+             
+              &lt;xsl:import href=&quot;map.xsl&quot;/&gt;
+              
+              
+              &lt;xsl:template name=&quot;partition&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElementName&quot; select=&quot;&apos;list&apos;&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vHoldsListRTF&quot;&gt;
+                  &lt;xsl:call-template name=&quot;map&quot;&gt;
+            	      &lt;xsl:with-param name=&quot;pFun&quot; select=&quot;$pController&quot;/&gt;
+            	      &lt;xsl:with-param name=&quot;pList1&quot; select=&quot;$pList&quot;/&gt;
+             [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.pow">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:myMultiply=&quot;f:myMultiply&quot; 
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f myMultiply&quot;
+             &gt;
+             
+              &lt;xsl:import href=&quot;curry.xsl&quot;/&gt; 
+              &lt;xsl:import href=&quot;iter.xsl&quot;/&gt;
+            
+              &lt;myMultiply:myMultiply/&gt;
+             
+              &lt;!-- This template implements the following general power fn:
+              
+            	&gt; power :: (Ord a, Num a, Num b) =&gt; a -&gt; b -&gt; b
+            	&gt; power n x = iter n (multByX x) 1
+            	
+            	where
+            	&gt; multByX :: Num a =&gt; a -&gt; a -&gt; a
+            	&gt; multByX x  [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.processConcordPass1">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+            	&lt;xsl:output indent=&quot;yes&quot;/&gt;
+            	&lt;xsl:template match=&quot;/&quot;&gt;
+            		&lt;concordance&gt;
+            			&lt;xsl:for-each-group select=&quot;/*/*/@str&quot; group-by=&quot;.&quot;&gt;
+            				&lt;w t=&quot;{current-grouping-key()}&quot;&gt;
+            				  &lt;xsl:for-each select=&quot;current-group()&quot;&gt;
+            				    &lt;xsl:sequence select=
+            				    &quot;concat(../@b,&apos;+&apos;,../@c,&apos;+&apos;,../@v, 
+            				            if(position()ne last()) then &apos;,&apos; else () 
+            				            )&quot;/&gt;
+            				  &lt;/xsl:for-each&gt;
+            				&lt;/w&gt;
+            			&lt;/xsl:for-each-group&gt;
+             [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.product">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:prod-fold-func=&quot;prod-fold-func&quot;
+            exclude-result-prefixes=&quot;f prod-fold-func&quot;
+            &gt;
+               &lt;xsl:import href=&quot;foldl.xsl&quot;/&gt;
+            
+               &lt;prod-fold-func:prod-fold-func/&gt;
+            
+                &lt;xsl:template name=&quot;product&quot;&gt;
+                  &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+            
+                  &lt;xsl:variable name=&quot;prod-fold-func:vFoldFun&quot; select=&quot;document(&apos;&apos;)/*/prod-fold-func:*[1]&quot;/&gt;
+                  
+                  &lt;xsl:call-template name=&quot;foldl&quot;&gt;
+                    &lt; [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.productTree">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:mult-tree=&quot;mult-tree&quot; 
+            exclude-result-prefixes=&quot;f mult-tree&quot;
+            &gt;
+                &lt;xsl:import href=&quot;foldl-tree.xsl&quot;/&gt;
+            
+                &lt;mult-tree:mult-tree/&gt;
+                
+                &lt;xsl:template name=&quot;productTree&quot;&gt;
+                  &lt;xsl:param name=&quot;pTree&quot;/&gt;
+                  
+                  &lt;xsl:variable name=&quot;vMult&quot; select=&quot;document(&apos;&apos;)/*/mult-tree:*[1]&quot;/&gt;
+                  
+                  &lt;xsl:call-template name=&quot;foldl-tree&quot;&gt;
+            	    &lt;xsl:with-param name=&quot;pFuncNode&quot; sele [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.random">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: random.xsl           Randomization Functions                  
+                Version: 1.0 (2002-03-16)                                              
+               Based on: Random number algorithms in Simon Thompson&apos;s                  
+                         &quot;Haskell, the craft of functional programming&quot;                
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev   [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.randomList">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: random.xsl           List Randomization Functions             
+                Version: 1.0 (2002-05-03)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.reverse">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:str-reverse-func=&quot;f:str-reverse-func&quot;
+            exclude-result-prefixes=&quot;f str-reverse-func&quot;
+            &gt;
+            
+               &lt;xsl:import href=&quot;str-foldl.xsl&quot;/&gt;
+            
+               &lt;str-reverse-func:str-reverse-func/&gt;
+            
+                &lt;xsl:template name=&quot;strReverse&quot;&gt;
+                  &lt;xsl:param name=&quot;pStr&quot;/&gt;
+            
+                  &lt;xsl:variable name=&quot;vReverseFoldlFun&quot; 
+                                select=&quot;document(&apos;&apos;)/*/str-reverse-func:*[1]&quot;/&gt;
+            
+                  &lt;xsl:call-template name=&quot; [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.roundLog2">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:msxsl=&quot;urn:schemas-microsoft-com:xslt&quot;
+            xmlns:roundLog2=&quot;roundLog2&quot;
+            &gt;
+              &lt;xsl:template name=&quot;roundLog2&quot;&gt;
+                &lt;xsl:param name=&quot;pX&quot;/&gt;
+                &lt;xsl:value-of select=&quot;roundLog2:roundLog2(string($pX))&quot;/&gt;
+              &lt;/xsl:template&gt;
+              
+             
+              &lt;msxsl:script language=&quot;JScript&quot; implements-prefix=&quot;roundLog2&quot;&gt;
+                 function roundLog2(x)
+                 {
+                    return Math.round(Math.log(x)/Math.LN2);
+                 }
+              &lt;/msxsl:script&gt;
+            &lt;/xsl:stylesheet&gt;
+            .
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.runningTotal">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:myAdd =&quot;f:myAdd&quot;
+            xmlns:myMult=&quot;f:myMult&quot;
+            exclude-result-prefixes=&quot;f myAdd myMult&quot;
+            &gt;
+              &lt;xsl:import href=&quot;zipWith.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;scanl.xsl&quot;/&gt;
+            
+              &lt;!-- To be applied on booklist.xml --&gt;
+            
+              &lt;myAdd:myAdd/&gt;
+              &lt;myMult:myMult/&gt;
+            
+              &lt;xsl:output omit-xml-declaration=&quot;yes&quot;/&gt;
+              &lt;xsl:template match=&quot;/&quot;&gt;
+                &lt;html&gt;
+                  &lt;table border=&quot;2&quot;&gt;
+                   &lt;tr&gt;&lt;th&gt;Title&lt;/th&gt;&lt;th&gt;Author&lt;/th&gt; [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.salesMap">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:test-map-product=&quot;test-map-product&quot;
+            exclude-result-prefixes=&quot;f test-map-product&quot;
+            &gt;
+               &lt;xsl:import href=&quot;sum.xsl&quot;/&gt;
+               &lt;xsl:import href=&quot;map.xsl&quot;/&gt;
+               &lt;xsl:import href=&quot;product.xsl&quot;/&gt;
+            
+               &lt;!-- This transformation is to be applied on:
+                    salesMap.xml
+                    
+                    It contains the code of the &quot;some of products&quot; from the 
+                    article &quot;The Functional Programming Language X [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.scanl">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:template name=&quot;scanl&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pQ0&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElName&quot; select=&quot;&apos;el&apos;&quot;/&gt;
+                
+                &lt;xsl:element name=&quot;{$pElName}&quot;&gt;
+                  &lt;xsl:copy-of select=&quot;$pQ0/node()&quot;/&gt;
+                &lt;/xsl:element&gt;
+                
+                &lt;xsl:if test=&quot;$pList&quot;&gt;
+                  &lt;xsl:variable  [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.scanlDVC">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:template name=&quot;scanl&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pQ0&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElName&quot; select=&quot;&apos;el&apos;&quot;/&gt;
+                &lt;xsl:param name=&quot;pStarting&quot; select=&quot;1&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vLength&quot; select=&quot;count($pList)&quot;/&gt;
+            
+                &lt;xsl:choose&gt;
+                  &lt;xsl:when test=&quot;$vLengt [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.simpleIntegration">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:import href=&quot;PartialSumsList.xsl&quot;/&gt;
+              
+              &lt;xsl:template name=&quot;simpleIntegration&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pA&quot;/&gt;
+                &lt;xsl:param name=&quot;pB&quot;/&gt;
+                &lt;xsl:param name=&quot;pEpsRough&quot; select=&quot;0.0001&quot;/&gt;
+            
+                 &lt;xsl:variable name=&quot;vrtfRoughResults&quot;&gt;
+            	    &lt;xsl:call-template name=&quot;partialSumsList&quot;&gt;
+            		    &lt;xsl:with-param name=&quot;pF [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.someTrue">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:someTrue-Or=&quot;someTrue-Or&quot;
+            exclude-result-prefixes=&quot;f someTrue-Or&quot;
+            &gt;
+              &lt;xsl:import href=&quot;foldr.xsl&quot;/&gt;
+              
+              &lt;someTrue-Or:someTrue-Or/&gt;
+              
+              &lt;xsl:template name=&quot;someTrue&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vOr&quot; select=&quot;document(&apos;&apos;)/*/someTrue-Or:*[1]&quot;/&gt;
+                
+                &lt;xsl:call-template name=&quot;foldr&quot;&gt;
+                  &lt;xsl:with-param name=&quot;pFunc&quot; select=&quot;$vOr&quot;/ [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.someTrueP">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:someTrueP-Or=&quot;someTrueP-Or&quot;
+            exclude-result-prefixes=&quot;f someTrueP-Or&quot;
+            &gt;
+              &lt;xsl:import href=&quot;someTrue.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;map.xsl&quot;/&gt;
+              
+              &lt;someTrueP-Or:someTrueP-Or/&gt;
+              
+              &lt;xsl:variable name=&quot;someTrueP-Or:vP-Or&quot; select=&quot;document(&apos;&apos;)/*/someTrueP-Or:*[1]&quot;/&gt;
+              
+              &lt;xsl:template name=&quot;someTrueP&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pPredicate&quot; select= [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.SourceXml">
+            <summary>
+              Looks up a localized string similar to http://xslt.googlecode.com/svn/trunk/Modules/DataFilter/init.xml.
+            </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.SourceXslt">
+            <summary>
+              Looks up a localized string similar to http://xslt.googlecode.com/svn/test/extensionfunction.xsl.
+            </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.span">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:import href=&quot;takeWhile.xsl&quot;/&gt;
+              
+              &lt;xsl:template name=&quot;span&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pContollerParam&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pParam0&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElementName&quot; select=&quot;&apos;list&apos;&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vRTF-Positive&quot;&gt;
+             [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.split">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:template name=&quot;split&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pN&quot; select=&quot;0&quot;/&gt;
+                &lt;xsl:param name=&quot;pElementName&quot; select=&quot;&apos;list&apos;&quot;/&gt;
+                
+                &lt;xsl:element name=&quot;{$pElementName}&quot;&gt;
+            	    &lt;xsl:copy-of select=&quot;$pList[position() &amp;lt;= $pN]&quot;/&gt;
+                &lt;/xsl:element&gt;
+                &lt;xsl:element name=&quot;{$pElementName}&quot;&gt;
+            	    &lt;xsl:copy-of select=&quot;$pLi [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.split_to_lines">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:pGenerator=&quot;f:pGenerator&quot;
+            xmlns:pController=&quot;f:pController&quot; 
+            exclude-result-prefixes=&quot;f pGenerator pController&quot; 
+            &gt;
+              &lt;xsl:import href=&quot;buildListWhile.xsl&quot;/&gt; 
+            
+              &lt;!-- To be applied on text.xml --&gt;
+              
+              &lt;xsl:output indent=&quot;yes&quot; omit-xml-declaration=&quot;yes&quot;/&gt;
+              
+              &lt;pGenerator:pGenerator/&gt;
+              &lt;pController:pController/&gt;
+            
+              &lt;xsl:variable name=&quot;vMyGenerator&quot; select=&quot;document(&apos;&apos;)/*/pGenera [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.sqrt">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:saxon=&quot;http://saxon.sf.net/&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:MyRepeatGenerator=&quot;MyRepeatGenerator&quot; 
+             xmlns:MyRepeatableFunction=&quot;MyRepeatableFunction&quot;
+             exclude-result-prefixes=&quot;xs saxon f MyRepeatGenerator MyRepeatableFunction&quot; 
+            &gt;
+            
+              &lt;!--&lt;xsl:import href=&quot;within.xsl&quot;/&gt; --&gt;
+               &lt;xsl:import href=&quot;withinRelative.xsl&quot;/&gt; 
+            
+              &lt;MyRepeatGenerator:MyRepeatGenerator/&gt;
+             [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.stdDev">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;1.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             xmlns:stdAccum=&quot;f:fxsl__stdAccum&quot;
+             exclude-result-prefixes=&quot;f stdAccum&quot;
+             &gt;
+             
+             &lt;xsl:import href=&quot;foldl.xsl&quot;/&gt;
+             &lt;xsl:import href=&quot;sqrt.xsl&quot;/&gt;
+            
+              &lt;xsl:template name=&quot;stdDev&quot;&gt;
+                &lt;xsl:param name=&quot;pNums&quot; select=&quot;/..&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vCount&quot; select=&quot;count($pNums)&quot;/&gt;
+                
+                &lt;xsl:if test=&quot;not($vCount &gt; 1)&quot;&gt;
+                  &lt;xsl:message terminate=&quot;yes&quot;&gt;
+                  Error[stdDev]: Sample  [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.store">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:getInitialStore=&quot;f:getInitialStore&quot;
+            xmlns:getValue=&quot;f:getValue0&quot;
+            xmlns:upd-getValue=&quot;f:upd-getValue&quot;
+            xmlns:updateStore=&quot;f:updateStore&quot;
+            &gt;
+              
+              
+              &lt;xsl:template name=&quot;getInitialStore&quot; match=&quot;getInitialStore:*&quot; mode=&quot;f:FXSL&quot;&gt;
+                &lt;store&gt;
+                  &lt;getInitialStore:getInitialStore/&gt;
+                  &lt;getValue:getValue/&gt;
+                  &lt;updateStore:updateStore/&gt;
+                &lt;/store&gt;
+              &lt;/xsl:template&gt;
+              
+              &lt;xsl:te [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.str_dropWhile">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:template name=&quot;str-dropWhile&quot;&gt;
+                &lt;xsl:param name=&quot;pStr&quot; select=&quot;&apos;&apos;&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pContollerParam&quot; select=&quot;/..&quot;/&gt;
+            
+                &lt;xsl:if test=&quot;not($pController)&quot;&gt;
+                  &lt;xsl:message terminate=&quot;yes&quot;&gt;[str-dropWhile]Error: pController not specified.&lt;/xsl:message&gt;
+                &lt;/xsl:if&gt;   
+                
+                  &lt;xsl:if test= [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.str_dvc_map">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+               &lt;xsl:template name=&quot;str-map&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pStr&quot; select=&quot;/..&quot;/&gt;
+                
+                &lt;xsl:if test=&quot;$pStr&quot;&gt;
+                  &lt;xsl:variable name=&quot;vLen&quot; select=&quot;string-length($pStr)&quot;/&gt;
+                  &lt;xsl:choose&gt;
+                    &lt;xsl:when test=&quot;$vLen = 1&quot;&gt;
+                      &lt;xsl:apply-templates select=&quot;$pFun&quot; mode=&quot;f:FXSL&quot;&gt;
+                        &lt;xsl:with-param na [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.str_filter">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;xs f&quot;
+            &gt;
+            
+              &lt;xsl:template name=&quot;str-filter&quot;&gt;
+                &lt;xsl:param name=&quot;pStr&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElName&quot; select=&quot;&apos;str&apos;&quot;/&gt;
+                
+                &lt;xsl:if test=&quot;not($pController)&quot;&gt;
+                  &lt;xsl:message terminate=&quot;yes&quot;&gt;[str-filter]Error: pController not specified.&lt;/xsl:message&gt;
+                &lt;/xs [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.str_filterDVC">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+              exclude-result-prefixes=&quot;xs f&quot;
+            &gt;
+            
+              &lt;xsl:template name=&quot;str-filter&quot;&gt;
+                &lt;xsl:param name=&quot;pStr&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElName&quot; select=&quot;&apos;str&apos;&quot;/&gt;
+                
+                &lt;xsl:if test=&quot;not($pController)&quot;&gt;
+                  &lt;xsl:message terminate=&quot;yes&quot;&gt;[str-filter]Error: pController not specified.&lt;/xsl:message&gt;
+                &lt;/x [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.str_foldl">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+                &lt;xsl:template name=&quot;str-foldl&quot;&gt;
+                  &lt;xsl:param name=&quot;pFunc&quot; select=&quot;/..&quot;/&gt;
+                  &lt;xsl:param name=&quot;pA0&quot;/&gt;
+                  &lt;xsl:param name=&quot;pStr&quot;/&gt;
+            
+                  &lt;xsl:choose&gt;
+                     &lt;xsl:when test=&quot;not(string($pStr))&quot;&gt;
+                        &lt;xsl:copy-of select=&quot;$pA0&quot;/&gt;
+                     &lt;/xsl:when&gt;
+                     &lt;xsl:otherwise&gt;
+                        &lt;xsl:variable name=&quot;vFunResult&quot;&gt;
+                          [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.str_map">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+               &lt;xsl:template name=&quot;str-map&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pStr&quot; select=&quot;/..&quot;/&gt;
+            
+                &lt;xsl:if test=&quot;$pStr&quot;&gt;
+                  &lt;xsl:apply-templates select=&quot;$pFun&quot; mode=&quot;f:FXSL&quot;&gt;
+                    &lt;xsl:with-param name=&quot;arg1&quot; select=&quot;substring($pStr, 1, 1)&quot;/&gt;
+                  &lt;/xsl:apply-templates&gt;
+                  
+                  &lt;xsl:call-template name=&quot;str-map&quot;&gt;
+                   [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.str_takeWhile">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:template name=&quot;str-takeWhile&quot;&gt;
+                &lt;xsl:param name=&quot;pStr&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pContollerParam&quot; select=&quot;/..&quot;/&gt;
+            
+                &lt;xsl:if test=&quot;not($pController)&quot;&gt;
+                  &lt;xsl:message terminate=&quot;yes&quot;&gt;[str-takeWhile]Error: pController not specified.&lt;/xsl:message&gt;
+                &lt;/xsl:if&gt;   
+                
+            	    &lt;xsl:variable [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.strReverse">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:str-reverse-func=&quot;f:str-reverse-func&quot;
+            exclude-result-prefixes=&quot;f str-reverse-func&quot;
+            &gt;
+            
+               &lt;xsl:import href=&quot;str-foldl.xsl&quot;/&gt;
+            
+               &lt;str-reverse-func:str-reverse-func/&gt;
+            
+                &lt;xsl:template name=&quot;strReverse&quot;&gt;
+                  &lt;xsl:param name=&quot;pStr&quot;/&gt;
+            
+                  &lt;xsl:variable name=&quot;vReverseFoldlFun&quot; select=&quot;document(&apos;&apos;)/*/str-reverse-func:*[1]&quot;/&gt;
+            
+                  &lt;xsl:call-template name=&quot;str-foldl&quot;&gt;
+                    &lt; [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.strSpan">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            &gt;
+              &lt;xsl:import href=&quot;str-takeWhile.xsl&quot;/&gt;
+              
+              &lt;xsl:template name=&quot;strSpan&quot;&gt;
+                &lt;xsl:param name=&quot;pStr&quot; /&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pContollerParam&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElementName1&quot; select=&quot;&apos;el1&apos;&quot;/&gt;
+                &lt;xsl:param name=&quot;pElementName2&quot; select=&quot;&apos;el2&apos;&quot;/&gt;
+                
+                &lt;xsl:variable name=&quot;vPositive&quot;&gt;
+            	    &lt;xsl:call-template name=&quot;str-takeWhile&quot;&gt;
+            		    &lt;xsl:with [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.strSplit_to_Lines">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:str-split2lines-func=&quot;f:str-split2lines-func&quot;
+            exclude-result-prefixes=&quot;f str-split2lines-func&quot;
+            &gt;
+            
+               &lt;xsl:import href=&quot;str-foldl.xsl&quot;/&gt;
+            
+               &lt;!-- to be applied on text.xml --&gt;
+            
+               &lt;str-split2lines-func:str-split2lines-func/&gt;
+            
+               &lt;xsl:output indent=&quot;yes&quot; omit-xml-declaration=&quot;yes&quot;/&gt;
+               
+                &lt;xsl:template match=&quot;/&quot;&gt;
+                  &lt;xsl:call-template name=&quot;str-split-to-lines&quot;&gt;
+                    &lt;xsl: [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.strSplit_to_Words">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:str-split2words-func=&quot;f:str-split2words-func&quot;
+            exclude-result-prefixes=&quot;f str-split2words-func&quot;
+            &gt;
+            
+                &lt;!--&lt;xsl:import href=&quot;str-foldl.xsl&quot;/&gt;--&gt;
+               &lt;!--&lt;xsl:import href=&quot;func-str-foldl.xsl&quot;/&gt;--&gt;
+               &lt;xsl:import href=&quot;func-dvc-str-foldl.xsl&quot;/&gt;
+            
+               &lt;!-- to be applied on words.xml --&gt;
+            
+            
+               &lt;xsl:output indent=&quot;yes&quot; omit-xml-declaration=&quot;yes&quot;/&gt;
+               
+                &lt;xsl:template match=&quot;/&quot;&gt;
+                  &lt; [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.strSplit_to_Words2">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:str-split2words-func=&quot;f:str-split2words-func&quot;
+            exclude-result-prefixes=&quot;f str-split2words-func&quot;
+            &gt;
+            
+                &lt;!--&lt;xsl:import href=&quot;str-foldl.xsl&quot;/&gt;--&gt;
+               &lt;!--&lt;xsl:import href=&quot;func-str-foldl.xsl&quot;/&gt;--&gt;
+               &lt;xsl:import href=&quot;func-dvc-str-foldl.xsl&quot;/&gt;
+            
+               &lt;!-- to be applied on words.xml --&gt;
+            
+            
+               &lt;xsl:output indent=&quot;yes&quot; omit-xml-declaration=&quot;yes&quot;/&gt;
+               
+                &lt;xsl:template match=&quot;/&quot;&gt;
+                  &lt; [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.sum">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:sum-fold-func=&quot;sum-fold-func&quot;
+            exclude-result-prefixes=&quot;f sum-fold-func&quot;
+            &gt;
+               &lt;xsl:import href=&quot;foldl.xsl&quot;/&gt;
+            
+               &lt;sum-fold-func:sum-fold-func/&gt;
+            
+                &lt;xsl:template name=&quot;sum&quot;&gt;
+                  &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+            
+                  &lt;xsl:variable name=&quot;sum-fold-func:vFoldFun&quot; select=&quot;document(&apos;&apos;)/*/sum-fold-func:*[1]&quot;/&gt;
+                  
+                  &lt;xsl:call-template name=&quot;foldl&quot;&gt;
+                    &lt;xsl:with-pa [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.sumTree">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:add-tree=&quot;add-tree&quot; 
+            exclude-result-prefixes=&quot;f add-tree&quot;
+            &gt;
+                &lt;xsl:import href=&quot;foldl-tree.xsl&quot;/&gt;
+            
+                &lt;add-tree:add-tree/&gt;
+                
+                &lt;xsl:template name=&quot;sumTree&quot;&gt;
+                  &lt;xsl:param name=&quot;pTree&quot;/&gt;
+                  
+                  &lt;xsl:variable name=&quot;vAdd&quot; select=&quot;document(&apos;&apos;)/*/add-tree:*[1]&quot;/&gt;
+                  
+                  &lt;xsl:call-template name=&quot;foldl-tree&quot;&gt;
+            	    &lt;xsl:with-param name=&quot;pFuncNode&quot; select=&quot;$vAdd&quot;/ [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.take">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:take-controller=&quot;take-controller&quot;
+            xmlns:take-dynamic-controller=&quot;take-dynamic-controller&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            &gt;
+              &lt;xsl:import href=&quot;buildListWhile.xsl&quot;/&gt;
+              &lt;take-controller:take-controller/&gt;
+              &lt;take-dynamic-controller:take-dynamic-controller/&gt;
+             
+              &lt;xsl:template name=&quot;take&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pN&quot; select=&quot;0&quot;/&gt;
+                &lt;xsl:param name=&quot;pGenerator&quot; select=&quot;/..&quot;/&gt;
+             [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.takeWhile">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            &gt;
+            
+              &lt;xsl:import href=&quot;buildListWhile.xsl&quot;/&gt;
+            
+              &lt;xsl:template name=&quot;takeWhile&quot;&gt;
+                &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pController&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pContollerParam&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pGenerator&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pParam0&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pParamGenerator&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param na [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.transform_and_sum">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:sum-fold-func=&quot;f:sum-fold-func&quot;
+            exclude-result-prefixes=&quot;f sum-fold-func&quot;
+            &gt;
+               &lt;xsl:import href=&quot;foldl.xsl&quot;/&gt;
+            
+               &lt;sum-fold-func:sum-fold-func/&gt;
+            
+                &lt;xsl:template name=&quot;transform-and-sum&quot;&gt;
+                  &lt;xsl:param name=&quot;pFuncTransform&quot; select=&quot;/..&quot;/&gt;
+                  &lt;xsl:param name=&quot;pList&quot; select=&quot;/..&quot;/&gt;
+            
+                  &lt;xsl:variable name=&quot;vrtfFoldFun&quot;&gt;
+                    &lt;sum-fold-func:sum-fold-func/&gt;
+                    &lt;xsl [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.tree_labels_list">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:tree-labels-append=&quot;tree-labels-append&quot;
+            xmlns:tree-labels-cons=&quot;tree-labels-cons&quot; 
+            exclude-result-prefixes=&quot;f tree-labels-append tree-labels-cons&quot;
+            &gt;
+                &lt;xsl:import href=&quot;foldl-tree.xsl&quot;/&gt;
+                &lt;xsl:import href=&quot;append.xsl&quot;/&gt;
+            
+                &lt;tree-labels-append:tree-labels-append/&gt;
+                &lt;tree-labels-cons:tree-labels-cons/&gt;
+                
+                &lt;xsl:template name=&quot;tree-labels-list&quot;&gt;
+                  &lt;xsl:param name= [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.trignm">
+             <summary>
+               Looks up a localized string similar to &lt;!--
+            ===========================================================================
+             Stylesheet: trignm.xsl.xsl                                                
+                Version: 1.0 (2002-03-13)                                              
+                 Author: Dimitre Novatchev                                             
+                 Notice: Copyright (c)2002 D.Novatchev  ALL RIGHTS RESERVED.           
+                         No limitation on use - except this code may not be published, 
+                         in whole or in part, without pr [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.trim">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; 
+            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:myTrimDropController=&quot;f:myTrimDropController&quot; 
+            xmlns:myTrim1=&quot;f:myTrim1&quot; 
+            xmlns:myReverse=&quot;f:myReverse&quot; 
+            exclude-result-prefixes=&quot;f myTrimDropController myTrim1 myReverse&quot;
+            &gt;
+              &lt;xsl:import href=&quot;str-dropWhile.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;compose-flist.xsl&quot;/&gt;
+              &lt;xsl:import href=&quot;reverse.xsl&quot;/&gt;
+              
+              &lt;myTrimDropController:myTrimDropController/&gt;
+              
+              &lt;xsl:template name=&quot;trim&quot;&gt;
+                &lt;xsl [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.within">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:MyWithinEpsController=&quot;MyWithinEpsController&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            exclude-result-prefixes=&quot;f MyWithinEpsController&quot; 
+            &gt;
+            
+              &lt;xsl:import href=&quot;buildListWhile.xsl&quot;/&gt;
+            
+              &lt;MyWithinEpsController:MyWithinEpsController/&gt;
+              
+            &lt;!--   &lt;xsl:variable name=&quot;vMyWithinEpsController&quot; select=&quot;document(&apos;&apos;)/*/MyWithinEpsController:*[1]&quot;/&gt; --&gt;
+            
+               &lt;xsl:variable name=&quot;vMyWithinEpsController&quot; as=&quot;element()&quot;&gt;
+                 &lt;MyWithinEps [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.withinRelative">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+            xmlns:f=&quot;http://fxsl.sf.net/&quot;
+            xmlns:MyWithinRelEpsController=&quot;MyWithinRelEpsController&quot;
+            exclude-result-prefixes=&quot;f MyWithinRelEpsController&quot; 
+            &gt;
+            
+              &lt;xsl:import href=&quot;buildListWhile.xsl&quot;/&gt;
+            
+              &lt;MyWithinRelEpsController:MyWithinRelEpsController/&gt;
+              
+               &lt;xsl:variable name=&quot;vMyWithinRelEpsController&quot; select=&quot;document(&apos;&apos;)/*/MyWithinRelEpsController:*[1]&quot;/&gt;
+              
+            &lt;!--  &lt;xsl:template name=&quot;withinRelative&quot;&gt; --&gt;
+              &lt;xsl:template na [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.zipWith">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:template name=&quot;zipWith&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pList1&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pList2&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElName&quot; select=&quot;&apos;el&apos;&quot;/&gt;
+            
+                &lt;xsl:if test=&quot;$pList1 and $pList2&quot;&gt;
+                  &lt;xsl:variable name=&quot;vFunResult&quot;&gt;
+                    &lt;xsl:apply-templates select=&quot;$pFun&quot; mode=&quot;f:FXSL&quot;&gt;
+                      [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.zipWith3">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:template name=&quot;zipWith3&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pList1&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pList2&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pList3&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElName&quot; select=&quot;&apos;el&apos;&quot;/&gt;
+            
+                &lt;xsl:if test=&quot;$pList1 and $pList2 and $pList3&quot;&gt;
+                  &lt;xsl:variable name=&quot;vFunResult&quot;&gt;
+                    &lt;xs [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Saxon.Ext.Properties.Resources.zipWithDVC">
+             <summary>
+               Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;2.0&quot;
+             xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+             xmlns:f=&quot;http://fxsl.sf.net/&quot;
+             exclude-result-prefixes=&quot;f&quot;
+            &gt;
+              &lt;xsl:template name=&quot;zipWith&quot;&gt;
+                &lt;xsl:param name=&quot;pFun&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pList1&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pList2&quot; select=&quot;/..&quot;/&gt;
+                &lt;xsl:param name=&quot;pElName&quot; select=&quot;&apos;el&apos;&quot;/&gt;
+            
+                &lt;xsl:if test=&quot;$pList1 and $pList2&quot;&gt;
+                  &lt;xsl:variable name=&quot;vLength&quot; select=&quot;count($pList1)&quot;/&gt;
+                  &lt;xsl:choose&gt;
+            	      &lt;xsl:when test=&quot;$vLe [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+    </members>
+</doc>
