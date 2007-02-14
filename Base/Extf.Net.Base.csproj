@@ -10,7 +10,7 @@
     <RootNamespace>Extf.Net</RootNamespace>
     <AssemblyName>Extf.Net</AssemblyName>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>Extf.Net.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\Resources\Extf.Net.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,11 +41,6 @@
   <ItemGroup>
     <Compile Include="Agent.cs" />
     <Compile Include="Agent\IAgent.cs" />
-    <Compile Include="AppDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AppDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="Context\IContext.cs" />
     <Compile Include="Credentials\ACL.cs" />
@@ -109,20 +104,21 @@
     <Compile Include="Workspace\IWorkspace.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Resources\Extf.Net.snk">
+      <Link>Extf.Net.snk</Link>
+    </None>
     <None Include="app.config" />
     <None Include="AppDataSet.xsc">
       <DependentUpon>AppDataSet.xsd</DependentUpon>
     </None>
     <None Include="AppDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AppDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="AppDataSet.xss">
       <DependentUpon>AppDataSet.xsd</DependentUpon>
     </None>
     <None Include="Configuration\App.config" />
-    <None Include="Extf.Net.snk" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Extf.Net.Data.AtomPublishingProtocol.datasource" />
     <None Include="Properties\Settings.settings">

@@ -126,8 +126,7 @@ namespace Saxon.Ext.Properties {
         ///    &lt;xsl:variable name=&quot;vMappedList&quot;&gt;
         ///      &lt;xsl:call-template name=&quot;map&quot;&gt;
         ///        &lt;xsl:with-param name=&quot;pFun&quot; select=&quot;$pPredicate&quot;/&gt;
-        ///        &lt;xsl:with-param name=&quot;pList1&quot; select=&quot;$pList&quot;/&gt;
-        /// [rest of string was truncated]&quot;;.
+        ///        &lt;xsl:with-param name=&quot;pList1&quot; select=&quot;$pList&quot;/&gt;        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string allTrueP {
             get {
@@ -779,8 +778,7 @@ namespace Saxon.Ext.Properties {
         ///    
         ///    &lt;xsl:sequence select=&quot;f:allTrueP($arg1, $arg2)&quot;/&gt;
         ///  &lt;/xsl:template&gt;
-        ///  
-        /// [rest of string was truncated]&quot;;.
+        ///          /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string func_allTrueP {
             get {
@@ -2928,8 +2926,7 @@ namespace Saxon.Ext.Properties {
         ///				            )&quot;/&gt;
         ///				  &lt;/xsl:for-each&gt;
         ///				&lt;/w&gt;
-        ///			&lt;/xsl:for-each-group&gt;
-        /// [rest of string was truncated]&quot;;.
+        ///			&lt;/xsl:for-each-group&gt;        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string processConcordPass1 {
             get {
