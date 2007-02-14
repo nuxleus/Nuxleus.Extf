@@ -24,7 +24,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -137,14 +137,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VendorExtensions\Saxonica\VS.NET2005\Saxon.Api\Saxon.Api.csproj">
+    <Content Include="Resources\InitializationData\Base.xsl" />
+    <Content Include="Resources\InitializationData\Init.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
       <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
       <Name>Saxon.Api</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\InitializationData\Base.xsl" />
-    <Content Include="Resources\InitializationData\Init.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\WebFeed\" />
