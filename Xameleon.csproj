@@ -9,6 +9,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Xameleon</RootNamespace>
     <AssemblyName>Xameleon</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Resources\Extf.Net.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +46,9 @@
     <Compile Include="Transform\Transform.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Resources\Extf.Net.snk">
+      <Link>Extf.Net.snk</Link>
+    </None>
     <None Include="Configuration\App.config" />
   </ItemGroup>
   <ItemGroup>
