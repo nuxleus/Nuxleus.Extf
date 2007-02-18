@@ -22,20 +22,6 @@ namespace Xameleon
 
             if (!this._IS_INITIALIZED) Init(context);
 
-            //if (this._XsltParams.Count > 0)
-            //{
-            //    IEnumerator xsltParamsEnum = this._XsltParams.GetEnumerator();
-
-            //    int i = 0;
-            //    while (xsltParamsEnum.MoveNext())
-            //    {
-            //        string key = this._XsltParams.AllKeys[i].ToString();
-            //        context.Response.Write(key);
-            //        context.Response.Write(this._XsltParams[key]);
-            //        i += 1;
-            //    }
-            //}
-
             using (Stream sXml = (Stream)this._Resolver.GetEntity(sUri, null, typeof(Stream)))
             {
 

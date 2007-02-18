@@ -49,10 +49,22 @@
       <HintPath>..\..\trunk\Dependencies\saxon8.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APP\Collection.cs" />
+    <Compile Include="APP\IMember.cs" />
+    <Compile Include="APP\IStorage.cs" />
+    <Compile Include="APP\Media\Atom.cs" />
+    <Compile Include="APP\Media\Generic.cs" />
+    <Compile Include="APP\Media\IMedia.cs" />
+    <Compile Include="APP\Member.cs" />
+    <Compile Include="APP\Service.cs" />
+    <Compile Include="APP\Storage.cs" />
+    <Compile Include="APP\Store.cs" />
+    <Compile Include="APP\Workspace.cs" />
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="HttpHandler\HttpHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
