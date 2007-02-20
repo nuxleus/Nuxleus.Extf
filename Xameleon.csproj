@@ -21,6 +21,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>docs\Xameleon.xml</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +31,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>docs\Xameleon.xml</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IKVM.GNU.Classpath, Version=0.32.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
@@ -39,6 +41,10 @@
     <Reference Include="IKVM.Runtime, Version=0.32.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\trunk\Dependencies\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\trunk\Dependencies\Mono.Security.dll</HintPath>
     </Reference>
     <Reference Include="Saxon.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -72,6 +78,45 @@
     <Compile Include="Transform\Init.cs" />
     <Compile Include="Transform\Process.cs" />
     <Compile Include="Transform\Transform.cs" />
+    <Compile Include="..\xsp\Mono.WebServer\ApplicationServer.cs">
+      <Link>WebServer\Mono.WebServer\ApplicationServer.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\BaseApplicationHost.cs">
+      <Link>WebServer\Mono.WebServer\BaseApplicationHost.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\BaseRequestBroker.cs">
+      <Link>WebServer\Mono.WebServer\BaseRequestBroker.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\IApplicationHost.cs">
+      <Link>WebServer\Mono.WebServer\IApplicationHost.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\InitialWorkerRequest.cs">
+      <Link>WebServer\Mono.WebServer\InitialWorkerRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\IWebSource.cs">
+      <Link>WebServer\Mono.WebServer\IWebSource.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\LingeringNetworkStream.cs">
+      <Link>WebServer\Mono.WebServer\LingeringNetworkStream.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\MonoWorkerRequest.cs">
+      <Link>WebServer\Mono.WebServer\MonoWorkerRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\XSPApplicationHost.cs">
+      <Link>WebServer\Mono.WebServer\XSPApplicationHost.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\XSPWorkerRequest.cs">
+      <Link>WebServer\Mono.WebServer\XSPWorkerRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\security.cs">
+      <Link>WebServer\security.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\server.cs">
+      <Link>WebServer\server.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Tracing.cs">
+      <Link>WebServer\Tracing.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\trunk\Resources\Extf.Net.snk">
@@ -80,4 +125,8 @@
     <None Include="Configuration\App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
