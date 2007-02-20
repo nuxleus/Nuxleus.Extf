@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Xml;
 using Extf.Net;
 
-namespace Extf.Net
-{
-    public class ClipboardCollection<T> : Stack<T>
-    {
-        public ClipboardCollection() { }
+namespace X5 {
+
+    public class ClipboardCollection<T> : Stack<T> {
+        public ClipboardCollection () { }
     }
 
 }

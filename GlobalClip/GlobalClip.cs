@@ -1,15 +1,13 @@
 using System;
+using Extf.Net;
+using Extf.Net.Configuration;
 
 [assembly: CLSCompliant(true)]
-namespace Extf.Net
-{
-    
-    public partial class GlobalClip
-    {
-        public bool debug = false;
-		/// <summary>
-		/// Constructor
-		/// </summary>
-        public GlobalClip() {}
+namespace X5 {
+
+    public partial class GlobalClip {
+
+        public GlobalClip () { }
+
     }
 }

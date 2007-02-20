@@ -3,30 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using com.amazon.s3;
 
-namespace Extf.Net
-{
+namespace X5 {
 
-    public class ClipItem
-    {
+    public class ClipItem {
         /// <summary>
         /// 
         /// </summary>
 
-        public ClipItem() { }
+        public ClipItem () { }
         /// <summary>
         /// 
         /// </summary>
         private string _Data;
 
-        public string Data
-        {
+        public string Data {
 
-            get
-            {
+            get {
                 return this._Data;
             }
-            set
-            {
+            set {
                 this._Data = value;
             }
         }
@@ -36,19 +31,15 @@ namespace Extf.Net
         /// </summary>
         private SortedList _MetaData = new SortedList();
 
-        public SortedList MetaData
-        {
-            get
-            {
+        public SortedList MetaData {
+            get {
                 return this._MetaData;
             }
 
-            set
-            {
+            set {
 
                 this._MetaData = value;
             }
         }
     }
 }
-        

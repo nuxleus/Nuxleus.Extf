@@ -3,15 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 
-namespace Extf.Net
-{
+namespace X5 {
 
-    public class ClipData<T>
-    {
+    public class ClipData<T> {
         /// <summary>
         /// 
         /// </summary>
-        public ClipData() { }
+        public ClipData () { }
 
         /// <summary>
         /// 
