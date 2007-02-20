@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=windows-1252">
+  <title>Dynamic Web Service Helpers</title>
+  <style>
+p.Normal, li.Normal
+	{margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:Verdana;
+	margin-left:0in; margin-right:0in; margin-top:0in}
+h1
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-before:always;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:Verdana;
+	}
+h2
+	{margin-top:14.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:150%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:Verdana;
+	}
+h3
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	line-height:150%;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:Verdana;
+	}
+p.Toc1
+	{margin-top:14.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:14.0pt;
+	font-size:10.0pt;
+	font-family:Verdana;
+	text-transform:uppercase;
+	font-weight:bold;
+	}
+p.Toc2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:Verdana;
+	}
+p.Toc3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:Verdana;
+	}
+a:link
+	{color:blue;
+	text-decoration:underline;
+	}
+a:visited
+	{color:purple;
+	text-decoration:underline;
+	}
+p.Body
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:-116%;
+	font-size:11.0pt;
+	font-family:Verdana;
+	}
+p.TypedExample
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	line-height:150%;
+	font-size:10.0pt;
+	font-family:Verdana;
+	font-weight:bold}
+p.ContentsHeading
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-before:always;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:Verdana;
+	font-weight:bold}
+p.Step
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0.1in;
+	font-size:11.0pt;
+	font-family:Verdana
+	}
+p.StepNote
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.25in;
+	line-height:150%;
+	font-size:10.0pt;
+	font-family:Verdana;
+	font-weight:bold
+	}
+p.Code-Background
+	{margin-top:0;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:0;
+	font-size:10.0pt;
+	font-family:"Courier New"
+	}
+p.Title1
+	{margin-bottom:.0001pt;
+	font-size:36.0pt;
+	font-family:Verdana;
+	margin-left:0in; margin-right:0in; margin-top:0in}
+p.Title2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:28.0pt;
+	font-family:Verdana;
+	}
+p.CopyrightText
+	{margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:Verdana;
+	margin-left:0in; margin-right:0in; margin-top:0in}
+p.ExerciseList
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.5in;
+	text-indent:-.25in;
+	line-height:-116%;
+	font-size:11.0pt;
+	font-family:Verdana;
+	}
+p.LabSummary
+	{margin-top:14.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:150%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:Verdana;
+	font-weight:bold;
+	}
+p.Code-Highlighted
+	{margin-top:0;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:0;
+	background:#E6E6E6;
+	font-size:10.0pt;
+	font-family:"Courier New"
+	}
+p.Stepnonumbering
+	{margin-top:0;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:30.25pt;
+	font-size:11.0pt;
+	font-family:Verdana
+	}
+ul
+	{margin-bottom:0in;}
+  </style>
+</head>
+<body lang="EN-US" link="#0000FF" vlink="#800080">
+<p class="Normal" align="center"></p>
+<hr>
+<p class="CopyrightText"> Information in this document is subject to
+change without notice. The example companies, organizations, products,
+people, and events depicted herein are fictitious. No association with
+any real company, organization, product, person or event is intended or
+should be inferred. Complying with all applicable copyright laws is the
+responsibility of the user. Without limiting the rights under
+copyright, no part of this document may be reproduced, stored in or
+introduced into a retrieval system, or transmitted in any form or by
+any means (electronic, mechanical, photocopying, recording, or
+otherwise), or for any purpose, without the express written permission
+of Microsoft Corporation.</p>
+<p class="CopyrightText"> &nbsp;</p>
+<p class="CopyrightText"> Microsoft may have patents, patent
+applications, trademarked, copyrights, or other intellectual property
+rights covering subject matter in this document. Except as expressly
+provided in any written license agreement from Microsoft, the
+furnishing of this document does not give you any license to these
+patents, trademarks, copyrights, or other intellectual property.</p>
+<p class="CopyrightText">
+&nbsp;</p>
+<div class="Section1">
+	<p class="CopyrightText">© Microsoft Corporation. All rights reserved.</p>
+	<p class="CopyrightText">&nbsp;</p>
+	<p class="CopyrightText">Microsoft, MS-DOS, MS, Windows, Windows NT, MSDN, 
+	Active Directory, BizTalk, SQL Server, SharePoint, Outlook, PowerPoint, 
+	FrontPage, Visual Basic, Visual C++, Visual J++, Visual InterDev, Visual 
+	SourceSafe, Visual C#, Visual J#,&nbsp; and Visual Studio are either registered 
+	trademarks or trademarks of Microsoft Corporation in the U.S.A. and/or other 
+	countries.</p>
+	<p class="CopyrightText">&nbsp;</p>
+	<p class="CopyrightText">Other product and company names herein may be the 
+	trademarks of their respective owners.</div>
+<hr>
+<p class="body">&nbsp;</p>
+<p class="CopyrightText">
+This sample is subject to terms and conditions of the Shared Source License
+for IronPython. A copy of the license can be found in the License.html file
+at the root of this distribution. If you can not locate the Shared Source License
+for IronPython, please send an email to ironpy@microsoft.com.
+By using this sample in any fashion, you are agreeing to be bound by
+the terms of the Shared Source License for IronPython.</p>
+<p class="CopyrightText">
+&nbsp;</p>
+<p class="body">&nbsp;</p>
+<p class="Title1">Dynamic Web Service Helpers</p><p class="Body">&nbsp;</p>
+<p class="Normal">&nbsp;</p>
+<p class="Title2"> Prerequisites</p>
+<p class="body"> The prerequisites to successfully run this application
+are:</p>
+<ul>
+  <li class="normal" type="disc">Microsoft .NET Framework Version 2.0
+Redistributable Package (x86)
+    <ul>
+      <li>Required to run IronPython </li>
+      <li>Download from <a
+ href="http://www.microsoft.com/downloads/details.aspx?FamilyID=0856eacb-4362-4b0d-8edd-aab15c5e04f5&amp;DisplayLang=en">
+here</a></li>
+    </ul>
+  </li>
+  <li class="normal">IronPython Distribution <ul><li>If you are new to IronPython, please go over the tutorial
+that comes with this distribution</li><li>Download from <a
+ href="http://www.codeplex.com/Release/ProjectReleases.aspx?ProjectName=IronPython">here</a></li></ul></li>
+</ul><div class="Section2"><p class="Body">&nbsp;</p><p class="Body">Visual Studio 2005 can be used in place of the Microsoft .NET Framework. Since Visual Studio 2005 installs both the .NET 
+  Framework 2.0 and the .NET Framework SDK, there is no need to install those explicitly if you have Visual Studio 2005 available.</div>
+<p class="Normal"><br></p>
+<p class="Title2">Getting Started</p>
+<p class="body">Please make sure the folder structure in the 
+<i>DynamicWebServiceHelpers</i> directory is:</p>
+<blockquote>
+  <blockquote>
+    <p class="body">.\samples\amazon.py</p><p class="body">.\samples\flickr.py</p><p class="body">.\samples\injectors.py</p><p class="body">.\samples\math.py</p><p class="body">.\samples\rss.py</p>
+    <p class="body">.\samples\stocks.py</p><p class="body">.\samples\weather.py</p><p class="body">
+    .\DynamicWebServiceHelpers.csproj</p>
+  </blockquote>
+</blockquote>
+<p class="body"><br>
+At this point, it will be necessary to build <i>DynamicWebServiceHelpers.dll</i>.&nbsp; This can be accomplished by building the <i>DynamicWebServiceHelpers.csproj</i> solution from Visual 
+Studio 2005 or by running &quot;msbuild DynamicWebServiceHelpers.csproj&quot; from a command prompt (where <i>msbuild</i> is generally located in C:\Windows\Microsoft. NET\Framework\...\).&nbsp; 
+With either option, you'll have to copy <i>ipy.exe</i>, <i>IronPython.dll</i>, and <i>IronMath.dll</i> into the <i>samples</i> directory <b>before</b> building.</p>
+<p class="body">Next, you should change your directory to <i>samples</i> which is where the newly built <i>DynamicWebServiceHelpers.dll</i> has been installed.</p><p class="body">&nbsp;</p>
+<p class="Title2">Overview</p>
+<p class="Body">The Dynamic Web Service Helpers library is intended to simplify the consumption of web services for IronPython developers. This package includes the DynamicWebServiceHelpers 
+sources and a set of samples that show how to utilize them.</p>
+
+<p class="Body">&nbsp;</p><p class="Body">Consuming web services from code usually requires help from a tool and involves the following steps:</p>
+<ol>
+ <li><p class="Body">Download WSDL</li><li><p class="Body">Generate proxy code</li><li><p class="Body">Include proxy code within the project</li><li><p class="Body">Instantiate web service proxy class from code</li>
+ <li><p class="Body">Call the web method</li></ol>
+
+<p class="Body">&nbsp;</p><p class="Body">The Dynamic Web Service Helpers library allows IronPython users to significantly simplify access to web services.
+All it takes is loading the web service given the URL and calling the web method:</p>
+<pre style="color:Navy">&gt;&gt;&gt; ws = WebService.Load(<i>web_service_url</i>)
+&gt;&gt;&gt; result = ws.<i>web_method</i>(<i>args</i>)
+</pre>
+<p class="Body">The Dynamic Web Service Helpers library supports the consumption of WSDL, REST/XML web services, and RSS feeds.
+It also introduces the IronPython concept of attribute injectors, the ability to extend .NET classes
+with dynamic attributes on a per-instance basis.</p>
+
+<div style="text-align: center;"><br>
+</div>
+<p class="Title2">Examples</p>
+<h3>Generic Usage</h3><p class="Body">To use Dynamic Web Service Helpers in IronPython simply load the assembly and import DynamicWebServiceHelpers:</p>
+<pre style="color:Navy">>>> import clr
+>>> clr.AddReference('DynamicWebServiceHelpers.dll')
+>>> <b>from DynamicWebServiceHelpers import *</b>
+</pre>
+<p class="Body">
+The library contains a public static class, <i>DynamicWebServiceHelpers</i>,
+that has public static properties (for example, <i>WebService</i>). The Python
+command <i>'from DynamicWebServiceHelpers import *'</i> actually imports
+these public properties into the global namespace:
+</p>
+<pre style="color:Navy">>>> dir()
+['Equals', 'Finalize', 'GetHashCode', 'GetType', 'MemberwiseClone', 
+'<b><i>Pluralizer</i></b>', '<b><i>SimpleXml</i></b>', 'ToString', '<b><i>WebService</i></b>', '__builtins__',  
+'__doc__', '__name__', 'clr', 'site']
+</pre>
+<p class="Body">
+A beneficial side effect of this design is the ability to execute code while
+importing the static class (static constructor is run at that time). This is a good place to perform operations like registering attribute
+injectors.
+</p><p class="Body">
+&nbsp;</p>
+
+<h3>
+    Simple WSDL Web Service -- math.py</h3>
+<p class="Body">This sample calls a simple web service from the ASP.NET Quick Start tutorials that adds two numbers.</p><p class="Body">&nbsp;</p>
+
+<h3>WSDL Web Service With Complex Return Values -- weather.py</h3>
+<p class="Body">This sample calls a weather web service that returns the weather forecast as
+a complex object containing a collection of per-day weather data.
+Please note that it is not necessary to know the type names of the data being
+returned in order to process the result from a dynamic language like IronPython.</p><p class="Body">&nbsp;</p>
+
+<h3>Attribute Injectors -- injectors.py</h3>
+<p class="Body">This sample illustrates attribute injectors: English noun string pluralization and 'natural' access to XML.</p><p class="Body">&nbsp;</p>
+
+<h3>WSDL Web Service Returning XML -- stocks.py</h3>
+<p class="Body">
+    This example calls a stock quote web service that returns the data as XML, and XML
+    attribute injectors are then used to access the returned data in a 'natural' way.</p><p class="Body">
+    &nbsp;</p>
+
+<h3>RSS Feeds -- rss.py</h3>
+<p class="Body">
+    This example downloads an RSS feed and accesses it using XML attribute injectors.</p><p class="Body">
+    &nbsp;</p>
+
+<h3>The Amazon.com WSDL Web Service -- amazon.py</h3>
+<p class="Body">
+    This example calls the Amazon.com web service to perform a book search. Please
+    note that the Amazon.com web service calls require complex arguments of types defined
+    in WSDL. Access to these types is provided via the <i>ServiceNamespace</i> property
+    of the web service (that is added by the Dynamic Web Service Helpers library).</p><p class="Body">
+    <b>Important Note</b>: the <i>amazon.py</i> script requires you to pass your own Amazon.com Web Service subscription ID to it from the command line.&nbsp; The starting point for getting 
+    an Amazon.com Web Service subscription ID is <a href="https://aws-portal.amazon.com/gp/aws/developer/registration/index.html">here</a>.</p><p class="Body">
+    &nbsp;</p>
+
+<h3>Flickr.com REST/XML Web Service -- flickr.py</h3>
+<p class="Body">
+    This example calls the Flickr REST web service to perform a photo search. The
+    returned XML is accessed via XML attribute injectors.</p><p class="Body">
+    <b>Important Note</b>: the <i>flickr.py</i> script requires you to pass your own flickr.com Web Service API key to it from the command line.&nbsp; Information on obtaining this key can 
+    be obtained from <a href="http://www.flickr.com/services/api/misc.api_keys.html">here</a>.</p>
+</body>
+</html>
