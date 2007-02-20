@@ -117,6 +117,7 @@
     <Compile Include="..\xsp\Tracing.cs">
       <Link>WebServer\Tracing.cs</Link>
     </Compile>
+    <Compile Include="WebServer\WebServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\trunk\Resources\Extf.Net.snk">
