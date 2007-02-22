@@ -9,10 +9,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DynamicWebServiceHelpers</RootNamespace>
     <AssemblyName>DynamicWebServiceHelpers</AssemblyName>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,19 +30,19 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>samples\</OutputPath>
+    <OutputPath>..\..\..\..\Dependencies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IronMath, Version=1.0.60816.1877, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="IronMath, Version=1.0.60816.1877, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Public\IronMath.dll</HintPath>
+      <HintPath>..\..\..\..\Dependencies\IronMath.dll</HintPath>
     </Reference>
-    <Reference Include="IronPython, Version=1.0.60816.1877, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="IronPython, Version=1.0.60816.1877, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Public\IronPython.dll</HintPath>
+      <HintPath>..\..\..\..\Dependencies\IronPython.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
