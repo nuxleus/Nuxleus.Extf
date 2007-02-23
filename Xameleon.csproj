@@ -75,6 +75,7 @@
     <Compile Include="APP\Storage.cs" />
     <Compile Include="APP\Store.cs" />
     <Compile Include="APP\Workspace.cs" />
+    <Compile Include="Atom\AtomEntry.cs" />
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="HttpHandler\HttpHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
