@@ -113,6 +113,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Lib\site.py" />
     <Content Include="WebApp\appsite.py" />
     <Content Include="WebApp\cherrypyserver.py" />
     <Content Include="WebApp\core\atompub.py" />
