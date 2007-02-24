@@ -54,118 +54,77 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference
-      Include="AmazonAWS.S3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
+    <Reference Include="AmazonAWS.S3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\trunk\Dependencies\AmazonAWS.S3.dll</HintPath>
     </Reference>
-    <Reference
-      Include="DynamicWebServiceHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DynamicWebServiceHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\trunk\Dependencies\DynamicWebServiceHelpers.dll</HintPath>
     </Reference>
-    <Reference
-      Include="GlobalClip, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
+    <Reference Include="GlobalClip, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\trunk\Dependencies\GlobalClip.dll</HintPath>
     </Reference>
-    <Reference
-      Include="IronMath, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="IronMath, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\vendor\IronPython-1.1B1\IronMath.dll</HintPath>
     </Reference>
-    <Reference
-      Include="IronPython, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="IronPython, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\vendor\IronPython-1.1B1\IronPython.dll</HintPath>
     </Reference>
-    <Reference
-      Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\trunk\Dependencies\Mono.Security.dll</HintPath>
     </Reference>
-    <Reference
-      Include="Mvp.Xml, Version=2.2.0.0, Culture=neutral, PublicKeyToken=6ead800d778c9b9f, processorArchitecture=MSIL">
+    <Reference Include="Mvp.Xml, Version=2.2.0.0, Culture=neutral, PublicKeyToken=6ead800d778c9b9f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\trunk\Dependencies\Mvp.Xml.dll</HintPath>
     </Reference>
-    <Reference Include="System"/>
-    <Reference Include="System.configuration"/>
-    <Reference Include="System.Data"/>
-    <Reference Include="System.Web"/>
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\xsp\mono.webserver\applicationserver.cs">
-      <Link>WebServer\Mono.WebServer\applicationserver.cs</Link>
-    </Compile>
-    <Compile Include="..\xsp\mono.webserver\baseapplicationhost.cs">
-      <Link>WebServer\Mono.WebServer\baseapplicationhost.cs</Link>
-    </Compile>
-    <Compile Include="..\xsp\mono.webserver\baserequestbroker.cs">
-      <Link>WebServer\Mono.WebServer\baserequestbroker.cs</Link>
-    </Compile>
-    <Compile Include="..\xsp\mono.webserver\iapplicationhost.cs">
-      <Link>WebServer\Mono.WebServer\iapplicationhost.cs</Link>
-    </Compile>
-    <Compile Include="..\xsp\mono.webserver\initialworkerrequest.cs">
-      <Link>WebServer\Mono.WebServer\initialworkerrequest.cs</Link>
-    </Compile>
-    <Compile Include="..\xsp\mono.webserver\iwebsource.cs">
-      <Link>WebServer\Mono.WebServer\iwebsource.cs</Link>
-    </Compile>
-    <Compile Include="..\xsp\mono.webserver\lingeringnetworkstream.cs">
-      <Link>WebServer\Mono.WebServer\lingeringnetworkstream.cs</Link>
-    </Compile>
-    <Compile Include="..\xsp\mono.webserver\monoworkerrequest.cs">
-      <Link>WebServer\Mono.WebServer\monoworkerrequest.cs</Link>
-    </Compile>
-    <Compile Include="..\xsp\mono.webserver\xspapplicationhost.cs">
-      <Link>WebServer\Mono.WebServer\xspapplicationhost.cs</Link>
-    </Compile>
-    <Compile Include="..\xsp\mono.webserver\xspworkerrequest.cs">
-      <Link>WebServer\Mono.WebServer\xspworkerrequest.cs</Link>
-    </Compile>
-    <Compile Include="Configuration\Configuration.cs"/>
-    <Compile Include="HttpHandler\HttpHandler.cs"/>
-    <Compile Include="Properties\AssemblyInfo.cs"/>
-    <Compile Include="..\..\vendor\IronPython-1.1B1\Src\IronPythonConsole\PythonCommandLine.cs"/>
-    <Compile Include="..\..\vendor\IronPython-1.1B1\Src\IronPythonConsole\SuperConsole.cs"/>
-    <Compile Include="WebServer\WebServer.cs"/>
-    <Compile Include="WebServer\WSGI.cs"/>
-    <Compile Include="Xameleon\Atom\AtomEntry.cs"/>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\..\vendor\IronPython-1.1B1\Src\IronPythonConsole\PythonCommandLine.cs" />
+    <Compile Include="..\..\vendor\IronPython-1.1B1\Src\IronPythonConsole\SuperConsole.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\trunk\Resources\Extf.Net.snk">
       <Link>Extf.Net.snk</Link>
     </None>
-    <BaseApplicationManifest Include="Properties\app.manifest"/>
-    <None Include="Configuration\App.config"/>
-    <None Include="WebApp\appstore.conf"/>
-    <None Include="WebApp\default.omx"/>
-    <None Include="WebApp\Lib\amplee\examples\audio\store.conf"/>
-    <None Include="WebApp\Lib\amplee\examples\audio\test.odt"/>
-    <None Include="WebApp\Lib\amplee\examples\blog\appstore.conf"/>
-    <None Include="WebApp\Lib\amplee\examples\blog\blog.conf"/>
-    <None Include="WebApp\Lib\amplee\examples\blog\README"/>
-    <None Include="WebApp\Lib\amplee\examples\blog\scripts\test.markdown"/>
-    <None Include="WebApp\Lib\amplee\examples\pakawi\pakawi.conf"/>
-    <None Include="WebApp\Lib\amplee\examples\pakawi\README"/>
-    <None Include="WebApp\Lib\amplee\examples\web\amplee.xhtml"/>
-    <None Include="WebApp\Lib\amplee\test\data\dummy.odt"/>
-    <None Include="WebApp\Lib\amplee\test\data\dummy2.odt"/>
-    <None Include="WebApp\Lib\amplee\test\data\member.atom"/>
-    <None Include="WebApp\Lib\amplee\test\data\plain_text_content.atom"/>
-    <None Include="WebApp\Lib\amplee\test\data\store.conf"/>
-    <None Include="WebApp\Lib\amplee\test\test.conf"/>
-    <None Include="WebApp\workspace\modules\body.atom"/>
-    <None Include="WebApp\workspace\modules\footer.atom"/>
-    <None Include="WebApp\workspace\modules\header.atom"/>
-    <None Include="WebApp\workspace\schema\app.categories.rnc"/>
-    <None Include="WebApp\workspace\schema\app.categories.rng"/>
-    <None Include="WebApp\workspace\schema\app.rnc"/>
-    <None Include="WebApp\workspace\schema\app.rng"/>
-    <None Include="Xameleon.ClickOnce.pfx"/>
+    <BaseApplicationManifest Include="Properties\app.manifest" />
+    <Content Include="WebApp\appstore.conf">
+    </Content>
+    <Content Include="WebApp\default.omx">
+    </Content>
+    <None Include="Lib\amplee\examples\audio\store.conf" />
+    <None Include="Lib\amplee\examples\audio\test.odt" />
+    <None Include="Lib\amplee\examples\blog\appstore.conf" />
+    <None Include="Lib\amplee\examples\blog\blog.conf" />
+    <None Include="Lib\amplee\examples\blog\README" />
+    <None Include="Lib\amplee\examples\blog\scripts\test.markdown" />
+    <None Include="Lib\amplee\examples\pakawi\pakawi.conf" />
+    <None Include="Lib\amplee\examples\pakawi\README" />
+    <None Include="Lib\amplee\examples\web\amplee.xhtml" />
+    <None Include="Lib\amplee\test\data\dummy.odt" />
+    <None Include="Lib\amplee\test\data\dummy2.odt" />
+    <None Include="Lib\amplee\test\data\member.atom" />
+    <None Include="Lib\amplee\test\data\plain_text_content.atom" />
+    <None Include="Lib\amplee\test\data\store.conf" />
+    <None Include="Lib\amplee\test\test.conf" />
+    <None Include="workspace\modules\body.atom" />
+    <None Include="workspace\modules\footer.atom" />
+    <None Include="workspace\modules\header.atom" />
+    <None Include="workspace\schema\app.categories.rnc" />
+    <None Include="workspace\schema\app.categories.rng" />
+    <None Include="workspace\schema\app.rnc" />
+    <None Include="workspace\schema\app.rng" />
+    <None Include="Xameleon.ClickOnce.pfx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
@@ -176,1397 +135,1398 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\collection.py">
-      <Link>WebApp\Lib\amplee\atompub\collection.py</Link>
+      <Link>Lib\amplee\atompub\collection.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\member\atom.py">
-      <Link>WebApp\Lib\amplee\atompub\member\atom.py</Link>
+      <Link>Lib\amplee\atompub\member\atom.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\member\audio.py">
-      <Link>WebApp\Lib\amplee\atompub\member\audio.py</Link>
+      <Link>Lib\amplee\atompub\member\audio.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\member\generic.py">
-      <Link>WebApp\Lib\amplee\atompub\member\generic.py</Link>
+      <Link>Lib\amplee\atompub\member\generic.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\member\helper.py">
-      <Link>WebApp\Lib\amplee\atompub\member\helper.py</Link>
+      <Link>Lib\amplee\atompub\member\helper.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\member\media.py">
-      <Link>WebApp\Lib\amplee\atompub\member\media.py</Link>
+      <Link>Lib\amplee\atompub\member\media.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\member\movie.py">
-      <Link>WebApp\Lib\amplee\atompub\member\movie.py</Link>
+      <Link>Lib\amplee\atompub\member\movie.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\member\odf.py">
-      <Link>WebApp\Lib\amplee\atompub\member\odf.py</Link>
+      <Link>Lib\amplee\atompub\member\odf.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\member\web.py">
-      <Link>WebApp\Lib\amplee\atompub\member\web.py</Link>
+      <Link>Lib\amplee\atompub\member\web.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\member\__init__.py">
-      <Link>WebApp\Lib\amplee\atompub\member\__init__.py</Link>
+      <Link>Lib\amplee\atompub\member\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\service.py">
-      <Link>WebApp\Lib\amplee\atompub\service.py</Link>
+      <Link>Lib\amplee\atompub\service.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\store.py">
-      <Link>WebApp\Lib\amplee\atompub\store.py</Link>
+      <Link>Lib\amplee\atompub\store.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\workspace.py">
-      <Link>WebApp\Lib\amplee\atompub\workspace.py</Link>
+      <Link>Lib\amplee\atompub\workspace.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\atompub\__init__.py">
-      <Link>WebApp\Lib\amplee\atompub\__init__.py</Link>
+      <Link>Lib\amplee\atompub\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\error.py">
-      <Link>WebApp\Lib\amplee\error.py</Link>
+      <Link>Lib\amplee\error.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\audio\demo_client.py">
-      <Link>WebApp\Lib\amplee\examples\audio\demo_client.py</Link>
+      <Link>Lib\amplee\examples\audio\demo_client.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\audio\demo_setup.py">
-      <Link>WebApp\Lib\amplee\examples\audio\demo_setup.py</Link>
+      <Link>Lib\amplee\examples\audio\demo_setup.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\audio\demo_simple.py">
-      <Link>WebApp\Lib\amplee\examples\audio\demo_simple.py</Link>
+      <Link>Lib\amplee\examples\audio\demo_simple.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\audio\demo_simple_wsgiref.py">
-      <Link>WebApp\Lib\amplee\examples\audio\demo_simple_wsgiref.py</Link>
+      <Link>Lib\amplee\examples\audio\demo_simple_wsgiref.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\blog-cherrypy.py">
-      <Link>WebApp\Lib\amplee\examples\blog\blog-cherrypy.py</Link>
+      <Link>Lib\amplee\examples\blog\blog-cherrypy.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\blog-wsgi.py">
-      <Link>WebApp\Lib\amplee\examples\blog\blog-wsgi.py</Link>
+      <Link>Lib\amplee\examples\blog\blog-wsgi.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\core\atompub.py">
-      <Link>WebApp\Lib\amplee\examples\blog\core\atompub.py</Link>
+      <Link>Lib\amplee\examples\blog\core\atompub.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\core\comment.py">
-      <Link>WebApp\Lib\amplee\examples\blog\core\comment.py</Link>
+      <Link>Lib\amplee\examples\blog\core\comment.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\core\cp.py">
-      <Link>WebApp\Lib\amplee\examples\blog\core\cp.py</Link>
+      <Link>Lib\amplee\examples\blog\core\cp.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\core\handler\article.py">
-      <Link>WebApp\Lib\amplee\examples\blog\core\handler\article.py</Link>
+      <Link>Lib\amplee\examples\blog\core\handler\article.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\core\handler\comment.py">
-      <Link>WebApp\Lib\amplee\examples\blog\core\handler\comment.py</Link>
+      <Link>Lib\amplee\examples\blog\core\handler\comment.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\core\handler\__init__.py">
-      <Link>WebApp\Lib\amplee\examples\blog\core\handler\__init__.py</Link>
+      <Link>Lib\amplee\examples\blog\core\handler\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\core\transform.py">
-      <Link>WebApp\Lib\amplee\examples\blog\core\transform.py</Link>
+      <Link>Lib\amplee\examples\blog\core\transform.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\core\wsgi.py">
-      <Link>WebApp\Lib\amplee\examples\blog\core\wsgi.py</Link>
+      <Link>Lib\amplee\examples\blog\core\wsgi.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\core\__init__.py">
-      <Link>WebApp\Lib\amplee\examples\blog\core\__init__.py</Link>
+      <Link>Lib\amplee\examples\blog\core\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\scripts\common.py">
-      <Link>WebApp\Lib\amplee\examples\blog\scripts\common.py</Link>
+      <Link>Lib\amplee\examples\blog\scripts\common.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\scripts\create.py">
-      <Link>WebApp\Lib\amplee\examples\blog\scripts\create.py</Link>
+      <Link>Lib\amplee\examples\blog\scripts\create.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\scripts\delete.py">
-      <Link>WebApp\Lib\amplee\examples\blog\scripts\delete.py</Link>
+      <Link>Lib\amplee\examples\blog\scripts\delete.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\scripts\edit.py">
-      <Link>WebApp\Lib\amplee\examples\blog\scripts\edit.py</Link>
+      <Link>Lib\amplee\examples\blog\scripts\edit.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\scripts\fetch-collection.py">
-      <Link>WebApp\Lib\amplee\examples\blog\scripts\fetch-collection.py</Link>
+      <Link>Lib\amplee\examples\blog\scripts\fetch-collection.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\scripts\fetch-service.py">
-      <Link>WebApp\Lib\amplee\examples\blog\scripts\fetch-service.py</Link>
+      <Link>Lib\amplee\examples\blog\scripts\fetch-service.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\scripts\fetch.py">
-      <Link>WebApp\Lib\amplee\examples\blog\scripts\fetch.py</Link>
+      <Link>Lib\amplee\examples\blog\scripts\fetch.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\static\style.css">
-      <Link>WebApp\Lib\amplee\examples\blog\static\style.css</Link>
+      <Link>Lib\amplee\examples\blog\static\style.css</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\template\error404.html">
-      <Link>WebApp\Lib\amplee\examples\blog\template\error404.html</Link>
+      <Link>Lib\amplee\examples\blog\template\error404.html</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\blog\template\index.xsl">
-      <Link>WebApp\Lib\amplee\examples\blog\template\index.xsl</Link>
+      <Link>Lib\amplee\examples\blog\template\index.xsl</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\appstore.py">
-      <Link>WebApp\Lib\amplee\examples\pakawi\appstore.py</Link>
+      <Link>Lib\amplee\examples\pakawi\appstore.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\design\base.html">
-      <Link>WebApp\Lib\amplee\examples\pakawi\design\base.html</Link>
+      <Link>Lib\amplee\examples\pakawi\design\base.html</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\design\footer.html">
-      <Link>WebApp\Lib\amplee\examples\pakawi\design\footer.html</Link>
+      <Link>Lib\amplee\examples\pakawi\design\footer.html</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\design\header.html">
-      <Link>WebApp\Lib\amplee\examples\pakawi\design\header.html</Link>
+      <Link>Lib\amplee\examples\pakawi\design\header.html</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\design\index.html">
-      <Link>WebApp\Lib\amplee\examples\pakawi\design\index.html</Link>
+      <Link>Lib\amplee\examples\pakawi\design\index.html</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\design\page.html">
-      <Link>WebApp\Lib\amplee\examples\pakawi\design\page.html</Link>
+      <Link>Lib\amplee\examples\pakawi\design\page.html</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\handler\cp.py">
-      <Link>WebApp\Lib\amplee\examples\pakawi\handler\cp.py</Link>
+      <Link>Lib\amplee\examples\pakawi\handler\cp.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\handler\wsgi.py">
-      <Link>WebApp\Lib\amplee\examples\pakawi\handler\wsgi.py</Link>
+      <Link>Lib\amplee\examples\pakawi\handler\wsgi.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\handler\__init__.py">
-      <Link>WebApp\Lib\amplee\examples\pakawi\handler\__init__.py</Link>
+      <Link>Lib\amplee\examples\pakawi\handler\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\lib\config.py">
-      <Link>WebApp\Lib\amplee\examples\pakawi\lib\config.py</Link>
+      <Link>Lib\amplee\examples\pakawi\lib\config.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\lib\design.py">
-      <Link>WebApp\Lib\amplee\examples\pakawi\lib\design.py</Link>
+      <Link>Lib\amplee\examples\pakawi\lib\design.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\lib\wiki.py">
-      <Link>WebApp\Lib\amplee\examples\pakawi\lib\wiki.py</Link>
+      <Link>Lib\amplee\examples\pakawi\lib\wiki.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\lib\__init__.py">
-      <Link>WebApp\Lib\amplee\examples\pakawi\lib\__init__.py</Link>
+      <Link>Lib\amplee\examples\pakawi\lib\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\pakawi-cherrypy.py">
-      <Link>WebApp\Lib\amplee\examples\pakawi\pakawi-cherrypy.py</Link>
+      <Link>Lib\amplee\examples\pakawi\pakawi-cherrypy.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\pakawi-wsgi.py">
-      <Link>WebApp\Lib\amplee\examples\pakawi\pakawi-wsgi.py</Link>
+      <Link>Lib\amplee\examples\pakawi\pakawi-wsgi.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\static\pakawi.js">
-      <Link>WebApp\Lib\amplee\examples\pakawi\static\pakawi.js</Link>
+      <Link>Lib\amplee\examples\pakawi\static\pakawi.js</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\static\progress.gif">
-      <Link>WebApp\Lib\amplee\examples\pakawi\static\progress.gif</Link>
+      <Link>Lib\amplee\examples\pakawi\static\progress.gif</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\pakawi\static\style.css">
-      <Link>WebApp\Lib\amplee\examples\pakawi\static\style.css</Link>
+      <Link>Lib\amplee\examples\pakawi\static\style.css</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\web\demo.py">
-      <Link>WebApp\Lib\amplee\examples\web\demo.py</Link>
+      <Link>Lib\amplee\examples\web\demo.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\web\demo_cherrypy.py">
-      <Link>WebApp\Lib\amplee\examples\web\demo_cherrypy.py</Link>
+      <Link>Lib\amplee\examples\web\demo_cherrypy.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\web\demo_client.py">
-      <Link>WebApp\Lib\amplee\examples\web\demo_client.py</Link>
+      <Link>Lib\amplee\examples\web\demo_client.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\web\demo_kamaelia.py">
-      <Link>WebApp\Lib\amplee\examples\web\demo_kamaelia.py</Link>
+      <Link>Lib\amplee\examples\web\demo_kamaelia.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\examples\web\demo_wsgi.py">
-      <Link>WebApp\Lib\amplee\examples\web\demo_wsgi.py</Link>
+      <Link>Lib\amplee\examples\web\demo_wsgi.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\handler\store\cp\__init__.py">
-      <Link>WebApp\Lib\amplee\handler\store\cp\__init__.py</Link>
+      <Link>Lib\amplee\handler\store\cp\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\handler\store\kamaelia\__init__.py">
-      <Link>WebApp\Lib\amplee\handler\store\kamaelia\__init__.py</Link>
+      <Link>Lib\amplee\handler\store\kamaelia\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\handler\store\wsgi\__init__.py">
-      <Link>WebApp\Lib\amplee\handler\store\wsgi\__init__.py</Link>
+      <Link>Lib\amplee\handler\store\wsgi\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\handler\store\__init__.py">
-      <Link>WebApp\Lib\amplee\handler\store\__init__.py</Link>
+      <Link>Lib\amplee\handler\store\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\handler\__init__.py">
-      <Link>WebApp\Lib\amplee\handler\__init__.py</Link>
+      <Link>Lib\amplee\handler\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\http_helper.py">
-      <Link>WebApp\Lib\amplee\http_helper.py</Link>
+      <Link>Lib\amplee\http_helper.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\indexer\__init__.py">
-      <Link>WebApp\Lib\amplee\indexer\__init__.py</Link>
+      <Link>Lib\amplee\indexer\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\loader.py">
-      <Link>WebApp\Lib\amplee\loader.py</Link>
+      <Link>Lib\amplee\loader.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\storage\dummyfs.py">
-      <Link>WebApp\Lib\amplee\storage\dummyfs.py</Link>
+      <Link>Lib\amplee\storage\dummyfs.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\storage\storedejavu.py">
-      <Link>WebApp\Lib\amplee\storage\storedejavu.py</Link>
+      <Link>Lib\amplee\storage\storedejavu.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\storage\stores3.py">
-      <Link>WebApp\Lib\amplee\storage\stores3.py</Link>
+      <Link>Lib\amplee\storage\stores3.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\storage\storesvn.py">
-      <Link>WebApp\Lib\amplee\storage\storesvn.py</Link>
+      <Link>Lib\amplee\storage\storesvn.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\storage\storezodb.py">
-      <Link>WebApp\Lib\amplee\storage\storezodb.py</Link>
+      <Link>Lib\amplee\storage\storezodb.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\storage\__init__.py">
-      <Link>WebApp\Lib\amplee\storage\__init__.py</Link>
+      <Link>Lib\amplee\storage\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\amplee_base.py">
-      <Link>WebApp\Lib\amplee\test\amplee_base.py</Link>
+      <Link>Lib\amplee\test\amplee_base.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\data\plain_text.txt">
-      <Link>WebApp\Lib\amplee\test\data\plain_text.txt</Link>
+      <Link>Lib\amplee\test\data\plain_text.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\lib\atompub.py">
-      <Link>WebApp\Lib\amplee\test\lib\atompub.py</Link>
+      <Link>Lib\amplee\test\lib\atompub.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\lib\handler\article.py">
-      <Link>WebApp\Lib\amplee\test\lib\handler\article.py</Link>
+      <Link>Lib\amplee\test\lib\handler\article.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\lib\handler\comment.py">
-      <Link>WebApp\Lib\amplee\test\lib\handler\comment.py</Link>
+      <Link>Lib\amplee\test\lib\handler\comment.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\lib\handler\poetry.py">
-      <Link>WebApp\Lib\amplee\test\lib\handler\poetry.py</Link>
+      <Link>Lib\amplee\test\lib\handler\poetry.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\lib\handler\__init__.py">
-      <Link>WebApp\Lib\amplee\test\lib\handler\__init__.py</Link>
+      <Link>Lib\amplee\test\lib\handler\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\lib\store.py">
-      <Link>WebApp\Lib\amplee\test\lib\store.py</Link>
+      <Link>Lib\amplee\test\lib\store.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\lib\__init__.py">
-      <Link>WebApp\Lib\amplee\test\lib\__init__.py</Link>
+      <Link>Lib\amplee\test\lib\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\test.py">
-      <Link>WebApp\Lib\amplee\test\test.py</Link>
+      <Link>Lib\amplee\test\test.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\test_atompub.py">
-      <Link>WebApp\Lib\amplee\test\test_atompub.py</Link>
+      <Link>Lib\amplee\test\test_atompub.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\test_builtin_members.py">
-      <Link>WebApp\Lib\amplee\test\test_builtin_members.py</Link>
+      <Link>Lib\amplee\test\test_builtin_members.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\test_indexer.py">
-      <Link>WebApp\Lib\amplee\test\test_indexer.py</Link>
+      <Link>Lib\amplee\test\test_indexer.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\test\test_storage.py">
-      <Link>WebApp\Lib\amplee\test\test_storage.py</Link>
+      <Link>Lib\amplee\test\test_storage.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\utils.py">
-      <Link>WebApp\Lib\amplee\utils.py</Link>
+      <Link>Lib\amplee\utils.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\amplee\__init__.py">
-      <Link>WebApp\Lib\amplee\__init__.py</Link>
+      <Link>Lib\amplee\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\array.py">
-      <Link>WebApp\Lib\array.py</Link>
+      <Link>Lib\array.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\atexit.py">
-      <Link>WebApp\Lib\atexit.py</Link>
+      <Link>Lib\atexit.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\base64.py">
-      <Link>WebApp\Lib\base64.py</Link>
+      <Link>Lib\base64.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\BaseHTTPServer.py">
-      <Link>WebApp\Lib\BaseHTTPServer.py</Link>
+      <Link>Lib\BaseHTTPServer.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bdb.py">
-      <Link>WebApp\Lib\bdb.py</Link>
+      <Link>Lib\bdb.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\BeautifulSoup.py">
-      <Link>WebApp\Lib\BeautifulSoup.py</Link>
+      <Link>Lib\BeautifulSoup.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\binhex.py">
-      <Link>WebApp\Lib\binhex.py</Link>
+      <Link>Lib\binhex.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bisect.py">
-      <Link>WebApp\Lib\bisect.py</Link>
+      <Link>Lib\bisect.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\connection.py">
-      <Link>WebApp\Lib\boto\connection.py</Link>
+      <Link>Lib\boto\connection.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\cq.py">
-      <Link>WebApp\Lib\boto\cq.py</Link>
+      <Link>Lib\boto\cq.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\ec2\image.py">
-      <Link>WebApp\Lib\boto\ec2\image.py</Link>
+      <Link>Lib\boto\ec2\image.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\ec2\instance.py">
-      <Link>WebApp\Lib\boto\ec2\instance.py</Link>
+      <Link>Lib\boto\ec2\instance.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\ec2\keypair.py">
-      <Link>WebApp\Lib\boto\ec2\keypair.py</Link>
+      <Link>Lib\boto\ec2\keypair.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\ec2\securitygroup.py">
-      <Link>WebApp\Lib\boto\ec2\securitygroup.py</Link>
+      <Link>Lib\boto\ec2\securitygroup.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\ec2\__init__.py">
-      <Link>WebApp\Lib\boto\ec2\__init__.py</Link>
+      <Link>Lib\boto\ec2\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\exception.py">
-      <Link>WebApp\Lib\boto\exception.py</Link>
+      <Link>Lib\boto\exception.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\handler.py">
-      <Link>WebApp\Lib\boto\handler.py</Link>
+      <Link>Lib\boto\handler.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\resultset.py">
-      <Link>WebApp\Lib\boto\resultset.py</Link>
+      <Link>Lib\boto\resultset.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\s3\acl.py">
-      <Link>WebApp\Lib\boto\s3\acl.py</Link>
+      <Link>Lib\boto\s3\acl.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\s3\bucket.py">
-      <Link>WebApp\Lib\boto\s3\bucket.py</Link>
+      <Link>Lib\boto\s3\bucket.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\s3\key.py">
-      <Link>WebApp\Lib\boto\s3\key.py</Link>
+      <Link>Lib\boto\s3\key.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\s3\user.py">
-      <Link>WebApp\Lib\boto\s3\user.py</Link>
+      <Link>Lib\boto\s3\user.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\s3\__init__.py">
-      <Link>WebApp\Lib\boto\s3\__init__.py</Link>
+      <Link>Lib\boto\s3\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\setup.py">
-      <Link>WebApp\Lib\boto\setup.py</Link>
+      <Link>Lib\boto\setup.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\sqs\message.py">
-      <Link>WebApp\Lib\boto\sqs\message.py</Link>
+      <Link>Lib\boto\sqs\message.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\sqs\queue.py">
-      <Link>WebApp\Lib\boto\sqs\queue.py</Link>
+      <Link>Lib\boto\sqs\queue.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\sqs\__init__.py">
-      <Link>WebApp\Lib\boto\sqs\__init__.py</Link>
+      <Link>Lib\boto\sqs\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\test.py">
-      <Link>WebApp\Lib\boto\test.py</Link>
+      <Link>Lib\boto\test.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\utils.py">
-      <Link>WebApp\Lib\boto\utils.py</Link>
+      <Link>Lib\boto\utils.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\boto\__init__.py">
-      <Link>WebApp\Lib\boto\__init__.py</Link>
+      <Link>Lib\boto\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\common.py">
-      <Link>WebApp\Lib\bridge\common.py</Link>
+      <Link>Lib\bridge\common.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\filter\atom.py">
-      <Link>WebApp\Lib\bridge\filter\atom.py</Link>
+      <Link>Lib\bridge\filter\atom.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\filter\xhtml.py">
-      <Link>WebApp\Lib\bridge\filter\xhtml.py</Link>
+      <Link>Lib\bridge\filter\xhtml.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\filter\xmpp.py">
-      <Link>WebApp\Lib\bridge\filter\xmpp.py</Link>
+      <Link>Lib\bridge\filter\xmpp.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\filter\__init__.py">
-      <Link>WebApp\Lib\bridge\filter\__init__.py</Link>
+      <Link>Lib\bridge\filter\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\lib\isodate.py">
-      <Link>WebApp\Lib\bridge\lib\isodate.py</Link>
+      <Link>Lib\bridge\lib\isodate.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\lib\__init__.py">
-      <Link>WebApp\Lib\bridge\lib\__init__.py</Link>
+      <Link>Lib\bridge\lib\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\parser\bridge_amara.py">
-      <Link>WebApp\Lib\bridge\parser\bridge_amara.py</Link>
+      <Link>Lib\bridge\parser\bridge_amara.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\parser\bridge_default.py">
-      <Link>WebApp\Lib\bridge\parser\bridge_default.py</Link>
+      <Link>Lib\bridge\parser\bridge_default.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\parser\bridge_dotnet.py">
-      <Link>WebApp\Lib\bridge\parser\bridge_dotnet.py</Link>
+      <Link>Lib\bridge\parser\bridge_dotnet.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\parser\bridge_elementtree.py">
-      <Link>WebApp\Lib\bridge\parser\bridge_elementtree.py</Link>
+      <Link>Lib\bridge\parser\bridge_elementtree.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\parser\bridge_expat.py">
-      <Link>WebApp\Lib\bridge\parser\bridge_expat.py</Link>
+      <Link>Lib\bridge\parser\bridge_expat.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\parser\bridge_lxml.py">
-      <Link>WebApp\Lib\bridge\parser\bridge_lxml.py</Link>
+      <Link>Lib\bridge\parser\bridge_lxml.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\parser\incremental.py">
-      <Link>WebApp\Lib\bridge\parser\incremental.py</Link>
+      <Link>Lib\bridge\parser\incremental.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\parser\__init__.py">
-      <Link>WebApp\Lib\bridge\parser\__init__.py</Link>
+      <Link>Lib\bridge\parser\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\test\test.py">
-      <Link>WebApp\Lib\bridge\test\test.py</Link>
+      <Link>Lib\bridge\test\test.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\test\test_amara.py">
-      <Link>WebApp\Lib\bridge\test\test_amara.py</Link>
+      <Link>Lib\bridge\test\test_amara.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\test\test_base.py">
-      <Link>WebApp\Lib\bridge\test\test_base.py</Link>
+      <Link>Lib\bridge\test\test_base.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\test\test_default.py">
-      <Link>WebApp\Lib\bridge\test\test_default.py</Link>
+      <Link>Lib\bridge\test\test_default.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\test\test_elementtree.py">
-      <Link>WebApp\Lib\bridge\test\test_elementtree.py</Link>
+      <Link>Lib\bridge\test\test_elementtree.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\test\test_lxml.py">
-      <Link>WebApp\Lib\bridge\test\test_lxml.py</Link>
+      <Link>Lib\bridge\test\test_lxml.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\validator\atom.py">
-      <Link>WebApp\Lib\bridge\validator\atom.py</Link>
+      <Link>Lib\bridge\validator\atom.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\validator\__init__.py">
-      <Link>WebApp\Lib\bridge\validator\__init__.py</Link>
+      <Link>Lib\bridge\validator\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\bridge\__init__.py">
-      <Link>WebApp\Lib\bridge\__init__.py</Link>
+      <Link>Lib\bridge\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\calendar.py">
-      <Link>WebApp\Lib\calendar.py</Link>
+      <Link>Lib\calendar.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\cgi.py">
-      <Link>WebApp\Lib\cgi.py</Link>
+      <Link>Lib\cgi.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\cherrypy\wsgiserver\__init__.py">
-      <Link>WebApp\Lib\cherrypy\wsgiserver\__init__.py</Link>
+      <Link>Lib\cherrypy\wsgiserver\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\cherrypy\__init__.py">
-      <Link>WebApp\Lib\cherrypy\__init__.py</Link>
+      <Link>Lib\cherrypy\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\cmd.py">
-      <Link>WebApp\Lib\cmd.py</Link>
+      <Link>Lib\cmd.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\code.py">
-      <Link>WebApp\Lib\code.py</Link>
+      <Link>Lib\code.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\codecs.py">
-      <Link>WebApp\Lib\codecs.py</Link>
+      <Link>Lib\codecs.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\codeop.py">
-      <Link>WebApp\Lib\codeop.py</Link>
+      <Link>Lib\codeop.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\compiler\ast.py">
-      <Link>WebApp\Lib\compiler\ast.py</Link>
+      <Link>Lib\compiler\ast.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\compiler\consts.py">
-      <Link>WebApp\Lib\compiler\consts.py</Link>
+      <Link>Lib\compiler\consts.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\compiler\visitor.py">
-      <Link>WebApp\Lib\compiler\visitor.py</Link>
+      <Link>Lib\compiler\visitor.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\compiler\__init__.py">
-      <Link>WebApp\Lib\compiler\__init__.py</Link>
+      <Link>Lib\compiler\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\ConfigParser.py">
-      <Link>WebApp\Lib\ConfigParser.py</Link>
+      <Link>Lib\ConfigParser.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Cookie.py">
-      <Link>WebApp\Lib\Cookie.py</Link>
+      <Link>Lib\Cookie.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\cookielib.py">
-      <Link>WebApp\Lib\cookielib.py</Link>
+      <Link>Lib\cookielib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\copy.py">
-      <Link>WebApp\Lib\copy.py</Link>
+      <Link>Lib\copy.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\copy_reg.py">
-      <Link>WebApp\Lib\copy_reg.py</Link>
+      <Link>Lib\copy_reg.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Cipher\__init__.py">
-      <Link>WebApp\Lib\Crypto\Cipher\__init__.py</Link>
+      <Link>Lib\Crypto\Cipher\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Hash\HMAC.py">
-      <Link>WebApp\Lib\Crypto\Hash\HMAC.py</Link>
+      <Link>Lib\Crypto\Hash\HMAC.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Hash\MD5.py">
-      <Link>WebApp\Lib\Crypto\Hash\MD5.py</Link>
+      <Link>Lib\Crypto\Hash\MD5.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Hash\SHA.py">
-      <Link>WebApp\Lib\Crypto\Hash\SHA.py</Link>
+      <Link>Lib\Crypto\Hash\SHA.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Hash\__init__.py">
-      <Link>WebApp\Lib\Crypto\Hash\__init__.py</Link>
+      <Link>Lib\Crypto\Hash\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Protocol\AllOrNothing.py">
-      <Link>WebApp\Lib\Crypto\Protocol\AllOrNothing.py</Link>
+      <Link>Lib\Crypto\Protocol\AllOrNothing.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Protocol\Chaffing.py">
-      <Link>WebApp\Lib\Crypto\Protocol\Chaffing.py</Link>
+      <Link>Lib\Crypto\Protocol\Chaffing.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Protocol\__init__.py">
-      <Link>WebApp\Lib\Crypto\Protocol\__init__.py</Link>
+      <Link>Lib\Crypto\Protocol\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\PublicKey\DSA.py">
-      <Link>WebApp\Lib\Crypto\PublicKey\DSA.py</Link>
+      <Link>Lib\Crypto\PublicKey\DSA.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\PublicKey\ElGamal.py">
-      <Link>WebApp\Lib\Crypto\PublicKey\ElGamal.py</Link>
+      <Link>Lib\Crypto\PublicKey\ElGamal.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\PublicKey\pubkey.py">
-      <Link>WebApp\Lib\Crypto\PublicKey\pubkey.py</Link>
+      <Link>Lib\Crypto\PublicKey\pubkey.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\PublicKey\qNEW.py">
-      <Link>WebApp\Lib\Crypto\PublicKey\qNEW.py</Link>
+      <Link>Lib\Crypto\PublicKey\qNEW.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\PublicKey\RSA.py">
-      <Link>WebApp\Lib\Crypto\PublicKey\RSA.py</Link>
+      <Link>Lib\Crypto\PublicKey\RSA.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\PublicKey\test\rsa_speed.py">
-      <Link>WebApp\Lib\Crypto\PublicKey\test\rsa_speed.py</Link>
+      <Link>Lib\Crypto\PublicKey\test\rsa_speed.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\PublicKey\__init__.py">
-      <Link>WebApp\Lib\Crypto\PublicKey\__init__.py</Link>
+      <Link>Lib\Crypto\PublicKey\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Util\number.py">
-      <Link>WebApp\Lib\Crypto\Util\number.py</Link>
+      <Link>Lib\Crypto\Util\number.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Util\randpool.py">
-      <Link>WebApp\Lib\Crypto\Util\randpool.py</Link>
+      <Link>Lib\Crypto\Util\randpool.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Util\RFC1751.py">
-      <Link>WebApp\Lib\Crypto\Util\RFC1751.py</Link>
+      <Link>Lib\Crypto\Util\RFC1751.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Util\test.py">
-      <Link>WebApp\Lib\Crypto\Util\test.py</Link>
+      <Link>Lib\Crypto\Util\test.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Util\test\prime_speed.py">
-      <Link>WebApp\Lib\Crypto\Util\test\prime_speed.py</Link>
+      <Link>Lib\Crypto\Util\test\prime_speed.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\Util\__init__.py">
-      <Link>WebApp\Lib\Crypto\Util\__init__.py</Link>
+      <Link>Lib\Crypto\Util\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Crypto\__init__.py">
-      <Link>WebApp\Lib\Crypto\__init__.py</Link>
+      <Link>Lib\Crypto\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\ctypes.py">
-      <Link>WebApp\Lib\ctypes.py</Link>
+      <Link>Lib\ctypes.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\dbapi.py">
-      <Link>WebApp\Lib\dbapi.py</Link>
+      <Link>Lib\dbapi.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\difflib.py">
-      <Link>WebApp\Lib\difflib.py</Link>
+      <Link>Lib\difflib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\dis.py">
-      <Link>WebApp\Lib\dis.py</Link>
+      <Link>Lib\dis.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\elementtree\ElementInclude.py">
-      <Link>WebApp\Lib\elementtree\ElementInclude.py</Link>
+      <Link>Lib\elementtree\ElementInclude.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\elementtree\ElementPath.py">
-      <Link>WebApp\Lib\elementtree\ElementPath.py</Link>
+      <Link>Lib\elementtree\ElementPath.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\elementtree\ElementTree.py">
-      <Link>WebApp\Lib\elementtree\ElementTree.py</Link>
+      <Link>Lib\elementtree\ElementTree.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\elementtree\HTMLTreeBuilder.py">
-      <Link>WebApp\Lib\elementtree\HTMLTreeBuilder.py</Link>
+      <Link>Lib\elementtree\HTMLTreeBuilder.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\elementtree\SgmlopXMLTreeBuilder.py">
-      <Link>WebApp\Lib\elementtree\SgmlopXMLTreeBuilder.py</Link>
+      <Link>Lib\elementtree\SgmlopXMLTreeBuilder.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\elementtree\SimpleXMLTreeBuilder.py">
-      <Link>WebApp\Lib\elementtree\SimpleXMLTreeBuilder.py</Link>
+      <Link>Lib\elementtree\SimpleXMLTreeBuilder.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\elementtree\SimpleXMLWriter.py">
-      <Link>WebApp\Lib\elementtree\SimpleXMLWriter.py</Link>
+      <Link>Lib\elementtree\SimpleXMLWriter.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\elementtree\TidyHTMLTreeBuilder.py">
-      <Link>WebApp\Lib\elementtree\TidyHTMLTreeBuilder.py</Link>
+      <Link>Lib\elementtree\TidyHTMLTreeBuilder.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\elementtree\TidyTools.py">
-      <Link>WebApp\Lib\elementtree\TidyTools.py</Link>
+      <Link>Lib\elementtree\TidyTools.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\elementtree\XMLTreeBuilder.py">
-      <Link>WebApp\Lib\elementtree\XMLTreeBuilder.py</Link>
+      <Link>Lib\elementtree\XMLTreeBuilder.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\elementtree\__init__.py">
-      <Link>WebApp\Lib\elementtree\__init__.py</Link>
+      <Link>Lib\elementtree\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\base64MIME.py">
-      <Link>WebApp\Lib\email\base64MIME.py</Link>
+      <Link>Lib\email\base64MIME.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\Charset.py">
-      <Link>WebApp\Lib\email\Charset.py</Link>
+      <Link>Lib\email\Charset.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\Encoders.py">
-      <Link>WebApp\Lib\email\Encoders.py</Link>
+      <Link>Lib\email\Encoders.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\Errors.py">
-      <Link>WebApp\Lib\email\Errors.py</Link>
+      <Link>Lib\email\Errors.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\FeedParser.py">
-      <Link>WebApp\Lib\email\FeedParser.py</Link>
+      <Link>Lib\email\FeedParser.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\Generator.py">
-      <Link>WebApp\Lib\email\Generator.py</Link>
+      <Link>Lib\email\Generator.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\Header.py">
-      <Link>WebApp\Lib\email\Header.py</Link>
+      <Link>Lib\email\Header.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\Iterators.py">
-      <Link>WebApp\Lib\email\Iterators.py</Link>
+      <Link>Lib\email\Iterators.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\Message.py">
-      <Link>WebApp\Lib\email\Message.py</Link>
+      <Link>Lib\email\Message.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\MIMEAudio.py">
-      <Link>WebApp\Lib\email\MIMEAudio.py</Link>
+      <Link>Lib\email\MIMEAudio.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\MIMEBase.py">
-      <Link>WebApp\Lib\email\MIMEBase.py</Link>
+      <Link>Lib\email\MIMEBase.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\MIMEImage.py">
-      <Link>WebApp\Lib\email\MIMEImage.py</Link>
+      <Link>Lib\email\MIMEImage.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\MIMEMessage.py">
-      <Link>WebApp\Lib\email\MIMEMessage.py</Link>
+      <Link>Lib\email\MIMEMessage.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\MIMEMultipart.py">
-      <Link>WebApp\Lib\email\MIMEMultipart.py</Link>
+      <Link>Lib\email\MIMEMultipart.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\MIMENonMultipart.py">
-      <Link>WebApp\Lib\email\MIMENonMultipart.py</Link>
+      <Link>Lib\email\MIMENonMultipart.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\MIMEText.py">
-      <Link>WebApp\Lib\email\MIMEText.py</Link>
+      <Link>Lib\email\MIMEText.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\Parser.py">
-      <Link>WebApp\Lib\email\Parser.py</Link>
+      <Link>Lib\email\Parser.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\quopriMIME.py">
-      <Link>WebApp\Lib\email\quopriMIME.py</Link>
+      <Link>Lib\email\quopriMIME.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\audiotest.au">
-      <Link>WebApp\Lib\email\test\data\audiotest.au</Link>
+      <Link>Lib\email\test\data\audiotest.au</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_01.txt">
-      <Link>WebApp\Lib\email\test\data\msg_01.txt</Link>
+      <Link>Lib\email\test\data\msg_01.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_02.txt">
-      <Link>WebApp\Lib\email\test\data\msg_02.txt</Link>
+      <Link>Lib\email\test\data\msg_02.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_03.txt">
-      <Link>WebApp\Lib\email\test\data\msg_03.txt</Link>
+      <Link>Lib\email\test\data\msg_03.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_04.txt">
-      <Link>WebApp\Lib\email\test\data\msg_04.txt</Link>
+      <Link>Lib\email\test\data\msg_04.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_05.txt">
-      <Link>WebApp\Lib\email\test\data\msg_05.txt</Link>
+      <Link>Lib\email\test\data\msg_05.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_06.txt">
-      <Link>WebApp\Lib\email\test\data\msg_06.txt</Link>
+      <Link>Lib\email\test\data\msg_06.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_07.txt">
-      <Link>WebApp\Lib\email\test\data\msg_07.txt</Link>
+      <Link>Lib\email\test\data\msg_07.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_08.txt">
-      <Link>WebApp\Lib\email\test\data\msg_08.txt</Link>
+      <Link>Lib\email\test\data\msg_08.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_09.txt">
-      <Link>WebApp\Lib\email\test\data\msg_09.txt</Link>
+      <Link>Lib\email\test\data\msg_09.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_10.txt">
-      <Link>WebApp\Lib\email\test\data\msg_10.txt</Link>
+      <Link>Lib\email\test\data\msg_10.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_11.txt">
-      <Link>WebApp\Lib\email\test\data\msg_11.txt</Link>
+      <Link>Lib\email\test\data\msg_11.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_12.txt">
-      <Link>WebApp\Lib\email\test\data\msg_12.txt</Link>
+      <Link>Lib\email\test\data\msg_12.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_12a.txt">
-      <Link>WebApp\Lib\email\test\data\msg_12a.txt</Link>
+      <Link>Lib\email\test\data\msg_12a.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_13.txt">
-      <Link>WebApp\Lib\email\test\data\msg_13.txt</Link>
+      <Link>Lib\email\test\data\msg_13.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_14.txt">
-      <Link>WebApp\Lib\email\test\data\msg_14.txt</Link>
+      <Link>Lib\email\test\data\msg_14.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_15.txt">
-      <Link>WebApp\Lib\email\test\data\msg_15.txt</Link>
+      <Link>Lib\email\test\data\msg_15.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_16.txt">
-      <Link>WebApp\Lib\email\test\data\msg_16.txt</Link>
+      <Link>Lib\email\test\data\msg_16.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_17.txt">
-      <Link>WebApp\Lib\email\test\data\msg_17.txt</Link>
+      <Link>Lib\email\test\data\msg_17.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_18.txt">
-      <Link>WebApp\Lib\email\test\data\msg_18.txt</Link>
+      <Link>Lib\email\test\data\msg_18.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_19.txt">
-      <Link>WebApp\Lib\email\test\data\msg_19.txt</Link>
+      <Link>Lib\email\test\data\msg_19.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_20.txt">
-      <Link>WebApp\Lib\email\test\data\msg_20.txt</Link>
+      <Link>Lib\email\test\data\msg_20.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_21.txt">
-      <Link>WebApp\Lib\email\test\data\msg_21.txt</Link>
+      <Link>Lib\email\test\data\msg_21.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_22.txt">
-      <Link>WebApp\Lib\email\test\data\msg_22.txt</Link>
+      <Link>Lib\email\test\data\msg_22.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_23.txt">
-      <Link>WebApp\Lib\email\test\data\msg_23.txt</Link>
+      <Link>Lib\email\test\data\msg_23.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_24.txt">
-      <Link>WebApp\Lib\email\test\data\msg_24.txt</Link>
+      <Link>Lib\email\test\data\msg_24.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_25.txt">
-      <Link>WebApp\Lib\email\test\data\msg_25.txt</Link>
+      <Link>Lib\email\test\data\msg_25.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_26.txt">
-      <Link>WebApp\Lib\email\test\data\msg_26.txt</Link>
+      <Link>Lib\email\test\data\msg_26.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_27.txt">
-      <Link>WebApp\Lib\email\test\data\msg_27.txt</Link>
+      <Link>Lib\email\test\data\msg_27.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_28.txt">
-      <Link>WebApp\Lib\email\test\data\msg_28.txt</Link>
+      <Link>Lib\email\test\data\msg_28.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_29.txt">
-      <Link>WebApp\Lib\email\test\data\msg_29.txt</Link>
+      <Link>Lib\email\test\data\msg_29.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_30.txt">
-      <Link>WebApp\Lib\email\test\data\msg_30.txt</Link>
+      <Link>Lib\email\test\data\msg_30.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_31.txt">
-      <Link>WebApp\Lib\email\test\data\msg_31.txt</Link>
+      <Link>Lib\email\test\data\msg_31.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_32.txt">
-      <Link>WebApp\Lib\email\test\data\msg_32.txt</Link>
+      <Link>Lib\email\test\data\msg_32.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_33.txt">
-      <Link>WebApp\Lib\email\test\data\msg_33.txt</Link>
+      <Link>Lib\email\test\data\msg_33.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_34.txt">
-      <Link>WebApp\Lib\email\test\data\msg_34.txt</Link>
+      <Link>Lib\email\test\data\msg_34.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_35.txt">
-      <Link>WebApp\Lib\email\test\data\msg_35.txt</Link>
+      <Link>Lib\email\test\data\msg_35.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_36.txt">
-      <Link>WebApp\Lib\email\test\data\msg_36.txt</Link>
+      <Link>Lib\email\test\data\msg_36.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_37.txt">
-      <Link>WebApp\Lib\email\test\data\msg_37.txt</Link>
+      <Link>Lib\email\test\data\msg_37.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_38.txt">
-      <Link>WebApp\Lib\email\test\data\msg_38.txt</Link>
+      <Link>Lib\email\test\data\msg_38.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_39.txt">
-      <Link>WebApp\Lib\email\test\data\msg_39.txt</Link>
+      <Link>Lib\email\test\data\msg_39.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_40.txt">
-      <Link>WebApp\Lib\email\test\data\msg_40.txt</Link>
+      <Link>Lib\email\test\data\msg_40.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_41.txt">
-      <Link>WebApp\Lib\email\test\data\msg_41.txt</Link>
+      <Link>Lib\email\test\data\msg_41.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_42.txt">
-      <Link>WebApp\Lib\email\test\data\msg_42.txt</Link>
+      <Link>Lib\email\test\data\msg_42.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_43.txt">
-      <Link>WebApp\Lib\email\test\data\msg_43.txt</Link>
+      <Link>Lib\email\test\data\msg_43.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\msg_44.txt">
-      <Link>WebApp\Lib\email\test\data\msg_44.txt</Link>
+      <Link>Lib\email\test\data\msg_44.txt</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\data\PyBanner048.gif">
-      <Link>WebApp\Lib\email\test\data\PyBanner048.gif</Link>
+      <Link>Lib\email\test\data\PyBanner048.gif</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\test_email.py">
-      <Link>WebApp\Lib\email\test\test_email.py</Link>
+      <Link>Lib\email\test\test_email.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\test_email_codecs.py">
-      <Link>WebApp\Lib\email\test\test_email_codecs.py</Link>
+      <Link>Lib\email\test\test_email_codecs.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\test_email_torture.py">
-      <Link>WebApp\Lib\email\test\test_email_torture.py</Link>
+      <Link>Lib\email\test\test_email_torture.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\test\__init__.py">
-      <Link>WebApp\Lib\email\test\__init__.py</Link>
+      <Link>Lib\email\test\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\Utils.py">
-      <Link>WebApp\Lib\email\Utils.py</Link>
+      <Link>Lib\email\Utils.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\_parseaddr.py">
-      <Link>WebApp\Lib\email\_parseaddr.py</Link>
+      <Link>Lib\email\_parseaddr.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\email\__init__.py">
-      <Link>WebApp\Lib\email\__init__.py</Link>
+      <Link>Lib\email\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\encodings\aliases.py">
-      <Link>WebApp\Lib\encodings\aliases.py</Link>
+      <Link>Lib\encodings\aliases.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\encodings\base64_codec.py">
-      <Link>WebApp\Lib\encodings\base64_codec.py</Link>
+      <Link>Lib\encodings\base64_codec.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\encodings\charmap.py">
-      <Link>WebApp\Lib\encodings\charmap.py</Link>
+      <Link>Lib\encodings\charmap.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\encodings\hex_codec.py">
-      <Link>WebApp\Lib\encodings\hex_codec.py</Link>
+      <Link>Lib\encodings\hex_codec.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\encodings\rot_13.py">
-      <Link>WebApp\Lib\encodings\rot_13.py</Link>
+      <Link>Lib\encodings\rot_13.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\encodings\uu_codec.py">
-      <Link>WebApp\Lib\encodings\uu_codec.py</Link>
+      <Link>Lib\encodings\uu_codec.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\encodings\zlib_codec.py">
-      <Link>WebApp\Lib\encodings\zlib_codec.py</Link>
+      <Link>Lib\encodings\zlib_codec.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\encodings\__init__.py">
-      <Link>WebApp\Lib\encodings\__init__.py</Link>
+      <Link>Lib\encodings\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\fepy\ast.py">
-      <Link>WebApp\Lib\fepy\ast.py</Link>
+      <Link>Lib\fepy\ast.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\fepy\cipher.py">
-      <Link>WebApp\Lib\fepy\cipher.py</Link>
+      <Link>Lib\fepy\cipher.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\fepy\codecs_errors.py">
-      <Link>WebApp\Lib\fepy\codecs_errors.py</Link>
+      <Link>Lib\fepy\codecs_errors.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\fepy\encoding.py">
-      <Link>WebApp\Lib\fepy\encoding.py</Link>
+      <Link>Lib\fepy\encoding.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\fepy\fileobject.py">
-      <Link>WebApp\Lib\fepy\fileobject.py</Link>
+      <Link>Lib\fepy\fileobject.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\fepy\network.py">
-      <Link>WebApp\Lib\fepy\network.py</Link>
+      <Link>Lib\fepy\network.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\fepy\pickle.py">
-      <Link>WebApp\Lib\fepy\pickle.py</Link>
+      <Link>Lib\fepy\pickle.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\fepy\pth_support.py">
-      <Link>WebApp\Lib\fepy\pth_support.py</Link>
+      <Link>Lib\fepy\pth_support.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\fepy\regex.py">
-      <Link>WebApp\Lib\fepy\regex.py</Link>
+      <Link>Lib\fepy\regex.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\fepy\__init__.py">
-      <Link>WebApp\Lib\fepy\__init__.py</Link>
+      <Link>Lib\fepy\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\fileinput.py">
-      <Link>WebApp\Lib\fileinput.py</Link>
+      <Link>Lib\fileinput.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\fnmatch.py">
-      <Link>WebApp\Lib\fnmatch.py</Link>
+      <Link>Lib\fnmatch.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\formatter.py">
-      <Link>WebApp\Lib\formatter.py</Link>
+      <Link>Lib\formatter.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\ftplib.py">
-      <Link>WebApp\Lib\ftplib.py</Link>
+      <Link>Lib\ftplib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\getopt.py">
-      <Link>WebApp\Lib\getopt.py</Link>
+      <Link>Lib\getopt.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\getpass.py">
-      <Link>WebApp\Lib\getpass.py</Link>
+      <Link>Lib\getpass.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\gettext.py">
-      <Link>WebApp\Lib\gettext.py</Link>
+      <Link>Lib\gettext.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\glob.py">
-      <Link>WebApp\Lib\glob.py</Link>
+      <Link>Lib\glob.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\gopherlib.py">
-      <Link>WebApp\Lib\gopherlib.py</Link>
+      <Link>Lib\gopherlib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\hashlib.py">
-      <Link>WebApp\Lib\hashlib.py</Link>
+      <Link>Lib\hashlib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\heapq.py">
-      <Link>WebApp\Lib\heapq.py</Link>
+      <Link>Lib\heapq.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\hmac.py">
-      <Link>WebApp\Lib\hmac.py</Link>
+      <Link>Lib\hmac.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\htmlentitydefs.py">
-      <Link>WebApp\Lib\htmlentitydefs.py</Link>
+      <Link>Lib\htmlentitydefs.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\htmllib.py">
-      <Link>WebApp\Lib\htmllib.py</Link>
+      <Link>Lib\htmllib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\httplib.py">
-      <Link>WebApp\Lib\httplib.py</Link>
+      <Link>Lib\httplib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\ihooks.py">
-      <Link>WebApp\Lib\ihooks.py</Link>
+      <Link>Lib\ihooks.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\inspect.py">
-      <Link>WebApp\Lib\inspect.py</Link>
+      <Link>Lib\inspect.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\keyword.py">
-      <Link>WebApp\Lib\keyword.py</Link>
+      <Link>Lib\keyword.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\linecache.py">
-      <Link>WebApp\Lib\linecache.py</Link>
+      <Link>Lib\linecache.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\locale.py">
-      <Link>WebApp\Lib\locale.py</Link>
+      <Link>Lib\locale.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\logging\config.py">
-      <Link>WebApp\Lib\logging\config.py</Link>
+      <Link>Lib\logging\config.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\logging\handlers.py">
-      <Link>WebApp\Lib\logging\handlers.py</Link>
+      <Link>Lib\logging\handlers.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\logging\__init__.py">
-      <Link>WebApp\Lib\logging\__init__.py</Link>
+      <Link>Lib\logging\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\macurl2path.py">
-      <Link>WebApp\Lib\macurl2path.py</Link>
+      <Link>Lib\macurl2path.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\mailbox.py">
-      <Link>WebApp\Lib\mailbox.py</Link>
+      <Link>Lib\mailbox.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\markupbase.py">
-      <Link>WebApp\Lib\markupbase.py</Link>
+      <Link>Lib\markupbase.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\md5.py">
-      <Link>WebApp\Lib\md5.py</Link>
+      <Link>Lib\md5.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\mimetools.py">
-      <Link>WebApp\Lib\mimetools.py</Link>
+      <Link>Lib\mimetools.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\mimetypes.py">
-      <Link>WebApp\Lib\mimetypes.py</Link>
+      <Link>Lib\mimetypes.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\MySQLdb.py">
-      <Link>WebApp\Lib\MySQLdb.py</Link>
+      <Link>Lib\MySQLdb.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\netrc.py">
-      <Link>WebApp\Lib\netrc.py</Link>
+      <Link>Lib\netrc.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\new.py">
-      <Link>WebApp\Lib\new.py</Link>
+      <Link>Lib\new.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\nntplib.py">
-      <Link>WebApp\Lib\nntplib.py</Link>
+      <Link>Lib\nntplib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\ntpath.py">
-      <Link>WebApp\Lib\ntpath.py</Link>
+      <Link>Lib\ntpath.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\nturl2path.py">
-      <Link>WebApp\Lib\nturl2path.py</Link>
+      <Link>Lib\nturl2path.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\odbc.py">
-      <Link>WebApp\Lib\odbc.py</Link>
+      <Link>Lib\odbc.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\opcode.py">
-      <Link>WebApp\Lib\opcode.py</Link>
+      <Link>Lib\opcode.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\optparse.py">
-      <Link>WebApp\Lib\optparse.py</Link>
+      <Link>Lib\optparse.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\os.py">
-      <Link>WebApp\Lib\os.py</Link>
+      <Link>Lib\os.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\agent.py">
-      <Link>WebApp\Lib\paramiko\agent.py</Link>
+      <Link>Lib\paramiko\agent.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\auth_handler.py">
-      <Link>WebApp\Lib\paramiko\auth_handler.py</Link>
+      <Link>Lib\paramiko\auth_handler.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\ber.py">
-      <Link>WebApp\Lib\paramiko\ber.py</Link>
+      <Link>Lib\paramiko\ber.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\buffered_pipe.py">
-      <Link>WebApp\Lib\paramiko\buffered_pipe.py</Link>
+      <Link>Lib\paramiko\buffered_pipe.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\channel.py">
-      <Link>WebApp\Lib\paramiko\channel.py</Link>
+      <Link>Lib\paramiko\channel.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\client.py">
-      <Link>WebApp\Lib\paramiko\client.py</Link>
+      <Link>Lib\paramiko\client.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\common.py">
-      <Link>WebApp\Lib\paramiko\common.py</Link>
+      <Link>Lib\paramiko\common.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\compress.py">
-      <Link>WebApp\Lib\paramiko\compress.py</Link>
+      <Link>Lib\paramiko\compress.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\config.py">
-      <Link>WebApp\Lib\paramiko\config.py</Link>
+      <Link>Lib\paramiko\config.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\dsskey.py">
-      <Link>WebApp\Lib\paramiko\dsskey.py</Link>
+      <Link>Lib\paramiko\dsskey.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\file.py">
-      <Link>WebApp\Lib\paramiko\file.py</Link>
+      <Link>Lib\paramiko\file.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\hostkeys.py">
-      <Link>WebApp\Lib\paramiko\hostkeys.py</Link>
+      <Link>Lib\paramiko\hostkeys.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\kex_gex.py">
-      <Link>WebApp\Lib\paramiko\kex_gex.py</Link>
+      <Link>Lib\paramiko\kex_gex.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\kex_group1.py">
-      <Link>WebApp\Lib\paramiko\kex_group1.py</Link>
+      <Link>Lib\paramiko\kex_group1.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\logging22.py">
-      <Link>WebApp\Lib\paramiko\logging22.py</Link>
+      <Link>Lib\paramiko\logging22.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\message.py">
-      <Link>WebApp\Lib\paramiko\message.py</Link>
+      <Link>Lib\paramiko\message.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\packet.py">
-      <Link>WebApp\Lib\paramiko\packet.py</Link>
+      <Link>Lib\paramiko\packet.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\pipe.py">
-      <Link>WebApp\Lib\paramiko\pipe.py</Link>
+      <Link>Lib\paramiko\pipe.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\pkey.py">
-      <Link>WebApp\Lib\paramiko\pkey.py</Link>
+      <Link>Lib\paramiko\pkey.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\primes.py">
-      <Link>WebApp\Lib\paramiko\primes.py</Link>
+      <Link>Lib\paramiko\primes.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\rsakey.py">
-      <Link>WebApp\Lib\paramiko\rsakey.py</Link>
+      <Link>Lib\paramiko\rsakey.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\server.py">
-      <Link>WebApp\Lib\paramiko\server.py</Link>
+      <Link>Lib\paramiko\server.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\sftp.py">
-      <Link>WebApp\Lib\paramiko\sftp.py</Link>
+      <Link>Lib\paramiko\sftp.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\sftp_attr.py">
-      <Link>WebApp\Lib\paramiko\sftp_attr.py</Link>
+      <Link>Lib\paramiko\sftp_attr.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\sftp_client.py">
-      <Link>WebApp\Lib\paramiko\sftp_client.py</Link>
+      <Link>Lib\paramiko\sftp_client.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\sftp_file.py">
-      <Link>WebApp\Lib\paramiko\sftp_file.py</Link>
+      <Link>Lib\paramiko\sftp_file.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\sftp_handle.py">
-      <Link>WebApp\Lib\paramiko\sftp_handle.py</Link>
+      <Link>Lib\paramiko\sftp_handle.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\sftp_server.py">
-      <Link>WebApp\Lib\paramiko\sftp_server.py</Link>
+      <Link>Lib\paramiko\sftp_server.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\sftp_si.py">
-      <Link>WebApp\Lib\paramiko\sftp_si.py</Link>
+      <Link>Lib\paramiko\sftp_si.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\sigquit.py">
-      <Link>WebApp\Lib\paramiko\sigquit.py</Link>
+      <Link>Lib\paramiko\sigquit.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\ssh_exception.py">
-      <Link>WebApp\Lib\paramiko\ssh_exception.py</Link>
+      <Link>Lib\paramiko\ssh_exception.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\transport.py">
-      <Link>WebApp\Lib\paramiko\transport.py</Link>
+      <Link>Lib\paramiko\transport.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\util.py">
-      <Link>WebApp\Lib\paramiko\util.py</Link>
+      <Link>Lib\paramiko\util.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\win_pageant.py">
-      <Link>WebApp\Lib\paramiko\win_pageant.py</Link>
+      <Link>Lib\paramiko\win_pageant.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\paramiko\__init__.py">
-      <Link>WebApp\Lib\paramiko\__init__.py</Link>
+      <Link>Lib\paramiko\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\pdb.py">
-      <Link>WebApp\Lib\pdb.py</Link>
+      <Link>Lib\pdb.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\pickle.py">
-      <Link>WebApp\Lib\pickle.py</Link>
+      <Link>Lib\pickle.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\poplib.py">
-      <Link>WebApp\Lib\poplib.py</Link>
+      <Link>Lib\poplib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\posixpath.py">
-      <Link>WebApp\Lib\posixpath.py</Link>
+      <Link>Lib\posixpath.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\pprint.py">
-      <Link>WebApp\Lib\pprint.py</Link>
+      <Link>Lib\pprint.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\psycopg.py">
-      <Link>WebApp\Lib\psycopg.py</Link>
+      <Link>Lib\psycopg.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\pyexpat.py">
-      <Link>WebApp\Lib\pyexpat.py</Link>
+      <Link>Lib\pyexpat.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\pyflakes\messages.py">
-      <Link>WebApp\Lib\pyflakes\messages.py</Link>
+      <Link>Lib\pyflakes\messages.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\pyflakes\__init__.py">
-      <Link>WebApp\Lib\pyflakes\__init__.py</Link>
+      <Link>Lib\pyflakes\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\Queue.py">
-      <Link>WebApp\Lib\Queue.py</Link>
+      <Link>Lib\Queue.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\quopri.py">
-      <Link>WebApp\Lib\quopri.py</Link>
+      <Link>Lib\quopri.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\random.py">
-      <Link>WebApp\Lib\random.py</Link>
+      <Link>Lib\random.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\repr.py">
-      <Link>WebApp\Lib\repr.py</Link>
+      <Link>Lib\repr.py</Link>
+    </Content>
+    <Content Include="..\..\vendor\Python-Lib\resolver.py">
+      <Link>Lib\resolver.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\rfc822.py">
-      <Link>WebApp\Lib\rfc822.py</Link>
+      <Link>Lib\rfc822.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\select.py">
-      <Link>WebApp\Lib\select.py</Link>
+      <Link>Lib\select.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\selector.py">
-      <Link>WebApp\Lib\selector.py</Link>
+      <Link>Lib\selector.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\sets.py">
-      <Link>WebApp\Lib\sets.py</Link>
+      <Link>Lib\sets.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\sgmllib.py">
-      <Link>WebApp\Lib\sgmllib.py</Link>
+      <Link>Lib\sgmllib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\sha.py">
-      <Link>WebApp\Lib\sha.py</Link>
+      <Link>Lib\sha.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\shlex.py">
-      <Link>WebApp\Lib\shlex.py</Link>
+      <Link>Lib\shlex.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\shutil.py">
-      <Link>WebApp\Lib\shutil.py</Link>
+      <Link>Lib\shutil.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\signal.py">
-      <Link>WebApp\Lib\signal.py</Link>
+      <Link>Lib\signal.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\SimpleHTTPServer.py">
-      <Link>WebApp\Lib\SimpleHTTPServer.py</Link>
+      <Link>Lib\SimpleHTTPServer.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\site.py">
-      <Link>WebApp\Lib\site.py</Link>
+      <Link>Lib\site.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\socket.py">
-      <Link>WebApp\Lib\socket.py</Link>
+      <Link>Lib\socket.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\SocketServer.py">
-      <Link>WebApp\Lib\SocketServer.py</Link>
+      <Link>Lib\SocketServer.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\sqlclient.py">
-      <Link>WebApp\Lib\sqlclient.py</Link>
+      <Link>Lib\sqlclient.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\sqlite.py">
-      <Link>WebApp\Lib\sqlite.py</Link>
+      <Link>Lib\sqlite.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\sqlite3.py">
-      <Link>WebApp\Lib\sqlite3.py</Link>
+      <Link>Lib\sqlite3.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\sre.py">
-      <Link>WebApp\Lib\sre.py</Link>
+      <Link>Lib\sre.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\sre_compile.py">
-      <Link>WebApp\Lib\sre_compile.py</Link>
+      <Link>Lib\sre_compile.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\sre_constants.py">
-      <Link>WebApp\Lib\sre_constants.py</Link>
+      <Link>Lib\sre_constants.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\sre_parse.py">
-      <Link>WebApp\Lib\sre_parse.py</Link>
+      <Link>Lib\sre_parse.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\ssl.py">
-      <Link>WebApp\Lib\ssl.py</Link>
+      <Link>Lib\ssl.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\stat.py">
-      <Link>WebApp\Lib\stat.py</Link>
+      <Link>Lib\stat.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\string.py">
-      <Link>WebApp\Lib\string.py</Link>
+      <Link>Lib\string.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\StringIO.py">
-      <Link>WebApp\Lib\StringIO.py</Link>
+      <Link>Lib\StringIO.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\tarfile.py">
-      <Link>WebApp\Lib\tarfile.py</Link>
+      <Link>Lib\tarfile.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\tempfile.py">
-      <Link>WebApp\Lib\tempfile.py</Link>
+      <Link>Lib\tempfile.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\textwrap.py">
-      <Link>WebApp\Lib\textwrap.py</Link>
+      <Link>Lib\textwrap.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\this.py">
-      <Link>WebApp\Lib\this.py</Link>
+      <Link>Lib\this.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\threading.py">
-      <Link>WebApp\Lib\threading.py</Link>
+      <Link>Lib\threading.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\token.py">
-      <Link>WebApp\Lib\token.py</Link>
+      <Link>Lib\token.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\tokenize.py">
-      <Link>WebApp\Lib\tokenize.py</Link>
+      <Link>Lib\tokenize.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\traceback.py">
-      <Link>WebApp\Lib\traceback.py</Link>
+      <Link>Lib\traceback.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\types.py">
-      <Link>WebApp\Lib\types.py</Link>
+      <Link>Lib\types.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\unicodedata.py">
-      <Link>WebApp\Lib\unicodedata.py</Link>
+      <Link>Lib\unicodedata.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\unittest.py">
-      <Link>WebApp\Lib\unittest.py</Link>
+      <Link>Lib\unittest.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\urllib.py">
-      <Link>WebApp\Lib\urllib.py</Link>
+      <Link>Lib\urllib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\urllib2.py">
-      <Link>WebApp\Lib\urllib2.py</Link>
+      <Link>Lib\urllib2.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\urlparse.py">
-      <Link>WebApp\Lib\urlparse.py</Link>
+      <Link>Lib\urlparse.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\UserDict.py">
-      <Link>WebApp\Lib\UserDict.py</Link>
+      <Link>Lib\UserDict.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\UserList.py">
-      <Link>WebApp\Lib\UserList.py</Link>
+      <Link>Lib\UserList.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\UserString.py">
-      <Link>WebApp\Lib\UserString.py</Link>
+      <Link>Lib\UserString.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\uuid.py">
-      <Link>WebApp\Lib\uuid.py</Link>
+      <Link>Lib\uuid.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\warnings.py">
-      <Link>WebApp\Lib\warnings.py</Link>
+      <Link>Lib\warnings.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\weakref.py">
-      <Link>WebApp\Lib\weakref.py</Link>
+      <Link>Lib\weakref.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\wsgi.py">
-      <Link>WebApp\Lib\wsgi.py</Link>
+      <Link>Lib\wsgi.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\wsgiref\handlers.py">
-      <Link>WebApp\Lib\wsgiref\handlers.py</Link>
+      <Link>Lib\wsgiref\handlers.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\wsgiref\headers.py">
-      <Link>WebApp\Lib\wsgiref\headers.py</Link>
+      <Link>Lib\wsgiref\headers.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\wsgiref\simple_server.py">
-      <Link>WebApp\Lib\wsgiref\simple_server.py</Link>
+      <Link>Lib\wsgiref\simple_server.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\wsgiref\util.py">
-      <Link>WebApp\Lib\wsgiref\util.py</Link>
+      <Link>Lib\wsgiref\util.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\wsgiref\validate.py">
-      <Link>WebApp\Lib\wsgiref\validate.py</Link>
+      <Link>Lib\wsgiref\validate.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\wsgiref\__init__.py">
-      <Link>WebApp\Lib\wsgiref\__init__.py</Link>
+      <Link>Lib\wsgiref\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xmlrpclib.py">
-      <Link>WebApp\Lib\xmlrpclib.py</Link>
+      <Link>Lib\xmlrpclib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\dom\domreg.py">
-      <Link>WebApp\Lib\xml\dom\domreg.py</Link>
+      <Link>Lib\xml\dom\domreg.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\dom\expatbuilder.py">
-      <Link>WebApp\Lib\xml\dom\expatbuilder.py</Link>
+      <Link>Lib\xml\dom\expatbuilder.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\dom\minicompat.py">
-      <Link>WebApp\Lib\xml\dom\minicompat.py</Link>
+      <Link>Lib\xml\dom\minicompat.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\dom\minidom.py">
-      <Link>WebApp\Lib\xml\dom\minidom.py</Link>
+      <Link>Lib\xml\dom\minidom.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\dom\NodeFilter.py">
-      <Link>WebApp\Lib\xml\dom\NodeFilter.py</Link>
+      <Link>Lib\xml\dom\NodeFilter.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\dom\pulldom.py">
-      <Link>WebApp\Lib\xml\dom\pulldom.py</Link>
+      <Link>Lib\xml\dom\pulldom.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\dom\xmlbuilder.py">
-      <Link>WebApp\Lib\xml\dom\xmlbuilder.py</Link>
+      <Link>Lib\xml\dom\xmlbuilder.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\dom\__init__.py">
-      <Link>WebApp\Lib\xml\dom\__init__.py</Link>
+      <Link>Lib\xml\dom\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\parsers\expat.py">
-      <Link>WebApp\Lib\xml\parsers\expat.py</Link>
+      <Link>Lib\xml\parsers\expat.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\parsers\__init__.py">
-      <Link>WebApp\Lib\xml\parsers\__init__.py</Link>
+      <Link>Lib\xml\parsers\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\sax\expatreader.py">
-      <Link>WebApp\Lib\xml\sax\expatreader.py</Link>
+      <Link>Lib\xml\sax\expatreader.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\sax\handler.py">
-      <Link>WebApp\Lib\xml\sax\handler.py</Link>
+      <Link>Lib\xml\sax\handler.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\sax\saxutils.py">
-      <Link>WebApp\Lib\xml\sax\saxutils.py</Link>
+      <Link>Lib\xml\sax\saxutils.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\sax\xmlreader.py">
-      <Link>WebApp\Lib\xml\sax\xmlreader.py</Link>
+      <Link>Lib\xml\sax\xmlreader.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\sax\_exceptions.py">
-      <Link>WebApp\Lib\xml\sax\_exceptions.py</Link>
+      <Link>Lib\xml\sax\_exceptions.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\sax\__init__.py">
-      <Link>WebApp\Lib\xml\sax\__init__.py</Link>
+      <Link>Lib\xml\sax\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\xml\__init__.py">
-      <Link>WebApp\Lib\xml\__init__.py</Link>
+      <Link>Lib\xml\__init__.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\zlib.py">
-      <Link>WebApp\Lib\zlib.py</Link>
+      <Link>Lib\zlib.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\_codecs_errors.py">
-      <Link>WebApp\Lib\_codecs_errors.py</Link>
+      <Link>Lib\_codecs_errors.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\_fileobject.py">
-      <Link>WebApp\Lib\_fileobject.py</Link>
+      <Link>Lib\_fileobject.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\_LWPCookieJar.py">
-      <Link>WebApp\Lib\_LWPCookieJar.py</Link>
+      <Link>Lib\_LWPCookieJar.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\_MozillaCookieJar.py">
-      <Link>WebApp\Lib\_MozillaCookieJar.py</Link>
+      <Link>Lib\_MozillaCookieJar.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\_pth_support.py">
-      <Link>WebApp\Lib\_pth_support.py</Link>
+      <Link>Lib\_pth_support.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\_sre.py">
-      <Link>WebApp\Lib\_sre.py</Link>
+      <Link>Lib\_sre.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\_threading_local.py">
-      <Link>WebApp\Lib\_threading_local.py</Link>
+      <Link>Lib\_threading_local.py</Link>
     </Content>
     <Content Include="..\..\vendor\Python-Lib\__future__.py">
-      <Link>WebApp\Lib\__future__.py</Link>
+      <Link>Lib\__future__.py</Link>
     </Content>
-    <Content Include="..\..\vendor\Python-Lib">
-      <Link>WebApp\workspace\images\bg-electric-red.png</Link>
-    </Content>
-    <Content Include="..\..\vendor\Python-Lib">
-      <Link>WebApp\workspace\themes\base\base.css</Link>
-    </Content>
-    <Content Include="..\..\vendor\Python-Lib">
-      <Link>WebApp\workspace\xslt\atomicxml.xslt</Link>
-    </Content>
-    <Content Include="..\..\vendor\Python-Lib">
-      <Link>WebApp\workspace\xslt\base.xslt</Link>
-    </Content>
+    <Content Include="WebApp\appsite.py" />
+    <Content Include="WebApp\cherrypyserver.py" />
+    <Content Include="WebApp\core\atompub.py" />
+    <Content Include="WebApp\core\handler\article.py" />
+    <Content Include="WebApp\core\handler\__init__.py" />
+    <Content Include="WebApp\core\__init__.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DLLs\"/>
-    <Folder Include="WebApp\bin\"/>
-    <Folder Include="WebApp\Lib\amplee\examples\audio\fsrepo\"/>
-    <Folder Include="WebApp\Lib\amplee\examples\blog\cache\html\"/>
-    <Folder Include="WebApp\Lib\amplee\examples\blog\repository\"/>
-    <Folder Include="WebApp\Lib\amplee\examples\pakawi\basket\fsrepo\"/>
-    <Folder Include="WebApp\Lib\amplee\test\temp\fs_repo\"/>
-    <Folder Include="WebApp\repository\"/>
+    <ProjectReference Include="..\Xameleon.Mvp.Xml\Xameleon.Mvp.Xml.csproj">
+      <Project>{F81D17A0-0B2F-4030-B55C-B73D7F5237ED}</Project>
+      <Name>Xameleon.Mvp.Xml</Name>
+    </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets"/>
+  <ItemGroup>
+    <Folder Include="DLLs\" />
+    <Folder Include="WebApp\bin\" />
+    <Folder Include="WebApp\Lib\" />
+    <Folder Include="WebApp\repository\" />
+    <Folder Include="WebApp\workspace\themes\base\" />
+    <Folder Include="WebApp\workspace\xslt\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
