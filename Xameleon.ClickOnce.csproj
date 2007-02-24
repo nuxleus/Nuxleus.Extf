@@ -79,6 +79,15 @@
       <Link>Extf.Net.snk</Link>
     </None>
     <BaseApplicationManifest Include="Properties\app.manifest" />
+    <None Include="WebApp\appstore.conf" />
+    <None Include="WebApp\default.omx" />
+    <None Include="WebApp\workspace\modules\body.atom" />
+    <None Include="WebApp\workspace\modules\footer.atom" />
+    <None Include="WebApp\workspace\modules\header.atom" />
+    <None Include="WebApp\workspace\schema\app.categories.rnc" />
+    <None Include="WebApp\workspace\schema\app.categories.rng" />
+    <None Include="WebApp\workspace\schema\app.rnc" />
+    <None Include="WebApp\workspace\schema\app.rng" />
     <None Include="Xameleon.ClickOnce_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -89,7 +98,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="WebApp\appsite.py" />
+    <Content Include="WebApp\cherrypyserver.py" />
+    <Content Include="WebApp\core\atompub.py" />
+    <Content Include="WebApp\core\handler\article.py" />
+    <Content Include="WebApp\core\handler\__init__.py" />
+    <Content Include="WebApp\core\__init__.py" />
+    <Content Include="WebApp\workspace\images\bg-electric-red.png" />
+    <Content Include="WebApp\workspace\themes\base\base.css" />
+    <Content Include="WebApp\workspace\xslt\atomicxml.xslt" />
+    <Content Include="WebApp\workspace\xslt\base.xslt" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Lib\" />
+    <Folder Include="WebApp\bin\" />
+    <Folder Include="WebApp\repository\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
