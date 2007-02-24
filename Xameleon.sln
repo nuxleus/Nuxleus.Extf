@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual C# Express 2005
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon", "Xameleon.csproj", "{A800D9F1-D877-4076-99BA-CBD73BCFB203}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon.ClickOnce", "..\Xameleon.ClickOnce\Xameleon.ClickOnce.csproj", "{1741C0DC-C5FF-45A2-B7B4-79185633877F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{A800D9F1-D877-4076-99BA-CBD73BCFB203}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A800D9F1-D877-4076-99BA-CBD73BCFB203}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A800D9F1-D877-4076-99BA-CBD73BCFB203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1741C0DC-C5FF-45A2-B7B4-79185633877F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1741C0DC-C5FF-45A2-B7B4-79185633877F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1741C0DC-C5FF-45A2-B7B4-79185633877F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1741C0DC-C5FF-45A2-B7B4-79185633877F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
