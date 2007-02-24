@@ -19,7 +19,6 @@ import clr
 from System.IO import Path, Directory, FileInfo
 
 sys.path.append('./WebApp')
-sys.path.append('./WebApp/Lib')
 
 dir = Path.Combine(sys.prefix, 'DLLs')
 if Directory.Exists(dir):
