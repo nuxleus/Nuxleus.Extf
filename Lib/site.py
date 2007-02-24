@@ -34,3 +34,6 @@ if Directory.Exists(dir):
 
 import fepy
 fepy.install()
+fepy.install_option('network')
+fepy.install_option('encoding')
+fepy.install_option('fileobject')
