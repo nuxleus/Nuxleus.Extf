@@ -3,14 +3,12 @@
 // Please see http://www.opensource.org/licenses/mit-license.php for specific detail.
 
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Xameleon {
-
-    public partial class Transform {
-
-      public Transform () { }
-
-        private bool _IS_INITIALIZED = false;
-
+namespace Xameleon.APP
+{
+    interface IMember
+    {
     }
 }

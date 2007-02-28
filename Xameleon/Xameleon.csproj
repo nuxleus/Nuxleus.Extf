@@ -10,33 +10,72 @@
     <RootNamespace>Xameleon</RootNamespace>
     <AssemblyName>Xameleon</AssemblyName>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\Resources\Extf.Net.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\trunk\Resources\Extf.Net.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\amplee-integration\WebApp\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\docs\Xameleon.xml</DocumentationFile>
+    <DocumentationFile>docs\Xameleon.xml</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release\</OutputPath>
+    <OutputPath>..\amplee-integration\WebApp\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\docs\Xameleon.xml</DocumentationFile>
+    <DocumentationFile>docs\Xameleon.xml</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AmazonAWS.S3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL" />
+    <Reference Include="GlobalClip, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL" />
+    <Reference Include="GlobalClip.XmlSerializers, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL" />
+    <Reference Include="IronMath, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\trunk\Dependencies\IronMath.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\trunk\Dependencies\IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\trunk\Dependencies\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Saxon.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\trunk\Dependencies\Saxon.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="saxon8, Version=8.9.0.2, Culture=neutral, PublicKeyToken=e1fdd002d5083fe6">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\trunk\Dependencies\saxon8.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APP\Collection.cs" />
+    <Compile Include="APP\IMember.cs" />
+    <Compile Include="APP\IStorage.cs" />
+    <Compile Include="APP\Media\Atom.cs" />
+    <Compile Include="APP\Media\Generic.cs" />
+    <Compile Include="APP\Media\IMedia.cs" />
+    <Compile Include="APP\Member.cs" />
+    <Compile Include="APP\Service.cs" />
+    <Compile Include="APP\Storage.cs" />
+    <Compile Include="APP\Store.cs" />
+    <Compile Include="APP\Workspace.cs" />
+    <Compile Include="Atom\AtomEntry.cs" />
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="HttpHandler\HttpHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -44,18 +83,57 @@
     <Compile Include="Transform\Init.cs" />
     <Compile Include="Transform\Process.cs" />
     <Compile Include="Transform\Transform.cs" />
+    <Compile Include="..\xsp\Mono.WebServer\ApplicationServer.cs">
+      <Link>WebServer\Mono.WebServer\ApplicationServer.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\BaseApplicationHost.cs">
+      <Link>WebServer\Mono.WebServer\BaseApplicationHost.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\BaseRequestBroker.cs">
+      <Link>WebServer\Mono.WebServer\BaseRequestBroker.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\IApplicationHost.cs">
+      <Link>WebServer\Mono.WebServer\IApplicationHost.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\InitialWorkerRequest.cs">
+      <Link>WebServer\Mono.WebServer\InitialWorkerRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\IWebSource.cs">
+      <Link>WebServer\Mono.WebServer\IWebSource.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\LingeringNetworkStream.cs">
+      <Link>WebServer\Mono.WebServer\LingeringNetworkStream.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\MonoWorkerRequest.cs">
+      <Link>WebServer\Mono.WebServer\MonoWorkerRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\XSPApplicationHost.cs">
+      <Link>WebServer\Mono.WebServer\XSPApplicationHost.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Mono.WebServer\XSPWorkerRequest.cs">
+      <Link>WebServer\Mono.WebServer\XSPWorkerRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\security.cs">
+      <Link>WebServer\security.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\server.cs">
+      <Link>WebServer\server.cs</Link>
+    </Compile>
+    <Compile Include="..\xsp\Tracing.cs">
+      <Link>WebServer\Tracing.cs</Link>
+    </Compile>
+    <Compile Include="WebServer\WebServer.cs" />
+    <Compile Include="WebServer\WSGI.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Resources\Extf.Net.snk">
+    <None Include="..\..\trunk\Resources\Extf.Net.snk">
       <Link>Extf.Net.snk</Link>
     </None>
     <None Include="Configuration\App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
-      <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
-      <Name>Saxon.Api</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
