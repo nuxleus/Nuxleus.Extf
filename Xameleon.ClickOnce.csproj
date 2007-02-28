@@ -17,7 +17,7 @@
     <TargetZone>LocalIntranet</TargetZone>
     <GenerateManifests>true</GenerateManifests>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>http://localhost/Xameleon.ClickOnce/</PublishUrl>
+    <PublishUrl>http://xameleon.org/webapp/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -54,18 +54,6 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AmazonAWS.S3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\trunk\Dependencies\AmazonAWS.S3.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamicWebServiceHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\trunk\Dependencies\DynamicWebServiceHelpers.dll</HintPath>
-    </Reference>
-    <Reference Include="GlobalClip, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\trunk\Dependencies\GlobalClip.dll</HintPath>
-    </Reference>
     <Reference Include="IronMath, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\vendor\IronPython-1.1B1\IronMath.dll</HintPath>
@@ -74,9 +62,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\vendor\IronPython-1.1B1\IronPython.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+    <Reference Include="MonoTorrent.Client, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\trunk\Dependencies\Mono.Security.dll</HintPath>
+      <HintPath>..\..\trunk\Dependencies\MonoTorrent.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTorrent.Common, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\trunk\Dependencies\MonoTorrent.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTorrent.Tracker, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\trunk\Dependencies\MonoTorrent.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Mvp.Xml, Version=2.2.0.0, Culture=neutral, PublicKeyToken=6ead800d778c9b9f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -87,6 +83,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
+    <Reference Include="Upnp, Version=0.5.0.0, Culture=neutral, PublicKeyToken=667b6f9c0b93f26b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\trunk\Dependencies\Upnp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,13 +117,17 @@
     <None Include="Lib\amplee\test\data\plain_text_content.atom" />
     <None Include="Lib\amplee\test\data\store.conf" />
     <None Include="Lib\amplee\test\test.conf" />
-    <None Include="workspace\modules\body.atom" />
-    <None Include="workspace\modules\footer.atom" />
-    <None Include="workspace\modules\header.atom" />
-    <None Include="workspace\schema\app.categories.rnc" />
-    <None Include="workspace\schema\app.categories.rng" />
-    <None Include="workspace\schema\app.rnc" />
-    <None Include="workspace\schema\app.rng" />
+    <None Include="WebApp\workspace\modules\body.atom" />
+    <None Include="WebApp\workspace\modules\footer.atom" />
+    <None Include="WebApp\workspace\modules\header.atom" />
+    <None Include="WebApp\workspace\schema\app.categories.rnc" />
+    <None Include="WebApp\workspace\schema\app.categories.rng" />
+    <None Include="WebApp\workspace\schema\app.rnc" />
+    <None Include="WebApp\workspace\schema\app.rng" />
+    <None Include="WebApp\workspace\xslt\base.xslt" />
+    <None Include="WebApp\workspace\xslt\atomicxml.xslt" />
+    <None Include="WebApp\workspace\themes\base\base.css" />
+    <None Include="WebApp\workspace\images\bg-electric-red.png" />
     <None Include="Xameleon.ClickOnce.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -1519,12 +1523,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <PublishFile Include="nunit.framework">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="DLLs\" />
-    <Folder Include="WebApp\bin\" />
-    <Folder Include="WebApp\Lib\" />
     <Folder Include="WebApp\repository\" />
-    <Folder Include="WebApp\workspace\themes\base\" />
-    <Folder Include="WebApp\workspace\xslt\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
