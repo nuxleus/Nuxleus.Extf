@@ -34,9 +34,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AmazonAWS.S3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL" />
-    <Reference Include="GlobalClip, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL" />
-    <Reference Include="GlobalClip.XmlSerializers, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL" />
+    <Reference Include="AmazonAWS.S3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
+      <HintPath>..\Dependencies\AmazonAWS.S3.dll</HintPath>
+    </Reference>
     <Reference Include="IronMath, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\trunk\Dependencies\IronMath.dll</HintPath>
@@ -83,44 +83,35 @@
     <Compile Include="Transform\Init.cs" />
     <Compile Include="Transform\Process.cs" />
     <Compile Include="Transform\Transform.cs" />
-    <Compile Include="..\xsp\Mono.WebServer\ApplicationServer.cs">
+    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\ApplicationServer.cs">
       <Link>WebServer\Mono.WebServer\ApplicationServer.cs</Link>
     </Compile>
-    <Compile Include="..\xsp\Mono.WebServer\BaseApplicationHost.cs">
+    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\BaseApplicationHost.cs">
       <Link>WebServer\Mono.WebServer\BaseApplicationHost.cs</Link>
     </Compile>
-    <Compile Include="..\xsp\Mono.WebServer\BaseRequestBroker.cs">
+    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\BaseRequestBroker.cs">
       <Link>WebServer\Mono.WebServer\BaseRequestBroker.cs</Link>
     </Compile>
-    <Compile Include="..\xsp\Mono.WebServer\IApplicationHost.cs">
+    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\IApplicationHost.cs">
       <Link>WebServer\Mono.WebServer\IApplicationHost.cs</Link>
     </Compile>
-    <Compile Include="..\xsp\Mono.WebServer\InitialWorkerRequest.cs">
+    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\InitialWorkerRequest.cs">
       <Link>WebServer\Mono.WebServer\InitialWorkerRequest.cs</Link>
     </Compile>
-    <Compile Include="..\xsp\Mono.WebServer\IWebSource.cs">
+    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\IWebSource.cs">
       <Link>WebServer\Mono.WebServer\IWebSource.cs</Link>
     </Compile>
-    <Compile Include="..\xsp\Mono.WebServer\LingeringNetworkStream.cs">
+    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\LingeringNetworkStream.cs">
       <Link>WebServer\Mono.WebServer\LingeringNetworkStream.cs</Link>
     </Compile>
-    <Compile Include="..\xsp\Mono.WebServer\MonoWorkerRequest.cs">
+    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\MonoWorkerRequest.cs">
       <Link>WebServer\Mono.WebServer\MonoWorkerRequest.cs</Link>
     </Compile>
-    <Compile Include="..\xsp\Mono.WebServer\XSPApplicationHost.cs">
+    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\XSPApplicationHost.cs">
       <Link>WebServer\Mono.WebServer\XSPApplicationHost.cs</Link>
     </Compile>
-    <Compile Include="..\xsp\Mono.WebServer\XSPWorkerRequest.cs">
+    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\XSPWorkerRequest.cs">
       <Link>WebServer\Mono.WebServer\XSPWorkerRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\xsp\security.cs">
-      <Link>WebServer\security.cs</Link>
-    </Compile>
-    <Compile Include="..\xsp\server.cs">
-      <Link>WebServer\server.cs</Link>
-    </Compile>
-    <Compile Include="..\xsp\Tracing.cs">
-      <Link>WebServer\Tracing.cs</Link>
     </Compile>
     <Compile Include="WebServer\WebServer.cs" />
     <Compile Include="WebServer\WSGI.cs" />
@@ -130,6 +121,12 @@
       <Link>Extf.Net.snk</Link>
     </None>
     <None Include="Configuration\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GlobalClip\GlobalClip.csproj">
+      <Project>{9B9C08A7-0E8A-45AA-AEB4-7A5796DB1C26}</Project>
+      <Name>GlobalClip</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
