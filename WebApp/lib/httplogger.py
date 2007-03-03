@@ -64,19 +64,17 @@ class HTTPLogger(object):
 
     def __call__(self, environ, start_response):
         def start_response_logged(status, headers, exc_info=None):
-            if self.propagate_exc and exc_info:
-                raise exc_info[0],exc_info[1],exc_info[2]
-            
-            try:
-                content = start_response(status, headers)
-                self.log_access(status, headers, environ)
-                return content
-            except:
+            if not exc_info:
+                exc_info = sys.exc_info()
+            if exc_info != (None, None, None):
                 if self.error_logger:
-                    self.log_access('500 Internal Server Error', headers, environ)
-                    self.log_error()
+                    self.log_error(exc_info)
+                # Not sure this is correct as per WSGI. Will have to check.
                 if self.propagate_exc:
-                    raise
+                    raise exc_info[0],exc_info[1],exc_info[2]
+
+            self.log_access(status, headers, environ)
+            return start_response(status, headers, exc_info)
 
         return self.wsgiapp(environ, start_response_logged)
 
@@ -92,8 +90,8 @@ class HTTPLogger(object):
                           'a': environ.get('HTTP_USER_AGENT', '')}
         self.access_logger.log(logging.INFO, log)
 
-    def log_error(self):
-        self.error_logger.log(logging.DEBUG, self.format_exc())
+    def log_error(self, exc_info=None):
+        self.error_logger.log(logging.DEBUG, self.format_exc(exc_info))
 
     def format_now(self):
         # from CherryPy
