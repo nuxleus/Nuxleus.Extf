@@ -10,7 +10,7 @@ from core.atompub import setup_store
 cur_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Our main WSGI application is the selector middleware
-# which will dispatch to the amplee WSGI applications
+#Â which will dispatch to the amplee WSGI applications
 # based on the request URI
 s = selector.Selector()
 
@@ -36,7 +36,7 @@ def create_store(dispatcher):
 
 create_store(s)
 
-from lib.httplogger import HTTPLogger
+from httplogger import HTTPLogger
 s = HTTPLogger(s, propagate_exc=False)
 s.create_access_logger(access_path=os.path.join(cur_dir, 'access.log'))
 s.create_error_logger(error_path=os.path.join(cur_dir, 'error.log'))
