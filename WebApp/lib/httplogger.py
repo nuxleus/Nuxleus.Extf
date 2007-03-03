@@ -26,7 +26,7 @@ import rfc822
 _pattern = '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"'
 
 class HTTPLogger(object):
-    def __init__(self, wsgiapp, access_logger=None, error_logger=None, propagate_exc=True):
+    def __init__(self, wsgiapp, access_logger=None, error_logger=None, propagate_exc=False):
         self.wsgiapp = wsgiapp
         self.access_logger = access_logger
         self.error_logger = error_logger
