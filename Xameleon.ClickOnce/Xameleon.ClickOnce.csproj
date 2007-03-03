@@ -1038,6 +1038,9 @@
     <Content Include="..\..\vendor\Python-Lib\gopherlib.py">
       <Link>Lib\gopherlib.py</Link>
     </Content>
+    <Content Include="..\..\vendor\Python-Lib\httplogger.py">
+      <Link>Lib\httplogger.py</Link>
+    </Content>
     <Content Include="..\..\vendor\Python-Lib\hashlib.py">
       <Link>Lib\hashlib.py</Link>
     </Content>
@@ -1525,11 +1528,11 @@
   <ItemGroup>
     <PublishFile Include="nunit.framework">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

@@ -15,11 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonAWS.S3", "VendorExten
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicWebServiceHelpers", "VendorExtensions\Microsoft\IronPython\DynamicWebServiceHelpers\DynamicWebServiceHelpers.csproj", "{1D454DD9-4271-47F0-A45C-12040305BAD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon.Mvp.Xml", "..\..\extf\trunk\Xameleon.Mvp.Xml\Xameleon.Mvp.Xml.csproj", "{F81D17A0-0B2F-4030-B55C-B73D7F5237ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon.Mvp.Xml", "Xameleon.Mvp.Xml\Xameleon.Mvp.Xml.csproj", "{F81D17A0-0B2F-4030-B55C-B73D7F5237ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon.Saxon", "..\..\extf\trunk\Xameleon.Saxon\Xameleon.Saxon.csproj", "{633322D9-B096-4869-AE5D-96817B679231}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon.Saxon", "Xameleon.Saxon\Xameleon.Saxon.csproj", "{633322D9-B096-4869-AE5D-96817B679231}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon.ClickOnce", "..\..\extf\trunk\Xameleon.ClickOnce\Xameleon.ClickOnce.csproj", "{1741C0DC-C5FF-45A2-B7B4-79185633877F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon.ClickOnce", "Xameleon.ClickOnce\Xameleon.ClickOnce.csproj", "{1741C0DC-C5FF-45A2-B7B4-79185633877F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
