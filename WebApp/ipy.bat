@@ -1,1 +1,1 @@
-.\bin\ipy.exe
+.\bin\ipy.exe -X:TabCompletion -X:ColorfulConsole
