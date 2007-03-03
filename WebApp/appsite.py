@@ -36,4 +36,8 @@ def create_store(dispatcher):
 
 create_store(s)
 
+from lib.httplogger import HTTPLogger
+s = HTTPLogger(s)
+s.create_access_logger(access_path=os.path.join(cur_dir, 'access.log'))
+s.create_error_logger(error_path=os.path.join(cur_dir, 'error.log'))
 app = s
