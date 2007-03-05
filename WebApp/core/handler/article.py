@@ -39,6 +39,7 @@ except IOError:
     pass
     
 import Xameleon
+# from Xameleon import entry_point
 
 class AtomHandler(object):
     def __init__(self, member_type):
@@ -83,6 +84,11 @@ class AtomHandler(object):
 
     # Called when the media resource is being requested
     def on_get_content(self, member, content, content_type):
+        # We call the Xameleon.handler and pass the XmlDocument instance
+        # of the Atom entry:
+        # doc = sx.XmlDocument()
+        # doc.LoadXml(member.atom.xml())
+        # entry_point(doc)
         return member, content, content_type
 
     # Called when the entry member is being requested

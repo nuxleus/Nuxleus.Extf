@@ -28,9 +28,9 @@ def create_store(dispatcher):
     
     print "Creating the collection WSGI application"
     music_store = Store(workspace.get_collection('music'), strict=True)
-    dispatcher.add('[/]', POST=music_store.create_member,
+    dispatcher.add('/music/[/]', POST=music_store.create_member,
           GET=music_store.get_collection, HEAD=music_store.head_collection)
-    dispatcher.add('/{rid:any}', GET=music_store.get_member,
+    dispatcher.add('/music/{rid:any}', GET=music_store.get_member,
           PUT=music_store.update_member,
           DELETE=music_store.delete_member, HEAD=music_store.head_member)
     print "All good!"
@@ -40,8 +40,16 @@ def create_static(dispatcher):
     static = Cling(os.path.join(cur_dir))
     s.add('/static/{r:any}', GET=static)
 
+def dummy_xameleon_handler(dispatcher):
+    from core.xameleonhandler import xamdler
+    s.add('[/]', GET=xamdler)
+
 create_static(s)
 create_store(s)
+# Just uncomment the following to enable the
+# Xameleon handler out of amplee
+# You may not need this
+dummy_xameleon_handler(s)
 
 from httplogger import HTTPLogger
 s = HTTPLogger(s, propagate_exc=False)
