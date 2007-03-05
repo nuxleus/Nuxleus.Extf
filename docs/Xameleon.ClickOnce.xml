@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xameleon.ClickOnce</name>
+    </assembly>
+    <members>
+        <member name="F:IronPythonConsole.SuperConsole.input">
+            <summary>
+            The console input buffer.
+            </summary>
+        </member>
+        <member name="F:IronPythonConsole.SuperConsole.current">
+            <summary>
+            Current position - index into the input buffer
+            </summary>
+        </member>
+        <member name="F:IronPythonConsole.SuperConsole.autoIndentSize">
+            <summary>
+            The number of white-spaces displayed for the auto-indenation of the current line
+            </summary>
+        </member>
+        <member name="F:IronPythonConsole.SuperConsole.rendered">
+            <summary>
+            Length of the output currently rendered on screen.
+            </summary>
+        </member>
+        <member name="F:IronPythonConsole.SuperConsole.history">
+            <summary>
+            Command history
+            </summary>
+        </member>
+        <member name="F:IronPythonConsole.SuperConsole.options">
+            <summary>
+            Tab options available in current context
+            </summary>
+        </member>
+        <member name="F:IronPythonConsole.SuperConsole.cursor">
+            <summary>
+            Cursort anchor - position of cursor when the routine was called
+            </summary>
+        </member>
+        <member name="F:IronPythonConsole.SuperConsole.engine">
+            <summary>
+            Python Engine reference. Used for the tab-completion lookup.
+            </summary>
+        </member>
+        <member name="T:IronPythonConsole.SuperConsole.History">
+            <summary>
+            Class managing the command history.
+            </summary>
+        </member>
+        <member name="T:IronPythonConsole.SuperConsole.SuperConsoleOptions">
+            <summary>
+            List of available options
+            </summary>
+        </member>
+        <member name="T:IronPythonConsole.SuperConsole.Cursor">
+            <summary>
+            Cursor position management
+            </summary>
+        </member>
+        <member name="F:IronPythonConsole.SuperConsole.Cursor.anchorTop">
+            <summary>
+            Beginning position of the cursor - top coordinate.
+            </summary>
+        </member>
+        <member name="F:IronPythonConsole.SuperConsole.Cursor.anchorLeft">
+            <summary>
+            Beginning position of the cursor - left coordinate.
+            </summary>
+        </member>
+        <member name="T:IronPythonConsole.PythonCommandLine">
+            <summary>
+            A simple Python command-line should mimic the standard python.exe
+            </summary>
+        </member>
+        <member name="M:IronPythonConsole.PythonCommandLine.ReadStatement(System.Boolean@)">
+            <summary>
+            Read a statement, which can potentially be a multiple-line statement suite (like a class declaration).
+            </summary>
+            <param name="continueInteraction">Should the console session continue, or did the user indicate 
+            that it should be terminated?</param>
+            <returns>Expression to evaluate. null for empty input</returns>
+        </member>
+    </members>
+</doc>
