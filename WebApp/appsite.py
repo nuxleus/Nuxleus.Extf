@@ -2,6 +2,7 @@
 
 import os.path
 import selector
+from static import Cling
 from amplee.handler.store.wsgi import Service, Store
 
 # Local imports
@@ -34,6 +35,12 @@ def create_store(dispatcher):
           DELETE=music_store.delete_member, HEAD=music_store.head_member)
     print "All good!"
 
+def create_static(dispatcher):
+    print "Setting up the static servicing"
+    static = Cling(os.path.join(cur_dir))
+    s.add('/static/{r:any}', GET=static)
+
+create_static(s)
 create_store(s)
 
 from httplogger import HTTPLogger
