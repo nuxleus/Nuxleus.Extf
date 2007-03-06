@@ -24,11 +24,12 @@ def create_store(dispatcher):
     print "Creating the service WSGI application"
     service = Service(service)
     # Uri to which the app:service document is reachable
-    dispatcher.add('/service', GET=service.get_service)
+    dispatcher.add('/service[/]', GET=service.get_service)
+    dispatcher.add('/service/pub[/]', GET=service.get_service)
     
     print "Creating the collection WSGI application"
     music_store = Store(workspace.get_collection('music'), strict=True)
-    dispatcher.add('/music/[/]', POST=music_store.create_member,
+    dispatcher.add('/music[/]', POST=music_store.create_member,
           GET=music_store.get_collection, HEAD=music_store.head_collection)
     dispatcher.add('/music/{rid:any}', GET=music_store.get_member,
           PUT=music_store.update_member,
