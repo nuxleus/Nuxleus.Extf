@@ -1960,8 +1960,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DLLs\" />
+    <Folder Include="private_web\" />
+    <Folder Include="public_web\" />
     <Folder Include="repository\" />
-    <Folder Include="static\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

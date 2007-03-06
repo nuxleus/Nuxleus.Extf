@@ -4,7 +4,7 @@ using System.Text;
 using System.Xml;
 using System.IO;
 using Saxon.Api;
-using Xameleon.Saxon.Properties;
+using Xameleon.Properties;
 using System.Net;
 
 namespace Xameleon.Saxon {

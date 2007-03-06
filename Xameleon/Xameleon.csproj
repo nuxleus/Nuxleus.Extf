@@ -79,42 +79,10 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\ApplicationServer.cs">
-      <Link>WebServer\Mono.WebServer\ApplicationServer.cs</Link>
-    </Compile>
-    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\BaseApplicationHost.cs">
-      <Link>WebServer\Mono.WebServer\BaseApplicationHost.cs</Link>
-    </Compile>
-    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\BaseRequestBroker.cs">
-      <Link>WebServer\Mono.WebServer\BaseRequestBroker.cs</Link>
-    </Compile>
-    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\IApplicationHost.cs">
-      <Link>WebServer\Mono.WebServer\IApplicationHost.cs</Link>
-    </Compile>
-    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\InitialWorkerRequest.cs">
-      <Link>WebServer\Mono.WebServer\InitialWorkerRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\IWebSource.cs">
-      <Link>WebServer\Mono.WebServer\IWebSource.cs</Link>
-    </Compile>
-    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\LingeringNetworkStream.cs">
-      <Link>WebServer\Mono.WebServer\LingeringNetworkStream.cs</Link>
-    </Compile>
-    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\MonoWorkerRequest.cs">
-      <Link>WebServer\Mono.WebServer\MonoWorkerRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\XSPApplicationHost.cs">
-      <Link>WebServer\Mono.WebServer\XSPApplicationHost.cs</Link>
-    </Compile>
-    <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\XSPWorkerRequest.cs">
-      <Link>WebServer\Mono.WebServer\XSPWorkerRequest.cs</Link>
-    </Compile>
     <Compile Include="Transform\Transform.Context.cs" />
     <Compile Include="Transform\Transform.cs" />
     <Compile Include="Transform\Transform.Init.cs" />
     <Compile Include="Transform\Transform.Process.cs" />
-    <Compile Include="WebServer\WebServer.cs" />
-    <Compile Include="WebServer\WSGI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\trunk\Resources\Extf.Net.snk">
