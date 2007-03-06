@@ -39,7 +39,7 @@ def create_store(dispatcher):
 def create_static(dispatcher):
     print "Setting up the static servicing"
     static = Cling(os.path.join(cur_dir))
-    s.add('/static/{r:any}', GET=static)
+    s.add('/public_web/{r:any}', GET=static)
 
 def dummy_xameleon_handler(dispatcher):
     from core.xameleonhandler import xamdler
