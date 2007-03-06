@@ -9,6 +9,28 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Xameleon.WebApp</RootNamespace>
     <AssemblyName>Xameleon.WebApp</AssemblyName>
+    <ManifestCertificateThumbprint>DDC1B4432288F93DC21142A09281478D810F874D</ManifestCertificateThumbprint>
+    <ManifestKeyFile>Xameleon.WebApp_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://xameleon.org/Personal.Web.Platform/ClickOnce/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://xameleon.org/support/</SupportUrl>
+    <ProductName>Xameleon Personal Web Communication Platform</ProductName>
+    <PublisherName>The nuXleus Project</PublisherName>
+    <WebPage>index.html</WebPage>
+    <TrustUrlParameters>true</TrustUrlParameters>
+    <ApplicationVersion>0.1.1.%2a</ApplicationVersion>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,13 +45,29 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\docs\Xameleon.WebApp.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AmazonAWS.S3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\AmazonAWS.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicWebServiceHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\DynamicWebServiceHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="GlobalClip, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\GlobalClip.dll</HintPath>
+    </Reference>
+    <Reference Include="GlobalClip.XmlSerializers, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\GlobalClip.XmlSerializers.dll</HintPath>
+    </Reference>
     <Reference Include="IronMath, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\IronMath.dll</HintPath>
@@ -38,9 +76,37 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\IronPython.dll</HintPath>
     </Reference>
+    <Reference Include="Lucene.Net, Version=2.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTorrent.Client, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\MonoTorrent.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTorrent.Common, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\MonoTorrent.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTorrent.Tracker, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\MonoTorrent.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="Mvp.Xml, Version=2.2.0.0, Culture=neutral, PublicKeyToken=6ead800d778c9b9f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Mvp.Xml.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Upnp, Version=0.5.0.0, Culture=neutral, PublicKeyToken=667b6f9c0b93f26b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Upnp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\vendor\IronPython-1.1B1\Src\IronPythonConsole\PythonCommandLine.cs">
@@ -656,12 +722,136 @@
       <Link>Lib\cgi.py</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\WebApp\bin\Lib\cherrypy\wsgiserver\__init__.py">
-      <Link>Lib\cherrypy\wsgiserver\__init__.py</Link>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpcgifs.py">
+      <Link>Lib\cherrypy\_cpcgifs.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpchecker.py">
+      <Link>Lib\cherrypy\_cpchecker.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpconfig.py">
+      <Link>Lib\cherrypy\_cpconfig.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpdispatch.py">
+      <Link>Lib\cherrypy\_cpdispatch.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cperror.py">
+      <Link>Lib\cherrypy\_cperror.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cplogging.py">
+      <Link>Lib\cherrypy\_cplogging.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpmodpy.py">
+      <Link>Lib\cherrypy\_cpmodpy.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cprequest.py">
+      <Link>Lib\cherrypy\_cprequest.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpserver.py">
+      <Link>Lib\cherrypy\_cpserver.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpthreadinglocal.py">
+      <Link>Lib\cherrypy\_cpthreadinglocal.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cptools.py">
+      <Link>Lib\cherrypy\_cptools.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cptree.py">
+      <Link>Lib\cherrypy\_cptree.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpwsgi.py">
+      <Link>Lib\cherrypy\_cpwsgi.py</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\__init__.py">
       <Link>Lib\cherrypy\__init__.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\auth.py">
+      <Link>Lib\cherrypy\lib\auth.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\caching.py">
+      <Link>Lib\cherrypy\lib\covercp.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\covercp.py">
+      <Link>Lib\cherrypy\lib\covercp.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\cptools.py">
+      <Link>Lib\cherrypy\lib\cptools.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\encoding.py">
+      <Link>Lib\cherrypy\lib\encoding.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\http.py">
+      <Link>Lib\cherrypy\lib\http.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\httpauth.py">
+      <Link>Lib\cherrypy\lib\httpauth.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\profiler.py">
+      <Link>Lib\cherrypy\lib\profiler.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\sessions.py">
+      <Link>Lib\cherrypy\lib\sessions.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\static.py">
+      <Link>Lib\cherrypy\lib\static.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\tidy.py">
+      <Link>Lib\cherrypy\lib\tidy.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\wsgiapp.py">
+      <Link>Lib\cherrypy\lib\wsgiapp.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\xmlrpc.py">
+      <Link>Lib\cherrypy\lib\xmlrpc.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\__init__.py">
+      <Link>Lib\cherrypy\lib\__init__.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\pywebd\base.py">
+      <Link>Lib\cherrypy\pywebd\base.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\pywebd\plugins.py">
+      <Link>Lib\cherrypy\pywebd\plugins.pyLib\cherrypy\pywebd\plugins.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\pywebd\win32.py">
+      <Link>Lib\cherrypy\pywebd\win32.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\pywebd\__init__.py">
+      <Link>Lib\cherrypy\pywebd\__init__.py</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\wsgiserver\__init__.py">
+      <Link>Lib\cherrypy\wsgiserver\__init__.py</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cmd.py">
@@ -936,210 +1126,6 @@
       <Link>Lib\email\quopriMIME.py</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\audiotest.au">
-      <Link>Lib\email\test\data\audiotest.au</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_01.txt">
-      <Link>Lib\email\test\data\msg_01.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_02.txt">
-      <Link>Lib\email\test\data\msg_02.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_03.txt">
-      <Link>Lib\email\test\data\msg_03.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_04.txt">
-      <Link>Lib\email\test\data\msg_04.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_05.txt">
-      <Link>Lib\email\test\data\msg_05.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_06.txt">
-      <Link>Lib\email\test\data\msg_06.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_07.txt">
-      <Link>Lib\email\test\data\msg_07.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_08.txt">
-      <Link>Lib\email\test\data\msg_08.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_09.txt">
-      <Link>Lib\email\test\data\msg_09.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_10.txt">
-      <Link>Lib\email\test\data\msg_10.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_11.txt">
-      <Link>Lib\email\test\data\msg_11.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_12.txt">
-      <Link>Lib\email\test\data\msg_12.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_12a.txt">
-      <Link>Lib\email\test\data\msg_12a.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_13.txt">
-      <Link>Lib\email\test\data\msg_13.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_14.txt">
-      <Link>Lib\email\test\data\msg_14.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_15.txt">
-      <Link>Lib\email\test\data\msg_15.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_16.txt">
-      <Link>Lib\email\test\data\msg_16.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_17.txt">
-      <Link>Lib\email\test\data\msg_17.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_18.txt">
-      <Link>Lib\email\test\data\msg_18.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_19.txt">
-      <Link>Lib\email\test\data\msg_19.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_20.txt">
-      <Link>Lib\email\test\data\msg_20.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_21.txt">
-      <Link>Lib\email\test\data\msg_21.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_22.txt">
-      <Link>Lib\email\test\data\msg_22.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_23.txt">
-      <Link>Lib\email\test\data\msg_23.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_24.txt">
-      <Link>Lib\email\test\data\msg_24.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_25.txt">
-      <Link>Lib\email\test\data\msg_25.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_26.txt">
-      <Link>Lib\email\test\data\msg_26.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_27.txt">
-      <Link>Lib\email\test\data\msg_27.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_28.txt">
-      <Link>Lib\email\test\data\msg_28.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_29.txt">
-      <Link>Lib\email\test\data\msg_29.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_30.txt">
-      <Link>Lib\email\test\data\msg_30.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_31.txt">
-      <Link>Lib\email\test\data\msg_31.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_32.txt">
-      <Link>Lib\email\test\data\msg_32.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_33.txt">
-      <Link>Lib\email\test\data\msg_33.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_34.txt">
-      <Link>Lib\email\test\data\msg_34.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_35.txt">
-      <Link>Lib\email\test\data\msg_35.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_36.txt">
-      <Link>Lib\email\test\data\msg_36.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_37.txt">
-      <Link>Lib\email\test\data\msg_37.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_38.txt">
-      <Link>Lib\email\test\data\msg_38.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_39.txt">
-      <Link>Lib\email\test\data\msg_39.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_40.txt">
-      <Link>Lib\email\test\data\msg_40.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_41.txt">
-      <Link>Lib\email\test\data\msg_41.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_42.txt">
-      <Link>Lib\email\test\data\msg_42.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_43.txt">
-      <Link>Lib\email\test\data\msg_43.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\msg_44.txt">
-      <Link>Lib\email\test\data\msg_44.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\data\PyBanner048.gif">
-      <Link>Lib\email\test\data\PyBanner048.gif</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\test_email.py">
-      <Link>Lib\email\test\test_email.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\test_email_codecs.py">
-      <Link>Lib\email\test\test_email_codecs.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\test_email_torture.py">
-      <Link>Lib\email\test\test_email_torture.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\email\test\__init__.py">
-      <Link>Lib\email\test\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\WebApp\bin\Lib\email\Utils.py">
       <Link>Lib\email\Utils.py</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1190,7 +1176,6 @@
     </Content>
     <Content Include="..\WebApp\bin\Lib\fepy\cipher.py">
       <Link>Lib\fepy\cipher.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fepy\codecs_errors.py">
       <Link>Lib\fepy\codecs_errors.py</Link>
@@ -1947,6 +1932,25 @@
     <None Include="..\Resources\Extf.Net.snk">
       <Link>Extf.Net.snk</Link>
     </None>
+    <None Include="Xameleon.WebApp_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="nunit.framework">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <FileType>Assembly</FileType>
+    </PublishFile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xameleon\Xameleon.csproj">
