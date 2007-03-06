@@ -79,10 +79,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Transform.Context.cs" />
-    <Compile Include="Transform.cs" />
-    <Compile Include="Transform.Init.cs" />
-    <Compile Include="Transform.Process.cs" />
     <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\ApplicationServer.cs">
       <Link>WebServer\Mono.WebServer\ApplicationServer.cs</Link>
     </Compile>
@@ -113,6 +109,10 @@
     <Compile Include="..\VendorExtensions\Mono\xsp\Mono.WebServer\XSPWorkerRequest.cs">
       <Link>WebServer\Mono.WebServer\XSPWorkerRequest.cs</Link>
     </Compile>
+    <Compile Include="Transform\Transform.Context.cs" />
+    <Compile Include="Transform\Transform.cs" />
+    <Compile Include="Transform\Transform.Init.cs" />
+    <Compile Include="Transform\Transform.Process.cs" />
     <Compile Include="WebServer\WebServer.cs" />
     <Compile Include="WebServer\WSGI.cs" />
   </ItemGroup>
