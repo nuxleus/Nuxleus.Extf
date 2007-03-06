@@ -68,6 +68,10 @@
     <Compile Include="Transform.cs" />
     <Compile Include="Transform.Init.cs" />
     <Compile Include="Transform.Process.cs" />
+    <Compile Include="Transform\Context.cs" />
+    <Compile Include="Transform\Init.cs" />
+    <Compile Include="Transform\Process.cs" />
+    <Compile Include="Transform\Transform.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Base\Extf.Net.Base.csproj">
