@@ -24,22 +24,21 @@ def create_store(dispatcher):
     print "Creating the service WSGI application"
     service = Service(service)
     # Uri to which the app:service document is reachable
-    dispatcher.add('/service[/]', GET=service.get_service)
     dispatcher.add('/service/pub[/]', GET=service.get_service)
     
     print "Creating the collection WSGI application"
     music_store = Store(workspace.get_collection('music'), strict=True)
     dispatcher.add('/music[/]', POST=music_store.create_member,
           GET=music_store.get_collection, HEAD=music_store.head_collection)
-    dispatcher.add('/music/{rid:any}', GET=music_store.get_member,
+    dispatcher.add('/music/{rid:any}[/]', GET=music_store.get_member,
           PUT=music_store.update_member,
           DELETE=music_store.delete_member, HEAD=music_store.head_member)
     print "All good!"
 
 def create_static(dispatcher):
     print "Setting up the static servicing"
-    static = Cling(os.path.join(cur_dir))
-    s.add('/public_web/{r:any}', GET=static)
+    static = Cling(os.path.join(cur_dir, 'public_web'))
+    s.add('/{:segment}[/]', GET=static)
 
 def dummy_xameleon_handler(dispatcher):
     from core.xameleonhandler import xamdler
@@ -50,7 +49,7 @@ create_store(s)
 # Just uncomment the following to enable the
 # Xameleon handler out of amplee
 # You may not need this
-dummy_xameleon_handler(s)
+#dummy_xameleon_handler(s)
 
 from httplogger import HTTPLogger
 s = HTTPLogger(s, propagate_exc=False)
