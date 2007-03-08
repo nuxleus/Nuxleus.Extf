@@ -1,3 +1,6 @@
+/* Copyright 2006 Microsoft Corporation.  Microsoft's copyrights in this work are licensed under the Creative Commons */
+/* Attribution-ShareAlike 2.5 License.  To view a copy of this license visit http://creativecommons.org/licenses/by-sa/2.5 */
+
 WebClip = function(clipBoardControlContainer, copyCallback, pasteCallback, onControlSelected, onControlDeSelected, disableContentParsing) 
 {
   // Populate the input container (usually a div) with control container w/ input.
