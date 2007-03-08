@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  COPYRIGHT: (c) 2006, M. David Peterson (m.david@xmlhacker.com; http://mdavid.name/)
+  COPYRIGHT: (c) 2006, M. David Peterson (mailto:m.david@xmlhacker.com; http://mdavid.name/)
   LICENSE: The code contained in this file is licensed under The MIT License. Please see http://www.opensource.org/licenses/mit-license.php for specific detail.
 -->
 <xsl:stylesheet version="1.0" 
