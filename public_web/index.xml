@@ -10,19 +10,27 @@
       <bVend:bVendors>
         <bVend:vBrowser vendor="Microsoft">
           <page:head.include fileType="css" href="ie.css" />
+          <page:head.include fileType="css" href="ie-webClipControl.css" />
           <page:head.include fileType="javascript" href="ie.js" />
+          <page:head.include fileType="javascript" href="ie-liveclip.js" />
         </bVend:vBrowser>
         <bVend:vBrowser vendor="Transformiix">
           <page:head.include fileType="css" href="mozilla.css" />
+          <page:head.include fileType="css" href="mozilla-webClipControl.css" />
           <page:head.include fileType="javascript" href="mozilla.js" />
+          <page:head.include fileType="javascript" href="mozilla-liveclip.js" />
         </bVend:vBrowser>
         <bVend:vBrowser vendor="libxslt">
           <page:head.include fileType="css" href="safari.css" />
+          <page:head.include fileType="css" href="safari-webClipControl.css" />
           <page:head.include fileType="javascript" href="safari.js" />
+          <page:head.include fileType="javascript" href="safari-liveclip.js" />
         </bVend:vBrowser>
         <bVend:vBrowser vendor="Opera">
           <page:head.include fileType="css" href="opera.css" />
+          <page:head.include fileType="css" href="opera-webClipControl.css" />
           <page:head.include fileType="javascript" href="opera.js" />
+          <page:head.include fileType="javascript" href="opera-liveclip.js" />
         </bVend:vBrowser>
       </bVend:bVendors>
     </page:config>
@@ -30,6 +38,9 @@
       <page:head>
         <page:title>Title of Entry</page:title>
         <page:head.include fileType="css" href="base.css" />
+        <page:head.include fileType="javascript" href="hCal.js" />
+        <page:head.include fileType="javascript" href="hCard.js" />
+        <page:head.include fileType="javascript" href="script.js" />
       </page:head>
       <page:body>
         <page:heading size="h1">Title of Entry</page:heading>
