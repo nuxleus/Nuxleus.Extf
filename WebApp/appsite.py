@@ -41,6 +41,8 @@ def create_repository(dispatcher):
     base = Cling(os.path.join(cur_dir, 'public_web'))
     s.add('/[{:segment}[/]]', GET=base)
     s.add('/css/[{:segment}]', GET=base)
+    s.add('/js/[{:segment}]', GET=base)
+    s.add('/microformat/[{:segment}]', GET=base)
 
 def dummy_xameleon_handler(dispatcher):
     from core.xameleonhandler import xamdler
