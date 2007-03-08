@@ -35,17 +35,18 @@ def create_store(dispatcher):
           DELETE=music_store.delete_member, HEAD=music_store.head_member)
     print "All good!"
 
-def create_static(dispatcher):
-    print "Setting up the static servicing"
+def create_repository(dispatcher):
+    print "Setting up the repository WSGI application"
     Cling.index_file = "index.xml"
-    static = Cling(os.path.join(cur_dir, 'public_web'))
-    s.add('[/][{:segment}][/]', GET=static)
+    base = Cling(os.path.join(cur_dir, 'public_web'))
+    s.add('/[{:segment}[/]]', GET=base)
+    s.add('/css/[{:segment}]', GET=base)
 
 def dummy_xameleon_handler(dispatcher):
     from core.xameleonhandler import xamdler
     s.add('[/]', GET=xamdler)
 
-create_static(s)
+create_repository(s)
 create_store(s)
 # Just uncomment the following to enable the
 # Xameleon handler out of amplee
