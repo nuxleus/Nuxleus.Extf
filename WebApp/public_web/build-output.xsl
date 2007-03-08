@@ -14,7 +14,7 @@
     doctype-system="/resources/dtd/xhtml1-strict.dtd" 
     doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" 
     cdata-section-elements="script"
-    indent="yes" method="html" omit-xml-declaration="yes"/>
+    indent="yes" method="xml" omit-xml-declaration="yes"/>
     
   <xsl:template match="my:session">
     <xsl:apply-templates/>
