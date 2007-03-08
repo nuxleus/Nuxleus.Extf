@@ -2,6 +2,11 @@
 <!--
   COPYRIGHT: (c) 2006, M. David Peterson (mailto:m.david@xmlhacker.com; http://mdavid.name/)
   LICENSE: The code contained in this file is licensed under The MIT License. Please see http://www.opensource.org/licenses/mit-license.php for specific detail.
+  EXT:CODEBASE
+    Some code linked to (as in hyperlinked, as opposed to linked and compiled against) in this file falls under the following license and copyright
+    /* Copyright 2006 Microsoft Corporation.  Microsoft's copyrights in this work are licensed under the Creative Commons */
+    /* Attribution-ShareAlike 2.5 License.  To view a copy of this license visit http://creativecommons.org/licenses/by-sa/2.5 */
+  /EXT:CODEBASE
 -->
 <?xml-stylesheet type="text/xsl" href="build-output.xsl"?>
 <my:session xmlns:html="http://www.w3.org/1999/xhtml" xmlns:bVend="http://xameleon.org/service/browservendors" xmlns:my="http://xameleon.org/service/session" xmlns:page="http://xameleon.org/service/page/output">
