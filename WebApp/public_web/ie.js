@@ -1,1 +1,3 @@
-alert('Hello, IE');
+function hello(){
+  alert('Hello, IE!');
+};
