@@ -1,1 +1,3 @@
-alert('Hello, Safari!');
+function hello() {
+  alert('Hello, Safari!');
+};
