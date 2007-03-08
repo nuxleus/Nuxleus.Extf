@@ -43,8 +43,8 @@
       <page:head>
         <page:title>Title of Entry</page:title>
         <page:head.include fileType="css" href="/css/base.css" />
-        <page:head.include fileType="javascript" href="/js/hCal.js" />
-        <page:head.include fileType="javascript" href="/js/hCard.js" />
+        <page:head.include fileType="javascript" href="/microformat/hCal.js" />
+        <page:head.include fileType="javascript" href="/microformat/hCard.js" />
         <page:head.include fileType="javascript" href="/js/script.js" />
       </page:head>
       <page:body>
