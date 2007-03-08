@@ -16,26 +16,26 @@
         <bVend:vBrowser vendor="Microsoft">
           <page:head.include fileType="css" href="/css/ie.css" />
           <page:head.include fileType="css" href="/css/ie-webClipControl.css" />
-          <page:head.include fileType="javascript" href="ie.js" />
-          <page:head.include fileType="javascript" href="ie-liveclip.js" />
+          <page:head.include fileType="javascript" href="/js/ie.js" />
+          <page:head.include fileType="javascript" href="/js/ie-liveclip.js" />
         </bVend:vBrowser>
         <bVend:vBrowser vendor="Transformiix">
           <page:head.include fileType="css" href="/css/mozilla.css" />
           <page:head.include fileType="css" href="/css/mozilla-webClipControl.css" />
-          <page:head.include fileType="javascript" href="mozilla.js" />
-          <page:head.include fileType="javascript" href="mozilla-liveclip.js" />
+          <page:head.include fileType="javascript" href="/js/mozilla.js" />
+          <page:head.include fileType="javascript" href="/js/mozilla-liveclip.js" />
         </bVend:vBrowser>
         <bVend:vBrowser vendor="libxslt">
           <page:head.include fileType="css" href="/css/safari.css" />
           <page:head.include fileType="css" href="/css/safari-webClipControl.css" />
-          <page:head.include fileType="javascript" href="safari.js" />
-          <page:head.include fileType="javascript" href="safari-liveclip.js" />
+          <page:head.include fileType="javascript" href="/js/safari.js" />
+          <page:head.include fileType="javascript" href="/js/safari-liveclip.js" />
         </bVend:vBrowser>
         <bVend:vBrowser vendor="Opera">
           <page:head.include fileType="css" href="/css/opera.css" />
           <page:head.include fileType="css" href="/css/opera-webClipControl.css" />
-          <page:head.include fileType="javascript" href="opera.js" />
-          <page:head.include fileType="javascript" href="opera-liveclip.js" />
+          <page:head.include fileType="javascript" href="/js/opera.js" />
+          <page:head.include fileType="javascript" href="/js/opera-liveclip.js" />
         </bVend:vBrowser>
       </bVend:bVendors>
     </page:config>
@@ -43,9 +43,9 @@
       <page:head>
         <page:title>Title of Entry</page:title>
         <page:head.include fileType="css" href="/css/base.css" />
-        <page:head.include fileType="javascript" href="hCal.js" />
-        <page:head.include fileType="javascript" href="hCard.js" />
-        <page:head.include fileType="javascript" href="script.js" />
+        <page:head.include fileType="javascript" href="/js/hCal.js" />
+        <page:head.include fileType="javascript" href="/js/hCard.js" />
+        <page:head.include fileType="javascript" href="/js/script.js" />
       </page:head>
       <page:body>
         <page:heading size="h1">Title of Entry</page:heading>
