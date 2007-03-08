@@ -74,6 +74,7 @@
   
   <xsl:template match="html:*">
     <xsl:element name="{local-name()}">
+    <xsl:copy-of select="@*"/>
       <xsl:apply-templates/>
     </xsl:element>
   </xsl:template>
