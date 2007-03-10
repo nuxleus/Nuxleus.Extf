@@ -39,10 +39,7 @@ def create_repository(dispatcher):
     print "Setting up the repository WSGI application"
     Cling.index_file = "index.xml"
     base = Cling(os.path.join(cur_dir, 'public_web'))
-    s.add('/[{:segment}[/]]', GET=base)
-    s.add('/css/[{:segment}]', GET=base)
-    s.add('/js/[{:segment}]', GET=base)
-    s.add('/microformat/[{:segment}]', GET=base)
+    s.add('/[{:segment}[/{:segment}]]', GET=base)
 
 def dummy_xameleon_handler(dispatcher):
     from core.xameleonhandler import xamdler
