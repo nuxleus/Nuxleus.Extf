@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+  <atom:id>http://localhost:9999/Open-Source-Smiles</atom:id>
+  <atom:published>2007-03-10T17:31:29.691000Z</atom:published>
+  <atom:updated>2007-03-10T17:31:29.691000Z</atom:updated>
+  <app:edited xmlns:app="http://purl.org/atom/app#">2007-03-10T17:31:29.691000Z</app:edited>
+  <atom:title>Open Source Smiles</atom:title>
+  <atom:summary type="text">Swish-e :: Swish-e License In addition to that legal requirement, there are
+        some strong recommendations that aren't legally required. You should make it clear
+        to your users that you are using Swish-e in your product by listing Swish-e in your
+        documentation and, if you have a web site, with an easy to find link on your web site.
+        (Consider using...</atom:summary>
+  <atom:author>
+    <atom:name />
+  </atom:author>
+  <atom:link rel="alternate" type="text/html" href="http://www.xsltblog.com/archives/2006/03/open_source_smi_1.html" />
+  <atom:category term="Bowling (&amp; Beer(s)) for OSS" />
+  <atom:content type="html" xml:lang="en" xml:base="http://www.xsltblog.com/">&lt;p&gt;&lt;a title="Swish-e :: Swish-e License" href="http://swish-e.org/license.html"&gt;Swish-e :: Swish-e License&lt;/a&gt;&lt;/p&gt;&lt;blockquote&gt;In addition to that legal requirement, there are some strong recommendations that aren't legally required. You should make it clear to your users that you are using Swish-e in your product by listing Swish-e in your documentation and, if you have a web site, with an easy to find link on your web site. (Consider using the Swish-e logo). You must feel guilt if you add features or bug fixes to the software and do not inform other users of swish-e via the Swish-e discussion list, and you should think about buying the developers a beer. Or two. Or until they say 'stop'.&lt;/blockquote&gt;&lt;p&gt;Smile :)&lt;/p&gt;</atom:content>
+  <atom:link rel="edit" type="application/atom+xml" href="http://localhost:9999/music/Open-Source-Smiles.atom" />
+</atom:entry>
