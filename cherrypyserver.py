@@ -15,7 +15,8 @@ def run(blocking=False):
     cur_dir = os.getcwd()
     cherrypy.config.update({'checker.on': False,
                             'engine.autoreload_on': False,
-                            'server.socket_port': 9999})
+                            'server.socket_port': 9999,
+                            'server.thread_pool': 2,})
 
     cherrypy.tree.graft(app)
     cherrypy.server.quickstart()
