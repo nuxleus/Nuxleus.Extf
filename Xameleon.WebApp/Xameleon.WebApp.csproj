@@ -52,21 +52,9 @@
     <DocumentationFile>..\docs\Xameleon.WebApp.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AmazonAWS.S3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\AmazonAWS.S3.dll</HintPath>
-    </Reference>
     <Reference Include="DynamicWebServiceHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\DynamicWebServiceHelpers.dll</HintPath>
-    </Reference>
-    <Reference Include="GlobalClip, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\GlobalClip.dll</HintPath>
-    </Reference>
-    <Reference Include="GlobalClip.XmlSerializers, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\GlobalClip.XmlSerializers.dll</HintPath>
     </Reference>
     <Reference Include="IronMath, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -75,26 +63,6 @@
     <Reference Include="IronPython, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\IronPython.dll</HintPath>
-    </Reference>
-    <Reference Include="Lucene.Net, Version=2.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\Lucene.Net.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\Mono.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="MonoTorrent.Client, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\MonoTorrent.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="MonoTorrent.Common, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\MonoTorrent.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="MonoTorrent.Tracker, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\MonoTorrent.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Mvp.Xml, Version=2.2.0.0, Culture=neutral, PublicKeyToken=6ead800d778c9b9f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -120,1774 +88,1754 @@
   <ItemGroup>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\collection.py">
       <Link>Lib\amplee\atompub\collection.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\atom.py">
       <Link>Lib\amplee\atompub\member\atom.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\audio.py">
       <Link>Lib\amplee\atompub\member\audio.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\generic.py">
       <Link>Lib\amplee\atompub\member\generic.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\helper.py">
       <Link>Lib\amplee\atompub\member\helper.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\media.py">
       <Link>Lib\amplee\atompub\member\media.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\movie.py">
       <Link>Lib\amplee\atompub\member\movie.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\odf.py">
       <Link>Lib\amplee\atompub\member\odf.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\web.py">
       <Link>Lib\amplee\atompub\member\web.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\__init__.py">
       <Link>Lib\amplee\atompub\member\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\service.py">
       <Link>Lib\amplee\atompub\service.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\store.py">
       <Link>Lib\amplee\atompub\store.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\workspace.py">
       <Link>Lib\amplee\atompub\workspace.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\atompub\__init__.py">
       <Link>Lib\amplee\atompub\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\error.py">
       <Link>Lib\amplee\error.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\audio\demo_client.py">
       <Link>Lib\amplee\examples\audio\demo_client.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\audio\demo_setup.py">
       <Link>Lib\amplee\examples\audio\demo_setup.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\audio\demo_simple.py">
       <Link>Lib\amplee\examples\audio\demo_simple.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\audio\demo_simple_wsgiref.py">
       <Link>Lib\amplee\examples\audio\demo_simple_wsgiref.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\blog-cherrypy.py">
       <Link>Lib\amplee\examples\blog\blog-cherrypy.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\blog-wsgi.py">
       <Link>Lib\amplee\examples\blog\blog-wsgi.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\atompub.py">
       <Link>Lib\amplee\examples\blog\core\atompub.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\comment.py">
       <Link>Lib\amplee\examples\blog\core\comment.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\cp.py">
       <Link>Lib\amplee\examples\blog\core\cp.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\handler\article.py">
       <Link>Lib\amplee\examples\blog\core\handler\article.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\handler\comment.py">
       <Link>Lib\amplee\examples\blog\core\handler\comment.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\handler\__init__.py">
       <Link>Lib\amplee\examples\blog\core\handler\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\transform.py">
       <Link>Lib\amplee\examples\blog\core\transform.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\wsgi.py">
       <Link>Lib\amplee\examples\blog\core\wsgi.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\__init__.py">
       <Link>Lib\amplee\examples\blog\core\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\common.py">
       <Link>Lib\amplee\examples\blog\scripts\common.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\create.py">
       <Link>Lib\amplee\examples\blog\scripts\create.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\delete.py">
       <Link>Lib\amplee\examples\blog\scripts\delete.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\edit.py">
       <Link>Lib\amplee\examples\blog\scripts\edit.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\fetch-collection.py">
       <Link>Lib\amplee\examples\blog\scripts\fetch-collection.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\fetch-service.py">
       <Link>Lib\amplee\examples\blog\scripts\fetch-service.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\fetch.py">
       <Link>Lib\amplee\examples\blog\scripts\fetch.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\static\style.css">
       <Link>Lib\amplee\examples\blog\static\style.css</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\template\error404.html">
       <Link>Lib\amplee\examples\blog\template\error404.html</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\template\index.xsl">
       <Link>Lib\amplee\examples\blog\template\index.xsl</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\appstore.py">
       <Link>Lib\amplee\examples\pakawi\appstore.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\design\base.html">
       <Link>Lib\amplee\examples\pakawi\design\base.html</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\design\footer.html">
       <Link>Lib\amplee\examples\pakawi\design\footer.html</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\design\header.html">
       <Link>Lib\amplee\examples\pakawi\design\header.html</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\design\index.html">
       <Link>Lib\amplee\examples\pakawi\design\index.html</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\design\page.html">
       <Link>Lib\amplee\examples\pakawi\design\page.html</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\handler\cp.py">
       <Link>Lib\amplee\examples\pakawi\handler\cp.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\handler\wsgi.py">
       <Link>Lib\amplee\examples\pakawi\handler\wsgi.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\handler\__init__.py">
       <Link>Lib\amplee\examples\pakawi\handler\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\lib\config.py">
       <Link>Lib\amplee\examples\pakawi\lib\config.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\lib\design.py">
       <Link>Lib\amplee\examples\pakawi\lib\design.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\lib\wiki.py">
       <Link>Lib\amplee\examples\pakawi\lib\wiki.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\lib\__init__.py">
       <Link>Lib\amplee\examples\pakawi\lib\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\pakawi-cherrypy.py">
       <Link>Lib\amplee\examples\pakawi\pakawi-cherrypy.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\pakawi-wsgi.py">
       <Link>Lib\amplee\examples\pakawi\pakawi-wsgi.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\static\pakawi.js">
       <Link>Lib\amplee\examples\pakawi\static\pakawi.js</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\static\progress.gif">
       <Link>Lib\amplee\examples\pakawi\static\progress.gif</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\static\style.css">
       <Link>Lib\amplee\examples\pakawi\static\style.css</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\web\demo.py">
       <Link>Lib\amplee\examples\web\demo.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\web\demo_cherrypy.py">
       <Link>Lib\amplee\examples\web\demo_cherrypy.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\web\demo_client.py">
       <Link>Lib\amplee\examples\web\demo_client.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\web\demo_kamaelia.py">
       <Link>Lib\amplee\examples\web\demo_kamaelia.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\examples\web\demo_wsgi.py">
       <Link>Lib\amplee\examples\web\demo_wsgi.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\handler\store\cp\__init__.py">
       <Link>Lib\amplee\handler\store\cp\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\handler\store\kamaelia\__init__.py">
       <Link>Lib\amplee\handler\store\kamaelia\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\handler\store\wsgi\__init__.py">
       <Link>Lib\amplee\handler\store\wsgi\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\handler\store\__init__.py">
       <Link>Lib\amplee\handler\store\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\handler\__init__.py">
       <Link>Lib\amplee\handler\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\http_helper.py">
       <Link>Lib\amplee\http_helper.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\indexer\__init__.py">
       <Link>Lib\amplee\indexer\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\loader.py">
       <Link>Lib\amplee\loader.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\storage\dummyfs.py">
       <Link>Lib\amplee\storage\dummyfs.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\storage\storedejavu.py">
       <Link>Lib\amplee\storage\storedejavu.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\storage\stores3.py">
       <Link>Lib\amplee\storage\stores3.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\storage\storesvn.py">
       <Link>Lib\amplee\storage\storesvn.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\storage\storezodb.py">
       <Link>Lib\amplee\storage\storezodb.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\storage\__init__.py">
       <Link>Lib\amplee\storage\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\amplee_base.py">
       <Link>Lib\amplee\test\amplee_base.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\data\plain_text.txt">
       <Link>Lib\amplee\test\data\plain_text.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\lib\atompub.py">
       <Link>Lib\amplee\test\lib\atompub.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\lib\handler\article.py">
       <Link>Lib\amplee\test\lib\handler\article.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\lib\handler\comment.py">
       <Link>Lib\amplee\test\lib\handler\comment.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\lib\handler\poetry.py">
       <Link>Lib\amplee\test\lib\handler\poetry.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\lib\handler\__init__.py">
       <Link>Lib\amplee\test\lib\handler\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\lib\store.py">
       <Link>Lib\amplee\test\lib\store.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\lib\__init__.py">
       <Link>Lib\amplee\test\lib\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\test.py">
       <Link>Lib\amplee\test\test.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\test_atompub.py">
       <Link>Lib\amplee\test\test_atompub.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\test_builtin_members.py">
       <Link>Lib\amplee\test\test_builtin_members.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\test_indexer.py">
       <Link>Lib\amplee\test\test_indexer.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\test\test_storage.py">
       <Link>Lib\amplee\test\test_storage.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\utils.py">
       <Link>Lib\amplee\utils.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\__init__.py">
       <Link>Lib\amplee\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\array.py">
       <Link>Lib\array.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\atexit.py">
       <Link>Lib\atexit.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\base64.py">
       <Link>Lib\base64.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\BaseHTTPServer.py">
       <Link>Lib\BaseHTTPServer.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bdb.py">
       <Link>Lib\bdb.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\BeautifulSoup.py">
       <Link>Lib\BeautifulSoup.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\binhex.py">
       <Link>Lib\binhex.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bisect.py">
       <Link>Lib\bisect.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\connection.py">
       <Link>Lib\boto\connection.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\cq.py">
       <Link>Lib\boto\cq.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\ec2\image.py">
       <Link>Lib\boto\ec2\image.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\ec2\instance.py">
       <Link>Lib\boto\ec2\instance.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\ec2\keypair.py">
       <Link>Lib\boto\ec2\keypair.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\ec2\securitygroup.py">
       <Link>Lib\boto\ec2\securitygroup.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\ec2\__init__.py">
       <Link>Lib\boto\ec2\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\exception.py">
       <Link>Lib\boto\exception.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\handler.py">
       <Link>Lib\boto\handler.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\resultset.py">
       <Link>Lib\boto\resultset.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\s3\acl.py">
       <Link>Lib\boto\s3\acl.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\s3\bucket.py">
       <Link>Lib\boto\s3\bucket.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\s3\key.py">
       <Link>Lib\boto\s3\key.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\s3\user.py">
       <Link>Lib\boto\s3\user.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\s3\__init__.py">
       <Link>Lib\boto\s3\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\setup.py">
       <Link>Lib\boto\setup.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\sqs\message.py">
       <Link>Lib\boto\sqs\message.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\sqs\queue.py">
       <Link>Lib\boto\sqs\queue.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\sqs\__init__.py">
       <Link>Lib\boto\sqs\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\test.py">
       <Link>Lib\boto\test.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\utils.py">
       <Link>Lib\boto\utils.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\boto\__init__.py">
       <Link>Lib\boto\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\common.py">
       <Link>Lib\bridge\common.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\filter\atom.py">
       <Link>Lib\bridge\filter\atom.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\filter\xhtml.py">
       <Link>Lib\bridge\filter\xhtml.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\filter\xmpp.py">
       <Link>Lib\bridge\filter\xmpp.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\filter\__init__.py">
       <Link>Lib\bridge\filter\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\lib\isodate.py">
       <Link>Lib\bridge\lib\isodate.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\lib\__init__.py">
       <Link>Lib\bridge\lib\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\parser\bridge_amara.py">
       <Link>Lib\bridge\parser\bridge_amara.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\parser\bridge_default.py">
       <Link>Lib\bridge\parser\bridge_default.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\parser\bridge_dotnet.py">
       <Link>Lib\bridge\parser\bridge_dotnet.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\parser\bridge_elementtree.py">
       <Link>Lib\bridge\parser\bridge_elementtree.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\parser\bridge_expat.py">
       <Link>Lib\bridge\parser\bridge_expat.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\parser\bridge_lxml.py">
       <Link>Lib\bridge\parser\bridge_lxml.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\parser\incremental.py">
       <Link>Lib\bridge\parser\incremental.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\parser\__init__.py">
       <Link>Lib\bridge\parser\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\test\test.py">
       <Link>Lib\bridge\test\test.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\test\test_amara.py">
       <Link>Lib\bridge\test\test_amara.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\test\test_base.py">
       <Link>Lib\bridge\test\test_base.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\test\test_default.py">
       <Link>Lib\bridge\test\test_default.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\test\test_elementtree.py">
       <Link>Lib\bridge\test\test_elementtree.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\test\test_lxml.py">
       <Link>Lib\bridge\test\test_lxml.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\validator\atom.py">
       <Link>Lib\bridge\validator\atom.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\validator\__init__.py">
       <Link>Lib\bridge\validator\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\__init__.py">
       <Link>Lib\bridge\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\calendar.py">
       <Link>Lib\calendar.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cgi.py">
       <Link>Lib\cgi.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cpcgifs.py">
       <Link>Lib\cherrypy\_cpcgifs.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cpchecker.py">
       <Link>Lib\cherrypy\_cpchecker.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cpconfig.py">
       <Link>Lib\cherrypy\_cpconfig.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cpdispatch.py">
       <Link>Lib\cherrypy\_cpdispatch.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpengine.py">
+      <Link>Lib\cherrypy\_cpengine.py</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cperror.py">
       <Link>Lib\cherrypy\_cperror.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cplogging.py">
       <Link>Lib\cherrypy\_cplogging.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cpmodpy.py">
       <Link>Lib\cherrypy\_cpmodpy.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cprequest.py">
       <Link>Lib\cherrypy\_cprequest.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cpserver.py">
       <Link>Lib\cherrypy\_cpserver.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cpthreadinglocal.py">
       <Link>Lib\cherrypy\_cpthreadinglocal.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cptools.py">
       <Link>Lib\cherrypy\_cptools.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cptree.py">
       <Link>Lib\cherrypy\_cptree.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\_cpwsgi.py">
       <Link>Lib\cherrypy\_cpwsgi.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\__init__.py">
       <Link>Lib\cherrypy\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\auth.py">
       <Link>Lib\cherrypy\lib\auth.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\caching.py">
-      <Link>Lib\cherrypy\lib\covercp.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>Lib\cherrypy\lib\caching.py</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\covercp.py">
       <Link>Lib\cherrypy\lib\covercp.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\cptools.py">
       <Link>Lib\cherrypy\lib\cptools.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\encoding.py">
       <Link>Lib\cherrypy\lib\encoding.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\http.py">
       <Link>Lib\cherrypy\lib\http.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\httpauth.py">
       <Link>Lib\cherrypy\lib\httpauth.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\profiler.py">
       <Link>Lib\cherrypy\lib\profiler.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\sessions.py">
       <Link>Lib\cherrypy\lib\sessions.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\static.py">
       <Link>Lib\cherrypy\lib\static.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\tidy.py">
       <Link>Lib\cherrypy\lib\tidy.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\wsgiapp.py">
       <Link>Lib\cherrypy\lib\wsgiapp.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\xmlrpc.py">
       <Link>Lib\cherrypy\lib\xmlrpc.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\lib\__init__.py">
       <Link>Lib\cherrypy\lib\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\cherrypy\pywebd\base.py">
-      <Link>Lib\cherrypy\pywebd\base.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\cherrypy\pywebd\plugins.py">
-      <Link>Lib\cherrypy\pywebd\plugins.pyLib\cherrypy\pywebd\plugins.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\cherrypy\pywebd\win32.py">
-      <Link>Lib\cherrypy\pywebd\win32.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\cherrypy\pywebd\__init__.py">
-      <Link>Lib\cherrypy\pywebd\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cherrypy\wsgiserver\__init__.py">
       <Link>Lib\cherrypy\wsgiserver\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cmd.py">
       <Link>Lib\cmd.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\code.py">
       <Link>Lib\code.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\codecs.py">
       <Link>Lib\codecs.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\codeop.py">
       <Link>Lib\codeop.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\compiler\ast.py">
       <Link>Lib\compiler\ast.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\compiler\consts.py">
       <Link>Lib\compiler\consts.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\compiler\visitor.py">
       <Link>Lib\compiler\visitor.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\compiler\__init__.py">
       <Link>Lib\compiler\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\ConfigParser.py">
       <Link>Lib\ConfigParser.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Cookie.py">
       <Link>Lib\Cookie.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\cookielib.py">
       <Link>Lib\cookielib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\copy.py">
       <Link>Lib\copy.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\copy_reg.py">
       <Link>Lib\copy_reg.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Cipher\__init__.py">
       <Link>Lib\Crypto\Cipher\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Hash\HMAC.py">
       <Link>Lib\Crypto\Hash\HMAC.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Hash\MD5.py">
       <Link>Lib\Crypto\Hash\MD5.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Hash\SHA.py">
       <Link>Lib\Crypto\Hash\SHA.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Hash\__init__.py">
       <Link>Lib\Crypto\Hash\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Protocol\AllOrNothing.py">
       <Link>Lib\Crypto\Protocol\AllOrNothing.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Protocol\Chaffing.py">
       <Link>Lib\Crypto\Protocol\Chaffing.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Protocol\__init__.py">
       <Link>Lib\Crypto\Protocol\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\PublicKey\DSA.py">
       <Link>Lib\Crypto\PublicKey\DSA.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\PublicKey\ElGamal.py">
       <Link>Lib\Crypto\PublicKey\ElGamal.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\PublicKey\pubkey.py">
       <Link>Lib\Crypto\PublicKey\pubkey.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\PublicKey\qNEW.py">
       <Link>Lib\Crypto\PublicKey\qNEW.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\PublicKey\RSA.py">
       <Link>Lib\Crypto\PublicKey\RSA.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\PublicKey\test\rsa_speed.py">
       <Link>Lib\Crypto\PublicKey\test\rsa_speed.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\PublicKey\__init__.py">
       <Link>Lib\Crypto\PublicKey\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Util\number.py">
       <Link>Lib\Crypto\Util\number.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Util\randpool.py">
       <Link>Lib\Crypto\Util\randpool.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Util\RFC1751.py">
       <Link>Lib\Crypto\Util\RFC1751.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Util\test.py">
       <Link>Lib\Crypto\Util\test.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Util\test\prime_speed.py">
       <Link>Lib\Crypto\Util\test\prime_speed.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\Util\__init__.py">
       <Link>Lib\Crypto\Util\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Crypto\__init__.py">
       <Link>Lib\Crypto\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\ctypes.py">
       <Link>Lib\ctypes.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\dbapi.py">
       <Link>Lib\dbapi.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\difflib.py">
       <Link>Lib\difflib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\dis.py">
       <Link>Lib\dis.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\elementtree\ElementInclude.py">
       <Link>Lib\elementtree\ElementInclude.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\elementtree\ElementPath.py">
       <Link>Lib\elementtree\ElementPath.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\elementtree\ElementTree.py">
       <Link>Lib\elementtree\ElementTree.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\elementtree\HTMLTreeBuilder.py">
       <Link>Lib\elementtree\HTMLTreeBuilder.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\elementtree\SgmlopXMLTreeBuilder.py">
       <Link>Lib\elementtree\SgmlopXMLTreeBuilder.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\elementtree\SimpleXMLTreeBuilder.py">
       <Link>Lib\elementtree\SimpleXMLTreeBuilder.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\elementtree\SimpleXMLWriter.py">
       <Link>Lib\elementtree\SimpleXMLWriter.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\elementtree\TidyHTMLTreeBuilder.py">
       <Link>Lib\elementtree\TidyHTMLTreeBuilder.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\elementtree\TidyTools.py">
       <Link>Lib\elementtree\TidyTools.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\elementtree\XMLTreeBuilder.py">
       <Link>Lib\elementtree\XMLTreeBuilder.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\elementtree\__init__.py">
       <Link>Lib\elementtree\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\base64MIME.py">
       <Link>Lib\email\base64MIME.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\Charset.py">
       <Link>Lib\email\Charset.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\Encoders.py">
       <Link>Lib\email\Encoders.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\Errors.py">
       <Link>Lib\email\Errors.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\FeedParser.py">
       <Link>Lib\email\FeedParser.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\Generator.py">
       <Link>Lib\email\Generator.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\Header.py">
       <Link>Lib\email\Header.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\Iterators.py">
       <Link>Lib\email\Iterators.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\Message.py">
       <Link>Lib\email\Message.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\MIMEAudio.py">
       <Link>Lib\email\MIMEAudio.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\MIMEBase.py">
       <Link>Lib\email\MIMEBase.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\MIMEImage.py">
       <Link>Lib\email\MIMEImage.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\MIMEMessage.py">
       <Link>Lib\email\MIMEMessage.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\MIMEMultipart.py">
       <Link>Lib\email\MIMEMultipart.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\MIMENonMultipart.py">
       <Link>Lib\email\MIMENonMultipart.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\MIMEText.py">
       <Link>Lib\email\MIMEText.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\Parser.py">
       <Link>Lib\email\Parser.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\quopriMIME.py">
       <Link>Lib\email\quopriMIME.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\Utils.py">
       <Link>Lib\email\Utils.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\_parseaddr.py">
       <Link>Lib\email\_parseaddr.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\email\__init__.py">
       <Link>Lib\email\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\encodings\aliases.py">
       <Link>Lib\encodings\aliases.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\encodings\base64_codec.py">
       <Link>Lib\encodings\base64_codec.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\encodings\charmap.py">
       <Link>Lib\encodings\charmap.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\encodings\hex_codec.py">
       <Link>Lib\encodings\hex_codec.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\encodings\rot_13.py">
       <Link>Lib\encodings\rot_13.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\encodings\uu_codec.py">
       <Link>Lib\encodings\uu_codec.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\encodings\zlib_codec.py">
       <Link>Lib\encodings\zlib_codec.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\encodings\__init__.py">
       <Link>Lib\encodings\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fepy\ast.py">
       <Link>Lib\fepy\ast.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fepy\cipher.py">
       <Link>Lib\fepy\cipher.py</Link>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fepy\codecs_errors.py">
       <Link>Lib\fepy\codecs_errors.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fepy\encoding.py">
       <Link>Lib\fepy\encoding.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fepy\fileobject.py">
       <Link>Lib\fepy\fileobject.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fepy\network.py">
       <Link>Lib\fepy\network.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fepy\pickle.py">
       <Link>Lib\fepy\pickle.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fepy\pth_support.py">
       <Link>Lib\fepy\pth_support.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fepy\regex.py">
       <Link>Lib\fepy\regex.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fepy\__init__.py">
       <Link>Lib\fepy\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fileinput.py">
       <Link>Lib\fileinput.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\fnmatch.py">
       <Link>Lib\fnmatch.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\formatter.py">
       <Link>Lib\formatter.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\ftplib.py">
       <Link>Lib\ftplib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\getopt.py">
       <Link>Lib\getopt.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\getpass.py">
       <Link>Lib\getpass.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\gettext.py">
       <Link>Lib\gettext.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\glob.py">
       <Link>Lib\glob.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\gopherlib.py">
       <Link>Lib\gopherlib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\httplogger.py">
       <Link>Lib\httplogger.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\hashlib.py">
       <Link>Lib\hashlib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\heapq.py">
       <Link>Lib\heapq.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\hmac.py">
       <Link>Lib\hmac.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\htmlentitydefs.py">
       <Link>Lib\htmlentitydefs.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\htmllib.py">
       <Link>Lib\htmllib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\httplib.py">
       <Link>Lib\httplib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\ihooks.py">
       <Link>Lib\ihooks.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\inspect.py">
       <Link>Lib\inspect.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\keyword.py">
       <Link>Lib\keyword.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\linecache.py">
       <Link>Lib\linecache.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\locale.py">
       <Link>Lib\locale.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\logging\config.py">
       <Link>Lib\logging\config.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\logging\handlers.py">
       <Link>Lib\logging\handlers.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\logging\__init__.py">
       <Link>Lib\logging\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\macurl2path.py">
       <Link>Lib\macurl2path.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\mailbox.py">
       <Link>Lib\mailbox.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\markupbase.py">
       <Link>Lib\markupbase.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\md5.py">
       <Link>Lib\md5.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\mimetools.py">
       <Link>Lib\mimetools.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\mimetypes.py">
       <Link>Lib\mimetypes.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\MySQLdb.py">
       <Link>Lib\MySQLdb.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\netrc.py">
       <Link>Lib\netrc.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\new.py">
       <Link>Lib\new.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\nntplib.py">
       <Link>Lib\nntplib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\ntpath.py">
       <Link>Lib\ntpath.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\nturl2path.py">
       <Link>Lib\nturl2path.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\odbc.py">
       <Link>Lib\odbc.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\opcode.py">
       <Link>Lib\opcode.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\optparse.py">
       <Link>Lib\optparse.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\os.py">
       <Link>Lib\os.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\agent.py">
       <Link>Lib\paramiko\agent.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\auth_handler.py">
       <Link>Lib\paramiko\auth_handler.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\ber.py">
       <Link>Lib\paramiko\ber.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\buffered_pipe.py">
       <Link>Lib\paramiko\buffered_pipe.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\channel.py">
       <Link>Lib\paramiko\channel.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\client.py">
       <Link>Lib\paramiko\client.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\common.py">
       <Link>Lib\paramiko\common.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\compress.py">
       <Link>Lib\paramiko\compress.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\config.py">
       <Link>Lib\paramiko\config.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\dsskey.py">
       <Link>Lib\paramiko\dsskey.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\file.py">
       <Link>Lib\paramiko\file.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\hostkeys.py">
       <Link>Lib\paramiko\hostkeys.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\kex_gex.py">
       <Link>Lib\paramiko\kex_gex.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\kex_group1.py">
       <Link>Lib\paramiko\kex_group1.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\logging22.py">
       <Link>Lib\paramiko\logging22.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\message.py">
       <Link>Lib\paramiko\message.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\packet.py">
       <Link>Lib\paramiko\packet.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\pipe.py">
       <Link>Lib\paramiko\pipe.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\pkey.py">
       <Link>Lib\paramiko\pkey.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\primes.py">
       <Link>Lib\paramiko\primes.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\rsakey.py">
       <Link>Lib\paramiko\rsakey.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\server.py">
       <Link>Lib\paramiko\server.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\sftp.py">
       <Link>Lib\paramiko\sftp.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\sftp_attr.py">
       <Link>Lib\paramiko\sftp_attr.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\sftp_client.py">
       <Link>Lib\paramiko\sftp_client.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\sftp_file.py">
       <Link>Lib\paramiko\sftp_file.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\sftp_handle.py">
       <Link>Lib\paramiko\sftp_handle.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\sftp_server.py">
       <Link>Lib\paramiko\sftp_server.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\sftp_si.py">
       <Link>Lib\paramiko\sftp_si.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\sigquit.py">
       <Link>Lib\paramiko\sigquit.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\ssh_exception.py">
       <Link>Lib\paramiko\ssh_exception.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\transport.py">
       <Link>Lib\paramiko\transport.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\util.py">
       <Link>Lib\paramiko\util.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\win_pageant.py">
       <Link>Lib\paramiko\win_pageant.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\paramiko\__init__.py">
       <Link>Lib\paramiko\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\pdb.py">
       <Link>Lib\pdb.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\pickle.py">
       <Link>Lib\pickle.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\poplib.py">
       <Link>Lib\poplib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\posixpath.py">
       <Link>Lib\posixpath.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\pprint.py">
       <Link>Lib\pprint.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\psycopg.py">
       <Link>Lib\psycopg.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\pyexpat.py">
       <Link>Lib\pyexpat.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\pyflakes\messages.py">
       <Link>Lib\pyflakes\messages.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\pyflakes\__init__.py">
       <Link>Lib\pyflakes\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\Queue.py">
       <Link>Lib\Queue.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\quopri.py">
       <Link>Lib\quopri.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\random.py">
       <Link>Lib\random.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\repr.py">
       <Link>Lib\repr.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\resolver.py">
       <Link>Lib\resolver.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\rfc822.py">
       <Link>Lib\rfc822.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\select.py">
       <Link>Lib\select.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\selector.py">
       <Link>Lib\selector.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\sets.py">
       <Link>Lib\sets.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\sgmllib.py">
       <Link>Lib\sgmllib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\sha.py">
       <Link>Lib\sha.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\shlex.py">
       <Link>Lib\shlex.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\shutil.py">
       <Link>Lib\shutil.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\signal.py">
       <Link>Lib\signal.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\SimpleHTTPServer.py">
       <Link>Lib\SimpleHTTPServer.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\site.py">
       <Link>Lib\site.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\socket.py">
       <Link>Lib\socket.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\SocketServer.py">
       <Link>Lib\SocketServer.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\sqlclient.py">
       <Link>Lib\sqlclient.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\sqlite.py">
       <Link>Lib\sqlite.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\sqlite3.py">
       <Link>Lib\sqlite3.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\sre.py">
       <Link>Lib\sre.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\sre_compile.py">
       <Link>Lib\sre_compile.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\sre_constants.py">
       <Link>Lib\sre_constants.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\sre_parse.py">
       <Link>Lib\sre_parse.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\ssl.py">
       <Link>Lib\ssl.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\stat.py">
       <Link>Lib\stat.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\string.py">
       <Link>Lib\string.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\StringIO.py">
       <Link>Lib\StringIO.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\tarfile.py">
       <Link>Lib\tarfile.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\tempfile.py">
       <Link>Lib\tempfile.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\textwrap.py">
       <Link>Lib\textwrap.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\this.py">
       <Link>Lib\this.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\threading.py">
       <Link>Lib\threading.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\token.py">
       <Link>Lib\token.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\tokenize.py">
       <Link>Lib\tokenize.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\traceback.py">
       <Link>Lib\traceback.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\types.py">
       <Link>Lib\types.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\unicodedata.py">
       <Link>Lib\unicodedata.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\unittest.py">
       <Link>Lib\unittest.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\urllib.py">
       <Link>Lib\urllib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\urllib2.py">
       <Link>Lib\urllib2.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\urlparse.py">
       <Link>Lib\urlparse.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\UserDict.py">
       <Link>Lib\UserDict.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\UserList.py">
       <Link>Lib\UserList.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\UserString.py">
       <Link>Lib\UserString.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\uuid.py">
       <Link>Lib\uuid.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\warnings.py">
       <Link>Lib\warnings.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\weakref.py">
       <Link>Lib\weakref.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\wsgi.py">
       <Link>Lib\wsgi.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\wsgiref\handlers.py">
       <Link>Lib\wsgiref\handlers.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\wsgiref\headers.py">
       <Link>Lib\wsgiref\headers.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\wsgiref\simple_server.py">
       <Link>Lib\wsgiref\simple_server.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\wsgiref\util.py">
       <Link>Lib\wsgiref\util.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\wsgiref\validate.py">
       <Link>Lib\wsgiref\validate.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\wsgiref\__init__.py">
       <Link>Lib\wsgiref\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xmlrpclib.py">
       <Link>Lib\xmlrpclib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\dom\domreg.py">
       <Link>Lib\xml\dom\domreg.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\dom\expatbuilder.py">
       <Link>Lib\xml\dom\expatbuilder.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\dom\minicompat.py">
       <Link>Lib\xml\dom\minicompat.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\dom\minidom.py">
       <Link>Lib\xml\dom\minidom.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\dom\NodeFilter.py">
       <Link>Lib\xml\dom\NodeFilter.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\dom\pulldom.py">
       <Link>Lib\xml\dom\pulldom.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\dom\xmlbuilder.py">
       <Link>Lib\xml\dom\xmlbuilder.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\dom\__init__.py">
       <Link>Lib\xml\dom\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\parsers\expat.py">
       <Link>Lib\xml\parsers\expat.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\parsers\__init__.py">
       <Link>Lib\xml\parsers\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\sax\expatreader.py">
       <Link>Lib\xml\sax\expatreader.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\sax\handler.py">
       <Link>Lib\xml\sax\handler.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\sax\saxutils.py">
       <Link>Lib\xml\sax\saxutils.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\sax\xmlreader.py">
       <Link>Lib\xml\sax\xmlreader.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\sax\_exceptions.py">
       <Link>Lib\xml\sax\_exceptions.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\sax\__init__.py">
       <Link>Lib\xml\sax\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\xml\__init__.py">
       <Link>Lib\xml\__init__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\zlib.py">
       <Link>Lib\zlib.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\static.py">
       <Link>Lib\static.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\_codecs_errors.py">
       <Link>Lib\_codecs_errors.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\_fileobject.py">
       <Link>Lib\_fileobject.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\_LWPCookieJar.py">
       <Link>Lib\_LWPCookieJar.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\_MozillaCookieJar.py">
       <Link>Lib\_MozillaCookieJar.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\_pth_support.py">
       <Link>Lib\_pth_support.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\_sre.py">
       <Link>Lib\_sre.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\_threading_local.py">
       <Link>Lib\_threading_local.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\__future__.py">
       <Link>Lib\__future__.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\appsite.py">
       <Link>appsite.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\cherrypyserver.py">
       <Link>Lib\cherrypyserver.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\__init__.py">
       <Link>core\__init__.py</Link>
@@ -1911,21 +1859,751 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\WebApp\appsite.exe">
+      <Link>appsite.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\cherrypyserver.exe">
+      <Link>cherrypyserver.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\atexit.exe">
+      <Link>Lib\atexit.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\base64.exe">
+      <Link>Lib\base64.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\BaseHTTPServer.exe">
+      <Link>Lib\BaseHTTPServer.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\bisect.exe">
+      <Link>Lib\bisect.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\calendar.exe">
+      <Link>Lib\calendar.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cgi.exe">
+      <Link>Lib\cgi.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\codecs.exe">
+      <Link>Lib\codecs.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\ConfigParser.exe">
+      <Link>Lib\ConfigParser.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\Cookie.exe">
+      <Link>Lib\Cookie.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cookielib.exe">
+      <Link>Lib\cookielib.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\copy.exe">
+      <Link>Lib\copy.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\ctypes.exe">
+      <Link>Lib\ctypes.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\dis.exe">
+      <Link>Lib\dis.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\fnmatch.exe">
+      <Link>Lib\fnmatch.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\ftplib.exe">
+      <Link>Lib\ftplib.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\glob.exe">
+      <Link>Lib\glob.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\gopherlib.exe">
+      <Link>Lib\gopherlib.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\httplib.exe">
+      <Link>Lib\httplib.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\httplogger.exe">
+      <Link>Lib\httplogger.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\inspect.exe">
+      <Link>Lib\inspect.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\linecache.exe">
+      <Link>Lib\linecache.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\mimetools.exe">
+      <Link>Lib\mimetools.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\mimetypes.exe">
+      <Link>Lib\mimetypes.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\ntpath.exe">
+      <Link>Lib\ntpath.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\nturl2path.exe">
+      <Link>Lib\nturl2path.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\opcode.exe">
+      <Link>Lib\opcode.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\os.exe">
+      <Link>Lib\os.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\posixpath.exe">
+      <Link>Lib\posixpath.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\pyexpat.exe">
+      <Link>Lib\pyexpat.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\Queue.exe">
+      <Link>Lib\Queue.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\quopri.exe">
+      <Link>Lib\quopri.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\random.exe">
+      <Link>Lib\random.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\resolver.exe">
+      <Link>Lib\resolver.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\rfc822.exe">
+      <Link>Lib\rfc822.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\selector.exe">
+      <Link>Lib\selector.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\signal.exe">
+      <Link>Lib\signal.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\site.exe">
+      <Link>Lib\site.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\SocketServer.exe">
+      <Link>Lib\SocketServer.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\ssl.exe">
+      <Link>Lib\ssl.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\stat.exe">
+      <Link>Lib\stat.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\static.exe">
+      <Link>Lib\static.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\string.exe">
+      <Link>Lib\string.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\StringIO.exe">
+      <Link>Lib\StringIO.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\tempfile.exe">
+      <Link>Lib\tempfile.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\threading.exe">
+      <Link>Lib\threading.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\token.exe">
+      <Link>Lib\token.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\tokenize.exe">
+      <Link>Lib\tokenize.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\traceback.exe">
+      <Link>Lib\traceback.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\types.exe">
+      <Link>Lib\types.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\urllib.exe">
+      <Link>Lib\urllib.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\urllib2.exe">
+      <Link>Lib\urllib2.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\urlparse.exe">
+      <Link>Lib\urlparse.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\UserDict.exe">
+      <Link>Lib\UserDict.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\uuid.exe">
+      <Link>Lib\uuid.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\warnings.exe">
+      <Link>Lib\warnings.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xmlrpclib.exe">
+      <Link>Lib\xmlrpclib.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\_fileobject.exe">
+      <Link>Lib\_fileobject.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\_LWPCookieJar.exe">
+      <Link>Lib\_LWPCookieJar.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\_MozillaCookieJar.exe">
+      <Link>Lib\_MozillaCookieJar.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\_threading_local.exe">
+      <Link>Lib\_threading_local.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\error.exe">
+      <Link>Lib\amplee\error.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\http_helper.exe">
+      <Link>Lib\amplee\http_helper.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\loader.exe">
+      <Link>Lib\amplee\loader.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\utils.exe">
+      <Link>Lib\amplee\utils.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\__init__.exe">
+      <Link>Lib\amplee\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\atompub\collection.exe">
+      <Link>Lib\amplee\atompub\collection.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\atompub\service.exe">
+      <Link>Lib\amplee\atompub\service.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\atompub\store.exe">
+      <Link>Lib\amplee\atompub\store.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\atompub\workspace.exe">
+      <Link>Lib\amplee\atompub\workspace.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\atompub\__init__.exe">
+      <Link>Lib\amplee\atompub\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\atom.exe">
+      <Link>Lib\amplee\atompub\member\atom.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\atom_1.exe">
+      <Link>Lib\amplee\atompub\member\atom_1.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\generic.exe">
+      <Link>Lib\amplee\atompub\member\generic.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\helper.exe">
+      <Link>Lib\amplee\atompub\member\helper.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\atompub\member\__init__.exe">
+      <Link>Lib\amplee\atompub\member\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\handler\__init__.exe">
+      <Link>Lib\amplee\handler\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\handler\store\__init__.exe">
+      <Link>Lib\amplee\handler\store\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\handler\store\wsgi\__init__.exe">
+      <Link>Lib\amplee\handler\store\wsgi\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\storage\dummyfs.exe">
+      <Link>Lib\amplee\storage\dummyfs.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\amplee\storage\__init__.exe">
+      <Link>Lib\amplee\storage\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\bridge\common.exe">
+      <Link>Lib\bridge\common.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\bridge\__init__.exe">
+      <Link>Lib\bridge\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\bridge\filter\atom.exe">
+      <Link>Lib\bridge\filter\atom.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\bridge\filter\__init__.exe">
+      <Link>Lib\bridge\filter\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\bridge\lib\isodate.exe">
+      <Link>Lib\bridge\lib\isodate.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\bridge\lib\__init__.exe">
+      <Link>Lib\bridge\lib\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\bridge\parser\bridge_default.exe">
+      <Link>Lib\bridge\parser\bridge_default.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\bridge\parser\bridge_dotnet.exe">
+      <Link>Lib\bridge\parser\bridge_dotnet.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\bridge\parser\__init__.exe">
+      <Link>Lib\bridge\parser\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\bridge\validator\atom.exe">
+      <Link>Lib\bridge\validator\atom.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\bridge\validator\__init__.exe">
+      <Link>Lib\bridge\validator\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpcgifs.exe">
+      <Link>Lib\cherrypy\_cpcgifs.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpchecker.exe">
+      <Link>Lib\cherrypy\_cpchecker.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpconfig.exe">
+      <Link>Lib\cherrypy\_cpconfig.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpdispatch.exe">
+      <Link>Lib\cherrypy\_cpdispatch.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpengine.exe">
+      <Link>Lib\cherrypy\_cpengine.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cperror.exe">
+      <Link>Lib\cherrypy\_cperror.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cplogging.exe">
+      <Link>Lib\cherrypy\_cplogging.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cprequest.exe">
+      <Link>Lib\cherrypy\_cprequest.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpserver.exe">
+      <Link>Lib\cherrypy\_cpserver.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cptools.exe">
+      <Link>Lib\cherrypy\_cptools.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cptree.exe">
+      <Link>Lib\cherrypy\_cptree.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\_cpwsgi.exe">
+      <Link>Lib\cherrypy\_cpwsgi.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\__init__.exe">
+      <Link>Lib\cherrypy\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\auth.exe">
+      <Link>Lib\cherrypy\lib\auth.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\caching.exe">
+      <Link>Lib\cherrypy\lib\caching.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\cptools.exe">
+      <Link>Lib\cherrypy\lib\cptools.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\encoding.exe">
+      <Link>Lib\cherrypy\lib\encoding.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\http.exe">
+      <Link>Lib\cherrypy\lib\http.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\httpauth.exe">
+      <Link>Lib\cherrypy\lib\httpauth.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\sessions.exe">
+      <Link>Lib\cherrypy\lib\sessions.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\static.exe">
+      <Link>Lib\cherrypy\lib\static.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\tidy.exe">
+      <Link>Lib\cherrypy\lib\tidy.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\wsgiapp.exe">
+      <Link>Lib\cherrypy\lib\wsgiapp.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\xmlrpc.exe">
+      <Link>Lib\cherrypy\lib\xmlrpc.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\lib\__init__.exe">
+      <Link>Lib\cherrypy\lib\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\cherrypy\wsgiserver\__init__.exe">
+      <Link>Lib\cherrypy\wsgiserver\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\email\base64MIME.exe">
+      <Link>Lib\email\base64MIME.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\email\Charset.exe">
+      <Link>Lib\email\Charset.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\email\Encoders.exe">
+      <Link>Lib\email\Encoders.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\email\Errors.exe">
+      <Link>Lib\email\Errors.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\email\Header.exe">
+      <Link>Lib\email\Header.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\email\quopriMIME.exe">
+      <Link>Lib\email\quopriMIME.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\email\Utils.exe">
+      <Link>Lib\email\Utils.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\email\_parseaddr.exe">
+      <Link>Lib\email\_parseaddr.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\email\__init__.exe">
+      <Link>Lib\email\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\encodings\aliases.exe">
+      <Link>Lib\encodings\aliases.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\encodings\__init__.exe">
+      <Link>Lib\encodings\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\fepy\encoding.exe">
+      <Link>Lib\fepy\encoding.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\fepy\fileobject.exe">
+      <Link>Lib\fepy\fileobject.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\fepy\network.exe">
+      <Link>Lib\fepy\network.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\fepy\__init__.exe">
+      <Link>Lib\fepy\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\logging\__init__.exe">
+      <Link>Lib\logging\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\wsgiref\util.exe">
+      <Link>Lib\wsgiref\util.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\wsgiref\__init__.exe">
+      <Link>Lib\wsgiref\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\__init__.exe">
+      <Link>Lib\xml\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\dom\domreg.exe">
+      <Link>Lib\xml\dom\domreg.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\dom\minicompat.exe">
+      <Link>Lib\xml\dom\minicompat.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\dom\minidom.exe">
+      <Link>Lib\xml\dom\minidom.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\dom\NodeFilter.exe">
+      <Link>Lib\xml\dom\NodeFilter.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\dom\xmlbuilder.exe">
+      <Link>Lib\xml\dom\xmlbuilder.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\dom\__init__.exe">
+      <Link>Lib\xml\dom\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\parsers\expat.exe">
+      <Link>Lib\xml\parsers\expat.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\parsers\__init__.exe">
+      <Link>Lib\xml\parsers\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\sax\handler.exe">
+      <Link>Lib\xml\sax\handler.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\sax\saxutils.exe">
+      <Link>Lib\xml\sax\saxutils.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\sax\xmlreader.exe">
+      <Link>Lib\xml\sax\xmlreader.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\sax\_exceptions.exe">
+      <Link>Lib\xml\sax\_exceptions.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\bin\Lib\xml\sax\__init__.exe">
+      <Link>Lib\xml\sax\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\core\atompub.exe">
+      <Link>core\atompub.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\core\atompub_1.exe">
+      <Link>core\atompub_1.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\core\atompub_2.exe">
+      <Link>core\atompub_2.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\core\xameleonhandler.exe">
+      <Link>core\xameleonhandler.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\core\__init__.exe">
+      <Link>core\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\core\handler\article.exe">
+      <Link>core\handler\article.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\core\handler\__init__.exe">
+      <Link>core\handler\__init__.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="..\WebApp\Web.config">
       <Link>web.config</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\Web.amplee.config">
       <Link>web.amplee.config</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\appstore.conf">
       <Link>appstore.conf</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\appsite.py">
       <Link>appsite.py</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\build-output.xsl">
+      <Link>public_web\build-output.xsl</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\index.xml">
+      <Link>public_web\index.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\favicon.ico">
+      <Link>public_web\favicon.ico</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\css\base.css">
+      <Link>public_web\css\base.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\css\ie-webClipControl.css">
+      <Link>public_web\css\ie-webClipControl.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\css\ie.css">
+      <Link>public_web\css\ie.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\css\mozilla-webClipControl.css">
+      <Link>public_web\css\mozilla-webClipControl.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\css\opera.css">
+      <Link>public_web\css\mozilla.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\css\opera-webClipControl.css">
+      <Link>public_web\css\opera-webClipControl.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\css\safari.css">
+      <Link>public_web\css\safari.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\css\safari-webClipControl.css">
+      <Link>public_web\css\safari-webClipControl.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\css\webClipControl.css">
+      <Link>public_web\css\webClipControl.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\js\ie-liveclip.js">
+      <Link>public_web\js\ie-liveclip.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\js\ie.js">
+      <Link>public_web\js\ie.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\js\mozilla-liveclip.js">
+      <Link>public_web\js\mozilla-liveclip.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\js\mozilla.js">
+      <Link>public_web\js\mozilla.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\js\opera-liveclip.js">
+      <Link>public_web\js\opera-liveclip.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\js\safari-liveclip.js">
+      <Link>public_web\js\safari-liveclip.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\js\safari.js">
+      <Link>public_web\js\safari.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\js\opera.js">
+      <Link>public_web\js\opera.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\microformat\hCard.js">
+      <Link>public_web\microformat\hCard.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\microformat\hCal.js">
+      <Link>public_web\microformat\hCal.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\images\liveClipIconSelected.png">
+      <Link>public_web\images\liveClipIconSelected.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebApp\public_web\images\liveClipIconUnselected.png">
+      <Link>public_web\images\liveClipIconUnselected.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -1944,12 +2622,21 @@
   <ItemGroup>
     <PublishFile Include="nunit.framework">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
       <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="public_web\index.xml">
+      <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
@@ -1961,7 +2648,6 @@
   <ItemGroup>
     <Folder Include="DLLs\" />
     <Folder Include="private_web\" />
-    <Folder Include="public_web\" />
     <Folder Include="repository\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
