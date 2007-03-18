@@ -16,7 +16,7 @@ def run(blocking=False):
     cherrypy.config.update({'checker.on': False,
                             'engine.autoreload_on': False,
                             'server.socket_port': 9999,
-                            'server.thread_pool': 2,})
+                            'server.thread_pool': 10,})
 
     cherrypy.tree.graft(app)
     cherrypy.server.quickstart()
