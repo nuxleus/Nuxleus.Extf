@@ -1,4 +1,4 @@
 function hello(){
-  alert('Hello, Mozilla!');
+  alert('It seems you are running Mozilla. Your code base has been optimized accordingly.');
 };
 

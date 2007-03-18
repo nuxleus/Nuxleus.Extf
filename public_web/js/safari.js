@@ -1,3 +1,3 @@
 function hello() {
-  alert('Hello, Safari!');
+  alert('It seems you are running Safari. Your code base has been optimized accordingly.');
 };
