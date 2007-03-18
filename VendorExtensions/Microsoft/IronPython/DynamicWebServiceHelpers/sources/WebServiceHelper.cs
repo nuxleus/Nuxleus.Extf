@@ -34,6 +34,7 @@ public class WebServiceHelper {
         RegisterProvider(new WsdlProvider());
         RegisterProvider(new RestProvider());
         RegisterProvider(new RssProvider());
+        RegisterProvider(new AtomProvider());
     }
 
     #region public APIs

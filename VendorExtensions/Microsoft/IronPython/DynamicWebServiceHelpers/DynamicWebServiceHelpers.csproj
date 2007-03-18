@@ -32,7 +32,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\..\..\..\bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\..\..\docs\DynamicWebServiceHelpers.IronPython.xml</DocumentationFile>
@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="sources\AtomProvider.cs" />
     <Compile Include="sources\DynamicWebServiceHelpers.cs" />
     <Compile Include="sources\IWebServiceProvider.cs" />
     <Compile Include="sources\PluralizerAttributeInjector.cs" />
