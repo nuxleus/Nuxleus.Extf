@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly manifestVersion="1.0" xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <asmv1:assemblyIdentity name="Xameleon.WebApp.exe" version="0.1.1.17" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Xameleon.WebApp.exe" version="0.1.1.18" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Xameleon.WebApp" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -46,7 +46,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>u2aJzxpMJiz9BhfSfp+PfRjnlv0=</dsig:DigestValue>
+        <dsig:DigestValue>QEpjJExScNqvQwlGXAIYgCzybPo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -226,7 +226,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>rTHrUUGu4LqgzDy0WwW5jXTUN+8=</dsig:DigestValue>
+        <dsig:DigestValue>CK6pFbXxUFsgc6h88O+ga3kOJzw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -238,7 +238,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ffPPxOVih2CiDmhyJcTnGCh7F0A=</dsig:DigestValue>
+        <dsig:DigestValue>+w7JiqBwGwQLkc9poXWeAladmQ8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
