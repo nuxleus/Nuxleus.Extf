@@ -1,0 +1,19 @@
+<rss version="2.0" xmlns:as="http://appsyndication.org/schemas/appsyn">
+  <channel>
+    <title>x2x2x.org's Xameleon Personal Web Communication Platform</title>
+    <generator>WiX Toolset's ClickThrough for Isolated Applications</generator>
+    <lastBuildDate>Mon, 19 Mar 2007 07:55:51 GMT</lastBuildDate>
+    <ttl>60</ttl>
+    <as:application type="application/vnd.ms-msi">4d876e14-55d2-42d7-944f-62f966b74ee6</as:application>
+    <item>
+      <guid isPermaLink="false">urn:msi:4d876e14-55d2-42d7-944f-62f966b74ee6/0.1.1.17</guid>
+      <pubDate>Mon, 19 Mar 2007 07:55:51 GMT</pubDate>
+      <title>Xameleon Personal Web Communication Platform v0.1.1.17</title>
+      <description>Xameleon Personal Web Communication Platform</description>
+      <as:application type="application/vnd.ms-msi">537aa01d-93db-476d-8ae4-3674320e1047</as:application>
+      <as:version>0.1.1.17</as:version>
+      <enclosure url="0.1.1.17/setup.exe" length="9057280" type="application/octet-stream" />
+      <as:digest algorithm="sha256">86329FC5CD972949BCA9134F2CAA408D7892E3F7F00899AAAD4D53D9EDE62BB9</as:digest>
+    </item>
+  </channel>
+</rss>
