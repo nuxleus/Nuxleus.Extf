@@ -8,7 +8,7 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="http://extf.googlecode.com/svn/release/xameleon/personalweb/Xameleon.WebApp.application" />
+    <deploymentProvider codebase="http://extf.googlecode.com/svn/release/xameleon/personalwebplatform/Xameleon.WebApp.application" />
   </deployment>
   <dependency>
     <dependentAssembly dependencyType="install" codebase="Xameleon.WebApp.exe.manifest" size="231478">
