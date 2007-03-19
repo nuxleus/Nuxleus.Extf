@@ -2,18 +2,18 @@
   <channel>
     <title>x2x2x.org's Xameleon Personal Web Communication Platform</title>
     <generator>WiX Toolset's ClickThrough for Isolated Applications</generator>
-    <lastBuildDate>Mon, 19 Mar 2007 07:55:51 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 19 Mar 2007 08:56:04 GMT</lastBuildDate>
     <ttl>60</ttl>
-    <as:application type="application/vnd.ms-msi">4d876e14-55d2-42d7-944f-62f966b74ee6</as:application>
+    <as:application type="application/vnd.ms-msi">7acffe67-f88d-4603-920f-0158daf14f89</as:application>
     <item>
-      <guid isPermaLink="false">urn:msi:4d876e14-55d2-42d7-944f-62f966b74ee6/0.1.1.17</guid>
-      <pubDate>Mon, 19 Mar 2007 07:55:51 GMT</pubDate>
-      <title>Xameleon Personal Web Communication Platform v0.1.1.17</title>
+      <guid isPermaLink="false">urn:msi:7acffe67-f88d-4603-920f-0158daf14f89/0.1.1.18</guid>
+      <pubDate>Mon, 19 Mar 2007 08:56:04 GMT</pubDate>
+      <title>Xameleon Personal Web Communication Platform v0.1.1.18</title>
       <description>Xameleon Personal Web Communication Platform</description>
-      <as:application type="application/vnd.ms-msi">537aa01d-93db-476d-8ae4-3674320e1047</as:application>
-      <as:version>0.1.1.17</as:version>
-      <enclosure url="0.1.1.17/setup.exe" length="9057280" type="application/octet-stream" />
-      <as:digest algorithm="sha256">86329FC5CD972949BCA9134F2CAA408D7892E3F7F00899AAAD4D53D9EDE62BB9</as:digest>
+      <as:application type="application/vnd.ms-msi">10d62e2b-a4be-4a1d-9922-f84918871705</as:application>
+      <as:version>0.1.1.18</as:version>
+      <enclosure url="0.1.1.18/setup.exe" length="9057280" type="application/octet-stream" />
+      <as:digest algorithm="sha256">CD8241668A5E2A5ADE029951F9DD4CEA4CA603B5FFA7EEF085493A524A01AF03</as:digest>
     </item>
   </channel>
 </rss>
