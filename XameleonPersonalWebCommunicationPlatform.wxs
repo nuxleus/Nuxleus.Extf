@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<Wix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
+	<Product Id="4ADD2CAE-11A7-4347-9FC6-C3422F95A5B8" Codepage="1252" Language="1033" Manufacturer="ExtensibleForge.Net" Name="Extf.Net Core Dependencies" UpgradeCode="3894C563-F436-4B61-8A00-7BC63DE62806" Version="0.1.1.0">
+		<Package Id="2cfe334e-8c69-476d-acba-13dcab09725a" Comments="The Core dependicies of the Extf.Net Base Library" Compressed="yes" Description="Core Dependencies" InstallerVersion="200" Manufacturer="ExtensibleForge.net" />
+		<Media Id="1" Cabinet="Product.cab" EmbedCab="yes" />
+		<Directory Id="TARGETDIR" Name="SourceDir" src="C:\Documents and Settings\M. David\My Documents\My Projects\extf.net-google-code\trunk\Xameleon.WebApp\bin\Release\temp">
+			<Component Id="IKVM" Guid="12AA7DFE-84C9-4ADF-A6A3-E7AAEA87705F" Location="either" SharedDllRefCount="yes">
+				<File Id="IKVM.GNU.Classpath.dll" Name="IKVM.GNU.Classpath.dll" KeyPath="yes" Assembly=".net" DiskId="1" Source=".\IKVM.GNU.Classpath.dll" />
+			</Component>
+			<Component Id="IKVM.Runtime" Guid="2829F9CE-BB32-45A9-A344-A02054A3CA69" SharedDllRefCount="yes">
+				<File Id="IKVM.Runtime.dll" Name="IKVM.Runtime.dll" KeyPath="yes" Assembly=".net" DiskId="1" Source=".\IKVM.Runtime.dll" />
+			</Component>
+			<Component Id="Saxon" Guid="830F0403-665E-4615-86C8-51F8A356459F" SharedDllRefCount="yes">
+				<File Id="saxon8.dll" Name="saxon8.dll" KeyPath="yes" Assembly=".net" DiskId="1" Source=".\saxon8.dll" />
+			</Component>
+			<Component Id="SaxonAPI" Guid="64B7916B-E2F7-4B9F-A086-D343E9F2B4D1" SharedDllRefCount="yes">
+				<File Id="Saxon.Api.dll" Name="Saxon.Api.dll" KeyPath="yes" Compressed="yes" Assembly=".net" DiskId="1" Source=".\Saxon.Api.dll" />
+			</Component>
+			<Directory Id="webapp" LongName="webapp" Name="webapp" src="C:\Documents and Settings\M. David\My Documents\My Projects\extf.net-google-code\trunk\Xameleon.WebApp\bin\Release\webapp" />
+			<Directory Id="repository" LongName="repository" Name="repository" src="C:\Documents and Settings\M. David\My Documents\My Projects\extf.net-google-code\trunk\Xameleon.WebApp\bin\Release\repository" />
+			<Directory Id="private_web" LongName="private_web" Name="private_web" src="C:\Documents and Settings\M. David\My Documents\My Projects\extf.net-google-code\trunk\Xameleon.WebApp\bin\Release\private_web" />
+			<Directory Id="public_web" LongName="public_web" Name="public_web" src="C:\Documents and Settings\M. David\My Documents\My Projects\extf.net-google-code\trunk\Xameleon.WebApp\bin\Release\public_web" />
+		</Directory>
+		<Binary Id="extf" src="C:\Documents and Settings\M. David\My Documents\My Projects\extf.net\trunk\Resources\assets\Graphics\extf.png" />
+		<Feature Id="Feature1" Description="TODO: Describe the new feature" InstallDefault="followParent" Level="3" Title="New Feature" TypicalDefault="advertise">
+			<Feature Id="Feature2" Description="TODO: Describe the new feature" InstallDefault="followParent" Level="3" Title="New Feature" TypicalDefault="advertise" />
+		</Feature>
+		<UI>
+			<InstallUISequence>
+				<Show Dialog="Dialog1" OnExit="cancel" />
+			</InstallUISequence>
+			<TextStyle Id="Font1" FaceName="Tahoma" Size="14" Red="14" Green="16" Blue="16" Bold="yes" />
+			<UIText Id="GB" />
+			<UIText Id="KB" />
+			<UIText Id="SelParentCostPosNeg" />
+			<UIText Id="bytes" />
+			<UIText Id="NewFolder" />
+			<UIText Id="MB" />
+			<UIText Id="ScriptInProgress">Installing files into GAC</UIText>
+			<UIText Id="SelParentCostPosPos" />
+			<UIText Id="SelChildCostPos" />
+			<UIText Id="SelParentCostNegNeg" />
+			<UIText Id="SelChildCostNeg" />
+			<UIText Id="TimeRemaining">00:00</UIText>
+			<UIText Id="SelParentCostNegPos" />
+			<Dialog Id="Dialog1" X="50" Y="50" Width="377" Height="266" Title="New Dialog">
+				<Control Id="bitmapBackground" Type="Bitmap" X="2" Y="-2" Width="271" Height="234" />
+				<Control Id="textTitle" Type="Text" X="2" Y="26" Width="367" Height="35" TabSkip="yes" Transparent="yes">
+					<Text>{\Font1}Xameleon Personal Web Communication Platform</Text>
+				</Control>
+				<Control Id="lineTopDivider" Type="Line" X="0" Y="44" Width="375" Height="2" />
+				<Control Id="lineBottomDivider" Type="Line" X="0" Y="234" Width="375" Height="2" />
+				<Control Id="buttonPrevious" Type="PushButton" X="189" Y="244" Width="56" Height="17" TabSkip="no">
+					<Text>&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="buttonNext" Type="PushButton" X="244" Y="244" Width="56" Height="17" TabSkip="no">
+					<Text>&amp;Next &gt;</Text>
+				</Control>
+				<Control Id="buttonCancel" Type="PushButton" X="309" Y="244" Width="56" Height="17" TabSkip="no">
+					<Text>Cancel</Text>
+					<Publish Event="SpawnDialog" Value="(unused)">1</Publish>
+				</Control>
+			</Dialog>
+		</UI>
+	</Product>
+</Wix>
