@@ -16,7 +16,7 @@
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <TargetZone>Custom</TargetZone>
     <SignAssembly>false</SignAssembly>
-    <PublishUrl>C:\Documents and Settings\M. David\My Documents\My Projects\extf.net-google-code\release\xameleon\personalwebplatform\</PublishUrl>
+    <PublishUrl>http://localhost/Xameleon.WebApp/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -26,7 +26,6 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
-    <InstallUrl>http://extf.googlecode.com/svn/release/xameleon/personalwebplatform/</InstallUrl>
     <SupportUrl>http://xameleon.org/support/</SupportUrl>
     <ProductName>Xameleon Personal Web Communication Platform</ProductName>
     <PublisherName>The nuXleus Project</PublisherName>
@@ -56,18 +55,6 @@
     <DocumentationFile>..\docs\Xameleon.WebApp.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AmazonAWS.S3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\AmazonAWS.S3.dll</HintPath>
-    </Reference>
-    <Reference Include="GlobalClip, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\GlobalClip.dll</HintPath>
-    </Reference>
-    <Reference Include="GlobalClip.XmlSerializers, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\GlobalClip.XmlSerializers.dll</HintPath>
-    </Reference>
     <Reference Include="IKVM.GNU.Classpath, Version=0.32.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\IKVM.GNU.Classpath.dll</HintPath>
@@ -2395,31 +2382,55 @@
   <ItemGroup>
     <PublishFile Include="nunit.framework">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="public_web\index.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Base\Extf.Net.Base.csproj">
+      <Project>{0EFC77D9-E940-4C1C-805F-F236FDB64B32}</Project>
+      <Name>Extf.Net.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlobalClip\GlobalClip.csproj">
+      <Project>{9B9C08A7-0E8A-45AA-AEB4-7A5796DB1C26}</Project>
+      <Name>GlobalClip</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VendorExtensions\Microsoft\IronPython\DynamicWebServiceHelpers\DynamicWebServiceHelpers.csproj">
       <Project>{1D454DD9-4271-47F0-A45C-12040305BAD1}</Project>
       <Name>DynamicWebServiceHelpers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VendorExtensions\S3\AmazonAWS.S3\AmazonAWS.S3.csproj">
+      <Project>{8D92E7E5-ECF3-4F24-BBB3-D03D273D6A80}</Project>
+      <Name>AmazonAWS.S3</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
       <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
       <Name>Saxon.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xameleon.Mvp.Xml\Xameleon.Mvp.Xml.csproj">
+      <Project>{F81D17A0-0B2F-4030-B55C-B73D7F5237ED}</Project>
+      <Name>Xameleon.Mvp.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xameleon.Saxon\Xameleon.Saxon.csproj">
+      <Project>{633322D9-B096-4869-AE5D-96817B679231}</Project>
+      <Name>Xameleon.Saxon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xameleon.WebServer\Xameleon.WebServer.csproj">
+      <Project>{D298C699-3963-475B-8157-E42509EA226A}</Project>
+      <Name>Xameleon.WebServer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Xameleon\Xameleon.csproj">
       <Project>{A800D9F1-D877-4076-99BA-CBD73BCFB203}</Project>

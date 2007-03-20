@@ -57,12 +57,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\AspNet\Agent.cs" />
-    <Compile Include="Extensions\AspNet\Context.cs" />
-    <Compile Include="Extensions\AspNet\Init.cs" />
-    <Compile Include="Extensions\AspNet\Operation.cs" />
-    <Compile Include="Extensions\AspNet\Process.cs" />
-    <Compile Include="Extensions\AspNet\Transformer.cs" />
     <Compile Include="Extensions\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>

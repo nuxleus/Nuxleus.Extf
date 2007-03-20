@@ -4,12 +4,6 @@
         <name>Extf.Net</name>
     </assembly>
     <members>
-        <member name="M:Extf.Net.ACL.#ctor">
-            <summary>
-            Create a new Generics-based Dictionary to hold our group of ACL XML files.
-            </summary>
-            
-        </member>
         <member name="T:Extf.Net.Properties.Resource">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -41,6 +35,12 @@
             			&lt;description&gt;If you are want to subscribe to a feed run Microsoft Internet Explorer and subscribe to a picture feed.&lt;/description&gt;
             			&lt;link&gt;http://msdn. [rest of string was truncated]&quot;;.
              </summary>
+        </member>
+        <member name="M:Extf.Net.ACL.#ctor">
+            <summary>
+            Create a new Generics-based Dictionary to hold our group of ACL XML files.
+            </summary>
+            
         </member>
         <member name="T:Extf.Net.Properties.Resources">
             <summary>

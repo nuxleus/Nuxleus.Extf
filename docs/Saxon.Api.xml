@@ -4,720 +4,122 @@
         <name>Saxon.Api</name>
     </assembly>
     <members>
-        <member name="T:Saxon.Api.XsltCompiler">
+        <member name="T:Saxon.Api.StaticError">
             <summary>
-            An <c>XsltCompiler</c> object allows XSLT 2.0 stylesheets to be compiled.
-            The compiler holds information that represents the static context
-            for the compilation.
+            The StaticError class contains information about a static error detected during
+            compilation of a stylesheet, query, or XPath expression.
+            </summary>
+        </member>
+        <member name="M:Saxon.Api.StaticError.#ctor(javax.xml.transform.TransformerException)">
+            <summary>
+            Create a new StaticError, wrapping a Saxon XPathException
+            </summary>
+        </member>
+        <member name="M:Saxon.Api.StaticError.ToString">
+            <summary>
+            Return the error message.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.StaticError.ErrorCode">
+            <summary>
+            The error code, as a QName. May be null if no error code has been assigned
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.StaticError.Message">
+            <summary>
+            Return the message associated with this error
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.StaticError.ModuleUri">
+            <summary>
+            The URI of the query or stylesheet module in which the error was detected
+            (as a string)
             </summary>
             <remarks>
-            <para>To construct an <c>XsltCompiler</c>, use the factory method
-            <c>NewXsltCompiler</c> on the <c>Processor</c> object.</para>
-            <para>An <c>XsltCompiler</c> may be used repeatedly to compile multiple
-            queries. Any changes made to the <c>XsltCompiler</c> (that is, to the
-            static context) do not affect queries that have already been compiled.
-            An <c>XsltCompiler</c> may be used concurrently in multiple threads, but
-            it should not then be modified once initialized.</para>
+            May be null if the location of the error is unknown, or if the error is not
+            localized to a specific module, or if the module in question has no known URI
+            (for example, if it was supplied as an anonymous Stream)
             </remarks>
         </member>
-        <member name="M:Saxon.Api.XsltCompiler.Compile(System.IO.Stream)">
+        <member name="P:Saxon.Api.StaticError.LineNumber">
             <summary>
-            Compile a stylesheet supplied as a Stream.
+            The line number locating the error within a query or stylesheet module
             </summary>
-            <example>
-            <code>
-            Stream source = new FileStream("input.xsl", FileMode.Open, FileAccess.Read);
-            XsltExecutable q = compiler.Compile(source);
-            source.Close();
-            </code>
-            </example>
-            <param name="input">A stream containing the source text of the stylesheet</param>
-            <returns>An <c>XsltExecutable</c> which represents the compiled stylesheet object.
-            The XsltExecutable may be loaded as many times as required, in the same or a different
-            thread. The <c>XsltExecutable</c> is not affected by any changes made to the <c>XsltCompiler</c>
-            once it has been compiled.</returns>
             <remarks>
-            <para>If the stylesheet contains any <c>xsl:include</c> or <c>xsl:import</c> declarations,
-            then the <c>BaseURI</c> property must be set to allow these to be resolved.</para>
-            <para>The stylesheet is contained in the part of the input stream between its current
-            position and the end of the stream. It is the caller's responsibility to close the input 
-            stream after use. If the compilation succeeded, then on exit the stream will be 
-            exhausted; if compilation failed, the current position of the stream on exit is
-            undefined.</para>
+            May be set to -1 if the location of the error is unknown
+            </remarks>        
+        </member>
+        <member name="P:Saxon.Api.StaticError.IsWarning">
+            <summary>
+            Indicate whether this error is being reported as a warning condition. If so, applications
+            may ignore the condition, though the results may not be as intended.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.StaticError.IsTypeError">
+            <summary>
+            Indicate whether this condition is a type error.
+            </summary>
+        </member>
+        <member name="T:Saxon.Api.DynamicError">
+            <summary>
+            The DynamicError class contains information about a dynamic error detected during
+            execution of a stylesheet, query, or XPath expression.
+            </summary>
+        </member>
+        <member name="M:Saxon.Api.DynamicError.#ctor(System.String)">
+            <summary>
+            Create a new DynamicError, specifying the error message
+            </summary>
+        </member>
+        <member name="M:Saxon.Api.DynamicError.#ctor(javax.xml.transform.TransformerException)">
+            <summary>
+            Create a new DynamicError, wrapping a Saxon XPathException
+            </summary>
+        </member>
+        <member name="M:Saxon.Api.DynamicError.ToString">
+            <summary>
+            Return the error message.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.DynamicError.ErrorCode">
+            <summary>
+            The error code, as a QName. May be null if no error code has been assigned
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.DynamicError.Message">
+            <summary>
+            Return the message associated with this error
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.DynamicError.ModuleUri">
+            <summary>
+            The URI of the query or stylesheet module in which the error was detected
+            (as a string)
+            </summary>
+            <remarks>
+            May be null if the location of the error is unknown, or if the error is not
+            localized to a specific module, or if the module in question has no known URI
+            (for example, if it was supplied as an anonymous Stream)
             </remarks>
         </member>
-        <member name="M:Saxon.Api.XsltCompiler.Compile(System.Uri)">
+        <member name="P:Saxon.Api.DynamicError.LineNumber">
             <summary>
-            Compile a stylesheet, retrieving the source using a URI.
+            The line number locating the error within a query or stylesheet module
             </summary>
             <remarks>
-            The document located via the URI is parsed using the <c>System.Xml</c> parser. This
-            URI is used as the base URI of the stylesheet: the <c>BaseUri</c> property of the
-            <c>Compiler</c> is ignored.
-            </remarks>
-            <param name="uri">The URI identifying the location where the stylesheet document can be
-            found</param>
-            <returns>An <c>XsltExecutable</c> which represents the compiled stylesheet object.
-            The XsltExecutable may be run as many times as required, in the same or a different
-            thread. The <c>XsltExecutable</c> is not affected by any changes made to the <c>XsltCompiler</c>
-            once it has been compiled.</returns>
+            May be set to -1 if the location of the error is unknown
+            </remarks>        
         </member>
-        <member name="M:Saxon.Api.XsltCompiler.Compile(System.Xml.XmlReader)">
+        <member name="P:Saxon.Api.DynamicError.IsWarning">
             <summary>
-            Compile a stylesheet, delivered using an XmlReader.
+            Indicate whether this error is being reported as a warning condition. If so, applications
+            may ignore the condition, though the results may not be as intended.
             </summary>
-            <remarks>
-            The <c>XmlReader</c> is responsible for parsing the document; this method builds a tree
-            representation of the document (in an internal Saxon format) and compiles it.
-            If the <c>XmlReader</c> is an <c>XmlTextReader</c>, Saxon will set its <c>Normalization</c>
-            property to true, and will wrap it in a (non-validating) <c>XmlValidatingReader</c> to ensure
-            that entity references are expanded.
-            </remarks>
-            <remarks>
-            If the <c>XmlReader</c> has a <c>BaseUri</c> property, then that property determines
-            the base URI of the stylesheet module, which is used when resolving any <c>xsl:include</c>
-            or <c>xsl:import</c> declarations. If the <c>XmlReader</c> has no <c>BaseUri</c>
-            property, then the <c>BaseUri</c> property of the <c>Compiler</c> is used instead.
-            An <c>ArgumentNullException</c> is thrown if this property has not been supplied.
-            </remarks>
-            <returns>An <c>XsltExecutable</c> which represents the compiled stylesheet object.
-            The XsltExecutable may be run as many times as required, in the same or a different
-            thread. The <c>XsltExecutable</c> is not affected by any changes made to the <c>XsltCompiler</c>
-            once it has been compiled.</returns>
         </member>
-        <member name="M:Saxon.Api.XsltCompiler.Compile(Saxon.Api.XdmNode)">
+        <member name="P:Saxon.Api.DynamicError.IsTypeError">
             <summary>
-            Compile a stylesheet, located at an XdmNode. This may be a document node whose
-            child is an <c>xsl:stylesheet</c> or <c>xsl:transform</c> element, or it may be
-            the <c>xsl:stylesheet</c> or <c>xsl:transform</c> element itself.
+            Indicate whether this condition is a type error.
             </summary>
-            <returns>An <c>XsltExecutable</c> which represents the compiled stylesheet object.
-            The XsltExecutable may be run as many times as required, in the same or a different
-            thread. The <c>XsltExecutable</c> is not affected by any changes made to the <c>XsltCompiler</c>
-            once it has been compiled.</returns>
-        </member>
-        <member name="M:Saxon.Api.XsltCompiler.CompileAssociatedStylesheet(Saxon.Api.XdmNode)">
-            <summary>Locate and compile a stylesheet identified by an &lt;?xml-stylesheet?&gt;
-            processing instruction within a source document.
-            </summary>
-            <param name="source">The document node of the source document containing the
-            xml-stylesheet processing instruction.</param>
-            <returns>An <c>XsltExecutable</c> which represents the compiled stylesheet object.</returns>
-            <remarks>There are some limitations in the current implementation. The media type
-            is ignored, as are the other parameters of the xml-stylesheet instruction. The
-            href attribute must either reference an embedded stylesheet within the same
-            document or a non-embedded external stylesheet.</remarks>
-        </member>
-        <member name="P:Saxon.Api.XsltCompiler.BaseUri">
-            <summary>
-            The base URI of the stylesheet, which forms part of the static context
-            of the stylesheet. This is used for resolving any relative URIs appearing
-            within the stylesheet, for example in <c>xsl:include</c> and <c>xsl:import</c>
-            declarations, in schema locations defined to <c>xsl:import-schema</c>, 
-            or as an argument to the <c>document()</c> or <c>doc()</c> function.
-            </summary>
-            <remarks>
-            This base URI is used only if the input supplied to the <c>Compile</c> method
-            does not provide its own base URI. It is therefore used on the version of the
-            method that supplies input from a <c>Stream</c>. On the version that supplies
-            input from an <c>XmlReader</c>, this base URI is used only if the <c>XmlReader</c>
-            does not have its own base URI.
-            </remarks>
-        </member>
-        <member name="P:Saxon.Api.XsltCompiler.XmlResolver">
-            <summary>
-            An XmlResolver, which will be used to resolve URI references while compiling
-            a stylesheet
-            </summary>
-            <remarks>
-            If no <c>XmlResolver</c> is set for the <c>XsltCompiler</c>, the <c>XmlResolver</c>
-            is used that was set on the <c>Processor</c> at the time <c>NewXsltCompiler</c>
-            was called.
-            </remarks>
-        </member>
-        <member name="P:Saxon.Api.XsltCompiler.ErrorList">
-            <summary>
-            List of errors. The caller should supply an empty list before calling Compile;
-            the processor will then populate the list with error information obtained during
-            the compilation. Each error will be included as an object of type StaticError.
-            If no error list is supplied by the caller, error information will be written to
-            the standard error stream.
-            </summary>
-            <remarks>
-            By supplying a custom List with a user-written add() method, it is possible to
-            intercept error conditions as they occur.
-            </remarks>
-        </member>
-        <member name="T:Saxon.Api.XsltExecutable">
-            <summary>
-            An <c>XsltExecutable</c> represents the compiled form of a stylesheet. To execute the stylesheet,
-            it must first be loaded to form an <c>XsltTransformer</c>.
-            </summary>
-            <remarks>
-            <para>An <c>XsltExecutable</c> is immutable, and therefore thread-safe. It is simplest to
-            load a new <c>XsltEvaluator</c> each time the stylesheet is to be run. However, the 
-            <c>XsltEvaluator</c> is serially reusable within a single thread.</para>
-            <para>An <c>XsltExecutable</c> is created by using one of the <c>Compile</c>
-            methods on the <c>XsltCompiler</c> class.</para>
-            </remarks>    
-        </member>
-        <member name="M:Saxon.Api.XsltExecutable.Load">
-            <summary>
-            Load the stylesheet to prepare it for execution.
-            </summary>
-            <returns>
-            An <c>XsltTransformer</c>. The returned <c>XsltTransformer</c> can be used to
-            set up the dynamic context for stylesheet evaluation, and to run the stylesheet.
-            </returns>
-        </member>
-        <member name="T:Saxon.Api.XsltTransformer">
-            <summary inherits="IEnumerable">
-            An <c>XsltTransformer</c> represents a compiled and loaded stylesheet ready for execution.
-            The <c>XsltTransformer</c> holds details of the dynamic evaluation context for the stylesheet.
-            </summary>
-            <remarks>
-            <para>An <c>XsltTransformer</c> should not be used concurrently in multiple threads. It is safe,
-            however, to reuse the object within a single thread to run the same stylesheet several times.
-            Running the stylesheet does not change the context that has been established.</para>
-            <para>An <c>XsltTransformer</c> is always constructed by running the <c>Load</c> method of
-            an <c>XsltExecutable</c>.</para>
-            </remarks>     
-        </member>
-        <member name="M:Saxon.Api.XsltTransformer.SetParameter(Saxon.Api.QName,Saxon.Api.XdmValue)">
-            <summary>
-            Set the value of a stylesheet parameter.
-            </summary>
-            <param name="name">The name of the parameter, expressed
-            as a QName. If a parameter of this name has been declared in the
-            stylesheet, the given value will be assigned to the variable. If the
-            variable has not been declared, calling this method has no effect (it is
-            not an error).</param>
-            <param name="value">The value to be given to the parameter.
-            If the parameter declaration defines a required type for the variable, then
-            this value will be converted in the same way as arguments to function calls
-            (for example, numeric promotion is applied).</param>
-        </member>
-        <member name="M:Saxon.Api.XsltTransformer.Run(Saxon.Api.XmlDestination)">
-            <summary>
-            Run the transformation, sending the result to a specified destination.
-            </summary>
-            <param name="destination">
-            The destination for the results of the stylesheet. The class <c>XmlDestination</c>
-            is an abstraction that allows a number of different kinds of destination
-            to be specified.
-            </param>
-            <exception cref="T:Saxon.Api.DynamicError">Throws a DynamicError if the transformation
-            fails.</exception>
-        </member>
-        <member name="P:Saxon.Api.XsltTransformer.InitialContextNode">
-            <summary>
-            The initial context item for the stylesheet.
-            </summary>
-            <remarks> This may be either a node or an atomic
-            value. Most commonly it will be a document node, which might be constructed
-            using the <c>Build</c> method of the <c>DocumentBuilder</c> object.
-            </remarks>
-        </member>
-        <member name="P:Saxon.Api.XsltTransformer.InitialMode">
-            <summary>
-            The initial mode for the stylesheet. This is either a QName, for a 
-            named mode, or null, for the unnamed (default) mode.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.XsltTransformer.InitialTemplate">
-            <summary>
-            The initial template for the stylesheet. This is either a QName, for a 
-            named template, or null, if no initial template has been set.
-            </summary>
-            <exception cref="T:Saxon.Api.DynamicError">Setting this property to the name of a template
-            that does not exist in the stylesheet throws a DynamicError with error 
-            code XTDE0040. Setting it to the name of a template that has template
-            parameters throws a DynamicError with error code XTDE0060.</exception>
-        </member>
-        <member name="P:Saxon.Api.XsltTransformer.BaseOutputUri">
-            <summary>
-            The base output URI, which acts as the base URI for resolving the <c>href</c>
-            attribute of <c>xsl:result-document</c>.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.XsltTransformer.InputXmlResolver">
-            <summary>
-            The <c>XmlResolver</c> to be used at run-time to resolve and dereference URIs
-            supplied to the <c>doc()</c> and <c>document()</c> functions.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.XsltTransformer.ResultDocumentHandler">
-            <summary>
-            The <c>IResultDocumentHandler</c> to be used at run-time to process the output
-            produced by any <c>xsl:result-document</c> instruction with an <c>href</c>
-            attribute.
-            </summary>
-            <remarks>
-            In the absence of a user-supplied result document handler, the <c>href</c>
-            attribute of the <c>xsl:result-document</c> instruction must be a valid relative
-            URI, which is resolved against the value of the <c>BaseOutputUri</c> property,
-            and the resulting absolute URI must identify a writable resource (typically
-            a file in filestore, using the <c>file:</c> URI scheme).
-            </remarks>
-        </member>
-        <member name="P:Saxon.Api.XsltTransformer.Implementation">
-            <summary>
-            Escape hatch to the underlying Java implementation
-            </summary>
-        </member>
-        <member name="T:Saxon.Api.IResultDocumentHandler">
-            <summary>An <c>IResultDocumentHandler</c> can be nominated to handle output
-             produced by the <c>xsl:result-document</c> instruction in an XSLT stylesheet.
-            </summary>
-            <remarks>
-            <para>This interface affects any <c>xsl:result-document</c> instruction
-             executed by the stylesheet, provided that it has an <c>href</c> attribute.</para> 
-            <para>If no <c>IResultDocumentHandler</c> is nominated (in the
-             <c>IResultDocumentHandler</c> property of the <c>XsltTransformer</c>, the output
-             of <code>xsl:result-document</code> is serialized, and is written to the file
-             or other resource identified by the URI in the <c>href</c> attribute, resolved
-             (if it is relative> against the URI supplied in the <c>BaseOutputUri</c> property
-             of the <c>XsltTransformer</c>.</para>
-            <para>If an <c>IResultDocumentHandler</c> is nominated, however, its
-             <c>HandleResultDocument</c> method will be called whenever an <c>xsl:result-document</c>
-             instruction with an <c>href</c> attribute is evaluated, and the generated result tree
-             will be passed to the <c>XmlDestination</c> returned by that method.</para> 
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.IResultDocumentHandler.HandleResultDocument(System.String,System.Uri)">
-            <summary> Handle output produced by the <c>xsl:result-document</c>
-            instruction in an XSLT stylesheet. This method is called by the XSLT processor
-            when an <c>xsl:result-document</c> with an <c>href</c> attribute is evaluated.
-            </summary>
-            <param name="href">An absolute or relative URI. This will be the effective value of the 
-            <c>href</c> attribute of the <c>xsl:result-document</c> in the stylesheet.</param>
-            <param name="baseUri">The base URI that should be used for resolving the value of
-            <c>href</c> if it is relative. This will always be the value of the <c>BaseOutputUri</c>
-            property of the <c>XsltTransformer</c>.</param>
-            <returns>An <c>XmlDestination</c> to handle the result tree produced by the
-            <c>xsl:result-document</c> instruction. The <c>Close</c> method of the returned
-            <c>XmlDestination</c> will be called when the output is complete.</returns>
-            <remarks>
-            <para>The XSLT processor will ensure that the stylesheet cannot create
-            two distinct result documents which are sent to the same URI. It is the responsibility
-            of the <c>IResultDocumentHandler</c> to ensure that two distinct result documents are
-            not set to the same <c>XmlDestination</c>. Failure to observe this rule can result
-            in output streams being incorrectly closed.
-            </para>
-            <para>Note that more than one result document can be open at the same time,
-            and that the order of opening, writing, and closing result documents chosen
-            by the processor does not necessarily bear any direct resemblance to the way
-            that the XSLT source code is written.</para></remarks>
-        </member>
-        <member name="T:Saxon.Api.SchemaManager">
-            <summary>
-            A <c>SchemaManager</c> is responsible for compiling schemas and
-            maintaining a cache of compiled schemas that can be used for validating
-            instance documents.
-            </summary>
-            <remarks>
-            <para>To obtain a <c>SchemaManager</c>, use the 
-            <c>SchemaManager</c> property of the <c>Processor</c> object.</para>
-            <para>In a schema-aware Processor there is exactly one
-            <c>SchemaManager</c> (in a non-schema-aware Processor there is none).</para>
-            <para>The cache of compiled schema definitions can include only one schema
-            component (for example a type, or an element declaration) with any given name.
-            An attempt to compile two different schemas in the same namespace will usually
-            therefore fail.</para>
-            <para>As soon as a type definition or element declaration is used for the first
-            time in a validation episode, it is marked as being "sealed": this prevents subsequent
-            modifications to the component. Examples of modifications that are thereby disallowed
-            include adding to the substitution group of an existing element declaration, adding subtypes
-            to an existing type, or redefining components using &lt;xs:redefine&gt;</para>
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.SchemaManager.Compile(System.IO.Stream,System.Uri)">
-            <summary>
-            Compile a schema supplied as a Stream. The resulting schema components are added
-            to the cache.
-            </summary>
-            <param name="input">A stream containing the source text of the schema</param>
-            <param name="baseUri">The base URI of the schema document, for resolving any references to other
-            schema documents</param>        
-        </member>
-        <member name="M:Saxon.Api.SchemaManager.Compile(System.Uri)">
-            <summary>
-            Compile a schema, retrieving the source using a URI. The resulting schema components are added
-            to the cache.
-            </summary>
-            <remarks>
-            The document located via the URI is parsed using the <c>System.Xml</c> parser.
-            </remarks>
-            <param name="uri">The URI identifying the location where the schema document can be
-            found</param>
-        </member>
-        <member name="M:Saxon.Api.SchemaManager.Compile(System.Xml.XmlReader)">
-            <summary>
-            Compile a schema, delivered using an XmlReader. The resulting schema components are added
-            to the cache.
-            </summary>
-            <remarks>
-            The <c>XmlReader</c> is responsible for parsing the document; this method builds a tree
-            representation of the document (in an internal Saxon format) and compiles it.
-            If the <c>XmlReader</c> is an <c>XmlTextReader</c>, Saxon will set its <c>Normalization</c>
-            property to true, and will wrap it in a (non-validating) <c>XmlValidatingReader</c> to ensure
-            that entity references are expanded.
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.SchemaManager.Compile(Saxon.Api.XdmNode)">
-            <summary>
-            Compile a schema document, located at an XdmNode. This may be a document node whose
-            child is an <c>xs:schema</c> element, or it may be
-            the <c>xs:schema</c> element itself. The resulting schema components are added
-            to the cache.
-            </summary>
-        </member>
-        <member name="M:Saxon.Api.SchemaManager.NewSchemaValidator">
-            <summary>
-            Create a new <c>SchemaValidator</c>, which may be used for validating instance
-            documents.
-            </summary>
-            <remarks>
-            <para>The <c>SchemaValidator</c> uses the cache of schema components held by the
-            <c>SchemaManager</c>. It may also add new components to this cache (for example,
-            when the instance document references a schema using <c>xsi:schemaLocation</c>).
-            It is also affected by changes to the schema cache that occur after the 
-            <c>SchemaValidator</c> is created.</para>
-            <para>When schema components are used for validating instance documents (or for compiling
-            schema-aware queries and stylesheets) they are <i>sealed</i> to prevent subsequent modification.
-            The modifications disallowed once a component is sealed include adding to the substitution group
-            of an element declaration, adding subtypes derived by extension to an existing complex type, and
-            use of <c>&lt;xs:redefine&gt;</c></para>
-            </remarks>
-        </member>
-        <member name="P:Saxon.Api.SchemaManager.SchemaResolver">
-            <summary>
-            The SchemaResolver is a user-supplied class used for resolving references to
-            schema documents. It applies to references from one schema document to another
-            appearing in <c>xs:import</c>, <c>xs:include</c>, and <c>xs:redefine</c>; to
-            references from an instance document to a schema in <c>xsi:schemaLocation</c> and
-            <c>xsi:noNamespaceSchemaLocation</c>, to <c>xsl:import-schema</c> in XSLT, and to
-            the <c>import schema</c> declaration in XQuery.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.SchemaManager.ErrorList">
-            <summary>
-            List of errors. The caller may supply an empty list before calling Compile;
-            the processor will then populate the list with error information obtained during
-            the schema compilation. Each error will be included as an object of type StaticError.
-            If no error list is supplied by the caller, error information will be written to
-            the standard error stream.
-            </summary>
-            <remarks>
-            <para>By supplying a custom List with a user-written add() method, it is possible to
-            intercept error conditions as they occur.</para>
-            <para>Note that this error list is used only for errors detected during the compilation
-            of the schema. It is not used for errors detected when using the schema to validate
-            a source document.</para>
-            </remarks>
-        </member>
-        <member name="T:Saxon.Api.SchemaValidator">
-            <summary>
-            A <c>SchemaValidator</c> is an object that is used for validating instance documents
-            against a schema. The schema consists of the collection of schema components that are
-            available within the schema cache maintained by the <c>SchemaManager</c>, together with
-            any additional schema components located during the course of validation by means of an
-            <c>xsl:schemaLocation</c> or <c>xsi:noNamespaceSchemaLocation</c> attribute within the
-            instance document.
-            </summary>
-            <remarks>
-            If validation fails, an exception is thrown. If validation succeeds, the validated
-            document can optionally be written to a specified destination. This will be a copy of
-            the original document, augmented with default values for absent elements and attributes,
-            and carrying type annotations derived from the schema processing. Saxon does not deliver
-            the full PSVI as described in the XML schema specifications, only the subset of the
-            PSVI properties featured in the XDM data model.
-            </remarks>    
-        </member>
-        <member name="M:Saxon.Api.SchemaValidator.SetSource(System.IO.Stream,System.Uri)">
-            <summary>
-            Supply the instance document to be validated in the form of a Stream
-            </summary>
-            <param name="source">A stream containing the XML document to be parsed
-            and validated.</param>
-            <param name="baseUri">The base URI to be used for resolving any relative
-            references, for example a reference to an <c>xsi:schemaLocation</c></param>                  
-        </member>
-        <member name="M:Saxon.Api.SchemaValidator.SetSource(System.Uri)">
-            <summary>
-            Supply the instance document to be validated in the form of a Uri reference
-            </summary>
-            <remarks>
-            <para>The supplied node must be either a document node or an element node.
-            If an element node is supplied, then the subtree rooted at this element is
-            validated as if it were a complete document: that is, it must not only conform
-            to the structure required of that element, but any referential constraints
-            (keyref, IDREF) must be satisfied within that subtree.
-            </para>
-            </remarks>
-            <param name="baseUri">URI of the document to be validated</param>                  
-        </member>
-        <member name="M:Saxon.Api.SchemaValidator.SetSource(System.Xml.XmlReader)">
-            <summary>
-            Supply the instance document to be validated, in the form of an XmlReader.
-            </summary>
-            <remarks>
-            The XmlReader is responsible for parsing the document; this method validates it.
-            </remarks>
-            <param name="reader">The <c>XmlReader</c> used to read and parse the instance
-            document being validated. This is used as supplied. For conformance, use of a
-            plain <c>XmlTextReader</c> is discouraged, because it does not expand entity
-            references. This may cause validation failures.
-            </param>
-        </member>
-        <member name="M:Saxon.Api.SchemaValidator.SetSource(Saxon.Api.XdmNode)">
-            <summary>
-            Supply the instance document to be validated in the form of an XdmNode
-            </summary>
-            <remarks>
-            <para>The supplied node must be either a document node or an element node.
-            If an element node is supplied, then the subtree rooted at this element is
-            validated as if it were a complete document: that is, it must not only conform
-            to the structure required of that element, but any referential constraints
-            (keyref, IDREF) must be satisfied within that subtree.
-            </para>
-            </remarks>
-            <param name="source">The document or element node at the root of the tree
-            to be validated</param>        
-        </member>
-        <member name="M:Saxon.Api.SchemaValidator.SetDestination(Saxon.Api.XmlDestination)">
-            <summary>
-            Supply the destination to hold the validated document. If no destination
-            is supplied, the validated document is discarded.
-            </summary>
-            <remarks>
-            The destination differs from the source in that (a) default values of missing
-            elements and attributes are supplied, and (b) the typed values of elements and
-            attributes are available. However, typed values can only be accessed if the result
-            is represented using the XDM data model, that is, if the destination is supplied
-            as an XdmDestination.
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.SchemaValidator.Run">
-            <summary>
-            Run the validation of the supplied source document, optionally
-            writing the validated document to the supplied destination.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.SchemaValidator.IsLax">
-            <summary>
-            The validation mode may be either strict or lax. The default is strict;
-            this property is set to indicate that lax validation is required. With strict validation,
-            validation fails if no element declaration can be located for the outermost element. With lax
-            validation, the absence of an element declaration results in the content being considered valid.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.SchemaValidator.ErrorList">
-            <summary>
-            List of errors. The caller may supply an empty list before calling Compile;
-            the processor will then populate the list with error information obtained during
-            the schema compilation. Each error will be included as an object of type StaticError.
-            If no error list is supplied by the caller, error information will be written to
-            the standard error stream.
-            </summary>
-            <remarks>
-            <para>By supplying a custom List with a user-written add() method, it is possible to
-            intercept error conditions as they occur.</para>
-            <para>Note that this error list is used only for errors detected while 
-            using the schema to validate a source document. It is not used to report errors
-            in the schema itself.</para>
-            </remarks>
-        </member>
-        <member name="T:Saxon.Api.SchemaResolver">
-            <summary>
-            The SchemaResolver is a user-supplied class used for resolving references to
-            schema documents. It applies to references from one schema document to another
-            appearing in <c>xs:import</c>, <c>xs:include</c>, and <c>xs:redefine</c>; to
-            references from an instance document to a schema in <c>xsi:schemaLocation</c> and
-            <c>xsi:noNamespaceSchemaLocation</c>, to <c>xsl:import-schema</c> in XSLT, and to
-            the <c>import schema</c> declaration in XQuery.
-            </summary>
-        </member>
-        <member name="M:Saxon.Api.SchemaResolver.GetSchemaDocuments(System.String,System.Uri,System.String[])">
-            <summary>
-            Given a targetNamespace and a set of location hints, return a set of schema documents.
-            </summary>
-            <param name="targetNamespace">The target namespace of the required schema components</param>
-            <param name="baseUri">The base URI of the module containing the reference to a schema document
-            declaration</param>
-            <param name="locationHints">The sequence of URIs (if any) listed as location hints.
-            In most cases there will only be one; but the <c>import schema</c> declaration in
-            XQuery permits several.</param>
-            <returns>A set of absolute Uris identifying the query modules to be loaded. There is no requirement
-            that these correspond one-to-one with the URIs defined in the <c>locationHints</c>. The 
-            returned URIs will be dereferenced by calling the <c>GetEntity</c> method.
-            </returns>
-        </member>
-        <member name="M:Saxon.Api.SchemaResolver.GetEntity(System.Uri)">
-            <summary>
-            Dereference a URI returned by <c>GetModules</c> to retrieve a <c>Stream</c> containing
-            the actual XML schema document.
-            </summary>
-            <param name="absoluteUri">A URI returned by the <code>GetSchemaDocuments</code> method.</param>
-            <returns>Either a <c>Stream</c> or a <c>String</c> containing the query text. 
-            The supplied URI will be used as the base URI of the query module.</returns>
-        </member>
-        <member name="T:Saxon.Api.XPathCompiler">
-            <summary>
-            An XPathCompiler object allows XPath queries to be compiled.
-            The compiler holds information that represents the static context
-            for the expression.
-            </summary>
-            <remarks>
-            <para>To construct an XPathCompiler, use the factory method
-            <c>newXPathCompiler</c> on the <c>Processor</c> object.</para>
-            <para>An XPathCompiler may be used repeatedly to compile multiple
-            queries. Any changes made to the XPathCompiler (that is, to the
-            static context) do not affect queries that have already been compiled.
-            An XPathCompiler may be used concurrently in multiple threads, but
-            it should not then be modified once initialized.</para>
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.XPathCompiler.DeclareNamespace(System.String,System.String)">
-            <summary>
-            Declare a namespace for use by the XPath expression.
-            </summary>
-            <param name="prefix">The namespace prefix to be declared. Use
-            a zero-length string to declare the default namespace (that is, the
-            default namespace for elements and types).</param>
-            <param name="uri">The namespace URI. It is possible to specify
-            a zero-length string to "undeclare" a namespace.</param>
-        </member>
-        <member name="M:Saxon.Api.XPathCompiler.DeclareVariable(Saxon.Api.QName)">
-            <summary>
-            Declare a variable for use by the XPath expression. If the expression
-            refers to any variables, then they must be declared here.
-            </summary>
-            <param name="name">The name of the variable, as a <c>QName</c></param>
-        </member>
-        <member name="M:Saxon.Api.XPathCompiler.Compile(System.String)">
-            <summary>
-            Compile an expression supplied as a String.
-            </summary>
-            <example>
-            <code>
-            XPathExecutable q = compiler.Compile("distinct-values(//*/node-name()");
-            </code>
-            </example>
-            <param name="source">A string containing the source text of the XPath expression</param>
-            <returns>An <c>XPathExecutable</c> which represents the compiled xpath expression object.
-            The XPathExecutable may be run as many times as required, in the same or a different
-            thread. The <c>XPathExecutable</c> is not affected by any changes made to the <c>XPathCompiler</c>
-            once it has been compiled.</returns>
-        </member>
-        <member name="P:Saxon.Api.XPathCompiler.BaseUri">
-            <summary>
-            The base URI of the expression, which forms part of the static context
-            of the expression. This is used for resolving any relative URIs appearing
-            within the expression, for example in references to library modules, schema
-            locations, or as an argument to the <c>doc()</c> function.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.XPathCompiler.BackwardsCompatible">
-            <summary>
-            XPath 1.0 Backwards Compatibility Mode. If true, backwards compatibility mode
-            is set. In backwards compatibility mode, more implicit type conversions are
-            allowed in XPath expressions, for example it is possible to compare a number
-            with a string. The default is false (backwards compatibility mode is off).
-            </summary>
-        </member>
-        <member name="T:Saxon.Api.XPathExecutable">
-            <summary>
-            An <c>XPathExecutable</c> represents the compiled form of an XPath expression. 
-            To evaluate the expression,
-            it must first be loaded to form an <c>XPathSelector</c>.
-            </summary>
-            <remarks>
-            <para>An <c>XPathExecutable</c> is immutable, and therefore thread-safe. It is simplest to
-            load a new <c>XPathSelector</c> each time the expression is to be evaluated. However, the 
-            <c>XPathSelector</c> is serially reusable within a single thread.</para>
-            <para>An <c>XPathExecutable</c> is created by using one of the <c>Compile</c>
-            methods on the <c>XPathCompiler</c> class.</para>
-            </remarks>    
-        </member>
-        <member name="M:Saxon.Api.XPathExecutable.Load">
-            <summary>
-            Load the compiled XPath expression to prepare it for execution.
-            </summary>
-            <returns>
-            An <c>XPathSelector</c>. The returned <c>XPathSelector</c> can be used to
-            set up the dynamic context, and then to evaluate the expression.
-            </returns>
-        </member>
-        <member name="T:Saxon.Api.XPathSelector">
-            <summary inherits="IEnumerable">
-            An <c>XPathSelector</c> represents a compiled and loaded XPath expression ready for execution.
-            The <c>XPathSelector</c> holds details of the dynamic evaluation context for the XPath expression.
-            </summary>
-            <remarks>
-            <para>An <c>XPathSelector</c> should not be used concurrently in multiple threads. It is safe,
-            however, to reuse the object within a single thread to evaluate the same XPath expression several times.
-            Evaluating the expression does not change the context that has been established.</para>
-            <para>An <c>XPathSelector</c> is always constructed by running the <c>Load</c> method of
-            an <c>XPathExecutable</c>.</para>
-            </remarks>     
-        </member>
-        <member name="M:Saxon.Api.XPathSelector.SetVariable(Saxon.Api.QName,Saxon.Api.XdmValue)">
-            <summary>
-            Set the value of a variable
-            <param name="name">The name of the variable. This must match the name of a variable
-            that was declared to the XPathCompiler. No error occurs if the expression does not
-            actually reference a variable with this name.</param>
-            <param name="value">The value to be given to the variable.</param>
-            </summary>
-        </member>
-        <member name="M:Saxon.Api.XPathSelector.Evaluate">
-            <summary>
-            Evaluate the expression, returning the result as an <c>XdmValue</c> (that is,
-            a sequence of nodes and/or atomic values).
-            </summary>
-            <remarks>
-            Although a singleton result <i>may</i> be represented as an <c>XdmItem</c>, there is
-            no guarantee that this will always be the case. If you know that the expression will return at
-            most one node or atomic value, it is best to use the <c>EvaluateSingle</c> method, which 
-            does guarantee that an <c>XdmItem</c> (or null) will be returned.
-            </remarks>
-            <returns>
-            An <c>XdmValue</c> representing the results of the expression. 
-            </returns>
-        </member>
-        <member name="M:Saxon.Api.XPathSelector.EvaluateSingle">
-            <summary>
-            Evaluate the XPath expression, returning the result as an <c>XdmItem</c> (that is,
-            a single node or atomic value).
-            </summary>
-            <returns>
-            An <c>XdmItem</c> representing the result of the expression, or null if the expression
-            returns an empty sequence. If the expression returns a sequence of more than one item,
-            any items after the first are ignored.
-            </returns>
-        </member>
-        <member name="M:Saxon.Api.XPathSelector.GetEnumerator">
-            <summary>
-            Evaluate the expression, returning the result as an <c>IEnumerator</c> (that is,
-            an enumerator over a sequence of nodes and/or atomic values).
-            </summary>
-            <returns>
-            An enumerator over the sequence that represents the results of the expression.
-            Each object in this sequence will be an instance of <c>XdmItem</c>. Note
-            that the expression may be evaluated lazily, which means that a successful response
-            from this method does not imply that the expression has executed successfully: failures
-            may be reported later while retrieving items from the iterator. 
-            </returns>
-        </member>
-        <member name="P:Saxon.Api.XPathSelector.ContextItem">
-            <summary>
-            The context item for the XPath expression evaluation.
-            </summary>
-            <remarks> This may be either a node or an atomic
-            value. Most commonly it will be a document node, which might be constructed
-            using the <c>Build</c> method of the <c>DocumentBuilder</c> object.
-            </remarks>
         </member>
         <member name="T:Saxon.Api.Processor">
             <summary>
@@ -1087,373 +489,6 @@
         </member>
         <member name="F:Saxon.Api.WhitespacePolicy.StripAll">
             <summary>All whitespace text nodes are stripped</summary>
-        </member>
-        <member name="T:Saxon.Api.StaticError">
-            <summary>
-            The StaticError class contains information about a static error detected during
-            compilation of a stylesheet, query, or XPath expression.
-            </summary>
-        </member>
-        <member name="M:Saxon.Api.StaticError.#ctor(javax.xml.transform.TransformerException)">
-            <summary>
-            Create a new StaticError, wrapping a Saxon XPathException
-            </summary>
-        </member>
-        <member name="M:Saxon.Api.StaticError.ToString">
-            <summary>
-            Return the error message.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.StaticError.ErrorCode">
-            <summary>
-            The error code, as a QName. May be null if no error code has been assigned
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.StaticError.Message">
-            <summary>
-            Return the message associated with this error
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.StaticError.ModuleUri">
-            <summary>
-            The URI of the query or stylesheet module in which the error was detected
-            (as a string)
-            </summary>
-            <remarks>
-            May be null if the location of the error is unknown, or if the error is not
-            localized to a specific module, or if the module in question has no known URI
-            (for example, if it was supplied as an anonymous Stream)
-            </remarks>
-        </member>
-        <member name="P:Saxon.Api.StaticError.LineNumber">
-            <summary>
-            The line number locating the error within a query or stylesheet module
-            </summary>
-            <remarks>
-            May be set to -1 if the location of the error is unknown
-            </remarks>        
-        </member>
-        <member name="P:Saxon.Api.StaticError.IsWarning">
-            <summary>
-            Indicate whether this error is being reported as a warning condition. If so, applications
-            may ignore the condition, though the results may not be as intended.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.StaticError.IsTypeError">
-            <summary>
-            Indicate whether this condition is a type error.
-            </summary>
-        </member>
-        <member name="T:Saxon.Api.DynamicError">
-            <summary>
-            The DynamicError class contains information about a dynamic error detected during
-            execution of a stylesheet, query, or XPath expression.
-            </summary>
-        </member>
-        <member name="M:Saxon.Api.DynamicError.#ctor(System.String)">
-            <summary>
-            Create a new DynamicError, specifying the error message
-            </summary>
-        </member>
-        <member name="M:Saxon.Api.DynamicError.#ctor(javax.xml.transform.TransformerException)">
-            <summary>
-            Create a new DynamicError, wrapping a Saxon XPathException
-            </summary>
-        </member>
-        <member name="M:Saxon.Api.DynamicError.ToString">
-            <summary>
-            Return the error message.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.DynamicError.ErrorCode">
-            <summary>
-            The error code, as a QName. May be null if no error code has been assigned
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.DynamicError.Message">
-            <summary>
-            Return the message associated with this error
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.DynamicError.ModuleUri">
-            <summary>
-            The URI of the query or stylesheet module in which the error was detected
-            (as a string)
-            </summary>
-            <remarks>
-            May be null if the location of the error is unknown, or if the error is not
-            localized to a specific module, or if the module in question has no known URI
-            (for example, if it was supplied as an anonymous Stream)
-            </remarks>
-        </member>
-        <member name="P:Saxon.Api.DynamicError.LineNumber">
-            <summary>
-            The line number locating the error within a query or stylesheet module
-            </summary>
-            <remarks>
-            May be set to -1 if the location of the error is unknown
-            </remarks>        
-        </member>
-        <member name="P:Saxon.Api.DynamicError.IsWarning">
-            <summary>
-            Indicate whether this error is being reported as a warning condition. If so, applications
-            may ignore the condition, though the results may not be as intended.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.DynamicError.IsTypeError">
-            <summary>
-            Indicate whether this condition is a type error.
-            </summary>
-        </member>
-        <member name="T:Saxon.Api.XmlDestination">
-            <summary>
-            An abstract destination for the results of a query or transformation
-            </summary>
-            <remarks>
-            <para>Note to implementors: To implement a new kind of destination, you need
-            to supply a method <c>getResult</c> which returns an implementation of
-            the JAXP <c>Result</c> interface. Optionally, if the destination
-            performs serialization, you can also implement <c>getOutputProperties</c>,
-            which returns the properties used for serialization.
-            </para>
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.XmlDestination.GetResult">
-            <summary>
-            Get a <c>Result</c> to which the XML document can be sent as a series
-            of events.
-            </summary>
-            <remarks>
-            This must be an implementation of the JAXP <c>Result</c> interface that is
-            recognized by Saxon.
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.XmlDestination.GetOutputProperties">
-            <summary>
-            Get a set of <c>Properties</c> representing the parameters to the serializer.
-            The default implementation returns an empty set of properties.
-            </summary>
-        </member>
-        <member name="M:Saxon.Api.XmlDestination.Close">
-            <summary>
-            Close the Destination, releasing any resources that need to be released.
-            </summary>
-            <remarks>
-            This method is called by the system on completion of a query or transformation.
-            Some kinds of Destination may need to close an output stream, others might
-            not need to do anything. The default implementation does nothing.
-            </remarks>
-        </member>
-        <member name="T:Saxon.Api.Serializer">
-            <summary>
-            A <c>Serializer</c> takes a tree representation of XML and turns
-            it into lexical XML markup.
-            </summary>
-            <remarks>
-            Note that this is serialization in the sense of the W3C XSLT and XQuery specifications.
-            Unlike the class <c>System.Xml.Serialization.XmlSerializer</c>, this object does not
-            serialize arbitrary CLI objects.
-            </remarks>
-        </member>
-        <member name="F:Saxon.Api.Serializer.METHOD">
-            <summary>QName identifying the serialization parameter "method". If the method
-            is a user-defined method, then it is given as a QName in Clark notation, that is
-            "{uri}local".</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.BYTE_ORDER_MARK">
-            <summary>QName identifying the serialization parameter "byte-order-mark"</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.CDATA_SECTION_ELEMENTS">
-            <summary>QName identifying the serialization parameter "cdata-section-elements".
-            The value of this parameter is given as a space-separated list of expanded QNames in
-            Clark notation, that is "{uri}local".</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.DOCTYPE_PUBLIC">
-            <summary>QName identifying the serialization parameter "doctype-public"</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.DOCTYPE_SYSTEM">
-            <summary>QName identifying the serialization parameter "doctype-system"</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.ENCODING">
-            <summary>QName identifying the serialization parameter "encoding"</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.ESCAPE_URI_ATTRIBUTES">
-            <summary>QName identifying the serialization parameter "escape-uri-attributes".
-            The value is the string "yes" or "no".</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.INCLUDE_CONTENT_TYPE">
-            <summary>QName identifying the serialization parameter "include-content-type".
-            The value is the string "yes" or "no".</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.INDENT">
-            <summary>QName identifying the serialization parameter "indent".
-            The value is the string "yes" or "no".</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.MEDIA_TYPE">
-            <summary>QName identifying the serialization parameter "media-type".</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.NORMALIZATION_FORM">
-            <summary>QName identifying the serialization parameter "normalization-form"</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.OMIT_XML_DECLARATION">
-            <summary>QName identifying the serialization parameter "omit-xml-declaration".
-            The value is the string "yes" or "no".</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.STANDALONE">
-            <summary>QName identifying the serialization parameter "standalone".
-            The value is the string "yes" or "no" or "omit".</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.UNDECLARE_PREFIXES">
-            <summary>QName identifying the serialization parameter "undeclare-prefixes".
-            The value is the string "yes" or "no".</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.USE_CHARACTER_MAPS">
-            <summary>QName identifying the serialization parameter "use-character-maps".
-            This is available only with XSLT. The value of the parameter is a list of expanded QNames
-            in Clark notation giving the names of character maps defined in the XSLT stylesheet.</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.VERSION">
-            <summary>QName identifying the serialization parameter "version"</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.SAXON_CHARACTER_REPRESENTATION">
-            <summary>QName identifying the serialization parameter "saxon:character-representation"</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.SAXON_INDENT_SPACES">
-            <summary>QName identifying the serialization parameter "saxon:indent-spaces". The value
-            is an integer (represented as a string) indicating the amount of indentation required.
-            If specified, this parameter overrides indent="no".</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.NEXT_IN_CHAIN">
-            <summary>QName identifying the serialization parameter "saxon:next-in-chain". This
-            is available only with XSLT, and identifies the URI of a stylesheet that is to be used to
-            process the results before passing them to their final destination.</summary>
-        </member>
-        <member name="F:Saxon.Api.Serializer.SAXON_REQUIRE_WELL_FORMED">
-            <summary>QName identifying the serialization parameter "require-well-formed". The
-            value is the string "yes" or "no". If set to "yes", the output must be a well-formed
-            document, or an error will be reported.</summary>
-        </member>
-        <member name="M:Saxon.Api.Serializer.#ctor">
-            <summary>Create a Serializer</summary>
-        </member>
-        <member name="M:Saxon.Api.Serializer.SetOutputProperty(Saxon.Api.QName,System.String)">
-            <summary>Set a serialization property</summary>
-            <remarks>In the case of XSLT, properties set within the serializer override
-            any properties set in <c>xsl:output</c> declarations in the stylesheet.
-            Similarly, with XQuery, they override any properties set in the Query
-            prolog using <c>declare option saxon:output</c>.</remarks>
-            <example>
-              <code>
-                Serializer qout = new Serializer();
-                qout.SetOutputProperty(Serializer.METHOD, "xml");
-                qout.SetOutputProperty(Serializer.INDENT, "yes");
-                qout.SetOutputProperty(Serializer.SAXON_INDENT_SPACES, "1");
-              </code>
-            </example> 
-            <param name="name">The name of the serialization property to be set</param>
-            <param name="value">The value to be set for the serialization property. May be null
-            to unset the property (that is, to set it back to the default value).</param>
-        </member>
-        <member name="M:Saxon.Api.Serializer.SetOutputFile(System.String)">
-            <summary>Specify the destination of the serialized output, in the
-            form of a file name</summary>
-            <param name="filename">The name of the file to receive the serialized output</param>
-            <exception>Throws a <c>DyamicError</c> if it is not possible to create an output
-            stream to write to this file, for example, if the filename is in a directory
-            that does not exist.</exception>
-        </member>
-        <member name="M:Saxon.Api.Serializer.SetOutputStream(System.IO.Stream)">
-            <summary>Specify the destination of the serialized output, in the
-            form of a <c>Stream</c></summary>
-            <param name="stream">The stream to which the output will be written.
-            This must be a stream that allows writing.</param>
-        </member>
-        <member name="M:Saxon.Api.Serializer.SetOutputWriter(System.IO.TextWriter)">
-            <summary>Specify the destination of the serialized output, in the
-            form of a <c>TextWriter</c></summary>
-            <remarks>Note that when writing to a <c>TextWriter</c>, character encoding is
-            the responsibility of the <c>TextWriter</c>, not the <c>Serializer</c>. This
-            means that the encoding requested in the output properties is ignored; it also
-            means that characters that cannot be represented in the target encoding will
-            use whatever fallback representation the <c>TextWriter</c> defines, rather than
-            being represented as XML character references.</remarks>
-            <param name="textWriter">The stream to which the output will be written.
-            This must be a stream that allows writing.</param>
-        </member>
-        <member name="M:Saxon.Api.Serializer.GetResult">
-            <summary inherit="yes"/>
-        </member>
-        <member name="M:Saxon.Api.Serializer.GetOutputProperties">
-            <summary inherit="yes"/>
-        </member>
-        <member name="M:Saxon.Api.Serializer.Close">
-            <summary inherit="yes"/>
-        </member>
-        <member name="T:Saxon.Api.DomDestination">
-            <summary>
-            A <c>DomDestination</c> represents an XmlDocument that is constructed to hold the
-            output of a query or transformation.
-            </summary>
-            <remarks>
-            No data needs to be supplied to the DomDestination object. The query or transformation
-            populates an XmlDocument, which may then be retrieved as the value of the <c>XmlDocument</c>
-            property
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.DomDestination.#ctor">
-            <summary>Construct a DomDestination</summary>
-        </member>
-        <member name="M:Saxon.Api.DomDestination.GetResult">
-            <summary inherit="yes"/>
-        </member>
-        <member name="P:Saxon.Api.DomDestination.XmlDocument">
-            <summary>After construction, retrieve the constructed document node</summary>
-        </member>
-        <member name="T:Saxon.Api.TextWriterDestination">
-            <summary>
-            A <c>TextWriterDestination</c> is an implementation of <c>XmlDestination</c> that wraps
-            an instance of <c>XmlTextWriter</c>.
-            </summary>
-            <remarks>
-            Note that when a <c>TextWriterDestination</c> is used to process the output of a stylesheet
-            or query, the output format depends only on the way the underlying <c>TextWriter</c>
-            is configured; serialization parameters present in the stylesheet or query are ignored.
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.TextWriterDestination.#ctor(System.Xml.XmlTextWriter)">
-            <summary>Construct a TextWriterDestination</summary>
-            <param name="writer">The <c>XmlTextWriter</c> that is to be notified of the events
-            representing the XML document.</param>
-        </member>
-        <member name="M:Saxon.Api.TextWriterDestination.GetResult">
-            <summary inherit="yes"/>
-        </member>
-        <member name="T:Saxon.Api.XdmDestination">
-            <summary>
-            An <c>XdmDestination</c> represents an XdmNode that is constructed to hold the
-            output of a query or transformation: that is, a tree using Saxon's implementation of the
-            XDM data model
-            </summary>
-            <remarks>
-            <para>No data needs to be supplied to the XdmDestination object. The query or transformation
-            populates an XmlNode, which may then be retrieved as the value of the <c>XmlNode</c>
-            property.</para>
-            <para>An XdmDestination can be reused to hold the results of a second transformation only
-            if the <c>reset</c> method is first called to reset its state.</para>
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.XdmDestination.#ctor">
-            <summary>Construct a DomDestination</summary>
-        </member>
-        <member name="M:Saxon.Api.XdmDestination.Reset">
-            <summary>Reset the state of the XdmDestination so that it can be used to hold
-            the result of another transformation.</summary>
-        </member>
-        <member name="M:Saxon.Api.XdmDestination.GetResult">
-            <summary inherit="yes"/>
-        </member>
-        <member name="P:Saxon.Api.XdmDestination.XdmNode">
-            <summary>After construction, retrieve the constructed document node</summary>
         </member>
         <member name="T:Saxon.Api.XQueryCompiler">
             <summary>
@@ -2374,6 +1409,971 @@
         </member>
         <member name="F:Saxon.Api.XdmAxis.Self">
             <summary>The XPath self axis</summary> 
+        </member>
+        <member name="T:Saxon.Api.XmlDestination">
+            <summary>
+            An abstract destination for the results of a query or transformation
+            </summary>
+            <remarks>
+            <para>Note to implementors: To implement a new kind of destination, you need
+            to supply a method <c>getResult</c> which returns an implementation of
+            the JAXP <c>Result</c> interface. Optionally, if the destination
+            performs serialization, you can also implement <c>getOutputProperties</c>,
+            which returns the properties used for serialization.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.XmlDestination.GetResult">
+            <summary>
+            Get a <c>Result</c> to which the XML document can be sent as a series
+            of events.
+            </summary>
+            <remarks>
+            This must be an implementation of the JAXP <c>Result</c> interface that is
+            recognized by Saxon.
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.XmlDestination.GetOutputProperties">
+            <summary>
+            Get a set of <c>Properties</c> representing the parameters to the serializer.
+            The default implementation returns an empty set of properties.
+            </summary>
+        </member>
+        <member name="M:Saxon.Api.XmlDestination.Close">
+            <summary>
+            Close the Destination, releasing any resources that need to be released.
+            </summary>
+            <remarks>
+            This method is called by the system on completion of a query or transformation.
+            Some kinds of Destination may need to close an output stream, others might
+            not need to do anything. The default implementation does nothing.
+            </remarks>
+        </member>
+        <member name="T:Saxon.Api.Serializer">
+            <summary>
+            A <c>Serializer</c> takes a tree representation of XML and turns
+            it into lexical XML markup.
+            </summary>
+            <remarks>
+            Note that this is serialization in the sense of the W3C XSLT and XQuery specifications.
+            Unlike the class <c>System.Xml.Serialization.XmlSerializer</c>, this object does not
+            serialize arbitrary CLI objects.
+            </remarks>
+        </member>
+        <member name="F:Saxon.Api.Serializer.METHOD">
+            <summary>QName identifying the serialization parameter "method". If the method
+            is a user-defined method, then it is given as a QName in Clark notation, that is
+            "{uri}local".</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.BYTE_ORDER_MARK">
+            <summary>QName identifying the serialization parameter "byte-order-mark"</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.CDATA_SECTION_ELEMENTS">
+            <summary>QName identifying the serialization parameter "cdata-section-elements".
+            The value of this parameter is given as a space-separated list of expanded QNames in
+            Clark notation, that is "{uri}local".</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.DOCTYPE_PUBLIC">
+            <summary>QName identifying the serialization parameter "doctype-public"</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.DOCTYPE_SYSTEM">
+            <summary>QName identifying the serialization parameter "doctype-system"</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.ENCODING">
+            <summary>QName identifying the serialization parameter "encoding"</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.ESCAPE_URI_ATTRIBUTES">
+            <summary>QName identifying the serialization parameter "escape-uri-attributes".
+            The value is the string "yes" or "no".</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.INCLUDE_CONTENT_TYPE">
+            <summary>QName identifying the serialization parameter "include-content-type".
+            The value is the string "yes" or "no".</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.INDENT">
+            <summary>QName identifying the serialization parameter "indent".
+            The value is the string "yes" or "no".</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.MEDIA_TYPE">
+            <summary>QName identifying the serialization parameter "media-type".</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.NORMALIZATION_FORM">
+            <summary>QName identifying the serialization parameter "normalization-form"</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.OMIT_XML_DECLARATION">
+            <summary>QName identifying the serialization parameter "omit-xml-declaration".
+            The value is the string "yes" or "no".</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.STANDALONE">
+            <summary>QName identifying the serialization parameter "standalone".
+            The value is the string "yes" or "no" or "omit".</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.UNDECLARE_PREFIXES">
+            <summary>QName identifying the serialization parameter "undeclare-prefixes".
+            The value is the string "yes" or "no".</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.USE_CHARACTER_MAPS">
+            <summary>QName identifying the serialization parameter "use-character-maps".
+            This is available only with XSLT. The value of the parameter is a list of expanded QNames
+            in Clark notation giving the names of character maps defined in the XSLT stylesheet.</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.VERSION">
+            <summary>QName identifying the serialization parameter "version"</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.SAXON_CHARACTER_REPRESENTATION">
+            <summary>QName identifying the serialization parameter "saxon:character-representation"</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.SAXON_INDENT_SPACES">
+            <summary>QName identifying the serialization parameter "saxon:indent-spaces". The value
+            is an integer (represented as a string) indicating the amount of indentation required.
+            If specified, this parameter overrides indent="no".</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.NEXT_IN_CHAIN">
+            <summary>QName identifying the serialization parameter "saxon:next-in-chain". This
+            is available only with XSLT, and identifies the URI of a stylesheet that is to be used to
+            process the results before passing them to their final destination.</summary>
+        </member>
+        <member name="F:Saxon.Api.Serializer.SAXON_REQUIRE_WELL_FORMED">
+            <summary>QName identifying the serialization parameter "require-well-formed". The
+            value is the string "yes" or "no". If set to "yes", the output must be a well-formed
+            document, or an error will be reported.</summary>
+        </member>
+        <member name="M:Saxon.Api.Serializer.#ctor">
+            <summary>Create a Serializer</summary>
+        </member>
+        <member name="M:Saxon.Api.Serializer.SetOutputProperty(Saxon.Api.QName,System.String)">
+            <summary>Set a serialization property</summary>
+            <remarks>In the case of XSLT, properties set within the serializer override
+            any properties set in <c>xsl:output</c> declarations in the stylesheet.
+            Similarly, with XQuery, they override any properties set in the Query
+            prolog using <c>declare option saxon:output</c>.</remarks>
+            <example>
+              <code>
+                Serializer qout = new Serializer();
+                qout.SetOutputProperty(Serializer.METHOD, "xml");
+                qout.SetOutputProperty(Serializer.INDENT, "yes");
+                qout.SetOutputProperty(Serializer.SAXON_INDENT_SPACES, "1");
+              </code>
+            </example> 
+            <param name="name">The name of the serialization property to be set</param>
+            <param name="value">The value to be set for the serialization property. May be null
+            to unset the property (that is, to set it back to the default value).</param>
+        </member>
+        <member name="M:Saxon.Api.Serializer.SetOutputFile(System.String)">
+            <summary>Specify the destination of the serialized output, in the
+            form of a file name</summary>
+            <param name="filename">The name of the file to receive the serialized output</param>
+            <exception>Throws a <c>DyamicError</c> if it is not possible to create an output
+            stream to write to this file, for example, if the filename is in a directory
+            that does not exist.</exception>
+        </member>
+        <member name="M:Saxon.Api.Serializer.SetOutputStream(System.IO.Stream)">
+            <summary>Specify the destination of the serialized output, in the
+            form of a <c>Stream</c></summary>
+            <param name="stream">The stream to which the output will be written.
+            This must be a stream that allows writing.</param>
+        </member>
+        <member name="M:Saxon.Api.Serializer.SetOutputWriter(System.IO.TextWriter)">
+            <summary>Specify the destination of the serialized output, in the
+            form of a <c>TextWriter</c></summary>
+            <remarks>Note that when writing to a <c>TextWriter</c>, character encoding is
+            the responsibility of the <c>TextWriter</c>, not the <c>Serializer</c>. This
+            means that the encoding requested in the output properties is ignored; it also
+            means that characters that cannot be represented in the target encoding will
+            use whatever fallback representation the <c>TextWriter</c> defines, rather than
+            being represented as XML character references.</remarks>
+            <param name="textWriter">The stream to which the output will be written.
+            This must be a stream that allows writing.</param>
+        </member>
+        <member name="M:Saxon.Api.Serializer.GetResult">
+            <summary inherit="yes"/>
+        </member>
+        <member name="M:Saxon.Api.Serializer.GetOutputProperties">
+            <summary inherit="yes"/>
+        </member>
+        <member name="M:Saxon.Api.Serializer.Close">
+            <summary inherit="yes"/>
+        </member>
+        <member name="T:Saxon.Api.DomDestination">
+            <summary>
+            A <c>DomDestination</c> represents an XmlDocument that is constructed to hold the
+            output of a query or transformation.
+            </summary>
+            <remarks>
+            No data needs to be supplied to the DomDestination object. The query or transformation
+            populates an XmlDocument, which may then be retrieved as the value of the <c>XmlDocument</c>
+            property
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.DomDestination.#ctor">
+            <summary>Construct a DomDestination</summary>
+        </member>
+        <member name="M:Saxon.Api.DomDestination.GetResult">
+            <summary inherit="yes"/>
+        </member>
+        <member name="P:Saxon.Api.DomDestination.XmlDocument">
+            <summary>After construction, retrieve the constructed document node</summary>
+        </member>
+        <member name="T:Saxon.Api.TextWriterDestination">
+            <summary>
+            A <c>TextWriterDestination</c> is an implementation of <c>XmlDestination</c> that wraps
+            an instance of <c>XmlTextWriter</c>.
+            </summary>
+            <remarks>
+            Note that when a <c>TextWriterDestination</c> is used to process the output of a stylesheet
+            or query, the output format depends only on the way the underlying <c>TextWriter</c>
+            is configured; serialization parameters present in the stylesheet or query are ignored.
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.TextWriterDestination.#ctor(System.Xml.XmlTextWriter)">
+            <summary>Construct a TextWriterDestination</summary>
+            <param name="writer">The <c>XmlTextWriter</c> that is to be notified of the events
+            representing the XML document.</param>
+        </member>
+        <member name="M:Saxon.Api.TextWriterDestination.GetResult">
+            <summary inherit="yes"/>
+        </member>
+        <member name="T:Saxon.Api.XdmDestination">
+            <summary>
+            An <c>XdmDestination</c> represents an XdmNode that is constructed to hold the
+            output of a query or transformation: that is, a tree using Saxon's implementation of the
+            XDM data model
+            </summary>
+            <remarks>
+            <para>No data needs to be supplied to the XdmDestination object. The query or transformation
+            populates an XmlNode, which may then be retrieved as the value of the <c>XmlNode</c>
+            property.</para>
+            <para>An XdmDestination can be reused to hold the results of a second transformation only
+            if the <c>reset</c> method is first called to reset its state.</para>
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.XdmDestination.#ctor">
+            <summary>Construct a DomDestination</summary>
+        </member>
+        <member name="M:Saxon.Api.XdmDestination.Reset">
+            <summary>Reset the state of the XdmDestination so that it can be used to hold
+            the result of another transformation.</summary>
+        </member>
+        <member name="M:Saxon.Api.XdmDestination.GetResult">
+            <summary inherit="yes"/>
+        </member>
+        <member name="P:Saxon.Api.XdmDestination.XdmNode">
+            <summary>After construction, retrieve the constructed document node</summary>
+        </member>
+        <member name="T:Saxon.Api.XsltCompiler">
+            <summary>
+            An <c>XsltCompiler</c> object allows XSLT 2.0 stylesheets to be compiled.
+            The compiler holds information that represents the static context
+            for the compilation.
+            </summary>
+            <remarks>
+            <para>To construct an <c>XsltCompiler</c>, use the factory method
+            <c>NewXsltCompiler</c> on the <c>Processor</c> object.</para>
+            <para>An <c>XsltCompiler</c> may be used repeatedly to compile multiple
+            queries. Any changes made to the <c>XsltCompiler</c> (that is, to the
+            static context) do not affect queries that have already been compiled.
+            An <c>XsltCompiler</c> may be used concurrently in multiple threads, but
+            it should not then be modified once initialized.</para>
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.XsltCompiler.Compile(System.IO.Stream)">
+            <summary>
+            Compile a stylesheet supplied as a Stream.
+            </summary>
+            <example>
+            <code>
+            Stream source = new FileStream("input.xsl", FileMode.Open, FileAccess.Read);
+            XsltExecutable q = compiler.Compile(source);
+            source.Close();
+            </code>
+            </example>
+            <param name="input">A stream containing the source text of the stylesheet</param>
+            <returns>An <c>XsltExecutable</c> which represents the compiled stylesheet object.
+            The XsltExecutable may be loaded as many times as required, in the same or a different
+            thread. The <c>XsltExecutable</c> is not affected by any changes made to the <c>XsltCompiler</c>
+            once it has been compiled.</returns>
+            <remarks>
+            <para>If the stylesheet contains any <c>xsl:include</c> or <c>xsl:import</c> declarations,
+            then the <c>BaseURI</c> property must be set to allow these to be resolved.</para>
+            <para>The stylesheet is contained in the part of the input stream between its current
+            position and the end of the stream. It is the caller's responsibility to close the input 
+            stream after use. If the compilation succeeded, then on exit the stream will be 
+            exhausted; if compilation failed, the current position of the stream on exit is
+            undefined.</para>
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.XsltCompiler.Compile(System.Uri)">
+            <summary>
+            Compile a stylesheet, retrieving the source using a URI.
+            </summary>
+            <remarks>
+            The document located via the URI is parsed using the <c>System.Xml</c> parser. This
+            URI is used as the base URI of the stylesheet: the <c>BaseUri</c> property of the
+            <c>Compiler</c> is ignored.
+            </remarks>
+            <param name="uri">The URI identifying the location where the stylesheet document can be
+            found</param>
+            <returns>An <c>XsltExecutable</c> which represents the compiled stylesheet object.
+            The XsltExecutable may be run as many times as required, in the same or a different
+            thread. The <c>XsltExecutable</c> is not affected by any changes made to the <c>XsltCompiler</c>
+            once it has been compiled.</returns>
+        </member>
+        <member name="M:Saxon.Api.XsltCompiler.Compile(System.Xml.XmlReader)">
+            <summary>
+            Compile a stylesheet, delivered using an XmlReader.
+            </summary>
+            <remarks>
+            The <c>XmlReader</c> is responsible for parsing the document; this method builds a tree
+            representation of the document (in an internal Saxon format) and compiles it.
+            If the <c>XmlReader</c> is an <c>XmlTextReader</c>, Saxon will set its <c>Normalization</c>
+            property to true, and will wrap it in a (non-validating) <c>XmlValidatingReader</c> to ensure
+            that entity references are expanded.
+            </remarks>
+            <remarks>
+            If the <c>XmlReader</c> has a <c>BaseUri</c> property, then that property determines
+            the base URI of the stylesheet module, which is used when resolving any <c>xsl:include</c>
+            or <c>xsl:import</c> declarations. If the <c>XmlReader</c> has no <c>BaseUri</c>
+            property, then the <c>BaseUri</c> property of the <c>Compiler</c> is used instead.
+            An <c>ArgumentNullException</c> is thrown if this property has not been supplied.
+            </remarks>
+            <returns>An <c>XsltExecutable</c> which represents the compiled stylesheet object.
+            The XsltExecutable may be run as many times as required, in the same or a different
+            thread. The <c>XsltExecutable</c> is not affected by any changes made to the <c>XsltCompiler</c>
+            once it has been compiled.</returns>
+        </member>
+        <member name="M:Saxon.Api.XsltCompiler.Compile(Saxon.Api.XdmNode)">
+            <summary>
+            Compile a stylesheet, located at an XdmNode. This may be a document node whose
+            child is an <c>xsl:stylesheet</c> or <c>xsl:transform</c> element, or it may be
+            the <c>xsl:stylesheet</c> or <c>xsl:transform</c> element itself.
+            </summary>
+            <returns>An <c>XsltExecutable</c> which represents the compiled stylesheet object.
+            The XsltExecutable may be run as many times as required, in the same or a different
+            thread. The <c>XsltExecutable</c> is not affected by any changes made to the <c>XsltCompiler</c>
+            once it has been compiled.</returns>
+        </member>
+        <member name="M:Saxon.Api.XsltCompiler.CompileAssociatedStylesheet(Saxon.Api.XdmNode)">
+            <summary>Locate and compile a stylesheet identified by an &lt;?xml-stylesheet?&gt;
+            processing instruction within a source document.
+            </summary>
+            <param name="source">The document node of the source document containing the
+            xml-stylesheet processing instruction.</param>
+            <returns>An <c>XsltExecutable</c> which represents the compiled stylesheet object.</returns>
+            <remarks>There are some limitations in the current implementation. The media type
+            is ignored, as are the other parameters of the xml-stylesheet instruction. The
+            href attribute must either reference an embedded stylesheet within the same
+            document or a non-embedded external stylesheet.</remarks>
+        </member>
+        <member name="P:Saxon.Api.XsltCompiler.BaseUri">
+            <summary>
+            The base URI of the stylesheet, which forms part of the static context
+            of the stylesheet. This is used for resolving any relative URIs appearing
+            within the stylesheet, for example in <c>xsl:include</c> and <c>xsl:import</c>
+            declarations, in schema locations defined to <c>xsl:import-schema</c>, 
+            or as an argument to the <c>document()</c> or <c>doc()</c> function.
+            </summary>
+            <remarks>
+            This base URI is used only if the input supplied to the <c>Compile</c> method
+            does not provide its own base URI. It is therefore used on the version of the
+            method that supplies input from a <c>Stream</c>. On the version that supplies
+            input from an <c>XmlReader</c>, this base URI is used only if the <c>XmlReader</c>
+            does not have its own base URI.
+            </remarks>
+        </member>
+        <member name="P:Saxon.Api.XsltCompiler.XmlResolver">
+            <summary>
+            An XmlResolver, which will be used to resolve URI references while compiling
+            a stylesheet
+            </summary>
+            <remarks>
+            If no <c>XmlResolver</c> is set for the <c>XsltCompiler</c>, the <c>XmlResolver</c>
+            is used that was set on the <c>Processor</c> at the time <c>NewXsltCompiler</c>
+            was called.
+            </remarks>
+        </member>
+        <member name="P:Saxon.Api.XsltCompiler.ErrorList">
+            <summary>
+            List of errors. The caller should supply an empty list before calling Compile;
+            the processor will then populate the list with error information obtained during
+            the compilation. Each error will be included as an object of type StaticError.
+            If no error list is supplied by the caller, error information will be written to
+            the standard error stream.
+            </summary>
+            <remarks>
+            By supplying a custom List with a user-written add() method, it is possible to
+            intercept error conditions as they occur.
+            </remarks>
+        </member>
+        <member name="T:Saxon.Api.XsltExecutable">
+            <summary>
+            An <c>XsltExecutable</c> represents the compiled form of a stylesheet. To execute the stylesheet,
+            it must first be loaded to form an <c>XsltTransformer</c>.
+            </summary>
+            <remarks>
+            <para>An <c>XsltExecutable</c> is immutable, and therefore thread-safe. It is simplest to
+            load a new <c>XsltEvaluator</c> each time the stylesheet is to be run. However, the 
+            <c>XsltEvaluator</c> is serially reusable within a single thread.</para>
+            <para>An <c>XsltExecutable</c> is created by using one of the <c>Compile</c>
+            methods on the <c>XsltCompiler</c> class.</para>
+            </remarks>    
+        </member>
+        <member name="M:Saxon.Api.XsltExecutable.Load">
+            <summary>
+            Load the stylesheet to prepare it for execution.
+            </summary>
+            <returns>
+            An <c>XsltTransformer</c>. The returned <c>XsltTransformer</c> can be used to
+            set up the dynamic context for stylesheet evaluation, and to run the stylesheet.
+            </returns>
+        </member>
+        <member name="T:Saxon.Api.XsltTransformer">
+            <summary inherits="IEnumerable">
+            An <c>XsltTransformer</c> represents a compiled and loaded stylesheet ready for execution.
+            The <c>XsltTransformer</c> holds details of the dynamic evaluation context for the stylesheet.
+            </summary>
+            <remarks>
+            <para>An <c>XsltTransformer</c> should not be used concurrently in multiple threads. It is safe,
+            however, to reuse the object within a single thread to run the same stylesheet several times.
+            Running the stylesheet does not change the context that has been established.</para>
+            <para>An <c>XsltTransformer</c> is always constructed by running the <c>Load</c> method of
+            an <c>XsltExecutable</c>.</para>
+            </remarks>     
+        </member>
+        <member name="M:Saxon.Api.XsltTransformer.SetParameter(Saxon.Api.QName,Saxon.Api.XdmValue)">
+            <summary>
+            Set the value of a stylesheet parameter.
+            </summary>
+            <param name="name">The name of the parameter, expressed
+            as a QName. If a parameter of this name has been declared in the
+            stylesheet, the given value will be assigned to the variable. If the
+            variable has not been declared, calling this method has no effect (it is
+            not an error).</param>
+            <param name="value">The value to be given to the parameter.
+            If the parameter declaration defines a required type for the variable, then
+            this value will be converted in the same way as arguments to function calls
+            (for example, numeric promotion is applied).</param>
+        </member>
+        <member name="M:Saxon.Api.XsltTransformer.Run(Saxon.Api.XmlDestination)">
+            <summary>
+            Run the transformation, sending the result to a specified destination.
+            </summary>
+            <param name="destination">
+            The destination for the results of the stylesheet. The class <c>XmlDestination</c>
+            is an abstraction that allows a number of different kinds of destination
+            to be specified.
+            </param>
+            <exception cref="T:Saxon.Api.DynamicError">Throws a DynamicError if the transformation
+            fails.</exception>
+        </member>
+        <member name="P:Saxon.Api.XsltTransformer.InitialContextNode">
+            <summary>
+            The initial context item for the stylesheet.
+            </summary>
+            <remarks> This may be either a node or an atomic
+            value. Most commonly it will be a document node, which might be constructed
+            using the <c>Build</c> method of the <c>DocumentBuilder</c> object.
+            </remarks>
+        </member>
+        <member name="P:Saxon.Api.XsltTransformer.InitialMode">
+            <summary>
+            The initial mode for the stylesheet. This is either a QName, for a 
+            named mode, or null, for the unnamed (default) mode.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.XsltTransformer.InitialTemplate">
+            <summary>
+            The initial template for the stylesheet. This is either a QName, for a 
+            named template, or null, if no initial template has been set.
+            </summary>
+            <exception cref="T:Saxon.Api.DynamicError">Setting this property to the name of a template
+            that does not exist in the stylesheet throws a DynamicError with error 
+            code XTDE0040. Setting it to the name of a template that has template
+            parameters throws a DynamicError with error code XTDE0060.</exception>
+        </member>
+        <member name="P:Saxon.Api.XsltTransformer.BaseOutputUri">
+            <summary>
+            The base output URI, which acts as the base URI for resolving the <c>href</c>
+            attribute of <c>xsl:result-document</c>.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.XsltTransformer.InputXmlResolver">
+            <summary>
+            The <c>XmlResolver</c> to be used at run-time to resolve and dereference URIs
+            supplied to the <c>doc()</c> and <c>document()</c> functions.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.XsltTransformer.ResultDocumentHandler">
+            <summary>
+            The <c>IResultDocumentHandler</c> to be used at run-time to process the output
+            produced by any <c>xsl:result-document</c> instruction with an <c>href</c>
+            attribute.
+            </summary>
+            <remarks>
+            In the absence of a user-supplied result document handler, the <c>href</c>
+            attribute of the <c>xsl:result-document</c> instruction must be a valid relative
+            URI, which is resolved against the value of the <c>BaseOutputUri</c> property,
+            and the resulting absolute URI must identify a writable resource (typically
+            a file in filestore, using the <c>file:</c> URI scheme).
+            </remarks>
+        </member>
+        <member name="P:Saxon.Api.XsltTransformer.Implementation">
+            <summary>
+            Escape hatch to the underlying Java implementation
+            </summary>
+        </member>
+        <member name="T:Saxon.Api.IResultDocumentHandler">
+            <summary>An <c>IResultDocumentHandler</c> can be nominated to handle output
+             produced by the <c>xsl:result-document</c> instruction in an XSLT stylesheet.
+            </summary>
+            <remarks>
+            <para>This interface affects any <c>xsl:result-document</c> instruction
+             executed by the stylesheet, provided that it has an <c>href</c> attribute.</para> 
+            <para>If no <c>IResultDocumentHandler</c> is nominated (in the
+             <c>IResultDocumentHandler</c> property of the <c>XsltTransformer</c>, the output
+             of <code>xsl:result-document</code> is serialized, and is written to the file
+             or other resource identified by the URI in the <c>href</c> attribute, resolved
+             (if it is relative> against the URI supplied in the <c>BaseOutputUri</c> property
+             of the <c>XsltTransformer</c>.</para>
+            <para>If an <c>IResultDocumentHandler</c> is nominated, however, its
+             <c>HandleResultDocument</c> method will be called whenever an <c>xsl:result-document</c>
+             instruction with an <c>href</c> attribute is evaluated, and the generated result tree
+             will be passed to the <c>XmlDestination</c> returned by that method.</para> 
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.IResultDocumentHandler.HandleResultDocument(System.String,System.Uri)">
+            <summary> Handle output produced by the <c>xsl:result-document</c>
+            instruction in an XSLT stylesheet. This method is called by the XSLT processor
+            when an <c>xsl:result-document</c> with an <c>href</c> attribute is evaluated.
+            </summary>
+            <param name="href">An absolute or relative URI. This will be the effective value of the 
+            <c>href</c> attribute of the <c>xsl:result-document</c> in the stylesheet.</param>
+            <param name="baseUri">The base URI that should be used for resolving the value of
+            <c>href</c> if it is relative. This will always be the value of the <c>BaseOutputUri</c>
+            property of the <c>XsltTransformer</c>.</param>
+            <returns>An <c>XmlDestination</c> to handle the result tree produced by the
+            <c>xsl:result-document</c> instruction. The <c>Close</c> method of the returned
+            <c>XmlDestination</c> will be called when the output is complete.</returns>
+            <remarks>
+            <para>The XSLT processor will ensure that the stylesheet cannot create
+            two distinct result documents which are sent to the same URI. It is the responsibility
+            of the <c>IResultDocumentHandler</c> to ensure that two distinct result documents are
+            not set to the same <c>XmlDestination</c>. Failure to observe this rule can result
+            in output streams being incorrectly closed.
+            </para>
+            <para>Note that more than one result document can be open at the same time,
+            and that the order of opening, writing, and closing result documents chosen
+            by the processor does not necessarily bear any direct resemblance to the way
+            that the XSLT source code is written.</para></remarks>
+        </member>
+        <member name="T:Saxon.Api.XPathCompiler">
+            <summary>
+            An XPathCompiler object allows XPath queries to be compiled.
+            The compiler holds information that represents the static context
+            for the expression.
+            </summary>
+            <remarks>
+            <para>To construct an XPathCompiler, use the factory method
+            <c>newXPathCompiler</c> on the <c>Processor</c> object.</para>
+            <para>An XPathCompiler may be used repeatedly to compile multiple
+            queries. Any changes made to the XPathCompiler (that is, to the
+            static context) do not affect queries that have already been compiled.
+            An XPathCompiler may be used concurrently in multiple threads, but
+            it should not then be modified once initialized.</para>
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.XPathCompiler.DeclareNamespace(System.String,System.String)">
+            <summary>
+            Declare a namespace for use by the XPath expression.
+            </summary>
+            <param name="prefix">The namespace prefix to be declared. Use
+            a zero-length string to declare the default namespace (that is, the
+            default namespace for elements and types).</param>
+            <param name="uri">The namespace URI. It is possible to specify
+            a zero-length string to "undeclare" a namespace.</param>
+        </member>
+        <member name="M:Saxon.Api.XPathCompiler.DeclareVariable(Saxon.Api.QName)">
+            <summary>
+            Declare a variable for use by the XPath expression. If the expression
+            refers to any variables, then they must be declared here.
+            </summary>
+            <param name="name">The name of the variable, as a <c>QName</c></param>
+        </member>
+        <member name="M:Saxon.Api.XPathCompiler.Compile(System.String)">
+            <summary>
+            Compile an expression supplied as a String.
+            </summary>
+            <example>
+            <code>
+            XPathExecutable q = compiler.Compile("distinct-values(//*/node-name()");
+            </code>
+            </example>
+            <param name="source">A string containing the source text of the XPath expression</param>
+            <returns>An <c>XPathExecutable</c> which represents the compiled xpath expression object.
+            The XPathExecutable may be run as many times as required, in the same or a different
+            thread. The <c>XPathExecutable</c> is not affected by any changes made to the <c>XPathCompiler</c>
+            once it has been compiled.</returns>
+        </member>
+        <member name="P:Saxon.Api.XPathCompiler.BaseUri">
+            <summary>
+            The base URI of the expression, which forms part of the static context
+            of the expression. This is used for resolving any relative URIs appearing
+            within the expression, for example in references to library modules, schema
+            locations, or as an argument to the <c>doc()</c> function.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.XPathCompiler.BackwardsCompatible">
+            <summary>
+            XPath 1.0 Backwards Compatibility Mode. If true, backwards compatibility mode
+            is set. In backwards compatibility mode, more implicit type conversions are
+            allowed in XPath expressions, for example it is possible to compare a number
+            with a string. The default is false (backwards compatibility mode is off).
+            </summary>
+        </member>
+        <member name="T:Saxon.Api.XPathExecutable">
+            <summary>
+            An <c>XPathExecutable</c> represents the compiled form of an XPath expression. 
+            To evaluate the expression,
+            it must first be loaded to form an <c>XPathSelector</c>.
+            </summary>
+            <remarks>
+            <para>An <c>XPathExecutable</c> is immutable, and therefore thread-safe. It is simplest to
+            load a new <c>XPathSelector</c> each time the expression is to be evaluated. However, the 
+            <c>XPathSelector</c> is serially reusable within a single thread.</para>
+            <para>An <c>XPathExecutable</c> is created by using one of the <c>Compile</c>
+            methods on the <c>XPathCompiler</c> class.</para>
+            </remarks>    
+        </member>
+        <member name="M:Saxon.Api.XPathExecutable.Load">
+            <summary>
+            Load the compiled XPath expression to prepare it for execution.
+            </summary>
+            <returns>
+            An <c>XPathSelector</c>. The returned <c>XPathSelector</c> can be used to
+            set up the dynamic context, and then to evaluate the expression.
+            </returns>
+        </member>
+        <member name="T:Saxon.Api.XPathSelector">
+            <summary inherits="IEnumerable">
+            An <c>XPathSelector</c> represents a compiled and loaded XPath expression ready for execution.
+            The <c>XPathSelector</c> holds details of the dynamic evaluation context for the XPath expression.
+            </summary>
+            <remarks>
+            <para>An <c>XPathSelector</c> should not be used concurrently in multiple threads. It is safe,
+            however, to reuse the object within a single thread to evaluate the same XPath expression several times.
+            Evaluating the expression does not change the context that has been established.</para>
+            <para>An <c>XPathSelector</c> is always constructed by running the <c>Load</c> method of
+            an <c>XPathExecutable</c>.</para>
+            </remarks>     
+        </member>
+        <member name="M:Saxon.Api.XPathSelector.SetVariable(Saxon.Api.QName,Saxon.Api.XdmValue)">
+            <summary>
+            Set the value of a variable
+            <param name="name">The name of the variable. This must match the name of a variable
+            that was declared to the XPathCompiler. No error occurs if the expression does not
+            actually reference a variable with this name.</param>
+            <param name="value">The value to be given to the variable.</param>
+            </summary>
+        </member>
+        <member name="M:Saxon.Api.XPathSelector.Evaluate">
+            <summary>
+            Evaluate the expression, returning the result as an <c>XdmValue</c> (that is,
+            a sequence of nodes and/or atomic values).
+            </summary>
+            <remarks>
+            Although a singleton result <i>may</i> be represented as an <c>XdmItem</c>, there is
+            no guarantee that this will always be the case. If you know that the expression will return at
+            most one node or atomic value, it is best to use the <c>EvaluateSingle</c> method, which 
+            does guarantee that an <c>XdmItem</c> (or null) will be returned.
+            </remarks>
+            <returns>
+            An <c>XdmValue</c> representing the results of the expression. 
+            </returns>
+        </member>
+        <member name="M:Saxon.Api.XPathSelector.EvaluateSingle">
+            <summary>
+            Evaluate the XPath expression, returning the result as an <c>XdmItem</c> (that is,
+            a single node or atomic value).
+            </summary>
+            <returns>
+            An <c>XdmItem</c> representing the result of the expression, or null if the expression
+            returns an empty sequence. If the expression returns a sequence of more than one item,
+            any items after the first are ignored.
+            </returns>
+        </member>
+        <member name="M:Saxon.Api.XPathSelector.GetEnumerator">
+            <summary>
+            Evaluate the expression, returning the result as an <c>IEnumerator</c> (that is,
+            an enumerator over a sequence of nodes and/or atomic values).
+            </summary>
+            <returns>
+            An enumerator over the sequence that represents the results of the expression.
+            Each object in this sequence will be an instance of <c>XdmItem</c>. Note
+            that the expression may be evaluated lazily, which means that a successful response
+            from this method does not imply that the expression has executed successfully: failures
+            may be reported later while retrieving items from the iterator. 
+            </returns>
+        </member>
+        <member name="P:Saxon.Api.XPathSelector.ContextItem">
+            <summary>
+            The context item for the XPath expression evaluation.
+            </summary>
+            <remarks> This may be either a node or an atomic
+            value. Most commonly it will be a document node, which might be constructed
+            using the <c>Build</c> method of the <c>DocumentBuilder</c> object.
+            </remarks>
+        </member>
+        <member name="T:Saxon.Api.SchemaManager">
+            <summary>
+            A <c>SchemaManager</c> is responsible for compiling schemas and
+            maintaining a cache of compiled schemas that can be used for validating
+            instance documents.
+            </summary>
+            <remarks>
+            <para>To obtain a <c>SchemaManager</c>, use the 
+            <c>SchemaManager</c> property of the <c>Processor</c> object.</para>
+            <para>In a schema-aware Processor there is exactly one
+            <c>SchemaManager</c> (in a non-schema-aware Processor there is none).</para>
+            <para>The cache of compiled schema definitions can include only one schema
+            component (for example a type, or an element declaration) with any given name.
+            An attempt to compile two different schemas in the same namespace will usually
+            therefore fail.</para>
+            <para>As soon as a type definition or element declaration is used for the first
+            time in a validation episode, it is marked as being "sealed": this prevents subsequent
+            modifications to the component. Examples of modifications that are thereby disallowed
+            include adding to the substitution group of an existing element declaration, adding subtypes
+            to an existing type, or redefining components using &lt;xs:redefine&gt;</para>
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.SchemaManager.Compile(System.IO.Stream,System.Uri)">
+            <summary>
+            Compile a schema supplied as a Stream. The resulting schema components are added
+            to the cache.
+            </summary>
+            <param name="input">A stream containing the source text of the schema</param>
+            <param name="baseUri">The base URI of the schema document, for resolving any references to other
+            schema documents</param>        
+        </member>
+        <member name="M:Saxon.Api.SchemaManager.Compile(System.Uri)">
+            <summary>
+            Compile a schema, retrieving the source using a URI. The resulting schema components are added
+            to the cache.
+            </summary>
+            <remarks>
+            The document located via the URI is parsed using the <c>System.Xml</c> parser.
+            </remarks>
+            <param name="uri">The URI identifying the location where the schema document can be
+            found</param>
+        </member>
+        <member name="M:Saxon.Api.SchemaManager.Compile(System.Xml.XmlReader)">
+            <summary>
+            Compile a schema, delivered using an XmlReader. The resulting schema components are added
+            to the cache.
+            </summary>
+            <remarks>
+            The <c>XmlReader</c> is responsible for parsing the document; this method builds a tree
+            representation of the document (in an internal Saxon format) and compiles it.
+            If the <c>XmlReader</c> is an <c>XmlTextReader</c>, Saxon will set its <c>Normalization</c>
+            property to true, and will wrap it in a (non-validating) <c>XmlValidatingReader</c> to ensure
+            that entity references are expanded.
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.SchemaManager.Compile(Saxon.Api.XdmNode)">
+            <summary>
+            Compile a schema document, located at an XdmNode. This may be a document node whose
+            child is an <c>xs:schema</c> element, or it may be
+            the <c>xs:schema</c> element itself. The resulting schema components are added
+            to the cache.
+            </summary>
+        </member>
+        <member name="M:Saxon.Api.SchemaManager.NewSchemaValidator">
+            <summary>
+            Create a new <c>SchemaValidator</c>, which may be used for validating instance
+            documents.
+            </summary>
+            <remarks>
+            <para>The <c>SchemaValidator</c> uses the cache of schema components held by the
+            <c>SchemaManager</c>. It may also add new components to this cache (for example,
+            when the instance document references a schema using <c>xsi:schemaLocation</c>).
+            It is also affected by changes to the schema cache that occur after the 
+            <c>SchemaValidator</c> is created.</para>
+            <para>When schema components are used for validating instance documents (or for compiling
+            schema-aware queries and stylesheets) they are <i>sealed</i> to prevent subsequent modification.
+            The modifications disallowed once a component is sealed include adding to the substitution group
+            of an element declaration, adding subtypes derived by extension to an existing complex type, and
+            use of <c>&lt;xs:redefine&gt;</c></para>
+            </remarks>
+        </member>
+        <member name="P:Saxon.Api.SchemaManager.SchemaResolver">
+            <summary>
+            The SchemaResolver is a user-supplied class used for resolving references to
+            schema documents. It applies to references from one schema document to another
+            appearing in <c>xs:import</c>, <c>xs:include</c>, and <c>xs:redefine</c>; to
+            references from an instance document to a schema in <c>xsi:schemaLocation</c> and
+            <c>xsi:noNamespaceSchemaLocation</c>, to <c>xsl:import-schema</c> in XSLT, and to
+            the <c>import schema</c> declaration in XQuery.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.SchemaManager.ErrorList">
+            <summary>
+            List of errors. The caller may supply an empty list before calling Compile;
+            the processor will then populate the list with error information obtained during
+            the schema compilation. Each error will be included as an object of type StaticError.
+            If no error list is supplied by the caller, error information will be written to
+            the standard error stream.
+            </summary>
+            <remarks>
+            <para>By supplying a custom List with a user-written add() method, it is possible to
+            intercept error conditions as they occur.</para>
+            <para>Note that this error list is used only for errors detected during the compilation
+            of the schema. It is not used for errors detected when using the schema to validate
+            a source document.</para>
+            </remarks>
+        </member>
+        <member name="T:Saxon.Api.SchemaValidator">
+            <summary>
+            A <c>SchemaValidator</c> is an object that is used for validating instance documents
+            against a schema. The schema consists of the collection of schema components that are
+            available within the schema cache maintained by the <c>SchemaManager</c>, together with
+            any additional schema components located during the course of validation by means of an
+            <c>xsl:schemaLocation</c> or <c>xsi:noNamespaceSchemaLocation</c> attribute within the
+            instance document.
+            </summary>
+            <remarks>
+            If validation fails, an exception is thrown. If validation succeeds, the validated
+            document can optionally be written to a specified destination. This will be a copy of
+            the original document, augmented with default values for absent elements and attributes,
+            and carrying type annotations derived from the schema processing. Saxon does not deliver
+            the full PSVI as described in the XML schema specifications, only the subset of the
+            PSVI properties featured in the XDM data model.
+            </remarks>    
+        </member>
+        <member name="M:Saxon.Api.SchemaValidator.SetSource(System.IO.Stream,System.Uri)">
+            <summary>
+            Supply the instance document to be validated in the form of a Stream
+            </summary>
+            <param name="source">A stream containing the XML document to be parsed
+            and validated.</param>
+            <param name="baseUri">The base URI to be used for resolving any relative
+            references, for example a reference to an <c>xsi:schemaLocation</c></param>                  
+        </member>
+        <member name="M:Saxon.Api.SchemaValidator.SetSource(System.Uri)">
+            <summary>
+            Supply the instance document to be validated in the form of a Uri reference
+            </summary>
+            <remarks>
+            <para>The supplied node must be either a document node or an element node.
+            If an element node is supplied, then the subtree rooted at this element is
+            validated as if it were a complete document: that is, it must not only conform
+            to the structure required of that element, but any referential constraints
+            (keyref, IDREF) must be satisfied within that subtree.
+            </para>
+            </remarks>
+            <param name="baseUri">URI of the document to be validated</param>                  
+        </member>
+        <member name="M:Saxon.Api.SchemaValidator.SetSource(System.Xml.XmlReader)">
+            <summary>
+            Supply the instance document to be validated, in the form of an XmlReader.
+            </summary>
+            <remarks>
+            The XmlReader is responsible for parsing the document; this method validates it.
+            </remarks>
+            <param name="reader">The <c>XmlReader</c> used to read and parse the instance
+            document being validated. This is used as supplied. For conformance, use of a
+            plain <c>XmlTextReader</c> is discouraged, because it does not expand entity
+            references. This may cause validation failures.
+            </param>
+        </member>
+        <member name="M:Saxon.Api.SchemaValidator.SetSource(Saxon.Api.XdmNode)">
+            <summary>
+            Supply the instance document to be validated in the form of an XdmNode
+            </summary>
+            <remarks>
+            <para>The supplied node must be either a document node or an element node.
+            If an element node is supplied, then the subtree rooted at this element is
+            validated as if it were a complete document: that is, it must not only conform
+            to the structure required of that element, but any referential constraints
+            (keyref, IDREF) must be satisfied within that subtree.
+            </para>
+            </remarks>
+            <param name="source">The document or element node at the root of the tree
+            to be validated</param>        
+        </member>
+        <member name="M:Saxon.Api.SchemaValidator.SetDestination(Saxon.Api.XmlDestination)">
+            <summary>
+            Supply the destination to hold the validated document. If no destination
+            is supplied, the validated document is discarded.
+            </summary>
+            <remarks>
+            The destination differs from the source in that (a) default values of missing
+            elements and attributes are supplied, and (b) the typed values of elements and
+            attributes are available. However, typed values can only be accessed if the result
+            is represented using the XDM data model, that is, if the destination is supplied
+            as an XdmDestination.
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.SchemaValidator.Run">
+            <summary>
+            Run the validation of the supplied source document, optionally
+            writing the validated document to the supplied destination.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.SchemaValidator.IsLax">
+            <summary>
+            The validation mode may be either strict or lax. The default is strict;
+            this property is set to indicate that lax validation is required. With strict validation,
+            validation fails if no element declaration can be located for the outermost element. With lax
+            validation, the absence of an element declaration results in the content being considered valid.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.SchemaValidator.ErrorList">
+            <summary>
+            List of errors. The caller may supply an empty list before calling Compile;
+            the processor will then populate the list with error information obtained during
+            the schema compilation. Each error will be included as an object of type StaticError.
+            If no error list is supplied by the caller, error information will be written to
+            the standard error stream.
+            </summary>
+            <remarks>
+            <para>By supplying a custom List with a user-written add() method, it is possible to
+            intercept error conditions as they occur.</para>
+            <para>Note that this error list is used only for errors detected while 
+            using the schema to validate a source document. It is not used to report errors
+            in the schema itself.</para>
+            </remarks>
+        </member>
+        <member name="T:Saxon.Api.SchemaResolver">
+            <summary>
+            The SchemaResolver is a user-supplied class used for resolving references to
+            schema documents. It applies to references from one schema document to another
+            appearing in <c>xs:import</c>, <c>xs:include</c>, and <c>xs:redefine</c>; to
+            references from an instance document to a schema in <c>xsi:schemaLocation</c> and
+            <c>xsi:noNamespaceSchemaLocation</c>, to <c>xsl:import-schema</c> in XSLT, and to
+            the <c>import schema</c> declaration in XQuery.
+            </summary>
+        </member>
+        <member name="M:Saxon.Api.SchemaResolver.GetSchemaDocuments(System.String,System.Uri,System.String[])">
+            <summary>
+            Given a targetNamespace and a set of location hints, return a set of schema documents.
+            </summary>
+            <param name="targetNamespace">The target namespace of the required schema components</param>
+            <param name="baseUri">The base URI of the module containing the reference to a schema document
+            declaration</param>
+            <param name="locationHints">The sequence of URIs (if any) listed as location hints.
+            In most cases there will only be one; but the <c>import schema</c> declaration in
+            XQuery permits several.</param>
+            <returns>A set of absolute Uris identifying the query modules to be loaded. There is no requirement
+            that these correspond one-to-one with the URIs defined in the <c>locationHints</c>. The 
+            returned URIs will be dereferenced by calling the <c>GetEntity</c> method.
+            </returns>
+        </member>
+        <member name="M:Saxon.Api.SchemaResolver.GetEntity(System.Uri)">
+            <summary>
+            Dereference a URI returned by <c>GetModules</c> to retrieve a <c>Stream</c> containing
+            the actual XML schema document.
+            </summary>
+            <param name="absoluteUri">A URI returned by the <code>GetSchemaDocuments</code> method.</param>
+            <returns>Either a <c>Stream</c> or a <c>String</c> containing the query text. 
+            The supplied URI will be used as the base URI of the query module.</returns>
         </member>
     </members>
 </doc>
