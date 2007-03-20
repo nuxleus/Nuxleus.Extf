@@ -14,7 +14,9 @@
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>true</SignManifests>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>http://xameleon.org/Personal.Web.Platform/ClickOnce/</PublishUrl>
+    <TargetZone>Custom</TargetZone>
+    <SignAssembly>false</SignAssembly>
+    <PublishUrl>C:\Documents and Settings\M. David\My Documents\My Projects\extf.net-google-code\release\xameleon\personalwebplatform\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -23,11 +25,13 @@
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
+    <MapFileExtensions>false</MapFileExtensions>
+    <InstallUrl>http://extf.googlecode.com/svn/release/xameleon/personalwebplatform/</InstallUrl>
     <SupportUrl>http://xameleon.org/support/</SupportUrl>
     <ProductName>Xameleon Personal Web Communication Platform</ProductName>
     <PublisherName>The nuXleus Project</PublisherName>
     <WebPage>index.html</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <TrustUrlParameters>true</TrustUrlParameters>
     <ApplicationVersion>0.1.1.%2a</ApplicationVersion>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -46,15 +50,31 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\docs\Xameleon.WebApp.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DynamicWebServiceHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AmazonAWS.S3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\DynamicWebServiceHelpers.dll</HintPath>
+      <HintPath>..\Dependencies\AmazonAWS.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="GlobalClip, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\GlobalClip.dll</HintPath>
+    </Reference>
+    <Reference Include="GlobalClip.XmlSerializers, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\GlobalClip.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.GNU.Classpath, Version=0.32.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\IKVM.GNU.Classpath.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=0.32.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\IKVM.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="IronMath, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -63,6 +83,30 @@
     <Reference Include="IronPython, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=2.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTorrent.BEncoding, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\MonoTorrent.BEncoding.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTorrent.Client, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\MonoTorrent.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTorrent.Common, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\MonoTorrent.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTorrent.Tracker, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\MonoTorrent.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Mvp.Xml, Version=2.2.0.0, Culture=neutral, PublicKeyToken=6ead800d778c9b9f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -146,198 +190,6 @@
       <Link>Lib\amplee\error.py</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\audio\demo_client.py">
-      <Link>Lib\amplee\examples\audio\demo_client.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\audio\demo_setup.py">
-      <Link>Lib\amplee\examples\audio\demo_setup.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\audio\demo_simple.py">
-      <Link>Lib\amplee\examples\audio\demo_simple.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\audio\demo_simple_wsgiref.py">
-      <Link>Lib\amplee\examples\audio\demo_simple_wsgiref.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\blog-cherrypy.py">
-      <Link>Lib\amplee\examples\blog\blog-cherrypy.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\blog-wsgi.py">
-      <Link>Lib\amplee\examples\blog\blog-wsgi.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\atompub.py">
-      <Link>Lib\amplee\examples\blog\core\atompub.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\comment.py">
-      <Link>Lib\amplee\examples\blog\core\comment.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\cp.py">
-      <Link>Lib\amplee\examples\blog\core\cp.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\handler\article.py">
-      <Link>Lib\amplee\examples\blog\core\handler\article.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\handler\comment.py">
-      <Link>Lib\amplee\examples\blog\core\handler\comment.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\handler\__init__.py">
-      <Link>Lib\amplee\examples\blog\core\handler\__init__.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\transform.py">
-      <Link>Lib\amplee\examples\blog\core\transform.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\wsgi.py">
-      <Link>Lib\amplee\examples\blog\core\wsgi.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\core\__init__.py">
-      <Link>Lib\amplee\examples\blog\core\__init__.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\common.py">
-      <Link>Lib\amplee\examples\blog\scripts\common.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\create.py">
-      <Link>Lib\amplee\examples\blog\scripts\create.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\delete.py">
-      <Link>Lib\amplee\examples\blog\scripts\delete.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\edit.py">
-      <Link>Lib\amplee\examples\blog\scripts\edit.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\fetch-collection.py">
-      <Link>Lib\amplee\examples\blog\scripts\fetch-collection.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\fetch-service.py">
-      <Link>Lib\amplee\examples\blog\scripts\fetch-service.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\scripts\fetch.py">
-      <Link>Lib\amplee\examples\blog\scripts\fetch.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\static\style.css">
-      <Link>Lib\amplee\examples\blog\static\style.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\template\error404.html">
-      <Link>Lib\amplee\examples\blog\template\error404.html</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\blog\template\index.xsl">
-      <Link>Lib\amplee\examples\blog\template\index.xsl</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\appstore.py">
-      <Link>Lib\amplee\examples\pakawi\appstore.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\design\base.html">
-      <Link>Lib\amplee\examples\pakawi\design\base.html</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\design\footer.html">
-      <Link>Lib\amplee\examples\pakawi\design\footer.html</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\design\header.html">
-      <Link>Lib\amplee\examples\pakawi\design\header.html</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\design\index.html">
-      <Link>Lib\amplee\examples\pakawi\design\index.html</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\design\page.html">
-      <Link>Lib\amplee\examples\pakawi\design\page.html</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\handler\cp.py">
-      <Link>Lib\amplee\examples\pakawi\handler\cp.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\handler\wsgi.py">
-      <Link>Lib\amplee\examples\pakawi\handler\wsgi.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\handler\__init__.py">
-      <Link>Lib\amplee\examples\pakawi\handler\__init__.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\lib\config.py">
-      <Link>Lib\amplee\examples\pakawi\lib\config.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\lib\design.py">
-      <Link>Lib\amplee\examples\pakawi\lib\design.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\lib\wiki.py">
-      <Link>Lib\amplee\examples\pakawi\lib\wiki.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\lib\__init__.py">
-      <Link>Lib\amplee\examples\pakawi\lib\__init__.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\pakawi-cherrypy.py">
-      <Link>Lib\amplee\examples\pakawi\pakawi-cherrypy.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\pakawi-wsgi.py">
-      <Link>Lib\amplee\examples\pakawi\pakawi-wsgi.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\static\pakawi.js">
-      <Link>Lib\amplee\examples\pakawi\static\pakawi.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\static\progress.gif">
-      <Link>Lib\amplee\examples\pakawi\static\progress.gif</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\pakawi\static\style.css">
-      <Link>Lib\amplee\examples\pakawi\static\style.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\web\demo.py">
-      <Link>Lib\amplee\examples\web\demo.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\web\demo_cherrypy.py">
-      <Link>Lib\amplee\examples\web\demo_cherrypy.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\web\demo_client.py">
-      <Link>Lib\amplee\examples\web\demo_client.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\web\demo_kamaelia.py">
-      <Link>Lib\amplee\examples\web\demo_kamaelia.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\examples\web\demo_wsgi.py">
-      <Link>Lib\amplee\examples\web\demo_wsgi.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\handler\store\cp\__init__.py">
       <Link>Lib\amplee\handler\store\cp\__init__.py</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -392,62 +244,6 @@
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\storage\__init__.py">
       <Link>Lib\amplee\storage\__init__.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\amplee_base.py">
-      <Link>Lib\amplee\test\amplee_base.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\data\plain_text.txt">
-      <Link>Lib\amplee\test\data\plain_text.txt</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\lib\atompub.py">
-      <Link>Lib\amplee\test\lib\atompub.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\lib\handler\article.py">
-      <Link>Lib\amplee\test\lib\handler\article.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\lib\handler\comment.py">
-      <Link>Lib\amplee\test\lib\handler\comment.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\lib\handler\poetry.py">
-      <Link>Lib\amplee\test\lib\handler\poetry.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\lib\handler\__init__.py">
-      <Link>Lib\amplee\test\lib\handler\__init__.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\lib\store.py">
-      <Link>Lib\amplee\test\lib\store.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\lib\__init__.py">
-      <Link>Lib\amplee\test\lib\__init__.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\test.py">
-      <Link>Lib\amplee\test\test.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\test_atompub.py">
-      <Link>Lib\amplee\test\test_atompub.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\test_builtin_members.py">
-      <Link>Lib\amplee\test\test_builtin_members.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\test_indexer.py">
-      <Link>Lib\amplee\test\test_indexer.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\amplee\test\test_storage.py">
-      <Link>Lib\amplee\test\test_storage.py</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\amplee\utils.py">
@@ -636,30 +432,6 @@
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\parser\__init__.py">
       <Link>Lib\bridge\parser\__init__.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\bridge\test\test.py">
-      <Link>Lib\bridge\test\test.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\bridge\test\test_amara.py">
-      <Link>Lib\bridge\test\test_amara.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\bridge\test\test_base.py">
-      <Link>Lib\bridge\test\test_base.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\bridge\test\test_default.py">
-      <Link>Lib\bridge\test\test_default.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\bridge\test\test_elementtree.py">
-      <Link>Lib\bridge\test\test_elementtree.py</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\bridge\test\test_lxml.py">
-      <Link>Lib\bridge\test\test_lxml.py</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\bridge\validator\atom.py">
@@ -1830,41 +1602,41 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\appsite.py">
-      <Link>appsite.py</Link>
+      <Link>app\appsite.py</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\cherrypyserver.py">
-      <Link>Lib\cherrypyserver.py</Link>
+      <Link>app\cherrypyserver.py</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\__init__.py">
-      <Link>core\__init__.py</Link>
+      <Link>app\core\__init__.py</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\atompub.py">
-      <Link>core\atompub.py</Link>
+      <Link>app\core\atompub.py</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\xameleonhandler.py">
-      <Link>core\xameleonhandler.py</Link>
+      <Link>app\core\xameleonhandler.py</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\handler\article.py">
-      <Link>core\handler\article.py</Link>
+      <Link>app\core\handler\article.py</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\handler\__init__.py">
-      <Link>core\handler\__init__.py</Link>
+      <Link>app\core\handler\__init__.py</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\WebApp\appsite.exe">
-      <Link>appsite.exe</Link>
+      <Link>app\appsite.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\cherrypyserver.exe">
-      <Link>cherrypyserver.exe</Link>
+      <Link>app\cherrypyserver.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\atexit.exe">
@@ -2009,10 +1781,6 @@
     </Content>
     <Content Include="..\WebApp\bin\Lib\signal.exe">
       <Link>Lib\signal.exe</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\bin\Lib\site.exe">
-      <Link>Lib\site.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\bin\Lib\SocketServer.exe">
@@ -2464,45 +2232,45 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\atompub.exe">
-      <Link>core\atompub.exe</Link>
+      <Link>app\core\atompub.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\atompub_1.exe">
-      <Link>core\atompub_1.exe</Link>
+      <Link>app\core\atompub_1.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\atompub_2.exe">
-      <Link>core\atompub_2.exe</Link>
+      <Link>app\core\atompub_2.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\xameleonhandler.exe">
-      <Link>core\xameleonhandler.exe</Link>
+      <Link>app\core\xameleonhandler.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\__init__.exe">
-      <Link>core\__init__.exe</Link>
+      <Link>app\core\__init__.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\handler\article.exe">
-      <Link>core\handler\article.exe</Link>
+      <Link>app\core\handler\article.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\core\handler\__init__.exe">
-      <Link>core\handler\__init__.exe</Link>
+      <Link>app\core\handler\__init__.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\WebApp\Web.config">
-      <Link>web.config</Link>
+      <Link>app\Web.config</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\Web.amplee.config">
-      <Link>web.amplee.config</Link>
+      <Link>app\Web.amplee.config</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\appstore.conf">
-      <Link>appstore.conf</Link>
+      <Link>app\appstore.conf</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\appsite.py">
@@ -2589,6 +2357,10 @@
       <Link>public_web\js\opera.js</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\WebApp\public_web\js\script.js">
+      <Link>public_web\js\script.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\WebApp\public_web\microformat\hCard.js">
       <Link>public_web\microformat\hCard.js</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -2610,6 +2382,7 @@
     <None Include="..\Resources\Extf.Net.snk">
       <Link>Extf.Net.snk</Link>
     </None>
+    <BaseApplicationManifest Include="Properties\app.manifest" />
     <None Include="Xameleon.WebApp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -2622,33 +2395,37 @@
   <ItemGroup>
     <PublishFile Include="nunit.framework">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="public_web\index.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VendorExtensions\Microsoft\IronPython\DynamicWebServiceHelpers\DynamicWebServiceHelpers.csproj">
+      <Project>{1D454DD9-4271-47F0-A45C-12040305BAD1}</Project>
+      <Name>DynamicWebServiceHelpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Xameleon\Xameleon.csproj">
       <Project>{A800D9F1-D877-4076-99BA-CBD73BCFB203}</Project>
       <Name>Xameleon</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\repository\" />
     <Folder Include="DLLs\" />
     <Folder Include="private_web\" />
-    <Folder Include="repository\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
