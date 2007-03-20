@@ -15,6 +15,9 @@
     <xsl:variable name="file-extension" 
         select="'.appref-ms'" 
         as="xs:string"/>
+    <xsl:variable name="space-replace" 
+        select="''" 
+        as="xs:string"/>
     <xsl:variable name="deployment-provider"
         select="/asmv1:assembly/asmv2:deployment/asmv2:deploymentProvider/@codebase"/>
     <xsl:variable name="name" 
@@ -40,7 +43,7 @@
                     translate(
                         $file-name, 
                         '  ', 
-                        '_'), $file-extension
+                        $space-replace), $file-extension
                     )}">
             <xsl:value-of
                 select="
