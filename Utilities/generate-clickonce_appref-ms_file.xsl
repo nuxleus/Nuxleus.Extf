@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    COPYRIGHT: (c) 2006 by M. David Peterson (http://mdavid.name/, mailto:m.david@xmlhacker.com)
+    COPYRIGHT: (c) 2007 by M. David Peterson (http://mdavid.name/, mailto:m.david@xmlhacker.com)
     LICENSE: The code contained in this file is licensed under The MIT License. Please see http://www.opensource.org/licenses/mit-license.php for specific detail.
 -->
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
