@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import clr
-import sys
-import os.path
-cur_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'bin')
-sys.path.append(cur_dir)
-clr.AddReferenceToFile('Xameleon.dll')
+clr.AddReference('Xameleon')
 
 import os
 import cherrypy
