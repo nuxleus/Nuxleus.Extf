@@ -51,7 +51,6 @@
     <Compile Include="Transform.cs" />
     <Compile Include="Transform.Init.cs" />
     <Compile Include="Transform.Process.cs" />
-    <Compile Include="Xameleon\Atom\AtomEntry.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Base\Extf.Net.Base.csproj">
