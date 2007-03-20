@@ -85,6 +85,11 @@
     <Compile Include="Asp.Net\Server.cs" />
     <Compile Include="WSGI\WSGI.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\..\..\..\..\Python24\entry.xml">
+      <Link>entry.xml</Link>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
