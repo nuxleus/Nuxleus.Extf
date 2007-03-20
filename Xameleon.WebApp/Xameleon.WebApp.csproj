@@ -10,7 +10,7 @@
     <RootNamespace>Xameleon.WebApp</RootNamespace>
     <AssemblyName>Xameleon.WebApp</AssemblyName>
     <ManifestCertificateThumbprint>DDC1B4432288F93DC21142A09281478D810F874D</ManifestCertificateThumbprint>
-    <ManifestKeyFile>Xameleon.WebApp_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Xameleon.WebApp.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>true</SignManifests>
     <IsWebBootstrapper>true</IsWebBootstrapper>
@@ -2383,7 +2383,7 @@
       <Link>Extf.Net.snk</Link>
     </None>
     <BaseApplicationManifest Include="Properties\app.manifest" />
-    <None Include="Xameleon.WebApp_TemporaryKey.pfx" />
+    <None Include="Xameleon.WebApp.pfx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
@@ -2416,6 +2416,10 @@
     <ProjectReference Include="..\VendorExtensions\Microsoft\IronPython\DynamicWebServiceHelpers\DynamicWebServiceHelpers.csproj">
       <Project>{1D454DD9-4271-47F0-A45C-12040305BAD1}</Project>
       <Name>DynamicWebServiceHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
+      <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
+      <Name>Saxon.Api</Name>
     </ProjectReference>
     <ProjectReference Include="..\Xameleon\Xameleon.csproj">
       <Project>{A800D9F1-D877-4076-99BA-CBD73BCFB203}</Project>
