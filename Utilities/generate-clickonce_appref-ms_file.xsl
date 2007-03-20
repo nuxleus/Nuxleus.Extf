@@ -4,13 +4,17 @@
     LICENSE: The code contained in this file is licensed under The MIT License. Please see http://www.opensource.org/licenses/mit-license.php for specific detail.
 -->
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1"
+    xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" 
+    xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    exclude-result-prefixes="xs"
     version="2.0">
 
     <xsl:variable name="file-name" 
         select="/asmv1:assembly/asmv1:description/@asmv2:product"/>
     <xsl:variable name="file-extension" 
-        select="'.appref-ms'"/>
+        select="'.appref-ms'" 
+        as="xs:string"/>
     <xsl:variable name="deployment-provider"
         select="/asmv1:assembly/asmv2:deployment/asmv2:deploymentProvider/@codebase"/>
     <xsl:variable name="name" 
@@ -26,7 +30,7 @@
     <xsl:variable name="sep" 
         select="', '"/>
 
-    <xsl:output name="text" method="text"/>
+    <xsl:output name="text" method="text" encoding="UTF-16" />
 
     <xsl:template match="/">
         <xsl:result-document 
@@ -35,11 +39,9 @@
                 concat(
                     translate(
                         $file-name, 
-                        ' ', 
-                        ''), 
-                    $file-extension
-                    )
-            }">
+                        '  ', 
+                        '_'), $file-extension
+                    )}">
             <xsl:value-of
                 select="
                     concat(
