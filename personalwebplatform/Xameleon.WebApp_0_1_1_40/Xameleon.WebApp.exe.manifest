@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly manifestVersion="1.0" xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <asmv1:assemblyIdentity name="Xameleon.WebApp.exe" version="0.1.1.38" publicKeyToken="99db3f8680e38416" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Xameleon.WebApp.exe" version="0.1.1.40" publicKeyToken="99db3f8680e38416" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Xameleon.WebApp" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -46,7 +46,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>/FtQ0nHVdRC5S2elr8zx24im6Tw=</dsig:DigestValue>
+        <dsig:DigestValue>a8VMKdmWmso2ICeizydE6ZG2nAw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Extf.Net.dll" size="32768">
+      <assemblyIdentity name="Extf.Net" version="0.1.1.2" publicKeyToken="8974F7AAF62D3D0F" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>hSj0mwt7TzaFlMLEE3B6DHOitzU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -58,7 +70,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>zI/1ktgSIFxtCwckSuJg9Mz1uzY=</dsig:DigestValue>
+        <dsig:DigestValue>EPsVg/HHiyOPgfc0nWnb8HuA8PQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -70,7 +82,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Y8WQXCm3E675BJj79daATOAwPXk=</dsig:DigestValue>
+        <dsig:DigestValue>K9iYLOpbAwzR+1ijCCv7QVxFTR8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -106,7 +118,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>TCiHkmmF5gg8C5mbiJM1XRc/Eqg=</dsig:DigestValue>
+        <dsig:DigestValue>KOnRKaTtjs5CnK/knM9ums3bFuI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -118,7 +130,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>dfcJjxepKwRKP9iyljQoJfeHU6c=</dsig:DigestValue>
+        <dsig:DigestValue>gLT94ak+c+Qf++XuY+KtHvv6OTk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -214,7 +226,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>X9N27wP6cwqjOzKZaqiEDk45m+s=</dsig:DigestValue>
+        <dsig:DigestValue>dPz2ABfpMJv5vJ6D6P6sClUSPI0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -250,7 +262,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>MN3cI1wbJeC0v1I8C/yDgvJusaQ=</dsig:DigestValue>
+        <dsig:DigestValue>FJoIDzcIbOe4FH2XT463jSjLjck=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Xameleon.Saxon.dll" size="20480">
+      <assemblyIdentity name="Xameleon.Saxon" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>olAWFnMPk5GiNAQN3KCMDdOSAek=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -262,7 +286,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>q2n5qfa1PUJFdZGmG35HR7UFNIs=</dsig:DigestValue>
+        <dsig:DigestValue>exs3Y8bvYM+NyX1JolQLj9fY64M=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Xameleon.WebServer.dll" size="57344">
+      <assemblyIdentity name="Xameleon.WebServer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>VHaJCPoaJ/KvYxmomyL01GEitz8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -272,7 +308,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>YgSXEhLJTVuwiO2ohNfSmcMmfew=</dsig:DigestValue>
+      <dsig:DigestValue>jVPSIFe3DFqDaamLb+juVXM5CCM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="app\appsite.py" size="3885">
@@ -299,7 +335,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>+ollV0PbApULcoOmuLoblcBUgpE=</dsig:DigestValue>
+      <dsig:DigestValue>H9Lm6VFD0x8giKLLULcHRqELbkQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="app\cherrypyserver.py" size="591">
@@ -317,7 +353,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>fU2+tWqGTKieUzMvp4DuWEWJOqI=</dsig:DigestValue>
+      <dsig:DigestValue>W67AZrI+NCjEwF5zAE52oNQCBo0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="app\core\__init__.py" size="0">
@@ -335,7 +371,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>MtOffPRykEAviAQ6b/uUmkr0BV8=</dsig:DigestValue>
+      <dsig:DigestValue>97byYZlHQGySdGe1j+nDguF7nbA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="app\core\atompub.py" size="2116">
@@ -345,24 +381,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>4qtO6uPn6ZRJenvPzXNN45/QDRY=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="app\core\atompub_1.exe" size="11776">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>cDSe1S1xtEEHgry9R6Sg5qlKIEw=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="app\core\atompub_2.exe" size="11776">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>qbjKgWhgo9OiB13y+pwjE02wNeY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="app\core\handler\__init__.exe" size="4608">
@@ -389,7 +407,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Pllsa6o45qxjU9f5Rzaw3alxg4o=</dsig:DigestValue>
+      <dsig:DigestValue>eYpK2jXN1Ofcjuivfa6GFBiZZ8A=</dsig:DigestValue>
     </hash>
   </file>
   <file name="app\core\handler\article.py" size="3158">
@@ -461,7 +479,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Q3txmka4qeiQDK+Pb8BSwYS+M64=</dsig:DigestValue>
+      <dsig:DigestValue>FVp0ysXNYSfVKIcOxwr1Vt9peas=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\_fileobject.py" size="6599">
@@ -479,7 +497,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Py7OIQqCVhJPGYuNDZwSorFB1aE=</dsig:DigestValue>
+      <dsig:DigestValue>DI+xp/HCZ5pODBKEvjoK6ZVfpvo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\_LWPCookieJar.py" size="6382">
@@ -497,7 +515,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>2Qzl2vvN5eo7AQfmum7RH93lHps=</dsig:DigestValue>
+      <dsig:DigestValue>TWtvoyXB/GRNnhulIaHzt7QVcJI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\_MozillaCookieJar.py" size="5811">
@@ -533,7 +551,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>3Sw5mDX4Vkifam1y7XEBuy4R/DY=</dsig:DigestValue>
+      <dsig:DigestValue>EgaYRPUcgKhqqFkLalbekqRfGUY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\_threading_local.py" size="6945">
@@ -551,7 +569,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>UKDeZSoZw0/El2goaLKdLtm9moI=</dsig:DigestValue>
+      <dsig:DigestValue>R7pmkMSfByXhoGO/DY30RUr/Kgw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\__init__.py" size="1839">
@@ -569,7 +587,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>6RcYMBEnrmXb9p8hMw4UPDIOFfU=</dsig:DigestValue>
+      <dsig:DigestValue>7gLZikUb987yNBt464IDByNSgOc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\atompub\__init__.py" size="1154">
@@ -587,7 +605,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>aHRi1dWz4WOScYuEsnCLN1uJjO0=</dsig:DigestValue>
+      <dsig:DigestValue>rNGuMkXwvtW1uoWv2C+FW8snt68=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\atompub\collection.py" size="22455">
@@ -605,7 +623,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>WY0rc0AEn2ImVXZFpBFyl0Y9AwE=</dsig:DigestValue>
+      <dsig:DigestValue>37K81jZKWb9G9nWqyjrspb7iwVc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\atompub\member\__init__.py" size="4053">
@@ -623,7 +641,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>k0xweogYwDegFJDaGqpwFsxzxTA=</dsig:DigestValue>
+      <dsig:DigestValue>afhFkv8PYQ1wpGuJapgq3/UnRPs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\atompub\member\atom.py" size="4279">
@@ -641,7 +659,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>iO/nCZLObF8cHATkM+6sV9BFl84=</dsig:DigestValue>
+      <dsig:DigestValue>yDAsi005bIcD7ZNUNbi9gFYgyzA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\atompub\member\audio.py" size="13370">
@@ -659,7 +677,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9kSsanroIXxnSSeZ8ACqb9t3CL4=</dsig:DigestValue>
+      <dsig:DigestValue>0JIwdADtSyvR+lW86SmkDcp5QPA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\atompub\member\generic.py" size="2678">
@@ -677,7 +695,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>WbCzYK8RhLDsJIXon/9Ty6so8AA=</dsig:DigestValue>
+      <dsig:DigestValue>Y2JCEZlIiOw1o6bKHaGF2EUnIdY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\atompub\member\helper.py" size="11084">
@@ -731,7 +749,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>+F2RVhiiGT6CFV2JG0eKeDL7I7Q=</dsig:DigestValue>
+      <dsig:DigestValue>fiG0PfC7ul+KB+b2eaT33QPGyqY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\atompub\service.py" size="1869">
@@ -749,7 +767,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>L9Nm4frPpF4kOhZ5fH+85QemAcQ=</dsig:DigestValue>
+      <dsig:DigestValue>LH0jT+8qATIcAK00FUAEZJ9/HD0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\atompub\store.py" size="9963">
@@ -767,7 +785,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Mo2gwUZzmsgQ2UeJ+4FFKXokPyE=</dsig:DigestValue>
+      <dsig:DigestValue>RCHI/EfvJrFHcwoi9cHM60h+D3U=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\atompub\workspace.py" size="2524">
@@ -785,7 +803,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>aUygKA4Ve7bEAaN23x5+RyavW7I=</dsig:DigestValue>
+      <dsig:DigestValue>BOAemC78sZaris/isURDqUNCK2Q=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\error.py" size="611">
@@ -803,7 +821,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>r/iy03LSgWNFwr/nAoSUcjladA8=</dsig:DigestValue>
+      <dsig:DigestValue>EBQYQ/dNxn14jkFiwDuZRbjjyJQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\handler\__init__.py" size="7491">
@@ -821,7 +839,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>z42109LA85w2M0YpSFURJ+L2IjU=</dsig:DigestValue>
+      <dsig:DigestValue>3ANvkNo3J3+mCkSCz0VGOkjgvlw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\handler\store\__init__.py" size="24">
@@ -857,7 +875,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>8RHCkeOQapc8RKjsc8PP7339pp0=</dsig:DigestValue>
+      <dsig:DigestValue>HP0lw5X0vej0mI75C4oYimXxY30=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\handler\store\wsgi\__init__.py" size="11876">
@@ -875,7 +893,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>f97f7Cs5OJ113WL4r0St4rzqVqA=</dsig:DigestValue>
+      <dsig:DigestValue>i/jL4lyFAx60ghvDj4dWfv0wIxg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\http_helper.py" size="11028">
@@ -902,7 +920,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>68IvhA9gnTKQfDAOgaIdeovlflY=</dsig:DigestValue>
+      <dsig:DigestValue>QTb6zEEeKA5j0/+/rwZ5F/PfEI4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\loader.py" size="15657">
@@ -920,7 +938,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>UrqWugMwPYGUqwwfeZ8cpvCLC5E=</dsig:DigestValue>
+      <dsig:DigestValue>x9Qq0Wu0Ku6HY8WSgVH/sNq55pU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\storage\__init__.py" size="1875">
@@ -938,7 +956,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>H62mkNJFTtAkrvKLgUKHYcRjJ4g=</dsig:DigestValue>
+      <dsig:DigestValue>lccb8wK94iZfyXOcrtT2ToVL8BU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\storage\dummyfs.py" size="5956">
@@ -992,7 +1010,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>SQJ3J785wKKqxUPyiVyfJXVXPFc=</dsig:DigestValue>
+      <dsig:DigestValue>8x0/70MAwZxAFicUHOGcomrm12c=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\amplee\utils.py" size="3599">
@@ -1019,7 +1037,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>IoK0UAZ/2q9Z0DIWIzbLkXgQJWk=</dsig:DigestValue>
+      <dsig:DigestValue>hwYSUnhCy/7SGpfnN39wLrRJewo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\atexit.py" size="1631">
@@ -1037,7 +1055,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9gPmuFMI5kdxj6N4yP2yURSBEfc=</dsig:DigestValue>
+      <dsig:DigestValue>ecVkIrUNSrpcghShvIGPVOcsSfw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\base64.py" size="11296">
@@ -1055,7 +1073,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9AR3uJxkbJTewZv9Ir7EYJexkHw=</dsig:DigestValue>
+      <dsig:DigestValue>uDv/aroPYEYntQMlN7G3HqBtq4Y=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\BaseHTTPServer.py" size="21282">
@@ -1100,7 +1118,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>nuVMwWbvhS+Q/AyZG1bchg9UI3I=</dsig:DigestValue>
+      <dsig:DigestValue>TbWiH02CywktlyHWGJG7icY6Exc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\bisect.py" size="2365">
@@ -1316,7 +1334,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Pe9L0JDf3IY5rmTJCI5fyo3Z2Fk=</dsig:DigestValue>
+      <dsig:DigestValue>r2U6rqicpvfDGi3Mnu19BcAJ4ow=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\bridge\__init__.py" size="17863">
@@ -1334,7 +1352,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>96Tl5Vg7kkOinYCl5RQiY9/KQfo=</dsig:DigestValue>
+      <dsig:DigestValue>UBvRX/wn6Yraay0z5PWOVczl6TI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\bridge\common.py" size="6104">
@@ -1352,7 +1370,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>5KKvFpSXIFu1C+LV7kN0dCzbRBI=</dsig:DigestValue>
+      <dsig:DigestValue>LUsS7cEG/qmlYpx7xEx47nbg7qk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\bridge\filter\__init__.py" size="7511">
@@ -1370,7 +1388,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>QPoarbjhA8BEtxOn+VZQDvPZfzM=</dsig:DigestValue>
+      <dsig:DigestValue>lhz9ePFknNcu6KdxdtieW9EhNHM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\bridge\filter\atom.py" size="11198">
@@ -1406,7 +1424,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>2QQ0vBzapmu09DXdurc9JQtOIiM=</dsig:DigestValue>
+      <dsig:DigestValue>Lp07/lZTDSOnaO0GUzQgw0n7BFk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\bridge\lib\__init__.py" size="0">
@@ -1424,7 +1442,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>D28zQYR/Sx6+FbTmqj8HQB5QuDA=</dsig:DigestValue>
+      <dsig:DigestValue>UiLwMFbonsZDEAvqQG0YpCbe1vk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\bridge\lib\isodate.py" size="6845">
@@ -1442,7 +1460,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>z7Geif+YVbWgOUBTbi+LzVQhhVs=</dsig:DigestValue>
+      <dsig:DigestValue>xD7rp1LYXRnnx4cqSWpzwiuDzXg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\bridge\parser\__init__.py" size="1353">
@@ -1469,7 +1487,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>DhCrzNCPzkmwhNUft9Jmnva4YYw=</dsig:DigestValue>
+      <dsig:DigestValue>oOCNO1uVnfyCuC3bYwBsgP5G0p8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\bridge\parser\bridge_default.py" size="9093">
@@ -1487,7 +1505,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9m2GMpq/KSPa9bPlBjOeQfpgfWM=</dsig:DigestValue>
+      <dsig:DigestValue>VYZUnxLONqKhxG+R9RZEokfQa7U=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\bridge\parser\bridge_dotnet.py" size="6229">
@@ -1541,7 +1559,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>g9YyaHlYu/AvyccVHNj6LuYr77w=</dsig:DigestValue>
+      <dsig:DigestValue>Cm4L2EBb8vvxx2NhKLfUnFkVw9o=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\bridge\validator\__init__.py" size="258">
@@ -1559,7 +1577,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>aAiqoeuXQN+vRPIVwd1K7exZLJY=</dsig:DigestValue>
+      <dsig:DigestValue>LQbexqC0hzwbHh8FX5guBPNhKUA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\bridge\validator\atom.py" size="1826">
@@ -1577,7 +1595,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>BCGkAEyzHIIPpOFTW26Ze8LZnA0=</dsig:DigestValue>
+      <dsig:DigestValue>x1G2vpWrlEObW1yOIWfsnfpXU+k=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\calendar.py" size="7684">
@@ -1595,7 +1613,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>npP3mCtrBlACZ/0DIBHWFF3im9I=</dsig:DigestValue>
+      <dsig:DigestValue>y/nduMdkgc3h1Ulv+5JO6rAhNuY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cgi.py" size="34805">
@@ -1613,7 +1631,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>beKQ75iQA6+7hJLO12j+wZyUHv8=</dsig:DigestValue>
+      <dsig:DigestValue>64JFeFdxiCEqO4LgNMDDxfJevj8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\__init__.py" size="16108">
@@ -1631,7 +1649,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>m7eS5E1IQC5qMM/Ru4YxTGiWjI4=</dsig:DigestValue>
+      <dsig:DigestValue>yLFtf7KEUW6DkWM9hHlkS1ZH3Fs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\_cpcgifs.py" size="2548">
@@ -1649,7 +1667,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>bGgkTIZQyH/iHbl/ESDPb13OE0E=</dsig:DigestValue>
+      <dsig:DigestValue>qiTIs1IiEjLgTtt6c24inuZTLbI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\_cpchecker.py" size="9898">
@@ -1667,7 +1685,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>jwlljAfqdO6N7psh7xuSwoXKVu4=</dsig:DigestValue>
+      <dsig:DigestValue>tCrx07aLnyVV/3etHPiGHrK5I98=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\_cpconfig.py" size="12673">
@@ -1685,7 +1703,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>GVWfXquzjlVchgecc9GDvL6rfDU=</dsig:DigestValue>
+      <dsig:DigestValue>juEOs/YDArubB0ry+jdmrAl3rkY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\_cpdispatch.py" size="15033">
@@ -1703,7 +1721,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>wbuPEcpKgETpRfE4Eg0PG6TjPB8=</dsig:DigestValue>
+      <dsig:DigestValue>3K9+bdoa/R0VYRxSJ84jNa6+fPU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\_cpengine.py" size="13045">
@@ -1721,7 +1739,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>oZJWX61BlUgmbpTvV2WBZMTE6eQ=</dsig:DigestValue>
+      <dsig:DigestValue>wiVpHi/SK2PQIMWZkyMC5ls6OAk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\_cperror.py" size="13661">
@@ -1739,7 +1757,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>lKl1JJYVsZ4Ks6xt8x5jJarsJBw=</dsig:DigestValue>
+      <dsig:DigestValue>50+qZ4XwTrNNPk/FYQzX6HMgQ/U=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\_cplogging.py" size="7587">
@@ -1766,7 +1784,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>+KaxRK+WSv6jgIJJeeX0QDF5TlQ=</dsig:DigestValue>
+      <dsig:DigestValue>08BPw/xUEVYCOAM4CKOa/X3lqTQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\_cprequest.py" size="34002">
@@ -1784,7 +1802,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>RLjWRS01gS9igF+cwOSfWTDh8V8=</dsig:DigestValue>
+      <dsig:DigestValue>Z2VwYvOrCNF8sJUYLMroVItGUuE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\_cpserver.py" size="9674">
@@ -1811,7 +1829,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Z8kbsvBykbxbtQrftSjcVMmZAcM=</dsig:DigestValue>
+      <dsig:DigestValue>P34+Z9amFr/BSmn2ZInXUMk3LUQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\_cptools.py" size="15015">
@@ -1829,7 +1847,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>zEffNrUVvjSwX7lHVDcNRhXeUL8=</dsig:DigestValue>
+      <dsig:DigestValue>ePeGCxecC/9ca4EnMV0t6QImRAE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\_cptree.py" size="6061">
@@ -1847,7 +1865,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>8skKpu2/GUONGvPZzkODOyWXBZ4=</dsig:DigestValue>
+      <dsig:DigestValue>HHiAmtAmnK0H9BnAUCXY6S3PTgg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\_cpwsgi.py" size="14345">
@@ -1865,7 +1883,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>WIEBqOMPO1GiRkPQfIvoAP+QNmA=</dsig:DigestValue>
+      <dsig:DigestValue>L1kY4FF91tHffziXpkq/leRdOB4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\lib\__init__.py" size="3801">
@@ -1883,7 +1901,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>lmZjNWOIEtPdlQstvaeEFjgVC3w=</dsig:DigestValue>
+      <dsig:DigestValue>L5+rin808/yBFns0TMi2uyaUtK4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\lib\auth.py" size="2465">
@@ -1901,7 +1919,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>zV56FtvMer52zlQTfwas3n80ohw=</dsig:DigestValue>
+      <dsig:DigestValue>zsTJWhM93tswFkggYrGquZt9O4M=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\lib\caching.py" size="7754">
@@ -1928,7 +1946,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>0jHswq00b4FObeCXrbOoqaQllno=</dsig:DigestValue>
+      <dsig:DigestValue>RnoXcSQ64hET+F3VwZherJ28i2c=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\lib\cptools.py" size="15523">
@@ -1946,7 +1964,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>GbF4cnQtriwWa227TO3lk84WaTM=</dsig:DigestValue>
+      <dsig:DigestValue>7euc+cfvvrztrnAav4fTnKiK7bc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\lib\encoding.py" size="9426">
@@ -1964,7 +1982,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>XQXFRb2y2G1xQIWekdycHCGTA0A=</dsig:DigestValue>
+      <dsig:DigestValue>rFw/CMqyP7H6GUXdKPKfSzuadqk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\lib\http.py" size="15428">
@@ -1982,7 +2000,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>B8eGLpWdRLVl2FbAlqKZcmT1iGk=</dsig:DigestValue>
+      <dsig:DigestValue>q1O5M3IxmcqFtKa7StWBoOSXai0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\lib\httpauth.py" size="12551">
@@ -2009,7 +2027,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>yxqDNbZRvGpX2HNMsp/vPDSETHc=</dsig:DigestValue>
+      <dsig:DigestValue>QlAB9aBi/Izip+AUAqjhQFgaJzg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\lib\sessions.py" size="16882">
@@ -2027,7 +2045,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>zI8Vker/AokJzez8RSs4m4TnzTo=</dsig:DigestValue>
+      <dsig:DigestValue>SePkc4T59MHz6HxIy/LGfEtcAyI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\lib\static.py" size="8029">
@@ -2045,7 +2063,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>TLvm3wDVVGuOdlCSpYzA9fNOBoM=</dsig:DigestValue>
+      <dsig:DigestValue>kIJE3ZluZBoKIp82vEeIiybq00g=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\lib\tidy.py" size="6995">
@@ -2063,7 +2081,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>j2X5AexTU7V8qk2HwarDFOiLif4=</dsig:DigestValue>
+      <dsig:DigestValue>30KECy2KTZMdYlLOHFVjO7W02yw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\lib\wsgiapp.py" size="2397">
@@ -2081,7 +2099,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>92KfkgH/0yTK0cnrvRXlrhfUI64=</dsig:DigestValue>
+      <dsig:DigestValue>Xjdyi/YFvR2/k5xmCtrr73Z/k6k=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\lib\xmlrpc.py" size="1335">
@@ -2099,7 +2117,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>EMTEwJ90Z6T9q4Xx8mOu+rIU43k=</dsig:DigestValue>
+      <dsig:DigestValue>pnSl2r6Mm8Ex/GYxBFsejQcUllU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cherrypy\wsgiserver\__init__.py" size="42199">
@@ -2135,7 +2153,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>j52p0WVvDf7vXvjT4n5Yb+XyUFE=</dsig:DigestValue>
+      <dsig:DigestValue>+j9jdws2dUpncgPCV3dibWHU2EI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\codecs.py" size="26318">
@@ -2198,7 +2216,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>r5H5Em1gYkClHG/RlWi6p8sFg9Q=</dsig:DigestValue>
+      <dsig:DigestValue>eVZWdmv/HTTl28GKdG7LSmJ5PX4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\ConfigParser.py" size="23116">
@@ -2216,7 +2234,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>wg/5WQrc3k3URL15B1bl/xpVXu8=</dsig:DigestValue>
+      <dsig:DigestValue>NDZ08adCkHWqS1SzwtpipC8BbU0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\Cookie.py" size="25180">
@@ -2234,7 +2252,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>I9o2USKmvVGD31nIy2WxlgkVATw=</dsig:DigestValue>
+      <dsig:DigestValue>g7T6xp5CUj63XU6VVipwodB9fQY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\cookielib.py" size="63228">
@@ -2252,7 +2270,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>TlGhBD2IBbIaMGtnVMcd7Lk8Y+M=</dsig:DigestValue>
+      <dsig:DigestValue>BYw7EnDuJ/gnkmOO7h7Wco/IGU0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\copy.py" size="11503">
@@ -2477,7 +2495,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Lv1NsZG4OkuyOPmEI7BWCdkrdGI=</dsig:DigestValue>
+      <dsig:DigestValue>yeDIYS7X2qwqh1K0+Ek2dAGOfMc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\ctypes.py" size="5974">
@@ -2513,7 +2531,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>mjdtPchFvpnV+HCthjDFKO2QZxI=</dsig:DigestValue>
+      <dsig:DigestValue>mo5ykBX+W9b5Kba9f4IirTsvKeo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\dis.py" size="6484">
@@ -2630,7 +2648,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>/uwx6Z6hCKqURIbTJZvlU3Pqax8=</dsig:DigestValue>
+      <dsig:DigestValue>GIc3BYyJiKo6gvpHNMntjK6IVvw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\email\__init__.py" size="1270">
@@ -2648,7 +2666,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>6BdPkzvkeVts2IYHDsY9wM238fI=</dsig:DigestValue>
+      <dsig:DigestValue>MWiDnXibUcKaXYqBAt8+Xs8qNLc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\email\_parseaddr.py" size="14863">
@@ -2666,7 +2684,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>K42tg9wgEZmR0LHkKQZSMt+ODQo=</dsig:DigestValue>
+      <dsig:DigestValue>6AaKQNCH18QJyh4Dg3q80QNin1I=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\email\base64MIME.py" size="5637">
@@ -2684,7 +2702,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>0NlUDTRVF+M2YxyRd8G+9E/FLc4=</dsig:DigestValue>
+      <dsig:DigestValue>UZripHA+6dwGvxeHlSxBSkW5LTQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\email\Charset.py" size="15161">
@@ -2702,7 +2720,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>DkFTptENxRHIsQ4XkTu/4PpWdi0=</dsig:DigestValue>
+      <dsig:DigestValue>W5hqB9Fzr+1OUy9GWAslBkQP15w=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\email\Encoders.py" size="2196">
@@ -2720,7 +2738,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>vXdjJQuJ0wV41ZCJHrtMMLKOcnM=</dsig:DigestValue>
+      <dsig:DigestValue>EMnb3L/a3e16zcqoO1pTi68xUno=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\email\Errors.py" size="1552">
@@ -2756,7 +2774,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>bAXUvr4hxeh3Wp0mGXizg+2//So=</dsig:DigestValue>
+      <dsig:DigestValue>S9lcf5e8sefxW5mMRTCu0YwCBkE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\email\Header.py" size="21587">
@@ -2864,7 +2882,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>E5hMaXPQnqygnEomA9MMduNFuTo=</dsig:DigestValue>
+      <dsig:DigestValue>wOnmeqW2SSuatoErP74sUrUvkmc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\email\quopriMIME.py" size="10543">
@@ -2882,7 +2900,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>KIrWamXCm9CRDkc57c9QkRRVMvk=</dsig:DigestValue>
+      <dsig:DigestValue>5FSjWxeiaHE23Te1KWJIBeFmwT8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\email\Utils.py" size="9592">
@@ -2900,7 +2918,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>U+DICABuW9OLQ+r8xDW5u8piGT0=</dsig:DigestValue>
+      <dsig:DigestValue>MMRs1/DSgbcey9jGWa6QtvZplk4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\encodings\__init__.py" size="4817">
@@ -2918,7 +2936,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Cz5/LwYsZZ/d8tXRGRaGEWwKX2c=</dsig:DigestValue>
+      <dsig:DigestValue>A/QcTo2TTaF7R0hffhIyOviAdOM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\encodings\aliases.py" size="13996">
@@ -2990,7 +3008,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>LZ0ZqwtXZdskX2ugtb8j1IPBlR4=</dsig:DigestValue>
+      <dsig:DigestValue>iSRA0rIGzPiAmaqJReHHndH5cVU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\fepy\__init__.py" size="512">
@@ -3035,7 +3053,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>JQoMWLVglhUMXDjfFk2LaSSIG0M=</dsig:DigestValue>
+      <dsig:DigestValue>hkdDGfiajsSOgX9OozKzjrvMQ7s=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\fepy\encoding.py" size="36">
@@ -3053,7 +3071,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>/IwfcPCt1huP9XkODnJ/BAzATf8=</dsig:DigestValue>
+      <dsig:DigestValue>yFbeHoKex00f+il+uD/vxITy1C4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\fepy\fileobject.py" size="110">
@@ -3065,13 +3083,13 @@
       <dsig:DigestValue>FWXsvOGawxAYuo2noNyGYV/C2Zs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Lib\fepy\network.exe" size="6144">
+  <file name="Lib\fepy\network.exe" size="5632">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>tVbnSOqMmocgvJ6mD1wLZBtWpnU=</dsig:DigestValue>
+      <dsig:DigestValue>QA7ihG0UZG2lNxY1hEY//mrp5rU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\fepy\network.py" size="100">
@@ -3125,7 +3143,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>L14KPP9RYN7ajRzbMEat7O5SCpg=</dsig:DigestValue>
+      <dsig:DigestValue>7n6yzJCsBX2+MubDaR37niCGfdk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\fnmatch.py" size="3019">
@@ -3152,7 +3170,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>6w5n6Axku6RuTsPyx7FU7ksVqh4=</dsig:DigestValue>
+      <dsig:DigestValue>qGnw0SN232V6HyoPQfYDevUwQjE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\ftplib.py" size="26935">
@@ -3197,7 +3215,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>qi7giwOG99vpPlUsUHJfhtfUODo=</dsig:DigestValue>
+      <dsig:DigestValue>UMaXGPnDQXHuCGUKvhNY2jAIv68=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\glob.py" size="1441">
@@ -3215,7 +3233,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>IllOfQWR8ItmJ+ziVYoazqdfz8g=</dsig:DigestValue>
+      <dsig:DigestValue>OChSJooqShH97vC0lg9NITYomS8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\gopherlib.py" size="5592">
@@ -3278,7 +3296,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>EdqyQsRkAxXD6XicKVTU0jyNhqA=</dsig:DigestValue>
+      <dsig:DigestValue>+3FEXWFRK0AdF3s0NmrsGr7O0W4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\httplib.py" size="45456">
@@ -3296,7 +3314,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>ThF16dyc8AAVPhAjtQqCL7dWVAk=</dsig:DigestValue>
+      <dsig:DigestValue>hlTuSEW7gqQfQizVFdwAX8BGAJ4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\httplogger.py" size="4277">
@@ -3323,7 +3341,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>v7KalS/YvF81iviYgsfRSWR6Ic8=</dsig:DigestValue>
+      <dsig:DigestValue>uswmKpgNIiU1/MoQgNgfnRoPx+I=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\inspect.py" size="32760">
@@ -3350,7 +3368,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>0xHw5fdvtC/M7ecnH/Z6OQKRfro=</dsig:DigestValue>
+      <dsig:DigestValue>RAX5vCQQM5VIkTG9+o+Yhk8cmnQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\linecache.py" size="2880">
@@ -3377,7 +3395,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>3P+GDk1bh8uuXdO6ZPb6r3rNZHI=</dsig:DigestValue>
+      <dsig:DigestValue>s/9TqlAVWam2+aQxuBowZHrEvNk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\logging\__init__.py" size="46405">
@@ -3449,7 +3467,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>1jdHdS+OWY9W+tubwziCvCvTJ9Y=</dsig:DigestValue>
+      <dsig:DigestValue>mjW5uVbVhRaQrAG9EX0HLZiaO+w=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\mimetools.py" size="6759">
@@ -3467,7 +3485,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>uCC2i2IfDlzpe5AfltRhb2YsAsI=</dsig:DigestValue>
+      <dsig:DigestValue>++xD18AF/C4TthJswfmSndSm5IY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\mimetypes.py" size="18377">
@@ -3521,7 +3539,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>uiepKAwyuv88zpf6zqD5NjPZGj8=</dsig:DigestValue>
+      <dsig:DigestValue>U7Y1r2LpjKJ5Li81z77pg0vkZC4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\ntpath.py" size="16649">
@@ -3539,7 +3557,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>uwULCr3s8QffYtp0dSBVbs3RsRA=</dsig:DigestValue>
+      <dsig:DigestValue>JN2/IXV6+mFhbv4C80wVylc1wp8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\nturl2path.py" size="2239">
@@ -3560,13 +3578,13 @@
       <dsig:DigestValue>bN3Yqe26Zo6FaDqtBZ7heanVm5Y=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Lib\opcode.exe" size="23040">
+  <file name="Lib\opcode.exe" size="32768">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>rGFdZGfhCC3iWwVapE3YrEyS4qo=</dsig:DigestValue>
+      <dsig:DigestValue>0Fob9to20VAlnc98OeiPQUbAQJ4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\opcode.py" size="5144">
@@ -3593,7 +3611,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>8pOubjvIgKeIaQXDMUl2fMWDxFw=</dsig:DigestValue>
+      <dsig:DigestValue>zDWHjmyaJyN3Eu6oWJK7isF5fB0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\os.py" size="24258">
@@ -3953,7 +3971,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Uoao2zGbUSjSVXClKc8g+PDWKoQ=</dsig:DigestValue>
+      <dsig:DigestValue>cbIeliPr3T7WpsL4d1EAG+G9iDw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\posixpath.py" size="13775">
@@ -3983,13 +4001,13 @@
       <dsig:DigestValue>CYEeAw0HV9GgQQ95deVGpK+CA7k=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Lib\pyexpat.exe" size="32768">
+  <file name="Lib\pyexpat.exe" size="19968">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>zt/BU8gx+xWmMMwC/XOiMCq6cWE=</dsig:DigestValue>
+      <dsig:DigestValue>iPxJOMf4+3vhjvpJydoiAom4fsM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\pyexpat.py" size="5639">
@@ -4025,7 +4043,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>nR2oMZqouH+INtylUBpl/Kmjjqg=</dsig:DigestValue>
+      <dsig:DigestValue>EXHWtgkjGbsf7vUngiqmUE7pZ2c=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\Queue.py" size="5880">
@@ -4043,7 +4061,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>+DeddazlzJdFW/1iGF0rkCpe9+4=</dsig:DigestValue>
+      <dsig:DigestValue>Oy2LdJUoPXucCktbmwHA1hAXISo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\quopri.py" size="6969">
@@ -4061,7 +4079,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>O7Yz3dbMVZRmBxIo4CLGiiRKLto=</dsig:DigestValue>
+      <dsig:DigestValue>xqfnmrd5WuT0rJVDJ5vw+YSB6q8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\random.py" size="30255">
@@ -4088,7 +4106,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>4ux0hnGkXwcafcJJA3UiissIUt8=</dsig:DigestValue>
+      <dsig:DigestValue>19zJHaEmLOFQdy9GNo29xbCWQh4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\resolver.py" size="2069">
@@ -4106,7 +4124,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>zaKx6y+XX8dO4beSe+SnREfSN+c=</dsig:DigestValue>
+      <dsig:DigestValue>+hWJoPEwriRDFz8VTws99FyVAX0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\rfc822.py" size="33505">
@@ -4133,7 +4151,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>I1g3maVZInfVCWVIKPCDi9Ie7Pc=</dsig:DigestValue>
+      <dsig:DigestValue>qQuwULsD/XiT8U1h1Ishlj/cHAw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\selector.py" size="16613">
@@ -4196,7 +4214,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>WFVAhNLhAyuvXEPCR+BqOgI1qQU=</dsig:DigestValue>
+      <dsig:DigestValue>k4PoI998QE19VWu+OF90oc/Zs/8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\signal.py" size="0">
@@ -4241,7 +4259,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>K/ySsYjRYh0iGGKt/FpQ+YCpWu4=</dsig:DigestValue>
+      <dsig:DigestValue>Fzd+0jQwBnh+07ndJTMg9nYcP74=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\SocketServer.py" size="18404">
@@ -4322,7 +4340,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>bdrI5e3iZ4SwnWnSd6GBptgWCkg=</dsig:DigestValue>
+      <dsig:DigestValue>KEqm39Fn1qRd9izhqyuttAfU1aU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\ssl.py" size="1785">
@@ -4340,7 +4358,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>LzUx+OpGEdT+SV2hZtk2A9zw8pI=</dsig:DigestValue>
+      <dsig:DigestValue>tGfGHBCOWACKBTfh94xR+G71PDY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\stat.py" size="1667">
@@ -4358,7 +4376,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>vjkhYsozYNtbdWaMPYFQfboqv3Y=</dsig:DigestValue>
+      <dsig:DigestValue>t1BgigFctNMoZyKKuXsSGz1s5hI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\static.py" size="12782">
@@ -4376,7 +4394,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>yz6ajba1lAob+EjDAeQSvDLnHz8=</dsig:DigestValue>
+      <dsig:DigestValue>VlFKykejfwf18nRifvDcQPtgrKg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\string.py" size="16743">
@@ -4394,7 +4412,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>J/f+yiqfhivIzmtEhgdZDC4OmT8=</dsig:DigestValue>
+      <dsig:DigestValue>0K66AioIytJ/714//96QoJT9yLE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\StringIO.py" size="10608">
@@ -4421,7 +4439,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>LZHnwA6mEsinvp3XDyZC4CCWqaU=</dsig:DigestValue>
+      <dsig:DigestValue>qIHssrXnobIFRMsKs/xj45YKCIo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\tempfile.py" size="14377">
@@ -4457,7 +4475,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>yGMn/8dTkbSQBN0M56mGXITJvJ0=</dsig:DigestValue>
+      <dsig:DigestValue>YE782ojy/22RxQyCfxSBE5DyMN4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\threading.py" size="25322">
@@ -4475,7 +4493,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>4GQYCHrHI6f7GqUnG8PfLbSSyR4=</dsig:DigestValue>
+      <dsig:DigestValue>+KW9iZjHssMRQ0pQYqs33XTzunE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\token.py" size="2926">
@@ -4493,7 +4511,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>1QXz84Ydl+9dp1w5duCczXE+f6M=</dsig:DigestValue>
+      <dsig:DigestValue>rggETJG1bjzfzNfcVivMpRYtXdc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\tokenize.py" size="12116">
@@ -4511,7 +4529,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Auky+Ne1/Nragpn+NeVYyhkpp0s=</dsig:DigestValue>
+      <dsig:DigestValue>l8Kn/hBeR3+vJw0tYSxxhbj/9/w=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\traceback.py" size="10464">
@@ -4529,7 +4547,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>hm+4KQEczATdCUnIqzd41WCE25c=</dsig:DigestValue>
+      <dsig:DigestValue>uSCYkSUvzQ+U0JaQccqHRm+tR+Y=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\types.py" size="2154">
@@ -4565,7 +4583,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>0bkVl6NSgmO3Tc1Q0nHiz1IQQG0=</dsig:DigestValue>
+      <dsig:DigestValue>07AI0tezjB47aQfCRq3Dd/tX/9s=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\urllib.py" size="50611">
@@ -4583,7 +4601,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>i0aNJ8cDzMAHF69zjErnn6yOaug=</dsig:DigestValue>
+      <dsig:DigestValue>suncxuL/yGu9V0bPlQGL55iFtEQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\urllib2.py" size="44002">
@@ -4601,7 +4619,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>dkdvuH6irJ23SZEh16lp41f8FYE=</dsig:DigestValue>
+      <dsig:DigestValue>VzaH2whq0SNqmBOrB2EuEnansGk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\urlparse.py" size="9335">
@@ -4619,7 +4637,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>XeI5ugy7GRflHVrmJHPLMBYAK+U=</dsig:DigestValue>
+      <dsig:DigestValue>v9eeaMSllXR0H+ADjbsQL2DCVdY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\UserDict.py" size="5572">
@@ -4655,7 +4673,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>7ipIr+oXF6Iy9hx4KcO1UaOtgu4=</dsig:DigestValue>
+      <dsig:DigestValue>x65KghZhJwQ6FaLMwsm9gH5g0qg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\uuid.py" size="17806">
@@ -4673,7 +4691,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>QfVfuznpxjJIduasZgE+hBOW7jY=</dsig:DigestValue>
+      <dsig:DigestValue>RszdJUSJM7I17l+SwGDUTm8GOBY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\warnings.py" size="8958">
@@ -4709,7 +4727,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>lo48w/i4jVjiESKbUMILHQV7Sfk=</dsig:DigestValue>
+      <dsig:DigestValue>QFfNKIhHy1qdSsMsw55J6QCzTvk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\wsgiref\__init__.py" size="586">
@@ -4754,7 +4772,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>CI0vQFZNiETDhkuVSmZ+8DGhV84=</dsig:DigestValue>
+      <dsig:DigestValue>dNKjg5gtF1LLWNXXUkAbu+1anr0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\wsgiref\util.py" size="5598">
@@ -4781,7 +4799,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Fb/J3fXoGbxyhX4zzOF4zl+zfkk=</dsig:DigestValue>
+      <dsig:DigestValue>Zt19TsMyHdHtqfvPtByepA8+EWM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\__init__.py" size="1012">
@@ -4799,7 +4817,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>mk7y3JmTLZ90MwWyCpoGyuH/3B4=</dsig:DigestValue>
+      <dsig:DigestValue>Ux3YTU9kSrJeTxJNLRjo5DJ7zjM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\dom\__init__.py" size="3998">
@@ -4817,7 +4835,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>c5qtHDEYV8gAqwayCce1zZqi69Y=</dsig:DigestValue>
+      <dsig:DigestValue>XTu9A6iS9IYKwCbtLaO5TAjHzKg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\dom\domreg.py" size="3484">
@@ -4844,7 +4862,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Ts97RVjz3NvqMYM1JQgDdjLjVh4=</dsig:DigestValue>
+      <dsig:DigestValue>Y5PVe7aHEGjwVNeNhTyer9o78Uc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\dom\minicompat.py" size="5287">
@@ -4862,7 +4880,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>cGcEeFTowuno6un//9qLTZ6PDwQ=</dsig:DigestValue>
+      <dsig:DigestValue>n+V93cVktsOS2EQX5AXOwgsctTw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\dom\minidom.py" size="66031">
@@ -4880,7 +4898,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>ugZKrF28UQiI5eZvzzVvaCkn0VY=</dsig:DigestValue>
+      <dsig:DigestValue>SxLwAw3xd/vXXzZWPM/g9rZx9WY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\dom\NodeFilter.py" size="937">
@@ -4907,7 +4925,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Tx4Irx8p/NVnufa27ffBujpFI7o=</dsig:DigestValue>
+      <dsig:DigestValue>XSM4XmKwSJBhpER4RSahqaquoAM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\dom\xmlbuilder.py" size="12387">
@@ -4925,7 +4943,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>LexyhKT6zL6s8YiswmL+SQ3fPzg=</dsig:DigestValue>
+      <dsig:DigestValue>s+cUiWabIozsZqaEXvl++fSEUpI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\parsers\__init__.py" size="167">
@@ -4943,7 +4961,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>NQLMwOqD1ZJVysECbEeb+j++fSw=</dsig:DigestValue>
+      <dsig:DigestValue>D5dHMDXXN24W6y5L+1aUkiiGXTw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\parsers\expat.py" size="114">
@@ -4961,7 +4979,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>uq0d+2xe0av5fy2pPpPOf4yG7PY=</dsig:DigestValue>
+      <dsig:DigestValue>nzU6GcUqm1osMcZf+KfprJIBHoM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\sax\__init__.py" size="3644">
@@ -4979,7 +4997,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>CTr7OFUbE32G+mpd2xSnpZzABR8=</dsig:DigestValue>
+      <dsig:DigestValue>hFoqShd+oHc3FWfZShLYmlNK/98=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\sax\_exceptions.py" size="4785">
@@ -5006,7 +5024,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>3ogB9YhfrCkgck7e4Nccz6+Ci7o=</dsig:DigestValue>
+      <dsig:DigestValue>usWuHI1tdbbI1xn4AaGI4iyheiE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\sax\handler.py" size="13968">
@@ -5024,7 +5042,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>lSutH5sT6FmrHPjiZ5XThXG7XUE=</dsig:DigestValue>
+      <dsig:DigestValue>kH3UiLoFP9blwSl33HGMejhmT5Q=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\sax\saxutils.py" size="9353">
@@ -5042,7 +5060,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>twOomkid9VXrOydqbb8a7OwblQw=</dsig:DigestValue>
+      <dsig:DigestValue>RicLbmD4fCUJE7fLcKZnbjaYOk0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xml\sax\xmlreader.py" size="12656">
@@ -5060,7 +5078,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Ctz2hZPvZjpmMnRTkDg+xKl6uIc=</dsig:DigestValue>
+      <dsig:DigestValue>Dt/VhK8XnAHYbzrp2+zh64MKJ8w=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Lib\xmlrpclib.py" size="44272">
@@ -5306,4 +5324,4 @@
       <dsig:DigestValue>hLLPoS7vyRyejCKb5HQXUd0ySs8=</dsig:DigestValue>
     </hash>
   </file>
-<publisherIdentity name="CN=MDAVID-DEVTWO\M. David" issuerKeyHash="2edbbc7bcc419fd8ac32735e6e2354065cb93b64" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>dpo77xOAh+IWDnaLRpDGS8WFRBw=</DigestValue></Reference></SignedInfo><SignatureValue>cWuoo66A4rljlhYSwuFcERKn1+Htyabs3lyebAI7lt7uW7myLxxR0/32M38em7INl7FWuePH2NYDGNCsrh0FuDRQtul/jqqjB4lzK4OMIqS0nwquRMk+ECE+ppHExuln8P17GVDT0V6OOhcGlCpXO//lnQlJn4s6KyMClSzfhDE=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>6N3+uRxHiRmEweDwxx4sRKPIzCb4UfdY/NZEGdlI5CvvOS0YrC3jrhR/n9+KaIZLO18KrrQi14MLC/BqgxU7+tWH88gM1ejVVtAooDQKETMJ6FN74fv3KuNx29scdxbgYyKgviANGr6OsGUH4c7Xjp8tbzLYx9fZ+V7wafC2f7U=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="1c4485c54bc690468b760e16e2878013ef3b9a76" Description="" Url=""><as:assemblyIdentity name="Xameleon.WebApp.exe" version="0.1.1.38" publicKeyToken="99db3f8680e38416" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MDAVID-DEVTWO\M. David</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>ESLICnKhFg9KOdQBvtBLL1VDX7I=</DigestValue></Reference></SignedInfo><SignatureValue>cwLAr16y4GypBC/g1RmVl1lYDZ480qCoY3u0tQ0Wwo6/GjnUPRmF9AHlTdYZxUrVyaOgcBsJXabzVwRXJB1P7Am+SyROSRHXJUYIjICnIxhBcsSyjeVJwj7DP0sXKHgSueqAd0f+X/SrGRJ2Kow6sws7n4J1LajIyoLjEzC/jqE=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>6N3+uRxHiRmEweDwxx4sRKPIzCb4UfdY/NZEGdlI5CvvOS0YrC3jrhR/n9+KaIZLO18KrrQi14MLC/BqgxU7+tWH88gM1ejVVtAooDQKETMJ6FN74fv3KuNx29scdxbgYyKgviANGr6OsGUH4c7Xjp8tbzLYx9fZ+V7wafC2f7U=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB6TCCAVagAwIBAgIQViiyq4xoX4VNeJ+Cfr80cjAJBgUrDgMCHQUAMDcxNTAzBgNVBAMeLABNAEQAQQBWAEkARAAtAEQARQBWAFQAVwBPAFwATQAuACAARABhAHYAaQBkMB4XDTA3MDMwNjA4MDMwM1oXDTA4MDMwNTE0MDMwM1owNzE1MDMGA1UEAx4sAE0ARABBAFYASQBEAC0ARABFAFYAVABXAE8AXABNAC4AIABEAGEAdgBpAGQwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAOjd/rkcR4kZhMHg8MceLESjyMwm+FH3WPzWRBnZSOQr7zktGKwt464Uf5/fimiGSztfCq60IteDCwvwaoMVO/rVh/PIDNXo1VbQKKA0ChEzCehTe+H79yrjcdvbHHcW4GMioL4gDRq+jrBlB+HO146fLW8y2MfX2fle8Gnwtn+1AgMBAAEwCQYFKw4DAh0FAAOBgQA0Ne+iUiaP+05MBPslvKVjRatd4MtLm7zm4YpTwfg9DE/+GrPU02Q3A729DQx87s0MThtulQCxtewtTQoNL9YDRz/OQKrzNOwlmoyZdgzAN9bncWsYQWA8k+vyxCsO6zKezdQOBte5yMYq6WiRTGpoRznPCy0scIEa6heaER5bnA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+<publisherIdentity name="CN=MDAVID-DEVTWO\M. David" issuerKeyHash="2edbbc7bcc419fd8ac32735e6e2354065cb93b64" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>VJzJLjXk8mny6Wzh+MeA5hWYg7c=</DigestValue></Reference></SignedInfo><SignatureValue>tQ7N4QkuNmJ0Bi0wvHd6aks+A2/5aIE/dArZUVVHyGthiuWwOrpkDt5m/S2UOI14h0xtKuynPlNhe9o4lnUd6dXxN2WiPuksL0awNmjpWbxK3Y5wYkxIgKobrYN8fBJehtM64SDrDM4DKnnqld8SScmKfKzy3BA4zwsmCZzrjoI=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>6N3+uRxHiRmEweDwxx4sRKPIzCb4UfdY/NZEGdlI5CvvOS0YrC3jrhR/n9+KaIZLO18KrrQi14MLC/BqgxU7+tWH88gM1ejVVtAooDQKETMJ6FN74fv3KuNx29scdxbgYyKgviANGr6OsGUH4c7Xjp8tbzLYx9fZ+V7wafC2f7U=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="b7839815e680c7f8e16ce9f269f2e4352ec99c54" Description="" Url=""><as:assemblyIdentity name="Xameleon.WebApp.exe" version="0.1.1.40" publicKeyToken="99db3f8680e38416" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MDAVID-DEVTWO\M. David</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>nOBvhydUcRRjzwtSKdDwTpkxxmw=</DigestValue></Reference></SignedInfo><SignatureValue>bCDaNWsuzeIYVbGCtfvyMxJ8zOFxaw4C98PSVeeNMFepvkcU8RGiWz5lIsufmF2ZJuey3N5XOovoCgNh8d142pBbRX1ApDZE2m6xDCtdHwBmaD4yAz2ViIxojgl7P0DO+Ja0kaa/uMJpDiYQ7Tf9iOIOakgaSFfqgfSUFc/Gujo=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>6N3+uRxHiRmEweDwxx4sRKPIzCb4UfdY/NZEGdlI5CvvOS0YrC3jrhR/n9+KaIZLO18KrrQi14MLC/BqgxU7+tWH88gM1ejVVtAooDQKETMJ6FN74fv3KuNx29scdxbgYyKgviANGr6OsGUH4c7Xjp8tbzLYx9fZ+V7wafC2f7U=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB6TCCAVagAwIBAgIQViiyq4xoX4VNeJ+Cfr80cjAJBgUrDgMCHQUAMDcxNTAzBgNVBAMeLABNAEQAQQBWAEkARAAtAEQARQBWAFQAVwBPAFwATQAuACAARABhAHYAaQBkMB4XDTA3MDMwNjA4MDMwM1oXDTA4MDMwNTE0MDMwM1owNzE1MDMGA1UEAx4sAE0ARABBAFYASQBEAC0ARABFAFYAVABXAE8AXABNAC4AIABEAGEAdgBpAGQwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAOjd/rkcR4kZhMHg8MceLESjyMwm+FH3WPzWRBnZSOQr7zktGKwt464Uf5/fimiGSztfCq60IteDCwvwaoMVO/rVh/PIDNXo1VbQKKA0ChEzCehTe+H79yrjcdvbHHcW4GMioL4gDRq+jrBlB+HO146fLW8y2MfX2fle8Gnwtn+1AgMBAAEwCQYFKw4DAh0FAAOBgQA0Ne+iUiaP+05MBPslvKVjRatd4MtLm7zm4YpTwfg9DE/+GrPU02Q3A729DQx87s0MThtulQCxtewtTQoNL9YDRz/OQKrzNOwlmoyZdgzAN9bncWsYQWA8k+vyxCsO6zKezdQOBte5yMYq6WiRTGpoRznPCy0scIEa6heaER5bnA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
