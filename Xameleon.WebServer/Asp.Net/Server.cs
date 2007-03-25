@@ -15,9 +15,9 @@ namespace Xameleon {
     public WebServer () { }
 
     private string App = "/:.";
-    private int Port = 18080;
+    private int Port = 9999;
     private string Path = "/";
-    private string RootDirectory = ".\\Web\\Public";
+    private string RootDirectory = ".\\public_web";
     private bool Verbose = true;
     private XSPWebSource websource;
     private ApplicationServer WebAppServer;
