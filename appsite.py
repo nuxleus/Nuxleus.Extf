@@ -2,7 +2,6 @@
 
 import os.path
 import selector
-from static import Cling
 from amplee.handler.store.wsgi import Service, Store
 
 # Local imports
@@ -64,25 +63,6 @@ def create_store(dispatcher):
           
     print "All good!"
 
-def create_repository(dispatcher):
-    print "Setting up the repository WSGI application"
-    Cling.index_file = "index.xml"
-    base = Cling(os.path.join(cur_dir, 'public_web'))
-    s.add('/[{:segment}[/{:segment}]]', GET=base)
-
-def dummy_xameleon_handler(dispatcher):
-    from core.xameleonhandler import xamdler
-    s.add('[/]', GET=xamdler)
-
-create_repository(s)
 create_store(s)
-# Just uncomment the following to enable the
-# Xameleon handler out of amplee
-# You may not need this
-#dummy_xameleon_handler(s)
 
-from httplogger import HTTPLogger
-s = HTTPLogger(s, propagate_exc=False)
-s.create_access_logger(access_path=os.path.join(cur_dir, 'access.log'))
-s.create_error_logger(error_path=os.path.join(cur_dir, 'error.log'))
 app = s
