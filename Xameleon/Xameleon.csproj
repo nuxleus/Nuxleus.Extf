@@ -34,9 +34,6 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AmazonAWS.S3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f, processorArchitecture=MSIL">
-      <HintPath>..\Dependencies\AmazonAWS.S3.dll</HintPath>
-    </Reference>
     <Reference Include="IronMath, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\trunk\Dependencies\IronMath.dll</HintPath>
@@ -60,6 +57,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\applicationserver.cs">
+      <Link>WebServer\Mono.WebServer\applicationserver.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\baseapplicationhost.cs">
+      <Link>WebServer\Mono.WebServer\baseapplicationhost.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\baserequestbroker.cs">
+      <Link>WebServer\Mono.WebServer\baserequestbroker.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\iapplicationhost.cs">
+      <Link>WebServer\Mono.WebServer\iapplicationhost.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\initialworkerrequest.cs">
+      <Link>WebServer\Mono.WebServer\initialworkerrequest.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\iwebsource.cs">
+      <Link>WebServer\Mono.WebServer\iwebsource.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\lingeringnetworkstream.cs">
+      <Link>WebServer\Mono.WebServer\lingeringnetworkstream.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\monoworkerrequest.cs">
+      <Link>WebServer\Mono.WebServer\monoworkerrequest.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\xspapplicationhost.cs">
+      <Link>WebServer\Mono.WebServer\xspapplicationhost.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\xspworkerrequest.cs">
+      <Link>WebServer\Mono.WebServer\xspworkerrequest.cs</Link>
+    </Compile>
+    <Compile Include="Asp.Net\Server.cs" />
     <Compile Include="Atom\AtomEntry.cs" />
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="HttpHandler\HttpHandler.cs" />
@@ -73,6 +101,7 @@
     <Compile Include="Transform\Transform.cs" />
     <Compile Include="Transform\Transform.Init.cs" />
     <Compile Include="Transform\Transform.Process.cs" />
+    <Compile Include="WSGI\WSGI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\trunk\Resources\Extf.Net.snk">
@@ -95,7 +124,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\gacutil /i Xameleon.dll /f</PostBuildEvent>
   </PropertyGroup>
 </Project>
