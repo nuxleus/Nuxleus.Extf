@@ -1,2 +1,2 @@
 #!/bin/bash
-/usr/bin/mono ./ipy.exe ./app/cherrypyserver.py
+/usr/bin/mono ./bin/ipy.exe ./cherrypyserver.py
