@@ -13,31 +13,8 @@ namespace Xameleon
 
         public void ProcessRequest(HttpContext context)
         {
-            Transform myTransformer = new Transform();
+            new Transform().Process(context, context.Response.Output);
 
-            switch (context.Request.RequestType)
-            {
-                //case "GET":
-                //    context.Response.Write(myTransformer.Go(context).ToString());
-                //    break;
-
-                //case "POST":
-                //    context.Response.Write(context.Request.RequestType);
-                //    break;
-
-                //case "PUT":
-                //    context.Response.Write(context.Request.RequestType);
-                //    break;
-
-                //case "DELETE":
-                //    context.Response.Write(context.Request.RequestType);
-                //    break;
-
-                //default:
-                //    context.Response.Write(context.Request.RequestType);
-                //    break;
-
-            }
         }
 
         public bool IsReusable

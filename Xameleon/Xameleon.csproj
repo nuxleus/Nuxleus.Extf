@@ -26,7 +26,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\WebApp\</OutputPath>
+    <OutputPath>..\WebApp\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -101,6 +101,7 @@
     <Compile Include="Transform\Transform.cs" />
     <Compile Include="Transform\Transform.Init.cs" />
     <Compile Include="Transform\Transform.Process.cs" />
+    <Compile Include="Transform\Transform.Process.HttpStream.cs" />
     <Compile Include="WSGI\WSGI.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +114,10 @@
     <ProjectReference Include="..\GlobalClip\GlobalClip.csproj">
       <Project>{9B9C08A7-0E8A-45AA-AEB4-7A5796DB1C26}</Project>
       <Name>GlobalClip</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
+      <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
+      <Name>Saxon.Api</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
