@@ -48,7 +48,7 @@
 				<page:head.include fileType="javascript" href="/js/script.js" />
 			</page:head>
 			<page:body>
-				<page:content src="/service/pub/" />
+				<page:content src="/service/pub" />
 			</page:body>
 		</page:output>
 	</my:page>
