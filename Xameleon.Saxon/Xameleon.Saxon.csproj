@@ -68,6 +68,10 @@
       <Project>{0EFC77D9-E940-4C1C-805F-F236FDB64B32}</Project>
       <Name>Extf.Net.Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Xameleon\Xameleon.csproj">
+      <Project>{A800D9F1-D877-4076-99BA-CBD73BCFB203}</Project>
+      <Name>Xameleon</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

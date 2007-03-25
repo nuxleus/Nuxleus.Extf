@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon.Saxon", "Xameleon.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon.WebApp", "Xameleon.WebApp\Xameleon.WebApp.csproj", "{EB254231-A145-42B5-9206-D0021D64AC4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon.WebServer", "Xameleon.WebServer\Xameleon.WebServer.csproj", "{D298C699-3963-475B-8157-E42509EA226A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon.XSP", "Xameleon.XSP\Xameleon.XSP.csproj", "{B5AB69BA-2B93-4850-9DA0-302D257B154B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,10 +69,10 @@ Global
 		{EB254231-A145-42B5-9206-D0021D64AC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB254231-A145-42B5-9206-D0021D64AC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB254231-A145-42B5-9206-D0021D64AC4C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D298C699-3963-475B-8157-E42509EA226A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D298C699-3963-475B-8157-E42509EA226A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D298C699-3963-475B-8157-E42509EA226A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D298C699-3963-475B-8157-E42509EA226A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5AB69BA-2B93-4850-9DA0-302D257B154B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5AB69BA-2B93-4850-9DA0-302D257B154B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5AB69BA-2B93-4850-9DA0-302D257B154B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5AB69BA-2B93-4850-9DA0-302D257B154B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

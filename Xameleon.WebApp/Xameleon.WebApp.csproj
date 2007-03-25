@@ -16,7 +16,7 @@
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <TargetZone>Custom</TargetZone>
     <SignAssembly>false</SignAssembly>
-    <PublishUrl>http://localhost/Xameleon.WebApp/</PublishUrl>
+    <PublishUrl>C:\Documents and Settings\M. David\My Documents\My Projects\extf.net-google-code\release\xameleon\personalwebplatform\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -26,6 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
+    <InstallUrl>http://extf.googlecode.com/svn/release/xameleon/personalwebplatform/</InstallUrl>
     <SupportUrl>http://xameleon.org/support/</SupportUrl>
     <ProductName>Xameleon Personal Web Communication Platform</ProductName>
     <PublisherName>The nuXleus Project</PublisherName>
@@ -44,6 +45,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\docs\Xameleon.WebApp.xml</DocumentationFile>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -53,6 +55,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\docs\Xameleon.WebApp.xml</DocumentationFile>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IKVM.GNU.Classpath, Version=0.32.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
@@ -108,10 +111,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\vendor\IronPython-1.1B1\Src\IronPythonConsole\PythonCommandLine.cs">
+    <Compile Include="..\..\vendor\IronPython-1.1RC1\Src\IronPythonConsole\PythonCommandLine.cs">
       <Link>PythonCommandLine.cs</Link>
     </Compile>
-    <Compile Include="..\..\vendor\IronPython-1.1B1\Src\IronPythonConsole\SuperConsole.cs">
+    <Compile Include="..\..\vendor\IronPython-1.1RC1\Src\IronPythonConsole\SuperConsole.cs">
       <Link>SuperConsole.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2237,11 +2240,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\WebApp\app\Web.config">
-      <Link>app\Web.config</Link>
+      <Link>public_web\Web.config</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\app\Web.amplee.config">
-      <Link>app\Web.amplee.config</Link>
+      <Link>public_web\Web.amplee.config</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\WebApp\app\appstore.conf">
@@ -2352,6 +2355,7 @@
       <Link>public_web\images\liveClipIconUnselected.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="app\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Extf.Net.snk">
@@ -2415,14 +2419,6 @@
     <ProjectReference Include="..\Xameleon.Saxon\Xameleon.Saxon.csproj">
       <Project>{633322D9-B096-4869-AE5D-96817B679231}</Project>
       <Name>Xameleon.Saxon</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Xameleon.WebServer\Xameleon.WebServer.csproj">
-      <Project>{D298C699-3963-475B-8157-E42509EA226A}</Project>
-      <Name>Xameleon.WebServer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Xameleon\Xameleon.csproj">
-      <Project>{A800D9F1-D877-4076-99BA-CBD73BCFB203}</Project>
-      <Name>Xameleon</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
