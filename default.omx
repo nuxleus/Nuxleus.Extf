@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:base="http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net/" xml:lang="en" xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<title>Xameleon / AtomicXML / AspectXML / ModuleT :: Base Project Demo</title>
+	<subtitle>Home</subtitle>
+	<link href="default.omx" rel="self" type="application/atom+xml" />
+	<link href="workspace/themes/base/base.css" rel="current" type="text/css" />
+	<updated>2007-02-13T16:01:50Z</updated>
+	<author>
+		<name>M. David Peterson</name>
+		<email>m.david@xmlhacker.com</email>
+		<uri>http://xmlhacker.com</uri>
+	</author>
+	<id>http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net,2007://2</id>
+	<generator version="0.3">xameleon</generator>
+	<rights type="xhtml">
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			Copyright 2007 <a href="http://mdavid.name">M. David Peterson</a>
+		</div>
+	</rights>
+	<entry>
+		<title>Header</title>
+		<published>2007-02-13T16:01:51Z</published>
+		<updated>2007-02-13T16:01:52Z</updated>
+		<id>http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net/workspace/modules/header.atom,2007://2</id>
+		<content src="repository/modules/header.atom" type="application/atom+xml" />
+	</entry>
+	<entry>
+		<published>2007-02-13T16:01:53Z</published>
+		<updated>2007-02-13T16:01:53Z</updated>
+		<id>http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net/workspace/modules/body.atom,2007://2</id>
+		<content src="repository/modules/body.atom" type="application/atom+xml" />
+	</entry>
+	<entry>
+		<title>Footer</title>
+		<published>2007-02-13T16:01:55Z</published>
+		<updated>2007-02-13T16:01:55Z</updated>
+		<id>http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net/workspace/modules/footer.atom,2007://2</id>
+		<content src="repository/modules/footer.atom" type="application/atom+xml" />
+	</entry>
+</feed>
