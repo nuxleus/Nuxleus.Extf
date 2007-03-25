@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xml:base="http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net/" xml:lang="en" xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<feed xml:base="http://localhost:9999/" xml:lang="en" xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<title>Xameleon / AtomicXML / AspectXML / ModuleT :: Base Project Demo</title>
 	<subtitle>Home</subtitle>
 	<link href="default.omx" rel="self" type="application/atom+xml" />

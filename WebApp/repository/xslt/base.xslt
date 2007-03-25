@@ -62,7 +62,6 @@
 
   <xsl:template match="text()">
     <xsl:value-of select="normalize-space(.)" />
-    <xsl:apply-templates />
   </xsl:template>
   
 </xsl:transform>
