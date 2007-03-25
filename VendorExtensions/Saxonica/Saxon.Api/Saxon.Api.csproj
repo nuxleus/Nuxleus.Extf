@@ -70,4 +70,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\gacutil /i Saxon.Api.dll</PostBuildEvent>
+  </PropertyGroup>
 </Project>
