@@ -1,0 +1,10 @@
+<apps>
+<web-application>
+        <name>public</name>
+        <vhost>/:.</vhost>
+        <vport>9999</vport>
+        <vpath>/</vpath>
+        <path>./public_web</path>
+        <enabled>true</enabled>
+</web-application>
+</apps>
