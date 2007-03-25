@@ -9,7 +9,10 @@
   /EXT:CODEBASE
 -->
 <?xml-stylesheet type="text/xsl" href="/transform/build-output.xsl"?>
-<my:session xmlns:html="http://www.w3.org/1999/xhtml" xmlns:bVend="http://xameleon.org/service/browservendors" xmlns:my="http://xameleon.org/service/session" xmlns:page="http://xameleon.org/service/page/output">
+<my:session xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns:bVend="http://xameleon.org/service/browservendors"
+  xmlns:my="http://xameleon.org/service/session"
+  xmlns:page="http://xameleon.org/service/page/output">
   <my:page>
     <page:config>
       <bVend:bVendors>
