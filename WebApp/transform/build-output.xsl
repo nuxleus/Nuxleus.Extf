@@ -146,6 +146,7 @@
     <li> Last Update: <xsl:value-of select="."/>
     </li>
   </xsl:template>
+  
   <xsl:template match="atom:summary" mode="collection">
     <li> Entry Summary: <xsl:value-of select="."/>
     </li>
