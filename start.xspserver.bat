@@ -1,1 +1,1 @@
-.\bin\xsp2.exe --port 9999 --applications /:.
+.\bin\ipy.exe -X:SaveAssemblies .\xspserver.py
