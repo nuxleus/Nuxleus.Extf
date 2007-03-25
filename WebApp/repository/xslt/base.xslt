@@ -9,11 +9,13 @@
   exclude-result-prefixes="atom xs omx">
 
   <xsl:import
-    href="./atomicxml.xslt" />
+  href="./atomicxml.xslt" />
+  
   <xsl:param
     name="xml.base"
     select="/atom:feed/@xml:base"
     as="xs:string" />
+  
   <xsl:variable
     name="css-base-class"
     select="'base'"
