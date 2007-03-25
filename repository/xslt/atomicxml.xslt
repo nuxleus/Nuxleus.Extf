@@ -18,6 +18,7 @@
       <xsl:apply-templates />
     </li>
   </xsl:template>
+  
   <xsl:template
     match="omx:list[@type = 'xhtml']">
     <ul
@@ -32,6 +33,7 @@
       <xsl:apply-templates />
     </ul>
   </xsl:template>
+  
   <xsl:template
     match="omx:list">
     <ul
@@ -49,6 +51,7 @@
       <xsl:apply-templates />
     </ul>
   </xsl:template>
+  
   <xsl:template
     match="omx:navigation">
     <ul
@@ -64,6 +67,7 @@
       <xsl:apply-templates />
     </ul>
   </xsl:template>
+  
   <xsl:template
     match="omx:location">
     <ul
@@ -79,6 +83,7 @@
       <xsl:apply-templates />
     </ul>
   </xsl:template>
+  
   <xsl:template
     match="omx:item">
     <li
@@ -88,6 +93,7 @@
       <xsl:apply-templates />
     </li>
   </xsl:template>
+  
   <xsl:template
     match="omx:item[@type = 'cdata']">
     <li
@@ -96,6 +102,7 @@
       <xsl:apply-templates />
     </li>
   </xsl:template>
+  
   <xsl:template
     match="omx:image[@href]">
     <li
@@ -127,6 +134,7 @@
       </a>
     </li>
   </xsl:template>
+  
   <xsl:template
     match="omx:image">
     <li
@@ -148,6 +156,7 @@
       </img>
     </li>
   </xsl:template>
+  
   <xsl:template
     match="omx:a">
     <a
@@ -156,6 +165,7 @@
       <xsl:apply-templates />
     </a>
   </xsl:template>
+  
   <xsl:template
     match="omx:a[parent::omx:item/@class = 'up' or ancestor::omx:module/@id = 'location']">
     <a
@@ -165,6 +175,7 @@
         select="." />
     </a>
   </xsl:template>
+  
   <xsl:template
     match="omx:control">
     <label
@@ -174,6 +185,7 @@
         select="." />
     </label>
   </xsl:template>
+  
   <xsl:template
     match="omx:u">
     <u>
@@ -182,12 +194,14 @@
       <xsl:apply-templates />
     </u>
   </xsl:template>
+  
   <xsl:template
     match="omx:del">
     <del>
       <xsl:apply-templates />
     </del>
   </xsl:template>
+  
   <xsl:template
     match="omx:p">
     <p>
@@ -218,6 +232,7 @@
       <xsl:apply-templates />
     </xsl:element>
   </xsl:template>
+  
   <xsl:template
     match="omx:date">
     <label
@@ -226,12 +241,16 @@
         select="format-date(current-date(), @format)" />
     </label>
   </xsl:template>
+  
   <xsl:template
     match="omx:script">
     <script type="{@type}" src="{@src}" />
   </xsl:template>
+  
   <xsl:template
     match="omx:search"> </xsl:template>
+  
   <xsl:template
     match="omx:footer"> </xsl:template>
+  
 </xsl:transform>

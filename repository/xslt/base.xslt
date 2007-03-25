@@ -79,7 +79,7 @@
 </xsl:text>
     <script src="{if (@rel = 'current') then concat($xml.base, @href) else concat(@rel, @href)}" type="text/javascript">
 		<xsl:text>/* */</xsl:text>
-	</script>
+    </script>
   </xsl:template>
 
   <xsl:template
