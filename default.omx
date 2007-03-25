@@ -25,6 +25,7 @@
 		<content src="repository/modules/header.atom" type="application/atom+xml" />
 	</entry>
 	<entry>
+		<title>Body</title>
 		<published>2007-02-13T16:01:53Z</published>
 		<updated>2007-02-13T16:01:53Z</updated>
 		<id>http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net/workspace/modules/body.atom,2007://2</id>
