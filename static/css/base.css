@@ -108,13 +108,13 @@ ul.RtoL li {
 }
 #top-navigation {
     position:relative;
-    border-top:3px #993300 solid;
+    border-top:2px #993300 solid;
     padding:0px;
     z-index:5;
-    /*background:#FFF url("/static/images/gradient.png") top repeat-x;*/
+/* background:#FFF url("/static/images/gradient.png") top repeat-x; */
 }
 #top-navigation > ul {
-padding-top:2px;
+    padding-top:2px;
 }
 #top-navigation > ul > li:first-child {
     margin-left:-1px;
@@ -145,16 +145,14 @@ padding-top:2px;
     color:#FFCC00;
     background-color:inherit;
 }
-
-#top-navigation li.selected  {
-color:#333;
-background-color:inherit;
-border-right:0px;
-border-left:0px;
-letter-spacing:0.25em;
-margin-left:10px;
+#top-navigation li.selected {
+    color:#333;
+    background-color:inherit;
+    border-right:0px;
+    border-left:0px;
+    letter-spacing:0.25em;
+    margin-left:10px;
 }
-
 #location-hierarchy li.current > a {
     color:#993300;
     background-color:Transparent;
@@ -237,7 +235,6 @@ li.date label {
     border-right:1px solid #EEE;
     border-left:1px solid #EEE;
 }
-
 #sub-nav li a:hover {
     color:#993300;
     background-color:Transparent;
@@ -319,7 +316,6 @@ a:hover {
     padding:2px 0px 2px 0px;
     color:#FFF;
 }
-
 #copyright li {
     font-size:small;
 }
