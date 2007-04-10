@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <?oxygen RNGSchema="http://s3.channelxml.com/scheme/atom.rnc" type="compact"?>
-<entry xmlns="http://www.w3.org/2005/Atom" xml:base="http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net/workspace/modules/">
+<entry xmlns="http://www.w3.org/2005/Atom"
+	xml:base="http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net/workspace/modules/">
 	<title>Header</title>
 	<author>
 		<name>M. David Peterson</name>
@@ -8,8 +9,8 @@
 		<uri>http://xmlhacker.com</uri>
 	</author>
 	<rights type="xhtml">
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			Copyright 2006 <a href="http://mdavid.name">M. David Peterson</a>
+		<div xmlns="http://www.w3.org/1999/xhtml"> Copyright 2006 <a href="http://mdavid.name">M.
+				David Peterson</a>
 		</div>
 	</rights>
 	<published>2007-02-13T16:01:51Z</published>
@@ -19,7 +20,48 @@
 	<content type="application/xml">
 		<module id="header" xmlns="http://x2x2x.org/atomicxml/system">
 			<list>
-				<!-- TODO -->
+				<module id="fixed-header">
+					<list>
+						<module id="top-navigation">
+							<list direction="LtoR">
+								<item id="current-location" class="inline alignLeft">
+									<list>
+										<item class="selected">
+											<author/>
+										</item>
+										<item>:</item>
+										<item class="inline alignLeft">
+											<list src="/service/pub/"/>
+										</item>
+									</list>
+								</item>
+								<item id="quick-nav">
+									<list>
+
+										<item class="date">
+											<date format="[MNn] [D1o], [Y]"/>
+										</item>
+
+									</list>
+								</item>
+							</list>
+						</module>
+						<module id="sub-nav">
+							<list direction="LtoR">
+								<item class="inline alignLeft">
+									<list>
+										<item class="selected">
+											<a href="/">My Front Page</a>
+										</item>
+										<item class="inline alignLeft">
+											<list src="/service/pub/" select="app:workspace"/>
+										</item>
+									</list>
+								</item>
+							</list>
+						</module>
+					</list>
+				</module>
 			</list>
 		</module>
 	</content>
