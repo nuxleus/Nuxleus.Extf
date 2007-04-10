@@ -26,6 +26,14 @@ def create_store(dispatcher):
     dispatcher.add('/service/pub[/]', GET=service.get_service)
     
     print "Creating the collection WSGI application"
+    
+    frontpage_store = Store(workspace.get_collection('frontpage'), strict=True)
+    dispatcher.add('/collection/frontpage[/]', POST=frontpage_store.create_member,
+            GET=frontpage_store.get_collection, HEAD=frontpage_store.head_collection)
+    dispatcher.add('/collection/frontpage/{rid:any}[/]', GET=frontpage_store.get_member,
+            PUT=frontpage_store.update_member,
+            DELETE=frontpage_store.delete_member, HEAD=frontpage_store.head_member)
+    
     music_store = Store(workspace.get_collection('music'), strict=True)
     dispatcher.add('/collection/music[/]', POST=music_store.create_member,
           GET=music_store.get_collection, HEAD=music_store.head_collection)
@@ -39,6 +47,13 @@ def create_store(dispatcher):
     dispatcher.add('/collection/blog/{rid:any}[/]', GET=blog_store.get_member,
           PUT=blog_store.update_member,
           DELETE=blog_store.delete_member, HEAD=blog_store.head_member)
+          
+    calendar_store = Store(workspace.get_collection('calendar'), strict=True)
+    dispatcher.add('/collection/calendar[/]', POST=calendar_store.create_member,
+        GET=calendar_store.get_collection, HEAD=calendar_store.head_collection)
+    dispatcher.add('/collection/calendar/{rid:any}[/]', GET=calendar_store.get_member,
+        PUT=calendar_store.update_member,
+        DELETE=calendar_store.delete_member, HEAD=calendar_store.head_member)
           
     photos_store = Store(workspace.get_collection('photos'), strict=True)
     dispatcher.add('/collection/photos[/]', POST=photos_store.create_member,
