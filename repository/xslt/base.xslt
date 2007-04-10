@@ -7,6 +7,7 @@
   <xsl:import href="./atomicxml.xslt"/>
 
   <xsl:param name="xml.base" select="/atom:feed/@xml:base" as="xs:string"/>
+  <xsl:param name="google.maps.key" as="xs:string"/>
 
   <xsl:variable name="css-base-class" select="'base'" as="xs:string"/>
 
@@ -34,9 +35,31 @@
         <xsl:apply-templates select="atom:link[@type = 'text/javascript']"/>
         <style type="text/css">
 				<xsl:apply-templates select="atom:link[@type = 'text/css']"/>
-			</style>
+        </style>
+        <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key={$google.maps.key}" type="text/javascript"/>
+
+        <script type="text/javascript">
+          //<![CDATA[
+            function load() { 
+              if (GBrowserIsCompatible()) { 
+                var map = new GMap2(document.getElementById("myMap")); 
+                map.setCenter(new GLatLng(40.7773, -111.93 ), 8); 
+                map.addControl(new GSmallMapControl());
+                map.addControl(new GMapTypeControl());
+            }
+            }
+            
+            function createMarker() {
+              var lng = document.getElementById("longitude").value;
+              var lat = document.getElementById("latitude").value;
+             
+              // execute the new entry creation, and if successful
+              // create the marker
+            }
+            //]]> 
+        </script>
       </head>
-      <body>
+      <body onload="load()" onunload="GUnload()">
         <ul id="{generate-id()}">
           <xsl:apply-templates select="atom:entry/atom:content"/>
         </ul>

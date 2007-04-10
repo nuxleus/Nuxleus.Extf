@@ -1,9 +1,11 @@
-<xsl:transform xmlns="http://www.w3.org/1999/xhtml" 
+<xsl:transform 
+  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:html="http://www.w3.org/1999/xhtml"
   xmlns:omx="http://x2x2x.org/atomicxml/system"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
   xmlns:app="http://purl.org/atom/app#"
   xmlns:atom="http://www.w3.org/2005/Atom"
-  exclude-result-prefixes="omx app atom"
+  exclude-result-prefixes="omx app atom html"
   version="2.0">
   
   <xsl:import href="./app.xslt"/>
@@ -31,7 +33,7 @@
     </ul>
   </xsl:template>
   
-  <xsl:template match="omx:list[@src]">
+  <xsl:template match="omx:list[@src and not(@select)]">
     <ul id="{if (@id) then (@id) else generate-id()}">
       <xsl:attribute name="class">
         <xsl:text>list</xsl:text>
@@ -44,7 +46,7 @@
     </ul>
   </xsl:template>
   
-  <xsl:template match="omx:list[@select]">
+  <xsl:template match="omx:list[@src and @select]">
     <ul id="{if (@id) then (@id) else generate-id()}">
       <xsl:attribute name="class">
         <xsl:text>list</xsl:text>
@@ -95,7 +97,7 @@
       <xsl:apply-templates/>
     </ul>
   </xsl:template>
-
+  
   <xsl:template match="omx:item">
     <li id="{if (@id) then (@id) else generate-id()}">
       <xsl:copy-of select="@*"/>
@@ -221,7 +223,12 @@
     <xsl:value-of select="$author"/>
   </xsl:template>
   
-
+  <xsl:template match="html:*">
+    <xsl:element name="{local-name()}">
+      <xsl:copy-of select="@*"/>
+      <xsl:apply-templates/>
+    </xsl:element>
+  </xsl:template>
   
 
 </xsl:transform>
