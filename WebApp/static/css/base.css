@@ -108,10 +108,10 @@ ul.RtoL li {
 }
 #top-navigation {
     position:relative;
-    border-top:2px #993300 solid;
+    border-top:3px #993300 solid;
     padding:0px;
     z-index:5;
-    background:#FFF url("/images/gradient.png") top repeat-x;
+    /*background:#FFF url("/static/images/gradient.png") top repeat-x;*/
 }
 #top-navigation > ul {
 padding-top:2px;
@@ -125,30 +125,30 @@ padding-top:2px;
 #top-navigation li > a {
     padding:0px;
     color:#993300;
-    background-color:#FFF;
+    background-color:Transparent;
     text-decoration:none;
     letter-spacing:.25em;
 }
 #top-navigation li > a:hover {
     color:#FFCC00;
-    background-color:#FFF;
+    background-color:inherit;
 }
 #top-navigation li.selected > a {
     padding:4px 2px 1px 5px;
     color:#993300;
-    background-color:#FFF;
+    background-color:inherit;
     border-right:0px;
     border-left:0px;
     letter-spacing:0.25em;
 }
 #top-navigation li.selected > a:hover {
     color:#FFCC00;
-    background-color:#FFF;
+    background-color:inherit;
 }
 
 #top-navigation li.selected  {
 color:#333;
-background-color:#FFF;
+background-color:inherit;
 border-right:0px;
 border-left:0px;
 letter-spacing:0.25em;

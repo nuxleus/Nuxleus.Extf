@@ -50,9 +50,6 @@
 							<list direction="LtoR">
 								<item class="inline alignLeft">
 									<list>
-										<item class="selected">
-											<a href="/">My Front Page</a>
-										</item>
 										<item class="inline alignLeft">
 											<list src="/service/pub/" select="app:workspace"/>
 										</item>

@@ -26,6 +26,9 @@
 
     <xsl:template match="app:collection">
         <li>
+            <xsl:if test="position() = 1">
+                <xsl:attribute name="class">selected</xsl:attribute>
+            </xsl:if>
             <a href="{@href}">
                 <xsl:value-of select="atom:title"/>
             </a>

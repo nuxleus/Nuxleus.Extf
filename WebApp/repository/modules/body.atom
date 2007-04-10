@@ -18,9 +18,7 @@
   <link href="body.atom" rel="self" title="Body" type="application/atom+xml"/>
   <content type="application/xml">
     <module id="instance" xmlns="http://x2x2x.org/atomicxml/system">
-      <list>
-        <!-- TODO -->
-      </list>
+      <list />
     </module>
   </content>
 </entry>
