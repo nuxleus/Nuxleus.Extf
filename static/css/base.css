@@ -185,9 +185,8 @@ ul.RtoL li {
     z-index:5;
 }
 #quick-nav {
-    position:absolute;
-    right:0px;
-    top:1px;
+    text-align:right;
+    margin-top:5px;
     z-index:5;
 }
 #location-hierarchy {
