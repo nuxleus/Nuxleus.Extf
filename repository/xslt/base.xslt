@@ -19,7 +19,9 @@
   <xsl:param name="map-depth" select="'8'" as="xs:string"/>
   <xsl:param name="city" select="$geoip-data/city" as="xs:string"/>
   <xsl:param name="country" select="$geoip-data/country" as="xs:string"/>
-  <xsl:param name="ip" select="$geoip-data/ip" as="xs:string"/>
+  <xsl:param name="ip" select="if ($geoip-data/ip) 
+                                                          then $geoip-data/ip 
+                                                          else 'unknown'" as="xs:string"/>
 
   <xsl:variable name="rights" select="/atom:feed/atom:rights/*"/>
   <xsl:variable name="author" select="/atom:feed/atom:author/atom:name"/>

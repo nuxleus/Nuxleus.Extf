@@ -21,7 +21,8 @@
     <module xmlns="http://x2x2x.org/atomicxml/system" id="footer">
       <list>
         <item id="copyright" type="meta">
-          <rights/>
+          Your Reported Location:&#160;<city />,&#160;<country />&#160;::&#160;Your Reported IP:&#160;<ip />
+          <rights />
         </item>
       </list>
     </module>
