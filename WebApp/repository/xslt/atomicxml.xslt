@@ -14,6 +14,11 @@
   <xsl:param name="css-base-class"/>
   <xsl:param name="rights"/>
   <xsl:param name="author"/>
+  <xsl:param name="city"/>
+  <xsl:param name="country"/>
+  <xsl:param name="ip"/>
+  <xsl:param name="lat"/>
+  <xsl:param name="long"/>
 
   <xsl:template match="omx:module">
     <li class="{if (@class) then (@class) else if (@type) then (@type) else $css-base-class}"
@@ -221,6 +226,18 @@
   
   <xsl:template match="omx:author">
     <xsl:value-of select="$author"/>
+  </xsl:template>
+  
+  <xsl:template match="omx:city">
+    <xsl:value-of select="$city"/>
+  </xsl:template>
+  
+  <xsl:template match="omx:country">
+    <xsl:value-of select="$country"/>
+  </xsl:template>
+  
+  <xsl:template match="omx:ip">
+    <xsl:value-of select="$ip"/>
   </xsl:template>
   
   <xsl:template match="html:*">
