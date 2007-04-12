@@ -18,19 +18,19 @@
   <id>http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net/workspace/modules/body.atom,2007://2</id>
   <link href="body.atom" rel="self" title="Body" type="application/atom+xml"/>
   <content type="application/xml">
-    <module id="instance" xmlns="http://x2x2x.org/atomicxml/system"
-      xmlns:h="http://www.w3.org/1999/xhtml">
+    <module id="instance" xmlns="http://x2x2x.org/atomicxml/system">
       <list>
-        <item>
+        <!--<item xmlns:h="http://www.w3.org/1999/xhtml">
           <h:div style="position: relative">
             <h:div id="myMap"
               style="position: absolute; left:0px; top:20px; width: 100%; height: 270px; filter:alpha(opacity=85); opacity: 0.85; -moz-opacity:0.85; z-order:1"/>
-
-            <!--<h:div id="map-background" onclick="Effect.Fade('map-background');"
+            
+              <h:div id="map-background" onclick="Effect.Fade('map-background');"
               style="position: absolute; width: 100%; height: 270px; filter:alpha(opacity=80); opacity: 0.8; -moz-opacity:0.8; z-order:2; top:0px; left:0px"
-            />-->
+              />
+            
           </h:div>
-        </item>
+        </item>-->
       </list>
     </module>
   </content>
