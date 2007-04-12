@@ -35,6 +35,8 @@
         />
       </head>
       <body onload="javascript: hello(); return true;">
+        test: <xsl:value-of 
+          select="document('http://codemerge.sonicradar.com:3000/ipgeolocator/geocode')/location"/>
         <xsl:apply-templates select="page:output/page:body"/>
       </body>
     </html>
