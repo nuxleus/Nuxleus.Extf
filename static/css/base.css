@@ -396,6 +396,8 @@ a:hover {
     width: 100%;
     height: 270px;
     z-index: 1;
+    border-top:2px solid #CC6600;
+    border-bottom:2px solid #CC6600;
 }
 #geo-location {
 background-color:#FFF;

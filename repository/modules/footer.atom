@@ -20,9 +20,7 @@
   <content type="application/xml">
     <module xmlns="http://x2x2x.org/atomicxml/system" id="footer">
       <list>
-        <item id="geo-location" type="meta">
-          Your Reported Location:&#160;<city />,&#160;<country />&#160;::&#160;Your Reported IP:&#160;<ip />
-        </item>
+        
         <item xmlns:h="http://www.w3.org/1999/xhtml">
           <h:div style="position: relative">
             <h:div id="myMap"/>
@@ -34,8 +32,11 @@
           </h:div>
         </item>
         <item id="copyright" type="meta">
-          <rights />
+          Your Reported Location:&#160;<city />,&#160;<country />&#160;::&#160;Your Reported IP:&#160;<ip />
         </item>
+        <!--<item id="copyright" type="meta">
+          <rights />
+        </item>-->
       </list>
     </module>
   </content>
