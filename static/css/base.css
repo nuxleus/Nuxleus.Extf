@@ -307,6 +307,11 @@ a:hover {
 }
 .base {
 }
+#date {
+    position:absolute;
+    top:1px;
+    right:0px;
+}
 #copyright {
     z-index:10;
     text-align:center;
