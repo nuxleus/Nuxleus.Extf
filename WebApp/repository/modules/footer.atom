@@ -31,7 +31,7 @@
             -->
           </h:div>
         </item>
-        <item id="copyright" type="meta">
+        <item id="geo-location" type="meta">
           Your Reported Location:&#160;<city />,&#160;<country />&#160;::&#160;Your Reported IP:&#160;<ip />
         </item>
         <!--<item id="copyright" type="meta">
