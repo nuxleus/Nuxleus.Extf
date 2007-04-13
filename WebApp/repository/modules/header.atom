@@ -36,6 +36,11 @@
 									</list>
 								</item>
 
+								<item id="date" class="date">
+									<date format="[MNn] [D1o], [Y]"/>
+								</item>
+
+
 							</list>
 						</module>
 						<module id="sub-nav">
@@ -47,15 +52,6 @@
 										</item>
 									</list>
 								</item>
-							</list>
-						</module>
-						<module id="quick-nav">
-							<list>
-
-								<item class="date">
-									<date format="[MNn] [D1o], [Y]"/>
-								</item>
-
 							</list>
 						</module>
 
