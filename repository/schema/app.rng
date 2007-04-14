@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  -*- rnc -*-
+  RELAX NG Compact Syntax Grammar for the Atom Protocol
+-->
+<grammar xmlns:app="http://purl.org/atom/app#" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <ref name="appService"/>
+  </start>
+  <!-- common:attrs -->
+  <define name="atomURI">
+    <text/>
+  </define>
+  <define name="appCommonAttributes">
+    <optional>
+      <attribute name="xml:base">
+        <ref name="atomURI"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xml:lang">
+        <ref name="atomLanguageTag"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="undefinedAttribute"/>
+    </zeroOrMore>
+  </define>
+  <define name="atomCommonAttributes">
+    <ref name="appCommonAttributes"/>
+  </define>
+  <define name="undefinedAttribute">
+    <attribute>
+      <anyName>
+        <except>
+          <name>xml:base</name>
+          <name>xml:lang</name>
+          <nsName ns=""/>
+        </except>
+      </anyName>
+    </attribute>
+  </define>
+  <define name="atomLanguageTag">
+    <data type="string">
+      <param name="pattern">[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*</param>
+    </data>
+  </define>
+  <define name="atomDateConstruct">
+    <ref name="appCommonAttributes"/>
+    <data type="dateTime"/>
+  </define>
+  <!-- app:service -->
+  <define name="appService">
+    <element name="app:service">
+      <ref name="appCommonAttributes"/>
+      <interleave>
+        <oneOrMore>
+          <ref name="appWorkspace"/>
+        </oneOrMore>
+        <zeroOrMore>
+          <ref name="extensionElement"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+  <!-- app:workspace -->
+  <define name="appWorkspace">
+    <element name="app:workspace">
+      <ref name="appCommonAttributes"/>
+      <interleave>
+        <ref name="atomTitle"/>
+        <zeroOrMore>
+          <ref name="appCollection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="extensionElement"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+  <define name="atomTitle">
+    <element name="atom:title">
+      <ref name="atomTextConstruct"/>
+    </element>
+  </define>
+  <!-- app:collection -->
+  <define name="appCollection">
+    <element name="app:collection">
+      <ref name="appCommonAttributes"/>
+      <attribute name="href">
+        <ref name="atomURI"/>
+      </attribute>
+      <interleave>
+        <ref name="atomTitle"/>
+        <optional>
+          <ref name="appAccept"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="appCategories"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="extensionElement"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+  <!-- app:categories -->
+  <define name="atomCategory">
+    <element name="atom:category">
+      <ref name="atomCommonAttributes"/>
+      <attribute name="term"/>
+      <optional>
+        <attribute name="scheme">
+          <ref name="atomURI"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="label"/>
+      </optional>
+      <ref name="undefinedContent"/>
+    </element>
+  </define>
+  <define name="appInlineCategories">
+    <element name="app:categories">
+      <optional>
+        <attribute name="fixed">
+          <choice>
+            <value>yes</value>
+            <value>no</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="scheme">
+          <ref name="atomURI"/>
+        </attribute>
+      </optional>
+      <zeroOrMore>
+        <ref name="atomCategory"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="appOutOfLineCategories">
+    <element name="app:categories">
+      <attribute name="href">
+        <ref name="atomURI"/>
+      </attribute>
+      <ref name="undefinedContent"/>
+    </element>
+  </define>
+  <define name="appCategories">
+    <choice>
+      <ref name="appInlineCategories"/>
+      <ref name="appOutOfLineCategories"/>
+    </choice>
+  </define>
+  <!-- app:accept -->
+  <define name="appAccept">
+    <element name="app:accept">
+      <ref name="appCommonAttributes"/>
+      <optional>
+        <ref name="appTypeValue"/>
+      </optional>
+    </element>
+  </define>
+  <define name="appTypeValue">
+    <choice>
+      <value>entry</value>
+      <ref name="media-type"/>
+      <ref name="entry-or-media-type"/>
+    </choice>
+  </define>
+  <define name="media-type">
+    <data type="string">
+      <param name="pattern">entry,(.+/.+,?)*</param>
+    </data>
+  </define>
+  <define name="entry-or-media-type">
+    <data type="string">
+      <param name="pattern">(.+/.+,?)*</param>
+    </data>
+  </define>
+  <!-- above is an approximation, rnc doesn't support interleaved text -->
+  <!-- Simple Extension -->
+  <define name="simpleExtensionElement">
+    <element>
+      <anyName>
+        <except>
+          <nsName ns="http://purl.org/atom/app#"/>
+        </except>
+      </anyName>
+      <text/>
+    </element>
+  </define>
+  <!-- Structured Extension -->
+  <define name="structuredExtensionElement">
+    <element>
+      <anyName>
+        <except>
+          <nsName ns="http://purl.org/atom/app#"/>
+        </except>
+      </anyName>
+      <choice>
+        <group>
+          <oneOrMore>
+            <attribute>
+              <anyName/>
+            </attribute>
+          </oneOrMore>
+          <zeroOrMore>
+            <choice>
+              <text/>
+              <ref name="anyElement"/>
+            </choice>
+          </zeroOrMore>
+        </group>
+        <group>
+          <zeroOrMore>
+            <attribute>
+              <anyName/>
+            </attribute>
+          </zeroOrMore>
+          <group>
+            <optional>
+              <text/>
+            </optional>
+            <oneOrMore>
+              <ref name="anyElement"/>
+            </oneOrMore>
+            <zeroOrMore>
+              <choice>
+                <text/>
+                <ref name="anyElement"/>
+              </choice>
+            </zeroOrMore>
+          </group>
+        </group>
+      </choice>
+    </element>
+  </define>
+  <!-- Other Extensibility -->
+  <define name="extensionElement">
+    <choice>
+      <ref name="simpleExtensionElement"/>
+      <ref name="structuredExtensionElement"/>
+    </choice>
+  </define>
+  <define name="undefinedContent">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="anyForeignElement"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <!-- Extensions -->
+  <define name="anyElement">
+    <element>
+      <anyName/>
+      <zeroOrMore>
+        <choice>
+          <attribute>
+            <anyName/>
+          </attribute>
+          <text/>
+          <ref name="anyElement"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="anyForeignElement">
+    <element>
+      <anyName>
+        <except>
+          <nsName ns="http://www.w3.org/2005/Atom"/>
+        </except>
+      </anyName>
+      <zeroOrMore>
+        <choice>
+          <attribute>
+            <anyName/>
+          </attribute>
+          <text/>
+          <ref name="anyElement"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="atomPlainTextConstruct">
+    <ref name="atomCommonAttributes"/>
+    <optional>
+      <attribute name="type">
+        <choice>
+          <value>text</value>
+          <value>html</value>
+        </choice>
+      </attribute>
+    </optional>
+    <text/>
+  </define>
+  <define name="atomXHTMLTextConstruct">
+    <ref name="atomCommonAttributes"/>
+    <attribute name="type">
+      <value>xhtml</value>
+    </attribute>
+    <ref name="xhtmlDiv"/>
+  </define>
+  <define name="atomTextConstruct">
+    <choice>
+      <ref name="atomPlainTextConstruct"/>
+      <ref name="atomXHTMLTextConstruct"/>
+    </choice>
+  </define>
+  <define name="anyXHTML">
+    <element>
+      <nsName ns="http://www.w3.org/1999/xhtml"/>
+      <zeroOrMore>
+        <choice>
+          <attribute>
+            <anyName/>
+          </attribute>
+          <text/>
+          <ref name="anyXHTML"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="xhtmlDiv">
+    <element name="xhtml:div">
+      <zeroOrMore>
+        <choice>
+          <attribute>
+            <anyName/>
+          </attribute>
+          <text/>
+          <ref name="anyXHTML"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+</grammar>
+<!-- EOF -->
