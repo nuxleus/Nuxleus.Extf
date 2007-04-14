@@ -1,82 +1,63 @@
 # -*- coding: utf-8 -*-
 
+import cherrypy
 import os.path
-import selector
-from static import Cling
-from amplee.handler.store.wsgi import Service, Store
+from amplee.handler.store.cp import Service, Store
 
 # Local imports
 from core.atompub import setup_store
 
 cur_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Our main WSGI application is the selector middleware
-# which will dispatch to the amplee WSGI applications
-# based on the request URI
-s = selector.Selector()
+__all__ = ['create_store']
 
-def create_store(dispatcher):
-    print "Creating APP store"
+class Root:
+    pass
+
+class WebService:
+    pass
+
+class Collection:
+    pass
+
+def create_store():
+    cherrypy.log("Creating APP store")
     service, conf = setup_store()
     workspace = service.workspaces[0]
     collections = service.get_collections()
+
+    app = Root()
+    app.service = WebService()
+    app.collection = Collection()
     
-    print "Creating the service WSGI application"
-    service = Service(service)
-    # Uri to which the app:service document is reachable
-    dispatcher.add('/service/pub[/]', GET=service.get_service)
+    cherrypy.log("Creating the service WSGI application")
+    app.service.pub = Service(service)
     
-    print "Creating the collection WSGI application"
-    music_store = Store(workspace.get_collection('music'), strict=True)
-    dispatcher.add('/collection/music[/]', POST=music_store.create_member,
-          GET=music_store.get_collection, HEAD=music_store.head_collection)
-    dispatcher.add('/collection/music/{rid:any}[/]', GET=music_store.get_member,
-          PUT=music_store.update_member,
-          DELETE=music_store.delete_member, HEAD=music_store.head_member)
-          
-    blog_store = Store(workspace.get_collection('blog'), strict=True)
-    dispatcher.add('/collection/blog[/]', POST=blog_store.create_member,
-          GET=blog_store.get_collection, HEAD=blog_store.head_collection)
-    dispatcher.add('/collection/blog/{rid:any}[/]', GET=blog_store.get_member,
-          PUT=blog_store.update_member,
-          DELETE=blog_store.delete_member, HEAD=blog_store.head_member)
-          
-    photos_store = Store(workspace.get_collection('photos'), strict=True)
-    dispatcher.add('/collection/photos[/]', POST=photos_store.create_member,
-          GET=photos_store.get_collection, HEAD=photos_store.head_collection)
-    dispatcher.add('/collection/photos/{rid:any}[/]', GET=photos_store.get_member,
-          PUT=photos_store.update_member,
-          DELETE=photos_store.delete_member, HEAD=photos_store.head_member)
-          
-    bookmarks_store = Store(workspace.get_collection('bookmarks'), strict=True)
-    dispatcher.add('/collection/bookmarks[/]', POST=bookmarks_store.create_member,
-          GET=bookmarks_store.get_collection, HEAD=bookmarks_store.head_collection)
-    dispatcher.add('/collection/bookmarks/{rid:any}[/]', GET=bookmarks_store.get_member,
-          PUT=bookmarks_store.update_member,
-          DELETE=bookmarks_store.delete_member, HEAD=music_store.head_member)
-          
-    subscriptions_store = Store(workspace.get_collection('subscriptions'), strict=True)
-    dispatcher.add('/collection/subscriptions[/]', POST=subscriptions_store.create_member,
-          GET=subscriptions_store.get_collection, HEAD=subscriptions_store.head_collection)
-    dispatcher.add('/collection/subscriptions/{rid:any}[/]', GET=subscriptions_store.get_member,
-          PUT=subscriptions_store.update_member,
-          DELETE=subscriptions_store.delete_member, HEAD=subscriptions_store.head_member)
-          
-          
-          
-def create_repository(dispatcher):
-    print "Setting up the repository WSGI application"
-    Cling.index_file = "index.xml"
-    base = Cling(cur_dir)
-    s.add('/[{:segment}[/{:segment}][/{:segment}][/{:segment}]]', GET=base)
+    cherrypy.log("Creating the collection WSGI application")
+    app.collection.frontpage = Store(workspace.get_collection('frontpage'), strict=True)
+    app.collection.music = Store(workspace.get_collection('music'), strict=True)
+    app.collection.blog = Store(workspace.get_collection('blog'), strict=True)
+    app.collection.calendar = Store(workspace.get_collection('calendar'), strict=True)
+    app.collection.photos = Store(workspace.get_collection('photos'), strict=True)
+    app.collection.bookmarks = Store(workspace.get_collection('bookmarks'), strict=True)
+    app.collection.subscriptions = Store(workspace.get_collection('subscriptions'), strict=True)
 
+    # For XMPP 
+    #from bucker.provider.xmpp import Messenger
+    #m = Messenger('localhost', 5222)
+    #cherrypy.engine.on_stop_engine_list.append(m.shutdown)
+    #cherrypy.log("Setting up SQS queue")
+    #m.bind(u'localhost', u'test', u'test', u'webapp')
+    #app.collection.blog.collection.m = m
 
-create_repository(s)
-create_store(s)
+    # For SQS
+    from bucker.provider.sqs import Messenger
+    m = Messenger(conf.general.s3_access_key, conf.general.s3_private_key)
+    cherrypy.engine.on_stop_engine_list.append(m.shutdown)
+    cherrypy.log("Setting up SQS queue")
+    m.bind(conf.general.sqs_queue_name)
+    app.collection.blog.collection.m = m
+    
+    cherrypy.log("All good!")
 
-
-from httplogger import HTTPLogger
-s = HTTPLogger(s, propagate_exc=False)
-s.create_access_logger(access_path=os.path.join(cur_dir, 'access.log'))
-s.create_error_logger(error_path=os.path.join(cur_dir, 'error.log'))
-app = s
+    return app
