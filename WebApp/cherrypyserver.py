@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
-from static import Cling
-import clr
-clr.AddReference('Xameleon')
-
 import os
 import cherrypy
-from cpappsite import app
+from cpappsite import create_store
 
 def run(blocking=False):
     cur_dir = os.getcwd()
@@ -13,11 +9,15 @@ def run(blocking=False):
                             'engine.autoreload_on': False,
                             'server.socket_port': 9999,
                             'server.thread_pool': 10,})
-	
-    cherrypy.tree.graft(app)
+
+    method_dispatcher = cherrypy.dispatch.MethodDispatcher()
+    conf = {'/service': {'request.dispatch': method_dispatcher},
+            '/collection': {'request.dispatch': method_dispatcher,
+                            'tools.etags.on': True,
+                            'tools.etags.autotags': False}}
+    cherrypy.tree.mount(create_store(), '/', config=conf)
     cherrypy.server.quickstart()
     cherrypy.engine.start(blocking=blocking)
-
 
 def shutdown():
     cherrypy.engine.stop()
