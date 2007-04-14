@@ -2,8 +2,7 @@
 <xsl:transform version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns="http://www.w3.org/1999/xhtml" xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:omx="http://x2x2x.org/atomicxml/system" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:fn="http://www.w3.org/2005/xpath-functions" exclude-result-prefixes="atom xs omx xsi fn">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="atom xs omx xsi">
 
   <xsl:import href="./atomicxml.xslt"/>
 
@@ -12,17 +11,6 @@
 
   <xsl:variable name="css-base-class" select="'base'" as="xs:string"/>
 
-  <xsl:variable name="geoip-data"
-    select="document('http://codemerge.sonicradar.com:3000/ipgeolocator/geocode')/location"/>
-  <xsl:param name="lat" select="substring-before($geoip-data/point, '&#32;')" as="xs:string"/>
-  <xsl:param name="long" select="substring-after($geoip-data/point, '&#32;')" as="xs:string"/>
-  <xsl:param name="map-depth" select="'8'" as="xs:string"/>
-  <xsl:param name="city" select="$geoip-data/city" as="xs:string"/>
-  <xsl:param name="country" select="$geoip-data/country" as="xs:string"/>
-  <xsl:param name="ip" select="if ($geoip-data/ip) 
-                                                          then $geoip-data/ip 
-                                                          else 'unknown'" as="xs:string"/>
-
   <xsl:variable name="rights" select="/atom:feed/atom:rights/*"/>
   <xsl:variable name="author" select="/atom:feed/atom:author/atom:name"/>
 
@@ -30,7 +18,7 @@
 
   <xsl:output doctype-public="-//W3C//DTD XHTML 1.1//EN"
     doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1.1.dtd" include-content-type="yes"
-    indent="yes" media-type="text/html" method="xhtml" />
+    indent="yes" media-type="text/html" method="xhtml"/>
 
   <xsl:template match="/">
     <xsl:apply-templates select="atom:feed"/>
@@ -51,22 +39,24 @@
         <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key={$google.maps.key}" type="text/javascript"/>
 
         <script type="text/javascript">
-          <xsl:text>
+          //<![CDATA[
             function load() { 
-                if (GBrowserIsCompatible()) { 
-                  var map = new GMap2(document.getElementById("myMap")); 
-          </xsl:text>
-          <xsl:value-of select="concat('map.setCenter(new GLatLng(', $lat, ', ', $long, '), ', $map-depth, ');')"/>
-          <xsl:text>  
-                  map.addControl(new GSmallMapControl());
-                  map.addControl(new GMapTypeControl());
-                }
+              if (GBrowserIsCompatible()) { 
+                var map = new GMap2(document.getElementById("myMap")); 
+                map.setCenter(new GLatLng(40.7773, -111.93 ), 8); 
+                map.addControl(new GSmallMapControl());
+                map.addControl(new GMapTypeControl());
             }
+            }
+            
             function createMarker() {
               var lng = document.getElementById("longitude").value;
               var lat = document.getElementById("latitude").value;
+             
+              // execute the new entry creation, and if successful
+              // create the marker
             }
-            </xsl:text>
+            //]]> 
         </script>
       </head>
       <body onload="load()" onunload="GUnload()">

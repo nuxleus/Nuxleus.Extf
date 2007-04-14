@@ -2,7 +2,6 @@
 
 import os.path
 import selector
-from static import Cling
 from amplee.handler.store.wsgi import Service, Store
 
 # Local imports
@@ -27,6 +26,14 @@ def create_store(dispatcher):
     dispatcher.add('/service/pub[/]', GET=service.get_service)
     
     print "Creating the collection WSGI application"
+    
+    frontpage_store = Store(workspace.get_collection('frontpage'), strict=True)
+    dispatcher.add('/collection/frontpage[/]', POST=frontpage_store.create_member,
+            GET=frontpage_store.get_collection, HEAD=frontpage_store.head_collection)
+    dispatcher.add('/collection/frontpage/{rid:any}[/]', GET=frontpage_store.get_member,
+            PUT=frontpage_store.update_member,
+            DELETE=frontpage_store.delete_member, HEAD=frontpage_store.head_member)
+    
     music_store = Store(workspace.get_collection('music'), strict=True)
     dispatcher.add('/collection/music[/]', POST=music_store.create_member,
           GET=music_store.get_collection, HEAD=music_store.head_collection)
@@ -40,6 +47,13 @@ def create_store(dispatcher):
     dispatcher.add('/collection/blog/{rid:any}[/]', GET=blog_store.get_member,
           PUT=blog_store.update_member,
           DELETE=blog_store.delete_member, HEAD=blog_store.head_member)
+          
+    calendar_store = Store(workspace.get_collection('calendar'), strict=True)
+    dispatcher.add('/collection/calendar[/]', POST=calendar_store.create_member,
+        GET=calendar_store.get_collection, HEAD=calendar_store.head_collection)
+    dispatcher.add('/collection/calendar/{rid:any}[/]', GET=calendar_store.get_member,
+        PUT=calendar_store.update_member,
+        DELETE=calendar_store.delete_member, HEAD=calendar_store.head_member)
           
     photos_store = Store(workspace.get_collection('photos'), strict=True)
     dispatcher.add('/collection/photos[/]', POST=photos_store.create_member,
@@ -62,21 +76,8 @@ def create_store(dispatcher):
           PUT=subscriptions_store.update_member,
           DELETE=subscriptions_store.delete_member, HEAD=subscriptions_store.head_member)
           
-          
-          
-def create_repository(dispatcher):
-    print "Setting up the repository WSGI application"
-    Cling.index_file = "index.xml"
-    base = Cling(cur_dir)
-    s.add('/[{:segment}[/{:segment}][/{:segment}][/{:segment}]]', GET=base)
+    print "All good!"
 
-
-create_repository(s)
 create_store(s)
 
-
-from httplogger import HTTPLogger
-s = HTTPLogger(s, propagate_exc=False)
-s.create_access_logger(access_path=os.path.join(cur_dir, 'access.log'))
-s.create_error_logger(error_path=os.path.join(cur_dir, 'error.log'))
 app = s

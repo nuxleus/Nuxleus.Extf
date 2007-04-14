@@ -114,7 +114,7 @@ ul.RtoL li {
 /* background:#FFF url("/static/images/gradient.png") top repeat-x; */
 }
 #top-navigation > ul {
-    padding-top:1px;
+    padding-top:2px;
 }
 #top-navigation > ul > li:first-child {
     margin-left:-1px;
@@ -185,8 +185,9 @@ ul.RtoL li {
     z-index:5;
 }
 #quick-nav {
-    text-align:right;
-    margin-top:5px;
+    position:absolute;
+    right:0px;
+    top:1px;
     z-index:5;
 }
 #location-hierarchy {
@@ -213,7 +214,7 @@ li.date label {
     margin-top:0px;
     border-top:1px solid #993300;
     border-bottom:1px solid #993300;
-    margin-top:.25em;
+    margin-top:.3em;
     background-color:#FFF;
     z-index:1;
     position:relative;
@@ -307,11 +308,6 @@ a:hover {
 }
 .base {
 }
-#date {
-    position:absolute;
-    top:1px;
-    right:0px;
-}
 #copyright {
     z-index:10;
     text-align:center;
@@ -392,30 +388,4 @@ a:hover {
 #search > ul {
     margin:0px 5px;
     padding:0px 5px;
-}
-#myMap {
-    position: absolute;
-    left:0px;
-    bottom:1px;
-    width: 100%;
-    height: 270px;
-    z-index: 1;
-    border-top:1px solid #CC6600;
-    border-bottom:1px solid #CC6600;
-}
-#geo-location {
-    text-align:center;
-    padding:3px 0;
-    width:100%;
-    border-bottom:2px solid #993300;
-    z-index:10;
-    text-align:center;
-    margin-top:0px;
-    background-color:#FFF;
-    color:#993300;
-}
-.transparency-85 {
-    filter:alpha(opacity=85);
-    opacity: 0.85;
-    -moz-opacity:0.85;
 }
