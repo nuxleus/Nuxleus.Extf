@@ -53,6 +53,11 @@
     <Compile Include="Data\Provider\SQLite\Select.cs" />
     <Compile Include="Data\Provider\SQLite\Update.cs" />
     <Compile Include="Data\Type.cs" />
+    <Compile Include="GeoIP\Country.cs" />
+    <Compile Include="GeoIP\DatabaseInfo.cs" />
+    <Compile Include="GeoIP\Location.cs" />
+    <Compile Include="GeoIP\LookupService.cs" />
+    <Compile Include="GeoIP\Region.cs" />
     <Compile Include="Handler\Agent.cs" />
     <Compile Include="Handler\AspNet\Agent.cs" />
     <Compile Include="Handler\AspNet\HttpHandler.cs" />
