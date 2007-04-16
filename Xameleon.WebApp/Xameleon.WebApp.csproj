@@ -1021,14 +1021,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\WebApp\appsite.exe">
-      <Link>appsite.exe</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\WebApp\cherrypyserver.exe">
-      <Link>cherrypyserver.exe</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\WebApp\bin\Lib\atexit.exe">
       <Link>Lib\atexit.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
