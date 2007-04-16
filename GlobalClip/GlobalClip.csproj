@@ -77,7 +77,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonAWS.S3\AmazonS3.wsdl" />
-    <None Include="Web References\AmazonAWS.S3\AmazonS3.xsd" />
+    <None Include="Web References\AmazonAWS.S3\AmazonS3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web References\AmazonAWS.S3\BucketLoggingStatus.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
