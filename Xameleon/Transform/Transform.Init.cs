@@ -5,64 +5,69 @@ using System.Xml;
 using System.IO;
 using Xameleon.Properties;
 using System.Net;
+using Saxon.Api;
+using System.Collections.Specialized;
+using System.Web;
+using Extf.Net.Configuration;
 
-namespace Xameleon {
+namespace Xameleon
+{
 
-  public partial class Transform {
+    public partial class Transform
+    {
 
-    private Context Init (Context context) {
-      try {
-        context.BaseUri = new Uri("http://localhost/");
-        context.XmlSource = new Uri(Resources.SourceXml);
-        context.XsltSource = new Uri(Resources.SourceXslt);
-        context.ResultDocument = new XmlDocument();
-        context.Resolver = new XmlUrlResolver();
-        context.Resolver.Credentials = CredentialCache.DefaultCredentials;
-      } catch (Exception) {
-        throw;
-      }
-      if(PrepareTransform(context)) {
-        this._IS_INITIALIZED = true;
-        return context;
-      }
-      else {
-        return null;
-      }
+        // Fields
+        private XsltCompiler _Compiler;
+        private Processor _Processor;
+        private XmlUrlResolver _Resolver;
+        private Stream _SourceXml;
+        private XsltExecutable _Template;
+        private Stream _TemplateStream;
+        private string _xsltParamKey = "xsltParam_";
+        private NameValueCollection _XsltParams;
+
+        private void Init(HttpContext context)
+        {
+            AppSettings settings = new AppSettings();
+            string setting = settings.GetSetting("xsltParamKeyPrefix");
+            if (setting != null)
+            {
+                this._xsltParamKey = setting;
+            }
+            Uri absoluteUri = new Uri(context.Server.MapPath(settings.GetSetting("baseTemplate")));
+            this._XsltParams = settings.GetSettingArray(this._xsltParamKey);
+            this._Resolver = new XmlUrlResolver();
+            this._Resolver.Credentials = CredentialCache.DefaultCredentials;
+            this._TemplateStream = (Stream)this._Resolver.GetEntity(absoluteUri, null, typeof(Stream));
+            this._Processor = new Processor();
+            this._Compiler = this._Processor.NewXsltCompiler();
+            this._Compiler.BaseUri = absoluteUri;
+            this._Template = this._Compiler.Compile(this._TemplateStream);
+            this._IS_INITIALIZED = true;
+        }
+
+        private Context Init(Context context)
+        {
+            try
+            {
+                context.BaseUri = new Uri("http://localhost/");
+                context.XmlSource = new Uri(Resources.SourceXml);
+                context.XsltSource = new Uri(Resources.SourceXslt);
+                context.ResultDocument = new XmlDocument();
+                context.Resolver = new XmlUrlResolver();
+                context.Resolver.Credentials = CredentialCache.DefaultCredentials;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            if (this.PrepareTransform(context))
+            {
+                this._IS_INITIALIZED = true;
+                return context;
+            }
+            return null;
+        }
+
     }
-
-
-
-    //public bool Init (string clipData) {
-    //  if (clipData.Length > 5) {
-    //    try {
-    //      this.doc = XmlReader.Create(new StringReader(clipData));
-    //    } catch (ArgumentNullException) {
-    //      try {
-    //        this.doc = this._init;
-    //      } catch (Exception) {
-    //        this.doc = XmlReader.Create(new StringReader(this._backup));
-    //      }
-    //    }
-    //  } else doc = XmlReader.Create(new StringReader(this._backup));
-    //  return DoProcess(this.doc, this._xslt, this._baseUri);
-    //}
-
-    //public XmlDocument Init (string xmlKey, string xsltKey) {
-    //  try {
-    //    this.doc = GetResource(xmlKey);
-    //    try {
-    //      this._xslt = GetResource(xsltKey);
-    //    } catch (Exception) {
-    //      this._xslt = this._xslt;
-    //    }
-    //  } catch (Exception) {
-    //    this.doc = XmlReader.Create(new StringReader(this._backup));
-    //  }
-    //  return DoProcess(this.doc, this._xslt, this._baseUri);
-    //}
-
-    //private XmlReader GetResource (string key) {
-    //  return this.rm.GetSetting(key);
-    //}
-  }
 }

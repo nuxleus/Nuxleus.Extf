@@ -101,7 +101,6 @@
     <Compile Include="Transform\Transform.cs" />
     <Compile Include="Transform\Transform.Init.cs" />
     <Compile Include="Transform\Transform.Process.cs" />
-    <Compile Include="Transform\Transform.Process.HttpStream.cs" />
     <Compile Include="WSGI\WSGI.cs" />
   </ItemGroup>
   <ItemGroup>
