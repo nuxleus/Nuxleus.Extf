@@ -4,6 +4,416 @@
         <name>Saxon.Api</name>
     </assembly>
     <members>
+        <member name="T:Saxon.Api.XPathCompiler">
+            <summary>
+            An XPathCompiler object allows XPath queries to be compiled.
+            The compiler holds information that represents the static context
+            for the expression.
+            </summary>
+            <remarks>
+            <para>To construct an XPathCompiler, use the factory method
+            <c>newXPathCompiler</c> on the <c>Processor</c> object.</para>
+            <para>An XPathCompiler may be used repeatedly to compile multiple
+            queries. Any changes made to the XPathCompiler (that is, to the
+            static context) do not affect queries that have already been compiled.
+            An XPathCompiler may be used concurrently in multiple threads, but
+            it should not then be modified once initialized.</para>
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.XPathCompiler.DeclareNamespace(System.String,System.String)">
+            <summary>
+            Declare a namespace for use by the XPath expression.
+            </summary>
+            <param name="prefix">The namespace prefix to be declared. Use
+            a zero-length string to declare the default namespace (that is, the
+            default namespace for elements and types).</param>
+            <param name="uri">The namespace URI. It is possible to specify
+            a zero-length string to "undeclare" a namespace.</param>
+        </member>
+        <member name="M:Saxon.Api.XPathCompiler.DeclareVariable(Saxon.Api.QName)">
+            <summary>
+            Declare a variable for use by the XPath expression. If the expression
+            refers to any variables, then they must be declared here.
+            </summary>
+            <param name="name">The name of the variable, as a <c>QName</c></param>
+        </member>
+        <member name="M:Saxon.Api.XPathCompiler.Compile(System.String)">
+            <summary>
+            Compile an expression supplied as a String.
+            </summary>
+            <example>
+            <code>
+            XPathExecutable q = compiler.Compile("distinct-values(//*/node-name()");
+            </code>
+            </example>
+            <param name="source">A string containing the source text of the XPath expression</param>
+            <returns>An <c>XPathExecutable</c> which represents the compiled xpath expression object.
+            The XPathExecutable may be run as many times as required, in the same or a different
+            thread. The <c>XPathExecutable</c> is not affected by any changes made to the <c>XPathCompiler</c>
+            once it has been compiled.</returns>
+        </member>
+        <member name="P:Saxon.Api.XPathCompiler.BaseUri">
+            <summary>
+            The base URI of the expression, which forms part of the static context
+            of the expression. This is used for resolving any relative URIs appearing
+            within the expression, for example in references to library modules, schema
+            locations, or as an argument to the <c>doc()</c> function.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.XPathCompiler.BackwardsCompatible">
+            <summary>
+            XPath 1.0 Backwards Compatibility Mode. If true, backwards compatibility mode
+            is set. In backwards compatibility mode, more implicit type conversions are
+            allowed in XPath expressions, for example it is possible to compare a number
+            with a string. The default is false (backwards compatibility mode is off).
+            </summary>
+        </member>
+        <member name="T:Saxon.Api.XPathExecutable">
+            <summary>
+            An <c>XPathExecutable</c> represents the compiled form of an XPath expression. 
+            To evaluate the expression,
+            it must first be loaded to form an <c>XPathSelector</c>.
+            </summary>
+            <remarks>
+            <para>An <c>XPathExecutable</c> is immutable, and therefore thread-safe. It is simplest to
+            load a new <c>XPathSelector</c> each time the expression is to be evaluated. However, the 
+            <c>XPathSelector</c> is serially reusable within a single thread.</para>
+            <para>An <c>XPathExecutable</c> is created by using one of the <c>Compile</c>
+            methods on the <c>XPathCompiler</c> class.</para>
+            </remarks>    
+        </member>
+        <member name="M:Saxon.Api.XPathExecutable.Load">
+            <summary>
+            Load the compiled XPath expression to prepare it for execution.
+            </summary>
+            <returns>
+            An <c>XPathSelector</c>. The returned <c>XPathSelector</c> can be used to
+            set up the dynamic context, and then to evaluate the expression.
+            </returns>
+        </member>
+        <member name="T:Saxon.Api.XPathSelector">
+            <summary inherits="IEnumerable">
+            An <c>XPathSelector</c> represents a compiled and loaded XPath expression ready for execution.
+            The <c>XPathSelector</c> holds details of the dynamic evaluation context for the XPath expression.
+            </summary>
+            <remarks>
+            <para>An <c>XPathSelector</c> should not be used concurrently in multiple threads. It is safe,
+            however, to reuse the object within a single thread to evaluate the same XPath expression several times.
+            Evaluating the expression does not change the context that has been established.</para>
+            <para>An <c>XPathSelector</c> is always constructed by running the <c>Load</c> method of
+            an <c>XPathExecutable</c>.</para>
+            </remarks>     
+        </member>
+        <member name="M:Saxon.Api.XPathSelector.SetVariable(Saxon.Api.QName,Saxon.Api.XdmValue)">
+            <summary>
+            Set the value of a variable
+            <param name="name">The name of the variable. This must match the name of a variable
+            that was declared to the XPathCompiler. No error occurs if the expression does not
+            actually reference a variable with this name.</param>
+            <param name="value">The value to be given to the variable.</param>
+            </summary>
+        </member>
+        <member name="M:Saxon.Api.XPathSelector.Evaluate">
+            <summary>
+            Evaluate the expression, returning the result as an <c>XdmValue</c> (that is,
+            a sequence of nodes and/or atomic values).
+            </summary>
+            <remarks>
+            Although a singleton result <i>may</i> be represented as an <c>XdmItem</c>, there is
+            no guarantee that this will always be the case. If you know that the expression will return at
+            most one node or atomic value, it is best to use the <c>EvaluateSingle</c> method, which 
+            does guarantee that an <c>XdmItem</c> (or null) will be returned.
+            </remarks>
+            <returns>
+            An <c>XdmValue</c> representing the results of the expression. 
+            </returns>
+        </member>
+        <member name="M:Saxon.Api.XPathSelector.EvaluateSingle">
+            <summary>
+            Evaluate the XPath expression, returning the result as an <c>XdmItem</c> (that is,
+            a single node or atomic value).
+            </summary>
+            <returns>
+            An <c>XdmItem</c> representing the result of the expression, or null if the expression
+            returns an empty sequence. If the expression returns a sequence of more than one item,
+            any items after the first are ignored.
+            </returns>
+        </member>
+        <member name="M:Saxon.Api.XPathSelector.GetEnumerator">
+            <summary>
+            Evaluate the expression, returning the result as an <c>IEnumerator</c> (that is,
+            an enumerator over a sequence of nodes and/or atomic values).
+            </summary>
+            <returns>
+            An enumerator over the sequence that represents the results of the expression.
+            Each object in this sequence will be an instance of <c>XdmItem</c>. Note
+            that the expression may be evaluated lazily, which means that a successful response
+            from this method does not imply that the expression has executed successfully: failures
+            may be reported later while retrieving items from the iterator. 
+            </returns>
+        </member>
+        <member name="P:Saxon.Api.XPathSelector.ContextItem">
+            <summary>
+            The context item for the XPath expression evaluation.
+            </summary>
+            <remarks> This may be either a node or an atomic
+            value. Most commonly it will be a document node, which might be constructed
+            using the <c>Build</c> method of the <c>DocumentBuilder</c> object.
+            </remarks>
+        </member>
+        <member name="T:Saxon.Api.SchemaManager">
+            <summary>
+            A <c>SchemaManager</c> is responsible for compiling schemas and
+            maintaining a cache of compiled schemas that can be used for validating
+            instance documents.
+            </summary>
+            <remarks>
+            <para>To obtain a <c>SchemaManager</c>, use the 
+            <c>SchemaManager</c> property of the <c>Processor</c> object.</para>
+            <para>In a schema-aware Processor there is exactly one
+            <c>SchemaManager</c> (in a non-schema-aware Processor there is none).</para>
+            <para>The cache of compiled schema definitions can include only one schema
+            component (for example a type, or an element declaration) with any given name.
+            An attempt to compile two different schemas in the same namespace will usually
+            therefore fail.</para>
+            <para>As soon as a type definition or element declaration is used for the first
+            time in a validation episode, it is marked as being "sealed": this prevents subsequent
+            modifications to the component. Examples of modifications that are thereby disallowed
+            include adding to the substitution group of an existing element declaration, adding subtypes
+            to an existing type, or redefining components using &lt;xs:redefine&gt;</para>
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.SchemaManager.Compile(System.IO.Stream,System.Uri)">
+            <summary>
+            Compile a schema supplied as a Stream. The resulting schema components are added
+            to the cache.
+            </summary>
+            <param name="input">A stream containing the source text of the schema</param>
+            <param name="baseUri">The base URI of the schema document, for resolving any references to other
+            schema documents</param>        
+        </member>
+        <member name="M:Saxon.Api.SchemaManager.Compile(System.Uri)">
+            <summary>
+            Compile a schema, retrieving the source using a URI. The resulting schema components are added
+            to the cache.
+            </summary>
+            <remarks>
+            The document located via the URI is parsed using the <c>System.Xml</c> parser.
+            </remarks>
+            <param name="uri">The URI identifying the location where the schema document can be
+            found</param>
+        </member>
+        <member name="M:Saxon.Api.SchemaManager.Compile(System.Xml.XmlReader)">
+            <summary>
+            Compile a schema, delivered using an XmlReader. The resulting schema components are added
+            to the cache.
+            </summary>
+            <remarks>
+            The <c>XmlReader</c> is responsible for parsing the document; this method builds a tree
+            representation of the document (in an internal Saxon format) and compiles it.
+            If the <c>XmlReader</c> is an <c>XmlTextReader</c>, Saxon will set its <c>Normalization</c>
+            property to true, and will wrap it in a (non-validating) <c>XmlValidatingReader</c> to ensure
+            that entity references are expanded.
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.SchemaManager.Compile(Saxon.Api.XdmNode)">
+            <summary>
+            Compile a schema document, located at an XdmNode. This may be a document node whose
+            child is an <c>xs:schema</c> element, or it may be
+            the <c>xs:schema</c> element itself. The resulting schema components are added
+            to the cache.
+            </summary>
+        </member>
+        <member name="M:Saxon.Api.SchemaManager.NewSchemaValidator">
+            <summary>
+            Create a new <c>SchemaValidator</c>, which may be used for validating instance
+            documents.
+            </summary>
+            <remarks>
+            <para>The <c>SchemaValidator</c> uses the cache of schema components held by the
+            <c>SchemaManager</c>. It may also add new components to this cache (for example,
+            when the instance document references a schema using <c>xsi:schemaLocation</c>).
+            It is also affected by changes to the schema cache that occur after the 
+            <c>SchemaValidator</c> is created.</para>
+            <para>When schema components are used for validating instance documents (or for compiling
+            schema-aware queries and stylesheets) they are <i>sealed</i> to prevent subsequent modification.
+            The modifications disallowed once a component is sealed include adding to the substitution group
+            of an element declaration, adding subtypes derived by extension to an existing complex type, and
+            use of <c>&lt;xs:redefine&gt;</c></para>
+            </remarks>
+        </member>
+        <member name="P:Saxon.Api.SchemaManager.SchemaResolver">
+            <summary>
+            The SchemaResolver is a user-supplied class used for resolving references to
+            schema documents. It applies to references from one schema document to another
+            appearing in <c>xs:import</c>, <c>xs:include</c>, and <c>xs:redefine</c>; to
+            references from an instance document to a schema in <c>xsi:schemaLocation</c> and
+            <c>xsi:noNamespaceSchemaLocation</c>, to <c>xsl:import-schema</c> in XSLT, and to
+            the <c>import schema</c> declaration in XQuery.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.SchemaManager.ErrorList">
+            <summary>
+            List of errors. The caller may supply an empty list before calling Compile;
+            the processor will then populate the list with error information obtained during
+            the schema compilation. Each error will be included as an object of type StaticError.
+            If no error list is supplied by the caller, error information will be written to
+            the standard error stream.
+            </summary>
+            <remarks>
+            <para>By supplying a custom List with a user-written add() method, it is possible to
+            intercept error conditions as they occur.</para>
+            <para>Note that this error list is used only for errors detected during the compilation
+            of the schema. It is not used for errors detected when using the schema to validate
+            a source document.</para>
+            </remarks>
+        </member>
+        <member name="T:Saxon.Api.SchemaValidator">
+            <summary>
+            A <c>SchemaValidator</c> is an object that is used for validating instance documents
+            against a schema. The schema consists of the collection of schema components that are
+            available within the schema cache maintained by the <c>SchemaManager</c>, together with
+            any additional schema components located during the course of validation by means of an
+            <c>xsl:schemaLocation</c> or <c>xsi:noNamespaceSchemaLocation</c> attribute within the
+            instance document.
+            </summary>
+            <remarks>
+            If validation fails, an exception is thrown. If validation succeeds, the validated
+            document can optionally be written to a specified destination. This will be a copy of
+            the original document, augmented with default values for absent elements and attributes,
+            and carrying type annotations derived from the schema processing. Saxon does not deliver
+            the full PSVI as described in the XML schema specifications, only the subset of the
+            PSVI properties featured in the XDM data model.
+            </remarks>    
+        </member>
+        <member name="M:Saxon.Api.SchemaValidator.SetSource(System.IO.Stream,System.Uri)">
+            <summary>
+            Supply the instance document to be validated in the form of a Stream
+            </summary>
+            <param name="source">A stream containing the XML document to be parsed
+            and validated.</param>
+            <param name="baseUri">The base URI to be used for resolving any relative
+            references, for example a reference to an <c>xsi:schemaLocation</c></param>                  
+        </member>
+        <member name="M:Saxon.Api.SchemaValidator.SetSource(System.Uri)">
+            <summary>
+            Supply the instance document to be validated in the form of a Uri reference
+            </summary>
+            <remarks>
+            <para>The supplied node must be either a document node or an element node.
+            If an element node is supplied, then the subtree rooted at this element is
+            validated as if it were a complete document: that is, it must not only conform
+            to the structure required of that element, but any referential constraints
+            (keyref, IDREF) must be satisfied within that subtree.
+            </para>
+            </remarks>
+            <param name="baseUri">URI of the document to be validated</param>                  
+        </member>
+        <member name="M:Saxon.Api.SchemaValidator.SetSource(System.Xml.XmlReader)">
+            <summary>
+            Supply the instance document to be validated, in the form of an XmlReader.
+            </summary>
+            <remarks>
+            The XmlReader is responsible for parsing the document; this method validates it.
+            </remarks>
+            <param name="reader">The <c>XmlReader</c> used to read and parse the instance
+            document being validated. This is used as supplied. For conformance, use of a
+            plain <c>XmlTextReader</c> is discouraged, because it does not expand entity
+            references. This may cause validation failures.
+            </param>
+        </member>
+        <member name="M:Saxon.Api.SchemaValidator.SetSource(Saxon.Api.XdmNode)">
+            <summary>
+            Supply the instance document to be validated in the form of an XdmNode
+            </summary>
+            <remarks>
+            <para>The supplied node must be either a document node or an element node.
+            If an element node is supplied, then the subtree rooted at this element is
+            validated as if it were a complete document: that is, it must not only conform
+            to the structure required of that element, but any referential constraints
+            (keyref, IDREF) must be satisfied within that subtree.
+            </para>
+            </remarks>
+            <param name="source">The document or element node at the root of the tree
+            to be validated</param>        
+        </member>
+        <member name="M:Saxon.Api.SchemaValidator.SetDestination(Saxon.Api.XmlDestination)">
+            <summary>
+            Supply the destination to hold the validated document. If no destination
+            is supplied, the validated document is discarded.
+            </summary>
+            <remarks>
+            The destination differs from the source in that (a) default values of missing
+            elements and attributes are supplied, and (b) the typed values of elements and
+            attributes are available. However, typed values can only be accessed if the result
+            is represented using the XDM data model, that is, if the destination is supplied
+            as an XdmDestination.
+            </remarks>
+        </member>
+        <member name="M:Saxon.Api.SchemaValidator.Run">
+            <summary>
+            Run the validation of the supplied source document, optionally
+            writing the validated document to the supplied destination.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.SchemaValidator.IsLax">
+            <summary>
+            The validation mode may be either strict or lax. The default is strict;
+            this property is set to indicate that lax validation is required. With strict validation,
+            validation fails if no element declaration can be located for the outermost element. With lax
+            validation, the absence of an element declaration results in the content being considered valid.
+            </summary>
+        </member>
+        <member name="P:Saxon.Api.SchemaValidator.ErrorList">
+            <summary>
+            List of errors. The caller may supply an empty list before calling Compile;
+            the processor will then populate the list with error information obtained during
+            the schema compilation. Each error will be included as an object of type StaticError.
+            If no error list is supplied by the caller, error information will be written to
+            the standard error stream.
+            </summary>
+            <remarks>
+            <para>By supplying a custom List with a user-written add() method, it is possible to
+            intercept error conditions as they occur.</para>
+            <para>Note that this error list is used only for errors detected while 
+            using the schema to validate a source document. It is not used to report errors
+            in the schema itself.</para>
+            </remarks>
+        </member>
+        <member name="T:Saxon.Api.SchemaResolver">
+            <summary>
+            The SchemaResolver is a user-supplied class used for resolving references to
+            schema documents. It applies to references from one schema document to another
+            appearing in <c>xs:import</c>, <c>xs:include</c>, and <c>xs:redefine</c>; to
+            references from an instance document to a schema in <c>xsi:schemaLocation</c> and
+            <c>xsi:noNamespaceSchemaLocation</c>, to <c>xsl:import-schema</c> in XSLT, and to
+            the <c>import schema</c> declaration in XQuery.
+            </summary>
+        </member>
+        <member name="M:Saxon.Api.SchemaResolver.GetSchemaDocuments(System.String,System.Uri,System.String[])">
+            <summary>
+            Given a targetNamespace and a set of location hints, return a set of schema documents.
+            </summary>
+            <param name="targetNamespace">The target namespace of the required schema components</param>
+            <param name="baseUri">The base URI of the module containing the reference to a schema document
+            declaration</param>
+            <param name="locationHints">The sequence of URIs (if any) listed as location hints.
+            In most cases there will only be one; but the <c>import schema</c> declaration in
+            XQuery permits several.</param>
+            <returns>A set of absolute Uris identifying the query modules to be loaded. There is no requirement
+            that these correspond one-to-one with the URIs defined in the <c>locationHints</c>. The 
+            returned URIs will be dereferenced by calling the <c>GetEntity</c> method.
+            </returns>
+        </member>
+        <member name="M:Saxon.Api.SchemaResolver.GetEntity(System.Uri)">
+            <summary>
+            Dereference a URI returned by <c>GetModules</c> to retrieve a <c>Stream</c> containing
+            the actual XML schema document.
+            </summary>
+            <param name="absoluteUri">A URI returned by the <code>GetSchemaDocuments</code> method.</param>
+            <returns>Either a <c>Stream</c> or a <c>String</c> containing the query text. 
+            The supplied URI will be used as the base URI of the query module.</returns>
+        </member>
         <member name="T:Saxon.Api.StaticError">
             <summary>
             The StaticError class contains information about a static error detected during
@@ -489,274 +899,6 @@
         </member>
         <member name="F:Saxon.Api.WhitespacePolicy.StripAll">
             <summary>All whitespace text nodes are stripped</summary>
-        </member>
-        <member name="T:Saxon.Api.XQueryCompiler">
-            <summary>
-            An XQueryCompiler object allows XQuery queries to be compiled.
-            </summary>
-            <remarks>
-            <para>To construct an <c>XQueryCompiler</c>, use the factory method
-            <c>newXQueryCompiler</c> on the <c>Processor</c> object.</para>
-            <para>The <c>XQueryCompiler</c> holds information that represents the static context
-            for the queries that it compiles. This information remains intact after performing
-            a compilation. An <c>XQueryCompiler</c> may therefore be used repeatedly to compile multiple
-            queries. Any changes made to the <c>XQueryCompiler</c> (that is, to the
-            static context) do not affect queries that have already been compiled.
-            An <c>XQueryCompiler</c> may be used concurrently in multiple threads, but
-            it should not then be modified once initialized.</para>
-            
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.XQueryCompiler.DeclareNamespace(System.String,System.String)">
-            <summary>
-            Declare a namespace for use by the query. This has the same
-            status as a namespace appearing within the query prolog (though
-            a declaration in the query prolog of the same prefix will take
-            precedence)
-            </summary>
-            <param name="prefix">The namespace prefix to be declared. Use
-            a zero-length string to declare the default namespace (that is, the
-            default namespace for elements and types).</param>
-            <param name="uri">The namespace URI. It is possible to specify
-            a zero-length string to "undeclare" a namespace.</param>
-        </member>
-        <member name="M:Saxon.Api.XQueryCompiler.Compile(System.IO.Stream)">
-            <summary>
-            Compile a query supplied as a Stream.
-            </summary>
-            <remarks>
-            <para>The XQuery processor attempts to deduce the encoding of the query
-            by looking for a byte-order-mark, or if none is present, by looking
-            for the encoding declaration in the XQuery version declaration.
-            For this to work, the stream must have the <c>CanSeek</c> property.
-            If no encoding information is present, UTF-8 is assumed.</para>
-            <para>The base URI of the query is set to the value of the <c>BaseUri</c>
-            property. If this has not been set, then the base URI will be undefined, which
-            means that any use of an expression that depends on the base URI will cause
-            an error.</para>
-            </remarks>
-            <example>
-            <code>
-            XQueryExecutable q = compiler.Compile(new FileStream("input.xq", FileMode.Open, FileAccess.Read));
-            </code>
-            </example>
-            <param name="query">A stream containing the source text of the query</param>
-            <returns>An <c>XQueryExecutable</c> which represents the compiled query object.
-            The XQueryExecutable may be run as many times as required, in the same or a different
-            thread. The <c>XQueryExecutable</c> is not affected by any changes made to the <c>XQueryCompiler</c>
-            once it has been compiled.</returns>
-            <exception cref="T:Saxon.Api.StaticError">Throws a StaticError if errors were detected
-            during static analysis of the query. Details of the errors will be added as StaticError
-            objects to the ErrorList if supplied; otherwise they will be written to the standard
-            error stream. The exception that is returned is merely a summary indicating the
-            status.</exception>
-        </member>
-        <member name="M:Saxon.Api.XQueryCompiler.Compile(System.String)">
-            <summary>
-            Compile a query supplied as a String.
-            </summary>
-            <remarks>
-            Using this method the query processor is provided with a string of Unicode
-            characters, so no decoding is necessary. Any encoding information present in the
-            version declaration is therefore ignored.
-            </remarks>
-            <example>
-            <code>
-            XQueryExecutable q = compiler.Compile("distinct-values(//*/node-name()");
-            </code>
-            </example>
-            <param name="query">A string containing the source text of the query</param>
-            <returns>An <c>XQueryExecutable</c> which represents the compiled query object.
-            The XQueryExecutable may be run as many times as required, in the same or a different
-            thread. The <c>XQueryExecutable</c> is not affected by any changes made to the <c>XQueryCompiler</c>
-            once it has been compiled.</returns>
-            <exception cref="T:Saxon.Api.StaticError">Throws a StaticError if errors were detected
-            during static analysis of the query. Details of the errors will be added as StaticError
-            objects to the ErrorList if supplied; otherwise they will be written to the standard
-            error stream. The exception that is returned is merely a summary indicating the
-            status.</exception>        
-        </member>
-        <member name="P:Saxon.Api.XQueryCompiler.BaseUri">
-            <summary>
-            The base URI of the query, which forms part of the static context
-            of the query. This is used for resolving any relative URIs appearing
-            within the query, for example in references to library modules, schema
-            locations, or as an argument to the <c>doc()</c> function.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.XQueryCompiler.QueryResolver">
-            <summary>
-            A user-supplied <c>IQueryResolver</c> used to resolve location hints appearing in an
-            <c>import module</c> declaration.
-            </summary>
-            <remarks>
-            <para>In the absence of a user-supplied <c>QueryResolver</c>, an <c>import module</c> declaration
-            is interpreted as follows. First, if the module URI identifies an already loaded module, that module
-            is used and the location hints are ignored. Otherwise, each URI listed in the location hints is
-            resolved using the <c>XmlResolver</c> registered with the <c>Processor</c>.</para>
-            </remarks>
-        </member>
-        <member name="P:Saxon.Api.XQueryCompiler.ErrorList">
-            <summary>
-            List of errors. The caller should supply an empty list before calling Compile;
-            the processor will then populate the list with error information obtained during
-            the compilation. Each error will be included as an object of type StaticError.
-            If no error list is supplied by the caller, error information will be written to
-            the standard error stream.
-            </summary>
-            <remarks>
-            By supplying a custom List with a user-written add() method, it is possible to
-            intercept error conditions as they occur.
-            </remarks>
-        </member>
-        <member name="P:Saxon.Api.XQueryCompiler.Implementation">
-            <summary>
-            Escape hatch to the underying Java implementation
-            </summary>
-        </member>
-        <member name="T:Saxon.Api.XQueryExecutable">
-            <summary>
-            An <c>XQueryExecutable</c> represents the compiled form of a query. To execute the query,
-            it must first be loaded to form an <c>XQueryEvaluator</c>.
-            </summary>
-            <remarks>
-            <para>An <c>XQueryExecutable</c> is immutable, and therefore thread-safe. It is simplest to
-            load a new <c>XQueryEvaluator</c> each time the query is to be run. However, the 
-            <c>XQueryEvaluator</c> is serially reusable within a single thread.</para>
-            <para>An <c>XQueryExecutable</c> is created by using one of the <c>Compile</c>
-            methods on the <c>XQueryCompiler</c> class.</para>
-            </remarks>    
-        </member>
-        <member name="M:Saxon.Api.XQueryExecutable.Load">
-            <summary>
-            Load the query to prepare it for execution.
-            </summary>
-            <returns>
-            An <c>XQueryEvaluator</c>. The returned <c>XQueryEvaluator</c> can be used to
-            set up the dynamic context for query evaluation, and to run the query.
-            </returns>
-        </member>
-        <member name="T:Saxon.Api.XQueryEvaluator">
-            <summary inherits="IEnumerable">
-            An <c>XQueryEvaluator</c> represents a compiled and loaded query ready for execution.
-            The <c>XQueryEvaluator</c> holds details of the dynamic evaluation context for the query.
-            </summary>
-            <remarks>
-            <para>An <c>XQueryEvaluator</c> should not be used concurrently in multiple threads. It is safe,
-            however, to reuse the object within a single thread to run the same query several times.
-            Running the query does not change the context that has been established.</para>
-            <para>An <c>XQueryEvaluator</c> is always constructed by running the <c>Load</c> method of
-            an <c>XQueryExecutable</c>.</para>
-            </remarks>     
-        </member>
-        <member name="M:Saxon.Api.XQueryEvaluator.SetExternalVariable(Saxon.Api.QName,Saxon.Api.XdmValue)">
-            <summary>
-            Set the value of an external variable declared in the query.
-            </summary>
-            <param name="name">The name of the external variable, expressed
-            as a QName. If an external variable of this name has been declared in the
-            query prolog, the given value will be assigned to the variable. If the
-            variable has not been declared, calling this method has no effect (it is
-            not an error).</param>
-            <param name="value">The value to be given to the external variable.
-            If the variable declaration defines a required type for the variable, then
-            this value must match the required type: no conversions are applied.</param>
-        </member>
-        <member name="M:Saxon.Api.XQueryEvaluator.Evaluate">
-            <summary>
-            Evaluate the query, returning the result as an <c>XdmValue</c> (that is,
-            a sequence of nodes and/or atomic values).
-            </summary>
-            <returns>
-            An <c>XdmValue</c> representing the results of the query
-            </returns>
-            <exception cref="T:Saxon.Api.DynamicError">Throws a DynamicError if any run-time failure
-            occurs while evaluating the query.</exception>
-        </member>
-        <member name="M:Saxon.Api.XQueryEvaluator.EvaluateSingle">
-            <summary>
-            Evaluate the query, returning the result as an <c>XdmItem</c> (that is,
-            a single node or atomic value).
-            </summary>
-            <returns>
-            An <c>XdmItem</c> representing the result of the query, or null if the query
-            returns an empty sequence. If the query returns a sequence of more than one item,
-            any items after the first are ignored.
-            </returns>
-            <exception cref="T:Saxon.Api.DynamicError">Throws a DynamicError if any run-time failure
-            occurs while evaluating the expression.</exception>
-        </member>
-        <member name="M:Saxon.Api.XQueryEvaluator.GetEnumerator">
-            <summary>
-            Evaluate the query, returning the result as an <c>IEnumerator</c> (that is,
-            an enumerator over a sequence of nodes and/or atomic values).
-            </summary>
-            <returns>
-            An enumerator over the sequence that represents the results of the query.
-            Each object in this sequence will be an instance of <c>XdmItem</c>. Note
-            that the query may be evaluated lazily, which means that a successful response
-            from this method does not imply that the query has executed successfully: failures
-            may be reported later while retrieving items from the iterator. 
-            </returns>
-            <exception cref="T:Saxon.Api.DynamicError">Throws a DynamicError if any run-time failure
-            occurs while evaluating the expression.</exception>
-        </member>
-        <member name="M:Saxon.Api.XQueryEvaluator.Run(Saxon.Api.XmlDestination)">
-            <summary>
-            Evaluate the query, sending the result to a specified destination.
-            </summary>
-            <param name="destination">
-            The destination for the results of the query. The class <c>XmlDestination</c>
-            is an abstraction that allows a number of different kinds of destination
-            to be specified.
-            </param>
-            <exception cref="T:Saxon.Api.DynamicError">Throws a DynamicError if any run-time failure
-            occurs while evaluating the expression.</exception>
-        </member>
-        <member name="P:Saxon.Api.XQueryEvaluator.ContextItem">
-            <summary>
-            The context item for the query.
-            </summary>
-            <remarks> This may be either a node or an atomic
-            value. Most commonly it will be a document node, which might be constructed
-            using the <c>LoadDocument</c> method of the <c>Processor</c> object.
-            </remarks>
-        </member>
-        <member name="P:Saxon.Api.XQueryEvaluator.InputXmlResolver">
-            <summary>
-            The <code>XmlResolver</code> to be used at run-time to resolve and dereference URIs
-            supplied to the <c>doc()</c> function.
-            </summary>
-        </member>
-        <member name="T:Saxon.Api.IQueryResolver">
-            <summary>
-            Interface defining a user-supplied class used to retrieve XQUery library modules listed
-            in an <c>import module</c> declaration in the query prolog.
-            </summary>
-        </member>
-        <member name="M:Saxon.Api.IQueryResolver.GetModules(System.String,System.Uri,System.String[])">
-            <summary>
-            Given a module URI and a set of location hints, return a set of query modules.
-            </summary>
-            <param name="moduleUri">The URI of the required library module as written in the
-            <c>import module</c> declaration</param>
-            <param name="baseUri">The base URI of the module containing the <c>import module</c>
-            declaration</param>
-            <param name="locationHints">The sequence of URIs (if any) listed as location hints
-            in the <c>import module</c> declaration in the query prolog.</param>
-            <returns>A set of absolute Uris identifying the query modules to be loaded. There is no requirement
-            that these correspond one-to-one with the URIs defined in the <c>locationHints</c>. The 
-            returned URIs will be dereferenced by calling the <c>GetEntity</c> method.
-            </returns>
-        </member>
-        <member name="M:Saxon.Api.IQueryResolver.GetEntity(System.Uri)">
-            <summary>
-            Dereference a URI returned by <c>GetModules</c> to retrieve a <c>Stream</c> containing
-            the actual query text.
-            </summary>
-            <param name="absoluteUri">A URI returned by the <code>GetModules</code> method.</param>
-            <returns>Either a <c>Stream</c> or a <c>String</c> containing the query text. 
-            The supplied URI will be used as the base URI of the query module.</returns>
         </member>
         <member name="T:Saxon.Api.XdmValue">
             <summary>
@@ -1965,25 +2107,29 @@
             by the processor does not necessarily bear any direct resemblance to the way
             that the XSLT source code is written.</para></remarks>
         </member>
-        <member name="T:Saxon.Api.XPathCompiler">
+        <member name="T:Saxon.Api.XQueryCompiler">
             <summary>
-            An XPathCompiler object allows XPath queries to be compiled.
-            The compiler holds information that represents the static context
-            for the expression.
+            An XQueryCompiler object allows XQuery queries to be compiled.
             </summary>
             <remarks>
-            <para>To construct an XPathCompiler, use the factory method
-            <c>newXPathCompiler</c> on the <c>Processor</c> object.</para>
-            <para>An XPathCompiler may be used repeatedly to compile multiple
-            queries. Any changes made to the XPathCompiler (that is, to the
+            <para>To construct an <c>XQueryCompiler</c>, use the factory method
+            <c>newXQueryCompiler</c> on the <c>Processor</c> object.</para>
+            <para>The <c>XQueryCompiler</c> holds information that represents the static context
+            for the queries that it compiles. This information remains intact after performing
+            a compilation. An <c>XQueryCompiler</c> may therefore be used repeatedly to compile multiple
+            queries. Any changes made to the <c>XQueryCompiler</c> (that is, to the
             static context) do not affect queries that have already been compiled.
-            An XPathCompiler may be used concurrently in multiple threads, but
+            An <c>XQueryCompiler</c> may be used concurrently in multiple threads, but
             it should not then be modified once initialized.</para>
+            
             </remarks>
         </member>
-        <member name="M:Saxon.Api.XPathCompiler.DeclareNamespace(System.String,System.String)">
+        <member name="M:Saxon.Api.XQueryCompiler.DeclareNamespace(System.String,System.String)">
             <summary>
-            Declare a namespace for use by the XPath expression.
+            Declare a namespace for use by the query. This has the same
+            status as a namespace appearing within the query prolog (though
+            a declaration in the query prolog of the same prefix will take
+            precedence)
             </summary>
             <param name="prefix">The namespace prefix to be declared. Use
             a zero-length string to declare the default namespace (that is, the
@@ -1991,387 +2137,241 @@
             <param name="uri">The namespace URI. It is possible to specify
             a zero-length string to "undeclare" a namespace.</param>
         </member>
-        <member name="M:Saxon.Api.XPathCompiler.DeclareVariable(Saxon.Api.QName)">
+        <member name="M:Saxon.Api.XQueryCompiler.Compile(System.IO.Stream)">
             <summary>
-            Declare a variable for use by the XPath expression. If the expression
-            refers to any variables, then they must be declared here.
+            Compile a query supplied as a Stream.
             </summary>
-            <param name="name">The name of the variable, as a <c>QName</c></param>
-        </member>
-        <member name="M:Saxon.Api.XPathCompiler.Compile(System.String)">
-            <summary>
-            Compile an expression supplied as a String.
-            </summary>
+            <remarks>
+            <para>The XQuery processor attempts to deduce the encoding of the query
+            by looking for a byte-order-mark, or if none is present, by looking
+            for the encoding declaration in the XQuery version declaration.
+            For this to work, the stream must have the <c>CanSeek</c> property.
+            If no encoding information is present, UTF-8 is assumed.</para>
+            <para>The base URI of the query is set to the value of the <c>BaseUri</c>
+            property. If this has not been set, then the base URI will be undefined, which
+            means that any use of an expression that depends on the base URI will cause
+            an error.</para>
+            </remarks>
             <example>
             <code>
-            XPathExecutable q = compiler.Compile("distinct-values(//*/node-name()");
+            XQueryExecutable q = compiler.Compile(new FileStream("input.xq", FileMode.Open, FileAccess.Read));
             </code>
             </example>
-            <param name="source">A string containing the source text of the XPath expression</param>
-            <returns>An <c>XPathExecutable</c> which represents the compiled xpath expression object.
-            The XPathExecutable may be run as many times as required, in the same or a different
-            thread. The <c>XPathExecutable</c> is not affected by any changes made to the <c>XPathCompiler</c>
+            <param name="query">A stream containing the source text of the query</param>
+            <returns>An <c>XQueryExecutable</c> which represents the compiled query object.
+            The XQueryExecutable may be run as many times as required, in the same or a different
+            thread. The <c>XQueryExecutable</c> is not affected by any changes made to the <c>XQueryCompiler</c>
             once it has been compiled.</returns>
+            <exception cref="T:Saxon.Api.StaticError">Throws a StaticError if errors were detected
+            during static analysis of the query. Details of the errors will be added as StaticError
+            objects to the ErrorList if supplied; otherwise they will be written to the standard
+            error stream. The exception that is returned is merely a summary indicating the
+            status.</exception>
         </member>
-        <member name="P:Saxon.Api.XPathCompiler.BaseUri">
+        <member name="M:Saxon.Api.XQueryCompiler.Compile(System.String)">
             <summary>
-            The base URI of the expression, which forms part of the static context
-            of the expression. This is used for resolving any relative URIs appearing
-            within the expression, for example in references to library modules, schema
+            Compile a query supplied as a String.
+            </summary>
+            <remarks>
+            Using this method the query processor is provided with a string of Unicode
+            characters, so no decoding is necessary. Any encoding information present in the
+            version declaration is therefore ignored.
+            </remarks>
+            <example>
+            <code>
+            XQueryExecutable q = compiler.Compile("distinct-values(//*/node-name()");
+            </code>
+            </example>
+            <param name="query">A string containing the source text of the query</param>
+            <returns>An <c>XQueryExecutable</c> which represents the compiled query object.
+            The XQueryExecutable may be run as many times as required, in the same or a different
+            thread. The <c>XQueryExecutable</c> is not affected by any changes made to the <c>XQueryCompiler</c>
+            once it has been compiled.</returns>
+            <exception cref="T:Saxon.Api.StaticError">Throws a StaticError if errors were detected
+            during static analysis of the query. Details of the errors will be added as StaticError
+            objects to the ErrorList if supplied; otherwise they will be written to the standard
+            error stream. The exception that is returned is merely a summary indicating the
+            status.</exception>        
+        </member>
+        <member name="P:Saxon.Api.XQueryCompiler.BaseUri">
+            <summary>
+            The base URI of the query, which forms part of the static context
+            of the query. This is used for resolving any relative URIs appearing
+            within the query, for example in references to library modules, schema
             locations, or as an argument to the <c>doc()</c> function.
             </summary>
         </member>
-        <member name="P:Saxon.Api.XPathCompiler.BackwardsCompatible">
+        <member name="P:Saxon.Api.XQueryCompiler.QueryResolver">
             <summary>
-            XPath 1.0 Backwards Compatibility Mode. If true, backwards compatibility mode
-            is set. In backwards compatibility mode, more implicit type conversions are
-            allowed in XPath expressions, for example it is possible to compare a number
-            with a string. The default is false (backwards compatibility mode is off).
-            </summary>
-        </member>
-        <member name="T:Saxon.Api.XPathExecutable">
-            <summary>
-            An <c>XPathExecutable</c> represents the compiled form of an XPath expression. 
-            To evaluate the expression,
-            it must first be loaded to form an <c>XPathSelector</c>.
+            A user-supplied <c>IQueryResolver</c> used to resolve location hints appearing in an
+            <c>import module</c> declaration.
             </summary>
             <remarks>
-            <para>An <c>XPathExecutable</c> is immutable, and therefore thread-safe. It is simplest to
-            load a new <c>XPathSelector</c> each time the expression is to be evaluated. However, the 
-            <c>XPathSelector</c> is serially reusable within a single thread.</para>
-            <para>An <c>XPathExecutable</c> is created by using one of the <c>Compile</c>
-            methods on the <c>XPathCompiler</c> class.</para>
+            <para>In the absence of a user-supplied <c>QueryResolver</c>, an <c>import module</c> declaration
+            is interpreted as follows. First, if the module URI identifies an already loaded module, that module
+            is used and the location hints are ignored. Otherwise, each URI listed in the location hints is
+            resolved using the <c>XmlResolver</c> registered with the <c>Processor</c>.</para>
+            </remarks>
+        </member>
+        <member name="P:Saxon.Api.XQueryCompiler.ErrorList">
+            <summary>
+            List of errors. The caller should supply an empty list before calling Compile;
+            the processor will then populate the list with error information obtained during
+            the compilation. Each error will be included as an object of type StaticError.
+            If no error list is supplied by the caller, error information will be written to
+            the standard error stream.
+            </summary>
+            <remarks>
+            By supplying a custom List with a user-written add() method, it is possible to
+            intercept error conditions as they occur.
+            </remarks>
+        </member>
+        <member name="P:Saxon.Api.XQueryCompiler.Implementation">
+            <summary>
+            Escape hatch to the underying Java implementation
+            </summary>
+        </member>
+        <member name="T:Saxon.Api.XQueryExecutable">
+            <summary>
+            An <c>XQueryExecutable</c> represents the compiled form of a query. To execute the query,
+            it must first be loaded to form an <c>XQueryEvaluator</c>.
+            </summary>
+            <remarks>
+            <para>An <c>XQueryExecutable</c> is immutable, and therefore thread-safe. It is simplest to
+            load a new <c>XQueryEvaluator</c> each time the query is to be run. However, the 
+            <c>XQueryEvaluator</c> is serially reusable within a single thread.</para>
+            <para>An <c>XQueryExecutable</c> is created by using one of the <c>Compile</c>
+            methods on the <c>XQueryCompiler</c> class.</para>
             </remarks>    
         </member>
-        <member name="M:Saxon.Api.XPathExecutable.Load">
+        <member name="M:Saxon.Api.XQueryExecutable.Load">
             <summary>
-            Load the compiled XPath expression to prepare it for execution.
+            Load the query to prepare it for execution.
             </summary>
             <returns>
-            An <c>XPathSelector</c>. The returned <c>XPathSelector</c> can be used to
-            set up the dynamic context, and then to evaluate the expression.
+            An <c>XQueryEvaluator</c>. The returned <c>XQueryEvaluator</c> can be used to
+            set up the dynamic context for query evaluation, and to run the query.
             </returns>
         </member>
-        <member name="T:Saxon.Api.XPathSelector">
+        <member name="T:Saxon.Api.XQueryEvaluator">
             <summary inherits="IEnumerable">
-            An <c>XPathSelector</c> represents a compiled and loaded XPath expression ready for execution.
-            The <c>XPathSelector</c> holds details of the dynamic evaluation context for the XPath expression.
+            An <c>XQueryEvaluator</c> represents a compiled and loaded query ready for execution.
+            The <c>XQueryEvaluator</c> holds details of the dynamic evaluation context for the query.
             </summary>
             <remarks>
-            <para>An <c>XPathSelector</c> should not be used concurrently in multiple threads. It is safe,
-            however, to reuse the object within a single thread to evaluate the same XPath expression several times.
-            Evaluating the expression does not change the context that has been established.</para>
-            <para>An <c>XPathSelector</c> is always constructed by running the <c>Load</c> method of
-            an <c>XPathExecutable</c>.</para>
+            <para>An <c>XQueryEvaluator</c> should not be used concurrently in multiple threads. It is safe,
+            however, to reuse the object within a single thread to run the same query several times.
+            Running the query does not change the context that has been established.</para>
+            <para>An <c>XQueryEvaluator</c> is always constructed by running the <c>Load</c> method of
+            an <c>XQueryExecutable</c>.</para>
             </remarks>     
         </member>
-        <member name="M:Saxon.Api.XPathSelector.SetVariable(Saxon.Api.QName,Saxon.Api.XdmValue)">
+        <member name="M:Saxon.Api.XQueryEvaluator.SetExternalVariable(Saxon.Api.QName,Saxon.Api.XdmValue)">
             <summary>
-            Set the value of a variable
-            <param name="name">The name of the variable. This must match the name of a variable
-            that was declared to the XPathCompiler. No error occurs if the expression does not
-            actually reference a variable with this name.</param>
-            <param name="value">The value to be given to the variable.</param>
+            Set the value of an external variable declared in the query.
             </summary>
+            <param name="name">The name of the external variable, expressed
+            as a QName. If an external variable of this name has been declared in the
+            query prolog, the given value will be assigned to the variable. If the
+            variable has not been declared, calling this method has no effect (it is
+            not an error).</param>
+            <param name="value">The value to be given to the external variable.
+            If the variable declaration defines a required type for the variable, then
+            this value must match the required type: no conversions are applied.</param>
         </member>
-        <member name="M:Saxon.Api.XPathSelector.Evaluate">
+        <member name="M:Saxon.Api.XQueryEvaluator.Evaluate">
             <summary>
-            Evaluate the expression, returning the result as an <c>XdmValue</c> (that is,
+            Evaluate the query, returning the result as an <c>XdmValue</c> (that is,
             a sequence of nodes and/or atomic values).
             </summary>
-            <remarks>
-            Although a singleton result <i>may</i> be represented as an <c>XdmItem</c>, there is
-            no guarantee that this will always be the case. If you know that the expression will return at
-            most one node or atomic value, it is best to use the <c>EvaluateSingle</c> method, which 
-            does guarantee that an <c>XdmItem</c> (or null) will be returned.
-            </remarks>
             <returns>
-            An <c>XdmValue</c> representing the results of the expression. 
+            An <c>XdmValue</c> representing the results of the query
             </returns>
+            <exception cref="T:Saxon.Api.DynamicError">Throws a DynamicError if any run-time failure
+            occurs while evaluating the query.</exception>
         </member>
-        <member name="M:Saxon.Api.XPathSelector.EvaluateSingle">
+        <member name="M:Saxon.Api.XQueryEvaluator.EvaluateSingle">
             <summary>
-            Evaluate the XPath expression, returning the result as an <c>XdmItem</c> (that is,
+            Evaluate the query, returning the result as an <c>XdmItem</c> (that is,
             a single node or atomic value).
             </summary>
             <returns>
-            An <c>XdmItem</c> representing the result of the expression, or null if the expression
-            returns an empty sequence. If the expression returns a sequence of more than one item,
+            An <c>XdmItem</c> representing the result of the query, or null if the query
+            returns an empty sequence. If the query returns a sequence of more than one item,
             any items after the first are ignored.
             </returns>
+            <exception cref="T:Saxon.Api.DynamicError">Throws a DynamicError if any run-time failure
+            occurs while evaluating the expression.</exception>
         </member>
-        <member name="M:Saxon.Api.XPathSelector.GetEnumerator">
+        <member name="M:Saxon.Api.XQueryEvaluator.GetEnumerator">
             <summary>
-            Evaluate the expression, returning the result as an <c>IEnumerator</c> (that is,
+            Evaluate the query, returning the result as an <c>IEnumerator</c> (that is,
             an enumerator over a sequence of nodes and/or atomic values).
             </summary>
             <returns>
-            An enumerator over the sequence that represents the results of the expression.
+            An enumerator over the sequence that represents the results of the query.
             Each object in this sequence will be an instance of <c>XdmItem</c>. Note
-            that the expression may be evaluated lazily, which means that a successful response
-            from this method does not imply that the expression has executed successfully: failures
+            that the query may be evaluated lazily, which means that a successful response
+            from this method does not imply that the query has executed successfully: failures
             may be reported later while retrieving items from the iterator. 
             </returns>
+            <exception cref="T:Saxon.Api.DynamicError">Throws a DynamicError if any run-time failure
+            occurs while evaluating the expression.</exception>
         </member>
-        <member name="P:Saxon.Api.XPathSelector.ContextItem">
+        <member name="M:Saxon.Api.XQueryEvaluator.Run(Saxon.Api.XmlDestination)">
             <summary>
-            The context item for the XPath expression evaluation.
+            Evaluate the query, sending the result to a specified destination.
+            </summary>
+            <param name="destination">
+            The destination for the results of the query. The class <c>XmlDestination</c>
+            is an abstraction that allows a number of different kinds of destination
+            to be specified.
+            </param>
+            <exception cref="T:Saxon.Api.DynamicError">Throws a DynamicError if any run-time failure
+            occurs while evaluating the expression.</exception>
+        </member>
+        <member name="P:Saxon.Api.XQueryEvaluator.ContextItem">
+            <summary>
+            The context item for the query.
             </summary>
             <remarks> This may be either a node or an atomic
             value. Most commonly it will be a document node, which might be constructed
-            using the <c>Build</c> method of the <c>DocumentBuilder</c> object.
+            using the <c>LoadDocument</c> method of the <c>Processor</c> object.
             </remarks>
         </member>
-        <member name="T:Saxon.Api.SchemaManager">
+        <member name="P:Saxon.Api.XQueryEvaluator.InputXmlResolver">
             <summary>
-            A <c>SchemaManager</c> is responsible for compiling schemas and
-            maintaining a cache of compiled schemas that can be used for validating
-            instance documents.
-            </summary>
-            <remarks>
-            <para>To obtain a <c>SchemaManager</c>, use the 
-            <c>SchemaManager</c> property of the <c>Processor</c> object.</para>
-            <para>In a schema-aware Processor there is exactly one
-            <c>SchemaManager</c> (in a non-schema-aware Processor there is none).</para>
-            <para>The cache of compiled schema definitions can include only one schema
-            component (for example a type, or an element declaration) with any given name.
-            An attempt to compile two different schemas in the same namespace will usually
-            therefore fail.</para>
-            <para>As soon as a type definition or element declaration is used for the first
-            time in a validation episode, it is marked as being "sealed": this prevents subsequent
-            modifications to the component. Examples of modifications that are thereby disallowed
-            include adding to the substitution group of an existing element declaration, adding subtypes
-            to an existing type, or redefining components using &lt;xs:redefine&gt;</para>
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.SchemaManager.Compile(System.IO.Stream,System.Uri)">
-            <summary>
-            Compile a schema supplied as a Stream. The resulting schema components are added
-            to the cache.
-            </summary>
-            <param name="input">A stream containing the source text of the schema</param>
-            <param name="baseUri">The base URI of the schema document, for resolving any references to other
-            schema documents</param>        
-        </member>
-        <member name="M:Saxon.Api.SchemaManager.Compile(System.Uri)">
-            <summary>
-            Compile a schema, retrieving the source using a URI. The resulting schema components are added
-            to the cache.
-            </summary>
-            <remarks>
-            The document located via the URI is parsed using the <c>System.Xml</c> parser.
-            </remarks>
-            <param name="uri">The URI identifying the location where the schema document can be
-            found</param>
-        </member>
-        <member name="M:Saxon.Api.SchemaManager.Compile(System.Xml.XmlReader)">
-            <summary>
-            Compile a schema, delivered using an XmlReader. The resulting schema components are added
-            to the cache.
-            </summary>
-            <remarks>
-            The <c>XmlReader</c> is responsible for parsing the document; this method builds a tree
-            representation of the document (in an internal Saxon format) and compiles it.
-            If the <c>XmlReader</c> is an <c>XmlTextReader</c>, Saxon will set its <c>Normalization</c>
-            property to true, and will wrap it in a (non-validating) <c>XmlValidatingReader</c> to ensure
-            that entity references are expanded.
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.SchemaManager.Compile(Saxon.Api.XdmNode)">
-            <summary>
-            Compile a schema document, located at an XdmNode. This may be a document node whose
-            child is an <c>xs:schema</c> element, or it may be
-            the <c>xs:schema</c> element itself. The resulting schema components are added
-            to the cache.
+            The <code>XmlResolver</code> to be used at run-time to resolve and dereference URIs
+            supplied to the <c>doc()</c> function.
             </summary>
         </member>
-        <member name="M:Saxon.Api.SchemaManager.NewSchemaValidator">
+        <member name="T:Saxon.Api.IQueryResolver">
             <summary>
-            Create a new <c>SchemaValidator</c>, which may be used for validating instance
-            documents.
-            </summary>
-            <remarks>
-            <para>The <c>SchemaValidator</c> uses the cache of schema components held by the
-            <c>SchemaManager</c>. It may also add new components to this cache (for example,
-            when the instance document references a schema using <c>xsi:schemaLocation</c>).
-            It is also affected by changes to the schema cache that occur after the 
-            <c>SchemaValidator</c> is created.</para>
-            <para>When schema components are used for validating instance documents (or for compiling
-            schema-aware queries and stylesheets) they are <i>sealed</i> to prevent subsequent modification.
-            The modifications disallowed once a component is sealed include adding to the substitution group
-            of an element declaration, adding subtypes derived by extension to an existing complex type, and
-            use of <c>&lt;xs:redefine&gt;</c></para>
-            </remarks>
-        </member>
-        <member name="P:Saxon.Api.SchemaManager.SchemaResolver">
-            <summary>
-            The SchemaResolver is a user-supplied class used for resolving references to
-            schema documents. It applies to references from one schema document to another
-            appearing in <c>xs:import</c>, <c>xs:include</c>, and <c>xs:redefine</c>; to
-            references from an instance document to a schema in <c>xsi:schemaLocation</c> and
-            <c>xsi:noNamespaceSchemaLocation</c>, to <c>xsl:import-schema</c> in XSLT, and to
-            the <c>import schema</c> declaration in XQuery.
+            Interface defining a user-supplied class used to retrieve XQUery library modules listed
+            in an <c>import module</c> declaration in the query prolog.
             </summary>
         </member>
-        <member name="P:Saxon.Api.SchemaManager.ErrorList">
+        <member name="M:Saxon.Api.IQueryResolver.GetModules(System.String,System.Uri,System.String[])">
             <summary>
-            List of errors. The caller may supply an empty list before calling Compile;
-            the processor will then populate the list with error information obtained during
-            the schema compilation. Each error will be included as an object of type StaticError.
-            If no error list is supplied by the caller, error information will be written to
-            the standard error stream.
+            Given a module URI and a set of location hints, return a set of query modules.
             </summary>
-            <remarks>
-            <para>By supplying a custom List with a user-written add() method, it is possible to
-            intercept error conditions as they occur.</para>
-            <para>Note that this error list is used only for errors detected during the compilation
-            of the schema. It is not used for errors detected when using the schema to validate
-            a source document.</para>
-            </remarks>
-        </member>
-        <member name="T:Saxon.Api.SchemaValidator">
-            <summary>
-            A <c>SchemaValidator</c> is an object that is used for validating instance documents
-            against a schema. The schema consists of the collection of schema components that are
-            available within the schema cache maintained by the <c>SchemaManager</c>, together with
-            any additional schema components located during the course of validation by means of an
-            <c>xsl:schemaLocation</c> or <c>xsi:noNamespaceSchemaLocation</c> attribute within the
-            instance document.
-            </summary>
-            <remarks>
-            If validation fails, an exception is thrown. If validation succeeds, the validated
-            document can optionally be written to a specified destination. This will be a copy of
-            the original document, augmented with default values for absent elements and attributes,
-            and carrying type annotations derived from the schema processing. Saxon does not deliver
-            the full PSVI as described in the XML schema specifications, only the subset of the
-            PSVI properties featured in the XDM data model.
-            </remarks>    
-        </member>
-        <member name="M:Saxon.Api.SchemaValidator.SetSource(System.IO.Stream,System.Uri)">
-            <summary>
-            Supply the instance document to be validated in the form of a Stream
-            </summary>
-            <param name="source">A stream containing the XML document to be parsed
-            and validated.</param>
-            <param name="baseUri">The base URI to be used for resolving any relative
-            references, for example a reference to an <c>xsi:schemaLocation</c></param>                  
-        </member>
-        <member name="M:Saxon.Api.SchemaValidator.SetSource(System.Uri)">
-            <summary>
-            Supply the instance document to be validated in the form of a Uri reference
-            </summary>
-            <remarks>
-            <para>The supplied node must be either a document node or an element node.
-            If an element node is supplied, then the subtree rooted at this element is
-            validated as if it were a complete document: that is, it must not only conform
-            to the structure required of that element, but any referential constraints
-            (keyref, IDREF) must be satisfied within that subtree.
-            </para>
-            </remarks>
-            <param name="baseUri">URI of the document to be validated</param>                  
-        </member>
-        <member name="M:Saxon.Api.SchemaValidator.SetSource(System.Xml.XmlReader)">
-            <summary>
-            Supply the instance document to be validated, in the form of an XmlReader.
-            </summary>
-            <remarks>
-            The XmlReader is responsible for parsing the document; this method validates it.
-            </remarks>
-            <param name="reader">The <c>XmlReader</c> used to read and parse the instance
-            document being validated. This is used as supplied. For conformance, use of a
-            plain <c>XmlTextReader</c> is discouraged, because it does not expand entity
-            references. This may cause validation failures.
-            </param>
-        </member>
-        <member name="M:Saxon.Api.SchemaValidator.SetSource(Saxon.Api.XdmNode)">
-            <summary>
-            Supply the instance document to be validated in the form of an XdmNode
-            </summary>
-            <remarks>
-            <para>The supplied node must be either a document node or an element node.
-            If an element node is supplied, then the subtree rooted at this element is
-            validated as if it were a complete document: that is, it must not only conform
-            to the structure required of that element, but any referential constraints
-            (keyref, IDREF) must be satisfied within that subtree.
-            </para>
-            </remarks>
-            <param name="source">The document or element node at the root of the tree
-            to be validated</param>        
-        </member>
-        <member name="M:Saxon.Api.SchemaValidator.SetDestination(Saxon.Api.XmlDestination)">
-            <summary>
-            Supply the destination to hold the validated document. If no destination
-            is supplied, the validated document is discarded.
-            </summary>
-            <remarks>
-            The destination differs from the source in that (a) default values of missing
-            elements and attributes are supplied, and (b) the typed values of elements and
-            attributes are available. However, typed values can only be accessed if the result
-            is represented using the XDM data model, that is, if the destination is supplied
-            as an XdmDestination.
-            </remarks>
-        </member>
-        <member name="M:Saxon.Api.SchemaValidator.Run">
-            <summary>
-            Run the validation of the supplied source document, optionally
-            writing the validated document to the supplied destination.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.SchemaValidator.IsLax">
-            <summary>
-            The validation mode may be either strict or lax. The default is strict;
-            this property is set to indicate that lax validation is required. With strict validation,
-            validation fails if no element declaration can be located for the outermost element. With lax
-            validation, the absence of an element declaration results in the content being considered valid.
-            </summary>
-        </member>
-        <member name="P:Saxon.Api.SchemaValidator.ErrorList">
-            <summary>
-            List of errors. The caller may supply an empty list before calling Compile;
-            the processor will then populate the list with error information obtained during
-            the schema compilation. Each error will be included as an object of type StaticError.
-            If no error list is supplied by the caller, error information will be written to
-            the standard error stream.
-            </summary>
-            <remarks>
-            <para>By supplying a custom List with a user-written add() method, it is possible to
-            intercept error conditions as they occur.</para>
-            <para>Note that this error list is used only for errors detected while 
-            using the schema to validate a source document. It is not used to report errors
-            in the schema itself.</para>
-            </remarks>
-        </member>
-        <member name="T:Saxon.Api.SchemaResolver">
-            <summary>
-            The SchemaResolver is a user-supplied class used for resolving references to
-            schema documents. It applies to references from one schema document to another
-            appearing in <c>xs:import</c>, <c>xs:include</c>, and <c>xs:redefine</c>; to
-            references from an instance document to a schema in <c>xsi:schemaLocation</c> and
-            <c>xsi:noNamespaceSchemaLocation</c>, to <c>xsl:import-schema</c> in XSLT, and to
-            the <c>import schema</c> declaration in XQuery.
-            </summary>
-        </member>
-        <member name="M:Saxon.Api.SchemaResolver.GetSchemaDocuments(System.String,System.Uri,System.String[])">
-            <summary>
-            Given a targetNamespace and a set of location hints, return a set of schema documents.
-            </summary>
-            <param name="targetNamespace">The target namespace of the required schema components</param>
-            <param name="baseUri">The base URI of the module containing the reference to a schema document
+            <param name="moduleUri">The URI of the required library module as written in the
+            <c>import module</c> declaration</param>
+            <param name="baseUri">The base URI of the module containing the <c>import module</c>
             declaration</param>
-            <param name="locationHints">The sequence of URIs (if any) listed as location hints.
-            In most cases there will only be one; but the <c>import schema</c> declaration in
-            XQuery permits several.</param>
+            <param name="locationHints">The sequence of URIs (if any) listed as location hints
+            in the <c>import module</c> declaration in the query prolog.</param>
             <returns>A set of absolute Uris identifying the query modules to be loaded. There is no requirement
             that these correspond one-to-one with the URIs defined in the <c>locationHints</c>. The 
             returned URIs will be dereferenced by calling the <c>GetEntity</c> method.
             </returns>
         </member>
-        <member name="M:Saxon.Api.SchemaResolver.GetEntity(System.Uri)">
+        <member name="M:Saxon.Api.IQueryResolver.GetEntity(System.Uri)">
             <summary>
             Dereference a URI returned by <c>GetModules</c> to retrieve a <c>Stream</c> containing
-            the actual XML schema document.
+            the actual query text.
             </summary>
-            <param name="absoluteUri">A URI returned by the <code>GetSchemaDocuments</code> method.</param>
+            <param name="absoluteUri">A URI returned by the <code>GetModules</code> method.</param>
             <returns>Either a <c>Stream</c> or a <c>String</c> containing the query text. 
             The supplied URI will be used as the base URI of the query module.</returns>
         </member>

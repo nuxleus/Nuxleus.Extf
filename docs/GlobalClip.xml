@@ -28,21 +28,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:X5.ClipItem.#ctor">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:X5.ClipItem._Data">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:X5.ClipItem._MetaData">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:GlobalClip.AmazonAWS.S3.AmazonS3">
             <remarks/>
         </member>
@@ -570,6 +555,21 @@
         </member>
         <member name="T:GlobalClip.AmazonAWS.S3.SetBucketLoggingStatusCompletedEventHandler">
             <remarks/>
+        </member>
+        <member name="M:X5.ClipItem.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:X5.ClipItem._Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:X5.ClipItem._MetaData">
+            <summary>
+            
+            </summary>
         </member>
         <member name="M:X5.ClipData`1.#ctor">
             <summary>

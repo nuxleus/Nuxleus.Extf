@@ -4,18 +4,6 @@
         <name>AmazonAWS.S3</name>
     </assembly>
     <members>
-        <member name="T:com.amazon.s3.QueryStringAuthGenerator">
-            This class mimics the behavior of AWSAuthConnection, except instead of actually performing
-            the operation, QueryStringAuthGenerator will return URLs with query string parameters that
-            can be used to do the same thing.  These parameters include an expiration date, so that
-            if you hand them off to someone else, they will only work for a limited amount of time.
-        </member>
-        <member name="P:com.amazon.s3.QueryStringAuthGenerator.Expires">
-            <summary>
-            Sets/Gets the milliseconds since the Epoch that this
-            expires at
-            </summary>
-        </member>
         <member name="T:com.amazon.s3.AWSAuthConnection">
             An interface into the S3 system.  It is initially configured with
             authentication and connection parameters and exposes methods to access and
@@ -187,6 +175,23 @@
             </summary>
             <param name="resource">The resource name (bucketName + "/" + key)</param>
         </member>
+        <member name="T:com.amazon.s3.QueryStringAuthGenerator">
+            This class mimics the behavior of AWSAuthConnection, except instead of actually performing
+            the operation, QueryStringAuthGenerator will return URLs with query string parameters that
+            can be used to do the same thing.  These parameters include an expiration date, so that
+            if you hand them off to someone else, they will only work for a limited amount of time.
+        </member>
+        <member name="P:com.amazon.s3.QueryStringAuthGenerator.Expires">
+            <summary>
+            Sets/Gets the milliseconds since the Epoch that this
+            expires at
+            </summary>
+        </member>
+        <member name="F:com.amazon.s3.CommonPrefixEntry.prefix">
+            <summary>
+            The prefix common to the delimited keys it represents.
+            </summary>
+        </member>
         <member name="F:com.amazon.s3.ListBucketResponse.name">
             <summary>
             The name of the bucket being listed.  Null if the request fails.
@@ -237,11 +242,6 @@
             <summary>
             A list of CommonPrefixEntry objects representing the common prefixes of the
             keys that matched up to the delimiter.  Null if the request fails.
-            </summary>
-        </member>
-        <member name="F:com.amazon.s3.CommonPrefixEntry.prefix">
-            <summary>
-            The prefix common to the delimited keys it represents.
             </summary>
         </member>
     </members>
