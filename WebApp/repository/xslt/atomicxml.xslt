@@ -14,8 +14,8 @@
   <xsl:param name="css-base-class"/>
   <xsl:param name="rights"/>
   <xsl:param name="author"/>
-  <xsl:param name="city"/>
-  <xsl:param name="country"/>
+  <xsl:param name="city" select="'unknown'"/>
+  <xsl:param name="country" select="'unknown'"/>
   <xsl:param name="ip"/>
   <xsl:param name="lat"/>
   <xsl:param name="long"/>
