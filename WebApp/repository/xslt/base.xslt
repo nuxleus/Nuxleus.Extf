@@ -14,7 +14,7 @@
   <xsl:variable name="css-base-class" select="'base'" as="xs:string"/>
 
   <xsl:variable name="geoip-data"
-    select="document(concat('http://codemerge.sonicradar.com:3000/ipgeolocator/geocode?ip=', $request.ip))/location"/>
+    select="document(concat('http://codemerge.sonicradar.com:3000/ipgeolocator/geocode?debug=true&amp;ip=', $request.ip))/location"/>
   <xsl:param name="lat" select="substring-before($geoip-data/point, '&#32;')" as="xs:string"/>
   <xsl:param name="long" select="substring-after($geoip-data/point, '&#32;')" as="xs:string"/>
   <xsl:param name="map-depth" select="'8'" as="xs:string"/>
