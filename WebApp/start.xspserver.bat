@@ -1,1 +1,0 @@
-.\bin\ipy.exe -X:SaveAssemblies .\xspserver.py
