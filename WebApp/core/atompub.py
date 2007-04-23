@@ -56,3 +56,7 @@ def resource_storage_name_generator(base_uri, slug, title):
     if title:
         return unicode('%s' % title.replace(' ', '-'))
     raise ValueError, 'Missing slug or title to generate the resource name'
+
+def validate_collection_feed(collection, feed):
+    """Allows some tuning of the collection feed before it is returned"""
+    return feed
