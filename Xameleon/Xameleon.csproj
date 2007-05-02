@@ -53,7 +53,9 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -97,17 +99,79 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Transform\Transform.Context.cs" />
     <Compile Include="Transform\Transform.cs" />
     <Compile Include="Transform\Transform.Init.cs" />
     <Compile Include="Transform\Transform.Process.cs" />
+    <Compile Include="Web References\AmazonAWS.SQS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="WSGI\WSGI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\trunk\Resources\Extf.Net.snk">
       <Link>Extf.Net.snk</Link>
     </None>
+    <None Include="app.config" />
     <None Include="Configuration\App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\AccessControl.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\AddGrantResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\CreateQueueResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\DeleteMessageResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\DeleteQueueResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\GetVisibilityTimeoutResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\ListGrantsResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\ListQueuesResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\PeekMessageResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\QueueService.wsdl" />
+    <None Include="Web References\AmazonAWS.SQS\QueueService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\ReceiveMessageResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\RemoveGrantResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\SendMessageResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\SetVisibilityTimeoutResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GlobalClip\GlobalClip.csproj">
@@ -125,6 +189,22 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://queue.amazonaws.com/doc/2006-04-01/QueueService.wsdl%3f">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AmazonAWS.SQS\</RelPath>
+      <UpdateFromURL>http://queue.amazonaws.com/doc/2006-04-01/QueueService.wsdl%3f</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Xameleon_AmazonAWS_SQS_QueueService</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
