@@ -178,6 +178,10 @@
       <Project>{9B9C08A7-0E8A-45AA-AEB4-7A5796DB1C26}</Project>
       <Name>GlobalClip</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VendorExtensions\S3\AmazonAWS.S3\AmazonAWS.S3.csproj">
+      <Project>{8D92E7E5-ECF3-4F24-BBB3-D03D273D6A80}</Project>
+      <Name>AmazonAWS.S3</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
       <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
       <Name>Saxon.Api</Name>
