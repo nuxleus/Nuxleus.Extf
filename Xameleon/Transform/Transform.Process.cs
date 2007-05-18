@@ -71,6 +71,15 @@ namespace Xameleon
                             transformer.SetParameter(new QName("", "", local), new XdmAtomicValue(this._XsltParams[local]));
                         }
                     }
+                    if (request.QueryString.Count > 0)
+                    {
+                        IEnumerator enumerator = request.QueryString.GetEnumerator();
+                        for (int i = 0; enumerator.MoveNext(); i++)
+                        {
+                            string local = request.QueryString.AllKeys[i].ToString();
+                            transformer.SetParameter(new QName("", "", local), new XdmAtomicValue(request.QueryString[local]));
+                        }
+                    }
                     // temporary hack
                     transformer.SetParameter(new QName("", "", "request.ip"), new XdmAtomicValue(request.UserHostAddress));
                     // end temporary hack

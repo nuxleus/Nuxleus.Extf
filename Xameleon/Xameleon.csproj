@@ -10,7 +10,7 @@
     <RootNamespace>Xameleon</RootNamespace>
     <AssemblyName>Xameleon</AssemblyName>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\trunk\Resources\Extf.Net.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Extf.Net.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -111,16 +111,13 @@
     <Compile Include="Web References\AmazonAWS.SQS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="WSGI\WSGI.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\trunk\Resources\Extf.Net.snk">
-      <Link>Extf.Net.snk</Link>
-    </None>
     <None Include="app.config" />
     <None Include="Configuration\App.config" />
+    <None Include="Extf.Net.snk" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -129,45 +126,34 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Web References\AmazonAWS.SQS\AddGrantResponse.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonAWS.SQS\CreateQueueResponse.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonAWS.SQS\DeleteMessageResponse.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonAWS.SQS\DeleteQueueResponse.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonAWS.SQS\GetVisibilityTimeoutResponse.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonAWS.SQS\ListGrantsResponse.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonAWS.SQS\ListQueuesResponse.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonAWS.SQS\PeekMessageResponse.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonAWS.SQS\QueueService.wsdl" />
     <None Include="Web References\AmazonAWS.SQS\QueueService.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Web References\AmazonAWS.SQS\ReceiveMessageResponse.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonAWS.SQS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\AmazonAWS.SQS\RemoveGrantResponse.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonAWS.SQS\SendMessageResponse.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonAWS.SQS\SetVisibilityTimeoutResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -212,6 +198,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\gacutil /i Xameleon.dll /f</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
