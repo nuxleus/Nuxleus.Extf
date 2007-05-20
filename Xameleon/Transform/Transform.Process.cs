@@ -47,7 +47,7 @@ namespace Xameleon
         {
             HttpRequest request = context.Request;
             HttpResponse response = context.Response;
-            Uri absoluteUri = new Uri(context.Server.MapPath(request.RawUrl));
+            Uri absoluteUri = new Uri(context.Server.MapPath(request.FilePath));
             if (!this._IS_INITIALIZED)
             {
                 this.Init(context);
@@ -71,6 +71,7 @@ namespace Xameleon
                             transformer.SetParameter(new QName("", "", local), new XdmAtomicValue(this._XsltParams[local]));
                         }
                     }
+                    // TODO: Make this a bit more elegant/reusable.
                     if (request.QueryString.Count > 0)
                     {
                         IEnumerator enumerator = request.QueryString.GetEnumerator();
@@ -78,6 +79,26 @@ namespace Xameleon
                         {
                             string local = request.QueryString.AllKeys[i].ToString();
                             transformer.SetParameter(new QName("", "", local), new XdmAtomicValue(request.QueryString[local]));
+                        }
+                    }
+                    // TODO: Ditto.
+                    if (request.Form.Count > 0)
+                    {
+                        IEnumerator enumerator = request.Form.GetEnumerator();
+                        for (int i = 0; enumerator.MoveNext(); i++)
+                        {
+                            string local =  request.Form.AllKeys[i].ToString();
+                            transformer.SetParameter(new QName("", "", local), new XdmAtomicValue(request.Form[local]));
+                        }
+                    }
+                    // TODO: Ditto.
+                    if (request.Cookies.Count > 0)
+                    {
+                        IEnumerator enumerator = request.Cookies.GetEnumerator();
+                        for (int i = 0; enumerator.MoveNext(); i++)
+                        {
+                            string local = request.Cookies.AllKeys[i].ToString();
+                            transformer.SetParameter(new QName("", "", local), new XdmAtomicValue(request.Cookies[local].Value));
                         }
                     }
                     // temporary hack

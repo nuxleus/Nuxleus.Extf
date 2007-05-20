@@ -14,7 +14,6 @@ namespace Xameleon
         public void ProcessRequest(HttpContext context)
         {
             new Transform().Process(context, context.Response.Output);
-
         }
 
         public bool IsReusable
