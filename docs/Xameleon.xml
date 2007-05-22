@@ -30,5 +30,521 @@
               Looks up a localized string similar to http://xslt.googlecode.com/svn/test/extensionfunction.xsl.
             </summary>
         </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.QueueService">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.ListQueues(Xameleon.AmazonAWS.SQS.ListQueues)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.ListQueuesAsync(Xameleon.AmazonAWS.SQS.ListQueues)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.ListQueuesAsync(Xameleon.AmazonAWS.SQS.ListQueues,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.CreateQueue(Xameleon.AmazonAWS.SQS.CreateQueue)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.CreateQueueAsync(Xameleon.AmazonAWS.SQS.CreateQueue)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.CreateQueueAsync(Xameleon.AmazonAWS.SQS.CreateQueue,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.QueueService.ListQueuesCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.QueueService.CreateQueueCompleted">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.MessageQueue">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.SendMessage(Xameleon.AmazonAWS.SQS.SendMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.SendMessageAsync(Xameleon.AmazonAWS.SQS.SendMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.SendMessageAsync(Xameleon.AmazonAWS.SQS.SendMessage,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.ReceiveMessage(Xameleon.AmazonAWS.SQS.ReceiveMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.ReceiveMessageAsync(Xameleon.AmazonAWS.SQS.ReceiveMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.ReceiveMessageAsync(Xameleon.AmazonAWS.SQS.ReceiveMessage,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.PeekMessage(Xameleon.AmazonAWS.SQS.PeekMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.PeekMessageAsync(Xameleon.AmazonAWS.SQS.PeekMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.PeekMessageAsync(Xameleon.AmazonAWS.SQS.PeekMessage,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteMessage(Xameleon.AmazonAWS.SQS.DeleteMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteMessageAsync(Xameleon.AmazonAWS.SQS.DeleteMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteMessageAsync(Xameleon.AmazonAWS.SQS.DeleteMessage,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteQueue(Xameleon.AmazonAWS.SQS.DeleteQueue)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteQueueAsync(Xameleon.AmazonAWS.SQS.DeleteQueue)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteQueueAsync(Xameleon.AmazonAWS.SQS.DeleteQueue,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeout(Xameleon.AmazonAWS.SQS.SetVisibilityTimeout)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeoutAsync(Xameleon.AmazonAWS.SQS.SetVisibilityTimeout)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeoutAsync(Xameleon.AmazonAWS.SQS.SetVisibilityTimeout,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeout(Xameleon.AmazonAWS.SQS.GetVisibilityTimeout)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeoutAsync(Xameleon.AmazonAWS.SQS.GetVisibilityTimeout)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeoutAsync(Xameleon.AmazonAWS.SQS.GetVisibilityTimeout,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.AddGrant(Xameleon.AmazonAWS.SQS.AddGrantRequest)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.AddGrantAsync(Xameleon.AmazonAWS.SQS.AddGrantRequest)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.AddGrantAsync(Xameleon.AmazonAWS.SQS.AddGrantRequest,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.RemoveGrant(Xameleon.AmazonAWS.SQS.RemoveGrantRequest)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.RemoveGrantAsync(Xameleon.AmazonAWS.SQS.RemoveGrantRequest)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.RemoveGrantAsync(Xameleon.AmazonAWS.SQS.RemoveGrantRequest,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.ListGrants(Xameleon.AmazonAWS.SQS.ListGrantsRequest)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.ListGrantsAsync(Xameleon.AmazonAWS.SQS.ListGrantsRequest)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.ListGrantsAsync(Xameleon.AmazonAWS.SQS.ListGrantsRequest,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.SendMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.ReceiveMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.PeekMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteQueueCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeoutCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeoutCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.AddGrantCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.RemoveGrantCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.ListGrantsCompleted">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListQueues">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListQueues.QueueNamePrefix">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.Grant">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.Grant.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.Grant.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.Grantee">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.Group">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.Group.URI">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.User">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.CanonicalUser">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CanonicalUser.ID">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CanonicalUser.DisplayName">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.AmazonCredential">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.AmazonCredential.Credential">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.AmazonCustomerByEmail">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.AmazonCustomerByEmail.EmailAddress">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListGrantsResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListGrantsResponse.GrantList">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListGrantsResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ResponseStatus1">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ResponseStatus1.StatusCode">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ResponseStatus1.StatusMessage">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListGrantsRequest">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListGrantsRequest.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListGrantsRequest.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.RemoveGrantResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.RemoveGrantResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.RemoveGrantRequest">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.RemoveGrantRequest.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.RemoveGrantRequest.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.AddGrantResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.AddGrantResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.AddGrantRequest">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.AddGrantRequest.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.AddGrantRequest.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListQueuesResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListQueuesResponse.QueueUrl">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListQueuesResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ResponseStatus.StatusCode">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ResponseStatus.Message">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ResponseStatus.RequestId">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.CreateQueue">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CreateQueue.QueueName">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CreateQueue.DefaultVisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.CreateQueueResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CreateQueueResponse.QueueUrl">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CreateQueueResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SendMessage">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SendMessage.MessageBody">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SendMessageResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SendMessageResponse.MessageId">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SendMessageResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ReceiveMessage">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ReceiveMessage.NumberOfMessages">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ReceiveMessage.VisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ReceiveMessageResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ReceiveMessageResponse.Message">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ReceiveMessageResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.Message">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.Message.MessageId">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.Message.MessageBody">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.PeekMessage">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.PeekMessage.MessageId">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.PeekMessageResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.PeekMessageResponse.Message">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.PeekMessageResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteMessage">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.DeleteMessage.MessageId">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteMessageResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.DeleteMessageResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteQueue">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteQueueResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.DeleteQueueResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SetVisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SetVisibilityTimeout.VisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SetVisibilityTimeoutResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SetVisibilityTimeoutResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.GetVisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.GetVisibilityTimeoutResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.GetVisibilityTimeoutResponse.VisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.GetVisibilityTimeoutResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListQueuesCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListQueuesCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListQueuesCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.CreateQueueCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.CreateQueueCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CreateQueueCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SendMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SendMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SendMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ReceiveMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ReceiveMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ReceiveMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.PeekMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.PeekMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.PeekMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.DeleteMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteQueueCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteQueueCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.DeleteQueueCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SetVisibilityTimeoutCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SetVisibilityTimeoutCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SetVisibilityTimeoutCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.GetVisibilityTimeoutCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.GetVisibilityTimeoutCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.GetVisibilityTimeoutCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.AddGrantCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.AddGrantCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.AddGrantCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.RemoveGrantCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.RemoveGrantCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.RemoveGrantCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListGrantsCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListGrantsCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListGrantsCompletedEventArgs.Result">
+            <remarks/>
+        </member>
     </members>
 </doc>

@@ -1,8 +1,8 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.20404</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0EFC77D9-E940-4C1C-805F-F236FDB64B32}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -11,6 +11,11 @@
     <AssemblyName>Extf.Net</AssemblyName>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\Resources\Extf.Net.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,6 +46,12 @@
   <ItemGroup>
     <Compile Include="Agent.cs" />
     <Compile Include="Agent\IAgent.cs" />
+    <Compile Include="AppDataSet.cs">
+      <DependentUpon>AppDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AppDataSet.Designer.cs">
+      <DependentUpon>AppDataSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="Context\IContext.cs" />
     <Compile Include="Credentials\ACL.cs" />
@@ -70,6 +81,7 @@
     <Compile Include="Library\Protocol\Http\Operation.cs" />
     <Compile Include="Library\Utility\Build\Build.cs" />
     <Compile Include="Library\Utility\Test\Test.cs" />
+    <Compile Include="Network\Socket.cs" />
     <Compile Include="Process\Agent.cs" />
     <Compile Include="Process\Operation.cs" />
     <Compile Include="Process\Transform\Context.cs" />

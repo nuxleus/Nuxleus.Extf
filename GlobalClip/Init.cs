@@ -102,7 +102,7 @@ namespace X5 {
         private bool WinAppMode () {
             throw new Exception(rm.GetString("TODO"));
         }
-
+        
         private void InitSessionVarDefaults () {
             if (this.FilePrefix == null) this.FilePrefix = "_anonymous_";
             if (this.SessionId == null) this.SessionId = "_default_";

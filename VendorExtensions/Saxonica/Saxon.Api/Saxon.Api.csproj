@@ -1,8 +1,8 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.20404</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -11,6 +11,11 @@
     <AssemblyName>Saxon.Api</AssemblyName>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\..\Resources\Extf.Net.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,7 +45,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Dependencies\IKVM.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="saxon8, Version=8.9.0.1, Culture=neutral, PublicKeyToken=e1fdd002d5083fe6">
+    <Reference Include="saxon8, Version=8.9.0.3, Culture=neutral, PublicKeyToken=e1fdd002d5083fe6">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Dependencies\saxon8.dll</HintPath>
     </Reference>
@@ -71,6 +76,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\gacutil /i Saxon.Api.dll</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
