@@ -55,9 +55,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\trunk\Dependencies\Mono.Security.dll</HintPath>
     </Reference>
-    <Reference Include="saxon8, Version=8.9.0.2, Culture=neutral, PublicKeyToken=e1fdd002d5083fe6">
+    <Reference Include="saxon8, Version=8.9.0.3, Culture=neutral, PublicKeyToken=e1fdd002d5083fe6">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\trunk\Dependencies\saxon8.dll</HintPath>
+      <HintPath>..\Dependencies\saxon8.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
