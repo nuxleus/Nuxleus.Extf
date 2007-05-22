@@ -13,6 +13,8 @@ namespace Xameleon
 
         public void ProcessRequest(HttpContext context)
         {
+            // temp hack
+            context.Response.ContentType = "text/xml";
             new Transform().Process(context, context.Response.Output);
         }
 
