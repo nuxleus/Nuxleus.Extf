@@ -2143,7 +2143,7 @@
             authentication and connection parameters and exposes methods to access and
             manipulate S3 data.
         </member>
-        <member name="M:Extf.Net.S3.AWSAuthConnection.createBucket(System.String,System.Collections.SortedList)">
+        <member name="M:Extf.Net.S3.AWSAuthConnection.createBucket(System.String)">
             <summary>
             Creates a new bucket.
             </summary>
@@ -2179,6 +2179,15 @@
             <param name="bucket">The name of the bucket to delete</param>
             <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
             <returns></returns>
+        </member>
+        <member name="M:Extf.Net.S3.AWSAuthConnection.put(System.String,System.String,Extf.Net.S3.S3Object)">
+            <summary>
+            Writes an object to S3.
+            </summary>
+            <param name="bucket">The name of the bucket to which the object will be added.</param>
+            <param name="key">The name of the key to use</param>
+            <param name="obj">An S3Object containing the data to write.</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
         </member>
         <member name="M:Extf.Net.S3.AWSAuthConnection.put(System.String,System.String,Extf.Net.S3.S3Object,System.Collections.SortedList)">
             <summary>
@@ -2369,6 +2378,13 @@
             <param name="metadata">Metadata associated with the object</param>
         </member>
         <member name="M:Extf.Net.S3.S3Object.#ctor(System.String,System.Collections.SortedList)">
+            <summary>
+            Constructs an S3Object.
+            </summary>
+            <param name="data">String representation of the data; this will be decoded via ASCII</param>
+            <param name="metadata">Metadata associated with the object</param>
+        </member>
+        <member name="M:Extf.Net.S3.S3Object.#ctor(System.String)">
             <summary>
             Constructs an S3Object.
             </summary>

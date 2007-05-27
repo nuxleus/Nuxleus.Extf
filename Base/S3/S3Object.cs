@@ -70,5 +70,16 @@ namespace Extf.Net.S3
             this.bytes = encoder.GetBytes( data.ToCharArray() );
             this.metadata = metadata;
         }
+
+        /// <summary>
+        /// Constructs an S3Object.
+        /// </summary>
+        /// <param name="data">String representation of the data; this will be decoded via ASCII</param>
+        /// <param name="metadata">Metadata associated with the object</param>
+        public S3Object(string data) {
+            ASCIIEncoding encoder = new ASCIIEncoding();
+            this.bytes = encoder.GetBytes(data.ToCharArray());
+            this.metadata = null;
+        }
     }
 }

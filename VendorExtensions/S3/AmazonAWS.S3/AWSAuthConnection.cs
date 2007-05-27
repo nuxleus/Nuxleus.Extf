@@ -12,6 +12,7 @@ using System.Collections;
 using System.Net;
 using System.Text;
 using System.Web;
+using System.IO;
 
 namespace com.amazon.s3
 {
@@ -130,10 +131,10 @@ namespace com.amazon.s3
 
             ASCIIEncoding encoding = new ASCIIEncoding();
             byte[] bytes = encoding.GetBytes( obj.Data );
-            request.GetRequestStream().Write( bytes, 0, bytes.Length );
-            request.GetRequestStream().Close();
-
-            return new Response( request );
+            using (Stream _stream = request.GetRequestStream()) {
+                _stream.Write(bytes, 0, bytes.Length);
+                return new Response(request);
+            }
         }
 
         public Response put(string bucket, string key, S3Object obj) {
@@ -142,10 +143,10 @@ namespace com.amazon.s3
 
             ASCIIEncoding encoding = new ASCIIEncoding();
             byte[] bytes = encoding.GetBytes(obj.Data);
-            request.GetRequestStream().Write(bytes, 0, bytes.Length);
-            request.GetRequestStream().Close();
-
-            return new Response(request);
+            using (Stream _stream = request.GetRequestStream()) {
+                _stream.Write(bytes, 0, bytes.Length);
+                return new Response(request);
+            }
         }
         // NOTE: The Syste.Net.Uri class does modifications to the URL.
         // For example, if you have two consecutive slashes, it will

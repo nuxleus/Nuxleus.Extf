@@ -13,6 +13,7 @@ using System.Collections;
 using System.Net;
 using System.Text;
 using System.Web;
+using System.IO;
 
 namespace Extf.Net.S3
 {
@@ -87,6 +88,14 @@ namespace Extf.Net.S3
         /// </summary>
         /// <param name="bucket">The name of the bucket to create</param>
         /// <param name="headers">A Map of string to string representing the headers to pass (can be null)</param>
+        public Response createBucket(string bucket) {
+            S3Object obj = new S3Object("", null);
+            WebRequest request = makeRequest("PUT", bucket, "", null, obj);
+            request.ContentLength = 0;
+            request.GetRequestStream().Close();
+            return new Response(request);
+        }
+        
         public Response createBucket( string bucket, SortedList headers )
         {
             S3Object obj = new S3Object("", null);
@@ -143,15 +152,32 @@ namespace Extf.Net.S3
         /// <param name="key">The name of the key to use</param>
         /// <param name="obj">An S3Object containing the data to write.</param>
         /// <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+        public Response put(string bucket, string key, S3Object obj) {
+            WebRequest request = makeRequest("PUT", bucket, encodeKeyForSignature(key), null, obj);
+            request.ContentLength = obj.Bytes.Length;
+
+            using (Stream _stream = request.GetRequestStream()) {
+                _stream.Write(obj.Bytes, 0, obj.Bytes.Length);
+                return new Response(request);
+            }
+        }
+
+        /// <summary>
+        /// Writes an object to S3.
+        /// </summary>
+        /// <param name="bucket">The name of the bucket to which the object will be added.</param>
+        /// <param name="key">The name of the key to use</param>
+        /// <param name="obj">An S3Object containing the data to write.</param>
+        /// <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
         public Response put( string bucket, string key, S3Object obj, SortedList headers )
         {
             WebRequest request = makeRequest("PUT", bucket, encodeKeyForSignature(key), headers, obj);
             request.ContentLength = obj.Bytes.Length;
 
-            request.GetRequestStream().Write(obj.Bytes, 0, obj.Bytes.Length);
-            request.GetRequestStream().Close();
-
-            return new Response( request );
+            using (Stream _stream = request.GetRequestStream()) {
+                _stream.Write(obj.Bytes, 0, obj.Bytes.Length);
+                return new Response(request);
+            }
         }
 
         // NOTE: The Syste.Net.Uri class does modifications to the URL.
