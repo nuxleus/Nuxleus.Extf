@@ -37,10 +37,40 @@ namespace Extf.Net.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=D:\\projects\\Extf.Net\\Data\\app.db")]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=.\\app.db")]
         public string AppSQLite3ConnectionString {
             get {
                 return ((string)(this["AppSQLite3ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://s3.amazonaws.com/soap")]
+        public string Extf_Net_AmazonAWS_S3_AmazonS3 {
+            get {
+                return ((string)(this["Extf_Net_AmazonAWS_S3_AmazonS3"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://queue.amazonaws.com")]
+        public string Extf_Net_AmazonAWS_SQS_QueueService {
+            get {
+                return ((string)(this["Extf_Net_AmazonAWS_SQS_QueueService"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://ec2.amazonaws.com/")]
+        public string Extf_Net_AmazonAWS_EC2_AmazonEC2 {
+            get {
+                return ((string)(this["Extf_Net_AmazonAWS_EC2_AmazonEC2"]));
             }
         }
     }

@@ -40,7 +40,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -108,7 +110,35 @@
     <Compile Include="Session\Session.cs" />
     <Compile Include="Storage\IStorage.cs" />
     <Compile Include="Storage\Provider.cs" />
+    <Compile Include="S3\AWSAuthConnection.cs" />
+    <Compile Include="S3\Bucket.cs" />
+    <Compile Include="S3\CommonPrefixEntry.cs" />
+    <Compile Include="S3\GetResponse.cs" />
+    <Compile Include="S3\GetTimeStamp.cs" />
+    <Compile Include="S3\ListAllMyBucketsResponse.cs" />
+    <Compile Include="S3\ListBucketResponse.cs" />
+    <Compile Include="S3\ListEntry.cs" />
+    <Compile Include="S3\Owner.cs" />
+    <Compile Include="S3\QueryStringAuthGenerator.cs" />
+    <Compile Include="S3\Response.cs" />
+    <Compile Include="S3\S3Object.cs" />
+    <Compile Include="S3\Utils.cs" />
     <Compile Include="Validation\Definition\MicroID.cs" />
+    <Compile Include="Web References\AmazonAWS.EC2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\AmazonAWS.S3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\AmazonAWS.SQS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Workspace\Workspace.cs" />
     <Compile Include="Workspace\IAtomCollection.cs" />
     <Compile Include="Workspace\IIntrospectionDocument.cs" />
@@ -138,6 +168,147 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\Extf.Net.snk" />
+    <None Include="S3\README" />
+    <None Include="Web References\AmazonAWS.EC2\AuthorizeSecurityGroupIngressResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\CreateKeyPairResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\CreateSecurityGroupResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\DeleteKeyPairResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\DeleteSecurityGroupResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\DeregisterImageResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\DescribeImageAttributeResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\DescribeImagesResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\DescribeInstancesResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\DescribeKeyPairsResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\DescribeSecurityGroupsResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\ec2.wsdl" />
+    <None Include="Web References\AmazonAWS.EC2\GetConsoleOutputResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\ModifyImageAttributeResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\RebootInstancesResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\RegisterImageResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\ReservationInfoType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\ResetImageAttributeResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\RevokeSecurityGroupIngressResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.EC2\TerminateInstancesResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.S3\AccessControlPolicy.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.S3\AmazonS3.wsdl" />
+    <None Include="Web References\AmazonAWS.S3\AmazonS3.xsd" />
+    <None Include="Web References\AmazonAWS.S3\BucketLoggingStatus.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.S3\CreateBucketResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.S3\GetObjectResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.S3\ListAllMyBucketsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.S3\ListBucketResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.S3\PutObjectResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.S3\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AmazonAWS.S3\Status.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\AddGrantResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\CreateQueueResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\DeleteMessageResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\DeleteQueueResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\GetQueueAttributesResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\GetVisibilityTimeoutResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\ListGrantsResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\ListQueuesResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\PeekMessageResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\QueueService.wsdl" />
+    <None Include="Web References\AmazonAWS.SQS\QueueService.xsd" />
+    <None Include="Web References\AmazonAWS.SQS\ReceiveMessageResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\RemoveGrantResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\SendMessageResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\SetQueueAttributesResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\SetVisibilityTimeoutResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -151,10 +322,52 @@
     <Content Include="Resources\InitializationData\Init.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VendorExtensions\S3\AmazonAWS.S3\AmazonAWS.S3.csproj">
+      <Project>{8D92E7E5-ECF3-4F24-BBB3-D03D273D6A80}</Project>
+      <Name>AmazonAWS.S3</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
       <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
       <Name>Saxon.Api</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://queue.amazonaws.com/doc/2007-05-01/QueueService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AmazonAWS.SQS\</RelPath>
+      <UpdateFromURL>http://queue.amazonaws.com/doc/2007-05-01/QueueService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Extf_Net_AmazonAWS_SQS_QueueService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://s3.amazonaws.com/doc/2006-03-01/AmazonS3.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AmazonAWS.S3\</RelPath>
+      <UpdateFromURL>http://s3.amazonaws.com/doc/2006-03-01/AmazonS3.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Extf_Net_AmazonAWS_S3_AmazonS3</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://s3.amazonaws.com/ec2-downloads/ec2.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AmazonAWS.EC2\</RelPath>
+      <UpdateFromURL>http://s3.amazonaws.com/ec2-downloads/ec2.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Extf_Net_AmazonAWS_EC2_AmazonEC2</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\WebFeed\" />
@@ -163,6 +376,7 @@
     <Folder Include="Resources\AtomicXML\" />
     <Folder Include="Resources\GlobalClip\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Utility\" />
     <Folder Include="Workspace\Exception\" />
     <Folder Include="Workspace\Log\" />
   </ItemGroup>
