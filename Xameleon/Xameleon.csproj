@@ -207,6 +207,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Base\Extf.Net.Base.csproj">
+      <Project>{0EFC77D9-E940-4C1C-805F-F236FDB64B32}</Project>
+      <Name>Extf.Net.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GlobalClip\GlobalClip.csproj">
       <Project>{9B9C08A7-0E8A-45AA-AEB4-7A5796DB1C26}</Project>
       <Name>GlobalClip</Name>

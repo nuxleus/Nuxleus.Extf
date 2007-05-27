@@ -29,7 +29,10 @@ namespace com.amazon.s3
                 return metadata;
             }
         }
-
+        public S3Object(string data) {
+            this.data = data;
+            this.metadata = null;
+        }
         public S3Object( string data, SortedList metadata ) {
             this.data = data;
             this.metadata = metadata;

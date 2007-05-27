@@ -9,7 +9,7 @@
             authentication and connection parameters and exposes methods to access and
             manipulate S3 data.
         </member>
-        <member name="M:com.amazon.s3.AWSAuthConnection.createBucket(System.String,System.Collections.SortedList)">
+        <member name="M:com.amazon.s3.AWSAuthConnection.createBucket(System.String)">
             <summary>
             Creates a new bucket.
             </summary>

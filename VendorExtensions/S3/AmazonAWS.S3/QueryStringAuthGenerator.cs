@@ -120,7 +120,17 @@ namespace com.amazon.s3
         {
             return generateURL( "DELETE", bucket, headers );
         }
+        public string put(string bucket, string key, S3Object obj) {
 
+            SortedList metadata = null;
+            SortedList headers = null;
+
+            if (obj != null) {
+                metadata = obj.Metadata;
+            }
+
+            return generateURL("PUT", bucket + "/" + HttpUtility.UrlEncode(key), mergeMeta(headers, metadata));
+        }
         public string put( string bucket, string key, S3Object obj, SortedList headers )
         {
             SortedList metadata = null;

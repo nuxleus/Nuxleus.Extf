@@ -58,10 +58,11 @@ namespace com.amazon.s3
         /// </summary>
         /// <param name="bucket">The name of the bucket to create</param>
         /// <param name="headers">A Map of string to string representing the headers to pass (can be null)</param>
-        public Response createBucket( string bucket, SortedList headers )
+        public Response createBucket( string bucket)
         {
             S3Object obj = new S3Object("", null);
-            WebRequest request = makeRequest("PUT", bucket, headers, obj);
+
+            WebRequest request = makeRequest("PUT", bucket, null, obj);
             request.ContentLength = 0;
             request.GetRequestStream().Close();
             return new Response(request);
@@ -135,6 +136,17 @@ namespace com.amazon.s3
             return new Response( request );
         }
 
+        public Response put(string bucket, string key, S3Object obj) {
+            WebRequest request = makeRequest("PUT", bucket + "/" + encodeKeyForSignature(key), null, obj);
+            request.ContentLength = obj.Data.Length;
+
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] bytes = encoding.GetBytes(obj.Data);
+            request.GetRequestStream().Write(bytes, 0, bytes.Length);
+            request.GetRequestStream().Close();
+
+            return new Response(request);
+        }
         // NOTE: The Syste.Net.Uri class does modifications to the URL.
         // For example, if you have two consecutive slashes, it will
         // convert these to a single slash.  This could lead to invalid
