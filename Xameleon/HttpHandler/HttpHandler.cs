@@ -20,7 +20,7 @@ namespace Xameleon
 
         public bool IsReusable
         {
-            get { return true; }
+            get { return false; }
         }
 
     }
