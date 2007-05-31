@@ -5,22 +5,51 @@
 using System;
 using System.Web;
 
-namespace Xameleon
-{
+namespace Xameleon {
 
-    class HttpHandler : IHttpHandler
-    {
+    class HttpHandler : IHttpHandler {
 
-        public void ProcessRequest(HttpContext context)
-        {
-            // temp hack
-            context.Response.ContentType = "text/xml";
-            new Transform().Process(context, context.Response.Output);
+        public void ProcessRequest(HttpContext context) {
+
+            HttpRequest request = context.Request;
+
+            switch (request.HttpMethod) {
+
+                case "GET": {
+                        // temp hack
+                        context.Response.ContentType = "text/xml";
+                        new Transform().Process(context);
+                        break;
+                    }
+                case "PUT": {
+                        // temp hack
+                        context.Response.ContentType = "text/xml";
+                        new Transform().Process(context);
+                        break;
+                    }
+                case "POST": {
+                        // temp hack
+                        context.Response.ContentType = "text/xml";
+                        new Transform().Process(context);
+                        break;
+                    }
+                case "DELETE": {
+                        // temp hack
+                        context.Response.ContentType = "text/xml";
+                        new Transform().Process(context);
+                        break;
+                    }
+                default: {
+                        // temp hack
+                        context.Response.ContentType = "text/xml";
+                        new Transform().Process(context);
+                        break;
+                    }
+            }
         }
 
-        public bool IsReusable
-        {
-            get { return false; }
+        public bool IsReusable {
+            get { return true; }
         }
 
     }

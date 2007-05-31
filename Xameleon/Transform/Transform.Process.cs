@@ -19,34 +19,17 @@ namespace Xameleon
             this._TemplateStream = (Stream)context.Resolver.GetEntity(context.XsltSource, null, typeof(Stream));
             this._Processor = new Processor();
             this._Compiler = this._Processor.NewXsltCompiler();
+            this._Compiler.ErrorList = new ArrayList();
             this._Template = this._Compiler.Compile(this._TemplateStream);
             return true;
         }
 
-        private XmlDocument Process(Context context)
-        {
-            XmlDocument xmlDocument;
-            using (Stream stream = this._SourceXml)
-            {
-                using (Stream stream2 = this._TemplateStream)
-                {
-                    XmlDocument doc = new XmlDocument();
-                    doc.Load(this._SourceXml);
-                    XdmNode node = this._Processor.NewDocumentBuilder().Wrap(doc);
-                    XsltTransformer transformer = this._Template.Load();
-                    transformer.InitialContextNode = node;
-                    DomDestination destination = new DomDestination();
-                    transformer.Run(destination);
-                    xmlDocument = destination.XmlDocument;
-                }
-            }
-            return xmlDocument;
-        }
-
-        internal void Process(HttpContext context, TextWriter writer)
+        internal void Process(HttpContext context)
         {
             HttpRequest request = context.Request;
             HttpResponse response = context.Response;
+            TextWriter writer = context.Response.Output;
+
             Uri absoluteUri = new Uri(context.Server.MapPath(request.FilePath));
             if (!this._IS_INITIALIZED)
             {
@@ -78,7 +61,7 @@ namespace Xameleon
                         for (int i = 0; enumerator.MoveNext(); i++)
                         {
                             string local = request.QueryString.AllKeys[i].ToString();
-                            transformer.SetParameter(new QName("", "", local), new XdmAtomicValue(request.QueryString[local]));
+                            transformer.SetParameter(new QName("", "", "qs_" + local), new XdmAtomicValue(request.QueryString[local]));
                         }
                     }
                     // TODO: Ditto.
@@ -88,7 +71,7 @@ namespace Xameleon
                         for (int i = 0; enumerator.MoveNext(); i++)
                         {
                             string local =  request.Form.AllKeys[i].ToString();
-                            transformer.SetParameter(new QName("", "", local), new XdmAtomicValue(request.Form[local]));
+                            transformer.SetParameter(new QName("", "", "form_" + local), new XdmAtomicValue(request.Form[local]));
                         }
                     }
                     // TODO: Ditto.
@@ -98,7 +81,7 @@ namespace Xameleon
                         for (int i = 0; enumerator.MoveNext(); i++)
                         {
                             string local = request.Cookies.AllKeys[i].ToString();
-                            transformer.SetParameter(new QName("", "", local), new XdmAtomicValue(request.Cookies[local].Value));
+                            transformer.SetParameter(new QName("", "", "cookie_" + local), new XdmAtomicValue(request.Cookies[local].Value));
                         }
                     }
                     // temporary hack
@@ -111,6 +94,21 @@ namespace Xameleon
             }
         }
 
-
+        private XmlDocument Process(Context context) {
+            XmlDocument xmlDocument;
+            using (Stream stream = this._SourceXml) {
+                using (Stream stream2 = this._TemplateStream) {
+                    XmlDocument doc = new XmlDocument();
+                    doc.Load(this._SourceXml);
+                    XdmNode node = this._Processor.NewDocumentBuilder().Wrap(doc);
+                    XsltTransformer transformer = this._Template.Load();
+                    transformer.InitialContextNode = node;
+                    DomDestination destination = new DomDestination();
+                    transformer.Run(destination);
+                    xmlDocument = destination.XmlDocument;
+                }
+            }
+            return xmlDocument;
+        }
     }
 }

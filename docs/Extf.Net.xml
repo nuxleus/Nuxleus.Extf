@@ -4,1163 +4,15 @@
         <name>Extf.Net</name>
     </assembly>
     <members>
-        <member name="M:Extf.Net.ACL.#ctor">
+        <member name="F:Extf.Net.S3.CommonPrefixEntry.prefix">
             <summary>
-            Create a new Generics-based Dictionary to hold our group of ACL XML files.
-            </summary>
-            
-        </member>
-        <member name="T:Extf.Net.Properties.Resources">
-            <summary>
-              A strongly-typed resource class, for looking up localized strings, etc.
+            The prefix common to the delimited keys it represents.
             </summary>
         </member>
-        <member name="P:Extf.Net.Properties.Resources.ResourceManager">
+        <member name="M:Extf.Net.S3.Utils.buildUrlBase(System.String,System.Int32,System.String,Extf.Net.S3.CallingFormat)">
             <summary>
-              Returns the cached ResourceManager instance used by this class.
+            Calculates the endpoint based on the calling format.
             </summary>
-        </member>
-        <member name="P:Extf.Net.Properties.Resources.Culture">
-            <summary>
-              Overrides the current thread's CurrentUICulture property for all
-              resource lookups using this strongly typed resource class.
-            </summary>
-        </member>
-        <member name="T:Extf.Net.Properties.Resource">
-            <summary>
-              A strongly-typed resource class, for looking up localized strings, etc.
-            </summary>
-        </member>
-        <member name="P:Extf.Net.Properties.Resource.ResourceManager">
-            <summary>
-              Returns the cached ResourceManager instance used by this class.
-            </summary>
-        </member>
-        <member name="P:Extf.Net.Properties.Resource.Culture">
-            <summary>
-              Overrides the current thread's CurrentUICulture property for all
-              resource lookups using this strongly typed resource class.
-            </summary>
-        </member>
-        <member name="P:Extf.Net.Properties.Resource.DefaultRSSText">
-             <summary>
-               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-            &lt;rss version=&quot;2.0&quot;&gt;
-            	&lt;channel&gt;
-            		&lt;title&gt;RSS Feed Not Available&lt;/title&gt;
-            		&lt;link&gt;http://msdn.microsoft.com/vcsharp/rss.xml&lt;/link&gt;
-            		&lt;description&gt;The RSS feed could not be loaded.&lt;/description&gt;
-            		&lt;language&gt;en-us&lt;/language&gt;
-            		&lt;ttl&gt;1440&lt;/ttl&gt;
-            		&lt;item&gt;
-            			&lt;title&gt;You may not be subscribed to any feeds. &lt;/title&gt;
-            			&lt;description&gt;If you are want to subscribe to a feed run Microsoft Internet Explorer and subscribe to a picture feed.&lt;/description&gt;
-            			&lt;link&gt;http://msdn. [rest of string was truncated]&quot;;.
-             </summary>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.AmazonS3">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.#ctor">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.CreateBucket(System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.CreateBucketAsync(System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.CreateBucketAsync(System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteBucket(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteBucketAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteBucketAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectAccessControlPolicy(System.String,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectAccessControlPolicyAsync(System.String,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectAccessControlPolicyAsync(System.String,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketAccessControlPolicy(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketAccessControlPolicyAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketAccessControlPolicyAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetObjectAccessControlPolicy(System.String,System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetObjectAccessControlPolicyAsync(System.String,System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetObjectAccessControlPolicyAsync(System.String,System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketAccessControlPolicy(System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketAccessControlPolicyAsync(System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketAccessControlPolicyAsync(System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObject(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectAsync(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectAsync(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectExtended(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Int64,System.Boolean,System.Int64,System.Boolean,System.DateTime,System.Boolean,System.DateTime,System.Boolean,System.String[],System.String[],System.Boolean,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectExtendedAsync(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Int64,System.Boolean,System.Int64,System.Boolean,System.DateTime,System.Boolean,System.DateTime,System.Boolean,System.String[],System.String[],System.Boolean,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectExtendedAsync(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Int64,System.Boolean,System.Int64,System.Boolean,System.DateTime,System.Boolean,System.DateTime,System.Boolean,System.String[],System.String[],System.Boolean,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.PutObject(System.String,System.String,Extf.Net.AmazonAWS.S3.MetadataEntry[],System.Int64,Extf.Net.AmazonAWS.S3.Grant[],Extf.Net.AmazonAWS.S3.StorageClass,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectAsync(System.String,System.String,Extf.Net.AmazonAWS.S3.MetadataEntry[],System.Int64,Extf.Net.AmazonAWS.S3.Grant[],Extf.Net.AmazonAWS.S3.StorageClass,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectAsync(System.String,System.String,Extf.Net.AmazonAWS.S3.MetadataEntry[],System.Int64,Extf.Net.AmazonAWS.S3.Grant[],Extf.Net.AmazonAWS.S3.StorageClass,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectInline(System.String,System.String,Extf.Net.AmazonAWS.S3.MetadataEntry[],System.Byte[],System.Int64,Extf.Net.AmazonAWS.S3.Grant[],Extf.Net.AmazonAWS.S3.StorageClass,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectInlineAsync(System.String,System.String,Extf.Net.AmazonAWS.S3.MetadataEntry[],System.Byte[],System.Int64,Extf.Net.AmazonAWS.S3.Grant[],Extf.Net.AmazonAWS.S3.StorageClass,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectInlineAsync(System.String,System.String,Extf.Net.AmazonAWS.S3.MetadataEntry[],System.Byte[],System.Int64,Extf.Net.AmazonAWS.S3.Grant[],Extf.Net.AmazonAWS.S3.StorageClass,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteObject(System.String,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteObjectAsync(System.String,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteObjectAsync(System.String,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.ListBucket(System.String,System.String,System.String,System.Int32,System.Boolean,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.ListBucketAsync(System.String,System.String,System.String,System.Int32,System.Boolean,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.ListBucketAsync(System.String,System.String,System.String,System.Int32,System.Boolean,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.ListAllMyBuckets(System.String,System.DateTime,System.Boolean,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.ListAllMyBucketsAsync(System.String,System.DateTime,System.Boolean,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.ListAllMyBucketsAsync(System.String,System.DateTime,System.Boolean,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketLoggingStatus(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketLoggingStatusAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketLoggingStatusAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketLoggingStatus(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,Extf.Net.AmazonAWS.S3.BucketLoggingStatus)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketLoggingStatusAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,Extf.Net.AmazonAWS.S3.BucketLoggingStatus)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketLoggingStatusAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,Extf.Net.AmazonAWS.S3.BucketLoggingStatus,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.CancelAsync(System.Object)">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.CreateBucketCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteBucketCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectAccessControlPolicyCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketAccessControlPolicyCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.SetObjectAccessControlPolicyCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketAccessControlPolicyCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectExtendedCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectInlineCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteObjectCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.ListBucketCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.ListAllMyBucketsCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketLoggingStatusCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketLoggingStatusCompleted">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.Grant">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.Grant.Grantee">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.Grant.Permission">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.Grantee">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.LoggingSettings">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.LoggingSettings.TargetBucket">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.LoggingSettings.TargetPrefix">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.BucketLoggingStatus">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.BucketLoggingStatus.LoggingEnabled">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.ListAllMyBucketsEntry">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListAllMyBucketsEntry.Name">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListAllMyBucketsEntry.CreationDate">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.ListAllMyBucketsResult">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListAllMyBucketsResult.Owner">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListAllMyBucketsResult.Buckets">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.CanonicalUser">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.User">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.CanonicalUser.ID">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.CanonicalUser.DisplayName">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.AmazonCustomerByEmail">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.AmazonCustomerByEmail.EmailAddress">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.PrefixEntry">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.PrefixEntry.Prefix">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.ListEntry">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListEntry.Key">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListEntry.LastModified">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListEntry.ETag">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListEntry.Size">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListEntry.Owner">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListEntry.StorageClass">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.StorageClass">
-            <remarks/>
-        </member>
-        <member name="F:Extf.Net.AmazonAWS.S3.StorageClass.TEMP">
-            <remarks/>
-        </member>
-        <member name="F:Extf.Net.AmazonAWS.S3.StorageClass.STANDARD">
-            <remarks/>
-        </member>
-        <member name="F:Extf.Net.AmazonAWS.S3.StorageClass.UNKNOWN">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.ListBucketResult">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.Metadata">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.Name">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.Prefix">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.Marker">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.NextMarker">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.MaxKeys">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.Delimiter">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.IsTruncated">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.Contents">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.CommonPrefixes">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.MetadataEntry">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.MetadataEntry.Name">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.MetadataEntry.Value">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.PutObjectResult">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.PutObjectResult.ETag">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.PutObjectResult.LastModified">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.Result">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.Result.Status">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.Status">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.Status.Code">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.Status.Description">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectResult">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectResult.Metadata">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectResult.Data">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectResult.LastModified">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectResult.ETag">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.AccessControlPolicy">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.AccessControlPolicy.Owner">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.AccessControlPolicy.AccessControlList">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.CreateBucketResult">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.CreateBucketResult.BucketName">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.Group">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.Group.URI">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.Permission">
-            <remarks/>
-        </member>
-        <member name="F:Extf.Net.AmazonAWS.S3.Permission.READ">
-            <remarks/>
-        </member>
-        <member name="F:Extf.Net.AmazonAWS.S3.Permission.WRITE">
-            <remarks/>
-        </member>
-        <member name="F:Extf.Net.AmazonAWS.S3.Permission.READ_ACP">
-            <remarks/>
-        </member>
-        <member name="F:Extf.Net.AmazonAWS.S3.Permission.WRITE_ACP">
-            <remarks/>
-        </member>
-        <member name="F:Extf.Net.AmazonAWS.S3.Permission.FULL_CONTROL">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.CreateBucketCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.CreateBucketCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.CreateBucketCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.DeleteBucketCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.DeleteBucketCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.DeleteBucketCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectAccessControlPolicyCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectAccessControlPolicyCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectAccessControlPolicyCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.GetBucketAccessControlPolicyCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.GetBucketAccessControlPolicyCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.GetBucketAccessControlPolicyCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.SetObjectAccessControlPolicyCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.SetBucketAccessControlPolicyCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectExtendedCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectExtendedCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectExtendedCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.PutObjectCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.PutObjectCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.PutObjectCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.PutObjectInlineCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.PutObjectInlineCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.PutObjectInlineCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.DeleteObjectCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.DeleteObjectCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.DeleteObjectCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.ListBucketCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.ListBucketCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.ListAllMyBucketsCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.ListAllMyBucketsCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.ListAllMyBucketsCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.GetBucketLoggingStatusCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.GetBucketLoggingStatusCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.S3.GetBucketLoggingStatusCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.S3.SetBucketLoggingStatusCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.QueueService">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.#ctor">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.ListQueues(Extf.Net.AmazonAWS.SQS.ListQueues)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.ListQueuesAsync(Extf.Net.AmazonAWS.SQS.ListQueues)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.ListQueuesAsync(Extf.Net.AmazonAWS.SQS.ListQueues,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.CreateQueue(Extf.Net.AmazonAWS.SQS.CreateQueue)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.CreateQueueAsync(Extf.Net.AmazonAWS.SQS.CreateQueue)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.CreateQueueAsync(Extf.Net.AmazonAWS.SQS.CreateQueue,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.CancelAsync(System.Object)">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.QueueService.ListQueuesCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.QueueService.CreateQueueCompleted">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.MessageQueue">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.#ctor">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SendMessage(Extf.Net.AmazonAWS.SQS.SendMessage)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SendMessageAsync(Extf.Net.AmazonAWS.SQS.SendMessage)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SendMessageAsync(Extf.Net.AmazonAWS.SQS.SendMessage,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.ReceiveMessage(Extf.Net.AmazonAWS.SQS.ReceiveMessage)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.ReceiveMessageAsync(Extf.Net.AmazonAWS.SQS.ReceiveMessage)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.ReceiveMessageAsync(Extf.Net.AmazonAWS.SQS.ReceiveMessage,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.PeekMessage(Extf.Net.AmazonAWS.SQS.PeekMessage)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.PeekMessageAsync(Extf.Net.AmazonAWS.SQS.PeekMessage)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.PeekMessageAsync(Extf.Net.AmazonAWS.SQS.PeekMessage,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteMessage(Extf.Net.AmazonAWS.SQS.DeleteMessage)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteMessageAsync(Extf.Net.AmazonAWS.SQS.DeleteMessage)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteMessageAsync(Extf.Net.AmazonAWS.SQS.DeleteMessage,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteQueue(Extf.Net.AmazonAWS.SQS.DeleteQueue)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteQueueAsync(Extf.Net.AmazonAWS.SQS.DeleteQueue)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteQueueAsync(Extf.Net.AmazonAWS.SQS.DeleteQueue,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SetQueueAttributes(Extf.Net.AmazonAWS.SQS.AttributedValue[])">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SetQueueAttributesAsync(Extf.Net.AmazonAWS.SQS.AttributedValue[])">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SetQueueAttributesAsync(Extf.Net.AmazonAWS.SQS.AttributedValue[],System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.GetQueueAttributes(System.String[])">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.GetQueueAttributesAsync(System.String[])">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.GetQueueAttributesAsync(System.String[],System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeout(Extf.Net.AmazonAWS.SQS.SetVisibilityTimeout)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeoutAsync(Extf.Net.AmazonAWS.SQS.SetVisibilityTimeout)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeoutAsync(Extf.Net.AmazonAWS.SQS.SetVisibilityTimeout,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeout(Extf.Net.AmazonAWS.SQS.GetVisibilityTimeout)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeoutAsync(Extf.Net.AmazonAWS.SQS.GetVisibilityTimeout)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeoutAsync(Extf.Net.AmazonAWS.SQS.GetVisibilityTimeout,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.AddGrant(Extf.Net.AmazonAWS.SQS.AddGrant)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.AddGrantAsync(Extf.Net.AmazonAWS.SQS.AddGrant)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.AddGrantAsync(Extf.Net.AmazonAWS.SQS.AddGrant,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.RemoveGrant(Extf.Net.AmazonAWS.SQS.RemoveGrant)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.RemoveGrantAsync(Extf.Net.AmazonAWS.SQS.RemoveGrant)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.RemoveGrantAsync(Extf.Net.AmazonAWS.SQS.RemoveGrant,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.ListGrants(Extf.Net.AmazonAWS.SQS.ListGrants)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.ListGrantsAsync(Extf.Net.AmazonAWS.SQS.ListGrants)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.ListGrantsAsync(Extf.Net.AmazonAWS.SQS.ListGrants,System.Object)">
-            <remarks/>
-        </member>
-        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.CancelAsync(System.Object)">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.SendMessageCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.ReceiveMessageCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.PeekMessageCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteMessageCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteQueueCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.SetQueueAttributesCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.GetQueueAttributesCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeoutCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeoutCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.AddGrantCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.RemoveGrantCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.ListGrantsCompleted">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ListQueues">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ListQueues.QueueNamePrefix">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.Grant">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.Grant.Grantee">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.Grant.Permission">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.Grantee">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.Group">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.Group.URI">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.User">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.CanonicalUser">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.CanonicalUser.ID">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.CanonicalUser.DisplayName">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.AmazonCredential">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.AmazonCredential.Credential">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.AmazonCustomerByEmail">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.AmazonCustomerByEmail.EmailAddress">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ListQueuesResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ListQueuesResponse.QueueUrl">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ListQueuesResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ResponseStatus.StatusCode">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ResponseStatus.Message">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ResponseStatus.RequestId">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.CreateQueue">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.CreateQueue.QueueName">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.CreateQueue.DefaultVisibilityTimeout">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.CreateQueueResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.CreateQueueResponse.QueueUrl">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.CreateQueueResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.SendMessage">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.SendMessage.MessageBody">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.SendMessageResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.SendMessageResponse.MessageId">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.SendMessageResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ReceiveMessage">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ReceiveMessage.NumberOfMessages">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ReceiveMessage.VisibilityTimeout">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ReceiveMessageResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ReceiveMessageResponse.Message">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ReceiveMessageResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.Message">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.Message.MessageId">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.Message.MessageBody">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.PeekMessage">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.PeekMessage.MessageId">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.PeekMessageResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.PeekMessageResponse.Message">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.PeekMessageResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteMessage">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.DeleteMessage.MessageId">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteMessageResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.DeleteMessageResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteQueue">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.DeleteQueue.ForceDeletion">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteQueueResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.DeleteQueueResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.AttributedValue">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.AttributedValue.Attribute">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.AttributedValue.Value">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.SetQueueAttributesResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.SetQueueAttributesResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.GetQueueAttributesResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.GetQueueAttributesResponse.AttributedValue">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.GetQueueAttributesResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeout">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeout.VisibilityTimeout">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeoutResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeoutResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeout">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeoutResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeoutResponse.VisibilityTimeout">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeoutResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.AddGrant">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.AddGrant.Grantee">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.AddGrant.Permission">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.AddGrantResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.AddGrantResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.RemoveGrant">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.RemoveGrant.Grantee">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.RemoveGrant.Permission">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.RemoveGrantResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.RemoveGrantResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ListGrants">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ListGrants.Grantee">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ListGrants.Permission">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ListGrantsResponse">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ListGrantsResponse.GrantList">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ListGrantsResponse.ResponseStatus">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ListQueuesCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ListQueuesCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ListQueuesCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.CreateQueueCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.CreateQueueCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.CreateQueueCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.SendMessageCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.SendMessageCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.SendMessageCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ReceiveMessageCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ReceiveMessageCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ReceiveMessageCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.PeekMessageCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.PeekMessageCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.PeekMessageCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteMessageCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteMessageCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.DeleteMessageCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteQueueCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteQueueCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.DeleteQueueCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.SetQueueAttributesCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.SetQueueAttributesCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.SetQueueAttributesCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.GetQueueAttributesCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.GetQueueAttributesCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.GetQueueAttributesCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeoutCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeoutCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeoutCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeoutCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeoutCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeoutCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.AddGrantCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.AddGrantCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.AddGrantCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.RemoveGrantCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.RemoveGrantCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.RemoveGrantCompletedEventArgs.Result">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ListGrantsCompletedEventHandler">
-            <remarks/>
-        </member>
-        <member name="T:Extf.Net.AmazonAWS.SQS.ListGrantsCompletedEventArgs">
-            <remarks/>
-        </member>
-        <member name="P:Extf.Net.AmazonAWS.SQS.ListGrantsCompletedEventArgs.Result">
-            <remarks/>
         </member>
         <member name="T:Extf.Net.AmazonAWS.EC2.AmazonEC2">
             <remarks/>
@@ -2116,16 +968,6 @@
         <member name="P:Extf.Net.AmazonAWS.EC2.DescribeImageAttributeCompletedEventArgs.Result">
             <remarks/>
         </member>
-        <member name="F:Extf.Net.S3.CommonPrefixEntry.prefix">
-            <summary>
-            The prefix common to the delimited keys it represents.
-            </summary>
-        </member>
-        <member name="M:Extf.Net.S3.Utils.buildUrlBase(System.String,System.Int32,System.String,Extf.Net.S3.CallingFormat)">
-            <summary>
-            Calculates the endpoint based on the calling format.
-            </summary>
-        </member>
         <member name="T:Extf.Net.S3.QueryStringAuthGenerator">
             This class mimics the behavior of AWSAuthConnection, except instead of actually performing
             the operation, QueryStringAuthGenerator will return URLs with query string parameters that
@@ -2137,6 +979,1110 @@
             Sets/Gets the milliseconds since the Epoch that this
             expires at
             </summary>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.QueueService">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.ListQueues(Extf.Net.AmazonAWS.SQS.ListQueues)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.ListQueuesAsync(Extf.Net.AmazonAWS.SQS.ListQueues)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.ListQueuesAsync(Extf.Net.AmazonAWS.SQS.ListQueues,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.CreateQueue(Extf.Net.AmazonAWS.SQS.CreateQueue)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.CreateQueueAsync(Extf.Net.AmazonAWS.SQS.CreateQueue)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.CreateQueueAsync(Extf.Net.AmazonAWS.SQS.CreateQueue,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.QueueService.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.QueueService.ListQueuesCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.QueueService.CreateQueueCompleted">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.MessageQueue">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SendMessage(Extf.Net.AmazonAWS.SQS.SendMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SendMessageAsync(Extf.Net.AmazonAWS.SQS.SendMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SendMessageAsync(Extf.Net.AmazonAWS.SQS.SendMessage,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.ReceiveMessage(Extf.Net.AmazonAWS.SQS.ReceiveMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.ReceiveMessageAsync(Extf.Net.AmazonAWS.SQS.ReceiveMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.ReceiveMessageAsync(Extf.Net.AmazonAWS.SQS.ReceiveMessage,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.PeekMessage(Extf.Net.AmazonAWS.SQS.PeekMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.PeekMessageAsync(Extf.Net.AmazonAWS.SQS.PeekMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.PeekMessageAsync(Extf.Net.AmazonAWS.SQS.PeekMessage,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteMessage(Extf.Net.AmazonAWS.SQS.DeleteMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteMessageAsync(Extf.Net.AmazonAWS.SQS.DeleteMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteMessageAsync(Extf.Net.AmazonAWS.SQS.DeleteMessage,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteQueue(Extf.Net.AmazonAWS.SQS.DeleteQueue)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteQueueAsync(Extf.Net.AmazonAWS.SQS.DeleteQueue)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteQueueAsync(Extf.Net.AmazonAWS.SQS.DeleteQueue,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SetQueueAttributes(Extf.Net.AmazonAWS.SQS.AttributedValue[])">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SetQueueAttributesAsync(Extf.Net.AmazonAWS.SQS.AttributedValue[])">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SetQueueAttributesAsync(Extf.Net.AmazonAWS.SQS.AttributedValue[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.GetQueueAttributes(System.String[])">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.GetQueueAttributesAsync(System.String[])">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.GetQueueAttributesAsync(System.String[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeout(Extf.Net.AmazonAWS.SQS.SetVisibilityTimeout)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeoutAsync(Extf.Net.AmazonAWS.SQS.SetVisibilityTimeout)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeoutAsync(Extf.Net.AmazonAWS.SQS.SetVisibilityTimeout,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeout(Extf.Net.AmazonAWS.SQS.GetVisibilityTimeout)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeoutAsync(Extf.Net.AmazonAWS.SQS.GetVisibilityTimeout)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeoutAsync(Extf.Net.AmazonAWS.SQS.GetVisibilityTimeout,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.AddGrant(Extf.Net.AmazonAWS.SQS.AddGrant)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.AddGrantAsync(Extf.Net.AmazonAWS.SQS.AddGrant)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.AddGrantAsync(Extf.Net.AmazonAWS.SQS.AddGrant,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.RemoveGrant(Extf.Net.AmazonAWS.SQS.RemoveGrant)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.RemoveGrantAsync(Extf.Net.AmazonAWS.SQS.RemoveGrant)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.RemoveGrantAsync(Extf.Net.AmazonAWS.SQS.RemoveGrant,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.ListGrants(Extf.Net.AmazonAWS.SQS.ListGrants)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.ListGrantsAsync(Extf.Net.AmazonAWS.SQS.ListGrants)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.ListGrantsAsync(Extf.Net.AmazonAWS.SQS.ListGrants,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.SQS.MessageQueue.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.SendMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.ReceiveMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.PeekMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.DeleteQueueCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.SetQueueAttributesCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.GetQueueAttributesCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeoutCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeoutCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.AddGrantCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.RemoveGrantCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.SQS.MessageQueue.ListGrantsCompleted">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ListQueues">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ListQueues.QueueNamePrefix">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.Grant">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.Grant.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.Grant.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.Grantee">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.Group">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.Group.URI">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.User">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.CanonicalUser">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.CanonicalUser.ID">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.CanonicalUser.DisplayName">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.AmazonCredential">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.AmazonCredential.Credential">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.AmazonCustomerByEmail">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.AmazonCustomerByEmail.EmailAddress">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ListQueuesResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ListQueuesResponse.QueueUrl">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ListQueuesResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ResponseStatus.StatusCode">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ResponseStatus.Message">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ResponseStatus.RequestId">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.CreateQueue">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.CreateQueue.QueueName">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.CreateQueue.DefaultVisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.CreateQueueResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.CreateQueueResponse.QueueUrl">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.CreateQueueResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.SendMessage">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.SendMessage.MessageBody">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.SendMessageResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.SendMessageResponse.MessageId">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.SendMessageResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ReceiveMessage">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ReceiveMessage.NumberOfMessages">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ReceiveMessage.VisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ReceiveMessageResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ReceiveMessageResponse.Message">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ReceiveMessageResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.Message">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.Message.MessageId">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.Message.MessageBody">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.PeekMessage">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.PeekMessage.MessageId">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.PeekMessageResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.PeekMessageResponse.Message">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.PeekMessageResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteMessage">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.DeleteMessage.MessageId">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteMessageResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.DeleteMessageResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteQueue">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.DeleteQueue.ForceDeletion">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteQueueResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.DeleteQueueResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.AttributedValue">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.AttributedValue.Attribute">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.AttributedValue.Value">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.SetQueueAttributesResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.SetQueueAttributesResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.GetQueueAttributesResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.GetQueueAttributesResponse.AttributedValue">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.GetQueueAttributesResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeout.VisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeoutResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeoutResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeoutResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeoutResponse.VisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeoutResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.AddGrant">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.AddGrant.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.AddGrant.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.AddGrantResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.AddGrantResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.RemoveGrant">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.RemoveGrant.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.RemoveGrant.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.RemoveGrantResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.RemoveGrantResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ListGrants">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ListGrants.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ListGrants.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ListGrantsResponse">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ListGrantsResponse.GrantList">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ListGrantsResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ListQueuesCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ListQueuesCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ListQueuesCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.CreateQueueCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.CreateQueueCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.CreateQueueCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.SendMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.SendMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.SendMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ReceiveMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ReceiveMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ReceiveMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.PeekMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.PeekMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.PeekMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.DeleteMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteQueueCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.DeleteQueueCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.DeleteQueueCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.SetQueueAttributesCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.SetQueueAttributesCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.SetQueueAttributesCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.GetQueueAttributesCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.GetQueueAttributesCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.GetQueueAttributesCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeoutCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeoutCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.SetVisibilityTimeoutCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeoutCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeoutCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.GetVisibilityTimeoutCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.AddGrantCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.AddGrantCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.AddGrantCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.RemoveGrantCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.RemoveGrantCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.RemoveGrantCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ListGrantsCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.SQS.ListGrantsCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.SQS.ListGrantsCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.AmazonS3">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.CreateBucket(System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.CreateBucketAsync(System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.CreateBucketAsync(System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteBucket(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteBucketAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteBucketAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectAccessControlPolicy(System.String,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectAccessControlPolicyAsync(System.String,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectAccessControlPolicyAsync(System.String,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketAccessControlPolicy(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketAccessControlPolicyAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketAccessControlPolicyAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetObjectAccessControlPolicy(System.String,System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetObjectAccessControlPolicyAsync(System.String,System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetObjectAccessControlPolicyAsync(System.String,System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketAccessControlPolicy(System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketAccessControlPolicyAsync(System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketAccessControlPolicyAsync(System.String,Extf.Net.AmazonAWS.S3.Grant[],System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObject(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectAsync(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectAsync(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectExtended(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Int64,System.Boolean,System.Int64,System.Boolean,System.DateTime,System.Boolean,System.DateTime,System.Boolean,System.String[],System.String[],System.Boolean,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectExtendedAsync(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Int64,System.Boolean,System.Int64,System.Boolean,System.DateTime,System.Boolean,System.DateTime,System.Boolean,System.String[],System.String[],System.Boolean,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectExtendedAsync(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Int64,System.Boolean,System.Int64,System.Boolean,System.DateTime,System.Boolean,System.DateTime,System.Boolean,System.String[],System.String[],System.Boolean,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.PutObject(System.String,System.String,Extf.Net.AmazonAWS.S3.MetadataEntry[],System.Int64,Extf.Net.AmazonAWS.S3.Grant[],Extf.Net.AmazonAWS.S3.StorageClass,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectAsync(System.String,System.String,Extf.Net.AmazonAWS.S3.MetadataEntry[],System.Int64,Extf.Net.AmazonAWS.S3.Grant[],Extf.Net.AmazonAWS.S3.StorageClass,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectAsync(System.String,System.String,Extf.Net.AmazonAWS.S3.MetadataEntry[],System.Int64,Extf.Net.AmazonAWS.S3.Grant[],Extf.Net.AmazonAWS.S3.StorageClass,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectInline(System.String,System.String,Extf.Net.AmazonAWS.S3.MetadataEntry[],System.Byte[],System.Int64,Extf.Net.AmazonAWS.S3.Grant[],Extf.Net.AmazonAWS.S3.StorageClass,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectInlineAsync(System.String,System.String,Extf.Net.AmazonAWS.S3.MetadataEntry[],System.Byte[],System.Int64,Extf.Net.AmazonAWS.S3.Grant[],Extf.Net.AmazonAWS.S3.StorageClass,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectInlineAsync(System.String,System.String,Extf.Net.AmazonAWS.S3.MetadataEntry[],System.Byte[],System.Int64,Extf.Net.AmazonAWS.S3.Grant[],Extf.Net.AmazonAWS.S3.StorageClass,System.Boolean,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteObject(System.String,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteObjectAsync(System.String,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteObjectAsync(System.String,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.ListBucket(System.String,System.String,System.String,System.Int32,System.Boolean,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.ListBucketAsync(System.String,System.String,System.String,System.Int32,System.Boolean,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.ListBucketAsync(System.String,System.String,System.String,System.Int32,System.Boolean,System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.ListAllMyBuckets(System.String,System.DateTime,System.Boolean,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.ListAllMyBucketsAsync(System.String,System.DateTime,System.Boolean,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.ListAllMyBucketsAsync(System.String,System.DateTime,System.Boolean,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketLoggingStatus(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketLoggingStatusAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketLoggingStatusAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketLoggingStatus(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,Extf.Net.AmazonAWS.S3.BucketLoggingStatus)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketLoggingStatusAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,Extf.Net.AmazonAWS.S3.BucketLoggingStatus)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketLoggingStatusAsync(System.String,System.String,System.DateTime,System.Boolean,System.String,System.String,Extf.Net.AmazonAWS.S3.BucketLoggingStatus,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Extf.Net.AmazonAWS.S3.AmazonS3.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.CreateBucketCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteBucketCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectAccessControlPolicyCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketAccessControlPolicyCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.SetObjectAccessControlPolicyCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketAccessControlPolicyCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.GetObjectExtendedCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.PutObjectInlineCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.DeleteObjectCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.ListBucketCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.ListAllMyBucketsCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.GetBucketLoggingStatusCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Extf.Net.AmazonAWS.S3.AmazonS3.SetBucketLoggingStatusCompleted">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.Grant">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.Grant.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.Grant.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.Grantee">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.LoggingSettings">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.LoggingSettings.TargetBucket">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.LoggingSettings.TargetPrefix">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.BucketLoggingStatus">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.BucketLoggingStatus.LoggingEnabled">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.ListAllMyBucketsEntry">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListAllMyBucketsEntry.Name">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListAllMyBucketsEntry.CreationDate">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.ListAllMyBucketsResult">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListAllMyBucketsResult.Owner">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListAllMyBucketsResult.Buckets">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.CanonicalUser">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.User">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.CanonicalUser.ID">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.CanonicalUser.DisplayName">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.AmazonCustomerByEmail">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.AmazonCustomerByEmail.EmailAddress">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.PrefixEntry">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.PrefixEntry.Prefix">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.ListEntry">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListEntry.Key">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListEntry.LastModified">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListEntry.ETag">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListEntry.Size">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListEntry.Owner">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListEntry.StorageClass">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.StorageClass">
+            <remarks/>
+        </member>
+        <member name="F:Extf.Net.AmazonAWS.S3.StorageClass.TEMP">
+            <remarks/>
+        </member>
+        <member name="F:Extf.Net.AmazonAWS.S3.StorageClass.STANDARD">
+            <remarks/>
+        </member>
+        <member name="F:Extf.Net.AmazonAWS.S3.StorageClass.UNKNOWN">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.ListBucketResult">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.Metadata">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.Name">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.Prefix">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.Marker">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.NextMarker">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.MaxKeys">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.Delimiter">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.IsTruncated">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.Contents">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketResult.CommonPrefixes">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.MetadataEntry">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.MetadataEntry.Name">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.MetadataEntry.Value">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.PutObjectResult">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.PutObjectResult.ETag">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.PutObjectResult.LastModified">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.Result">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.Result.Status">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.Status">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.Status.Code">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.Status.Description">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectResult">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectResult.Metadata">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectResult.Data">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectResult.LastModified">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectResult.ETag">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.AccessControlPolicy">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.AccessControlPolicy.Owner">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.AccessControlPolicy.AccessControlList">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.CreateBucketResult">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.CreateBucketResult.BucketName">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.Group">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.Group.URI">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.Permission">
+            <remarks/>
+        </member>
+        <member name="F:Extf.Net.AmazonAWS.S3.Permission.READ">
+            <remarks/>
+        </member>
+        <member name="F:Extf.Net.AmazonAWS.S3.Permission.WRITE">
+            <remarks/>
+        </member>
+        <member name="F:Extf.Net.AmazonAWS.S3.Permission.READ_ACP">
+            <remarks/>
+        </member>
+        <member name="F:Extf.Net.AmazonAWS.S3.Permission.WRITE_ACP">
+            <remarks/>
+        </member>
+        <member name="F:Extf.Net.AmazonAWS.S3.Permission.FULL_CONTROL">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.CreateBucketCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.CreateBucketCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.CreateBucketCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.DeleteBucketCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.DeleteBucketCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.DeleteBucketCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectAccessControlPolicyCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectAccessControlPolicyCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectAccessControlPolicyCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.GetBucketAccessControlPolicyCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.GetBucketAccessControlPolicyCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.GetBucketAccessControlPolicyCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.SetObjectAccessControlPolicyCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.SetBucketAccessControlPolicyCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectExtendedCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.GetObjectExtendedCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.GetObjectExtendedCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.PutObjectCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.PutObjectCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.PutObjectCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.PutObjectInlineCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.PutObjectInlineCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.PutObjectInlineCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.DeleteObjectCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.DeleteObjectCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.DeleteObjectCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.ListBucketCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.ListBucketCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListBucketCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.ListAllMyBucketsCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.ListAllMyBucketsCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.ListAllMyBucketsCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.GetBucketLoggingStatusCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.GetBucketLoggingStatusCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Extf.Net.AmazonAWS.S3.GetBucketLoggingStatusCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Extf.Net.AmazonAWS.S3.SetBucketLoggingStatusCompletedEventHandler">
+            <remarks/>
         </member>
         <member name="T:Extf.Net.S3.AWSAuthConnection">
             An interface into the S3 system.  It is initially configured with
@@ -2317,6 +2263,60 @@
             </summary>
             <param name="request">Request to add the header to</param>
             <param name="resource">The resource name (bucketName + "/" + key)</param>
+        </member>
+        <member name="M:Extf.Net.ACL.#ctor">
+            <summary>
+            Create a new Generics-based Dictionary to hold our group of ACL XML files.
+            </summary>
+            
+        </member>
+        <member name="T:Extf.Net.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Extf.Net.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Extf.Net.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:Extf.Net.Properties.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Extf.Net.Properties.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Extf.Net.Properties.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Extf.Net.Properties.Resource.DefaultRSSText">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+            &lt;rss version=&quot;2.0&quot;&gt;
+            	&lt;channel&gt;
+            		&lt;title&gt;RSS Feed Not Available&lt;/title&gt;
+            		&lt;link&gt;http://msdn.microsoft.com/vcsharp/rss.xml&lt;/link&gt;
+            		&lt;description&gt;The RSS feed could not be loaded.&lt;/description&gt;
+            		&lt;language&gt;en-us&lt;/language&gt;
+            		&lt;ttl&gt;1440&lt;/ttl&gt;
+            		&lt;item&gt;
+            			&lt;title&gt;You may not be subscribed to any feeds. &lt;/title&gt;
+            			&lt;description&gt;If you are want to subscribe to a feed run Microsoft Internet Explorer and subscribe to a picture feed.&lt;/description&gt;
+            			&lt;link&gt;http://msdn. [rest of string was truncated]&quot;;.
+             </summary>
         </member>
         <member name="F:Extf.Net.S3.ListBucketResponse.name">
             <summary>

@@ -114,7 +114,6 @@
     <Compile Include="S3\Bucket.cs" />
     <Compile Include="S3\CommonPrefixEntry.cs" />
     <Compile Include="S3\GetResponse.cs" />
-    <Compile Include="S3\GetTimeStamp.cs" />
     <Compile Include="S3\ListAllMyBucketsResponse.cs" />
     <Compile Include="S3\ListBucketResponse.cs" />
     <Compile Include="S3\ListEntry.cs" />

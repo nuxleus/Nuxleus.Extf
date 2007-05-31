@@ -64,11 +64,10 @@ namespace Extf.Net.S3
             }
         }
 
-        public byte [] getResponseMessage()
-        {
-            byte[] data = Utils.slurpInputStream( response.GetResponseStream() );
-            response.GetResponseStream().Close();
-            return data;
+        public string getResponseMessage() {
+            using (response.GetResponseStream()) {
+                return Utils.slurpInputStreamAsString(response.GetResponseStream());
+            }
         }
     }
 }
