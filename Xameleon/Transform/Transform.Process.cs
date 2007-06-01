@@ -35,13 +35,13 @@ namespace Xameleon
             {
                 this.Init(context);
             }
-            using (Stream xmlStream = this._SourceXml)
+            using (Stream input = ((Stream)this._Resolver.GetEntity(absoluteUri, null, typeof(Stream))))
             {
-                using (Stream xslStream = this._TemplateStream)
+                using (Stream stream2 = this._TemplateStream)
                 {
                     DocumentBuilder builder = this._Processor.NewDocumentBuilder();
                     builder.BaseUri = absoluteUri;
-                    XdmNode node = builder.Build(xmlStream);
+                    XdmNode node = builder.Build(input);
                     Serializer destination = new Serializer();
                     destination.SetOutputWriter(writer);
                     XsltTransformer transformer = this._Template.Load();
@@ -86,7 +86,7 @@ namespace Xameleon
                     }
                     // temporary hack
                     transformer.SetParameter(new QName("", "", "request.ip"), new XdmAtomicValue(request.UserHostAddress));
-                    //transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)response.Headers.GetEnumerator()));
+                    transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)response.Headers.GetEnumerator()));
                     // end temporary hack
                     transformer.InputXmlResolver = this._Resolver;
                     transformer.InitialContextNode = node;
@@ -97,10 +97,10 @@ namespace Xameleon
 
         private XmlDocument Process(Context context) {
             XmlDocument xmlDocument;
-            using (Stream xmlStream = this._SourceXml) {
-                using (Stream xslStream = this._TemplateStream) {
+            using (Stream stream = this._SourceXml) {
+                using (Stream stream2 = this._TemplateStream) {
                     XmlDocument doc = new XmlDocument();
-                    doc.Load(xmlStream);
+                    doc.Load(this._SourceXml);
                     XdmNode node = this._Processor.NewDocumentBuilder().Wrap(doc);
                     XsltTransformer transformer = this._Template.Load();
                     transformer.InitialContextNode = node;
