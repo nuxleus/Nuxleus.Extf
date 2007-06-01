@@ -218,7 +218,7 @@ namespace Extf.Net.S3 {
         }
 
         private string generateURL(string method, string bucket, string key, SortedList headers) {
-            return generateURL(method, bucket, key, new SortedList(), headers);
+            return generateURL(method, bucket, key, new SortedList(), new SortedList());
         }
 
         private string generateURL(string method, string bucket, string key, SortedList queryParameters, SortedList headers) {
