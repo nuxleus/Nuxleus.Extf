@@ -26,6 +26,9 @@ namespace Xameleon
         private Stream _TemplateStream;
         private string _xsltParamKey = "xsltParam_";
         private NameValueCollection _XsltParams;
+        private bool usePI = false;
+        private DocumentBuilder _Builder;
+        private XdmNode _Node;
 
         private void Init(HttpContext context)
         {
@@ -62,7 +65,7 @@ namespace Xameleon
             {
                 throw;
             }
-            if (this.PrepareTransform(context))
+            if (this.PrepareTransform(context, this.usePI))
             {
                 this._IS_INITIALIZED = true;
                 return context;

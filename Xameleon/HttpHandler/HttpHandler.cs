@@ -12,37 +12,29 @@ namespace Xameleon {
         public void ProcessRequest(HttpContext context) {
 
             HttpRequest request = context.Request;
+            // temp hack
+            context.Response.ContentType = "text/xml";
 
             switch (request.HttpMethod) {
 
                 case "GET": {
-                        // temp hack
-                        context.Response.ContentType = "text/xml";
-                        new Transform().Process(context);
+                        new Transform().Process(context, true);
                         break;
                     }
                 case "PUT": {
-                        // temp hack
-                        context.Response.ContentType = "text/xml";
-                        new Transform().Process(context);
+                        new Transform().Process(context, true);
                         break;
                     }
                 case "POST": {
-                        // temp hack
-                        context.Response.ContentType = "text/xml";
-                        new Transform().Process(context);
+                        new Transform().Process(context, true);
                         break;
                     }
                 case "DELETE": {
-                        // temp hack
-                        context.Response.ContentType = "text/xml";
-                        new Transform().Process(context);
+                        new Transform().Process(context, true);
                         break;
                     }
                 default: {
-                        // temp hack
-                        context.Response.ContentType = "text/xml";
-                        new Transform().Process(context);
+                        new Transform().Process(context, true);
                         break;
                     }
             }
@@ -51,6 +43,5 @@ namespace Xameleon {
         public bool IsReusable {
             get { return true; }
         }
-
     }
 }
