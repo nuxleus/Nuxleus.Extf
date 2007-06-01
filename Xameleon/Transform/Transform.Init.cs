@@ -30,7 +30,7 @@ namespace Xameleon
         private DocumentBuilder _Builder;
         private XdmNode _Node;
 
-        private void Init(HttpContext context)
+        private void Init(HttpContext context, bool usePI)
         {
             AppSettings settings = new AppSettings();
             string setting = settings.GetSetting("xsltParamKeyPrefix");
@@ -47,6 +47,7 @@ namespace Xameleon
             this._Compiler = this._Processor.NewXsltCompiler();
             this._Compiler.BaseUri = absoluteUri;
             this._Template = this._Compiler.Compile(this._TemplateStream);
+            this.usePI = usePI;
             this._IS_INITIALIZED = true;
         }
 

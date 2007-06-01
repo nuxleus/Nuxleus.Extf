@@ -36,16 +36,11 @@ namespace Xameleon {
             TextWriter writer = context.Response.Output;
 
             Uri absoluteUri = new Uri(context.Server.MapPath(request.FilePath));
-
             if (!this._IS_INITIALIZED) {
-                this.Init(context);
-            }
-            if (usePI) {
-                this.usePI = true;
+                this.Init(context, usePI);
             }
             using (Stream xmlStream = this._SourceXml) {
                 using (Stream xslStream = this._TemplateStream) {
-
                     Serializer destination = new Serializer();
                     destination.SetOutputWriter(writer);
                     XsltTransformer transformer = this._Template.Load();
