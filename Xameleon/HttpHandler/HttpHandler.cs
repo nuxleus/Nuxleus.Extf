@@ -18,7 +18,7 @@ namespace Xameleon {
             switch (request.HttpMethod) {
 
                 case "GET": {
-                        new Transform().Process(context, true);
+                        new Transform().Process(context, false);
                         break;
                     }
                 case "PUT": {
