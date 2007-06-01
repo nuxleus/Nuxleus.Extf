@@ -11,9 +11,11 @@ using System.Collections.Specialized;
 using System.Web;
 using Extf.Net.Configuration;
 
-namespace Xameleon {
+namespace Xameleon
+{
 
-    public partial class Transform {
+    public partial class Transform
+    {
 
         // Fields
         private XsltCompiler _Compiler;
@@ -24,14 +26,13 @@ namespace Xameleon {
         private Stream _TemplateStream;
         private string _xsltParamKey = "xsltParam_";
         private NameValueCollection _XsltParams;
-        private bool _usePI;
-        private DocumentBuilder _Builder;
-        private XdmNode _Node;
 
-        private void Init(HttpContext context, bool usePI) {
+        private void Init(HttpContext context)
+        {
             AppSettings settings = new AppSettings();
             string setting = settings.GetSetting("xsltParamKeyPrefix");
-            if (setting != null) {
+            if (setting != null)
+            {
                 this._xsltParamKey = setting;
             }
             Uri absoluteUri = new Uri(context.Server.MapPath(settings.GetSetting("baseTemplate")));
@@ -43,22 +44,26 @@ namespace Xameleon {
             this._Compiler = this._Processor.NewXsltCompiler();
             this._Compiler.BaseUri = absoluteUri;
             this._Template = this._Compiler.Compile(this._TemplateStream);
-            this._usePI = usePI;
             this._IS_INITIALIZED = true;
         }
 
-        private Context Init(Context context) {
-            try {
+        private Context Init(Context context)
+        {
+            try
+            {
                 context.BaseUri = new Uri("http://localhost/");
                 context.XmlSource = new Uri(Resources.SourceXml);
                 context.XsltSource = new Uri(Resources.SourceXslt);
                 context.ResultDocument = new XmlDocument();
                 context.Resolver = new XmlUrlResolver();
                 context.Resolver.Credentials = CredentialCache.DefaultCredentials;
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 throw;
             }
-            if (this.PrepareTransform(context, false)) {
+            if (this.PrepareTransform(context))
+            {
                 this._IS_INITIALIZED = true;
                 return context;
             }
