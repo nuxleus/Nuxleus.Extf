@@ -12,22 +12,24 @@ namespace Xameleon {
     public partial class Transform {
 
         private bool PrepareTransform(Context context, bool usePI) {
-
-            this._SourceXml = (Stream)context.Resolver.GetEntity(context.XmlSource, null, typeof(Stream));
-            this._TemplateStream = (Stream)context.Resolver.GetEntity(context.XsltSource, null, typeof(Stream));
-            this._Processor = new Processor();
-            this._Builder = this._Processor.NewDocumentBuilder();
-            this._Compiler = this._Processor.NewXsltCompiler();
-            this._Compiler.ErrorList = new ArrayList();
-
-            this._Node = _Builder.Build(_SourceXml);
-            if (usePI) {
-                this._Template = this._Compiler.CompileAssociatedStylesheet(_Node);
-            } else {
-                this._Template = this._Compiler.Compile(this._TemplateStream);
+            try {
+                this._SourceXml = (Stream)context.Resolver.GetEntity(context.XmlSource, null, typeof(Stream));
+                this._TemplateStream = (Stream)context.Resolver.GetEntity(context.XsltSource, null, typeof(Stream));
+                this._Processor = new Processor();
+                this._Builder = this._Processor.NewDocumentBuilder();
+                this._Compiler = this._Processor.NewXsltCompiler();
+                this._Compiler.ErrorList = new ArrayList();
+                this._Node = _Builder.Build(_SourceXml);
+                this._usePI = usePI;
+                if (this._usePI) {
+                    this._Template = this._Compiler.CompileAssociatedStylesheet(_Node);
+                } else {
+                    this._Template = this._Compiler.Compile(this._TemplateStream);
+                }
+                return true;
+            } catch (Exception e) {
+                return false;
             }
-
-            return true;
         }
 
         internal void Process(HttpContext context, bool usePI) {
