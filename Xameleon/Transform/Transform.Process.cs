@@ -21,11 +21,11 @@ namespace Xameleon {
                 this._Compiler.ErrorList = new ArrayList();
                 this._Node = _Builder.Build(_SourceXml);
                 this._usePI = usePI;
-                if (this._usePI) {
-                    this._Template = this._Compiler.CompileAssociatedStylesheet(_Node);
-                } else {
+                //if (this._usePI) {
+                //    this._Template = this._Compiler.CompileAssociatedStylesheet(_Node);
+                //} else {
                     this._Template = this._Compiler.Compile(this._TemplateStream);
-                }
+                //}
                 return true;
             } catch (Exception e) {
                 return false;
