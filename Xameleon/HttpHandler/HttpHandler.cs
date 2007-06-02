@@ -13,7 +13,7 @@ namespace Xameleon {
 
             HttpRequest request = context.Request;
             // temp hack
-            context.Response.ContentType = "text/xml";
+            //context.Response.ContentType = "text/xml";
 
             switch (request.HttpMethod) {
 
