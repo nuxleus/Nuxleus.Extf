@@ -86,7 +86,7 @@ namespace Xameleon
                     }
                     // temporary hack
                     transformer.SetParameter(new QName("", "", "request.ip"), new XdmAtomicValue(request.UserHostAddress));
-                    //transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)response.Headers.GetEnumerator()));
+                    transformer.SetParameter(new QName("", "", "response"), new XdmValue(XdmAtomicValue.wrapExternalObject(response.Headers)));
                     // end temporary hack
                     transformer.InputXmlResolver = this._Resolver;
                     transformer.InitialContextNode = node;
