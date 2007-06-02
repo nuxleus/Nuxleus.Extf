@@ -84,9 +84,10 @@ namespace Xameleon
                             transformer.SetParameter(new QName("", "", "cookie_" + local), new XdmAtomicValue(request.Cookies[local].Value));
                         }
                     }
+
                     // temporary hack
                     transformer.SetParameter(new QName("", "", "request.ip"), new XdmAtomicValue(request.UserHostAddress));
-                    transformer.SetParameter(new QName("", "", "response"), new XdmValue(XdmAtomicValue.wrapExternalObject(response.Headers)));
+                    transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(response)));
                     // end temporary hack
                     transformer.InputXmlResolver = this._Resolver;
                     transformer.InitialContextNode = node;
