@@ -37,15 +37,15 @@
     <DocumentationFile>..\..\..\docs\Saxon.Api.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IKVM.GNU.Classpath, Version=0.32.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
+    <Reference Include="IKVM.GNU.Classpath, Version=0.34.0.3, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Dependencies\IKVM.GNU.Classpath.dll</HintPath>
     </Reference>
-    <Reference Include="IKVM.Runtime, Version=0.32.0.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
+    <Reference Include="IKVM.Runtime, Version=0.34.0.3, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Dependencies\IKVM.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="saxon8, Version=8.9.0.3, Culture=neutral, PublicKeyToken=e1fdd002d5083fe6">
+    <Reference Include="saxon8, Version=8.9.0.3, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Dependencies\saxon8.dll</HintPath>
     </Reference>

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon.XSP", "Xameleon.XS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{B5265CB6-DE7C-475A-8219-27EDC6D3206A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extf.Net.SilverlitEXSLT", "Extf.Net.SilverlitEXSLT\Extf.Net.SilverlitEXSLT.csproj", "{EEE44158-6983-46B1-AE01-F8DFA13A1F61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{B5265CB6-DE7C-475A-8219-27EDC6D3206A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5265CB6-DE7C-475A-8219-27EDC6D3206A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5265CB6-DE7C-475A-8219-27EDC6D3206A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE44158-6983-46B1-AE01-F8DFA13A1F61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE44158-6983-46B1-AE01-F8DFA13A1F61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE44158-6983-46B1-AE01-F8DFA13A1F61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE44158-6983-46B1-AE01-F8DFA13A1F61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

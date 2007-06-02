@@ -143,7 +143,6 @@ namespace Extf.Net.S3 {
             if (obj != null) {
                 metadata = obj.Metadata;
             }
-
             return generateURL("PUT", bucket, HttpUtility.UrlEncode(key), mergeMeta(headers, metadata));
         }
 
