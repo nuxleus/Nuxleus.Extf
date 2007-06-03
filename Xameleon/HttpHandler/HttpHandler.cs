@@ -11,11 +11,7 @@ namespace Xameleon {
 
         public void ProcessRequest(HttpContext context) {
 
-            HttpRequest request = context.Request;
-            // temp hack
-            //context.Response.ContentType = "text/xml";
-
-            switch (request.HttpMethod) {
+            switch (context.Request.HttpMethod) {
 
                 case "GET": {
                         new Transform().Process(context);
