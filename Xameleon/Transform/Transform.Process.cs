@@ -85,7 +85,9 @@ namespace Xameleon
                         }
                     }
 
-                    transformer.SetParameter(new QName("", "", "context"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context)));
+                    transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Server)));
+                    transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Session)));
+                    transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Timestamp)));
                     transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(response)));
                     transformer.SetParameter(new QName("", "", "request"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(request)));
 
