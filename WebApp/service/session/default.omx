@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/transform/base.xslt"?>
+<session:session xmlns:at="http://atomictalk.org" xmlns:metadata="http://xameleon.org/service/metadata" xmlns:header="http://xameleon.org/service/http/header" xmlns:session="http://xameleon.org/service/session" xmlns:aws="http://xameleon.org/service/aws" xmlns:param="http://xameleon.org/service/session/param">
+  <!-- <header:foo>bar</header:foo>
+  <metadata:foo>bar</metadata:foo> -->
+  <param:s3-bucket-name>session.sonicradar.com</param:s3-bucket-name>
+  <aws:s3>
+    <aws:sequence>
+      <aws:check-for-existing-file>
+        <at:condition>
+          <at:IfTrue></at:IfTrue>
+          <at:IfFalse></at:IfFalse>
+        </at:condition>
+      </aws:check-for-existing-file>
+    </aws:sequence>
+  </aws:s3>
+</session:session>
+
+
