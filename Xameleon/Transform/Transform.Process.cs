@@ -37,7 +37,7 @@ namespace Xameleon
             }
             using (Stream input = ((Stream)this._Resolver.GetEntity(absoluteUri, null, typeof(Stream))))
             {
-                using (Stream stream2 = this._TemplateStream)
+                using (Stream transform = this._TemplateStream)
                 {
                     DocumentBuilder builder = this._Processor.NewDocumentBuilder();
                     builder.BaseUri = absoluteUri;
@@ -84,11 +84,11 @@ namespace Xameleon
                             transformer.SetParameter(new QName("", "", "cookie_" + local), new XdmAtomicValue(request.Cookies[local].Value));
                         }
                     }
-                    
-                    // temporary hack
-                    transformer.SetParameter(new QName("", "", "request.ip"), new XdmAtomicValue(request.UserHostAddress));
+
+                    transformer.SetParameter(new QName("", "", "context"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context)));
                     transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(response)));
-                    // end temporary hack
+                    transformer.SetParameter(new QName("", "", "request"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(request)));
+
                     transformer.InputXmlResolver = this._Resolver;
                     transformer.InitialContextNode = node;
                     transformer.Run(destination);
