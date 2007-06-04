@@ -92,7 +92,7 @@ namespace Xameleon
                     transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Timestamp)));
                     transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(response)));
                     transformer.SetParameter(new QName("", "", "request"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(request)));
-                    transformer.SetParameter(new QName("", "", "cookies"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(dictionary)));
+                    transformer.SetParameter(new QName("", "", "cookies"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((ICollection)dictionary.Values)));
                     transformer.SetParameter(new QName("", "", "form"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(request.Form)));
                     transformer.SetParameter(new QName("", "", "querystring"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(request.QueryString)));
 
