@@ -84,7 +84,7 @@ namespace Xameleon
                         {
                             string local = request.Cookies.AllKeys[i].ToString();
                             transformer.SetParameter(new QName("", "", "cookie_" + local), new XdmAtomicValue(request.Cookies[local].Value));
-                            dictionary.Add(local, request.Cookies[local].Value);
+                            dictionary.Set(local, request.Cookies[local].Value);
                         }
                     }
                     //ICollection collection = (ICollection)request.Cookies;
