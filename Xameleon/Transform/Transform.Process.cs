@@ -85,7 +85,7 @@ namespace Xameleon
                             transformer.SetParameter(new QName("", "", "cookie_" + local), new XdmAtomicValue(request.Cookies[local].Value));
                         }
                     }
-                    //ICollection collection = (ICollection)request.Cookies;
+
                     transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Server)));
                     transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Session)));
                     transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Timestamp)));
@@ -105,7 +105,7 @@ namespace Xameleon
         private XmlDocument Process(Context context) {
             XmlDocument xmlDocument;
             using (Stream stream = this._SourceXml) {
-                using (Stream stream2 = this._TemplateStream) {
+                using (Stream transform = this._TemplateStream) {
                     XmlDocument doc = new XmlDocument();
                     doc.Load(this._SourceXml);
                     XdmNode node = this._Processor.NewDocumentBuilder().Wrap(doc);
