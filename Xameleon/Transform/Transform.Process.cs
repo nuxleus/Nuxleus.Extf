@@ -76,7 +76,6 @@ namespace Xameleon
                         }
                     }
                     // TODO: Ditto.
-                    NameValueCollection dictionary = new NameValueCollection();
                     if (request.Cookies.Count > 0)
                     {
                         IEnumerator enumerator = request.Cookies.GetEnumerator();
@@ -84,7 +83,6 @@ namespace Xameleon
                         {
                             string local = request.Cookies.AllKeys[i].ToString();
                             transformer.SetParameter(new QName("", "", "cookie_" + local), new XdmAtomicValue(request.Cookies[local].Value));
-                            dictionary.Set(local, request.Cookies[local].Value);
                         }
                     }
                     //ICollection collection = (ICollection)request.Cookies;
@@ -93,7 +91,7 @@ namespace Xameleon
                     transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Timestamp)));
                     transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(response)));
                     transformer.SetParameter(new QName("", "", "request"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(request)));
-                    transformer.SetParameter(new QName("", "", "cookies"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(dictionary)));
+                    transformer.SetParameter(new QName("", "", "cookies"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(response.Cookies)));
                     transformer.SetParameter(new QName("", "", "form"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(request.Form)));
                     transformer.SetParameter(new QName("", "", "querystring"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(request.QueryString)));
 
