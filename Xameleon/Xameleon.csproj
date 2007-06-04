@@ -98,6 +98,7 @@
     <Compile Include="Asp.Net\Server.cs" />
     <Compile Include="Atom\AtomEntry.cs" />
     <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Function\Cookie.cs" />
     <Compile Include="Function\FileStream.cs" />
     <Compile Include="HttpHandler\AtomPublishingProtocolHttpHandler.cs" />
     <Compile Include="HttpHandler\HttpHandler.cs" />
