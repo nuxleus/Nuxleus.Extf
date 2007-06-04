@@ -87,7 +87,7 @@ namespace Xameleon
                             transformer.SetParameter(new QName("", "", "cookie_" + local), new XdmAtomicValue(request.Cookies[local].Value));
                         }
                     }
-                    IDictionary cookieDictionary = (IDictionary)request.Cookies.GetEnumerator();
+                    IEnumerable cookieDictionary = (IEnumerable)request.Cookies.GetEnumerator();
                     transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Server)));
                     transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Session)));
                     transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Timestamp)));
