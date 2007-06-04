@@ -6,8 +6,6 @@ using Saxon.Api;
 using System.IO;
 using System.Web;
 using System.Collections;
-using System.Collections.Specialized;
-using System.Xml.XPath;
 
 namespace Xameleon
 {
@@ -87,13 +85,13 @@ namespace Xameleon
                             transformer.SetParameter(new QName("", "", "cookie_" + local), new XdmAtomicValue(request.Cookies[local].Value));
                         }
                     }
-                    IEnumerable cookieDictionary = (IEnumerable)request.Cookies;
+                    ICollection collection = request.Cookies;
                     transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Server)));
                     transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Session)));
                     transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Timestamp)));
                     transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(response)));
                     transformer.SetParameter(new QName("", "", "request"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(request)));
-                    transformer.SetParameter(new QName("", "", "cookies"), new XdmValue(cookieDictionary));
+                    transformer.SetParameter(new QName("", "", "cookies"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((ICollection)request.Cookies)));
                     transformer.SetParameter(new QName("", "", "form"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(request.Form)));
                     transformer.SetParameter(new QName("", "", "querystring"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(request.QueryString)));
 
