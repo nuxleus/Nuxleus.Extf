@@ -55,36 +55,6 @@ namespace Xameleon
                             transformer.SetParameter(new QName("", "", local), new XdmAtomicValue(this._XsltParams[local]));
                         }
                     }
-                    // TODO: Make this a bit more elegant/reusable.
-                    if (request.QueryString.Count > 0)
-                    {
-                        IEnumerator enumerator = request.QueryString.GetEnumerator();
-                        for (int i = 0; enumerator.MoveNext(); i++)
-                        {
-                            string local = request.QueryString.AllKeys[i].ToString();
-                            transformer.SetParameter(new QName("", "", "qs_" + local), new XdmAtomicValue(request.QueryString[local]));
-                        }
-                    }
-                    // TODO: Ditto.
-                    if (request.Form.Count > 0)
-                    {
-                        IEnumerator enumerator = request.Form.GetEnumerator();
-                        for (int i = 0; enumerator.MoveNext(); i++)
-                        {
-                            string local =  request.Form.AllKeys[i].ToString();
-                            transformer.SetParameter(new QName("", "", "form_" + local), new XdmAtomicValue(request.Form[local]));
-                        }
-                    }
-                    // TODO: Ditto.
-                    if (request.Cookies.Count > 0)
-                    {
-                        IEnumerator enumerator = request.Cookies.GetEnumerator();
-                        for (int i = 0; enumerator.MoveNext(); i++)
-                        {
-                            string local = request.Cookies.AllKeys[i].ToString();
-                            transformer.SetParameter(new QName("", "", "cookie_" + local), new XdmAtomicValue(request.Cookies[local].Value));
-                        }
-                    }
 
                     transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Server)));
                     transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Session)));
