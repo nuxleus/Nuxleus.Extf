@@ -546,7 +546,7 @@
         <member name="P:Xameleon.AmazonAWS.SQS.ListGrantsCompletedEventArgs.Result">
             <remarks/>
         </member>
-        <member name="T:Xameleon.Service.Service1">
+        <member name="T:Xameleon.Service.Authenticate">
             <summary>
             Summary description for Service1
             </summary>
