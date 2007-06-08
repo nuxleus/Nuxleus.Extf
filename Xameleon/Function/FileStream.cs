@@ -8,7 +8,7 @@ namespace Xameleon.Function {
 
     public class HttpFileStream {
 
-        public static void SaveExternalFile(string externalFile, string fileName) {
+        public static void SaveExternalImageFile(string externalFile, string fileName) {
             try {
                 using (Stream stream = GetFileStream(externalFile)) {
                     if (stream != null) {

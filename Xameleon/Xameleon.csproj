@@ -114,6 +114,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Service\Authentication.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Transform\Transform.Context.cs" />
     <Compile Include="Transform\Transform.cs" />
     <Compile Include="Transform\Transform.Init.cs" />
@@ -245,9 +248,6 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Xameleon_AmazonAWS_SQS_QueueService</CachedSettingsPropName>
     </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
