@@ -17,67 +17,82 @@ namespace Xameleon.Function {
                 switch (type) {
                     case "cookie":
                         if (request.Cookies.Count > 0) {
-                            try {
-                                return request.Cookies[key].Value;
-                            } catch {
-                                return notSet;
+                            IEnumerator enumerator = request.Cookies.GetEnumerator();
+                            for (int i = 0; enumerator.MoveNext(); i++) {
+                                string local = request.Cookies.AllKeys[i].ToString();
+                                if (local == key) {
+                                    return request.Cookies[local].Value;
+                                    break;
+                                }
                             }
-                        } else {
                             return notSet;
                         }
+                        return notSet;
                         break;
 
                     case "form":
                         if (request.Form.Count > 0) {
-                            try {
-                                return request.Form[key];
-                            } catch {
-                                return notSet;
+                            IEnumerator enumerator = request.Form.GetEnumerator();
+                            for (int i = 0; enumerator.MoveNext(); i++) {
+                                string local = request.Form.AllKeys[i].ToString();
+                                if (local == key) {
+                                    return request.Form[local];
+                                    break;
+                                }
                             }
-                        } else {
                             return notSet;
                         }
+                        return notSet;
                         break;
 
                     case "query-string":
                         if (request.QueryString.Count > 0) {
-                            try {
-                                return request.QueryString[key];
-                            } catch {
-                                return notSet;
+                            IEnumerator enumerator = request.QueryString.GetEnumerator();
+                            for (int i = 0; enumerator.MoveNext(); i++) {
+                                string local = request.QueryString.AllKeys[i].ToString();
+                                if (local == key) {
+                                    return request.QueryString[local];
+                                    break;
+                                }
                             }
-                        } else {
                             return notSet;
                         }
+                        return notSet;
                         break;
                     case "server-variable":
                         if (request.ServerVariables.Count > 0) {
-                            try {
-                                return request.ServerVariables[key];
-                            } catch {
-                                return notSet;
+                            IEnumerator enumerator = request.ServerVariables.GetEnumerator();
+                            for (int i = 0; enumerator.MoveNext(); i++) {
+                                string local = request.ServerVariables.AllKeys[i].ToString();
+                                if (local == key) {
+                                    return request.ServerVariables[local];
+                                    break;
+                                }
                             }
-                        } else {
                             return notSet;
                         }
+                        return notSet;
                         break;
 
                     case "header":
                         if (request.Headers.Count > 0) {
-                            try {
-                                return request.Headers[key];
-                            } catch {
-                                return notSet;
+                            IEnumerator enumerator = request.ServerVariables.GetEnumerator();
+                            for (int i = 0; enumerator.MoveNext(); i++) {
+                                string local = request.ServerVariables.AllKeys[i].ToString();
+                                if (local == key) {
+                                    return request.ServerVariables[local];
+                                    break;
+                                }
                             }
-                        } else {
                             return notSet;
                         }
+                        return notSet;
                         break;
                     default:
                         return notSet;
                         break;
                 }
-
+                
             } catch (Exception e) {
                 Debug.WriteLine("Error: " + e.Message);
                 return e.Message;
