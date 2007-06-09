@@ -102,5 +102,97 @@ namespace Xameleon.Function {
         }
     }
 }
+//EXPERIMENTAL: PERFORMANCE SEEMS NOTICEABLY SLOWER WITH THE CODE BELOW, 
+//BUT WANT TO KEEP IT AROUND UNTIL I HAVE A CHANCE TO BENCHMARK
+//using System;
+//using System.Collections;
+//using System.IO;
+//using System.Net;
+//using System.Diagnostics;
+//using System.Collections.Specialized;
+//using System.Web;
+
+//namespace Xameleon.Function {
+
+//    public class HttpRequestCollection {
+
+//        static string notSet = "not-set";
+
+//        public static string GetValue(HttpRequest request, string type, string key) {
+//            try {
+//                switch (type) {
+//                    case "cookie":
+//                        if (request.Cookies.Count > 0) {
+//                            try {
+//                                return request.Cookies[key].Value;
+//                            } catch {
+//                                return notSet;
+//                            }
+//                        } else {
+//                            return notSet;
+//                        }
+//                        break;
+
+//                    case "form":
+//                        if (request.Form.Count > 0) {
+//                            try {
+//                                return request.Form[key];
+//                            } catch {
+//                                return notSet;
+//                            }
+//                        } else {
+//                            return notSet;
+//                        }
+//                        break;
+
+//                    case "query-string":
+//                        if (request.QueryString.Count > 0) {
+//                            try {
+//                                return request.QueryString[key];
+//                            } catch {
+//                                return notSet;
+//                            }
+//                        } else {
+//                            return notSet;
+//                        }
+//                        break;
+//                    case "server-variable":
+//                        if (request.ServerVariables.Count > 0) {
+//                            try {
+//                                return request.ServerVariables[key];
+//                            } catch {
+//                                return notSet;
+//                            }
+//                        } else {
+//                            return notSet;
+//                        }
+//                        break;
+
+//                    case "header":
+//                        if (request.Headers.Count > 0) {
+//                            try {
+//                                return request.Headers[key];
+//                            } catch {
+//                                return notSet;
+//                            }
+//                        } else {
+//                            return notSet;
+//                        }
+//                        break;
+//                    default:
+//                        return notSet;
+//                        break;
+//                }
+
+//            } catch (Exception e) {
+//                Debug.WriteLine("Error: " + e.Message);
+//                return e.Message;
+//            }
+
+//            return notSet;
+//        }
+//    }
+//}
+
 
 

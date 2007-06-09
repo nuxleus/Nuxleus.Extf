@@ -115,6 +115,17 @@ namespace Extf.Net.S3 {
         }
 
         public string listBucket(string bucket, string prefix, string marker,
+                                  int maxKeys) {
+            return listBucket(bucket, prefix, marker, maxKeys, null, null);
+        }
+
+        public string listBucket(string bucket, string prefix, string marker,
+                                  int maxKeys, string delimiter) {
+            SortedList query = Utils.queryForListOptions(prefix, marker, maxKeys, delimiter);
+            return generateURL("GET", bucket, "", query, null);
+        }
+
+        public string listBucket(string bucket, string prefix, string marker,
                                   int maxKeys, SortedList headers) {
             return listBucket(bucket, prefix, marker, maxKeys, null, headers);
         }
