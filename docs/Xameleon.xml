@@ -4,6 +4,11 @@
         <name>Xameleon</name>
     </assembly>
     <members>
+        <member name="T:Xameleon.Service.Authenticate">
+            <summary>
+            Summary description for Authenticate service
+            </summary>
+        </member>
         <member name="T:Xameleon.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -545,11 +550,6 @@
         </member>
         <member name="P:Xameleon.AmazonAWS.SQS.ListGrantsCompletedEventArgs.Result">
             <remarks/>
-        </member>
-        <member name="T:Xameleon.Service.Authenticate">
-            <summary>
-            Summary description for Service1
-            </summary>
         </member>
     </members>
 </doc>

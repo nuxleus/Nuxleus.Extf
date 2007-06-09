@@ -23,8 +23,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extf.Net.SilverlitEXSLT", "Extf.Net.SilverlitEXSLT\Extf.Net.SilverlitEXSLT.csproj", "{EEE44158-6983-46B1-AE01-F8DFA13A1F61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService1", "WebService1\WebService1.csproj", "{483B14B6-EA89-4ADC-85CA-C9965DEF8F01}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -143,16 +141,6 @@ Global
 		{EEE44158-6983-46B1-AE01-F8DFA13A1F61}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EEE44158-6983-46B1-AE01-F8DFA13A1F61}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{EEE44158-6983-46B1-AE01-F8DFA13A1F61}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{483B14B6-EA89-4ADC-85CA-C9965DEF8F01}.Debug|.NET.ActiveCfg = Debug|Any CPU
-		{483B14B6-EA89-4ADC-85CA-C9965DEF8F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{483B14B6-EA89-4ADC-85CA-C9965DEF8F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{483B14B6-EA89-4ADC-85CA-C9965DEF8F01}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{483B14B6-EA89-4ADC-85CA-C9965DEF8F01}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{483B14B6-EA89-4ADC-85CA-C9965DEF8F01}.Release|.NET.ActiveCfg = Release|Any CPU
-		{483B14B6-EA89-4ADC-85CA-C9965DEF8F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{483B14B6-EA89-4ADC-85CA-C9965DEF8F01}.Release|Any CPU.Build.0 = Release|Any CPU
-		{483B14B6-EA89-4ADC-85CA-C9965DEF8F01}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{483B14B6-EA89-4ADC-85CA-C9965DEF8F01}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
