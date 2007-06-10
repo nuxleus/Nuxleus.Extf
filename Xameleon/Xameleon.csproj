@@ -39,6 +39,14 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IKVM.GNU.Classpath, Version=0.34.0.3, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\IKVM.GNU.Classpath.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=0.34.0.3, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\IKVM.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="IronMath, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\trunk\Dependencies\IronMath.dll</HintPath>
@@ -54,6 +62,10 @@
     <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\trunk\Dependencies\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="saxon8, Version=8.9.0.3, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\saxon8.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -98,6 +110,8 @@
     <Compile Include="Asp.Net\Server.cs" />
     <Compile Include="Atom\AtomEntry.cs" />
     <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Document\DocumentResult.cs" />
+    <Compile Include="Document\S3Document.cs" />
     <Compile Include="Function\HttpResponseCollection.cs" />
     <Compile Include="Function\HttpRequestCollection.cs" />
     <Compile Include="Function\FileStream.cs" />
@@ -114,6 +128,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ResultDocumentHandler\S3ResultDocumentHandler.cs" />
     <Compile Include="Service\Authentication.cs">
       <SubType>Component</SubType>
     </Compile>
