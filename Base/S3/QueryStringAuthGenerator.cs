@@ -161,7 +161,7 @@ namespace Extf.Net.S3 {
             return generateURL("GET", bucket, HttpUtility.UrlEncode(key), headers);
         }
         public string get(string bucket, string key) {
-            return generateURL("GET", bucket, key, null);
+            return generateURL("GET", bucket, HttpUtility.UrlEncode(key), null);
         }
         public string delete(string bucket, string key, SortedList headers) {
             return generateURL("DELETE", bucket, HttpUtility.UrlEncode(key), headers);
