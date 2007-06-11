@@ -21,7 +21,6 @@ namespace Xameleon.Function {
                     default:
                         break;
                 }
-                
             } catch (Exception e) {
                 Debug.WriteLine("Error: " + e.Message);
             }

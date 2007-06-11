@@ -88,6 +88,7 @@ namespace Xameleon.Function {
                         }
                         return notSet;
                         break;
+
                     default:
                         return notSet;
                         break;
