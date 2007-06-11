@@ -201,6 +201,10 @@ namespace Extf.Net.S3
             return new GetResponse(makeRequest("GET", bucket, encodeKeyForSignature(key), headers));
         }
 
+        public GetResponse get(string bucket, string key) {
+            return new GetResponse(makeRequest("GET", bucket, encodeKeyForSignature(key), null));
+        }
+
         /// <summary>
         /// Delete an object from S3.
         /// </summary>

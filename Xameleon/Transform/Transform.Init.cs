@@ -26,6 +26,7 @@ namespace Xameleon
         private Stream _TemplateStream;
         private string _xsltParamKey = "xsltParam_";
         private NameValueCollection _XsltParams;
+        private Uri _baseUri;
 
         private void Init(HttpContext context)
         {
@@ -35,14 +36,14 @@ namespace Xameleon
             {
                 this._xsltParamKey = setting;
             }
-            Uri absoluteUri = new Uri(context.Server.MapPath(settings.GetSetting("baseTemplate")));
+            this._baseUri = new Uri(context.Server.MapPath(settings.GetSetting("baseTemplate")));
             this._XsltParams = settings.GetSettingArray(this._xsltParamKey);
             this._Resolver = new XmlUrlResolver();
             this._Resolver.Credentials = CredentialCache.DefaultCredentials;
-            this._TemplateStream = (Stream)this._Resolver.GetEntity(absoluteUri, null, typeof(Stream));
+            this._TemplateStream = (Stream)this._Resolver.GetEntity(this._baseUri, null, typeof(Stream));
             this._Processor = new Processor();
             this._Compiler = this._Processor.NewXsltCompiler();
-            this._Compiler.BaseUri = absoluteUri;
+            this._Compiler.BaseUri = this._baseUri;
             this._Template = this._Compiler.Compile(this._TemplateStream);
             this._IS_INITIALIZED = true;
         }

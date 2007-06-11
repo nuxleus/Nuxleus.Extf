@@ -31,17 +31,18 @@ namespace Xameleon
             HttpResponse response = context.Response;
             TextWriter writer = context.Response.Output;
 
-            Uri absoluteUri = new Uri(context.Server.MapPath(request.FilePath));
+            Uri baseXml = new Uri(context.Server.MapPath(request.FilePath));
+
             if (!this._IS_INITIALIZED)
             {
                 this.Init(context);
             }
-            using (Stream input = ((Stream)this._Resolver.GetEntity(absoluteUri, null, typeof(Stream))))
+            using (Stream input = ((Stream)this._Resolver.GetEntity(baseXml, null, typeof(Stream))))
             {
                 using (Stream transform = this._TemplateStream)
                 {
                     DocumentBuilder builder = this._Processor.NewDocumentBuilder();
-                    builder.BaseUri = absoluteUri;
+                    builder.BaseUri = this._baseUri;
                     XdmNode node = builder.Build(input);
                     Serializer destination = new Serializer();
                     destination.SetOutputWriter(writer);
@@ -61,7 +62,6 @@ namespace Xameleon
                     transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Server)));
                     transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Session)));
                     transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Timestamp)));
-                    
                     transformer.InputXmlResolver = this._Resolver;
                     transformer.InitialContextNode = node;
                     transformer.Run(destination);
