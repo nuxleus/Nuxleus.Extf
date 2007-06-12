@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Xameleon</RootNamespace>
     <AssemblyName>Xameleon</AssemblyName>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>Extf.Net.snk</AssemblyOriginatorKeyFile>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -66,6 +66,26 @@
     <Reference Include="saxon8, Version=8.9.0.3, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\saxon8.dll</HintPath>
+    </Reference>
+    <Reference Include="SemWeb, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\semweb\SemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="SemWeb.PostgreSQLStore, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\semweb\SemWeb.PostgreSQLStore.dll</HintPath>
+    </Reference>
+    <Reference Include="SemWeb.Sparql, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\semweb\SemWeb.Sparql.dll</HintPath>
+    </Reference>
+    <Reference Include="SemWeb.SqliteStore, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\semweb\SemWeb.SqliteStore.dll</HintPath>
+    </Reference>
+    <Reference Include="sparql-core, Version=0.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\semweb\sparql-core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -129,6 +149,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="ResultDocumentHandler\S3ResultDocumentHandler.cs" />
+    <Compile Include="SemWeb\Select.cs" />
     <Compile Include="Service\Authentication.cs">
       <SubType>Component</SubType>
     </Compile>
