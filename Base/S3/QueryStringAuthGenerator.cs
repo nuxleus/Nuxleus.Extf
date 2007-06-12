@@ -158,10 +158,10 @@ namespace Extf.Net.S3 {
         }
 
         public string get(string bucket, string key, SortedList headers) {
-            return generateURL("GET", bucket, HttpUtility.UrlEncode(key), headers);
+            return generateURL("GET", bucket, key, headers);
         }
         public string get(string bucket, string key) {
-            return generateURL("GET", bucket, HttpUtility.UrlEncode(key), null);
+            return generateURL("GET", bucket, key, null);
         }
         public string delete(string bucket, string key, SortedList headers) {
             return generateURL("DELETE", bucket, HttpUtility.UrlEncode(key), headers);
@@ -221,7 +221,7 @@ namespace Extf.Net.S3 {
                 buffer.Append(bucket);
                 if (key != null) {
                     buffer.Append("/");
-                    buffer.Append(HttpUtility.UrlEncode(key));
+                    buffer.Append(key);
                 }
             }
             return buffer.ToString();
