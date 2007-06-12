@@ -187,7 +187,7 @@ namespace Extf.Net.S3
         // care for.
         private static string encodeKeyForSignature(string key)
         {
-            return HttpUtility.UrlEncode(key).Replace("%2f", "/");
+            return key.Replace("%2f", "/");
         }
 
         /// <summary>
