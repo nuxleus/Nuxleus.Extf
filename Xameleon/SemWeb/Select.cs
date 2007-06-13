@@ -17,32 +17,31 @@ namespace Xameleon.SemWeb {
 
         public Select() { }
 
-        public static void Process(HttpResponse response, String foaf) {
+        public static string Process(String foafURI) {
 
-            TextWriter output = response.Output;
-            Uri uri = new Uri(foaf);
+            StringBuilder builder = new StringBuilder();
+            Uri uri = new Uri(foafURI);
 
             Store store = new MemoryStore();
             RdfReader reader = RdfReader.LoadFromUri(uri);
             reader.BaseUri = uri.OriginalString;
             store.Import(reader);
 
-
-            output.Write("These are the people in the file:");
+            builder.AppendLine(@"<service-result>");
+            builder.AppendLine(@"<statement>These are the people in the file:</statement>");
             foreach (Statement s in store.Select(new Statement(null, rdftype, foafPerson))) {
                 foreach (Resource r in store.SelectObjects(s.Subject, foafname))
-                    output.WriteLine(r.ToString());
+                    builder.AppendLine(@"<entry>" + r + "</entry>");
             }
-            output.WriteLine();
 
-            output.Write("And here's RDF/XML just for some of the file:");
+            builder.AppendLine(@"<statement>And here's RDF/XML just for some of the file:</statement>");
 
-            using (RdfWriter w = new RdfXmlWriter(output)) {
-                
+            using (RdfWriter w = new RdfXmlWriter(new StringWriter(builder))) {
                 store.Select(new Statement(null, foafname, null), w);
                 store.Select(new Statement(null, foafknows, null), w);
             }
-            output.WriteLine();
+            builder.AppendLine(@"</service-result>");
+            return builder.ToString();
         }
 
     }
