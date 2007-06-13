@@ -28,17 +28,13 @@ namespace Xameleon.SemWeb {
             store.Import(reader);
 
             builder.AppendLine("<service-result>");
-            builder.AppendLine(@"<statement>
-                               These are the people in the file:
-                               </statement>");
+            builder.AppendLine("<statement>These are the people in the file: </statement>");
             foreach (Statement s in store.Select(new Statement(null, rdftype, foafPerson))) {
                 foreach (Resource r in store.SelectObjects(s.Subject, foafname))
                     builder.AppendLine(@"<entry>" + r + "</entry>");
             }
 
-            builder.AppendLine(@"<statement>
-                               And here's RDF/XML just for some of the file:
-                               </statement>");
+            builder.AppendLine("<statement>And here's RDF/XML just for some of the file: </statement>");
 
             using (RdfWriter w = new RdfXmlWriter(new StringWriter(builder))) {
                 store.Select(new Statement(null, foafname, null), w);
