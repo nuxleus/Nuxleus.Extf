@@ -14,23 +14,23 @@ namespace Xameleon {
             switch (context.Request.HttpMethod) {
 
                 case "GET": {
-                        new Transform().Process(context);
+                        new Transform().Process(context, false);
                         break;
                     }
                 case "PUT": {
-                        new Transform().Process(context);
+                        new Transform().Process(context, false);
                         break;
                     }
                 case "POST": {
-                        new Transform().Process(context);
+                        new Transform().Process(context, false);
                         break;
                     }
                 case "DELETE": {
-                        new Transform().Process(context);
+                        new Transform().Process(context, false);
                         break;
                     }
                 default: {
-                        new Transform().Process(context);
+                        new Transform().Process(context, false);
                         break;
                     }
             }
