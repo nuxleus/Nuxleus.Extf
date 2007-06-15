@@ -28,7 +28,7 @@ namespace Xameleon {
             HttpResponse response = context.Response;
             TextWriter writer = context.Response.Output;
 
-            Uri absoluteUri = new Uri(request.RawUrl);
+            Uri absoluteUri = new Uri(context.Server.MapPath(request.FilePath));
             if (!this._IS_INITIALIZED) {
                 this.Init(context);
             }
