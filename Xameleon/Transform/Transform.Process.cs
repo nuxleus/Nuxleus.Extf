@@ -8,7 +8,6 @@ using System.Web;
 using System.Collections;
 using System.Collections.Specialized;
 using Xameleon.ResultDocumentHandler;
-using Xameleon.UrlResolver;
 
 namespace Xameleon {
 
@@ -29,7 +28,7 @@ namespace Xameleon {
             HttpResponse response = context.Response;
             TextWriter writer = context.Response.Output;
 
-            Uri absoluteUri = new Uri(context.Server.MapPath(request.FilePath));
+            Uri absoluteUri = new Uri(context.Server.MapPath(request.RawUrl));
             if (!this._IS_INITIALIZED) {
                 this.Init(context);
             }
@@ -60,7 +59,7 @@ namespace Xameleon {
                         transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Server)));
                         transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Session)));
                         transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Timestamp)));
-                        transformer.InputXmlResolver = new S3XmlResolver();
+                        transformer.InputXmlResolver = this._Resolver;
                         transformer.InitialContextNode = node;
                         transformer.Run(destination);
 
