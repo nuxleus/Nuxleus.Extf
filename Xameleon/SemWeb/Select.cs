@@ -30,7 +30,7 @@ namespace Xameleon.SemWeb {
             builder.AppendLine("<statement>These are the people in the file: </statement>");
             foreach (Statement s in store.Select(new Statement(null, rdftype, foafPerson))) {
                 foreach (Resource r in store.SelectObjects(s.Subject, foafname))
-                    builder.AppendLine(@"<entry>" + r + "</entry>");
+                    builder.AppendLine("<entry>" + r + "</entry>");
             }
 
             builder.AppendLine("<statement>And here's RDF/XML just for some of the file: </statement>");
