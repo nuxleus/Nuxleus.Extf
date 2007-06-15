@@ -60,7 +60,7 @@ namespace Xameleon {
                         transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Server)));
                         transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Session)));
                         transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Timestamp)));
-                        transformer.InputXmlResolver = new S3XmlResolver();
+                        transformer.InputXmlResolver = this._Resolver;
                         transformer.InitialContextNode = node;
                         transformer.Run(destination);
 
