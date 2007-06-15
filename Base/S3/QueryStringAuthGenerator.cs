@@ -245,7 +245,7 @@ namespace Extf.Net.S3 {
             expires /= 1000;
 
             string canonicalString = Utils.makeCanonicalString(method, bucket, key, queryParameters, headers, "" + expires);
-            string encodedCanonical = Utils.encode(this.awsSecretAccessKey, canonicalString, true);
+            string encodedCanonical = Utils.encode(this.awsSecretAccessKey, canonicalString, false);
 
             StringBuilder builder = new StringBuilder();
             if (this.isSecure) {
