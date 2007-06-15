@@ -18,7 +18,7 @@ namespace Xameleon.Function {
                         response.Cookies.Set(cookie);
                         break;
                     case "headers":
-                        response.Headers.Set(key, value);
+                        response.Headers.Add(key, value);
                         break;
                     default:
                         break;
