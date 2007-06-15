@@ -158,10 +158,10 @@ namespace Extf.Net.S3 {
         }
 
         public string get(string bucket, string key, SortedList headers) {
-            return generateURL("GET", bucket, key, headers);
+            return generateURL("GET", bucket, HttpUtility.UrlEncode(key), headers);
         }
         public string get(string bucket, string key) {
-            return generateURL("GET", bucket, key, null);
+            return generateURL("GET", bucket, HttpUtility.UrlEncode(key), null);
         }
         public string delete(string bucket, string key, SortedList headers) {
             return generateURL("DELETE", bucket, HttpUtility.UrlEncode(key), headers);
@@ -245,7 +245,7 @@ namespace Extf.Net.S3 {
             expires /= 1000;
 
             string canonicalString = Utils.makeCanonicalString(method, bucket, key, queryParameters, headers, "" + expires);
-            string encodedCanonical = Utils.encode(this.awsSecretAccessKey, canonicalString, true);
+            string encodedCanonical = Utils.encode(this.awsSecretAccessKey, canonicalString, false);
 
             StringBuilder builder = new StringBuilder();
             if (this.isSecure) {
