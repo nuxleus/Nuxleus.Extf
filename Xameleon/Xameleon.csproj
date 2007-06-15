@@ -164,6 +164,7 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="WSGI\WSGI.cs" />
+    <Compile Include="UrlResolver\S3XmlUrlResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
