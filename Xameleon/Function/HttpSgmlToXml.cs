@@ -3,20 +3,21 @@ using Saxon.Api;
 using Sgml;
 using System.Xml;
 using Saxon.Api;
+using net.sf.saxon.om;
 
 namespace Xameleon.Function {
 
     public static class HttpSgmlToXml {
 
-        public static XdmValue GetDocXml(String uri) {
+        public static NodeInfo GetDocXml(String uri) {
             return getDocXml(uri, "/html/*");
         }
 
-        public static XdmValue GetDocXml(String uri, String path) {
+        public static NodeInfo GetDocXml(String uri, String path) {
             return getDocXml(uri, path);
         }
 
-        private static XdmValue getDocXml(String uri, String path) {
+        private static NodeInfo getDocXml(String uri, String path) {
             SgmlReader sr = new SgmlReader();
             sr.Href = uri;
 
@@ -26,7 +27,7 @@ namespace Xameleon.Function {
             XmlNode html = htmlDoc.SelectSingleNode(path);
 
             Processor processor = new Processor();
-            return (XdmValue)processor.NewDocumentBuilder().Build(html);
+            return (NodeInfo)processor.NewDocumentBuilder().Build(html);
         }
     }
 }
