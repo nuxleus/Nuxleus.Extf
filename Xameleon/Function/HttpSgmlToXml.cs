@@ -9,15 +9,15 @@ namespace Xameleon.Function {
 
     public static class HttpSgmlToXml {
 
-        public static SequenceIterator GetDocXml(String uri) {
+        public static Item GetDocXml(String uri) {
             return getDocXml(uri, "/html");
         }
 
-        public static SequenceIterator GetDocXml(String uri, String path) {
+        public static Item GetDocXml(String uri, String path) {
             return getDocXml(uri, path);
         }
 
-        private static SequenceIterator getDocXml(String uri, String path) {
+        private static Item getDocXml(String uri, String path) {
             SgmlReader sr = new SgmlReader();
             sr.Href = uri;
 
@@ -28,7 +28,7 @@ namespace Xameleon.Function {
 
             Processor processor = new Processor();
 
-            return processor.NewDocumentBuilder().Build(html).Implementation.getTypedValue().getAnother();
+            return processor.NewDocumentBuilder().Build(html).Implementation.getTypedValue().current();
         }
     }
 }
