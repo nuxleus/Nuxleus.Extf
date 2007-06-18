@@ -83,6 +83,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\semweb\SemWeb.SqliteStore.dll</HintPath>
     </Reference>
+    <Reference Include="SgmlReaderDll, Version=1.7.2724.42817, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\SgmlReaderDll.dll</HintPath>
+    </Reference>
     <Reference Include="sparql-core, Version=0.0.0.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\semweb\sparql-core.dll</HintPath>
