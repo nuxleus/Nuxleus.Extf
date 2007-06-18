@@ -27,7 +27,8 @@ namespace Xameleon.Function {
             XmlNode html = htmlDoc.SelectSingleNode(path);
 
             Processor processor = new Processor();
-            return processor.NewDocumentBuilder().Build(html).Implementation.getTypedValue();
+
+            return processor.NewDocumentBuilder().Build(html).Implementation.getTypedValue().getAnother();
         }
     }
 }
