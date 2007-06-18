@@ -367,6 +367,7 @@ namespace Extf.Net.S3
             addAuthHeader( req, bucket, key, query );
 
             return req;
+            
         }
 
         /// <summary>
