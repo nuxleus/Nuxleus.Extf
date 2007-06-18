@@ -28,9 +28,8 @@ namespace Xameleon.Function {
             XmlNode html = htmlDoc.SelectSingleNode(path);
 
             Processor processor = new Processor();
-            ValueRepresentation node = processor.NewDocumentBuilder().Build(html).Unwrap();
 
-            return Value.asValue(node);
+            return Value.asValue(processor.NewDocumentBuilder().Build(html).Unwrap());
         }
     }
 }
