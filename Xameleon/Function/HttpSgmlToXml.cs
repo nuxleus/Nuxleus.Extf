@@ -4,6 +4,7 @@ using Sgml;
 using System.Xml;
 using Saxon.Api;
 using net.sf.saxon.value;
+using net.sf.saxon.om;
 
 namespace Xameleon.Function {
 
@@ -27,8 +28,9 @@ namespace Xameleon.Function {
             XmlNode html = htmlDoc.SelectSingleNode(path);
 
             Processor processor = new Processor();
+            ValueRepresentation node = processor.NewDocumentBuilder().Build(html).Unwrap();
 
-            return Value.asValue(processor.NewDocumentBuilder().Build(html).Unwrap());
+            return Value.asValue(node);
         }
     }
 }
