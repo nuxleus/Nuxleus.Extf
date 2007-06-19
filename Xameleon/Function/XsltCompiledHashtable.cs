@@ -1,15 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml;
-using System.IO;
-using Xameleon.Properties;
-using System.Net;
 using Saxon.Api;
 using System.Collections;
-using System.Collections.Specialized;
-using System.Web;
-using Extf.Net.Configuration;
 
 namespace Xameleon {
 
