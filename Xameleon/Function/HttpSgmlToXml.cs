@@ -3,13 +3,14 @@ using Saxon.Api;
 using Sgml;
 using System.Xml;
 using Saxon.Api;
-using net.sf.saxon.om;
 using net.sf.saxon.value;
 using System.IO;
 
 namespace Xameleon.Function {
 
-    public static class HttpSgmlToXml {
+    public class HttpSgmlToXml {
+
+        public HttpSgmlToXml() { }
 
         public static Value GetDocXml(String uri) {
             return getDocXml(uri, "/html");

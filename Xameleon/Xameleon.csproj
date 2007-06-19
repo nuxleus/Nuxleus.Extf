@@ -142,6 +142,7 @@
     <Compile Include="Function\HttpRequestCollection.cs" />
     <Compile Include="Function\FileStream.cs" />
     <Compile Include="Function\HttpWebResponseStream.cs" />
+    <Compile Include="Function\XsltCompiledHashtable.cs" />
     <Compile Include="HttpHandler\AtomPublishingProtocolHttpHandler.cs" />
     <Compile Include="HttpHandler\S3HttpHandler.cs" />
     <Compile Include="HttpHandler\HttpHandler.cs" />
