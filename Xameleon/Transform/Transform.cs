@@ -11,12 +11,12 @@ namespace  Xameleon {
 
     public Transform () {}
 
-    public Context Create() {
+    internal Context Create() {
       Context context = new Context();
       return context;
     }
 
-    public XmlDocument Go(Context context) {
+    internal XmlDocument Go(Context context) {
       if (!this._IS_INITIALIZED) return Process(Init(context));
       else return Process(context);
     }
