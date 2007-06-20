@@ -23,10 +23,9 @@ namespace Xameleon {
             return true;
         }
 
-        internal void Process(HttpContext context, bool outputS3) {
+        internal void Process(HttpContext context, TextWriter writer, bool outputS3) {
             HttpRequest request = context.Request;
             HttpResponse response = context.Response;
-            TextWriter writer = context.Response.Output;
 
             Uri absoluteUri = new Uri(context.Server.MapPath(request.FilePath));
             if (!this._IS_INITIALIZED) {

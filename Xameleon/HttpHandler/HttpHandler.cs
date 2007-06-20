@@ -4,33 +4,42 @@
 
 using System;
 using System.Web;
+using System.IO;
 
 namespace Xameleon {
 
     class HttpHandler : IHttpHandler {
 
+        private TextWriter _writer;
+        private HttpContext _context;
+        private String _requestMethod;
+
         public void ProcessRequest(HttpContext context) {
 
-            switch (context.Request.HttpMethod) {
+            _requestMethod = context.Request.HttpMethod;
+            _writer = context.Response.Output;
+            _context = context;
+
+            switch (_requestMethod) {
 
                 case "GET": {
-                        new Transform().Process(context, false);
+                        new Transform().Process(_context, _writer, false);
                         break;
                     }
                 case "PUT": {
-                        new Transform().Process(context, false);
+                        new Transform().Process(_context, _writer, false);
                         break;
                     }
                 case "POST": {
-                        new Transform().Process(context, false);
+                        new Transform().Process(_context, _writer, false);
                         break;
                     }
                 case "DELETE": {
-                        new Transform().Process(context, false);
+                        new Transform().Process(_context, _writer, false);
                         break;
                     }
                 default: {
-                        new Transform().Process(context, false);
+                        new Transform().Process(_context, _writer, false);
                         break;
                     }
             }

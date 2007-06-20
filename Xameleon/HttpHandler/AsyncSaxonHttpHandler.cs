@@ -24,7 +24,7 @@ namespace Xameleon {
         }
 
         public bool IsReusable {
-            get { return false; }
+            get { return true; }
         }
 
         #region IHttpAsyncHandler Members
@@ -53,35 +53,35 @@ namespace Xameleon {
 
                     case "GET": {
                             lock (_transform) {
-                                _transform.Process(_context, false);
+                                _transform.Process(_context, _writer, false);
                             }
                             _transformAsyncResult.CompleteCall();
                             break;
                         }
                     case "PUT": {
                             lock (_transform) {
-                                _transform.Process(_context, false);
+                                _transform.Process(_context, _writer, false);
                             }
                             _transformAsyncResult.CompleteCall();
                             break;
                         }
                     case "POST": {
                             lock (_transform) {
-                                _transform.Process(_context, false);
+                                _transform.Process(_context, _writer, false);
                             }
                             _transformAsyncResult.CompleteCall();
                             break;
                         }
                     case "DELETE": {
                             lock (_transform) {
-                                _transform.Process(_context, false);
+                                _transform.Process(_context, _writer, false);
                             }
                             _transformAsyncResult.CompleteCall();
                             break;
                         }
                     default: {
                             lock (_transform) {
-                                _transform.Process(_context, false);
+                                _transform.Process(_context, _writer, false);
                             }
                             _transformAsyncResult.CompleteCall();
                             break;
@@ -95,8 +95,6 @@ namespace Xameleon {
         }
 
         public void EndProcessRequest(IAsyncResult result) {
-            _writer.Flush();
-            _writer.Close();
             _writer.Dispose();
         }
 
