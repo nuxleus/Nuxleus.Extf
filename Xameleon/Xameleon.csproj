@@ -144,6 +144,7 @@
     <Compile Include="Function\HttpWebResponseStream.cs" />
     <Compile Include="Function\XsltCompiledHashtable.cs" />
     <Compile Include="HttpHandler\AtomPublishingProtocolHttpHandler.cs" />
+    <Compile Include="HttpHandler\AsyncSaxonHttpHandler.cs" />
     <Compile Include="HttpHandler\S3HttpHandler.cs" />
     <Compile Include="HttpHandler\HttpHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -294,6 +295,9 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Xameleon_AmazonAWS_SQS_QueueService</CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AsyncTransform\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
