@@ -163,6 +163,7 @@
     <Compile Include="Service\Authentication.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Transform\Transform.AsyncResult.cs" />
     <Compile Include="Transform\Transform.Context.cs" />
     <Compile Include="Transform\Transform.cs" />
     <Compile Include="Transform\Transform.Init.cs" />

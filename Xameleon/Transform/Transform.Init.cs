@@ -26,6 +26,7 @@ namespace Xameleon
         private Stream _TemplateStream;
         private string _xsltParamKey = "xsltParam_";
         private NameValueCollection _XsltParams;
+        
 
         private void Init(HttpContext context)
         {
