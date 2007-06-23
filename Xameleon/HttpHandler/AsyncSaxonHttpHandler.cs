@@ -41,6 +41,7 @@ namespace Xameleon {
                 return _transformAsyncResult;
             } catch (Exception ex) {
                 _exception = ex;
+                WriteError();
                 return _transformAsyncResult;
             }
         }
@@ -80,15 +81,19 @@ namespace Xameleon {
 
             } catch (Exception ex) {
                 _exception = ex;
-                _context.Response.Write(_exception.Message);
-                _context.Response.Write(_exception.Source);
-                _context.Response.Write(_exception.StackTrace);
+                WriteError();
                 _transformAsyncResult.CompleteCall();
             }
         }
 
         public void EndProcessRequest(IAsyncResult result) {
             _writer.Dispose();
+        }
+
+        private void WriteError() {
+            _context.Response.Write(_exception.Message);
+            _context.Response.Write(_exception.Source);
+            _context.Response.Write(_exception.StackTrace);
         }
 
         #endregion
