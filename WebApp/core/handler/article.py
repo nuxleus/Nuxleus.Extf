@@ -14,12 +14,34 @@ from datetime import datetime, timedelta
 #from bucker.provider.sqs import Messenger
 from bucker.message.llup import Link, Notification
 from amplee.utils import parse_isodate, get_isodate
+from amplee.atompub.member.atom import MemberResource
 from bridge.filter.atom import lookup_links
 from core.aws import lookup_keys
 
 from boto.utils import canonical_string as s3_canonical_string
 
-__all__ = ['AtomHandler']
+__all__ = ['AtomHandler', 'GenericMember']
+
+class GenericMember(MemberResource):
+    def __init__(self, collection, **kwargs):
+        MemberResource.__init__(collection, **kwargs)
+
+    def generate_atom_id(self, entry, slug=None):
+        if not slug:
+            slug = entry.get_child('title', entry.xml_ns).xml_text
+        
+        id = unicode('%s/%s%s' % (collection.xml_base or '',
+                                  collection.base_uri, slug.replace(' ', '-')))
+        # When xml_base is not set the previous call leaves a leading '/'
+        # we just get rid of it here
+        return id.lstrip('/')
+
+    def generate_resource_id(self, entry, slug=None):
+        if slug:
+            return unicode('%s' % slug.replace(' ', '-'))
+        if title:
+            return unicode('%s' % title.replace(' ', '-'))
+        raise ValueError, 'Missing slug or title to generate the resource name'
 
 class AtomHandler(object):
     def __init__(self, member_type):
