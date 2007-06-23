@@ -4,8 +4,8 @@
   <xsl:import href="./view/atomicxml.xslt"/>
   <xsl:import href="./view/s3.xslt"/>
   <xsl:import href="./functions/funcset-dateTime.xslt"/>
-  <xsl:import href="./functions/amazonaws/funcset-s3.xslt"/>
   <xsl:import href="./functions/funcset-Util.xslt"/>
+  <xsl:import href="./functions/amazonaws/funcset-s3.xslt"/>
   <xsl:import href="./functions/aspnet/session.xslt"/>
   <xsl:import href="./functions/aspnet/server.xslt"/>
   <xsl:import href="./functions/aspnet/request-stream.xslt"/>
