@@ -49,13 +49,21 @@ def create_store():
     #m.bind(u'localhost', u'test', u'test', u'webapp')
     #app.collection.blog.collection.m = m
 
-    # For SQS
+    # For SQS
     from bucker.provider.sqs import Messenger
-    m = Messenger(conf.general.s3_access_key, conf.general.s3_private_key)
+    from core.aws import lookup_keys
+    s3_access_key, s3_private_key = lookup_keys()
+    m = Messenger(s3_access_key, s3_private_key)
     cherrypy.engine.on_stop_engine_list.append(m.shutdown)
     cherrypy.log("Setting up SQS queue")
     m.bind(conf.general.sqs_queue_name)
+    app.collection.frontpage.collection.m = m
+    app.collection.music.collection.m = m
     app.collection.blog.collection.m = m
+    app.collection.calendar.collection.m = m
+    app.collection.photos.collection.m = m
+    app.collection.subscriptions.collection.m = m
+    app.collection.bookmarks.collection.m = m
 
     cherrypy.log("All good!")
 
