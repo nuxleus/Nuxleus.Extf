@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="http://s3.amazonaws.com/scheme/atom.rnc" type="compact"?>
-<feed xml:base="http://codemerge.sonicradar.com/" xml:lang="en" xmlns="http://www.w3.org/2005/Atom">
+<feed xml:base="http://sonicradar.com/" xml:lang="en" xmlns="http://www.w3.org/2005/Atom">
 	<title>The nuXleus Project :: Xameleon Personal Web Platform</title>
 	<subtitle>Home</subtitle>
 	<link href="default.omx" rel="self" type="application/atom+xml"/>
@@ -24,20 +24,20 @@
 		<updated>2007-02-13T16:01:52Z</updated>
 		<id>http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net/workspace/modules/header.atom,2007://2</id>
 		<link href="static/css/base.css" rel="current" type="application/xml"/>
-		<content src="repository/modules/header.atom" type="application/atom+xml"/>
+		<content src="./repository/modules/header.atom" type="application/atom+xml"/>
 	</entry>
 	<entry>
 		<title>Body</title>
 		<published>2007-02-13T16:01:53Z</published>
 		<updated>2007-02-13T16:01:53Z</updated>
 		<id>http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net/workspace/modules/body.atom,2007://2</id>
-		<content src="repository/modules/body.atom" type="application/atom+xml"/>
+		<content src="./repository/modules/body.atom" type="application/atom+xml"/>
 	</entry>
 	<entry>
 		<title>Footer</title>
 		<published>2007-02-13T16:01:55Z</published>
 		<updated>2007-02-13T16:01:55Z</updated>
 		<id>http://extf.googlecode.com/svn/trunk/Xameleon.Asp.Net/workspace/modules/footer.atom,2007://2</id>
-		<content src="repository/modules/footer.atom" type="application/atom+xml"/>
+		<content src="./repository/modules/footer.atom" type="application/atom+xml"/>
 	</entry>
 </feed>
