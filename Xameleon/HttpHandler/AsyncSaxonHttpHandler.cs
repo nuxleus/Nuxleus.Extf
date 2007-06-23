@@ -41,7 +41,6 @@ namespace Xameleon {
                 return _transformAsyncResult;
             } catch (Exception ex) {
                 _exception = ex;
-                WriteError();
                 return _transformAsyncResult;
             }
         }
