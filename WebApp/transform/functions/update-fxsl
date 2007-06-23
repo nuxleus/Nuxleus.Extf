@@ -1,4 +1,3 @@
 #!/bin/sh
 cd fxsl-xslt2/f
-cvs -d:pserver:anonymous@fxsl.cvs.sourceforge.net:/cvsroot/fxsl up ./
-cd ../../
+cvs up 
