@@ -80,6 +80,9 @@ namespace Xameleon {
 
             } catch (Exception ex) {
                 _exception = ex;
+                _context.Response.Write(_exception.Message);
+                _context.Response.Write(_exception.Source);
+                _context.Response.Write(_exception.StackTrace);
                 _transformAsyncResult.CompleteCall();
             }
         }
