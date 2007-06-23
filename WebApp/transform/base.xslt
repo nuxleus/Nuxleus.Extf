@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:transform version="2.0" 
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:atom="http://www.w3.org/2005/Atom"
-    xmlns:omx="http://x2x2x.org/atomicxml/system" 
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:fn="http://www.w3.org/2005/xpath-functions"
-    xmlns:clitype="http://saxon.sf.net/clitype" exclude-result-prefixes="atom xs omx xsi fn">
+    xmlns:clitype="http://saxon.sf.net/clitype" exclude-result-prefixes="xs xsi fn">
 
   <xsl:import href="./view/atomicxml.xslt"/>
   <xsl:import href="./view/s3.xslt"/>
@@ -16,7 +14,7 @@
   <xsl:import href="./functions/aspnet/session.xslt"/>
   <xsl:import href="./functions/aspnet/server.xslt"/>
   <xsl:import href="./functions/aspnet/request-stream.xslt"/>
-  <xsl:import href="./aspnet/response-stream.xslt"/>
+  <xsl:import href="./functions/aspnet/response-stream.xslt"/>
   <xsl:import href="./functions/aspnet/timestamp.xslt"/>
   
 
