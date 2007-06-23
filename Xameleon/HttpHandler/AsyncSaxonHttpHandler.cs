@@ -52,37 +52,27 @@ namespace Xameleon {
                 switch (_httpMethod) {
 
                     case "GET": {
-                            lock (_transform) {
-                                _transform.Process(_context, _writer, false);
-                            }
+                            _transform.Process(_context, _writer, false);
                             _transformAsyncResult.CompleteCall();
                             break;
                         }
                     case "PUT": {
-                            lock (_transform) {
-                                _transform.Process(_context, _writer, false);
-                            }
+                            _transform.Process(_context, _writer, false);
                             _transformAsyncResult.CompleteCall();
                             break;
                         }
                     case "POST": {
-                            lock (_transform) {
-                                _transform.Process(_context, _writer, false);
-                            }
+                            _transform.Process(_context, _writer, false);
                             _transformAsyncResult.CompleteCall();
                             break;
                         }
                     case "DELETE": {
-                            lock (_transform) {
-                                _transform.Process(_context, _writer, false);
-                            }
+                            _transform.Process(_context, _writer, false);
                             _transformAsyncResult.CompleteCall();
                             break;
                         }
                     default: {
-                            lock (_transform) {
-                                _transform.Process(_context, _writer, false);
-                            }
+                            _transform.Process(_context, _writer, false);
                             _transformAsyncResult.CompleteCall();
                             break;
                         }

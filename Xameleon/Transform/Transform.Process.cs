@@ -27,7 +27,7 @@ namespace Xameleon {
             HttpRequest request = context.Request;
             HttpResponse response = context.Response;
 
-            Uri absoluteUri = new Uri(context.Server.MapPath(request.FilePath));
+            Uri absoluteUri = new Uri(request.MapPath(request.CurrentExecutionFilePath));
             if (!this._IS_INITIALIZED) {
                 this.Init(context);
             }
@@ -60,7 +60,10 @@ namespace Xameleon {
                         transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.Timestamp)));
                         transformer.InputXmlResolver = this._Resolver;
                         transformer.InitialContextNode = node;
-                        transformer.Run(destination);
+
+                        lock (transformer) {
+                            transformer.Run(destination);
+                        }
 
                         if (outputS3) {
                             foreach (DictionaryEntry entry in results) {
