@@ -8,16 +8,16 @@
     xmlns:fn="http://www.w3.org/2005/xpath-functions"
     xmlns:clitype="http://saxon.sf.net/clitype" exclude-result-prefixes="atom xs omx xsi fn">
 
-  <xsl:import href="../../transform/view/atomicxml.xslt"/>
-  <xsl:import href="../../transform/view/s3.xslt"/>
-  <xsl:import href="../../transform/functions/funcset-dateTime.xslt"/>
-  <xsl:import href="../../transform/functions/amazonaws/funcset-s3.xslt"/>
-  <xsl:import href="../../transform/functions/funcset-Util.xslt"/>
-  <xsl:import href="../../transform/functions/aspnet/session.xslt"/>
-  <xsl:import href="../../transform/functions/aspnet/server.xslt"/>
-  <xsl:import href="../../transform/functions/aspnet/request-stream.xslt"/>
-  <xsl:import href="../../transform/functions/aspnet/response-stream.xslt"/>
-  <xsl:import href="../../transform/functions/aspnet/timestamp.xslt"/>
+  <xsl:import href="./view/atomicxml.xslt"/>
+  <xsl:import href="./view/s3.xslt"/>
+  <xsl:import href="./functions/funcset-dateTime.xslt"/>
+  <xsl:import href="./functions/amazonaws/funcset-s3.xslt"/>
+  <xsl:import href="./functions/funcset-Util.xslt"/>
+  <xsl:import href="./functions/aspnet/session.xslt"/>
+  <xsl:import href="./functions/aspnet/server.xslt"/>
+  <xsl:import href="./functions/aspnet/request-stream.xslt"/>
+  <xsl:import href="./aspnet/response-stream.xslt"/>
+  <xsl:import href="./functions/aspnet/timestamp.xslt"/>
   
 
   <xsl:param name="xml.base" select="/atom:feed/@xml:base" as="xs:string" />
