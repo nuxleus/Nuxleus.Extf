@@ -4,43 +4,46 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:fn="http://www.w3.org/2005/xpath-functions"
+    xmlns:saxon="http://saxon.sf.net/"
+    xmlns:clitype="http://saxon.sf.net/clitype"
     xmlns:at="http://atomictalk.org"
     xmlns:func="http://atomictalk.org/function"
-    xmlns:stream="clitype:System.IO.Stream?from=file:///usr/lib/mono/2.0/mscorlib.dll"
-    xmlns:http-response-stream="clitype:Xameleon.Function.HttpWebResponseStream?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
-    xmlns:s3-object-compare="clitype:Xameleon.Function.S3ObjectCompare?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
-    xmlns:http-sgml-to-xml="clitype:Xameleon.Function.HttpSgmlToXml?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
-    xmlns:sortedlist="clitype:System.Collections.SortedList?from=file:///usr/lib/mono/2.0/mscorlib.dll"
-    xmlns:uri="clitype:System.Uri?from=file:///usr/lib/mono/2.0/System.dll"
     xmlns:aspnet="http://atomictalk.org/function/aspnet"
-    xmlns:aspnet-session="clitype:System.Web.SessionState.HttpSessionState?from=file:///usr/lib/mono/2.0/System.Web.dll"
-    xmlns:browser="clitype:System.Web.HttpBrowserCapabilities?from=file:///usr/lib/mono/2.0/System.Web.dll"
-    xmlns:aspnet-server="clitype:System.Web.HttpServerUtility?from=file:///usr/lib/mono/2.0/System.Web.dll"
-    xmlns:aspnet-request="clitype:System.Web.HttpRequest?from=file:///usr/lib/mono/2.0/System.Web.dll"
-    xmlns:aspnet-response="clitype:System.Web.HttpResponse?from=file:///usr/lib/mono/2.0/System.Web.dll"
-    xmlns:aspnet-timestamp="clitype:System.DateTime?from=file:///usr/lib/mono/2.0/mscorlib.dll"
-    xmlns:request-collection="clitype:Xameleon.Function.HttpRequestCollection?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
-    xmlns:response-collection="clitype:Xameleon.Function.HttpResponseCollection?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
-    xmlns:web-request="clitype:Xameleon.Function.HttpWebRequestStream?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
-    xmlns:web-response="clitype:System.Net.WebResponse?from=file:///usr/lib/mono/2.0/System.dll"
     xmlns:service="http://xameleon.org/service"
     xmlns:operation="http://xameleon.org/service/operation"
+    xmlns:proxy="http://xameleon.org/service/proxy"
     xmlns:session="http://xameleon.org/service/session"
     xmlns:param="http://xameleon.org/service/session/param"
     xmlns:aws="http://xameleon.org/function/aws"
     xmlns:s3="http://xameleon.org/function/aws/s3"
     xmlns:header="http://xameleon.org/service/http/header"
     xmlns:metadata="http://xameleon.org/service/metadata"
-    xmlns:saxon="http://saxon.sf.net/"
-    xmlns:clitype="http://saxon.sf.net/clitype"
-    xmlns:amazonaws="http://s3.amazonaws.com/doc/2006-03-01/"
+    xmlns:aspnet-timestamp="clitype:System.DateTime"
+    xmlns:stream="clitype:System.IO.Stream"
+    xmlns:sortedlist="clitype:System.Collections.SortedList"
+    xmlns:uri="clitype:System.Uri?partialname=System"
+    xmlns:http-util="clitype:System.Web.HttpUtility?partialname=System.Web"
+    xmlns:web-response="clitype:System.Net.WebResponse?partialname=System"
+    xmlns:aspnet-session="clitype:System.Web.SessionState.HttpSessionState?partialname=System.Web"
+    xmlns:browser="clitype:System.Web.HttpBrowserCapabilities?partialname=System.Web"
+    xmlns:aspnet-server="clitype:System.Web.HttpServerUtility?partialname=System.Web"
+    xmlns:aspnet-request="clitype:System.Web.HttpRequest?partialname=System.Web"
+    xmlns:aspnet-response="clitype:System.Web.HttpResponse?partialname=System.Web"
+    xmlns:request-collection="clitype:Xameleon.Function.HttpRequestCollection?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
+    xmlns:response-collection="clitype:Xameleon.Function.HttpResponseCollection?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
+    xmlns:web-request="clitype:Xameleon.Function.HttpWebRequestStream?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
+    xmlns:http-response-stream="clitype:Xameleon.Function.HttpWebResponseStream?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
+    xmlns:s3-object-compare="clitype:Xameleon.Function.S3ObjectCompare?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
+    xmlns:http-sgml-to-xml="clitype:Xameleon.Function.HttpSgmlToXml?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
     xmlns:s3response="clitype:Extf.Net.S3.Response?from=file:///srv/wwwroot/webapp/bin/Extf.Net.dll"
     xmlns:aws-conn="clitype:Extf.Net.S3.AWSAuthConnection?from=file:///srv/wwwroot/webapp/bin/Extf.Net.dll"
     xmlns:aws-gen="clitype:Extf.Net.S3.QueryStringAuthGenerator?from=file:///srv/wwwroot/webapp/bin/Extf.Net.dll"
-    xmlns:http-util="clitype:System.Web.HttpUtility?from=file:///usr/lib/mono/2.0/System.Web.dll"
     xmlns:s3object="clitype:Extf.Net.S3.S3Object?from=file:///srv/wwwroot/webapp/bin/Extf.Net.dll"
+    xmlns:amazonaws="http://s3.amazonaws.com/doc/2006-03-01/"
     xmlns:html="http://www.w3.org/1999/xhtml"
     exclude-result-prefixes="http-sgml-to-xml html s3-object-compare web-response web-request stream http-response-stream browser aws-gen aws-conn http-util s3object s3response uri amazonaws at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header sortedlist param service operation session aws s3 func xs xsi fn clitype response-collection request-collection">
+
+  <xsl:import href="../../../model/json-to-xml.xslt"/>
 
   <xsl:param name="aws-public-key" select="'not-set'" as="xs:string"/>
   <xsl:param name="aws-private-key" select="'not-set'" as="xs:string"/>
@@ -61,6 +64,8 @@
   <xsl:variable name="request-uri" select="aspnet-request:Url($request)"/>
   <xsl:variable name="browser" select="aspnet-request:Browser($request)"/>
 
+
+
   <xsl:template match="header:*">
     <xsl:param name="sorted-list" as="clitype:System.Collections.SortedList"/>
     <xsl:variable name="key" select="local-name() cast as xs:untypedAtomic"/>
@@ -79,21 +84,20 @@
     </xsl:element>
   </xsl:template>
 
-  <!-- 
-    <xsl:template match="service:operation">
-      <xsl:param name="key-name"/>
-      <xsl:variable name="issecure" select="false()" as="xs:boolean"/>
-      <xsl:variable name="content-type" select="if ($debug) then aspnet:response.set-content-type($response, 'text/plain') else aspnet:response.set-content-type($response, 'text/xml')"/>
-      <xsl:processing-instruction name="xml-stylesheet">
-        <xsl:text>type="text/xsl" href="/transform/openid-redirect.xsl"</xsl:text>
-      </xsl:processing-instruction>
-      <message type="service:result"
-          content-type="{if (empty($content-type)) then aspnet:response.get-content-type($response) else 'not-set'}">
-        <xsl:apply-templates/>
-      </message>
-    </xsl:template> 
-  -->
+  <xsl:template match="service:operation">
+    <xsl:param name="key-name"/>
+    <xsl:variable name="issecure" select="false()" as="xs:boolean"/>
+    <xsl:variable name="content-type" select="if ($debug) then aspnet:response.set-content-type($response, 'text/plain') else aspnet:response.set-content-type($response, 'text/xml')"/>
+    <xsl:processing-instruction name="xml-stylesheet">
+      <xsl:text>type="text/xsl" href="/transform/openid-redirect.xsl"</xsl:text>
+    </xsl:processing-instruction>
+    <message type="service:result"
+        content-type="{if (empty($content-type)) then aspnet:response.get-content-type($response) else 'not-set'}">
+      <xsl:apply-templates/>
+    </message>
+  </xsl:template>
 
+  <!-- 
   <xsl:template match="service:operation">
     <xsl:param name="key-name"/>
     <xsl:variable name="issecure" select="false()" as="xs:boolean"/>
@@ -132,7 +136,7 @@
             </Cookies>
           </HttpRequest>
           <Operation>
-            <!-- 
+            
             <FileName>
               <xsl:sequence select="$key-name"/>
             </FileName>
@@ -162,7 +166,7 @@
               <xsl:copy-of
                   select="document($bucket)/*"/>
             </S3ListBucket>
-            --></Operation>
+            </Operation>
           <HttpResponse>
             <ContentType>
               <xsl:sequence select="$content-type"/>
@@ -174,7 +178,7 @@
         </xsl:if>
       </message>
     </auth>
-  </xsl:template>
+  </xsl:template>-->
 
   <xsl:template match="operation:aws">
     <auth status="session">
@@ -201,6 +205,24 @@
     </auth>
   </xsl:template>
 
+  <xsl:template match="operation:json-to-xml">
+    <external-json>
+      <xsl:apply-templates/>
+    </external-json>
+  </xsl:template>
+
+  <xsl:template match="proxy:get-json">
+    <xsl:variable name="uri" select="func:resolve-variable(@uri)"/>
+    <xsl:apply-templates>
+      <xsl:with-param name="xml" select="func:json-to-xml(concat($uri, '?appid=EricBlogDemo&amp;city=Seattle&amp;state=wa&amp;output=json'))"/>
+    </xsl:apply-templates>
+  </xsl:template>
+
+  <xsl:template match="operation:return-xml">
+    <xsl:param name="xml"/>
+    <xsl:sequence select="$xml"/>
+  </xsl:template>
+
   <xsl:template match="aws:s3">
     <xsl:apply-templates />
   </xsl:template>
@@ -213,12 +235,13 @@
     <xsl:variable name="compare" select="s3-object-compare:Compare($aws-conn, $s3-bucket-name, $key-name, $guid)"/>
     <xsl:variable name="html-to-xml" select="http-sgml-to-xml:GetDocXml('http://mdavid.name/', '/html/head', false())"/>
     <xsl:variable name="web-request" select="web-request:GetResponse('http://www.law.stanford.edu/assets/ajax/search_publications.php', 'year_start=&amp;year_end=&amp;s=Lawrence%20Lessig&amp;format=')"/>
-    <uri>
-      <!-- <xsl:value-of select="$web-request"/> -->
-    </uri>
+    <!-- <uri>
+      <xsl:value-of select="$web-request"/>
+      </uri>
     <external-html>
       <xsl:sequence select="saxon:parse($html-to-xml)/head/link"/>
-    </external-html>
+    </external-html>-->
+
     <compare>
       <xsl:sequence
           select="aws:s3-put-object($s3-bucket-name, $key-name, $guid, $aws-public-key, $aws-private-key, $issecure)"/>
@@ -230,6 +253,20 @@
       <xsl:with-param name="key-name" select="$key-name"/>
       <xsl:with-param name="key-uri" select="$key-uri"/>
     </xsl:apply-templates> -->
+  </xsl:template>
+
+  <xsl:template match="operation:slurp">
+    <xsl:apply-templates />
+  </xsl:template>
+  
+  <xsl:template match="proxy:post-to-uri">
+    <xsl:variable name="web-request" select="web-request:GetResponse(func:resolve-variable(@uri), 'year_start=&amp;year_end=&amp;s=Lawrence%20Lessig&amp;format=')"/>
+    <xsl:variable name="slurped-data">
+      <slurped-data>
+        <xsl:sequence select="$web-request"/>
+      </slurped-data>
+    </xsl:variable>
+    <xsl:sequence select="$slurped-data"/>
   </xsl:template>
 
   <xsl:function name="aws:s3-key-exists" as="xs:boolean">

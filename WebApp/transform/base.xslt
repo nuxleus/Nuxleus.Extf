@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:transform version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:import href="./view/atomicxml.xslt"/>
-  <xsl:import href="./view/s3.xslt"/>
+  <xsl:import href="./controller/atomicxml/base.xslt"/>
+  <xsl:import href="./controller/aws/s3/base.xslt"/>
   <xsl:import href="./functions/funcset-dateTime.xslt"/>
   <xsl:import href="./functions/funcset-Util.xslt"/>
   <xsl:import href="./functions/amazonaws/funcset-s3.xslt"/>

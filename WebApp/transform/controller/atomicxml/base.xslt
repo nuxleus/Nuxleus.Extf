@@ -8,7 +8,7 @@
   exclude-result-prefixes="omx app atom html"
   version="2.0">
   
-  <xsl:import href="../controller/app.xslt"/>
+  <!-- <xsl:import href="../controller/app.xslt"/> -->
 
   <xsl:param name="xml.base"/>
   <xsl:param name="css-base-class"/>
