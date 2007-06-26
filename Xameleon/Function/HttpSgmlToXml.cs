@@ -38,8 +38,10 @@ namespace Xameleon.Function {
 
         private static XdmNode getXdmNode(String uri, String path) {
             try {
+
+                string responseUri = HttpWebRequestStream.GetResponse(uri, true);
                 SgmlReader sr = new SgmlReader();
-                sr.Href = uri;
+                sr.Href = responseUri;
 
                 XmlDocument htmlDoc = new XmlDocument();
 
