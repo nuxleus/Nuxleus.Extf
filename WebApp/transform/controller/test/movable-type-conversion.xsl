@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:test="http://xameleon.org/controller/test" version="2.0">
 
     <xsl:param name="old-base-uri" select="'http://www.lessig.org'"/>
     <xsl:param name="new-base-uri" select="'http://beta.lessig.org'"/>
@@ -34,18 +34,18 @@
 
     <xsl:template match="file[@type = 'http-redirect-title-test']">
         <xsl:result-document href="{resolve-uri(@href)}" method="xml">
-            <entries>
+            <test:entries>
                 <xsl:apply-templates select="$new/entry" mode="xml" />
-            </entries>
+            </test:entries>
         </xsl:result-document>
     </xsl:template>
 
     <xsl:template match="entry" mode="xml">
         <xsl:variable name="old-uri"
             select="substring-after($old/entry[text() = current()][1]/@href, $old-base-uri)" />
-        <entry uri="{concat($new-base-uri, $old-uri)}">
+        <test:entry uri="{concat($new-base-uri, $old-uri)}">
             <xsl:value-of select="$old/entry[text() = current()]/text()" />
-        </entry>
+        </test:entry>
     </xsl:template>
 
     <xsl:template match="entry" mode="text">
