@@ -52,7 +52,8 @@
         <xsl:variable name="old-uri"
             select="substring-after($old/entry[text() = current()][1]/@href, $old-base-uri)" />
         <xsl:variable name="new-uri" select="@href" />
-        <xsl:value-of select="concat('RedirectPermanent ', $old-uri, ' ', $new-uri, $lb)" />
+        <xsl:variable name="output" select="concat('RedirectPermanent ', $old-uri, ' ', $new-uri, $lb)"/>
+        <xsl:value-of select="if ($old-uri) then $output else concat('#', $output)" />
     </xsl:template>
 
 </xsl:stylesheet>
