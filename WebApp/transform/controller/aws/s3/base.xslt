@@ -18,6 +18,7 @@
     xmlns:s3="http://xameleon.org/function/aws/s3"
     xmlns:header="http://xameleon.org/service/http/header"
     xmlns:metadata="http://xameleon.org/service/metadata"
+    xmlns:test="http://xameleon.org/controller/test"
     xmlns:aspnet-timestamp="clitype:System.DateTime"
     xmlns:stream="clitype:System.IO.Stream"
     xmlns:sortedlist="clitype:System.Collections.SortedList"
@@ -41,7 +42,7 @@
     xmlns:s3object="clitype:Extf.Net.S3.S3Object?from=file:///srv/wwwroot/webapp/bin/Extf.Net.dll"
     xmlns:amazonaws="http://s3.amazonaws.com/doc/2006-03-01/"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    exclude-result-prefixes="http-sgml-to-xml html s3-object-compare web-response web-request stream http-response-stream browser aws-gen aws-conn http-util s3object s3response uri amazonaws at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header sortedlist param service operation session aws s3 func xs xsi fn clitype response-collection request-collection">
+    exclude-result-prefixes="test http-sgml-to-xml html s3-object-compare web-response web-request stream http-response-stream browser aws-gen aws-conn http-util s3object s3response uri amazonaws at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header sortedlist param service operation session aws s3 func xs xsi fn clitype response-collection request-collection">
 
   <xsl:import href="../../../model/json-to-xml.xslt"/>
 
@@ -95,6 +96,36 @@
         content-type="{if (empty($content-type)) then aspnet:response.get-content-type($response) else 'not-set'}">
       <xsl:apply-templates/>
     </message>
+  </xsl:template>
+
+  <xsl:template match="operation:test">
+    <xsl:apply-templates />
+  </xsl:template>
+
+  <xsl:template match="test:compare-title">
+    <xsl:apply-templates select="document(@document)"/>
+  </xsl:template>
+
+  <xsl:template match="test:entries">
+    <result>
+      <xsl:apply-templates select="test:entry"/>
+    </result>
+  </xsl:template>
+
+  <xsl:template match="test:entry">
+    <xsl:variable name="title" select="substring-before(saxon:parse(http-sgml-to-xml:GetDocXml(@uri, '/html/head/title', false()))/title/text(), ' (Lessig Blog)')"/>
+    <entry href="{@uri}">
+      <expected-title>
+        <xsl:value-of select="."/>
+      </expected-title>
+      <actual-title>
+        <xsl:sequence select="$title"/>
+      </actual-title>
+      <pass>
+        <xsl:value-of select="if ($title = .) then 'True' else 'False'"/>
+        <xsl:sequence select="aspnet-response:Flush($response)"/>
+      </pass>
+    </entry>
   </xsl:template>
 
   <!-- 
@@ -233,14 +264,14 @@
     <xsl:variable name="key-name" select="aws:s3-normalize-key($folder-name, $file-name)"/>
     <xsl:variable name="key-uri" select="aws:s3-get-signature($s3-bucket-name, $key-name, false())"/>
     <xsl:variable name="compare" select="s3-object-compare:Compare($aws-conn, $s3-bucket-name, $key-name, $guid)"/>
-    <xsl:variable name="html-to-xml" select="http-sgml-to-xml:GetDocXml('http://mdavid.name/', '/html/head', false())"/>
+    <xsl:variable name="html-to-xml" select="http-sgml-to-xml:GetDocXml('http://beta.lessig.org/blog/archives/000384.shtml', '/html/head/title', false())"/>
     <xsl:variable name="web-request" select="web-request:GetResponse('http://www.law.stanford.edu/assets/ajax/search_publications.php', 'year_start=&amp;year_end=&amp;s=Lawrence%20Lessig&amp;format=')"/>
     <!-- <uri>
       <xsl:value-of select="$web-request"/>
-      </uri>
+      </uri>-->
     <external-html>
-      <xsl:sequence select="saxon:parse($html-to-xml)/head/link"/>
-    </external-html>-->
+      <xsl:sequence select="saxon:parse($html-to-xml)/title/text()"/>
+    </external-html>
 
     <compare>
       <xsl:sequence
@@ -258,7 +289,7 @@
   <xsl:template match="operation:slurp">
     <xsl:apply-templates />
   </xsl:template>
-  
+
   <xsl:template match="proxy:post-to-uri">
     <xsl:variable name="web-request" select="web-request:GetResponse(func:resolve-variable(@uri), 'year_start=&amp;year_end=&amp;s=Lawrence%20Lessig&amp;format=')"/>
     <xsl:variable name="slurped-data">

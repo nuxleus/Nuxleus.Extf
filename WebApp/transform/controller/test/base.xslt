@@ -13,9 +13,6 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     exclude-result-prefixes="http-sgml-to-xml html xs xsi fn clitype">
 
-
-  <xsl:variable name="entries" select="document('compare.xml')"/>
-
   <xsl:template match="test:entries">
     <result>
       <xsl:apply-templates select="test:entry"/>
@@ -23,17 +20,17 @@
   </xsl:template>
 
   <xsl:template match="test:entry">
-    <xsl:variable name="title" select="http-sgml-to-xml:GetDocXml(@href, '/html/head/title', false())"/>
-    <entry href="{@href}">
+    <!-- <xsl:variable name="title" select="http-sgml-to-xml:GetDocXml(@uri, '/html/head/title', false())"/> -->
+    <entry href="{@uri}">
       <expected-title>
         <xsl:value-of select="."/>
       </expected-title>
-      <actual-title>
-        <xsl:value-of select="$title"/>
-      </actual-title>
-      <pass>
+      <!-- <actual-title>
+        <xsl:sequence select="$title"/>
+      </actual-title> -->
+      <!-- <pass>
         <xsl:value-of select="if ($title = .) then 'True' else 'False'"/>
-      </pass>
+      </pass> -->
     </entry>
   </xsl:template>
 
