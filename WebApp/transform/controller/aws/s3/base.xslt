@@ -45,6 +45,7 @@
     exclude-result-prefixes="test http-sgml-to-xml html s3-object-compare web-response web-request stream http-response-stream browser aws-gen aws-conn http-util s3object s3response uri amazonaws at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header sortedlist param service operation session aws s3 func xs xsi fn clitype response-collection request-collection">
 
   <xsl:import href="../../../model/json-to-xml.xslt"/>
+  <xsl:import href="../../test/base.xslt"/>
 
   <xsl:param name="aws-public-key" select="'not-set'" as="xs:string"/>
   <xsl:param name="aws-private-key" select="'not-set'" as="xs:string"/>
@@ -103,7 +104,9 @@
   </xsl:template>
 
   <xsl:template match="test:compare-title">
-    <xsl:apply-templates select="document(@document)"/>
+    <xsl:param name="old" select="func:resolve-variable(@old-mt-archive)" />
+    <xsl:param name="new" select="func:resolve-variable(@new-mt-archive)" />
+    <xsl:apply-templates select="func:mt-redirect-test(document($old), document($new))"/>
   </xsl:template>
 
   <xsl:template match="test:entries">
