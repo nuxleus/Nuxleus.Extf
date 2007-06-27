@@ -4,7 +4,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:func="http://atomictalk.org/function"
     xmlns:saxon="http://saxon.sf.net/"
-    xmlns:timestamp="clitype:System.DateTime?from=file:///usr/lib/mono/2.0/mscorlib.dll"
+    xmlns:timestamp="clitype:System.DateTime"
     xmlns:clitype="http://saxon.sf.net/clitype"
     exclude-result-prefixes="xs func clitype saxon timestamp">
 

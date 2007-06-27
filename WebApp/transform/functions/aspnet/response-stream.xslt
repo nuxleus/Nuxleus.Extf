@@ -5,7 +5,7 @@
     xmlns:func="http://atomictalk.org/function"
     xmlns:aspnet="http://atomictalk.org/function/aspnet"
     xmlns:saxon="http://saxon.sf.net/"
-    xmlns:response-stream="clitype:System.Web.HttpResponse?from=file:///usr/lib/mono/2.0/System.Web.dll"
+    xmlns:response-stream="clitype:System.Web.HttpResponse?partialname=System.Web"
     xmlns:clitype="http://saxon.sf.net/clitype"
     exclude-result-prefixes="xs func clitype saxon response-stream">
 

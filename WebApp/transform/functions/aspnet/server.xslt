@@ -4,7 +4,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:func="http://atomictalk.org/function"
     xmlns:saxon="http://saxon.sf.net/"
-    xmlns:aspnet-server="clitype:System.Web.HttpServerUtility?from=file:///usr/lib/mono/2.0/System.Web.dll"
+    xmlns:aspnet-server="clitype:System.Web.HttpServerUtility?partialname=System.Web"
     xmlns:clitype="http://saxon.sf.net/clitype"
     exclude-result-prefixes="xs func clitype saxon aspnet-server">
 

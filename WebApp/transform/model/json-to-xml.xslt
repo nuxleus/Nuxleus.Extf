@@ -2,7 +2,7 @@
 <xsl:transform version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:func="http://atomictalk.org/function"
-    xmlns:web-request="clitype:Xameleon.Function.HttpWebRequestStream?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
+    xmlns:web-request="clitype:Xameleon.Function.HttpWebRequestStream?partialname=Xameleon"
     xmlns:f="http://fxsl.sf.net/">
 
   <xsl:import href="../functions/fxsl-xslt2/f/func-json-document.xsl"/>

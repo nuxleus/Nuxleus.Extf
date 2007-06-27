@@ -9,7 +9,7 @@
     xmlns:at="http://atomictalk.org"
     xmlns:func="http://atomictalk.org/function"
     xmlns:test="http://xameleon.org/controller/test"
-    xmlns:http-sgml-to-xml="clitype:Xameleon.Function.HttpSgmlToXml?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
+    xmlns:http-sgml-to-xml="clitype:Xameleon.Function.HttpSgmlToXml?partialname=Xameleon"
     xmlns:aspnet-response="clitype:System.Web.HttpResponse?partialname=System.Web"
     xmlns:html="http://www.w3.org/1999/xhtml"
     exclude-result-prefixes="http-sgml-to-xml aspnet-response html xs xsi fn clitype">
