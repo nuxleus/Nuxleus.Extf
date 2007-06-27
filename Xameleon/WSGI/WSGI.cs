@@ -11,12 +11,12 @@
 //            Also made handler configurable through the AppSettings in
 //            web.config.
 using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
+using System.Threading;
 using System.Web;
 using IronPython.Hosting;
-using IronPython.Runtime;
-using System.Configuration;
-using System.Threading;
 
 public class WSGIHandler : IHttpHandler
 {
@@ -123,8 +123,8 @@ public class WSGIHandler : IHttpHandler
             application_url_path = application_url_path.TrimEnd('/');
         }
 
-        System.Collections.Generic.IDictionary<string, object> locals = new
-            System.Collections.Generic.Dictionary<string, object>();
+        IDictionary<string, object> locals = new
+            Dictionary<string, object>();
         locals["context"] = context;
         String code = String.Format("wsgi.run_application(context, {0}.{1}, '{2}')",
                                                    moduleName,

@@ -1,9 +1,5 @@
 using System;
-using System.IO;
-using System.Net;
-using System.Web;
 using System.Xml;
-using Extf.Net.Configuration;
 
 namespace Xameleon {
 
@@ -22,8 +18,6 @@ namespace Xameleon {
                                   Something very very bad has happened. Run while you still can!
                                 </message>
                               </system>";
-
-            internal Context() { }
 
             internal Uri BaseUri {
                 get { return _BaseUri; }

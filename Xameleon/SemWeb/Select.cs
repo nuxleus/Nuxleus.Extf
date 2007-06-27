@@ -1,9 +1,7 @@
 ﻿using System;
-using SemWeb;
-using System.Text;
 using System.IO;
-using System.Xml;
-using System.Web;
+using System.Text;
+using SemWeb;
 
 namespace Xameleon.SemWeb {
     public class Select {

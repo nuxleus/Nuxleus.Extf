@@ -3,10 +3,9 @@
 // Please see http://www.opensource.org/licenses/mit-license.php for specific detail.
 
 using System;
-using System.Configuration;
-using System.Web.Configuration;
-using System.Collections.Specialized;
 using System.Collections;
+using System.Collections.Specialized;
+using System.Web.Configuration;
 
 namespace Extf.Net.Configuration
 {

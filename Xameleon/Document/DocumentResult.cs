@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using javax.xml.transform;
+﻿using javax.xml.transform;
 
 namespace Xameleon.Document {
 

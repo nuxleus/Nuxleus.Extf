@@ -1,7 +1,4 @@
-using System;
 using System.Xml;
-using System.Xml.Xsl;
-using System.IO;
 
 namespace  Xameleon {
 
@@ -9,6 +6,8 @@ namespace  Xameleon {
 
     bool _IS_INITIALIZED = false;
 
+    ///<summary>
+    ///</summary>
     public Transform () {}
 
     internal Context Create() {
@@ -17,7 +16,7 @@ namespace  Xameleon {
     }
 
     internal XmlDocument Go(Context context) {
-      if (!this._IS_INITIALIZED) return Process(Init(context));
+      if (!_IS_INITIALIZED) return Process(Init(context));
       else return Process(context);
     }
 

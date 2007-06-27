@@ -1,9 +1,5 @@
 using System;
-using System.Collections;
-using System.IO;
-using System.Net;
 using System.Diagnostics;
-using System.Collections.Specialized;
 using System.Web;
 
 namespace Xameleon.Function {

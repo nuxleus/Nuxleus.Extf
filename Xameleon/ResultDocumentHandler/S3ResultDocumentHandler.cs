@@ -1,19 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Saxon.Api;
-using javax.xml.transform;
-using Xameleon.Document;
 using System.Collections;
+using Saxon.Api;
 
 namespace Xameleon.ResultDocumentHandler {
 
+    ///<summary>
+    ///</summary>
     public class S3ResultDocumentHandler : IResultDocumentHandler {
 
         private Hashtable results;
 
+        ///<summary>
+        ///</summary>
+        public S3ResultDocumentHandler() : this(null)
+        {
+        }
+
+        ///<summary>
+        ///</summary>
+        ///<param name="table"></param>
         public S3ResultDocumentHandler(Hashtable table) {
-            this.results = table;
+            if (table != null) results = table;
         }
 
         public XmlDestination HandleResultDocument(string href, Uri baseUri) {

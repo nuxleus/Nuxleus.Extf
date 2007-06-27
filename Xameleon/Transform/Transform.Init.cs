@@ -1,14 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml;
-using System.IO;
-using Xameleon.Properties;
-using System.Net;
-using Saxon.Api;
-using System.Collections;
 using System.Collections.Specialized;
+using System.IO;
+using System.Net;
 using System.Web;
+using System.Xml;
+using Saxon.Api;
+using Xameleon.Properties;
 using Extf.Net.Configuration;
 
 namespace Xameleon
@@ -34,38 +31,31 @@ namespace Xameleon
             string setting = settings.GetSetting("xsltParamKeyPrefix");
             if (setting != null)
             {
-                this._xsltParamKey = setting;
+                _xsltParamKey = setting;
             }
             Uri absoluteUri = new Uri(context.Server.MapPath(settings.GetSetting("baseTemplate")));
-            this._XsltParams = settings.GetSettingArray(this._xsltParamKey);
-            this._Resolver = new XmlUrlResolver();
-            this._Resolver.Credentials = CredentialCache.DefaultCredentials;
-            this._TemplateStream = (Stream)this._Resolver.GetEntity(absoluteUri, null, typeof(Stream));
-            this._Processor = new Processor();
-            this._Compiler = this._Processor.NewXsltCompiler();
-            this._Compiler.BaseUri = absoluteUri;
-            this._Template = this._Compiler.Compile(this._TemplateStream);
-            this._IS_INITIALIZED = true;
+            _XsltParams = settings.GetSettingArray(_xsltParamKey);
+            _Resolver = new XmlUrlResolver();
+            _Resolver.Credentials = CredentialCache.DefaultCredentials;
+            _TemplateStream = (Stream)_Resolver.GetEntity(absoluteUri, null, typeof(Stream));
+            _Processor = new Processor();
+            _Compiler = _Processor.NewXsltCompiler();
+            _Compiler.BaseUri = absoluteUri;
+            _Template = _Compiler.Compile(_TemplateStream);
+            _IS_INITIALIZED = true;
         }
 
         private Context Init(Context context)
         {
-            try
+            context.BaseUri = new Uri("http://localhost/");
+            context.XmlSource = new Uri(Resources.SourceXml);
+            context.XsltSource = new Uri(Resources.SourceXslt);
+            context.ResultDocument = new XmlDocument();
+            context.Resolver = new XmlUrlResolver();
+            context.Resolver.Credentials = CredentialCache.DefaultCredentials;
+            if (PrepareTransform(context))
             {
-                context.BaseUri = new Uri("http://localhost/");
-                context.XmlSource = new Uri(Resources.SourceXml);
-                context.XsltSource = new Uri(Resources.SourceXslt);
-                context.ResultDocument = new XmlDocument();
-                context.Resolver = new XmlUrlResolver();
-                context.Resolver.Credentials = CredentialCache.DefaultCredentials;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            if (this.PrepareTransform(context))
-            {
-                this._IS_INITIALIZED = true;
+                _IS_INITIALIZED = true;
                 return context;
             }
             return null;

@@ -1,10 +1,8 @@
 ﻿using System;
+using System.Xml;
+using net.sf.saxon.value;
 using Saxon.Api;
 using Sgml;
-using System.Xml;
-using Saxon.Api;
-using net.sf.saxon.value;
-using System.IO;
 
 namespace Xameleon.Function {
 

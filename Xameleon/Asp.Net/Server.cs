@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using Mono.WebServer;
 using System.IO;
 using System.Net;
+using Mono.WebServer;
 
 public class WebServer
 {

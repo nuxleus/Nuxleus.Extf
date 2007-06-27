@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Data;
-using System.Web;
 using System.Collections;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using Xameleon.Function;
-using Extf.Net.S3;
 using System.Collections.Specialized;
 using System.Web.Configuration;
+using System.Web.Services;
+using Extf.Net.S3;
 
 namespace Xameleon.Service {
     /// <summary>

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.20404</ProductVersion>
+    <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A800D9F1-D877-4076-99BA-CBD73BCFB203}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -173,6 +173,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="WSGI\WSGI.cs" />
     <Compile Include="UrlResolver\S3XmlUrlResolver.cs" />
@@ -186,8 +187,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Web References\AmazonAWS.SQS\AccessControl.xsd">
-      <SubType>
-      </SubType>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web References\AmazonAWS.SQS\AddGrantResponse.datasource">
     </None>
@@ -231,8 +231,7 @@
     </None>
     <None Include="Web References\AmazonAWS.SQS\QueueService.wsdl" />
     <None Include="Web References\AmazonAWS.SQS\QueueService.xsd">
-      <SubType>
-      </SubType>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web References\AmazonAWS.SQS\ReceiveMessageResponse.datasource">
     </None>
@@ -265,10 +264,6 @@
     <ProjectReference Include="..\GlobalClip\GlobalClip.csproj">
       <Project>{9B9C08A7-0E8A-45AA-AEB4-7A5796DB1C26}</Project>
       <Name>GlobalClip</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VendorExtensions\S3\AmazonAWS.S3\AmazonAWS.S3.csproj">
-      <Project>{8D92E7E5-ECF3-4F24-BBB3-D03D273D6A80}</Project>
-      <Name>AmazonAWS.S3</Name>
     </ProjectReference>
     <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
       <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
