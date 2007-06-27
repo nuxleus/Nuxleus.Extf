@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.20404</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A800D9F1-D877-4076-99BA-CBD73BCFB203}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -169,6 +169,18 @@
     <Compile Include="Transform\Transform.cs" />
     <Compile Include="Transform\Transform.Init.cs" />
     <Compile Include="Transform\Transform.Process.cs" />
+    <Compile Include="Utility\S3\AWSAuthConnection.cs" />
+    <Compile Include="Utility\S3\Bucket.cs" />
+    <Compile Include="Utility\S3\CommonPrefixEntry.cs" />
+    <Compile Include="Utility\S3\GetResponse.cs" />
+    <Compile Include="Utility\S3\ListAllMyBucketsResponse.cs" />
+    <Compile Include="Utility\S3\ListBucketResponse.cs" />
+    <Compile Include="Utility\S3\ListEntry.cs" />
+    <Compile Include="Utility\S3\Owner.cs" />
+    <Compile Include="Utility\S3\QueryStringAuthGenerator.cs" />
+    <Compile Include="Utility\S3\Response.cs" />
+    <Compile Include="Utility\S3\S3Object.cs" />
+    <Compile Include="Utility\S3\Utils.cs" />
     <Compile Include="Web References\AmazonAWS.SQS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -186,6 +198,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Utility\S3\README" />
     <None Include="Web References\AmazonAWS.SQS\AccessControl.xsd">
       <SubType>Designer</SubType>
     </None>
