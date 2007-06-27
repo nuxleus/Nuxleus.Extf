@@ -7,7 +7,7 @@
   version="2.0">
 
   <xsl:param name="old-base-uri" select="'http://www.lessig.org'"/>
-  <xsl:param name="new-base-uri" select="'http://beta.lessig.org'"/>
+  <xsl:param name="new-base-uri" select="'http://lessig.org'"/>
   <xsl:param name="old" select="document('old.xml')/entries" />
   <xsl:param name="new" select="document('new.xml')/entries" />
 
