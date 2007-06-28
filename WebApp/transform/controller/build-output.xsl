@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!--
-  COPYRIGHT: (c) 2006, M. David Peterson (mailto:m.david@xmlhacker.com; http://mdavid.name/)
-  LICENSE: The code contained in this file is licensed under The MIT License. Please see
-  http://www.opensource.org/licenses/mit-license.php for specific detail.
-  Contributors to this code base include: There are no contributors at this time.  You could be the first! :D
+  COPYRIGHT: (c) 2007, M. David Peterson (mailto:m.david@xmlhacker.com; http://mdavid.name/)
+  LICENSE: The code contained in this file is licensed under The New BSD License. Please see
+  http://www.opensource.org/licenses/bsd-license.php for specific detail.
+  Contributors to this code base include, 
+    Russ Miles (mailto:aohacker@gmail.com; http://www.russmiles.com/)
 -->
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:my="http://xameleon.org/my"
     xmlns:page="http://atomictalk.org/page" xmlns:service="http://atomictalk.org/page/service"
@@ -326,4 +327,3 @@
   <xsl:template match="atom:source"/>
 
 </xsl:stylesheet>
-
