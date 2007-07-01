@@ -3,6 +3,7 @@
 
   <xsl:import href="./controller/atomicxml/base.xslt"/>
   <xsl:import href="./controller/aws/s3/base.xslt"/>
+  <xsl:import href="./controller/proxy/base.xslt"/>
   <xsl:import href="./functions/funcset-dateTime.xslt"/>
   <xsl:import href="./functions/funcset-Util.xslt"/>
   <xsl:import href="./functions/amazonaws/funcset-s3.xslt"/>
