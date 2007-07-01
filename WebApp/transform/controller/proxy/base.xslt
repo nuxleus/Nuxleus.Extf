@@ -8,7 +8,7 @@
     xmlns:clitype="http://saxon.sf.net/clitype"
     xmlns:at="http://atomictalk.org"
     xmlns:func="http://atomictalk.org/function"
-    xmlns:http-sgml-to-xml="clitype:Xameleon.Function.HttpSgmlToXml?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
+    xmlns:http-sgml-to-xml="clitype:Xameleon.Function.HttpSgmlToXml??partialname=Xameleon"
     xmlns:proxy="http://xameleon.org/service/proxy"
     xmlns:html="http://www.w3.org/1999/xhtml"
     exclude-result-prefixes="http-sgml-to-xml html xs xsi fn clitype proxy">
