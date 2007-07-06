@@ -38,7 +38,6 @@ namespace Xameleon.Transform {
           }
         }
       }
-
       result.CompleteCall();
     }
 
