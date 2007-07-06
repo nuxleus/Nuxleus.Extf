@@ -9,9 +9,7 @@ using System.Net;
 using Xameleon.Properties;
 using System.Collections;
 
-namespace Xameleon {
-
-  public partial class Transform {
+namespace Xameleon.Transform {
 
     public struct Context {
       AppSettings _AppSettings;
@@ -162,4 +160,3 @@ namespace Xameleon {
       }
     }
   }
-}

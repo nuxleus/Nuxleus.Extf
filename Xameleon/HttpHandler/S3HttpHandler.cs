@@ -6,21 +6,21 @@ using System;
 using System.IO;
 using System.Web;
 
-namespace Xameleon {
+namespace Xameleon.Transform {
 
   class S3HttpHandler : IHttpHandler {
 
     private TextWriter _writer;
     private HttpContext _context;
     private String _requestMethod;
-    Transform.Context _transformContext;
+    Context _transformContext;
 
     public void ProcessRequest(HttpContext context) {
 
       _requestMethod = context.Request.HttpMethod;
       _writer = context.Response.Output;
       _context = context;
-      _transformContext = new Transform.Context(_context, _writer, true);
+      _transformContext = new Context(_context, _writer, true);
 
       switch (_requestMethod) {
 

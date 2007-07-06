@@ -1,6 +1,6 @@
-using System.Xml;
+using System;
 
-namespace Xameleon {
+namespace Xameleon.Transform {
 
     public partial class Transform {
 
@@ -8,8 +8,5 @@ namespace Xameleon {
         ///</summary>
         public Transform() { }
 
-        //public static Context Create() {
-        //    return (Context)new Context();
-        //}
     }
 }

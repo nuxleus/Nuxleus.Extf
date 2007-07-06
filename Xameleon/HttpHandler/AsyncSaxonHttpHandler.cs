@@ -8,7 +8,7 @@ using System.Threading;
 using System.Web;
 using System.Collections;
 
-namespace Xameleon {
+namespace Xameleon.Transform {
 
   class AsyncSaxonHttpHandler : IHttpAsyncHandler {
 
@@ -18,7 +18,7 @@ namespace Xameleon {
     TransformServiceAsyncResult _transformAsyncResult;
     String _httpMethod;
     Exception _exception;
-    Transform.Context _transformContext;
+    Context _transformContext;
     Hashtable _objectParams = new Hashtable();
 
 
@@ -37,10 +37,10 @@ namespace Xameleon {
       _writer = context.Response.Output;
       _httpMethod = context.Request.HttpMethod;
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
-      _transformContext = new Transform.Context(context, _writer, true);
+      _transformContext = new Context(context, _writer, true);
 
       try {
-        DoTransform(cb);
+        BeginTransform(cb);
         return _transformAsyncResult;
       } catch (Exception ex) {
         _exception = ex;
@@ -48,35 +48,30 @@ namespace Xameleon {
       }
     }
 
-    private void DoTransform(AsyncCallback cb) {
+    private void BeginTransform(AsyncCallback cb) {
 
       try {
 
         switch (_httpMethod) {
 
           case "GET": {
-              _transform.Process(_transformContext);
-              _transformAsyncResult.CompleteCall();
+              _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
               break;
             }
           case "PUT": {
-              _transform.Process(_transformContext);
-              _transformAsyncResult.CompleteCall();
+              _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
               break;
             }
           case "POST": {
-              _transform.Process(_transformContext);
-              _transformAsyncResult.CompleteCall();
+              _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
               break;
             }
           case "DELETE": {
-              _transform.Process(_transformContext);
-              _transformAsyncResult.CompleteCall();
+              _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
               break;
             }
           default: {
-              _transform.Process(_transformContext);
-              _transformAsyncResult.CompleteCall();
+              _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
               break;
             }
         }
@@ -100,45 +95,7 @@ namespace Xameleon {
 
     #endregion
 
-    class TransformServiceAsyncResult : IAsyncResult {
-      private AsyncCallback _cb;
-      private object _state;
-      private ManualResetEvent _event;
-      private bool _completed = false;
-      private object _lock = new object();
-
-      public TransformServiceAsyncResult(AsyncCallback cb, object state) {
-        _cb = cb;
-        _state = state;
-      }
-
-      public Object AsyncState { get { return _state; } }
-
-      public bool CompletedSynchronously { get { return false; } }
-
-      public bool IsCompleted { get { return _completed; } }
-
-      public WaitHandle AsyncWaitHandle {
-        get {
-          lock (_lock) {
-            if (_event == null)
-              _event = new ManualResetEvent(IsCompleted);
-            return _event;
-          }
-        }
-      }
-
-      public void CompleteCall() {
-        lock (_lock) {
-          _completed = true;
-          if (_event != null)
-            _event.Set();
-        }
-
-        if (_cb != null)
-          _cb(this);
-      }
-    }
+    
 
 
   }

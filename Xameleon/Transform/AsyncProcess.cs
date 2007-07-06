@@ -6,13 +6,13 @@ using System.Xml;
 using Saxon.Api;
 using Xameleon.ResultDocumentHandler;
 
-namespace Xameleon {
+namespace Xameleon.Transform {
 
   ///<summary>
   ///</summary>
   public partial class Transform {
 
-    public IAsyncResult BeginProcess(Context context, AsyncCallback cb, IAsyncResult result) {
+    public void BeginAsyncProcess(Context context, AsyncCallback cb, TransformServiceAsyncResult result) {
 
       using (context.Writer) {
 
@@ -46,10 +46,10 @@ namespace Xameleon {
           }
         }
       }
-      return result;
+      result.CompleteCall();
     }
 
-    public void EndProcess(IAsyncResult result) {
+    public void EndAysncProcess(IAsyncResult result) {
  
     }
   }

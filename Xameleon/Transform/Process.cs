@@ -6,7 +6,7 @@ using System.Xml;
 using Saxon.Api;
 using Xameleon.ResultDocumentHandler;
 
-namespace Xameleon {
+namespace Xameleon.Transform {
 
   ///<summary>
   ///</summary>
