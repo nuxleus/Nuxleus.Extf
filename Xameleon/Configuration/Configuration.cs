@@ -31,27 +31,25 @@ namespace Xameleon.Configuration {
       return null;
     }
 
-    public NameValueCollection GetSettingArray(String keyName) {
+    public Hashtable GetSettingArray(Hashtable table, String keyName) {
       NameValueCollection appSettings = WebConfigurationManager.AppSettings as NameValueCollection;
       IEnumerator appSettingsEnum = appSettings.GetEnumerator();
       int i = 0;
-
-      NameValueCollection keyArray = new NameValueCollection();
 
       try {
         while (appSettingsEnum.MoveNext()) {
           string key = appSettings.AllKeys[i].ToString();
           if (key.StartsWith(keyName)) {
-            keyArray.Add(key.Substring(keyName.Length), appSettings[key]);
+            table[key.Substring(keyName.Length)] = appSettings[key];
           }
           i += 1;
         }
       } catch (Exception e) {
-        keyArray.Add("ERROR", e.Message);
-        return keyArray;
+        table["ERROR"] = e.Message;
+        return table;
       }
 
-      return keyArray;
+      return table;
     }
   }
 }

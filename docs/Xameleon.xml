@@ -191,13 +191,13 @@
             Calculates the endpoint based on the calling format.
             </summary>
         </member>
-        <member name="T:Xameleon.Transform">
+        <member name="T:Xameleon.Transform.Transform">
             <summary>
             </summary>
             <summary>
             </summary>
         </member>
-        <member name="M:Xameleon.Transform.#ctor">
+        <member name="M:Xameleon.Transform.Transform.#ctor">
             <summary>
             </summary>
         </member>

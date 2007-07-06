@@ -24,7 +24,7 @@ namespace Xameleon.Transform {
       Stream _TemplateStream;
       XsltExecutable _TransformExecutable;
       String _xsltParamKey;
-      NameValueCollection _XsltParams;
+      Hashtable _XsltParams;
       String _Backup;
       TextWriter _TextWriter;
       DocumentBuilder _Builder;
@@ -61,7 +61,7 @@ namespace Xameleon.Transform {
         _SourceXml = (Stream)_Resolver.GetEntity(_XmlSource, null, typeof(Stream));
         _TemplateStream = (Stream)_Resolver.GetEntity(_BaseTemplateUri, null, typeof(Stream));
         _TransformExecutable = _Compiler.Compile(_TemplateStream);
-        _XsltParams = new NameValueCollection();
+        
         _Builder = _Processor.NewDocumentBuilder();
         _Builder.BaseUri = _BaseTemplateUri;
         _Node = _Builder.Build(_SourceXml);
@@ -75,6 +75,7 @@ namespace Xameleon.Transform {
           _XsltObjectParams["session"] = context.Session;
           _XsltObjectParams["timestamp"] = context.Timestamp;
         }
+        _XsltParams = _AppSettings.GetSettingArray(_XsltObjectParams, _xsltParamKey);
         _Backup = @"<system>
                       <message>
                         Something very very bad has happened. Run while you still can!
@@ -154,7 +155,7 @@ namespace Xameleon.Transform {
         get { return _Resolver; }
         set { _Resolver = value; }
       }
-      public NameValueCollection XsltParams {
+      public Hashtable XsltParams {
         get { return _XsltParams; }
         set { _XsltParams = value; }
       }

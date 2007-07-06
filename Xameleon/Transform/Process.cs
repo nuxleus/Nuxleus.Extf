@@ -23,17 +23,9 @@ namespace Xameleon.Transform {
             XsltTransformer transformer = context.XsltExecutable.Load();
 
             if (context.XsltParams.Count > 0) {
-              IEnumerator enumerator = context.XsltParams.GetEnumerator();
-              for (int i = 0; enumerator.MoveNext(); i++) {
-                string local = context.XsltParams.AllKeys[i];
-                transformer.SetParameter(new QName("", "", local), new XdmAtomicValue(context.XsltParams[local]));
-              }
-            }
-
-            if (context.XsltObjectParams.Count > 0) {
-              foreach (DictionaryEntry param in context.XsltObjectParams) {
+              foreach (DictionaryEntry param in context.XsltParams) {
                 string name = (string)param.Key;
-                transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.XsltObjectParams[name])));
+                transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
               }
             }
 
