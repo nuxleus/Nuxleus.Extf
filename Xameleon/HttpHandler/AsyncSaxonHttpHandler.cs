@@ -19,7 +19,6 @@ namespace Xameleon.Transform {
     String _httpMethod;
     Exception _exception;
     Context _transformContext;
-    Hashtable _objectParams = new Hashtable();
 
 
     public void ProcessRequest(HttpContext context) {
