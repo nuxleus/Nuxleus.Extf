@@ -25,7 +25,6 @@
     <xsl:param name="xpath"/>
     <xsl:variable name="html-to-xml" select="http-sgml-to-xml:GetDocXml($uri, $xpath, false())"/>
     <external-html>
-    <xsl:value-of select="$aws-private-key"/>foobar
       <xsl:sequence select="saxon:parse($html-to-xml)"/>
     </external-html>
   </xsl:function>

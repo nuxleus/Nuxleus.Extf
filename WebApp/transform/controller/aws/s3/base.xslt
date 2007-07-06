@@ -95,7 +95,6 @@
     </xsl:processing-instruction>
     <message type="service:result"
         content-type="{if (empty($content-type)) then aspnet:response.get-content-type($response) else 'not-set'}">
-        <hello><xsl:value-of select="$aws-private-key"/>foobarbaz</hello>
       <xsl:apply-templates/>
     </message>
   </xsl:template>
