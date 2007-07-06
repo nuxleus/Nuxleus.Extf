@@ -42,6 +42,8 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     exclude-result-prefixes="http-sgml-to-xml html s3-object-compare web-response web-request stream http-response-stream browser aws-gen aws-conn http-util s3object s3response uri amazonaws at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header sortedlist param service operation session aws s3 func xs xsi fn clitype response-collection request-collection">
 
+  <xsl:import href="../functions/amazonaws/funcset-s3.xslt"/>
+  
   <xsl:param name="aws-public-key" select="'not-set'" as="xs:string"/>
   <xsl:param name="aws-private-key" select="'not-set'" as="xs:string"/>
   <xsl:param name="response" />
@@ -239,8 +241,8 @@
 
   <xsl:template match="at:IfFalse">
     <xsl:param name="key-name"/>
-    [False: <xsl:sequence
-        select="aws:s3-put-object($s3-bucket-name, $key-name, $guid, $aws-public-key, $aws-private-key, false())"/>]
+   <xsl:sequence
+        select="aws:s3-put-object($s3-bucket-name, $key-name, $guid, $aws-public-key, $aws-private-key, false())"/>
   </xsl:template>
 
   <xsl:template match="at:IfTrue">
@@ -250,11 +252,10 @@
         <xsl:with-param name="key-uri" select="$key-uri"/>
       </xsl:apply-templates>
     </xsl:variable>
-    [True: 
     <xsl:apply-templates>
       <xsl:with-param name="key-uri" select="$key-uri"/>
       <xsl:with-param name="params" select="$params"/>
-    </xsl:apply-templates>]
+    </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="param:*" mode="eval">
@@ -290,75 +291,5 @@
   <xsl:template match="text()">
     <xsl:sequence select="normalize-space(.)"/>
   </xsl:template>
-
-  <xsl:function name="aws:s3-normalize-key">
-    <xsl:param name="folder"/>
-    <xsl:param name="key"/>
-    <xsl:sequence select="concat(if (not(ends-with($folder, '/'))) then concat($folder, '/') else $folder, $key)"/>
-  </xsl:function>
-
-  <xsl:function name="aws:s3-list-bucket">
-    <xsl:param name="bucket" />
-    <xsl:param name="prefix" />
-    <xsl:param name="marker" />
-    <xsl:param name="maxKeys" as="xs:integer"/>
-    <xsl:param name="delimiter" />
-    <xsl:sequence
-        select="if ($expires-in) then aws-gen:listBucket($aws-gen, $bucket, $prefix, $marker, $maxKeys) else $not-set"/>
-  </xsl:function>
-
-  <xsl:function name="aws:s3-set-expires-in">
-    <xsl:param name="aws-auth-gen"/>
-    <xsl:param name="expires-in"/>
-    <xsl:sequence
-        select="aws-gen:set_ExpiresIn($aws-gen, $expires-in)"/>
-  </xsl:function>
-
-  <xsl:function name="aws:s3-get-signature">
-    <xsl:param name="bucket" as="xs:string"/>
-    <xsl:param name="key" as="xs:string"/>
-    <xsl:param name="aws-public-key"/>
-    <xsl:param name="aws-private-key"/>
-    <xsl:param name="issecure" />
-    <xsl:sequence
-        select="if ($expires-in) then aws-gen:get($aws-gen, $bucket, $key) else $not-set"/>
-  </xsl:function>
-
-  <xsl:function name="aws:s3-get-signature">
-    <xsl:param name="bucket" as="xs:string"/>
-    <xsl:param name="key" as="xs:string"/>
-    <xsl:param name="issecure"/>
-    <xsl:variable name="aws-gen" select="aws-gen:new($aws-public-key, $aws-private-key, $issecure)"/>
-    <xsl:value-of
-        select="aws-gen:get($aws-gen, $bucket, $key)"/>
-  </xsl:function>
-
-  <xsl:function name="aws:s3-put-object">
-    <xsl:param name="bucket" as="xs:string"/>
-    <xsl:param name="key" as="xs:string"/>
-    <xsl:param name="object" as="xs:string"/>
-    <xsl:param name="pubkey" as="xs:string"/>
-    <xsl:param name="privkey" as="xs:string"/>
-    <xsl:param name="issecure" as="xs:boolean" />
-    <xsl:variable name="s3Object" select="s3object:new($object)"/>
-    <xsl:sequence
-        select="s3response:getResponseMessage(aws-conn:put($aws-conn, $bucket, $key, $s3Object))"/>
-  </xsl:function>
-
-  <xsl:function name="aws:s3-get-object">
-    <xsl:param name="bucket" as="xs:string"/>
-    <xsl:param name="key" as="xs:string"/>
-    <xsl:sequence
-        select="s3response:getResponseMessage(aws-conn:get($aws-conn, $bucket, $key))"/>
-  </xsl:function>
-
-  <xsl:function name="aws:s3-create-bucket">
-    <xsl:param name="publicKey" as="xs:string"/>
-    <xsl:param name="privateKey" as="xs:string"/>
-    <xsl:param name="issecure" as="xs:boolean"/>
-    <xsl:param name="bucket" as="xs:string"/>
-    <xsl:sequence
-        select="s3response:getResponseMessage(aws-conn:createBucket($aws-conn, $bucket))"/>
-  </xsl:function>
 
 </xsl:transform>

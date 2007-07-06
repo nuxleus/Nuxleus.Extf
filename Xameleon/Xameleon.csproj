@@ -1,337 +1,349 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
-    ToolsVersion="3.5">
-    <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProductVersion>9.0.20404</ProductVersion>
-        <SchemaVersion>2.0</SchemaVersion>
-        <ProjectGuid>{A800D9F1-D877-4076-99BA-CBD73BCFB203}</ProjectGuid>
-        <OutputType>Library</OutputType>
-        <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>Xameleon</RootNamespace>
-        <AssemblyName>Xameleon</AssemblyName>
-        <SignAssembly>true</SignAssembly>
-        <AssemblyOriginatorKeyFile>Extf.Net.snk</AssemblyOriginatorKeyFile>
-        <FileUpgradeFlags> </FileUpgradeFlags>
-        <UpgradeBackupLocation> </UpgradeBackupLocation>
-        <OldToolsVersion>2.0</OldToolsVersion>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>..\amplee-integration\WebApp\bin\</OutputPath>
-        <DefineConstants>DEBUG;TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <DocumentationFile>..\docs\Xameleon.xml</DocumentationFile>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <DebugType>pdbonly</DebugType>
-        <Optimize>true</Optimize>
-        <OutputPath>..\WebApp\bin\</OutputPath>
-        <DefineConstants>TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <DocumentationFile>..\docs\Xameleon.xml</DocumentationFile>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    </PropertyGroup>
-    <ItemGroup>
-        <Reference
-            Include="IKVM.GNU.Classpath, Version=0.34.0.3, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
-            <SpecificVersion>False</SpecificVersion>
-            <HintPath>..\Dependencies\IKVM.GNU.Classpath.dll</HintPath>
-        </Reference>
-        <Reference
-            Include="IKVM.Runtime, Version=0.34.0.3, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
-            <SpecificVersion>False</SpecificVersion>
-            <HintPath>..\Dependencies\IKVM.Runtime.dll</HintPath>
-        </Reference>
-        <Reference
-            Include="IronMath, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-            <SpecificVersion>False</SpecificVersion>
-            <HintPath>..\..\trunk\Dependencies\IronMath.dll</HintPath>
-        </Reference>
-        <Reference
-            Include="IronPython, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-            <SpecificVersion>False</SpecificVersion>
-            <HintPath>..\..\trunk\Dependencies\IronPython.dll</HintPath>
-        </Reference>
-        <Reference Include="LibCurlNet, Version=1.3.0.0, Culture=neutral">
-            <SpecificVersion>False</SpecificVersion>
-            <HintPath>..\Dependencies\LibCurlNet.dll</HintPath>
-        </Reference>
-        <Reference
-            Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-            <SpecificVersion>False</SpecificVersion>
-            <HintPath>..\..\trunk\Dependencies\Mono.Security.dll</HintPath>
-        </Reference>
-        <Reference
-            Include="saxon8, Version=8.9.0.3, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f">
-            <SpecificVersion>False</SpecificVersion>
-            <HintPath>..\Dependencies\saxon8.dll</HintPath>
-        </Reference>
-        <Reference Include="System" />
-        <Reference Include="System.configuration" />
-        <Reference Include="System.Data" />
-        <Reference Include="System.Drawing" />
-        <Reference Include="System.EnterpriseServices" />
-        <Reference Include="System.Web" />
-        <Reference Include="System.Web.Services" />
-        <Reference Include="System.Xml" />
-    </ItemGroup>
-    <ItemGroup>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.webserver\applicationserver.cs">
-            <Link>WebServer\Mono.WebServer\applicationserver.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.webserver\baseapplicationhost.cs">
-            <Link>WebServer\Mono.WebServer\baseapplicationhost.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.webserver\baserequestbroker.cs">
-            <Link>WebServer\Mono.WebServer\baserequestbroker.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.webserver\iapplicationhost.cs">
-            <Link>WebServer\Mono.WebServer\iapplicationhost.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.webserver\initialworkerrequest.cs">
-            <Link>WebServer\Mono.WebServer\initialworkerrequest.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.webserver\iwebsource.cs">
-            <Link>WebServer\Mono.WebServer\iwebsource.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.webserver\lingeringnetworkstream.cs">
-            <Link>WebServer\Mono.WebServer\lingeringnetworkstream.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.webserver\monoworkerrequest.cs">
-            <Link>WebServer\Mono.WebServer\monoworkerrequest.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.webserver\xspapplicationhost.cs">
-            <Link>WebServer\Mono.WebServer\xspapplicationhost.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.webserver\xspworkerrequest.cs">
-            <Link>WebServer\Mono.WebServer\xspworkerrequest.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\connection.cs">
-            <Link>WebServer\Mono.FastCgi\Connection.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Logger.cs">
-            <Link>WebServer\Mono.FastCgi\Logger.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Server.cs">
-            <Link>WebServer\Mono.FastCgi\Server.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketFactory.cs">
-            <Link>WebServer\Mono.FastCgi\SocketFactory.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\UnixSockets.cs">
-            <Link>WebServer\Mono.FastCgi\UnixSockets.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Requests\Requests.cs">
-            <Link>WebServer\Mono.FastCgi\Requests\Request.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Requests\ResponderRequest.cs">
-            <Link>WebServer\Mono.FastCgi\Requests\ResponderRequest.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketAbstractions\ISocketAbstraction.cs">
-            <Link>WebServer\Mono.FastCgi\SocketAbstractions\ISocketAbstraction.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketAbstractions\StandardSocket.cs">
-            <Link>WebServer\Mono.FastCgi\SocketAbstractions\StandardSocket.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketAbstractions\TcpSocket.cs">
-            <Link>WebServer\Mono.FastCgi\SocketAbstractions\TcpSocket.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketAbstractions\UnmangagedSockets.cs">
-            <Link>WebServer\Mono.FastCgi\SocketAbstractions\UnmanagedSockets.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\BeginRequestBody.cs">
-            <Link>WebServer\Mono.FastCgi\Structures\BeginRequestBody.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\EndRequestBody.cs">
-            <Link>WebServer\Mono.FastCgi\Structures\EndRequestBody.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\NameValuePair.cs">
-            <Link>WebServer\Mono.FastCgi\Structures\NameValuePair.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\Record.cs">
-            <Link>WebServer\Mono.FastCgi\Structures\Record.cs</Link>
-        </Compile>
-        <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\UnknownTypeBody.cs">
-            <Link>WebServer\Mono.FastCgi\Structures\UnknownTypeBody.cs</Link>
-        </Compile>
-        <Compile Include="Asp.Net\Server.cs" />
-        <Compile Include="Atom\AtomEntry.cs" />
-        <Compile Include="Configuration\Configuration.cs" />
-        <Compile Include="Document\DocumentResult.cs" />
-        <Compile Include="Document\S3Document.cs" />
-        <Compile Include="Function\HttpSgmlToXml.cs" />
-        <Compile Include="Function\HttpWebRequest.cs" />
-        <Compile Include="Function\S3ObjectCompare.cs" />
-        <Compile Include="Function\HttpResponseCollection.cs" />
-        <Compile Include="Function\HttpRequestCollection.cs" />
-        <Compile Include="Function\FileStream.cs" />
-        <Compile Include="Function\HttpWebResponseStream.cs" />
-        <Compile Include="Function\XsltCompiledHashtable.cs" />
-        <Compile Include="HttpHandler\AtomPublishingProtocolHttpHandler.cs" />
-        <Compile Include="HttpHandler\AsyncSaxonHttpHandler.cs" />
-        <Compile Include="HttpHandler\S3HttpHandler.cs" />
-        <Compile Include="HttpHandler\HttpHandler.cs" />
-        <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Properties\Resources.Designer.cs">
-            <DependentUpon>Resources.resx</DependentUpon>
-            <AutoGen>True</AutoGen>
-            <DesignTime>True</DesignTime>
-        </Compile>
-        <Compile Include="Properties\Settings.Designer.cs">
-            <AutoGen>True</AutoGen>
-            <DesignTimeSharedInput>True</DesignTimeSharedInput>
-            <DependentUpon>Settings.settings</DependentUpon>
-        </Compile>
-        <Compile Include="ResultDocumentHandler\S3ResultDocumentHandler.cs" />
-        <Compile Include="SemWeb\Select.cs" />
-        <Compile Include="Service\Authentication.cs">
-            <SubType>Component</SubType>
-        </Compile>
-        <Compile Include="Transform\Transform.AsyncResult.cs" />
-        <Compile Include="Transform\Transform.Context.cs" />
-        <Compile Include="Transform\Transform.cs" />
-        <Compile Include="Transform\Transform.Init.cs" />
-        <Compile Include="Transform\Transform.Process.cs" />
-        <Compile Include="Utility\S3\AWSAuthConnection.cs" />
-        <Compile Include="Utility\S3\Bucket.cs" />
-        <Compile Include="Utility\S3\CommonPrefixEntry.cs" />
-        <Compile Include="Utility\S3\GetResponse.cs" />
-        <Compile Include="Utility\S3\ListAllMyBucketsResponse.cs" />
-        <Compile Include="Utility\S3\ListBucketResponse.cs" />
-        <Compile Include="Utility\S3\ListEntry.cs" />
-        <Compile Include="Utility\S3\Owner.cs" />
-        <Compile Include="Utility\S3\QueryStringAuthGenerator.cs" />
-        <Compile Include="Utility\S3\Response.cs" />
-        <Compile Include="Utility\S3\S3Object.cs" />
-        <Compile Include="Utility\S3\Utils.cs" />
-        <Compile Include="Web References\AmazonAWS.SQS\Reference.cs">
-            <AutoGen>True</AutoGen>
-            <DesignTime>True</DesignTime>
-            <DependentUpon>Reference.map</DependentUpon>
-            <SubType>Component</SubType>
-        </Compile>
-        <Compile Include="WSGI\WSGI.cs" />
-        <Compile Include="UrlResolver\S3XmlUrlResolver.cs" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Include="app.config" />
-        <None Include="Configuration\App.config" />
-        <None Include="Extf.Net.snk" />
-        <None Include="Properties\Settings.settings">
-            <Generator>SettingsSingleFileGenerator</Generator>
-            <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-        </None>
-        <None Include="Utility\S3\README" />
-        <None Include="Web References\AmazonAWS.SQS\AccessControl.xsd">
-            <SubType>Designer</SubType>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\AddGrantResponse.datasource"> </None>
-        <None Include="Web References\AmazonAWS.SQS\AddGrantResponse1.datasource">
-            <DependentUpon>Reference.map</DependentUpon>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\CreateQueueResponse.datasource"> </None>
-        <None Include="Web References\AmazonAWS.SQS\CreateQueueResponse1.datasource">
-            <DependentUpon>Reference.map</DependentUpon>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\DeleteMessageResponse.datasource"> </None>
-        <None Include="Web References\AmazonAWS.SQS\DeleteMessageResponse1.datasource">
-            <DependentUpon>Reference.map</DependentUpon>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\DeleteQueueResponse.datasource"> </None>
-        <None Include="Web References\AmazonAWS.SQS\DeleteQueueResponse1.datasource">
-            <DependentUpon>Reference.map</DependentUpon>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\GetVisibilityTimeoutResponse.datasource"> </None>
-        <None Include="Web References\AmazonAWS.SQS\GetVisibilityTimeoutResponse1.datasource">
-            <DependentUpon>Reference.map</DependentUpon>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\ListGrantsResponse.datasource"> </None>
-        <None Include="Web References\AmazonAWS.SQS\ListGrantsResponse1.datasource">
-            <DependentUpon>Reference.map</DependentUpon>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\ListQueuesResponse.datasource"> </None>
-        <None Include="Web References\AmazonAWS.SQS\ListQueuesResponse1.datasource">
-            <DependentUpon>Reference.map</DependentUpon>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\PeekMessageResponse.datasource"> </None>
-        <None Include="Web References\AmazonAWS.SQS\PeekMessageResponse1.datasource">
-            <DependentUpon>Reference.map</DependentUpon>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\QueueService.wsdl" />
-        <None Include="Web References\AmazonAWS.SQS\QueueService.xsd">
-            <SubType>Designer</SubType>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\ReceiveMessageResponse.datasource"> </None>
-        <None Include="Web References\AmazonAWS.SQS\ReceiveMessageResponse1.datasource">
-            <DependentUpon>Reference.map</DependentUpon>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\Reference.map">
-            <Generator>MSDiscoCodeGenerator</Generator>
-            <LastGenOutput>Reference.cs</LastGenOutput>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\RemoveGrantResponse.datasource"> </None>
-        <None Include="Web References\AmazonAWS.SQS\RemoveGrantResponse1.datasource">
-            <DependentUpon>Reference.map</DependentUpon>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\SendMessageResponse.datasource"> </None>
-        <None Include="Web References\AmazonAWS.SQS\SendMessageResponse1.datasource">
-            <DependentUpon>Reference.map</DependentUpon>
-        </None>
-        <None Include="Web References\AmazonAWS.SQS\SetVisibilityTimeoutResponse.datasource">
-            <DependentUpon>Reference.map</DependentUpon>
-        </None>
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\Base\Extf.Net.Base.csproj">
-            <Project>{0EFC77D9-E940-4C1C-805F-F236FDB64B32}</Project>
-            <Name>Extf.Net.Base</Name>
-        </ProjectReference>
-        <ProjectReference Include="..\GlobalClip\GlobalClip.csproj">
-            <Project>{9B9C08A7-0E8A-45AA-AEB4-7A5796DB1C26}</Project>
-            <Name>GlobalClip</Name>
-        </ProjectReference>
-        <ProjectReference
-            Include="..\VendorExtensions\GotDotNet\SgmlReader\sgmlreaderdll\SgmlReaderDll8.csproj">
-            <Project>{499527FF-AE52-450F-B3E3-4AD53E1712AD}</Project>
-            <Name>SgmlReaderDll8</Name>
-        </ProjectReference>
-        <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
-            <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
-            <Name>Saxon.Api</Name>
-        </ProjectReference>
-    </ItemGroup>
-    <ItemGroup>
-        <EmbeddedResource Include="Properties\Resources.resx">
-            <Generator>ResXFileCodeGenerator</Generator>
-            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-            <SubType>Designer</SubType>
-        </EmbeddedResource>
-    </ItemGroup>
-    <ItemGroup>
-        <WebReferences Include="Web References\" />
-    </ItemGroup>
-    <ItemGroup>
-        <WebReferenceUrl Include="http://queue.amazonaws.com/doc/2006-04-01/QueueService.wsdl%3f">
-            <UrlBehavior>Dynamic</UrlBehavior>
-            <RelPath>Web References\AmazonAWS.SQS\</RelPath>
-            <UpdateFromURL>http://queue.amazonaws.com/doc/2006-04-01/QueueService.wsdl%3f</UpdateFromURL>
-            <ServiceLocationURL> </ServiceLocationURL>
-            <CachedDynamicPropName> </CachedDynamicPropName>
-            <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-            <CachedSettingsPropName>Xameleon_AmazonAWS_SQS_QueueService</CachedSettingsPropName>
-        </WebReferenceUrl>
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="AsyncTransform\" />
-    </ItemGroup>
-    <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-    <PropertyGroup>
-        <PostBuildEvent> </PostBuildEvent>
-    </PropertyGroup>
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.20404</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A800D9F1-D877-4076-99BA-CBD73BCFB203}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Xameleon</RootNamespace>
+    <AssemblyName>Xameleon</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Extf.Net.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\amplee-integration\WebApp\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\docs\Xameleon.xml</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\WebApp\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\docs\Xameleon.xml</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IKVM.GNU.Classpath, Version=0.34.0.3, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\IKVM.GNU.Classpath.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=0.34.0.3, Culture=neutral, PublicKeyToken=13235d27fcbfff58">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="IronMath, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\trunk\Dependencies\IronMath.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\trunk\Dependencies\IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="LibCurlNet, Version=1.3.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\LibCurlNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\trunk\Dependencies\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="saxon8, Version=8.9.0.3, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\saxon8.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\applicationserver.cs">
+      <Link>WebServer\Mono.WebServer\applicationserver.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\baseapplicationhost.cs">
+      <Link>WebServer\Mono.WebServer\baseapplicationhost.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\baserequestbroker.cs">
+      <Link>WebServer\Mono.WebServer\baserequestbroker.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\iapplicationhost.cs">
+      <Link>WebServer\Mono.WebServer\iapplicationhost.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\initialworkerrequest.cs">
+      <Link>WebServer\Mono.WebServer\initialworkerrequest.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\iwebsource.cs">
+      <Link>WebServer\Mono.WebServer\iwebsource.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\lingeringnetworkstream.cs">
+      <Link>WebServer\Mono.WebServer\lingeringnetworkstream.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\monoworkerrequest.cs">
+      <Link>WebServer\Mono.WebServer\monoworkerrequest.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\xspapplicationhost.cs">
+      <Link>WebServer\Mono.WebServer\xspapplicationhost.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\xspworkerrequest.cs">
+      <Link>WebServer\Mono.WebServer\xspworkerrequest.cs</Link>
+    </Compile>
+    <!-- <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\connection.cs">
+      <Link>WebServer\Mono.FastCgi\Connection.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Logger.cs">
+      <Link>WebServer\Mono.FastCgi\Logger.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Server.cs">
+      <Link>WebServer\Mono.FastCgi\Server.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketFactory.cs">
+      <Link>WebServer\Mono.FastCgi\SocketFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\UnixSocket.cs">
+      <Link>WebServer\Mono.FastCgi\UnixSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Requests\Request.cs">
+      <Link>WebServer\Mono.FastCgi\Requests\Request.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Requests\ResponderRequest.cs">
+      <Link>WebServer\Mono.FastCgi\Requests\ResponderRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketAbstractions\ISocketAbstraction.cs">
+      <Link>WebServer\Mono.FastCgi\SocketAbstractions\ISocketAbstraction.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketAbstractions\StandardSocket.cs">
+      <Link>WebServer\Mono.FastCgi\SocketAbstractions\StandardSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketAbstractions\TcpSocket.cs">
+      <Link>WebServer\Mono.FastCgi\SocketAbstractions\TcpSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketAbstractions\UnmanagedSocket.cs">
+      <Link>WebServer\Mono.FastCgi\SocketAbstractions\UnmanagedSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\BeginRequestBody.cs">
+      <Link>WebServer\Mono.FastCgi\Structures\BeginRequestBody.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\EndRequestBody.cs">
+      <Link>WebServer\Mono.FastCgi\Structures\EndRequestBody.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\NameValuePair.cs">
+      <Link>WebServer\Mono.FastCgi\Structures\NameValuePair.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\Record.cs">
+      <Link>WebServer\Mono.FastCgi\Structures\Record.cs</Link>
+    </Compile>
+    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\UnknownTypeBody.cs">
+      <Link>WebServer\Mono.FastCgi\Structures\UnknownTypeBody.cs</Link>
+    </Compile> -->
+    <Compile Include="Asp.Net\Server.cs" />
+    <Compile Include="Atom\AtomEntry.cs" />
+    <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Document\DocumentResult.cs" />
+    <Compile Include="Document\S3Document.cs" />
+    <Compile Include="Function\HttpSgmlToXml.cs" />
+    <Compile Include="Function\HttpWebRequest.cs" />
+    <Compile Include="Function\S3ObjectCompare.cs" />
+    <Compile Include="Function\HttpResponseCollection.cs" />
+    <Compile Include="Function\HttpRequestCollection.cs" />
+    <Compile Include="Function\FileStream.cs" />
+    <Compile Include="Function\HttpWebResponseStream.cs" />
+    <Compile Include="Function\XsltCompiledHashtable.cs" />
+    <Compile Include="HttpHandler\AtomPublishingProtocolHttpHandler.cs" />
+    <Compile Include="HttpHandler\AsyncSaxonHttpHandler.cs" />
+    <Compile Include="HttpHandler\S3HttpHandler.cs" />
+    <Compile Include="HttpHandler\HttpHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ResultDocumentHandler\S3ResultDocumentHandler.cs" />
+    <Compile Include="SemWeb\Select.cs" />
+    <Compile Include="Service\Authentication.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Transform\Transform.AsyncResult.cs" />
+    <Compile Include="Transform\Transform.Context.cs" />
+    <Compile Include="Transform\Transform.cs" />
+    <Compile Include="Transform\Transform.Init.cs" />
+    <Compile Include="Transform\Transform.Process.cs" />
+    <Compile Include="Utility\S3\AWSAuthConnection.cs" />
+    <Compile Include="Utility\S3\Bucket.cs" />
+    <Compile Include="Utility\S3\CommonPrefixEntry.cs" />
+    <Compile Include="Utility\S3\GetResponse.cs" />
+    <Compile Include="Utility\S3\ListAllMyBucketsResponse.cs" />
+    <Compile Include="Utility\S3\ListBucketResponse.cs" />
+    <Compile Include="Utility\S3\ListEntry.cs" />
+    <Compile Include="Utility\S3\Owner.cs" />
+    <Compile Include="Utility\S3\QueryStringAuthGenerator.cs" />
+    <Compile Include="Utility\S3\Response.cs" />
+    <Compile Include="Utility\S3\S3Object.cs" />
+    <Compile Include="Utility\S3\Utils.cs" />
+    <Compile Include="Web References\AmazonAWS.SQS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WSGI\WSGI.cs" />
+    <Compile Include="UrlResolver\S3XmlUrlResolver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Configuration\App.config" />
+    <None Include="Extf.Net.snk" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Utility\S3\README" />
+    <None Include="Web References\AmazonAWS.SQS\AccessControl.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\AddGrantResponse.datasource">
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\AddGrantResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\CreateQueueResponse.datasource">
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\CreateQueueResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\DeleteMessageResponse.datasource">
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\DeleteMessageResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\DeleteQueueResponse.datasource">
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\DeleteQueueResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\GetVisibilityTimeoutResponse.datasource">
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\GetVisibilityTimeoutResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\ListGrantsResponse.datasource">
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\ListGrantsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\ListQueuesResponse.datasource">
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\ListQueuesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\PeekMessageResponse.datasource">
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\PeekMessageResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\QueueService.wsdl" />
+    <None Include="Web References\AmazonAWS.SQS\QueueService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\ReceiveMessageResponse.datasource">
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\ReceiveMessageResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\RemoveGrantResponse.datasource">
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\RemoveGrantResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\SendMessageResponse.datasource">
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\SendMessageResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonAWS.SQS\SetVisibilityTimeoutResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Base\Extf.Net.Base.csproj">
+      <Project>{0EFC77D9-E940-4C1C-805F-F236FDB64B32}</Project>
+      <Name>Extf.Net.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlobalClip\GlobalClip.csproj">
+      <Project>{9B9C08A7-0E8A-45AA-AEB4-7A5796DB1C26}</Project>
+      <Name>GlobalClip</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VendorExtensions\GotDotNet\SgmlReader\sgmlreaderdll\SgmlReaderDll8.csproj">
+      <Project>{499527FF-AE52-450F-B3E3-4AD53E1712AD}</Project>
+      <Name>SgmlReaderDll8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
+      <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
+      <Name>Saxon.Api</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://queue.amazonaws.com/doc/2006-04-01/QueueService.wsdl%3f">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AmazonAWS.SQS\</RelPath>
+      <UpdateFromURL>http://queue.amazonaws.com/doc/2006-04-01/QueueService.wsdl%3f</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Xameleon_AmazonAWS_SQS_QueueService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AsyncTransform\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>

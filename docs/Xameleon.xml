@@ -4,9 +4,102 @@
         <name>Xameleon</name>
     </assembly>
     <members>
+        <member name="M:Xameleon.Utility.S3.S3Object.#ctor(System.Byte[],System.Collections.SortedList)">
+            <summary>
+            Constructs an S3Object.
+            </summary>
+            <param name="bytes">Byte array representing the object</param>
+            <param name="metadata">Metadata associated with the object</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.S3Object.#ctor(System.String,System.Collections.SortedList)">
+            <summary>
+            Constructs an S3Object.
+            </summary>
+            <param name="data">String representation of the data; this will be decoded via ASCII</param>
+            <param name="metadata">Metadata associated with the object</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.S3Object.#ctor(System.String)">
+            <summary>
+            Constructs an S3Object.
+            </summary>
+            <param name="data">String representation of the data; this will be decoded via ASCII</param>
+            <param name="metadata">Metadata associated with the object</param>
+        </member>
+        <member name="P:Xameleon.Utility.S3.S3Object.Bytes">
+            <summary>
+            Acquires the binary representation of an object.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Utility.S3.S3Object.Data">
+            <summary>
+            Acquires the ASCII Encoding representation of an object.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Utility.S3.S3Object.Metadata">
+            <summary>
+            Acquires the metadata.
+            </summary>
+        </member>
         <member name="T:Xameleon.Service.Authenticate">
             <summary>
             Summary description for Authenticate service
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.name">
+            <summary>
+            The name of the bucket being listed.  Null if the request fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.prefix">
+            <summary>
+            The prefix echoed back from the request.  Null if the request fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.marker">
+            <summary>
+            The marker echoed back from the request.  Null if the request fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.delimiter">
+            <summary>
+            The delimiter echoed back from the request.  Null if not specified in
+            the request or it fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.maxKeys">
+            <summary>
+            The maxKeys echoed back from the request if specified.  0 if the request fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.isTruncated">
+            <summary>
+            Indicates if there are more results to the list.  True if the current
+            list results have been truncated.  The value will be false if the request
+            fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.nextMarker">
+            <summary>
+            Indicates what to use as a marker for subsequent list requests in the event
+            that the results are truncated.  Present only when a delimiter is specified.
+            Null if the requests fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.entries">
+            <summary>
+            A list of ListEntry objects representing the objects in the given bucket.
+            Null if the request fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.commonPrefixEntries">
+            <summary>
+            A list of CommonPrefixEntry objects representing the common prefixes of the
+            keys that matched up to the delimiter.  Null if the request fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.CommonPrefixEntry.prefix">
+            <summary>
+            The prefix common to the delimited keys it represents.
             </summary>
         </member>
         <member name="T:Mono.WebServer.IApplicationHost">
@@ -100,6 +193,23 @@
             <summary>
             </summary>
             <param name="table"></param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.Utils.buildUrlBase(System.String,System.Int32,System.String,Xameleon.Utility.S3.CallingFormat)">
+            <summary>
+            Calculates the endpoint based on the calling format.
+            </summary>
+        </member>
+        <member name="T:Xameleon.Utility.S3.QueryStringAuthGenerator">
+            This class mimics the behavior of AWSAuthConnection, except instead of actually performing
+            the operation, QueryStringAuthGenerator will return URLs with query string parameters that
+            can be used to do the same thing.  These parameters include an expiration date, so that
+            if you hand them off to someone else, they will only work for a limited amount of time.
+        </member>
+        <member name="P:Xameleon.Utility.S3.QueryStringAuthGenerator.Expires">
+            <summary>
+            Sets/Gets the milliseconds since the Epoch that this
+            expires at
+            </summary>
         </member>
         <member name="T:Xameleon.Properties.Resources">
             <summary>
@@ -1644,108 +1754,6 @@
             <summary>
             </summary>
         </member>
-        <member name="M:Xameleon.Function.HttpWebResponseStream.GetResponseString(System.IO.Stream)">
-            <summary>
-            </summary>
-            <param name="stream"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Mono.WebServer.MapPathEventArgs">
-            <summary>
-               This class extends <see cref="T:System.EventArgs"/> to provide arguments
-               for <see cref="T:Mono.WebServer.MapPathEventHandler"/>.
-            </summary>
-            <remarks>
-               When <see cref="E:Mono.WebServer.MonoWorkerRequest.MapPathEvent"/> is called, the
-               handler has an option of setting <see cref="P:Mono.WebServer.MapPathEventArgs.MappedPath"/> to a mapped path.
-            </remarks>
-        </member>
-        <member name="F:Mono.WebServer.MapPathEventArgs.path">
-            <summary>
-               Contains the virtual path, as used in the request.
-            </summary>
-        </member>
-        <member name="F:Mono.WebServer.MapPathEventArgs.mapped">
-            <summary>
-               Contains the physical "mapped" path.
-            </summary>
-        </member>
-        <member name="F:Mono.WebServer.MapPathEventArgs.isMapped">
-            <summary>
-               Indicates whether or not the path has been mapped.
-            </summary>
-        </member>
-        <member name="M:Mono.WebServer.MapPathEventArgs.#ctor(System.String)">
-            <summary>
-               Constructs and initializes a new instance of <see cref="T:Mono.WebServer.MapPathEventArgs"/> for a specified virtual path.
-            </summary>
-            <param name="path">
-               A <see cref="T:System.String"/> containing the virtual path, as
-               contained in the request.
-            </param>
-        </member>
-        <member name="P:Mono.WebServer.MapPathEventArgs.Path">
-            <summary>
-               Gets the virtual path of the current instance.
-            </summary>
-            <value>
-               A <see cref="T:System.String"/> containing the virtual path of
-               the current instance.
-            </value>
-        </member>
-        <member name="P:Mono.WebServer.MapPathEventArgs.IsMapped">
-            <summary>
-               Gets whether or not the path is mapped.
-            </summary>
-            <value>
-               A <see cref="T:System.Boolean"/> indicating whether or not the path
-               has been mapped.
-            </value>
-        </member>
-        <member name="P:Mono.WebServer.MapPathEventArgs.MappedPath">
-            <summary>
-               Gets and sets the physical "mapped" path for the current
-               instance.
-            </summary>
-            <value>
-               A <see cref="T:System.String"/> containing the physical "mapped"
-               path of the current instance.
-            </value>
-        </member>
-        <member name="T:Mono.WebServer.MapPathEventHandler">
-            <summary>
-               This delegate is used to handle <see cref="E:Mono.WebServer.MonoWorkerRequest.MapPathEvent"/> and performs custom path
-               mapping.
-            </summary>
-            <param name="sender">
-               The <see cref="T:System.Object"/> that sent the event.
-            </param>
-            <param name="args">
-               A <see cref="T:Mono.WebServer.MapPathEventArgs"/> object containing the arguments
-               for the event.
-            </param>
-            <remarks>
-               This method is used for custom path mapping within <see cref="M:Mono.WebServer.MonoWorkerRequest.MapPath(System.String)"/>.
-            </remarks>
-            <example>
-               An example <see cref="T:Mono.WebServer.MapPathEventHandler"/>
-               <code language="C#">
-                   void OnMapPathEvent (object sender, MapPathEventArgs args)
-                   {
-                       if (args.Path.StartsWith ("/blog"))
-                           args.MappedPath = @"C:\Documents and Settings\John Doe\My Documents\Visual Studio 2005\WebSites\blog";
-                   }
-               </code>
-            </example>
-        </member>
-        <member name="T:Mono.WebServer.EndOfRequestHandler">
-            <summary>
-               This delegate is used to handle <see cref="E:Mono.WebServer.MonoWorkerRequest.EndOfRequestEvent"/>.
-            </summary>
-            <param name="request">
-               The <see cref="T:Mono.WebServer.MonoWorkerRequest"/> that sent the event.
-            </param>
-        </member>
         <member name="T:Xameleon.Utility.S3.AWSAuthConnection">
             An interface into the S3 system.  It is initially configured with
             authentication and connection parameters and exposes methods to access and
@@ -1926,115 +1934,107 @@
             <param name="request">Request to add the header to</param>
             <param name="resource">The resource name (bucketName + "/" + key)</param>
         </member>
-        <member name="F:Xameleon.Utility.S3.CommonPrefixEntry.prefix">
+        <member name="M:Xameleon.Function.HttpWebResponseStream.GetResponseString(System.IO.Stream)">
             <summary>
-            The prefix common to the delimited keys it represents.
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mono.WebServer.MapPathEventArgs">
+            <summary>
+               This class extends <see cref="T:System.EventArgs"/> to provide arguments
+               for <see cref="T:Mono.WebServer.MapPathEventHandler"/>.
+            </summary>
+            <remarks>
+               When <see cref="E:Mono.WebServer.MonoWorkerRequest.MapPathEvent"/> is called, the
+               handler has an option of setting <see cref="P:Mono.WebServer.MapPathEventArgs.MappedPath"/> to a mapped path.
+            </remarks>
+        </member>
+        <member name="F:Mono.WebServer.MapPathEventArgs.path">
+            <summary>
+               Contains the virtual path, as used in the request.
             </summary>
         </member>
-        <member name="F:Xameleon.Utility.S3.ListBucketResponse.name">
+        <member name="F:Mono.WebServer.MapPathEventArgs.mapped">
             <summary>
-            The name of the bucket being listed.  Null if the request fails.
+               Contains the physical "mapped" path.
             </summary>
         </member>
-        <member name="F:Xameleon.Utility.S3.ListBucketResponse.prefix">
+        <member name="F:Mono.WebServer.MapPathEventArgs.isMapped">
             <summary>
-            The prefix echoed back from the request.  Null if the request fails.
+               Indicates whether or not the path has been mapped.
             </summary>
         </member>
-        <member name="F:Xameleon.Utility.S3.ListBucketResponse.marker">
+        <member name="M:Mono.WebServer.MapPathEventArgs.#ctor(System.String)">
             <summary>
-            The marker echoed back from the request.  Null if the request fails.
+               Constructs and initializes a new instance of <see cref="T:Mono.WebServer.MapPathEventArgs"/> for a specified virtual path.
             </summary>
+            <param name="path">
+               A <see cref="T:System.String"/> containing the virtual path, as
+               contained in the request.
+            </param>
         </member>
-        <member name="F:Xameleon.Utility.S3.ListBucketResponse.delimiter">
+        <member name="P:Mono.WebServer.MapPathEventArgs.Path">
             <summary>
-            The delimiter echoed back from the request.  Null if not specified in
-            the request or it fails.
+               Gets the virtual path of the current instance.
             </summary>
+            <value>
+               A <see cref="T:System.String"/> containing the virtual path of
+               the current instance.
+            </value>
         </member>
-        <member name="F:Xameleon.Utility.S3.ListBucketResponse.maxKeys">
+        <member name="P:Mono.WebServer.MapPathEventArgs.IsMapped">
             <summary>
-            The maxKeys echoed back from the request if specified.  0 if the request fails.
+               Gets whether or not the path is mapped.
             </summary>
+            <value>
+               A <see cref="T:System.Boolean"/> indicating whether or not the path
+               has been mapped.
+            </value>
         </member>
-        <member name="F:Xameleon.Utility.S3.ListBucketResponse.isTruncated">
+        <member name="P:Mono.WebServer.MapPathEventArgs.MappedPath">
             <summary>
-            Indicates if there are more results to the list.  True if the current
-            list results have been truncated.  The value will be false if the request
-            fails.
+               Gets and sets the physical "mapped" path for the current
+               instance.
             </summary>
+            <value>
+               A <see cref="T:System.String"/> containing the physical "mapped"
+               path of the current instance.
+            </value>
         </member>
-        <member name="F:Xameleon.Utility.S3.ListBucketResponse.nextMarker">
+        <member name="T:Mono.WebServer.MapPathEventHandler">
             <summary>
-            Indicates what to use as a marker for subsequent list requests in the event
-            that the results are truncated.  Present only when a delimiter is specified.
-            Null if the requests fails.
+               This delegate is used to handle <see cref="E:Mono.WebServer.MonoWorkerRequest.MapPathEvent"/> and performs custom path
+               mapping.
             </summary>
+            <param name="sender">
+               The <see cref="T:System.Object"/> that sent the event.
+            </param>
+            <param name="args">
+               A <see cref="T:Mono.WebServer.MapPathEventArgs"/> object containing the arguments
+               for the event.
+            </param>
+            <remarks>
+               This method is used for custom path mapping within <see cref="M:Mono.WebServer.MonoWorkerRequest.MapPath(System.String)"/>.
+            </remarks>
+            <example>
+               An example <see cref="T:Mono.WebServer.MapPathEventHandler"/>
+               <code language="C#">
+                   void OnMapPathEvent (object sender, MapPathEventArgs args)
+                   {
+                       if (args.Path.StartsWith ("/blog"))
+                           args.MappedPath = @"C:\Documents and Settings\John Doe\My Documents\Visual Studio 2005\WebSites\blog";
+                   }
+               </code>
+            </example>
         </member>
-        <member name="F:Xameleon.Utility.S3.ListBucketResponse.entries">
+        <member name="T:Mono.WebServer.EndOfRequestHandler">
             <summary>
-            A list of ListEntry objects representing the objects in the given bucket.
-            Null if the request fails.
+               This delegate is used to handle <see cref="E:Mono.WebServer.MonoWorkerRequest.EndOfRequestEvent"/>.
             </summary>
-        </member>
-        <member name="F:Xameleon.Utility.S3.ListBucketResponse.commonPrefixEntries">
-            <summary>
-            A list of CommonPrefixEntry objects representing the common prefixes of the
-            keys that matched up to the delimiter.  Null if the request fails.
-            </summary>
-        </member>
-        <member name="T:Xameleon.Utility.S3.QueryStringAuthGenerator">
-            This class mimics the behavior of AWSAuthConnection, except instead of actually performing
-            the operation, QueryStringAuthGenerator will return URLs with query string parameters that
-            can be used to do the same thing.  These parameters include an expiration date, so that
-            if you hand them off to someone else, they will only work for a limited amount of time.
-        </member>
-        <member name="P:Xameleon.Utility.S3.QueryStringAuthGenerator.Expires">
-            <summary>
-            Sets/Gets the milliseconds since the Epoch that this
-            expires at
-            </summary>
-        </member>
-        <member name="M:Xameleon.Utility.S3.S3Object.#ctor(System.Byte[],System.Collections.SortedList)">
-            <summary>
-            Constructs an S3Object.
-            </summary>
-            <param name="bytes">Byte array representing the object</param>
-            <param name="metadata">Metadata associated with the object</param>
-        </member>
-        <member name="M:Xameleon.Utility.S3.S3Object.#ctor(System.String,System.Collections.SortedList)">
-            <summary>
-            Constructs an S3Object.
-            </summary>
-            <param name="data">String representation of the data; this will be decoded via ASCII</param>
-            <param name="metadata">Metadata associated with the object</param>
-        </member>
-        <member name="M:Xameleon.Utility.S3.S3Object.#ctor(System.String)">
-            <summary>
-            Constructs an S3Object.
-            </summary>
-            <param name="data">String representation of the data; this will be decoded via ASCII</param>
-            <param name="metadata">Metadata associated with the object</param>
-        </member>
-        <member name="P:Xameleon.Utility.S3.S3Object.Bytes">
-            <summary>
-            Acquires the binary representation of an object.
-            </summary>
-        </member>
-        <member name="P:Xameleon.Utility.S3.S3Object.Data">
-            <summary>
-            Acquires the ASCII Encoding representation of an object.
-            </summary>
-        </member>
-        <member name="P:Xameleon.Utility.S3.S3Object.Metadata">
-            <summary>
-            Acquires the metadata.
-            </summary>
-        </member>
-        <member name="M:Xameleon.Utility.S3.Utils.buildUrlBase(System.String,System.Int32,System.String,Xameleon.Utility.S3.CallingFormat)">
-            <summary>
-            Calculates the endpoint based on the calling format.
-            </summary>
+            <param name="request">
+               The <see cref="T:Mono.WebServer.MonoWorkerRequest"/> that sent the event.
+            </param>
         </member>
     </members>
 </doc>

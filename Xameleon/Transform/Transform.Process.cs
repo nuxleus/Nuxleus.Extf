@@ -12,18 +12,6 @@ namespace Xameleon {
     ///</summary>
     public partial class Transform {
 
-        private bool PrepareTransform(Context context) {
-            _SourceXml = (Stream)context.Resolver.GetEntity(context.XmlSource, null, typeof(Stream));
-            _TemplateStream = (Stream)context.Resolver.GetEntity(context.XsltSource, null, typeof(Stream));
-            _Processor = new Processor();
-            _Compiler = _Processor.NewXsltCompiler();
-            if (_Compiler != null) {
-                _Compiler.ErrorList = new ArrayList();
-                _Template = _Compiler.Compile(_TemplateStream);
-            }
-            return true;
-        }
-
         internal void Process(HttpContext context, TextWriter writer, bool outputS3) {
             HttpRequest request = context.Request;
             HttpResponse response = context.Response;
@@ -52,7 +40,8 @@ namespace Xameleon {
                                 }
                             }
 
-                            Hashtable results = new Hashtable(); ;
+                            Hashtable results = new Hashtable();
+
                             if (outputS3) {
                                 transformer.ResultDocumentHandler = new S3ResultDocumentHandler(results);
                             }

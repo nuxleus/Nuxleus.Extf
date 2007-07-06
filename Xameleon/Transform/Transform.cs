@@ -10,7 +10,7 @@ namespace  Xameleon {
     ///</summary>
     public Transform () {}
 
-    internal Context Create() {
+    public Context Create() {
       Context context = new Context();
       return context;
     }

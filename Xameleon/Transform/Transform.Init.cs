@@ -7,12 +7,11 @@ using System.Xml;
 using Saxon.Api;
 using Xameleon.Properties;
 using Extf.Net.Configuration;
+using System.Collections;
 
-namespace Xameleon
-{
+namespace Xameleon {
 
-    public partial class Transform
-    {
+    public partial class Transform {
 
         // Fields
         private XsltCompiler _Compiler;
@@ -23,14 +22,11 @@ namespace Xameleon
         private Stream _TemplateStream;
         private string _xsltParamKey = "xsltParam_";
         private NameValueCollection _XsltParams;
-        
 
-        private void Init(HttpContext context)
-        {
+        private void Init(HttpContext context) {
             AppSettings settings = new AppSettings();
             string setting = settings.GetSetting("xsltParamKeyPrefix");
-            if (setting != null)
-            {
+            if (setting != null) {
                 _xsltParamKey = setting;
             }
             Uri absoluteUri = new Uri(context.Server.MapPath(settings.GetSetting("baseTemplate")));
@@ -45,20 +41,24 @@ namespace Xameleon
             _IS_INITIALIZED = true;
         }
 
-        private Context Init(Context context)
-        {
+        private Context Init(Context context) {
+
             context.BaseUri = new Uri("http://localhost/");
             context.XmlSource = new Uri(Resources.SourceXml);
             context.XsltSource = new Uri(Resources.SourceXslt);
             context.ResultDocument = new XmlDocument();
             context.Resolver = new XmlUrlResolver();
             context.Resolver.Credentials = CredentialCache.DefaultCredentials;
-            if (PrepareTransform(context))
-            {
-                _IS_INITIALIZED = true;
-                return context;
+            _SourceXml = (Stream)context.Resolver.GetEntity(context.XmlSource, null, typeof(Stream));
+            _TemplateStream = (Stream)context.Resolver.GetEntity(context.XsltSource, null, typeof(Stream));
+            _Processor = new Processor();
+            _Compiler = _Processor.NewXsltCompiler();
+            if (_Compiler != null) {
+                _Compiler.ErrorList = new ArrayList();
+                _Template = _Compiler.Compile(_TemplateStream);
             }
-            return null;
+            _IS_INITIALIZED = true;
+            return context;
         }
 
     }
