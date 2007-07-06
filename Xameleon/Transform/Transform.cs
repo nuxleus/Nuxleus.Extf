@@ -1,24 +1,15 @@
 using System.Xml;
 
-namespace  Xameleon {
+namespace Xameleon {
 
-  public partial class Transform {
+    public partial class Transform {
 
-    bool _IS_INITIALIZED = false;
+        ///<summary>
+        ///</summary>
+        public Transform() { }
 
-    ///<summary>
-    ///</summary>
-    public Transform () {}
-
-    public Context Create() {
-      Context context = new Context();
-      return context;
+        //public static Context Create() {
+        //    return (Context)new Context();
+        //}
     }
-
-    internal XmlDocument Go(Context context) {
-      if (!_IS_INITIALIZED) return Process(Init(context));
-      else return Process(context);
-    }
-
-  }
 }
