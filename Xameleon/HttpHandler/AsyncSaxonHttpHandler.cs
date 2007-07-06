@@ -12,14 +12,14 @@ namespace Xameleon {
 
   class AsyncSaxonHttpHandler : IHttpAsyncHandler {
 
-    Transform _transform;
-    TransformServiceAsyncResult _transformAsyncResult;
+    Transform _transform = new Transform();
     TextWriter _writer;
     HttpContext _context;
+    TransformServiceAsyncResult _transformAsyncResult;
     String _httpMethod;
     Exception _exception;
     Transform.Context _transformContext;
-    Hashtable _objectParams;
+    Hashtable _objectParams = new Hashtable();
 
 
     public void ProcessRequest(HttpContext context) {
@@ -35,11 +35,9 @@ namespace Xameleon {
     public IAsyncResult BeginProcessRequest(HttpContext context, AsyncCallback cb, object extraData) {
       _context = context;
       _writer = context.Response.Output;
-      _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
-      _transform = new Transform();
       _httpMethod = context.Request.HttpMethod;
-      _objectParams = new Hashtable();
-      _transformContext = new Transform.Context(_context, _writer, true);
+      _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
+      _transformContext = new Transform.Context(context, _writer, true);
 
       try {
         DoTransform(cb);
