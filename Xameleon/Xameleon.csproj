@@ -192,11 +192,10 @@
     <Compile Include="Service\Authentication.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Transform\Transform.AsyncResult.cs" />
-    <Compile Include="Transform\Transform.Context.cs" />
+    <Compile Include="Transform\AsyncProcess.cs" />
+    <Compile Include="Transform\Context.cs" />
     <Compile Include="Transform\Transform.cs" />
-    <Compile Include="Transform\Transform.Init.cs" />
-    <Compile Include="Transform\Transform.Process.cs" />
+    <Compile Include="Transform\Process.cs" />
     <Compile Include="Utility\S3\AWSAuthConnection.cs" />
     <Compile Include="Utility\S3\Bucket.cs" />
     <Compile Include="Utility\S3\CommonPrefixEntry.cs" />

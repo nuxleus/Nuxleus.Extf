@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extf.Net.SilverlitEXSLT", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SgmlReaderDll8", "VendorExtensions\GotDotNet\SgmlReader\sgmlreaderdll\SgmlReaderDll8.csproj", "{499527FF-AE52-450F-B3E3-4AD53E1712AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clientlib_2.0", "VendorExtensions\memcached\memecacheddotnet\clientlib\clientlib_2.0.csproj", "{4770D032-9B06-450D-8B00-7200D8330397}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -153,6 +155,16 @@ Global
 		{499527FF-AE52-450F-B3E3-4AD53E1712AD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{499527FF-AE52-450F-B3E3-4AD53E1712AD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{499527FF-AE52-450F-B3E3-4AD53E1712AD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4770D032-9B06-450D-8B00-7200D8330397}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{4770D032-9B06-450D-8B00-7200D8330397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4770D032-9B06-450D-8B00-7200D8330397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4770D032-9B06-450D-8B00-7200D8330397}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4770D032-9B06-450D-8B00-7200D8330397}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4770D032-9B06-450D-8B00-7200D8330397}.Release|.NET.ActiveCfg = Release|Any CPU
+		{4770D032-9B06-450D-8B00-7200D8330397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4770D032-9B06-450D-8B00-7200D8330397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4770D032-9B06-450D-8B00-7200D8330397}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4770D032-9B06-450D-8B00-7200D8330397}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

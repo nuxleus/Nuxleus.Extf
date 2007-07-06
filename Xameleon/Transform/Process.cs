@@ -12,7 +12,7 @@ namespace Xameleon {
   ///</summary>
   public partial class Transform {
 
-    internal void Process(Context context) {
+    public void Process(Context context) {
 
       using (context.Writer) {
 
@@ -43,13 +43,6 @@ namespace Xameleon {
             lock (transformer) {
               transformer.Run(context.Destination);
             }
-
-            //transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.HttpContext.Response)));
-            //transformer.SetParameter(new QName("", "", "request"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.HttpContext.Request)));
-            //transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.HttpContext.Server)));
-            //transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.HttpContext.Session)));
-            //transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.HttpContext.Timestamp)));
-            
           }
         }
       }
