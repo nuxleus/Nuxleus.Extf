@@ -8,45 +8,47 @@ using System.Web;
 
 namespace Xameleon {
 
-    class HttpHandler : IHttpHandler {
+  class HttpHandler : IHttpHandler {
 
-        private TextWriter _writer;
-        private HttpContext _context;
-        private String _requestMethod;
+    private TextWriter _writer;
+    private HttpContext _context;
+    private String _requestMethod;
+    Transform.Context _transformContext;
 
-        public void ProcessRequest(HttpContext context) {
+    public void ProcessRequest(HttpContext context) {
 
-            _requestMethod = context.Request.HttpMethod;
-            _writer = context.Response.Output;
-            _context = context;
+      _requestMethod = context.Request.HttpMethod;
+      _writer = context.Response.Output;
+      _context = context;
+      _transformContext = new Transform.Context(_context, _writer, true);
 
-            switch (_requestMethod) {
+      switch (_requestMethod) {
 
-                case "GET": {
-                        new Transform().Process(_context, _writer, false);
-                        break;
-                    }
-                case "PUT": {
-                        new Transform().Process(_context, _writer, false);
-                        break;
-                    }
-                case "POST": {
-                        new Transform().Process(_context, _writer, false);
-                        break;
-                    }
-                case "DELETE": {
-                        new Transform().Process(_context, _writer, false);
-                        break;
-                    }
-                default: {
-                        new Transform().Process(_context, _writer, false);
-                        break;
-                    }
-            }
-        }
-
-        public bool IsReusable {
-            get { return true; }
-        }
+        case "GET": {
+            new Transform().Process(_transformContext);
+            break;
+          }
+        case "PUT": {
+            new Transform().Process(_transformContext);
+            break;
+          }
+        case "POST": {
+            new Transform().Process(_transformContext);
+            break;
+          }
+        case "DELETE": {
+            new Transform().Process(_transformContext);
+            break;
+          }
+        default: {
+            new Transform().Process(_transformContext);
+            break;
+          }
+      }
     }
+
+    public bool IsReusable {
+      get { return true; }
+    }
+  }
 }

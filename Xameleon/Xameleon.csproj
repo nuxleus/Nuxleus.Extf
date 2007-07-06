@@ -310,6 +310,10 @@
       <Project>{499527FF-AE52-450F-B3E3-4AD53E1712AD}</Project>
       <Name>SgmlReaderDll8</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VendorExtensions\memcached\memecacheddotnet\clientlib\clientlib_2.0.csproj">
+      <Project>{4770D032-9B06-450D-8B00-7200D8330397}</Project>
+      <Name>clientlib_2.0</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
       <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>
       <Name>Saxon.Api</Name>
