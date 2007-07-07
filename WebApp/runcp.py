@@ -23,7 +23,8 @@ def run_application():
     cur_dir = os.path.dirname(os.path.abspath(__file__))
     
     options = parse_commandline()
-    cherrypy.config.update({'server.thread_pool': 15,
+    cherrypy.config.update({'checker.on': False,
+                            'server.thread_pool': 15,
                             'server.socket_port': int(options.port),
                             'engine.autoreload_on': False,
                             'log.screen': options.log_to_screen,
