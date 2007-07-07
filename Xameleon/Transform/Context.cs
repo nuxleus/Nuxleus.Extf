@@ -79,6 +79,9 @@ namespace Xameleon.Transform {
         httpContextHashtable["server"] = context.Server;
         httpContextHashtable["timestamp"] = context.Timestamp;
         httpContextHashtable["session"] = context.Session;
+        httpContextHashtable["errors"] = context.AllErrors;
+        httpContextHashtable["cache"] = context.Cache;
+        httpContextHashtable["user"] = context.User;
       } else
         httpContextHashtable = _HttpContextParams;
 
