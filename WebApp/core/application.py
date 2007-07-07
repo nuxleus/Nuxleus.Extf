@@ -60,9 +60,9 @@ def create_application(options, base_dir):
     cherrypy.log("All good!")
 
     method_dispatcher = cherrypy.dispatch.MethodDispatcher()
-    conf = {'/pub': {'request.dispatch': method_dispatcher,
-                     'tools.etags.on': True,
-                     'tools.etags.autotags': False},
+    conf = {'/service/pub': {'request.dispatch': method_dispatcher,
+                             'tools.etags.on': True,
+                             'tools.etags.autotags': False},
             '/collection': {'request.dispatch': method_dispatcher,
                             'tools.etags.on': True,
                             'tools.etags.autotags': False}}
