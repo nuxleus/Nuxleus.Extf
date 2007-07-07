@@ -40,6 +40,16 @@
             Acquires the metadata.
             </summary>
         </member>
+        <member name="T:Xameleon.Transform.Transform">
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Xameleon.Transform.Transform.#ctor">
+            <summary>
+            </summary>
+        </member>
         <member name="T:Xameleon.Service.Authenticate">
             <summary>
             Summary description for Authenticate service
@@ -189,16 +199,6 @@
         <member name="M:Xameleon.Utility.S3.Utils.buildUrlBase(System.String,System.Int32,System.String,Xameleon.Utility.S3.CallingFormat)">
             <summary>
             Calculates the endpoint based on the calling format.
-            </summary>
-        </member>
-        <member name="T:Xameleon.Transform.Transform">
-            <summary>
-            </summary>
-            <summary>
-            </summary>
-        </member>
-        <member name="M:Xameleon.Transform.Transform.#ctor">
-            <summary>
             </summary>
         </member>
         <member name="T:Xameleon.Utility.S3.QueryStringAuthGenerator">

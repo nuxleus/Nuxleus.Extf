@@ -59,6 +59,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\LibCurlNet.dll</HintPath>
     </Reference>
+    <Reference Include="Lucene.Net, Version=2.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Lucene.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\Mono.Posix.dll</HintPath>
@@ -66,6 +70,10 @@
     <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\trunk\Dependencies\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Mvp.Xml, Version=2.3.0.0, Culture=neutral, PublicKeyToken=6ead800d778c9b9f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Mvp.Xml.dll</HintPath>
     </Reference>
     <Reference Include="saxon8, Version=8.9.0.3, Culture=neutral, PublicKeyToken=8974f7aaf62d3d0f">
       <SpecificVersion>False</SpecificVersion>
@@ -172,6 +180,7 @@
     <Compile Include="Function\FileStream.cs" />
     <Compile Include="Function\HttpWebResponseStream.cs" />
     <Compile Include="Function\XsltCompiledHashtable.cs" />
+    <Compile Include="HttpApplication\Global.cs" />
     <Compile Include="HttpHandler\AtomPublishingProtocolHttpHandler.cs" />
     <Compile Include="HttpHandler\AsyncSaxonHttpHandler.cs" />
     <Compile Include="HttpHandler\S3HttpHandler.cs" />
@@ -228,7 +237,8 @@
     </None>
     <None Include="Utility\S3\README" />
     <None Include="Web References\AmazonAWS.SQS\AccessControl.xsd">
-      <SubType>Designer</SubType>
+      <SubType>
+      </SubType>
     </None>
     <None Include="Web References\AmazonAWS.SQS\AddGrantResponse.datasource">
     </None>
@@ -272,7 +282,8 @@
     </None>
     <None Include="Web References\AmazonAWS.SQS\QueueService.wsdl" />
     <None Include="Web References\AmazonAWS.SQS\QueueService.xsd">
-      <SubType>Designer</SubType>
+      <SubType>
+      </SubType>
     </None>
     <None Include="Web References\AmazonAWS.SQS\ReceiveMessageResponse.datasource">
     </None>
@@ -310,9 +321,9 @@
       <Project>{499527FF-AE52-450F-B3E3-4AD53E1712AD}</Project>
       <Name>SgmlReaderDll8</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VendorExtensions\memcached\memecacheddotnet\clientlib\clientlib_2.0.csproj">
+    <ProjectReference Include="..\VendorExtensions\memcached\memecacheddotnet\clientlib\Memcached.ClientLibrary.csproj">
       <Project>{4770D032-9B06-450D-8B00-7200D8330397}</Project>
-      <Name>clientlib_2.0</Name>
+      <Name>Memcached.ClientLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
       <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>

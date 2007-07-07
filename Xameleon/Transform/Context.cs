@@ -25,13 +25,14 @@ namespace Xameleon.Transform {
     XsltExecutable _TransformExecutable;
     String _xsltParamKey;
     Hashtable _XsltParams;
+    Hashtable _HttpContextParams;
     String _Backup;
     TextWriter _TextWriter;
     DocumentBuilder _Builder;
     XdmNode _Node;
     Serializer _Destination;
 
-    public Context(HttpContext context, TextWriter writer, bool addHttpContextParams) {
+    public Context(HttpContext context, TextWriter writer, bool addHttpContextParams, params string[] httpContextParamList) {
       _AppSettings = new AppSettings();
       _TextWriter = writer;
 
@@ -60,21 +61,37 @@ namespace Xameleon.Transform {
       _SourceXml = (Stream)_Resolver.GetEntity(_XmlSource, null, typeof(Stream));
       _TemplateStream = (Stream)_Resolver.GetEntity(_BaseTemplateUri, null, typeof(Stream));
       _TransformExecutable = _Compiler.Compile(_TemplateStream);
+      _HttpContextParams = new Hashtable();
 
       _Builder = _Processor.NewDocumentBuilder();
       _Builder.BaseUri = _BaseTemplateUri;
       _Node = _Builder.Build(_SourceXml);
       _Destination = new Serializer();
       _Destination.SetOutputWriter(_TextWriter);
-      Hashtable xsltParamsHashTable = new Hashtable();
+
+      Hashtable xsltParamsHashtable = new Hashtable();
+
+      Hashtable httpContextHashtable = null;
+      if (_HttpContextParams.Count == 0) {
+        httpContextHashtable = new Hashtable();
+        httpContextHashtable["request"] = context.Request;
+        httpContextHashtable["response"] = context.Response;
+        httpContextHashtable["server"] = context.Server;
+        httpContextHashtable["timestamp"] = context.Timestamp;
+        httpContextHashtable["session"] = context.Session;
+      } else
+        httpContextHashtable = _HttpContextParams;
+
       if (addHttpContextParams) {
-        xsltParamsHashTable["response"] = context.Response;
-        xsltParamsHashTable["request"] = context.Request;
-        xsltParamsHashTable["server"] = context.Server;
-        xsltParamsHashTable["session"] = context.Session;
-        xsltParamsHashTable["timestamp"] = context.Timestamp;
-      }
-      _XsltParams = _AppSettings.GetSettingArray(xsltParamsHashTable, _xsltParamKey);
+        //default set of HttpContext object params
+        string[] paramList = { "response", "request", "server", "session", "timestamp" };
+        if (httpContextParamList.Length > 0) paramList = httpContextParamList;
+        foreach (string name in paramList) {
+          xsltParamsHashtable[name] = httpContextHashtable[name];
+        }
+      };
+
+      _XsltParams = _AppSettings.GetSettingArray(xsltParamsHashtable, _xsltParamKey);
       _Backup = @"<system>
                       <message>
                         Something very very bad has happened. Run while you still can!
@@ -153,6 +170,10 @@ namespace Xameleon.Transform {
     public Hashtable XsltParams {
       get { return _XsltParams; }
       set { _XsltParams = value; }
+    }
+    public Hashtable HttpContextParams {
+      get { return _HttpContextParams; }
+      set { _HttpContextParams = value; }
     }
   }
 }

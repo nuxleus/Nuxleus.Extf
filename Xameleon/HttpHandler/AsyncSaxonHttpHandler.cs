@@ -7,11 +7,13 @@ using System.IO;
 using System.Threading;
 using System.Web;
 using System.Collections;
+using Memcached.ClientLibrary;
 
 namespace Xameleon.Transform {
 
   class AsyncSaxonHttpHandler : IHttpAsyncHandler {
 
+    MemcachedClient _memcachedClient;
     Transform _transform = new Transform();
     TextWriter _writer;
     HttpContext _context;
@@ -19,7 +21,6 @@ namespace Xameleon.Transform {
     String _httpMethod;
     Exception _exception;
     Context _transformContext;
-
 
     public void ProcessRequest(HttpContext context) {
       //not called
@@ -49,12 +50,19 @@ namespace Xameleon.Transform {
 
     private void BeginTransform(AsyncCallback cb) {
 
+      //TODO: Temp hack
+      bool useMemcached = false;
       try {
 
         switch (_httpMethod) {
 
           case "GET": {
-              _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
+              if (useMemcached) {
+                _memcachedClient = new MemcachedClient();
+                //TODO: Finish this out
+              } else {
+                _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
+              }
               break;
             }
           case "PUT": {
