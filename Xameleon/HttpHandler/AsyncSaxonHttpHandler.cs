@@ -95,9 +95,19 @@ namespace Xameleon.Transform {
     }
 
     private void WriteError() {
-      _context.Response.Write(_exception.Message);
-      _context.Response.Write(_exception.Source);
-      _context.Response.Write(_exception.StackTrace);
+      _context.Response.Output.WriteLine("<html>");
+      _context.Response.Output.WriteLine("<head>");
+      _context.Response.Output.WriteLine("<title>Xameleon Transformation Error</title>");
+      _context.Response.Output.WriteLine("</head>");
+      _context.Response.Output.WriteLine("<body>");
+      _context.Response.Output.WriteLine("<h3>Error Message</h3>");
+      _context.Response.Output.WriteLine("<p>" + _exception.Message + "</p>");
+      _context.Response.Output.WriteLine("<h3>Error Source</h3>");
+      _context.Response.Output.WriteLine("<p>" + _exception.Source + "</p>");
+      _context.Response.Output.WriteLine("<h3>Error StackTrace</h3>");
+      _context.Response.Output.WriteLine("<p>" + _exception.StackTrace + "</p>");
+      _context.Response.Output.WriteLine("</body>");
+      _context.Response.Output.WriteLine("</html>");
     }
 
     #endregion
