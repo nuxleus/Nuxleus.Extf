@@ -33,7 +33,7 @@ namespace Xameleon.Transform {
     Serializer _Destination;
 
     public Context(HttpContext context, TextWriter writer, bool addHttpContextParams, params string[] httpContextParamList) {
-      _AppSettings = new AppSettings();
+      _AppSettings = (AppSettings)context.Application["appSettings"];
       _TextWriter = writer;
 
       string paramPrefix = _AppSettings.GetSetting("xsltParamKeyPrefix");

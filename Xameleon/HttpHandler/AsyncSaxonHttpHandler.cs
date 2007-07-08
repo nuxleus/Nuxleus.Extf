@@ -4,8 +4,12 @@
 
 using System;
 using System.IO;
+using System.Data;
+using System.Configuration;
 using System.Threading;
 using System.Web;
+using System.Web.Security;
+using System.Web.SessionState;
 using System.Collections;
 using Memcached.ClientLibrary;
 
@@ -14,6 +18,7 @@ namespace Xameleon.Transform {
   class AsyncSaxonHttpHandler : IHttpAsyncHandler {
 
     MemcachedClient _memcachedClient;
+    XsltCompiledHashtable _xsltCompiledHashtable;
     Transform _transform = new Transform();
     TextWriter _writer;
     HttpContext _context;
@@ -38,6 +43,11 @@ namespace Xameleon.Transform {
       _httpMethod = context.Request.HttpMethod;
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
       _transformContext = new Context(context, _writer, true);
+      context.Response.Output.WriteLine((bool)context.Application["useMemcached"]);
+      if((bool)context.Application["useMemcached"] == true)
+        _memcachedClient = (MemcachedClient)context.Application["memcached"];
+
+      _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
 
       try {
         BeginTransform(cb);
@@ -58,8 +68,8 @@ namespace Xameleon.Transform {
 
           case "GET": {
               if (useMemcached) {
-                _memcachedClient = new MemcachedClient();
-                //TODO: Finish this out
+                
+                
               } else {
                 _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
               }

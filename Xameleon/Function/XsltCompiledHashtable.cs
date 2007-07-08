@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Saxon.Api;
 
-namespace Xameleon {
+namespace Xameleon.Transform {
 
     public class XsltCompiledHashtable {
 
