@@ -10,14 +10,14 @@ namespace Xameleon.Configuration {
     [ConfigurationProperty("property", IsRequired = true)]
     public string Property {
       get {
-        return this["key"] as string;
+        return this["property"] as string;
       }
     }
 
     [ConfigurationProperty("value", IsRequired = true)]
-    public string Value {
+    public int Value {
       get {
-        return this["value"] as string;
+        return (int)this["value"];
       }
     }
   }

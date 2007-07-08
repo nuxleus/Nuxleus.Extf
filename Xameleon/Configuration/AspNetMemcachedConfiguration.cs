@@ -5,13 +5,21 @@ namespace Xameleon.Configuration {
 
   public class AspNetMemcachedConfiguration : ConfigurationSection {
 
+    public AspNetMemcachedConfiguration() { }
 
     public static AspNetMemcachedConfiguration GetConfig() {
-      return ConfigurationManager.GetSection("aws") as AspNetMemcachedConfiguration;
+      return (AspNetMemcachedConfiguration)ConfigurationManager.GetSection("Xameleon.WebApp/memcached");
+    }
+
+    [ConfigurationProperty("useCompression", DefaultValue = "no", IsRequired = false)]
+    public string UseCompression {
+      get {
+        return this["useCompression"] as string;
+      }
     }
 
     [ConfigurationProperty("server", IsRequired = true)]
-    public MemcachedServerCollection AwsKeyCollection {
+    public MemcachedServerCollection MemcachedServerCollection {
       get {
         return this["server"] as MemcachedServerCollection;
       }

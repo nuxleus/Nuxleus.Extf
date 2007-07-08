@@ -7,7 +7,7 @@ namespace Xameleon.Configuration {
 
 
     public static AspNetXameleonConfiguration GetConfig() {
-      return ConfigurationManager.GetSection("xameleon") as AspNetXameleonConfiguration;
+      return ConfigurationManager.GetSection("Xameleon.WebApp/xameleon") as AspNetXameleonConfiguration;
     }
 
     [ConfigurationProperty("useMemcached", DefaultValue = "no", IsRequired = false)]
@@ -23,6 +23,13 @@ namespace Xameleon.Configuration {
         return this["defaultEngine"] as string;
       }
     }
+
+    [ConfigurationProperty("add")]
+    public Add Add {
+      get {
+        return this["add"] as Add;
+      }
+    } 
 
     [ConfigurationProperty("xsltParams")]
     public XsltParamCollection XsltParams {

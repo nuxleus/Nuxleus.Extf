@@ -7,9 +7,9 @@ namespace Xameleon.Configuration {
 
   public class MemcachedPoolConfigCollection : ConfigurationElementCollection {
 
-    public MemcachedServer this[int index] {
+    public MemcachedPoolConfig this[int index] {
       get {
-        return base.BaseGet(index) as MemcachedServer;
+        return base.BaseGet(index) as MemcachedPoolConfig;
       }
       set {
         if (base.BaseGet(index) != null) {
@@ -24,7 +24,7 @@ namespace Xameleon.Configuration {
     }
 
     protected override object GetElementKey(ConfigurationElement element) {
-      return ((MemcachedPoolConfig)element).Key;
+      return ((MemcachedPoolConfig)element).Property;
     }
   }
 }

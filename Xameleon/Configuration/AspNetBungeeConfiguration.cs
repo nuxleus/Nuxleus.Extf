@@ -7,7 +7,7 @@ namespace Xameleon.Configuration {
 
 
     public static AspNetBungeeAppConfiguration GetConfig() {
-      return ConfigurationManager.GetSection("bungee") as AspNetBungeeAppConfiguration;
+      return ConfigurationManager.GetSection("Xameleon.WebApp/bungee") as AspNetBungeeAppConfiguration;
     }
 
     [ConfigurationProperty("application", IsRequired = true)]
