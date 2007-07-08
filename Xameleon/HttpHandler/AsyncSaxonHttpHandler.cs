@@ -43,7 +43,7 @@ namespace Xameleon.Transform {
       _httpMethod = context.Request.HttpMethod;
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
       _transformContext = new Context(context, _writer, true);
-      context.Response.Output.WriteLine((bool)context.Application["useMemcached"]);
+
       if((bool)context.Application["useMemcached"] == true)
         _memcachedClient = (MemcachedClient)context.Application["memcached"];
 
