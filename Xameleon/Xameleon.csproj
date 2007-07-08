@@ -169,7 +169,18 @@
     </Compile> -->
     <Compile Include="Asp.Net\Server.cs" />
     <Compile Include="Atom\AtomEntry.cs" />
+    <Compile Include="Configuration\AspNetAwsConfiguration.cs" />
     <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Configuration\AspNetXameleonTransform.cs" />
+    <Compile Include="Configuration\AwsS3.cs" />
+    <Compile Include="Configuration\AwsS3Collection.cs" />
+    <Compile Include="Configuration\AspNetBungeeConfiguration.cs" />
+    <Compile Include="Configuration\BungeeApp.cs" />
+    <Compile Include="Configuration\BungeeAppCollection.cs" />
+    <Compile Include="Configuration\XsltParams.cs" />
+    <Compile Include="Configuration\XsltParamCollection.cs" />
+    <Compile Include="Configuration\AwsKeyCollection.cs" />
+    <Compile Include="Configuration\AwsKey.cs" />
     <Compile Include="Document\DocumentResult.cs" />
     <Compile Include="Document\S3Document.cs" />
     <Compile Include="Function\HttpSgmlToXml.cs" />
