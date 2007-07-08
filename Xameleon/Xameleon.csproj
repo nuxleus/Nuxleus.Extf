@@ -177,6 +177,11 @@
     <Compile Include="Configuration\AspNetBungeeConfiguration.cs" />
     <Compile Include="Configuration\BungeeApp.cs" />
     <Compile Include="Configuration\BungeeAppCollection.cs" />
+    <Compile Include="Configuration\AspNetMemcachedConfiguration.cs" />
+    <Compile Include="Configuration\MemcachedPoolConfigCollection.cs" />
+    <Compile Include="Configuration\MemcachedPoolConfig.cs" />
+    <Compile Include="Configuration\MemcachedServer.cs" />
+    <Compile Include="Configuration\MemcachedServerCollection.cs" />
     <Compile Include="Configuration\XsltParams.cs" />
     <Compile Include="Configuration\XsltParamCollection.cs" />
     <Compile Include="Configuration\AwsKeyCollection.cs" />
