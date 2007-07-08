@@ -12,15 +12,18 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Collections;
 using Memcached.ClientLibrary;
+using System.Text;
 
 namespace Xameleon.Transform {
 
   class AsyncSaxonHttpHandler : IHttpAsyncHandler {
 
     MemcachedClient _memcachedClient;
+    bool _useMemcachedClient = false;
     XsltCompiledHashtable _xsltCompiledHashtable;
     Transform _transform = new Transform();
     TextWriter _writer;
+    StringBuilder _builder;
     HttpContext _context;
     TransformServiceAsyncResult _transformAsyncResult;
     String _httpMethod;
@@ -39,13 +42,17 @@ namespace Xameleon.Transform {
 
     public IAsyncResult BeginProcessRequest(HttpContext context, AsyncCallback cb, object extraData) {
       _context = context;
-      _writer = context.Response.Output;
+      _builder = new StringBuilder();
+      _writer = new StringWriter(_builder);
       _httpMethod = context.Request.HttpMethod;
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
       _transformContext = new Context(context, _writer, true);
-
-      if((bool)context.Application["useMemcached"] == true)
+      _transformContext.StringBuilder = _builder;
+      _useMemcachedClient = (bool)context.Application["useMemcached"];
+      if (_useMemcachedClient) {
         _memcachedClient = (MemcachedClient)context.Application["memcached"];
+        _transformContext.MemcachedClient = _memcachedClient;
+      }
 
       _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
 
@@ -59,19 +66,24 @@ namespace Xameleon.Transform {
     }
 
     private void BeginTransform(AsyncCallback cb) {
-
-      //TODO: Temp hack
-      bool useMemcached = false;
       try {
 
         switch (_httpMethod) {
 
           case "GET": {
-              if (useMemcached) {
-                
-                
-              } else {
-                _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
+              using (TextWriter writer = _context.Response.Output) {
+                if (_useMemcachedClient) {
+                  string key = _transformContext.XmlSource.GetHashCode().ToString();
+                  string obj = (string)_memcachedClient.Get(key);
+                  if (obj != null) {
+                    writer.Write(obj);
+                    _transformAsyncResult.CompleteCall();
+                  } else {
+                    _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
+                  }
+                } else {
+                  _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
+                }
               }
               break;
             }
@@ -100,6 +112,10 @@ namespace Xameleon.Transform {
       }
     }
 
+    private void EndTransform(AsyncCallback cb) {
+
+    }
+
     public void EndProcessRequest(IAsyncResult result) {
       _writer.Dispose();
     }
@@ -122,7 +138,7 @@ namespace Xameleon.Transform {
 
     #endregion
 
-    
+
 
 
   }

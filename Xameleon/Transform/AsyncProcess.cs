@@ -38,6 +38,9 @@ namespace Xameleon.Transform {
           }
         }
       }
+      string output = context.StringBuilder.ToString();
+      context.MemcachedClient.Set(context.XmlSource.GetHashCode().ToString(), output);
+      context.ResponseOutput.Write(output);
       result.CompleteCall();
     }
 

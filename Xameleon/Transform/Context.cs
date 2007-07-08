@@ -8,6 +8,8 @@ using Xameleon.Configuration;
 using System.Net;
 using Xameleon.Properties;
 using System.Collections;
+using Memcached.ClientLibrary;
+using System.Text;
 
 namespace Xameleon.Transform {
 
@@ -28,13 +30,17 @@ namespace Xameleon.Transform {
     Hashtable _HttpContextParams;
     String _Backup;
     TextWriter _TextWriter;
+    TextWriter _ResponseOutput;
     DocumentBuilder _Builder;
     XdmNode _Node;
     Serializer _Destination;
+    MemcachedClient _MemcachedClient;
+    StringBuilder _StringBuilder;
 
     public Context(HttpContext context, TextWriter writer, bool addHttpContextParams, params string[] httpContextParamList) {
       _AppSettings = (AppSettings)context.Application["appSettings"];
       _TextWriter = writer;
+      _ResponseOutput = context.Response.Output;
 
       string paramPrefix = _AppSettings.GetSetting("xsltParamKeyPrefix");
       string baseTemplate = _AppSettings.GetSetting("baseTemplate");
@@ -62,6 +68,9 @@ namespace Xameleon.Transform {
       _TemplateStream = (Stream)_Resolver.GetEntity(_BaseTemplateUri, null, typeof(Stream));
       _TransformExecutable = _Compiler.Compile(_TemplateStream);
       _HttpContextParams = new Hashtable();
+      _MemcachedClient = null;
+      _StringBuilder = null;
+      
 
       _Builder = _Processor.NewDocumentBuilder();
       _Builder.BaseUri = _BaseTemplateUri;
@@ -177,6 +186,18 @@ namespace Xameleon.Transform {
     public Hashtable HttpContextParams {
       get { return _HttpContextParams; }
       set { _HttpContextParams = value; }
+    }
+    public MemcachedClient MemcachedClient {
+      get { return _MemcachedClient; }
+      set { _MemcachedClient = value; }
+    }
+    public StringBuilder StringBuilder {
+      get { return _StringBuilder; }
+      set { _StringBuilder = value; }
+    }
+    public TextWriter ResponseOutput {
+      get { return _ResponseOutput; }
+      set { _ResponseOutput = value; }
     }
   }
 }
