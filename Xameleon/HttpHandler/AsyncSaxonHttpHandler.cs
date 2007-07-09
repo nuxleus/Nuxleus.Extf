@@ -13,6 +13,7 @@ using System.Web.SessionState;
 using System.Collections;
 using Memcached.ClientLibrary;
 using System.Text;
+using Saxon.Api;
 
 namespace Xameleon.Transform {
 
@@ -29,6 +30,8 @@ namespace Xameleon.Transform {
     String _httpMethod;
     Exception _exception;
     Context _transformContext;
+    Processor _processor;
+    XsltCompiler _compiler;
 
     public void ProcessRequest(HttpContext context) {
       //not called
@@ -46,15 +49,17 @@ namespace Xameleon.Transform {
       _writer = new StringWriter(_builder);
       _httpMethod = context.Request.HttpMethod;
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
-      _transformContext = new Context(context, _writer, true);
+      _processor = (Processor)context.Application["processor"];
+      _compiler = (XsltCompiler)context.Application["compiler"];
+      _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
+      _transformContext = new Context(context, _writer, _processor, _compiler, true);
       _transformContext.StringBuilder = _builder;
       _useMemcachedClient = (bool)context.Application["useMemcached"];
+
       if (_useMemcachedClient) {
         _memcachedClient = (MemcachedClient)context.Application["memcached"];
         _transformContext.MemcachedClient = _memcachedClient;
       }
-
-      _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
 
       try {
         BeginTransform(cb);
@@ -71,6 +76,15 @@ namespace Xameleon.Transform {
         switch (_httpMethod) {
 
           case "GET": {
+              XsltTransformer transform = _xsltCompiledHashtable.GetTransformer("baseTemplate", "/transform/base.xslt", new Uri("http://localhost/", UriKind.Absolute), _processor);
+
+              foreach (DictionaryEntry entry in (Hashtable)_xsltCompiledHashtable.GetHashtable()) {
+                XsltTransformer transformer = (XsltTransformer)entry.Value;
+                _context.Response.Output.WriteLine("Key: " + entry.Key);
+                _context.Response.Output.WriteLine("Value: " + transformer.GetHashCode().ToString());
+                _context.Response.Output.WriteLine("Value2: " + transform.GetHashCode().ToString());
+              }
+
               using (TextWriter writer = _context.Response.Output) {
                 if (_useMemcachedClient) {
                   string key = _context.Request.Url.GetHashCode().ToString();

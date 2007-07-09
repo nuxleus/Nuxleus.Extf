@@ -7,7 +7,6 @@ namespace Xameleon.Transform {
 
   public class XsltCompiledHashtable {
 
-    private Processor processor = new Processor();
     private Hashtable results;
 
     public XsltCompiledHashtable() {
@@ -17,7 +16,7 @@ namespace Xameleon.Transform {
       this.results = table;
     }
 
-    public XsltTransformer GetTransformer(string name, string href, Uri baseUri) {
+    public XsltTransformer GetTransformer(string name, string href, Uri baseUri, Processor processor) {
       Uri xsltUri = new Uri(baseUri, new Uri(href, UriKind.Relative));
       string xsltUriHash = xsltUri.GetHashCode().ToString();
       string key = name + ":" + xsltUriHash;
@@ -28,10 +27,14 @@ namespace Xameleon.Transform {
           return (XsltTransformer)results[uri];
         }
       }
-      
+
       XsltTransformer transformer = processor.NewXsltCompiler().Compile(xsltUri).Load();
       results[key] = transformer;
       return transformer;
+    }
+
+    public Hashtable GetHashtable() {
+      return this.results;
     }
   }
 }

@@ -26,6 +26,8 @@ namespace Xameleon.HttpApplication {
     AspNetBungeeAppConfiguration _BungeeAppConfguration = AspNetBungeeAppConfiguration.GetConfig();
     AspNetMemcachedConfiguration _MemcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
     XsltCompiledHashtable _XsltCompiledHashtable = new XsltCompiledHashtable();
+    Processor _Processor = new Processor();
+    XsltCompiler _Compiler = null;
     //PythonEngine _PythonEngine = new PythonEngine();
 
     protected void Application_Start(object sender, EventArgs e) {
@@ -65,21 +67,23 @@ namespace Xameleon.HttpApplication {
       } else
         Application["usememcached"] = false;
 
-      Application["xsltCompiledHashtable"] = _XsltCompiledHashtable;
-      Application["appSettings"] = _AppSettings;
-
       string baseUri = (string)_XameleonConfiguration.PreCompiledXslt.BaseUri;
 
       foreach (PreCompiledXslt xslt in _XameleonConfiguration.PreCompiledXslt) {
         if ((string)xslt.BaseUri != String.Empty) {
-          HttpContext.Current.Response.Output.WriteLine("uri: " + (string)xslt.BaseUri);
+          //HttpContext.Current.Response.Output.WriteLine("uri: " + (string)xslt.BaseUri);
           baseUri = (string)xslt.BaseUri;
         }
         Uri uri = new Uri(baseUri, UriKind.Absolute);
-        _XsltCompiledHashtable.GetTransformer(xslt.Name, (string)xslt.Uri, uri);
+        _XsltCompiledHashtable.GetTransformer(xslt.Name, (string)xslt.Uri, uri, _Processor);
       }
       //_PythonEngine.AddToPath(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
       //Application["ironPythonEngine"] = _PythonEngine;
+      _Compiler = _Processor.NewXsltCompiler();
+      Application["processor"] = _Processor;
+      Application["compiler"] = _Compiler;
+      Application["xsltCompiledHashtable"] = _XsltCompiledHashtable;
+      Application["appSettings"] = _AppSettings;
     }
 
     protected void Session_Start(object sender, EventArgs e) {

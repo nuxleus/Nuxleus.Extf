@@ -38,7 +38,7 @@ namespace Xameleon.Transform {
     MemcachedClient _MemcachedClient;
     StringBuilder _StringBuilder;
 
-    public Context(HttpContext context, TextWriter writer, bool addHttpContextParams, params string[] httpContextParamList) {
+    public Context(HttpContext context, TextWriter writer, Processor processor, XsltCompiler compiler, bool addHttpContextParams, params string[] httpContextParamList) {
       _AppSettings = (AppSettings)context.Application["appSettings"];
       _TextWriter = writer;
       _ResponseOutput = context.Response.Output;
@@ -63,8 +63,8 @@ namespace Xameleon.Transform {
       _XsltSource = new Uri(Resources.SourceXslt);
       _Resolver = new XmlUrlResolver();
       _Resolver.Credentials = CredentialCache.DefaultCredentials;
-      _Processor = new Processor();
-      _Compiler = _Processor.NewXsltCompiler();
+      _Processor = processor;
+      _Compiler = compiler;
       _Compiler.BaseUri = _BaseTemplateUri;
       _SourceXml = (Stream)_Resolver.GetEntity(_XmlSource, null, typeof(Stream));
       _TemplateStream = (Stream)_Resolver.GetEntity(_BaseTemplateUri, null, typeof(Stream));

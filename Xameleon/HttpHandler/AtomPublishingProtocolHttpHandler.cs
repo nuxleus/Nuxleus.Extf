@@ -5,22 +5,27 @@
 using System;
 using System.IO;
 using System.Web;
+using Saxon.Api;
 
 namespace Xameleon.Transform {
 
   class AtomPublishingProtocolHttpHandler : IHttpHandler {
 
-    private TextWriter _writer;
-    private HttpContext _context;
-    private String _requestMethod;
+    TextWriter _writer;
+    HttpContext _context;
+    String _requestMethod;
     Context _transformContext;
+    Processor _processor;
+    XsltCompiler _compiler;
 
     public void ProcessRequest(HttpContext context) {
 
       _requestMethod = context.Request.HttpMethod;
       _writer = context.Response.Output;
       _context = context;
-      _transformContext = new Context(_context, _writer, true);
+      _processor = (Processor)context.Application["processor"];
+      _compiler = (XsltCompiler)context.Application["compiler"];
+      _transformContext = new Context(context, _writer, _processor, _compiler, true);
 
       switch (_requestMethod) {
 
