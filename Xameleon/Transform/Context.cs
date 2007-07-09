@@ -65,7 +65,6 @@ namespace Xameleon.Transform {
       _Resolver.Credentials = CredentialCache.DefaultCredentials;
       _Processor = processor;
       _Compiler = compiler;
-      _Compiler.BaseUri = _BaseTemplateUri;
       _SourceXml = (Stream)_Resolver.GetEntity(_XmlSource, null, typeof(Stream));
       _TemplateStream = (Stream)_Resolver.GetEntity(_BaseTemplateUri, null, typeof(Stream));
       _TransformExecutable = _Compiler.Compile(_TemplateStream);

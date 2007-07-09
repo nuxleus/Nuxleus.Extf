@@ -28,6 +28,8 @@ namespace Xameleon.HttpApplication {
     XsltCompiledHashtable _XsltCompiledHashtable = new XsltCompiledHashtable();
     Processor _Processor = new Processor();
     XsltCompiler _Compiler = null;
+    String _BaseUri = null;
+    Uri _BaseTemplateUri = null;
     //PythonEngine _PythonEngine = new PythonEngine();
 
     protected void Application_Start(object sender, EventArgs e) {
@@ -79,7 +81,17 @@ namespace Xameleon.HttpApplication {
       }
       //_PythonEngine.AddToPath(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
       //Application["ironPythonEngine"] = _PythonEngine;
+      string baseTemplate = _AppSettings.GetSetting("baseTemplate");
+
+      if (baseTemplate != null) {
+        _BaseUri = baseTemplate;
+      } else {
+        _BaseUri = "http://localhost/";
+      }
+
       _Compiler = _Processor.NewXsltCompiler();
+      _Compiler.BaseUri = new Uri(HttpContext.Current.Server.MapPath(_BaseUri));
+
       Application["processor"] = _Processor;
       Application["compiler"] = _Compiler;
       Application["xsltCompiledHashtable"] = _XsltCompiledHashtable;
