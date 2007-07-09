@@ -15,6 +15,7 @@ namespace Xameleon.Transform {
 
   public struct Context {
     AppSettings _AppSettings;
+    String _RequestUriHash;
     String _BaseUri;
     Uri _BaseTemplateUri;
     Uri _XmlSource;
@@ -41,6 +42,7 @@ namespace Xameleon.Transform {
       _AppSettings = (AppSettings)context.Application["appSettings"];
       _TextWriter = writer;
       _ResponseOutput = context.Response.Output;
+      _RequestUriHash = context.Request.Url.GetHashCode().ToString();
 
       string paramPrefix = _AppSettings.GetSetting("xsltParamKeyPrefix");
       string baseTemplate = _AppSettings.GetSetting("baseTemplate");
@@ -111,6 +113,10 @@ namespace Xameleon.Transform {
                     </system>";
     }
 
+    public String RequestUriHash {
+      get { return _RequestUriHash; }
+      set { _RequestUriHash = value; }
+    }
     public DocumentBuilder Builder {
       get { return _Builder; }
       set { _Builder = value; }

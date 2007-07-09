@@ -73,7 +73,7 @@ namespace Xameleon.Transform {
           case "GET": {
               using (TextWriter writer = _context.Response.Output) {
                 if (_useMemcachedClient) {
-                  string key = _transformContext.XmlSource.GetHashCode().ToString();
+                  string key = _context.Request.Url.GetHashCode().ToString();
                   string obj = (string)_memcachedClient.Get(key);
                   if (obj != null) {
                     writer.Write(obj);

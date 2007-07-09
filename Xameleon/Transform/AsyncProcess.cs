@@ -40,7 +40,7 @@ namespace Xameleon.Transform {
       }
       string output = context.StringBuilder.ToString();
       if(context.MemcachedClient != null)
-        context.MemcachedClient.Set(context.XmlSource.GetHashCode().ToString(), output);
+        context.MemcachedClient.Set(context.RequestUriHash, output);
       context.ResponseOutput.Write(output);
       result.CompleteCall();
     }
