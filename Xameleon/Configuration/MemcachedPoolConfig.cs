@@ -59,7 +59,7 @@ namespace Xameleon.Configuration {
     [ConfigurationProperty("failover", DefaultValue = (bool)false, IsRequired = false)]
     public bool Failover {
       get {
-        return (bool)this["initConnections"];
+        return (bool)this["failover"];
       }
     }
 
