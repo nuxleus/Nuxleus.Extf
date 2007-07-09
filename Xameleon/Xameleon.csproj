@@ -180,6 +180,8 @@
     <Compile Include="Configuration\AspNetMemcachedConfiguration.cs" />
     <Compile Include="Configuration\BaseSetting.cs" />
     <Compile Include="Configuration\BaseSettingCollection.cs" />
+    <Compile Include="Configuration\PreCompiledXsltCollection.cs" />
+    <Compile Include="Configuration\PreCompiledXslt.cs" />
     <Compile Include="Configuration\MemcachedPoolConfigCollection.cs" />
     <Compile Include="Configuration\MemcachedPoolConfig.cs" />
     <Compile Include="Configuration\MemcachedServer.cs" />

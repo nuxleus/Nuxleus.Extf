@@ -31,6 +31,13 @@ namespace Xameleon.Configuration {
       }
     }
 
+    [ConfigurationProperty("preCompiledXslt", IsRequired = false)]
+    public PreCompiledXsltCollection PreCompiledXslt {
+      get {
+        return this["preCompiledXslt"] as PreCompiledXsltCollection;
+      }
+    }
+
     [ConfigurationProperty("globalXsltParams", IsRequired = false)]
     public XsltParamCollection GlobalXsltParam {
       get {
