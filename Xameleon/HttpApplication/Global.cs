@@ -67,12 +67,23 @@ namespace Xameleon.HttpApplication {
 
       Application["xsltCompiledHashtable"] = _XsltCompiledHashtable;
       Application["appSettings"] = _AppSettings;
+
+      string baseUri = (string)_XameleonConfiguration.PreCompiledXslt.BaseUri;
+
+      foreach (PreCompiledXslt xslt in _XameleonConfiguration.PreCompiledXslt) {
+        if ((string)xslt.BaseUri != String.Empty) {
+          HttpContext.Current.Response.Output.WriteLine("uri: " + (string)xslt.BaseUri);
+          baseUri = (string)xslt.BaseUri;
+        }
+        Uri uri = new Uri(baseUri, UriKind.Absolute);
+        _XsltCompiledHashtable.GetTransformer(xslt.Name, (string)xslt.Uri, uri);
+      }
       //_PythonEngine.AddToPath(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
       //Application["ironPythonEngine"] = _PythonEngine;
     }
 
     protected void Session_Start(object sender, EventArgs e) {
-
+      Application["sessionid"] = HttpContext.Current.Session.SessionID;
     }
 
     protected void Application_BeginRequest(object sender, EventArgs e) {
