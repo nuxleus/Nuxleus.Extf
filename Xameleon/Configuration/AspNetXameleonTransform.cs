@@ -31,13 +31,6 @@ namespace Xameleon.Configuration {
       }
     }
 
-    [ConfigurationProperty("xsltParams", IsRequired = false)]
-    public XsltParamCollection XsltParams {
-      get {
-        return this["xsltParams"] as XsltParamCollection;
-      }
-    }
-
     [ConfigurationProperty("globalXsltParams", IsRequired = false)]
     public XsltParamCollection GlobalXsltParam {
       get {
@@ -56,6 +49,13 @@ namespace Xameleon.Configuration {
     public XsltParamCollection HttpRequestXsltParams {
       get {
         return this["httpContextXsltParams"] as XsltParamCollection;
+      }
+    }
+
+    [ConfigurationProperty("requestXsltParams", IsRequired = false)]
+    public XsltParamCollection RequestXsltParams {
+      get {
+        return this["requestXsltParams"] as XsltParamCollection;
       }
     }
   }
