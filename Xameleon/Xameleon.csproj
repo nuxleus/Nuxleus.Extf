@@ -178,8 +178,8 @@
     <Compile Include="Configuration\BungeeApp.cs" />
     <Compile Include="Configuration\BungeeAppCollection.cs" />
     <Compile Include="Configuration\AspNetMemcachedConfiguration.cs" />
-    <Compile Include="Configuration\Add.cs" />
-    <Compile Include="Configuration\AddCollection.cs" />
+    <Compile Include="Configuration\BaseSetting.cs" />
+    <Compile Include="Configuration\BaseSettingCollection.cs" />
     <Compile Include="Configuration\MemcachedPoolConfigCollection.cs" />
     <Compile Include="Configuration\MemcachedPoolConfig.cs" />
     <Compile Include="Configuration\MemcachedServer.cs" />

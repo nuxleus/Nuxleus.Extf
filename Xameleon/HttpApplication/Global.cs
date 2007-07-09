@@ -46,49 +46,44 @@ namespace Xameleon.HttpApplication {
 
         _pool.SetServers(serverList.ToArray());
 
-        MemcachedPoolConfigCollection tempPoolConfig = _MemcachedConfiguration.PoolConfig;
+        MemcachedPoolConfigCollection poolConfig = _MemcachedConfiguration.PoolConfig;
 
-        Hashtable poolConfig = new Hashtable();
-
-        foreach(MemcachedPoolConfig item in tempPoolConfig)
-          poolConfig[item.Property] = item.Value;
-
-        if (poolConfig["initConnections"] != null)
-          _pool.InitConnections = (int)poolConfig["initConnections"];
+        if (poolConfig.InitConnections.Value != null)
+          _pool.InitConnections = (int)poolConfig.InitConnections.Value;
         else
           _pool.InitConnections = 3;
 
-        if (poolConfig["minConnections"] != null)
-          _pool.MinConnections = (int)poolConfig["minConnections"];
+        if (poolConfig.MinConnections.Value != null)
+          _pool.MinConnections = (int)poolConfig.MinConnections.Value;
         else
           _pool.MinConnections = 3;
 
-        if (poolConfig["maxConnections"] != null)
-          _pool.MaxConnections = (int)poolConfig["maxConnections"];
+        if (poolConfig.MaxConnections.Value != null)
+          _pool.MaxConnections = (int)poolConfig.MaxConnections.Value;
         else
           _pool.MaxConnections = 5;
 
-        if (poolConfig["socketConnectTimeout"] != null)
-          _pool.SocketConnectTimeout = (int)poolConfig["socketConnectTimeout"];
+        if (poolConfig.SocketConnectTimeout.Value != null)
+          _pool.SocketConnectTimeout = (int)poolConfig.SocketConnectTimeout.Value;
         else
           _pool.SocketConnectTimeout = 1000;
 
-        if (poolConfig["socketTimeout"] != null)
-          _pool.SocketTimeout = (int)poolConfig["socketTimeout"];
+        if (poolConfig.SocketConnect.Value != null)
+          _pool.SocketTimeout = (int)poolConfig.SocketConnect.Value;
         else
           _pool.SocketTimeout = 3000;
 
-        if (poolConfig["maintenanceSleep"] != null)
-          _pool.MaintenanceSleep = (int)poolConfig["maintenanceSleep"];
+        if (poolConfig.MaintenanceSleep.Value != null)
+          _pool.MaintenanceSleep = (int)poolConfig.MaintenanceSleep.Value;
         else
           _pool.MaintenanceSleep = 30;
 
-        if (poolConfig["failover"] != null && (int)poolConfig["failover"] == 0)
+        if (poolConfig.Failover.BoolValue != null && (bool)poolConfig.Failover.BoolValue == false)
           _pool.Failover = false;
         else
           _pool.Failover = true;
 
-        if (poolConfig["nagle"] != null && (int)poolConfig["nagle"] == 1)
+        if (poolConfig.Nagle.BoolValue != null && (bool)poolConfig.Nagle.BoolValue == true)
           _pool.Nagle = true;
         else
           _pool.Nagle = false;
