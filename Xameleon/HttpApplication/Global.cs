@@ -11,7 +11,6 @@ using Memcached.ClientLibrary;
 using System.Collections.Generic;
 using Saxon.Api;
 using IronPython.Hosting;
-using IronPython.Runtime;
 using System.IO;
 
 namespace Xameleon.HttpApplication {
