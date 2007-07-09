@@ -17,6 +17,7 @@ using System.IO;
 using System.Threading;
 using System.Web;
 using IronPython.Hosting;
+using Microsoft.Scripting;
 
 public class WSGIHandler : IHttpHandler
 {

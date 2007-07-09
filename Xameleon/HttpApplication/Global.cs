@@ -10,9 +10,11 @@ using Xameleon.Configuration;
 using Memcached.ClientLibrary;
 using System.Collections.Generic;
 using Saxon.Api;
+using IronPython.Hosting;
+using IronPython.Runtime;
+using System.IO;
 
 namespace Xameleon.HttpApplication {
-
 
   public class Global : System.Web.HttpApplication {
 
@@ -24,6 +26,7 @@ namespace Xameleon.HttpApplication {
     AspNetBungeeAppConfiguration _BungeeAppConfguration = AspNetBungeeAppConfiguration.GetConfig();
     AspNetMemcachedConfiguration _MemcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
     XsltCompiledHashtable _XsltCompiledHashtable = new XsltCompiledHashtable();
+    //PythonEngine _PythonEngine = new PythonEngine();
 
     protected void Application_Start(object sender, EventArgs e) {
       string useMemcached = _XameleonConfiguration.UseMemcached;
@@ -64,6 +67,8 @@ namespace Xameleon.HttpApplication {
 
       Application["xsltCompiledHashtable"] = _XsltCompiledHashtable;
       Application["appSettings"] = _AppSettings;
+      //_PythonEngine.AddToPath(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+      //Application["ironPythonEngine"] = _PythonEngine;
     }
 
     protected void Session_Start(object sender, EventArgs e) {
