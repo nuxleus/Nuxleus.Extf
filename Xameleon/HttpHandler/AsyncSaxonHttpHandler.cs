@@ -14,6 +14,7 @@ using System.Collections;
 using Memcached.ClientLibrary;
 using System.Text;
 using Saxon.Api;
+using IronPython.Hosting;
 
 namespace Xameleon.Transform {
 
@@ -32,6 +33,7 @@ namespace Xameleon.Transform {
     Context _transformContext;
     Processor _processor;
     XsltCompiler _compiler;
+    PythonEngine _pythonEngine;
 
     public void ProcessRequest(HttpContext context) {
       //not called
@@ -54,6 +56,7 @@ namespace Xameleon.Transform {
       _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
       _transformContext = new Context(context, _writer, _processor, _compiler, true);
       _transformContext.StringBuilder = _builder;
+      _pythonEngine = (PythonEngine)context.Application["pythonEngine"];
       _useMemcachedClient = (bool)context.Application["useMemcached"];
 
       if (_useMemcachedClient) {

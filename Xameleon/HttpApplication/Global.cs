@@ -30,7 +30,7 @@ namespace Xameleon.HttpApplication {
     XsltCompiler _Compiler = null;
     String _BaseUri = null;
     Uri _BaseTemplateUri = null;
-    //PythonEngine _PythonEngine = new PythonEngine();
+    static PythonEngine _PythonEngine = PythonEngine.CurrentEngine;
 
     protected void Application_Start(object sender, EventArgs e) {
       string useMemcached = _XameleonConfiguration.UseMemcached;
@@ -79,8 +79,8 @@ namespace Xameleon.HttpApplication {
         Uri uri = new Uri(baseUri, UriKind.Absolute);
         _XsltCompiledHashtable.GetTransformer(xslt.Name, (string)xslt.Uri, uri, _Processor);
       }
-      //_PythonEngine.AddToPath(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
-      //Application["ironPythonEngine"] = _PythonEngine;
+      _PythonEngine.AddToPath(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+      Application["pythonEngine"] = _PythonEngine;
       string baseTemplate = _AppSettings.GetSetting("baseTemplate");
 
       if (baseTemplate != null) {
