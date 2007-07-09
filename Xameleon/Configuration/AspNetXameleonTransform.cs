@@ -7,7 +7,7 @@ namespace Xameleon.Configuration {
 
 
     public static AspNetXameleonConfiguration GetConfig() {
-      return ConfigurationManager.GetSection("Xameleon.WebApp/xameleon") as AspNetXameleonConfiguration;
+      return (AspNetXameleonConfiguration)ConfigurationManager.GetSection("Xameleon.WebApp/xameleon");
     }
 
     [ConfigurationProperty("useMemcached", DefaultValue = "no", IsRequired = false)]
@@ -24,18 +24,39 @@ namespace Xameleon.Configuration {
       }
     }
 
-    [ConfigurationProperty("add")]
-    public Add Add {
+    [ConfigurationProperty("baseSettings", IsRequired = false)]
+    public BaseSettingCollection BaseSettings {
       get {
-        return this["add"] as Add;
+        return this["baseSettings"] as BaseSettingCollection;
       }
-    } 
+    }
 
-    [ConfigurationProperty("xsltParams")]
+    [ConfigurationProperty("xsltParams", IsRequired = false)]
     public XsltParamCollection XsltParams {
       get {
         return this["xsltParams"] as XsltParamCollection;
       }
-    } 
+    }
+
+    [ConfigurationProperty("globalXsltParams", IsRequired = false)]
+    public XsltParamCollection GlobalXsltParam {
+      get {
+        return this["globalXsltParams"] as XsltParamCollection;
+      }
+    }
+
+    [ConfigurationProperty("sessionXsltParams", IsRequired = false)]
+    public XsltParamCollection SessionXsltParam {
+      get {
+        return this["sessionXsltParams"] as XsltParamCollection;
+      }
+    }
+
+    [ConfigurationProperty("httpContextXsltParams", IsRequired = false)]
+    public XsltParamCollection HttpRequestXsltParams {
+      get {
+        return this["httpContextXsltParams"] as XsltParamCollection;
+      }
+    }
   }
 }

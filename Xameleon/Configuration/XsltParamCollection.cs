@@ -26,5 +26,13 @@ namespace Xameleon.Configuration {
     protected override object GetElementKey(ConfigurationElement element) {
       return ((XsltParam)element).Name;
     }
+
+
+    public new string AddElementName {
+      get { return base.AddElementName; }
+
+      set { base.AddElementName = value; }
+
+    }
   }
 }

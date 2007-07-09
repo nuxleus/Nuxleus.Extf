@@ -5,11 +5,11 @@ using System.Configuration;
 
 namespace Xameleon.Configuration {
 
-  public class AddCollection : ConfigurationElementCollection {
+  public class BaseSettingCollection : ConfigurationElementCollection {
 
-    public Add this[int index] {
+    public BaseSetting this[int index] {
       get {
-        return base.BaseGet(index) as Add;
+        return base.BaseGet(index) as BaseSetting;
       }
       set {
         if (base.BaseGet(index) != null) {
@@ -20,11 +20,11 @@ namespace Xameleon.Configuration {
     }
 
     protected override ConfigurationElement CreateNewElement() {
-      return new Add();
+      return new BaseSetting();
     }
 
     protected override object GetElementKey(ConfigurationElement element) {
-      return ((Add)element).Key;
+      return ((BaseSetting)element).Key;
     }
   }
 }

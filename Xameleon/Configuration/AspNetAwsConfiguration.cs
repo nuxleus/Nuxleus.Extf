@@ -7,7 +7,7 @@ namespace Xameleon.Configuration {
 
 
     public static AspNetAwsConfiguration GetConfig() {
-      return ConfigurationManager.GetSection("Xameleon.WebApp/aws") as AspNetAwsConfiguration;
+      return (AspNetAwsConfiguration)ConfigurationManager.GetSection("Xameleon.WebApp/aws");
     }
 
     [ConfigurationProperty("awsKeyCollection", IsRequired = true)]

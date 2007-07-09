@@ -5,7 +5,7 @@ using System.Configuration;
 
 namespace Xameleon.Configuration {
 
-  public class Add : ConfigurationElement {
+  public class BaseSetting : ConfigurationElement {
 
     [ConfigurationProperty("key", IsRequired = true)]
     public string Key {
