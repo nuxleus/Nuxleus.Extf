@@ -96,7 +96,7 @@ namespace Xameleon.Transform {
 
       if (addHttpContextParams) {
         //default set of HttpContext object params
-        string[] paramList = { "response", "request", "server", "session", "timestamp" };
+        string[] paramList = { "response", "request", "server", "session", "timestamp", "errors", "cache", "user" };
         if (httpContextParamList.Length > 0) paramList = httpContextParamList;
         foreach (string name in paramList) {
           xsltParamsHashtable[name] = httpContextHashtable[name];

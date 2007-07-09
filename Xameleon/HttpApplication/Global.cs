@@ -9,6 +9,7 @@ using Xameleon.Transform;
 using Xameleon.Configuration;
 using Memcached.ClientLibrary;
 using System.Collections.Generic;
+using Saxon.Api;
 
 namespace Xameleon.HttpApplication {
 
