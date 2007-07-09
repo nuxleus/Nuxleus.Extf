@@ -26,9 +26,9 @@ namespace Xameleon.Configuration {
     }
 
     [ConfigurationProperty("poolConfig", IsRequired = true)]
-    public MemcachedPoolConfigCollection PoolConfig {
+    public MemcachedPoolConfig PoolConfig {
       get {
-        return this["poolConfig"] as MemcachedPoolConfigCollection;
+        return this["poolConfig"] as MemcachedPoolConfig;
       }
     }
   }

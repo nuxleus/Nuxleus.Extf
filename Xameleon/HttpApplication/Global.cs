@@ -46,48 +46,16 @@ namespace Xameleon.HttpApplication {
 
         _pool.SetServers(serverList.ToArray());
 
-        MemcachedPoolConfigCollection poolConfig = _MemcachedConfiguration.PoolConfig;
+        MemcachedPoolConfig poolConfig = (MemcachedPoolConfig)_MemcachedConfiguration.PoolConfig;
 
-        if (poolConfig.InitConnections.Value != null)
-          _pool.InitConnections = (int)poolConfig.InitConnections.Value;
-        else
-          _pool.InitConnections = 3;
-
-        if (poolConfig.MinConnections.Value != null)
-          _pool.MinConnections = (int)poolConfig.MinConnections.Value;
-        else
-          _pool.MinConnections = 3;
-
-        if (poolConfig.MaxConnections.Value != null)
-          _pool.MaxConnections = (int)poolConfig.MaxConnections.Value;
-        else
-          _pool.MaxConnections = 5;
-
-        if (poolConfig.SocketConnectTimeout.Value != null)
-          _pool.SocketConnectTimeout = (int)poolConfig.SocketConnectTimeout.Value;
-        else
-          _pool.SocketConnectTimeout = 1000;
-
-        if (poolConfig.SocketConnect.Value != null)
-          _pool.SocketTimeout = (int)poolConfig.SocketConnect.Value;
-        else
-          _pool.SocketTimeout = 3000;
-
-        if (poolConfig.MaintenanceSleep.Value != null)
-          _pool.MaintenanceSleep = (int)poolConfig.MaintenanceSleep.Value;
-        else
-          _pool.MaintenanceSleep = 30;
-
-        if (poolConfig.Failover.BoolValue != null && (bool)poolConfig.Failover.BoolValue == false)
-          _pool.Failover = false;
-        else
-          _pool.Failover = true;
-
-        if (poolConfig.Nagle.BoolValue != null && (bool)poolConfig.Nagle.BoolValue == true)
-          _pool.Nagle = true;
-        else
-          _pool.Nagle = false;
-
+        _pool.InitConnections = (int)poolConfig.InitConnections;
+        _pool.MinConnections = (int)poolConfig.MinConnections;
+        _pool.MaxConnections = (int)poolConfig.MaxConnections;
+        _pool.SocketConnectTimeout = (int)poolConfig.SocketConnectTimeout;
+        _pool.SocketTimeout = (int)poolConfig.SocketConnect;
+        _pool.MaintenanceSleep = (int)poolConfig.MaintenanceSleep;
+        _pool.Failover = (bool)poolConfig.Failover;
+        _pool.Nagle = (bool)poolConfig.Nagle;
         _pool.Initialize();
 
       } else
