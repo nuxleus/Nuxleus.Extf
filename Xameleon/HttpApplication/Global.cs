@@ -106,6 +106,7 @@ namespace Xameleon.HttpApplication {
       }
 
       _Compiler = _Processor.NewXsltCompiler();
+      _Compiler.BaseUri = new Uri(HttpContext.Current.Server.MapPath("~" + baseTemplate));
       _Resolver.Credentials = CredentialCache.DefaultCredentials;
 
       Application["transform"] = _Transform;

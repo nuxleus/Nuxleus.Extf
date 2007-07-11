@@ -166,8 +166,6 @@ namespace Xameleon.Transform {
       _xsltParams["cache"] = _context.Cache;
       _xsltParams["user"] = _context.User;
 
-      _compiler.BaseUri = new Uri(_context.Server.MapPath("~/transform/base.xslt"));
-
       try {
         _requestContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
         using (writer) {
