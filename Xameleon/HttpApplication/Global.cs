@@ -83,7 +83,7 @@ namespace Xameleon.HttpApplication {
           HttpContext.Current.Response.Output.WriteLine("uri: " + (string)xslt.BaseUri);
           baseUri = (string)xslt.BaseUri;
         }
-        Uri uri = new Uri(baseUri, UriKind.Absolute);
+        //Uri uri = new Uri(baseUri, UriKind.Absolute);
         HttpContext.Current.Response.Output.WriteLine("baseUri: " + baseUri);
         HttpContext.Current.Response.Output.WriteLine("uri: " + (string)xslt.Uri);
         HttpContext.Current.Response.Output.WriteLine("baseUri: " + (string)xslt.BaseUri);
