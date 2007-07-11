@@ -13,7 +13,7 @@ using System.Text;
 
 namespace Xameleon.Transform {
 
-  public struct Context {
+  public struct Context : IDisposable {
     AppSettings _AppSettings;
     String _RequestUriHash;
     String _BaseUri;
@@ -30,7 +30,7 @@ namespace Xameleon.Transform {
     Hashtable _XsltParams;
     Hashtable _HttpContextParams;
     String _Backup;
-    TextWriter _TextWriter;
+    TextWriter _Writer;
     TextWriter _ResponseOutput;
     DocumentBuilder _Builder;
     XdmNode _Node;
@@ -38,14 +38,12 @@ namespace Xameleon.Transform {
     MemcachedClient _MemcachedClient;
     StringBuilder _StringBuilder;
 
-    public Context(HttpContext context, TextWriter writer, Processor processor, XsltCompiler compiler, bool addHttpContextParams, params string[] httpContextParamList) {
+    public Context(HttpContext context, Processor processor, XsltCompiler compiler, Serializer serializer, XmlUrlResolver resolver, bool addHttpContextParams, params string[] httpContextParamList) {
       _AppSettings = (AppSettings)context.Application["appSettings"];
-      _TextWriter = writer;
       _ResponseOutput = context.Response.Output;
       _RequestUriHash = context.Request.Url.GetHashCode().ToString();
 
       string paramPrefix = _AppSettings.GetSetting("xsltParamKeyPrefix");
-      string baseTemplate = _AppSettings.GetSetting("baseTemplate");
 
       if (paramPrefix != null) {
         _xsltParamKey = paramPrefix;
@@ -53,32 +51,29 @@ namespace Xameleon.Transform {
         _xsltParamKey = "xsltParam_";
       }
 
-      if (baseTemplate != null) {
-        _BaseUri = baseTemplate;
-      } else {
-        _BaseUri = "http://localhost/";
-      }
-      _BaseTemplateUri = new Uri(context.Server.MapPath(_BaseUri));
+      _BaseUri = compiler.BaseUri.ToString();
+      _BaseTemplateUri = compiler.BaseUri;
       _XmlSource = new Uri(context.Request.MapPath(context.Request.CurrentExecutionFilePath));
       _XsltSource = new Uri(Resources.SourceXslt);
-      _Resolver = new XmlUrlResolver();
-      _Resolver.Credentials = CredentialCache.DefaultCredentials;
+      _Resolver = resolver;
       _Processor = processor;
       _Compiler = compiler;
       _SourceXml = (Stream)_Resolver.GetEntity(_XmlSource, null, typeof(Stream));
       _TemplateStream = (Stream)_Resolver.GetEntity(_BaseTemplateUri, null, typeof(Stream));
       _TransformExecutable = _Compiler.Compile(_TemplateStream);
       _HttpContextParams = new Hashtable();
+      _Destination = serializer;
       _MemcachedClient = null;
       _StringBuilder = null;
-      
+
+      _StringBuilder = new StringBuilder();
+      _Writer = new StringWriter(_StringBuilder);
+      _Destination.SetOutputWriter(_Writer);
 
       _Builder = _Processor.NewDocumentBuilder();
       _Builder.BaseUri = _BaseTemplateUri;
       _Node = _Builder.Build(_SourceXml);
-      _Destination = new Serializer();
-      _Destination.SetOutputWriter(_TextWriter);
-
+      
       Hashtable xsltParamsHashtable = new Hashtable();
 
       Hashtable httpContextHashtable = null;
@@ -106,10 +101,10 @@ namespace Xameleon.Transform {
 
       _XsltParams = _AppSettings.GetSettingArray(xsltParamsHashtable, _xsltParamKey);
       _Backup = @"<system>
-                      <message>
-                        Something very very bad has happened. Run while you still can!
-                      </message>
-                    </system>";
+                    <message>
+                      Something very very bad has happened. Run while you still can!
+                    </message>
+                  </system>";
     }
 
     public String RequestUriHash {
@@ -131,10 +126,6 @@ namespace Xameleon.Transform {
     public AppSettings Settings {
       get { return _AppSettings; }
       set { _AppSettings = value; }
-    }
-    public TextWriter Writer {
-      get { return _TextWriter; }
-      set { _TextWriter = value; }
     }
     public Uri BaseTemplateUri {
       get { return _BaseTemplateUri; }
@@ -200,9 +191,22 @@ namespace Xameleon.Transform {
       get { return _StringBuilder; }
       set { _StringBuilder = value; }
     }
+    public TextWriter Writer {
+      get { return _Writer; }
+      set { _Writer = value; }
+    }
     public TextWriter ResponseOutput {
       get { return _ResponseOutput; }
       set { _ResponseOutput = value; }
     }
+
+    #region IDisposable Members
+
+    public void Dispose() {
+      _XmlSource = null;
+      _XsltSource = null;
+    }
+
+    #endregion
   }
 }

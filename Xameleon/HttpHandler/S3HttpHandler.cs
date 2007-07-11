@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Web;
 using Saxon.Api;
+using System.Xml;
 
 namespace Xameleon.Transform {
 
@@ -17,6 +18,8 @@ namespace Xameleon.Transform {
     Context _transformContext;
     Processor _processor;
     XsltCompiler _compiler;
+    Serializer _serializer;
+    XmlUrlResolver _resolver;
 
     public void ProcessRequest(HttpContext context) {
 
@@ -25,7 +28,9 @@ namespace Xameleon.Transform {
       _context = context;
       _processor = (Processor)context.Application["processor"];
       _compiler = (XsltCompiler)context.Application["compiler"];
-      _transformContext = new Context(context, _writer, _processor, _compiler, true);
+      _serializer = (Serializer)context.Application["serializer"];
+      _resolver = (XmlUrlResolver)context.Application["resolver"];
+      _transformContext = new Context(context, _processor, _compiler, _serializer, _resolver, true);
 
       switch (_requestMethod) {
 

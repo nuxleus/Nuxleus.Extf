@@ -15,6 +15,7 @@ using Memcached.ClientLibrary;
 using System.Text;
 using Saxon.Api;
 using IronPython.Hosting;
+using System.Xml;
 
 namespace Xameleon.Transform {
 
@@ -23,7 +24,7 @@ namespace Xameleon.Transform {
     MemcachedClient _memcachedClient;
     bool _useMemcachedClient = false;
     XsltCompiledHashtable _xsltCompiledHashtable;
-    Transform _transform = new Transform();
+    Transform _transform;
     TextWriter _writer;
     StringBuilder _builder;
     HttpContext _context;
@@ -33,7 +34,10 @@ namespace Xameleon.Transform {
     Context _transformContext;
     Processor _processor;
     XsltCompiler _compiler;
+    Serializer _serializer;
     PythonEngine _pythonEngine;
+    XmlUrlResolver _resolver;
+    Context _requestContext;
 
     public void ProcessRequest(HttpContext context) {
       //not called
@@ -46,16 +50,17 @@ namespace Xameleon.Transform {
     #region IHttpAsyncHandler Members
 
     public IAsyncResult BeginProcessRequest(HttpContext context, AsyncCallback cb, object extraData) {
+
       _context = context;
-      _builder = new StringBuilder();
-      _writer = new StringWriter(_builder);
+      _writer = _context.Response.Output;
       _httpMethod = context.Request.HttpMethod;
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
+      _transform = (Transform)context.Application["transform"];
       _processor = (Processor)context.Application["processor"];
       _compiler = (XsltCompiler)context.Application["compiler"];
+      _serializer = (Serializer)context.Application["serializer"];
       _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
-      _transformContext = new Context(context, _writer, _processor, _compiler, true);
-      _transformContext.StringBuilder = _builder;
+      _resolver = (XmlUrlResolver)context.Application["resolver"];
       _pythonEngine = (PythonEngine)context.Application["pythonEngine"];
       _useMemcachedClient = (bool)context.Application["useMemcached"];
 
@@ -74,6 +79,7 @@ namespace Xameleon.Transform {
     }
 
     private void BeginTransform(AsyncCallback cb) {
+
       try {
 
         switch (_httpMethod) {
@@ -88,36 +94,36 @@ namespace Xameleon.Transform {
                 _context.Response.Output.WriteLine("Value2: " + transform.GetHashCode().ToString());
               }
 
-              using (TextWriter writer = _context.Response.Output) {
+              using (_writer) {
                 if (_useMemcachedClient) {
                   string key = _context.Request.Url.GetHashCode().ToString();
                   string obj = (string)_memcachedClient.Get(key);
                   if (obj != null) {
-                    writer.Write(obj);
+                    _writer.Write(obj);
                     _transformAsyncResult.CompleteCall();
                   } else {
-                    _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
+                    BeginTransformProcess(cb, _transformAsyncResult, _writer);
                   }
                 } else {
-                  _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
+                  BeginTransformProcess(cb, _transformAsyncResult, _writer);
                 }
               }
               break;
             }
           case "PUT": {
-              _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
+              BeginTransformProcess(cb, _transformAsyncResult, _writer);
               break;
             }
           case "POST": {
-              _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
+              BeginTransformProcess(cb, _transformAsyncResult, _writer);
               break;
             }
           case "DELETE": {
-              _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
+              BeginTransformProcess(cb, _transformAsyncResult, _writer);
               break;
             }
           default: {
-              _transform.BeginAsyncProcess(_transformContext, cb, _transformAsyncResult);
+              BeginTransformProcess(cb, _transformAsyncResult, _writer);
               break;
             }
         }
@@ -127,6 +133,29 @@ namespace Xameleon.Transform {
         WriteError();
         _transformAsyncResult.CompleteCall();
       }
+    }
+
+    private void BeginTransformProcess(AsyncCallback cb, TransformServiceAsyncResult result, TextWriter writer) {
+      try {
+        _requestContext = new Context(_context, _processor, _compiler, _serializer, _resolver, true);
+        using (writer) {
+          _transform.BeginAsyncProcess(_requestContext, cb, result);
+          string output = _requestContext.StringBuilder.ToString();
+          if (_useMemcachedClient) {
+            _memcachedClient.Set(_requestContext.RequestUriHash, output);
+          }
+          writer.Write(output);
+          result.CompleteCall();
+        }
+      } catch (Exception e) {
+        _exception = e;
+        WriteError();
+        result.CompleteCall();
+      }
+    }
+
+    public void EndTransformProcess(IAsyncResult result) {
+      _requestContext.Dispose();
     }
 
     private void EndTransform(AsyncCallback cb) {
@@ -154,9 +183,5 @@ namespace Xameleon.Transform {
     }
 
     #endregion
-
-
-
-
   }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Xml;
 using Saxon.Api;
 using Xameleon.ResultDocumentHandler;
+using System.Text;
 
 namespace Xameleon.Transform {
 
@@ -14,7 +15,10 @@ namespace Xameleon.Transform {
 
     public void Process(Context context) {
 
-      using (context.Writer) {
+      StringBuilder _builder = new StringBuilder();
+      TextWriter _writer = new StringWriter(_builder);
+
+      using (_writer) {
 
         using (context.TemplateStream) {
 

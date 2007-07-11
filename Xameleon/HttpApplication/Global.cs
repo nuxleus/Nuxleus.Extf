@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using Saxon.Api;
 using IronPython.Hosting;
 using System.IO;
+using System.Xml;
+using System.Net;
 
 namespace Xameleon.HttpApplication {
 
@@ -25,8 +27,11 @@ namespace Xameleon.HttpApplication {
     AspNetBungeeAppConfiguration _BungeeAppConfguration = AspNetBungeeAppConfiguration.GetConfig();
     AspNetMemcachedConfiguration _MemcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
     XsltCompiledHashtable _XsltCompiledHashtable = new XsltCompiledHashtable();
+    Transform.Transform _Transform =  new Transform.Transform();
     Processor _Processor = new Processor();
     XsltCompiler _Compiler = null;
+    Serializer _Serializer = new Serializer();
+    XmlUrlResolver _Resolver = new XmlUrlResolver();
     String _BaseUri = null;
     Uri _BaseTemplateUri = null;
     static PythonEngine _PythonEngine = PythonEngine.CurrentEngine;
@@ -90,9 +95,13 @@ namespace Xameleon.HttpApplication {
 
       _Compiler = _Processor.NewXsltCompiler();
       _Compiler.BaseUri = new Uri(HttpContext.Current.Server.MapPath(_BaseUri));
+      _Resolver.Credentials = CredentialCache.DefaultCredentials;
 
+      Application["transform"] = _Transform;
       Application["processor"] = _Processor;
       Application["compiler"] = _Compiler;
+      Application["serializer"] = _Serializer;
+      Application["resolver"] = _Resolver;
       Application["xsltCompiledHashtable"] = _XsltCompiledHashtable;
       Application["appSettings"] = _AppSettings;
     }

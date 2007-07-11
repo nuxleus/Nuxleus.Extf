@@ -5,6 +5,7 @@ using System.Web;
 using System.Xml;
 using Saxon.Api;
 using Xameleon.ResultDocumentHandler;
+using System.Text;
 
 namespace Xameleon.Transform {
 
@@ -14,39 +15,32 @@ namespace Xameleon.Transform {
 
     public void BeginAsyncProcess(Context context, AsyncCallback cb, TransformServiceAsyncResult result) {
 
-      using (context.Writer) {
 
-        using (context.TemplateStream) {
+      using (context.TemplateStream) {
 
-          using (context.XmlStream) {
+        using (context.XmlStream) {
 
-            XsltTransformer transformer = context.XsltExecutable.Load();
+          XsltTransformer transformer = context.XsltExecutable.Load();
 
-            if (context.XsltParams.Count > 0) {
-              foreach (DictionaryEntry param in context.XsltParams) {
-                string name = (string)param.Key;
-                transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
-              }
+          if (context.XsltParams.Count > 0) {
+            foreach (DictionaryEntry param in context.XsltParams) {
+              string name = (string)param.Key;
+              transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
             }
+          }
 
-            transformer.InputXmlResolver = context.Resolver;
-            transformer.InitialContextNode = context.Node;
+          transformer.InputXmlResolver = context.Resolver;
+          transformer.InitialContextNode = context.Node;
 
-            lock (transformer) {
-              transformer.Run(context.Destination);
-            }
+          lock (transformer) {
+            transformer.Run(context.Destination);
           }
         }
       }
-      string output = context.StringBuilder.ToString();
-      if(context.MemcachedClient != null)
-        context.MemcachedClient.Set(context.RequestUriHash, output);
-      context.ResponseOutput.Write(output);
-      result.CompleteCall();
     }
 
     public void EndAysncProcess(IAsyncResult result) {
- 
+
     }
   }
 }
