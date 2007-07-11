@@ -17,7 +17,7 @@ namespace Xameleon.Transform {
     }
 
     public XsltTransformer GetTransformer(string name, string href, Uri baseUri, Processor processor) {
-      Uri xsltUri = new Uri(baseUri, new Uri(href, UriKind.Relative));
+      Uri xsltUri = new Uri(baseUri, href);
       string xsltUriHash = xsltUri.GetHashCode().ToString();
       string key = name + ":" + xsltUriHash;
 
