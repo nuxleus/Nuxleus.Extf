@@ -84,7 +84,6 @@ namespace Xameleon.HttpApplication {
           baseUri = (string)xslt.BaseUri;
         }
         Uri uri = new Uri(baseUri, UriKind.Absolute);
-        _BaseTemplateUri = new Uri(uri, (string)xslt.Uri);
         _XsltCompiledHashtable.GetTransformer(xslt.Name, (string)xslt.Uri, uri, _Processor);
       }
 
@@ -103,7 +102,6 @@ namespace Xameleon.HttpApplication {
       }
 
       _Compiler = _Processor.NewXsltCompiler();
-      _Compiler.BaseUri = _BaseTemplateUri;
       _Resolver.Credentials = CredentialCache.DefaultCredentials;
 
       Application["transform"] = _Transform;
