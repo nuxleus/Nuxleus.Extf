@@ -37,7 +37,7 @@ namespace Xameleon.HttpApplication {
     Hashtable _RequestXsltParams = null;
     String _BaseUri = null;
     Uri _BaseTemplateUri = null;
-    static PythonEngine _PythonEngine = PythonEngine.CurrentEngine;
+    //static PythonEngine _PythonEngine = PythonEngine.CurrentEngine;
 
     protected void Application_Start(object sender, EventArgs e) {
       string useMemcached = _XameleonConfiguration.UseMemcached;
@@ -91,8 +91,8 @@ namespace Xameleon.HttpApplication {
         _GlobalXsltParams[xsltParam.Name] = (string)xsltParam.Select;
       }
 
-      _PythonEngine.AddToPath(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
-      Application["pythonEngine"] = _PythonEngine;
+      //_PythonEngine.AddToPath(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+      //Application["pythonEngine"] = _PythonEngine;
       string baseTemplate = _AppSettings.GetSetting("baseTemplate");
 
       if (baseTemplate != null) {

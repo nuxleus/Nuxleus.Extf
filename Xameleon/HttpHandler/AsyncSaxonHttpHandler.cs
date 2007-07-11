@@ -68,7 +68,7 @@ namespace Xameleon.Transform {
       _globalXsltParams = (Hashtable)context.Application["globalXsltParams"];
       _sessionXsltParams = (Hashtable)context.Application["sessionXsltParams"];
       _requestXsltParams = (Hashtable)context.Application["requestXsltParams"];
-      _pythonEngine = (PythonEngine)context.Application["pythonEngine"];
+      //_pythonEngine = (PythonEngine)context.Application["pythonEngine"];
       _useMemcachedClient = (bool)context.Application["useMemcached"];
 
       if (_useMemcachedClient) {
