@@ -125,7 +125,6 @@ namespace Xameleon.HttpApplication {
     }
 
     protected void Application_BeginRequest(object sender, EventArgs e) {
-      
 
       //if (addHttpContextParams) {
       //  //default set of HttpContext object params
