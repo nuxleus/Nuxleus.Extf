@@ -110,9 +110,11 @@ namespace Xameleon.Transform {
                     _transformAsyncResult.CompleteCall();
                   } else {
                     BeginTransformProcess(cb, _transformAsyncResult, _writer);
+                    _transformAsyncResult.CompleteCall();
                   }
                 } else {
                   BeginTransformProcess(cb, _transformAsyncResult, _writer);
+                  _transformAsyncResult.CompleteCall();
                 }
               }
               break;

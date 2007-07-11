@@ -36,7 +36,6 @@ namespace Xameleon.Transform {
           }
         }
       }
-      result.CompleteCall();
     }
 
     public void EndAysncProcess(IAsyncResult result) {
