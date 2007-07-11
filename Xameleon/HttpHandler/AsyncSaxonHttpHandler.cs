@@ -59,7 +59,7 @@ namespace Xameleon.Transform {
       _writer = _context.Response.Output;
       _httpMethod = context.Request.HttpMethod;
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
-      _transform = (Transform)context.Application["transform"];
+      //_transform = (Transform)context.Application["transform"];
       _processor = (Processor)context.Application["processor"];
       _compiler = (XsltCompiler)context.Application["compiler"];
       _serializer = (Serializer)context.Application["serializer"];
@@ -75,18 +75,7 @@ namespace Xameleon.Transform {
         _memcachedClient = (MemcachedClient)context.Application["memcached"];
         _transformContext.MemcachedClient = _memcachedClient;
       }
-
-      try {
-        BeginTransform(cb);
-        return _transformAsyncResult;
-      } catch (Exception ex) {
-        _exception = ex;
-        _transformAsyncResult.CompleteCall();
-        return _transformAsyncResult;
-      }
-    }
-
-    private void BeginTransform(AsyncCallback cb) {
+      _transform = new Transform();
 
       try {
 
@@ -109,6 +98,7 @@ namespace Xameleon.Transform {
                   if (obj != null) {
                     _writer.Write(obj);
                     _transformAsyncResult.CompleteCall();
+                    return _transformAsyncResult;
                   } else {
                     _xsltParams = new Hashtable();
 
@@ -142,33 +132,40 @@ namespace Xameleon.Transform {
                           _memcachedClient.Set(_requestContext.RequestUriHash, output);
                         }
                         _requestContext.Writer.Write(output);
+                        return _transformAsyncResult;
                       }
                     } catch (Exception e) {
                       _exception = e;
                       WriteError();
                       _transformAsyncResult.CompleteCall();
+                      return _transformAsyncResult;
                     }
                   }
                 } else {
                   //BeginTransformProcess(cb, _transformAsyncResult, _writer);
+                  return _transformAsyncResult;
                 }
               }
               break;
             }
           case "PUT": {
               //BeginTransformProcess(cb, _transformAsyncResult, _writer);
+              return _transformAsyncResult;
               break;
             }
           case "POST": {
               //BeginTransformProcess(cb, _transformAsyncResult, _writer);
+              return _transformAsyncResult;
               break;
             }
           case "DELETE": {
               //BeginTransformProcess(cb, _transformAsyncResult, _writer);
+              return _transformAsyncResult;
               break;
             }
           default: {
               //BeginTransformProcess(cb, _transformAsyncResult, _writer);
+              return _transformAsyncResult;
               break;
             }
         }
@@ -177,8 +174,23 @@ namespace Xameleon.Transform {
         _exception = ex;
         WriteError();
         _transformAsyncResult.CompleteCall();
+        return _transformAsyncResult;
       }
+
+      //try {
+      //  BeginTransform(cb);
+      //  return _transformAsyncResult;
+      //} catch (Exception ex) {
+      //  _exception = ex;
+      //  _transformAsyncResult.CompleteCall();
+      //  return _transformAsyncResult;
+      //}
     }
+
+    //private void BeginTransform(AsyncCallback cb) {
+
+      
+    //}
 
     //private void BeginTransformProcess(AsyncCallback cb, TransformServiceAsyncResult result, TextWriter writer) {
     //  _xsltParams = new Hashtable();
