@@ -15,7 +15,6 @@ namespace Xameleon.Transform {
 
     public void BeginAsyncProcess(Context context, AsyncCallback cb, TransformServiceAsyncResult result) {
 
-
       using (context.TemplateStream) {
 
         using (context.XmlStream) {
@@ -37,6 +36,7 @@ namespace Xameleon.Transform {
           }
         }
       }
+      result.CompleteCall();
     }
 
     public void EndAysncProcess(IAsyncResult result) {

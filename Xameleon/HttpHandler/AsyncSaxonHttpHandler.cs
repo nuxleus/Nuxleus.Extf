@@ -175,7 +175,6 @@ namespace Xameleon.Transform {
             _memcachedClient.Set(_requestContext.RequestUriHash, output);
           }
           writer.Write(output);
-          result.CompleteCall();
         }
       } catch (Exception e) {
         _exception = e;
