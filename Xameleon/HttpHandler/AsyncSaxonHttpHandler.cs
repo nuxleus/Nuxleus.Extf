@@ -109,12 +109,47 @@ namespace Xameleon.Transform {
                     _writer.Write(obj);
                     _transformAsyncResult.CompleteCall();
                   } else {
-                    BeginTransformProcess(cb, _transformAsyncResult, _writer);
-                    _transformAsyncResult.CompleteCall();
+                    _xsltParams = new Hashtable();
+
+                    if (_sessionXsltParams != null && _globalXsltParams.Count > 0) {
+                      foreach (DictionaryEntry param in _globalXsltParams) {
+                        _xsltParams[param.Key] = (string)param.Value;
+                      }
+                    }
+                    if (_sessionXsltParams != null && _sessionXsltParams.Count > 0) {
+                      foreach (DictionaryEntry param in _sessionXsltParams) {
+                        _xsltParams[param.Key] = (string)param.Value;
+                      }
+                    }
+
+                    _xsltParams["context"] = _context.Request;
+                    _xsltParams["request"] = _context.Request;
+                    _xsltParams["response"] = _context.Response;
+                    _xsltParams["server"] = _context.Server;
+                    _xsltParams["timestamp"] = _context.Timestamp;
+                    _xsltParams["session"] = _context.Session;
+                    _xsltParams["errors"] = _context.AllErrors;
+                    _xsltParams["cache"] = _context.Cache;
+                    _xsltParams["user"] = _context.User;
+
+                    try {
+                      _requestContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
+                      using (_requestContext.Writer) {
+                        _transform.BeginAsyncProcess(_requestContext, cb, _transformAsyncResult);
+                        string output = _requestContext.StringBuilder.ToString();
+                        if (_useMemcachedClient) {
+                          _memcachedClient.Set(_requestContext.RequestUriHash, output);
+                        }
+                        _requestContext.Writer.Write(output);
+                      }
+                    } catch (Exception e) {
+                      _exception = e;
+                      WriteError();
+                      _transformAsyncResult.CompleteCall();
+                    }
                   }
                 } else {
                   BeginTransformProcess(cb, _transformAsyncResult, _writer);
-                  _transformAsyncResult.CompleteCall();
                 }
               }
               break;

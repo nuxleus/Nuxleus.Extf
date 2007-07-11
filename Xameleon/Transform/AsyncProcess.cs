@@ -34,6 +34,7 @@ namespace Xameleon.Transform {
           lock (transformer) {
             transformer.Run(context.Destination);
           }
+          result.CompleteCall();
         }
       }
     }
