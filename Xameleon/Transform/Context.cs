@@ -26,7 +26,7 @@ namespace Xameleon.Transform {
     Stream _SourceXml;
     Stream _TemplateStream;
     XsltExecutable _TransformExecutable;
-    String _xsltParamKey;
+    //String _xsltParamKey;
     Hashtable _XsltParams;
     Hashtable _HttpContextParams;
     String _Backup;
@@ -38,18 +38,18 @@ namespace Xameleon.Transform {
     MemcachedClient _MemcachedClient;
     StringBuilder _StringBuilder;
 
-    public Context(HttpContext context, Processor processor, XsltCompiler compiler, Serializer serializer, XmlUrlResolver resolver, bool addHttpContextParams, params string[] httpContextParamList) {
+    public Context(HttpContext context, Processor processor, XsltCompiler compiler, Serializer serializer, XmlUrlResolver resolver, Hashtable xsltParams, bool addHttpContextParams, params string[] httpContextParamList) {
       _AppSettings = (AppSettings)context.Application["appSettings"];
       _ResponseOutput = context.Response.Output;
       _RequestUriHash = context.Request.Url.GetHashCode().ToString();
 
-      string paramPrefix = _AppSettings.GetSetting("xsltParamKeyPrefix");
+      //string paramPrefix = _AppSettings.GetSetting("xsltParamKeyPrefix");
 
-      if (paramPrefix != null) {
-        _xsltParamKey = paramPrefix;
-      } else {
-        _xsltParamKey = "xsltParam_";
-      }
+      //if (paramPrefix != null) {
+      //  _xsltParamKey = paramPrefix;
+      //} else {
+      //  _xsltParamKey = "xsltParam_";
+      //}
 
       _BaseUri = compiler.BaseUri.ToString();
       _BaseTemplateUri = compiler.BaseUri;
@@ -73,33 +73,9 @@ namespace Xameleon.Transform {
       _Builder = _Processor.NewDocumentBuilder();
       _Builder.BaseUri = _BaseTemplateUri;
       _Node = _Builder.Build(_SourceXml);
-      
-      Hashtable xsltParamsHashtable = new Hashtable();
 
-      Hashtable httpContextHashtable = null;
-      if (_HttpContextParams.Count == 0) {
-        httpContextHashtable = new Hashtable();
-        httpContextHashtable["request"] = context.Request;
-        httpContextHashtable["response"] = context.Response;
-        httpContextHashtable["server"] = context.Server;
-        httpContextHashtable["timestamp"] = context.Timestamp;
-        httpContextHashtable["session"] = context.Session;
-        httpContextHashtable["errors"] = context.AllErrors;
-        httpContextHashtable["cache"] = context.Cache;
-        httpContextHashtable["user"] = context.User;
-      } else
-        httpContextHashtable = _HttpContextParams;
+      _XsltParams = xsltParams;
 
-      if (addHttpContextParams) {
-        //default set of HttpContext object params
-        string[] paramList = { "response", "request", "server", "session", "timestamp", "errors", "cache", "user" };
-        if (httpContextParamList.Length > 0) paramList = httpContextParamList;
-        foreach (string name in paramList) {
-          xsltParamsHashtable[name] = httpContextHashtable[name];
-        }
-      };
-
-      _XsltParams = _AppSettings.GetSettingArray(xsltParamsHashtable, _xsltParamKey);
       _Backup = @"<system>
                     <message>
                       Something very very bad has happened. Run while you still can!
@@ -134,10 +110,6 @@ namespace Xameleon.Transform {
     public String XmlBackup {
       get { return _Backup; }
       set { _Backup = value; }
-    }
-    public String XsltParamKey {
-      get { return _xsltParamKey; }
-      set { _xsltParamKey = value; }
     }
     public XsltExecutable XsltExecutable {
       get { return _TransformExecutable; }
@@ -205,6 +177,13 @@ namespace Xameleon.Transform {
     public void Dispose() {
       _XmlSource = null;
       _XsltSource = null;
+      _BaseUri = null;
+      _SourceXml.Close();
+      _SourceXml.Dispose();
+      _TemplateStream.Close();
+      _TemplateStream.Dispose();
+      _ResponseOutput.Close();
+      _ResponseOutput.Dispose();
     }
 
     #endregion

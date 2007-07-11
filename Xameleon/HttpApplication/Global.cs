@@ -27,11 +27,14 @@ namespace Xameleon.HttpApplication {
     AspNetBungeeAppConfiguration _BungeeAppConfguration = AspNetBungeeAppConfiguration.GetConfig();
     AspNetMemcachedConfiguration _MemcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
     XsltCompiledHashtable _XsltCompiledHashtable = new XsltCompiledHashtable();
-    Transform.Transform _Transform =  new Transform.Transform();
+    Transform.Transform _Transform = new Transform.Transform();
     Processor _Processor = new Processor();
     XsltCompiler _Compiler = null;
     Serializer _Serializer = new Serializer();
     XmlUrlResolver _Resolver = new XmlUrlResolver();
+    Hashtable _GlobalXsltParams = new Hashtable();
+    Hashtable _SessionXsltParams = null;
+    Hashtable _RequestXsltParams = null;
     String _BaseUri = null;
     Uri _BaseTemplateUri = null;
     static PythonEngine _PythonEngine = PythonEngine.CurrentEngine;
@@ -83,6 +86,11 @@ namespace Xameleon.HttpApplication {
         Uri uri = new Uri(baseUri, UriKind.Absolute);
         _XsltCompiledHashtable.GetTransformer(xslt.Name, (string)xslt.Uri, uri, _Processor);
       }
+
+      foreach (XsltParam xsltParam in _XameleonConfiguration.GlobalXsltParam) {
+        _GlobalXsltParams[xsltParam.Name] = (string)xsltParam.Select;
+      }
+
       _PythonEngine.AddToPath(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
       Application["pythonEngine"] = _PythonEngine;
       string baseTemplate = _AppSettings.GetSetting("baseTemplate");
@@ -103,15 +111,31 @@ namespace Xameleon.HttpApplication {
       Application["serializer"] = _Serializer;
       Application["resolver"] = _Resolver;
       Application["xsltCompiledHashtable"] = _XsltCompiledHashtable;
+      Application["globalXsltParams"] = _GlobalXsltParams;
       Application["appSettings"] = _AppSettings;
     }
 
     protected void Session_Start(object sender, EventArgs e) {
+      _SessionXsltParams = new Hashtable();
+      foreach (XsltParam xsltParam in _XameleonConfiguration.SessionXsltParam) {
+        _SessionXsltParams[xsltParam.Name] = (string)xsltParam.Select;
+      }
       Application["sessionid"] = HttpContext.Current.Session.SessionID;
+      Application["sessionXsltParams"] = _SessionXsltParams;
     }
 
     protected void Application_BeginRequest(object sender, EventArgs e) {
+      
 
+      //if (addHttpContextParams) {
+      //  //default set of HttpContext object params
+      //  string[] paramList = { "response", "request", "server", "session", "timestamp", "errors", "cache", "user" };
+      //  if (httpContextParamList.Length > 0)
+      //    paramList = httpContextParamList;
+      //  foreach (string name in paramList) {
+      //    _XsltParams[name] = httpContextHashtable[name];
+      //  }
+      //};
     }
 
     protected void Application_AuthenticateRequest(object sender, EventArgs e) {

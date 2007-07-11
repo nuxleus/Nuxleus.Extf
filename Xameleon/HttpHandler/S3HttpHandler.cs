@@ -7,6 +7,7 @@ using System.IO;
 using System.Web;
 using Saxon.Api;
 using System.Xml;
+using System.Collections;
 
 namespace Xameleon.Transform {
 
@@ -20,6 +21,9 @@ namespace Xameleon.Transform {
     XsltCompiler _compiler;
     Serializer _serializer;
     XmlUrlResolver _resolver;
+    Hashtable _globalXsltParams;
+    Hashtable _sessionXsltParams;
+    Hashtable _requestXsltParams;
 
     public void ProcessRequest(HttpContext context) {
 
@@ -30,7 +34,20 @@ namespace Xameleon.Transform {
       _compiler = (XsltCompiler)context.Application["compiler"];
       _serializer = (Serializer)context.Application["serializer"];
       _resolver = (XmlUrlResolver)context.Application["resolver"];
-      _transformContext = new Context(context, _processor, _compiler, _serializer, _resolver, true);
+      _globalXsltParams = (Hashtable)context.Application["globalXsltParams"];
+      _sessionXsltParams = (Hashtable)context.Application["sessionXsltParams"];
+      _requestXsltParams = (Hashtable)context.Application["requestXsltParams"];
+      Hashtable xsltParams = new Hashtable();
+      foreach (DictionaryEntry param in _globalXsltParams) {
+        xsltParams[param.Key] = param.Value;
+      }
+      foreach (DictionaryEntry param in _sessionXsltParams) {
+        xsltParams[param.Key] = param.Value;
+      }
+      foreach (DictionaryEntry param in _requestXsltParams) {
+        xsltParams[param.Key] = param.Value;
+      }
+      _transformContext = new Context(context, _processor, _compiler, _serializer, _resolver, xsltParams, true);
 
       switch (_requestMethod) {
 

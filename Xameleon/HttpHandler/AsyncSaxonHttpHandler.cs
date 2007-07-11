@@ -37,6 +37,9 @@ namespace Xameleon.Transform {
     Serializer _serializer;
     PythonEngine _pythonEngine;
     XmlUrlResolver _resolver;
+    Hashtable _globalXsltParams;
+    Hashtable _sessionXsltParams;
+    Hashtable _requestXsltParams;
     Context _requestContext;
 
     public void ProcessRequest(HttpContext context) {
@@ -61,6 +64,9 @@ namespace Xameleon.Transform {
       _serializer = (Serializer)context.Application["serializer"];
       _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
       _resolver = (XmlUrlResolver)context.Application["resolver"];
+      _globalXsltParams = (Hashtable)context.Application["globalXsltParams"];
+      _sessionXsltParams = (Hashtable)context.Application["sessionXsltParams"];
+      _requestXsltParams = (Hashtable)context.Application["requestXsltParams"];
       _pythonEngine = (PythonEngine)context.Application["pythonEngine"];
       _useMemcachedClient = (bool)context.Application["useMemcached"];
 
@@ -136,8 +142,29 @@ namespace Xameleon.Transform {
     }
 
     private void BeginTransformProcess(AsyncCallback cb, TransformServiceAsyncResult result, TextWriter writer) {
+      Hashtable xsltParams = new Hashtable();
+      if (_sessionXsltParams != null && _globalXsltParams.Count > 0) {
+        foreach (DictionaryEntry param in _globalXsltParams) {
+          xsltParams[param.Key] = (string)param.Value;
+        }
+      }
+      if (_sessionXsltParams != null && _sessionXsltParams.Count > 0) {
+        foreach (DictionaryEntry param in _sessionXsltParams) {
+          xsltParams[param.Key] = (string)param.Value;
+        }
+      }
+
+      xsltParams["request"] = _context.Request;
+      xsltParams["response"] = _context.Response;
+      xsltParams["server"] = _context.Server;
+      xsltParams["timestamp"] = _context.Timestamp;
+      xsltParams["session"] = _context.Session;
+      xsltParams["errors"] = _context.AllErrors;
+      xsltParams["cache"] = _context.Cache;
+      xsltParams["user"] = _context.User;
+
       try {
-        _requestContext = new Context(_context, _processor, _compiler, _serializer, _resolver, true);
+        _requestContext = new Context(_context, _processor, _compiler, _serializer, _resolver, xsltParams, true);
         using (writer) {
           _transform.BeginAsyncProcess(_requestContext, cb, result);
           string output = _requestContext.StringBuilder.ToString();
