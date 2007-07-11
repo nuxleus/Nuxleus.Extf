@@ -81,6 +81,7 @@ namespace Xameleon.Transform {
         return _transformAsyncResult;
       } catch (Exception ex) {
         _exception = ex;
+        _transformAsyncResult.CompleteCall();
         return _transformAsyncResult;
       }
     }
@@ -149,25 +150,25 @@ namespace Xameleon.Transform {
                     }
                   }
                 } else {
-                  BeginTransformProcess(cb, _transformAsyncResult, _writer);
+                  //BeginTransformProcess(cb, _transformAsyncResult, _writer);
                 }
               }
               break;
             }
           case "PUT": {
-              BeginTransformProcess(cb, _transformAsyncResult, _writer);
+              //BeginTransformProcess(cb, _transformAsyncResult, _writer);
               break;
             }
           case "POST": {
-              BeginTransformProcess(cb, _transformAsyncResult, _writer);
+              //BeginTransformProcess(cb, _transformAsyncResult, _writer);
               break;
             }
           case "DELETE": {
-              BeginTransformProcess(cb, _transformAsyncResult, _writer);
+              //BeginTransformProcess(cb, _transformAsyncResult, _writer);
               break;
             }
           default: {
-              BeginTransformProcess(cb, _transformAsyncResult, _writer);
+              //BeginTransformProcess(cb, _transformAsyncResult, _writer);
               break;
             }
         }
@@ -179,50 +180,50 @@ namespace Xameleon.Transform {
       }
     }
 
-    private void BeginTransformProcess(AsyncCallback cb, TransformServiceAsyncResult result, TextWriter writer) {
-      _xsltParams = new Hashtable();
-      
-      if (_sessionXsltParams != null && _globalXsltParams.Count > 0) {
-        foreach (DictionaryEntry param in _globalXsltParams) {
-          _xsltParams[param.Key] = (string)param.Value;
-        }
-      }
-      if (_sessionXsltParams != null && _sessionXsltParams.Count > 0) {
-        foreach (DictionaryEntry param in _sessionXsltParams) {
-          _xsltParams[param.Key] = (string)param.Value;
-        }
-      }
+    //private void BeginTransformProcess(AsyncCallback cb, TransformServiceAsyncResult result, TextWriter writer) {
+    //  _xsltParams = new Hashtable();
 
-      _xsltParams["context"] = _context.Request;
-      _xsltParams["request"] = _context.Request;
-      _xsltParams["response"] = _context.Response;
-      _xsltParams["server"] = _context.Server;
-      _xsltParams["timestamp"] = _context.Timestamp;
-      _xsltParams["session"] = _context.Session;
-      _xsltParams["errors"] = _context.AllErrors;
-      _xsltParams["cache"] = _context.Cache;
-      _xsltParams["user"] = _context.User;
+    //  if (_sessionXsltParams != null && _globalXsltParams.Count > 0) {
+    //    foreach (DictionaryEntry param in _globalXsltParams) {
+    //      _xsltParams[param.Key] = (string)param.Value;
+    //    }
+    //  }
+    //  if (_sessionXsltParams != null && _sessionXsltParams.Count > 0) {
+    //    foreach (DictionaryEntry param in _sessionXsltParams) {
+    //      _xsltParams[param.Key] = (string)param.Value;
+    //    }
+    //  }
 
-      try {
-        _requestContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
-        using (writer) {
-          _transform.BeginAsyncProcess(_requestContext, cb, result);
-          string output = _requestContext.StringBuilder.ToString();
-          if (_useMemcachedClient) {
-            _memcachedClient.Set(_requestContext.RequestUriHash, output);
-          }
-          writer.Write(output);
-        }
-      } catch (Exception e) {
-        _exception = e;
-        WriteError();
-        result.CompleteCall();
-      }
-    }
+    //  _xsltParams["context"] = _context.Request;
+    //  _xsltParams["request"] = _context.Request;
+    //  _xsltParams["response"] = _context.Response;
+    //  _xsltParams["server"] = _context.Server;
+    //  _xsltParams["timestamp"] = _context.Timestamp;
+    //  _xsltParams["session"] = _context.Session;
+    //  _xsltParams["errors"] = _context.AllErrors;
+    //  _xsltParams["cache"] = _context.Cache;
+    //  _xsltParams["user"] = _context.User;
 
-    public void EndTransformProcess(IAsyncResult result) {
-      _requestContext.Dispose();
-    }
+    //  try {
+    //    _requestContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
+    //    using (writer) {
+    //      _transform.BeginAsyncProcess(_requestContext, cb, result);
+    //      string output = _requestContext.StringBuilder.ToString();
+    //      if (_useMemcachedClient) {
+    //        _memcachedClient.Set(_requestContext.RequestUriHash, output);
+    //      }
+    //      writer.Write(output);
+    //    }
+    //  } catch (Exception e) {
+    //    _exception = e;
+    //    WriteError();
+    //    result.CompleteCall();
+    //  }
+    //}
+
+    //public void EndTransformProcess(IAsyncResult result) {
+    //  _requestContext.Dispose();
+    //}
 
     private void EndTransform(AsyncCallback cb) {
 
