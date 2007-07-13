@@ -74,12 +74,9 @@ namespace Xameleon.Transform {
 
       if (_useMemcachedClient) {
         _memcachedClient = (MemcachedClient)context.Application["memcached"];
-        _transformContext.MemcachedClient = _memcachedClient;
+        //_transformContext.MemcachedClient = _memcachedClient;
       }
       _transformAsyncResult._context = context;
-      _output = "foobar";
-      _transformAsyncResult.CompleteCall();
-      return _transformAsyncResult;
 
       try {
 
@@ -87,7 +84,7 @@ namespace Xameleon.Transform {
 
           case "GET": {
 
-              XsltTransformer transform = _xsltCompiledHashtable.GetTransformer("baseTemplate", "/transform/base.xslt", new Uri("http://localhost:9999/", UriKind.Absolute), _processor);
+              XsltTransformer transform = _xsltCompiledHashtable.GetTransformer("baseTemplate", "/transform/base.xslt", new Uri("http://localhost/", UriKind.Absolute), _processor);
 
               foreach (DictionaryEntry entry in (Hashtable)_xsltCompiledHashtable.GetHashtable()) {
                 XsltTransformer transformer = (XsltTransformer)entry.Value;
