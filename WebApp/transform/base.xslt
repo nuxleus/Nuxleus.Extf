@@ -83,7 +83,7 @@
   <xsl:output method="xml" indent="yes" encoding="UTF-8" use-character-maps="xml"/>
 
   <xsl:template match="/">
-    <!-- <xsl:apply-templates/> -->
+    <xsl:apply-templates/>
     <xsl:value-of select="timestamp:ToShortDateString($timestamp)"/>
     <xsl:value-of select="uri:ToString($request-uri)"/>
     <xsl:value-of select="browser:Browser($browser)"/>
