@@ -79,6 +79,7 @@ namespace Xameleon.Transform {
       _transformAsyncResult._context = context;
       _output = "foobar";
       _transformAsyncResult.CompleteCall();
+      return _transformAsyncResult;
 
       //try {
 
