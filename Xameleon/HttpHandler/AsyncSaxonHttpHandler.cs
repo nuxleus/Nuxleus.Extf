@@ -188,9 +188,9 @@ namespace Xameleon.Transform {
       async._context.Response.Write(
         "<H1>This is an <i>Asynchronous</i> response!!</H1>");
       async._context.Response.Write(_output);
-      //if (_useMemcachedClient)
-      //  _memcachedClient.Set(_transformContext.RequestUriHash, _output);
-      //_writer.Dispose();
+      if (_useMemcachedClient)
+        _memcachedClient.Set(_transformContext.RequestUriHash, _output);
+      _writer.Dispose();
     }
 
     private void WriteError() {
