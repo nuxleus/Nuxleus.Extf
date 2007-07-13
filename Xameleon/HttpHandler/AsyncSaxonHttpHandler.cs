@@ -56,26 +56,26 @@ namespace Xameleon.Transform {
 
     public IAsyncResult BeginProcessRequest(HttpContext context, AsyncCallback cb, object extraData) {
 
-      _context = context;
-      _writer = _context.Response.Output;
-      _httpMethod = _context.Request.HttpMethod;
-      _transform = new Transform();
+      //_context = context;
+      //_writer = _context.Response.Output;
+      //_httpMethod = _context.Request.HttpMethod;
+      //_transform = new Transform();
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
-      _processor = (Processor)context.Application["processor"];
-      _compiler = (XsltCompiler)context.Application["compiler"];
-      _serializer = (Serializer)context.Application["serializer"];
-      _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
-      _resolver = (XmlUrlResolver)context.Application["resolver"];
-      _globalXsltParams = (Hashtable)context.Application["globalXsltParams"];
-      _sessionXsltParams = (Hashtable)context.Application["sessionXsltParams"];
-      _requestXsltParams = (Hashtable)context.Application["requestXsltParams"];
-      //_pythonEngine = (PythonEngine)context.Application["pythonEngine"];
-      _useMemcachedClient = (bool)context.Application["usememcached"];
+      //_processor = (Processor)context.Application["processor"];
+      //_compiler = (XsltCompiler)context.Application["compiler"];
+      //_serializer = (Serializer)context.Application["serializer"];
+      //_xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
+      //_resolver = (XmlUrlResolver)context.Application["resolver"];
+      //_globalXsltParams = (Hashtable)context.Application["globalXsltParams"];
+      //_sessionXsltParams = (Hashtable)context.Application["sessionXsltParams"];
+      //_requestXsltParams = (Hashtable)context.Application["requestXsltParams"];
+      ////_pythonEngine = (PythonEngine)context.Application["pythonEngine"];
+      //_useMemcachedClient = (bool)context.Application["usememcached"];
 
-      if (_useMemcachedClient) {
-        _memcachedClient = (MemcachedClient)context.Application["memcached"];
-        //_transformContext.MemcachedClient = _memcachedClient;
-      }
+      //if (_useMemcachedClient) {
+      //  _memcachedClient = (MemcachedClient)context.Application["memcached"];
+      //  //_transformContext.MemcachedClient = _memcachedClient;
+      //}
       _transformAsyncResult._context = context;
       _output = "foobar";
       _transformAsyncResult.CompleteCall();
@@ -188,8 +188,8 @@ namespace Xameleon.Transform {
       async._context.Response.Write(
         "<H1>This is an <i>Asynchronous</i> response!!</H1>");
       async._context.Response.Write(_output);
-      if (_useMemcachedClient)
-        _memcachedClient.Set(_transformContext.RequestUriHash, _output);
+      //if (_useMemcachedClient)
+      //  _memcachedClient.Set(_transformContext.RequestUriHash, _output);
       //_writer.Dispose();
     }
 
