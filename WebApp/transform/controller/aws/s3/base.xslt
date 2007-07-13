@@ -31,6 +31,7 @@
     xmlns:aspnet-server="clitype:System.Web.HttpServerUtility?partialname=System.Web"
     xmlns:aspnet-request="clitype:System.Web.HttpRequest?partialname=System.Web"
     xmlns:aspnet-response="clitype:System.Web.HttpResponse?partialname=System.Web"
+    xmlns:current-context="clitype:Xameleon.Function.GetHttpContext?partialname=Xameleon"
     xmlns:request-collection="clitype:Xameleon.Function.HttpRequestCollection?partialname=Xameleon"
     xmlns:response-collection="clitype:Xameleon.Function.HttpResponseCollection?partialname=Xameleon"
     xmlns:web-request="clitype:Xameleon.Function.HttpWebRequestStream?partialname=Xameleon"
@@ -43,20 +44,21 @@
     xmlns:s3object="clitype:Xameleon.Utility.S3.S3Object?partialname=Xameleon"
     xmlns:amazonaws="http://s3.amazonaws.com/doc/2006-03-01/"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    exclude-result-prefixes="test http-sgml-to-xml html s3-object-compare web-response web-request stream http-response-stream browser aws-gen aws-conn http-util s3object s3response uri amazonaws at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header sortedlist param service operation session aws s3 func xs xsi fn clitype response-collection request-collection">
+    exclude-result-prefixes="aspnet-context test http-sgml-to-xml html s3-object-compare web-response web-request stream http-response-stream browser aws-gen aws-conn http-util s3object s3response uri amazonaws at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header sortedlist param service operation session aws s3 func xs xsi fn clitype response-collection request-collection">
 
   <xsl:import href="../../../model/json-to-xml.xslt"/>
   <xsl:import href="../../test/base.xslt"/>
 
   <xsl:param name="aws-public-key" select="'not-set'" as="xs:string"/>
   <xsl:param name="aws-private-key" select="'not-set'" as="xs:string"/>
-  <xsl:param name="context" />
-  <xsl:variable name="response" select="aspnet-context:Response($context)" />
-  <xsl:variable name="request" select="aspnet-context:Request($context)"/>
-  <xsl:variable name="server" select="aspnet-context:Server($context)"/>
-  <xsl:variable name="session" select="aspnet-context:Session($context)"/>
-  <xsl:variable name="timestamp" select="aspnet-context:Timestamp($context)"/>
-  <xsl:variable name="debug" select="if (request-collection:GetValue($request, 'query-string', 'debug') = 'true') then true() else false()" as="xs:boolean" />
+  <xsl:param name="current-context" select="aspnet-context:Current()" />
+  <xsl:param name="response" select="current-context:GetHttpResponse($current-context)" />
+  <xsl:param name="request" select="current-context:GetHttpRequest($current-context)" />
+  <xsl:param name="server" select="current-context:GetHttpServer($current-context)"/>
+  <xsl:param name="session" select="current-context:GetHttpSession($current-context)"/>
+  <xsl:param name="timestamp" select="current-context:GetHttpTimestamp($current-context)"/>
+  <!-- <xsl:variable name="debug" select="true()"/> -->
+  <xsl:variable name="debug" select="if (request-collection:GetValue($response, 'query-string', 'debug') = 'true') then true() else false()" as="xs:boolean" />
   <xsl:variable name="not-set" select="'not-set'" as="xs:string"/>
   <xsl:variable name="guid" select="request-collection:GetValue($request, 'cookie', 'guid')" as="xs:string" />
   <xsl:variable name="session-params" select="func:eval-params(/service:operation/param:*)"/>
@@ -191,7 +193,7 @@
   <xsl:template match="operation:aws">
     <auth status="session">
       <url>
-        <xsl:sequence select="request-collection:GetValue($request, 'query-string', 'return_uri')"/>
+        <!-- <xsl:sequence select="request-collection:GetValue($request, 'query-string', 'return_uri')"/> -->
       </url>
       <message>
         <file>

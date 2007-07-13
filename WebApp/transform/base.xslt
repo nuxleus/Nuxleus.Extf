@@ -1,7 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:transform version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:transform version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:fn="http://www.w3.org/2005/xpath-functions"
+    xmlns:saxon="http://saxon.sf.net/"
+    xmlns:clitype="http://saxon.sf.net/clitype"
+    xmlns:at="http://atomictalk.org"
+    xmlns:func="http://atomictalk.org/function"
+    xmlns:aspnet="http://atomictalk.org/function/aspnet"
+    xmlns:service="http://xameleon.org/service"
+    xmlns:operation="http://xameleon.org/service/operation"
+    xmlns:proxy="http://xameleon.org/service/proxy"
+    xmlns:session="http://xameleon.org/service/session"
+    xmlns:param="http://xameleon.org/service/session/param"
+    xmlns:aws="http://xameleon.org/function/aws"
+    xmlns:s3="http://xameleon.org/function/aws/s3"
+    xmlns:header="http://xameleon.org/service/http/header"
+    xmlns:metadata="http://xameleon.org/service/metadata"
+    xmlns:test="http://xameleon.org/controller/test"
+    xmlns:aspnet-timestamp="clitype:System.DateTime"
+    xmlns:stream="clitype:System.IO.Stream"
+    xmlns:sortedlist="clitype:System.Collections.SortedList"
+    xmlns:uri="clitype:System.Uri?partialname=System"
+    xmlns:http-util="clitype:System.Web.HttpUtility?partialname=System.Web"
+    xmlns:web-response="clitype:System.Net.WebResponse?partialname=System"
+    xmlns:aspnet-session="clitype:System.Web.SessionState.HttpSessionState?partialname=System.Web"
+    xmlns:aspnet-context="clitype:System.Web.HttpContext?partialname=System.Web"
+    xmlns:browser="clitype:System.Web.HttpBrowserCapabilities?partialname=System.Web"
+    xmlns:aspnet-server="clitype:System.Web.HttpServerUtility?partialname=System.Web"
+    xmlns:aspnet-request="clitype:System.Web.HttpRequest?partialname=System.Web"
+    xmlns:aspnet-response="clitype:System.Web.HttpResponse?partialname=System.Web"
+    xmlns:current-context="clitype:Xameleon.Function.GetHttpContext?partialname=Xameleon"
+    xmlns:request-collection="clitype:Xameleon.Function.HttpRequestCollection?partialname=Xameleon"
+    xmlns:response-collection="clitype:Xameleon.Function.HttpResponseCollection?partialname=Xameleon"
+    xmlns:web-request="clitype:Xameleon.Function.HttpWebRequestStream?partialname=Xameleon"
+    xmlns:http-response-stream="clitype:Xameleon.Function.HttpWebResponseStream?partialname=Xameleon"
+    xmlns:s3-object-compare="clitype:Xameleon.Function.S3ObjectCompare?partialname=Xameleon"
+    xmlns:http-sgml-to-xml="clitype:Xameleon.Function.HttpSgmlToXml?partialname=Xameleon"
+    xmlns:s3response="clitype:Xameleon.Utility.S3.Response?partialname=Xameleon"
+    xmlns:aws-conn="clitype:Xameleon.Utility.S3.AWSAuthConnection?partialname=Xameleon"
+    xmlns:aws-gen="clitype:Xameleon.Utility.S3.QueryStringAuthGenerator?partialname=Xameleon"
+    xmlns:s3object="clitype:Xameleon.Utility.S3.S3Object?partialname=Xameleon"
+    xmlns:amazonaws="http://s3.amazonaws.com/doc/2006-03-01/"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:timestamp="clitype:System.DateTime"
+    exclude-result-prefixes="aspnet-context test http-sgml-to-xml html s3-object-compare web-response web-request stream http-response-stream browser aws-gen aws-conn http-util s3object s3response uri amazonaws at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header sortedlist param service operation session aws s3 func xs xsi fn clitype response-collection request-collection">
 
-  <xsl:import href="./controller/atomicxml/base.xslt"/>
+  <!-- <xsl:import href="../../../model/json-to-xml.xslt"/>
+  <xsl:import href="../../test/base.xslt"/> -->
+  
+  
+  <!-- <xsl:import href="./controller/atomicxml/base.xslt"/>
   <xsl:import href="./controller/aws/s3/base.xslt"/>
   <xsl:import href="./controller/proxy/base.xslt"/>
   <xsl:import href="./functions/funcset-dateTime.xslt"/>
@@ -11,7 +60,16 @@
   <xsl:import href="./functions/aspnet/server.xslt"/>
   <xsl:import href="./functions/aspnet/request-stream.xslt"/>
   <xsl:import href="./functions/aspnet/response-stream.xslt"/>
-  <xsl:import href="./functions/aspnet/timestamp.xslt"/>
+  <xsl:import href="./functions/aspnet/timestamp.xslt"/> -->
+
+  <xsl:param name="current-context" select="aspnet-context:Current()" />
+  <xsl:param name="response" select="aspnet-context:Response($current-context)" />
+  <xsl:param name="request" select="aspnet-context:Request($current-context)" />
+  <xsl:param name="server" select="aspnet-context:Server($current-context)"/>
+  <xsl:param name="session" select="aspnet-context:Session($current-context)"/>
+  <xsl:param name="timestamp" select="aspnet-context:Timestamp($current-context)"/>
+  <xsl:variable name="request-uri" select="aspnet-request:Url($request)"/>
+  <xsl:variable name="browser" select="aspnet-request:Browser($request)"/>
 
   <xsl:strip-space elements="*"/>
 
@@ -32,7 +90,10 @@
   <xsl:output method="xml" indent="yes" encoding="UTF-8" use-character-maps="xml"/>
 
   <xsl:template match="/">
-    <xsl:apply-templates/>
+    <!-- <xsl:apply-templates/> -->
+    <xsl:value-of select="timestamp:ToShortDateString($timestamp)"/>
+    <xsl:value-of select="uri:ToString($request-uri)"/>
+    <xsl:value-of select="browser:Browser($browser)"/>
   </xsl:template>
 
 </xsl:transform>
