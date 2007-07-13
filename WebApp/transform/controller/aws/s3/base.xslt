@@ -49,16 +49,14 @@
   <xsl:import href="../../../model/json-to-xml.xslt"/>
   <xsl:import href="../../test/base.xslt"/>
 
+  <xsl:param name="current-context" />
+  <xsl:param name="response" />
+  <xsl:param name="request" />
+  <xsl:param name="server" />
+  <xsl:param name="session" />
+  <xsl:param name="timestamp" />
   <xsl:param name="aws-public-key" select="'not-set'" as="xs:string"/>
   <xsl:param name="aws-private-key" select="'not-set'" as="xs:string"/>
-  <xsl:param name="current-context" select="aspnet-context:Current()" />
-  <xsl:param name="response" select="current-context:GetHttpResponse($current-context)" />
-  <xsl:param name="request" select="current-context:GetHttpRequest($current-context)" />
-  <xsl:param name="server" select="current-context:GetHttpServer($current-context)"/>
-  <xsl:param name="session" select="current-context:GetHttpSession($current-context)"/>
-  <xsl:param name="timestamp" select="current-context:GetHttpTimestamp($current-context)"/>
-  <!-- <xsl:variable name="debug" select="true()"/> -->
-  <xsl:variable name="debug" select="if (request-collection:GetValue($response, 'query-string', 'debug') = 'true') then true() else false()" as="xs:boolean" />
   <xsl:variable name="not-set" select="'not-set'" as="xs:string"/>
   <xsl:variable name="guid" select="request-collection:GetValue($request, 'cookie', 'guid')" as="xs:string" />
   <xsl:variable name="session-params" select="func:eval-params(/service:operation/param:*)"/>
