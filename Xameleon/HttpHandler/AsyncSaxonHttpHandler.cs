@@ -7,7 +7,9 @@ using System.IO;
 using System.Data;
 using System.Configuration;
 using System.Threading;
+using System.Security.Principal;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Collections;
@@ -97,6 +99,17 @@ namespace Xameleon.Transform {
                 } else {
                   
                   try {
+
+                    _xsltParams["context"] = (HttpContext)_context;
+                    _xsltParams["request"] = (HttpRequest)_context.Request;
+                    _xsltParams["response"] = (HttpResponse)_context.Response;
+                    _xsltParams["server"] = (HttpServerUtility)_context.Server;
+                    _xsltParams["timestamp"] = (DateTime)_context.Timestamp;
+                    _xsltParams["session"] = (HttpSessionState)_context.Session;
+                    _xsltParams["errors"] = (Exception[])_context.AllErrors;
+                    _xsltParams["cache"] = (Cache)_context.Cache;
+                    _xsltParams["user"] = (IPrincipal)_context.User;
+
                     _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
                     _context.Response.Write(_compiler.BaseUri.ToString());
                     _transform.BeginAsyncProcess(_transformContext);

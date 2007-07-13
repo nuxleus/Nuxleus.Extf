@@ -122,16 +122,7 @@
                 xsltParams[param.Key] = (string)param.Value;
             }
         }
-        xsltParams["context"] = HttpContext.Current;
-        xsltParams["request"] = HttpContext.Current.Request;
-        xsltParams["response"] = HttpContext.Current.Response;
-        xsltParams["server"] = HttpContext.Current.Server;
-        xsltParams["timestamp"] = HttpContext.Current.Timestamp;
-        xsltParams["session"] = HttpContext.Current.Session;
-        xsltParams["errors"] = HttpContext.Current.AllErrors;
-        xsltParams["cache"] = HttpContext.Current.Cache;
-        xsltParams["user"] = HttpContext.Current.User;
-        
+
         Application["processor"] = _Processor;
         Application["compiler"] = _Compiler;
         Application["serializer"] = _Serializer;
