@@ -183,7 +183,6 @@ namespace Xameleon.Transform {
     public void Dispose() {
       _XmlSource = null;
       _XsltSource = null;
-      _BaseUri = null;
       _SourceXml.Close();
       _SourceXml.Dispose();
       _TemplateStream.Close();

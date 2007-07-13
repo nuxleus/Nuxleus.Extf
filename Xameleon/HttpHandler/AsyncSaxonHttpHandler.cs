@@ -39,11 +39,8 @@ namespace Xameleon.Transform {
     Serializer _serializer;
     PythonEngine _pythonEngine;
     XmlUrlResolver _resolver;
-    Hashtable _globalXsltParams;
-    Hashtable _sessionXsltParams;
-    Hashtable _requestXsltParams;
     Hashtable _xsltParams;
-    String _output = "";
+    String _output;
 
     public void ProcessRequest(HttpContext context) {
       //not called
@@ -67,8 +64,7 @@ namespace Xameleon.Transform {
       _serializer = (Serializer)context.Application["serializer"];
       _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
       _resolver = (XmlUrlResolver)context.Application["resolver"];
-      _globalXsltParams = (Hashtable)context.Application["globalXsltParams"];
-      //_requestXsltParams = (Hashtable)context.Application["requestXsltParams"];
+      _xsltParams = (Hashtable)context.Application["xsltParams"];
       _useMemcachedClient = (bool)context.Application["usememcached"];
       if (_useMemcachedClient) {
         _memcachedClient = (MemcachedClient)context.Application["memcached"];
@@ -89,29 +85,7 @@ namespace Xameleon.Transform {
               //  _context.Response.Output.WriteLine("Value: " + transformer.GetHashCode().ToString());
               //  _context.Response.Output.WriteLine("Value2: " + transform.GetHashCode().ToString());
               //}
-              _xsltParams = new Hashtable();
-
-              if (_globalXsltParams != null && _globalXsltParams.Count > 0) {
-                foreach (DictionaryEntry param in _globalXsltParams) {
-                  _xsltParams[param.Key] = (string)param.Value;
-                }
-              }
-              //if (_sessionXsltParams != null && _sessionXsltParams.Count > 0) {
-              //  foreach (DictionaryEntry param in _sessionXsltParams) {
-              //    _xsltParams[param.Key] = (string)param.Value;
-              //  }
-              //}
-
-              //_xsltParams["context"] = _context;
-              _xsltParams["request"] = _context.Request;
-              _xsltParams["response"] = _context.Response;
-              _xsltParams["server"] = _context.Server;
-              _xsltParams["timestamp"] = _context.Timestamp;
-              _xsltParams["session"] = _context.Session;
-              _xsltParams["errors"] = _context.AllErrors;
-              _xsltParams["cache"] = _context.Cache;
-              _xsltParams["user"] = _context.User;
-
+              
               if (_useMemcachedClient) {
                 _output = "memcached is true";
                   string key = _context.Request.Url.GetHashCode().ToString();
@@ -142,7 +116,6 @@ namespace Xameleon.Transform {
                 _transformAsyncResult.CompleteCall();
                 return _transformAsyncResult;
               }
-              //_transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
             }

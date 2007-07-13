@@ -29,7 +29,7 @@ namespace Xameleon.HttpApplication {
     AspNetBungeeAppConfiguration _BungeeAppConfguration = AspNetBungeeAppConfiguration.GetConfig();
     AspNetMemcachedConfiguration _MemcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
     XsltCompiledHashtable _XsltCompiledHashtable = new XsltCompiledHashtable();
-    Transform _Transform = new Transform();
+    Transform.Transform _Transform = new Transform.Transform();
     Processor _Processor = new Processor();
     XsltCompiler _Compiler = null;
     Serializer _Serializer = new Serializer();
