@@ -69,46 +69,11 @@ namespace Xameleon.Transform {
       _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
       _resolver = (XmlUrlResolver)context.Application["resolver"];
       _globalXsltParams = (Hashtable)context.Application["globalXsltParams"];
-      _sessionXsltParams = (Hashtable)context.Application["sessionXsltParams"];
       _requestXsltParams = (Hashtable)context.Application["requestXsltParams"];
-      //_pythonEngine = (PythonEngine)context.Application["pythonEngine"];
-      _useMemcachedClient = true;//(bool)context.Application["usememcached"];
-      _memcachedClient = (MemcachedClient)context.Application["memcached"];
-      
-      //SockIOPool _pool = null;
-
-      //AspNetMemcachedConfiguration _MemcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
-
-      //if (_MemcachedConfiguration.UseCompression != null && _MemcachedConfiguration.UseCompression == "yes")
-      //  _memcachedClient.EnableCompression = true;
-      //else
-      //  _memcachedClient.EnableCompression = false;
-
-      //List<string> serverList = new List<string>();
-
-      //foreach (MemcachedServer server in _MemcachedConfiguration.MemcachedServerCollection) {
-      //  serverList.Add(server.IP + ":" + server.Port);
-      //}
-
-      //_pool = SockIOPool.GetInstance();
-
-      //_pool.SetServers(serverList.ToArray());
-
-      //MemcachedPoolConfig poolConfig = (MemcachedPoolConfig)_MemcachedConfiguration.PoolConfig;
-
-      //_pool.InitConnections = (int)poolConfig.InitConnections;
-      //_pool.MinConnections = (int)poolConfig.MinConnections;
-      //_pool.MaxConnections = (int)poolConfig.MaxConnections;
-      //_pool.SocketConnectTimeout = (int)poolConfig.SocketConnectTimeout;
-      //_pool.SocketTimeout = (int)poolConfig.SocketConnect;
-      //_pool.MaintenanceSleep = (int)poolConfig.MaintenanceSleep;
-      //_pool.Failover = (bool)poolConfig.Failover;
-      //_pool.Nagle = (bool)poolConfig.Nagle;
-      //_pool.Initialize();
-
-      //if (_useMemcachedClient) {
-      //  _memcachedClient = (MemcachedClient)context.Application["memcached"];
-      //}
+      _useMemcachedClient = (bool)context.Application["usememcached"];
+      if (_useMemcachedClient) {
+        _memcachedClient = (MemcachedClient)context.Application["memcached"];
+      }
       _transformAsyncResult._context = context;
       
       try {

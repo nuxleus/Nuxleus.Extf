@@ -16,7 +16,15 @@ namespace Xameleon.Transform {
       this.results = table;
     }
 
+    public void AddTransformer(string name, Uri uri, Processor processor) {
+      string xsltUriHash = uri.GetHashCode().ToString();
+      string key = name + ":" + xsltUriHash;
+      XsltTransformer transformer = processor.NewXsltCompiler().Compile(uri).Load();
+      results[key] = (XsltTransformer)transformer;
+    }
+
     public XsltTransformer GetTransformer(string name, string href, Uri baseUri, Processor processor) {
+
       Uri xsltUri = new Uri(baseUri, href);
       string xsltUriHash = xsltUri.GetHashCode().ToString();
       string key = name + ":" + xsltUriHash;
@@ -29,7 +37,7 @@ namespace Xameleon.Transform {
       }
 
       XsltTransformer transformer = processor.NewXsltCompiler().Compile(xsltUri).Load();
-      results[key] = transformer;
+      results[key] = (XsltTransformer)transformer;
       return transformer;
     }
 
