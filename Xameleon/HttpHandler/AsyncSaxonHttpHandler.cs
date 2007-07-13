@@ -94,7 +94,8 @@ namespace Xameleon.Transform {
               //}
 
 
-              //if (_useMemcachedClient) {
+              if (_useMemcachedClient) {
+                _output = "memcached is true";
               //  string key = _context.Request.Url.GetHashCode().ToString();
               //  string obj = (string)_memcachedClient.Get(key);
               //  if (obj != null) {
@@ -142,7 +143,7 @@ namespace Xameleon.Transform {
               //  _transform.BeginAsyncProcess(_requestContext);
               //  _transformAsyncResult.CompleteCall();
               //  return _transformAsyncResult;
-              //}
+              }
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
