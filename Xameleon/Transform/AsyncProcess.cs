@@ -6,6 +6,7 @@ using System.Xml;
 using Saxon.Api;
 using Xameleon.ResultDocumentHandler;
 using System.Text;
+using System.Web.SessionState;
 
 namespace Xameleon.Transform {
 
@@ -27,11 +28,11 @@ namespace Xameleon.Transform {
               transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
             }
           }
-          transformer.SetParameter(new QName("", "", "request"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(HttpContext.Current.Request)));
-          transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(HttpContext.Current.Response)));
-          transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(HttpContext.Current.Timestamp)));
-          transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(HttpContext.Current.Session)));
-          transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(HttpContext.Current.Server)));
+          transformer.SetParameter(new QName("", "", "request"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpRequest)HttpContext.Current.Request)));
+          transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpResponse)HttpContext.Current.Response)));
+          transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((DateTime)HttpContext.Current.Timestamp)));
+          transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpSessionState)HttpContext.Current.Session)));
+          transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpServerUtility)HttpContext.Current.Server)));
 
           transformer.InputXmlResolver = context.Resolver;
           transformer.InitialContextNode = context.Node;
