@@ -42,7 +42,7 @@ namespace Xameleon.Transform {
     Hashtable _requestXsltParams;
     Hashtable _xsltParams;
     Context _requestContext;
-    String _output;
+    String _output = "";
 
     public void ProcessRequest(HttpContext context) {
       //not called
@@ -71,10 +71,11 @@ namespace Xameleon.Transform {
       _requestXsltParams = (Hashtable)context.Application["requestXsltParams"];
       //_pythonEngine = (PythonEngine)context.Application["pythonEngine"];
       _useMemcachedClient = true;//(bool)context.Application["usememcached"];
+      _memcachedClient = (MemcachedClient)context.Application["memcached"];
 
-      if (_useMemcachedClient) {
-        _memcachedClient = (MemcachedClient)context.Application["memcached"];
-      }
+      //if (_useMemcachedClient) {
+      //  _memcachedClient = (MemcachedClient)context.Application["memcached"];
+      //}
       _transformAsyncResult._context = context;
       
       try {
@@ -83,14 +84,14 @@ namespace Xameleon.Transform {
 
           case "GET": {
 
-              XsltTransformer transform = _xsltCompiledHashtable.GetTransformer("baseTemplate", "/transform/base.xslt", new Uri("http://localhost/", UriKind.Absolute), _processor);
+              //XsltTransformer transform = _xsltCompiledHashtable.GetTransformer("baseTemplate", "/transform/base.xslt", new Uri("http://localhost:9999/", UriKind.Absolute), _processor);
 
-              foreach (DictionaryEntry entry in (Hashtable)_xsltCompiledHashtable.GetHashtable()) {
-                XsltTransformer transformer = (XsltTransformer)entry.Value;
-                _context.Response.Output.WriteLine("Key: " + entry.Key);
-                _context.Response.Output.WriteLine("Value: " + transformer.GetHashCode().ToString());
-                _context.Response.Output.WriteLine("Value2: " + transform.GetHashCode().ToString());
-              }
+              //foreach (DictionaryEntry entry in (Hashtable)_xsltCompiledHashtable.GetHashtable()) {
+              //  XsltTransformer transformer = (XsltTransformer)entry.Value;
+              //  _context.Response.Output.WriteLine("Key: " + entry.Key);
+              //  _context.Response.Output.WriteLine("Value: " + transformer.GetHashCode().ToString());
+              //  _context.Response.Output.WriteLine("Value2: " + transform.GetHashCode().ToString());
+              //}
 
 
               if (_useMemcachedClient) {
@@ -103,16 +104,16 @@ namespace Xameleon.Transform {
                 } else {
                   _xsltParams = new Hashtable();
 
-                  if (_sessionXsltParams != null && _globalXsltParams.Count > 0) {
+                  if (_globalXsltParams != null && _globalXsltParams.Count > 0) {
                     foreach (DictionaryEntry param in _globalXsltParams) {
                       _xsltParams[param.Key] = (string)param.Value;
                     }
                   }
-                  if (_sessionXsltParams != null && _sessionXsltParams.Count > 0) {
-                    foreach (DictionaryEntry param in _sessionXsltParams) {
-                      _xsltParams[param.Key] = (string)param.Value;
-                    }
-                  }
+                  //if (_sessionXsltParams != null && _sessionXsltParams.Count > 0) {
+                  //  foreach (DictionaryEntry param in _sessionXsltParams) {
+                  //    _xsltParams[param.Key] = (string)param.Value;
+                  //  }
+                  //}
 
                   _xsltParams["context"] = _context;
                   _xsltParams["request"] = _context.Request;
