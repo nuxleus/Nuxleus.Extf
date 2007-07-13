@@ -13,7 +13,7 @@ namespace Xameleon.Transform {
   ///</summary>
   public partial class Transform {
 
-    public void BeginAsyncProcess(Context context, AsyncCallback cb, TransformServiceAsyncResult result) {
+    public void BeginAsyncProcess(Context context) {
 
       using (context.TemplateStream) {
 
@@ -34,7 +34,6 @@ namespace Xameleon.Transform {
           lock (transformer) {
             transformer.Run(context.Destination);
           }
-          result.CompleteCall();
         }
       }
     }

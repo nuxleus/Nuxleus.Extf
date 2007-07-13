@@ -37,6 +37,7 @@ namespace Xameleon.Transform {
     Serializer _Destination;
     MemcachedClient _MemcachedClient;
     StringBuilder _StringBuilder;
+    bool _INITIALIZED;
 
     public Context(HttpContext context, Processor processor, XsltCompiler compiler, Serializer serializer, XmlUrlResolver resolver, Hashtable xsltParams, bool addHttpContextParams, params string[] httpContextParamList) {
       _AppSettings = (AppSettings)context.Application["appSettings"];
@@ -81,6 +82,7 @@ namespace Xameleon.Transform {
                       Something very very bad has happened. Run while you still can!
                     </message>
                   </system>";
+      _INITIALIZED = true;
     }
 
     public String RequestUriHash {
@@ -170,6 +172,10 @@ namespace Xameleon.Transform {
     public TextWriter ResponseOutput {
       get { return _ResponseOutput; }
       set { _ResponseOutput = value; }
+    }
+    public bool IsInitialized {
+      get { return _INITIALIZED; }
+      set { _INITIALIZED = value; }
     }
 
     #region IDisposable Members
