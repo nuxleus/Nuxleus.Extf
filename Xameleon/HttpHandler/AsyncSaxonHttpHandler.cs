@@ -127,6 +127,7 @@ namespace Xameleon.Transform {
                   try {
                     _requestContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
                     _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
+                    _transformAsyncResult.CompleteCall();
                     return _transformAsyncResult;
                   } catch (Exception e) {
                     _exception = e;
