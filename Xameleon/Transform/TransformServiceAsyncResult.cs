@@ -9,44 +9,52 @@ using Memcached.ClientLibrary;
 namespace Xameleon.Transform {
 
   public class TransformServiceAsyncResult : IAsyncResult {
-    AsyncCallback _callback;
-    ManualResetEvent _event;
-    internal HttpContext _context;
-    bool _completed = false;
-    object _lock = new object();
-    object _state;
 
-    public TransformServiceAsyncResult(AsyncCallback callback, object state) {
-      _callback = callback;
-      _state = state;
-      _completed = false;
+    internal TransformServiceAsyncResult(AsyncCallback cb, Object extraData) {
+      this.cb = cb;
+      asyncState = extraData;
+      isCompleted = false;
     }
 
-    public Object AsyncState { get { return _state; } }
+    private AsyncCallback cb = null;
+    private Object asyncState;
+    public object AsyncState {
+      get {
+        return asyncState;
+      }
+    }
 
-    public bool CompletedSynchronously { get { return false; } }
+    public bool CompletedSynchronously {
+      get {
+        return false;
+      }
+    }
 
-    public bool IsCompleted { get { return _completed; } }
-
+    // If this object was not being used solely with ASP.Net this
+    // method would need an implementation. ASP.Net never uses the
+    // event, so it is not implemented here.
     public WaitHandle AsyncWaitHandle {
       get {
-        lock (_lock) {
-          if (_event == null)
-            _event = new ManualResetEvent(IsCompleted);
-          return _event;
-        }
+        throw new InvalidOperationException(
+                  "ASP.Net should never use this property");
       }
     }
 
-    public void CompleteCall() {
-      lock (_lock) {
-        _completed = true;
-        if (_event != null)
-          _event.Set();
+    private Boolean isCompleted;
+    public bool IsCompleted {
+      get {
+        return isCompleted;
       }
-
-      if (_callback != null)
-        _callback(this);
     }
+
+    internal void CompleteCall() {
+      isCompleted = true;
+      if (cb != null) {
+        cb(this);
+      }
+    }
+
+    // state internal fields
+    internal HttpContext _context = null;
   }
 }

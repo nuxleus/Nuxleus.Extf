@@ -191,7 +191,7 @@ namespace Xameleon.Transform {
       async._context.Response.Write(_output);
       if (_useMemcachedClient)
         _memcachedClient.Set(_transformContext.RequestUriHash, _output);
-      _writer.Dispose();
+      //_writer.Dispose();
     }
 
     private void WriteError() {
