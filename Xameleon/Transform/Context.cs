@@ -14,6 +14,7 @@ using System.Text;
 namespace Xameleon.Transform {
 
   public struct Context : IDisposable {
+    HttpContext _HttpContext;
     AppSettings _AppSettings;
     String _RequestUriHash;
     String _BaseUri;
@@ -52,6 +53,7 @@ namespace Xameleon.Transform {
       //  _xsltParamKey = "xsltParam_";
       //}
 
+      _HttpContext = context;
       _BaseUri = compiler.BaseUri.ToString();
       _BaseTemplateUri = compiler.BaseUri;
       _XmlSource = new Uri(context.Request.MapPath(context.Request.CurrentExecutionFilePath));
@@ -83,6 +85,11 @@ namespace Xameleon.Transform {
                     </message>
                   </system>";
       _INITIALIZED = true;
+    }
+
+    public HttpContext HttpContext {
+      get { return _HttpContext; }
+      set { _HttpContext = value; }
     }
 
     public String RequestUriHash {

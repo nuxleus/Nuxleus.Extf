@@ -28,11 +28,11 @@ namespace Xameleon.Transform {
               transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
             }
           }
-          transformer.SetParameter(new QName("", "", "request"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpRequest)HttpContext.Current.Request)));
-          transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpResponse)HttpContext.Current.Response)));
-          transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((DateTime)HttpContext.Current.Timestamp)));
-          transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpSessionState)HttpContext.Current.Session)));
-          transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpServerUtility)HttpContext.Current.Server)));
+          transformer.SetParameter(new QName("", "", "request"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpRequest)context.HttpContext.Request)));
+          transformer.SetParameter(new QName("", "", "response"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpResponse)context.HttpContext.Response)));
+          transformer.SetParameter(new QName("", "", "timestamp"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((DateTime)context.HttpContext.Timestamp)));
+          transformer.SetParameter(new QName("", "", "session"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpSessionState)context.HttpContext.Session)));
+          transformer.SetParameter(new QName("", "", "server"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpServerUtility)context.HttpContext.Server)));
 
           transformer.InputXmlResolver = context.Resolver;
           transformer.InitialContextNode = context.Node;
