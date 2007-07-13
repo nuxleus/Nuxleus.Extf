@@ -58,7 +58,7 @@ namespace Xameleon.Transform {
 
       _context = context;
       _writer = _context.Response.Output;
-      _httpMethod = context.Request.HttpMethod;
+      _httpMethod = _context.Request.HttpMethod;
       _transform = new Transform();
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
       _processor = (Processor)context.Application["processor"];
@@ -87,7 +87,7 @@ namespace Xameleon.Transform {
 
           case "GET": {
 
-              XsltTransformer transform = _xsltCompiledHashtable.GetTransformer("baseTemplate", "/transform/base.xslt", new Uri("http://localhost/", UriKind.Absolute), _processor);
+              XsltTransformer transform = _xsltCompiledHashtable.GetTransformer("baseTemplate", "/transform/base.xslt", new Uri("http://localhost:9999/", UriKind.Absolute), _processor);
 
               foreach (DictionaryEntry entry in (Hashtable)_xsltCompiledHashtable.GetHashtable()) {
                 XsltTransformer transformer = (XsltTransformer)entry.Value;
@@ -118,7 +118,7 @@ namespace Xameleon.Transform {
                     }
                   }
 
-                  _xsltParams["context"] = _context.Request;
+                  _xsltParams["context"] = _context;
                   _xsltParams["request"] = _context.Request;
                   _xsltParams["response"] = _context.Response;
                   _xsltParams["server"] = _context.Server;
