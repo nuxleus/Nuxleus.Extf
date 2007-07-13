@@ -96,12 +96,13 @@ namespace Xameleon.Transform {
 
               if (_useMemcachedClient) {
                 _output = "memcached is true";
-              //  string key = _context.Request.Url.GetHashCode().ToString();
-              //  string obj = (string)_memcachedClient.Get(key);
-              //  if (obj != null) {
-              //    _output = obj;
-              //    _transformAsyncResult.CompleteCall();
-              //    return _transformAsyncResult;
+                  string key = _context.Request.Url.GetHashCode().ToString();
+                  string obj = (string)_memcachedClient.Get(key);
+                if (obj != null) {
+                  _output = obj;
+                  _transformAsyncResult.CompleteCall();
+                  return _transformAsyncResult;
+                }
               //  } else {
               //    _xsltParams = new Hashtable();
 
