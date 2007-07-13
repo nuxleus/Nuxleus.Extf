@@ -1,57 +1,179 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/transform/client-side/atomictalk-browser-node-set.xsl"?>
 <!--
   COPYRIGHT: (c) 2006, M. David Peterson (mailto:m.david@xmlhacker.com; http://mdavid.name/)
-  LICENSE: The code contained in this file is licensed under The MIT License. Please see http://www.opensource.org/licenses/mit-license.php for specific detail.
-  EXT:CODEBASE
-    Some code linked to (as in hyperlinked, as opposed to linked and compiled against) in this file falls under the following license and copyright
-    /* Copyright 2006 Microsoft Corporation.  Microsoft's copyrights in this work are licensed under the Creative Commons */
-    /* Attribution-ShareAlike 2.5 License.  To view a copy of this license visit http://creativecommons.org/licenses/by-sa/2.5 */
-  /EXT:CODEBASE
+  LICENSE: The code contained in this file is licensed under The MIT License. Please see
+  http://www.opensource.org/licenses/mit-license.php for specific detail.
 -->
-<?xml-stylesheet type="text/xsl" href="/transform/build-output.xsl"?>
-<my:session xmlns:html="http://www.w3.org/1999/xhtml"
-  xmlns:bVend="http://xameleon.org/service/browservendors"
-  xmlns:my="http://xameleon.org/service/session"
-  xmlns:page="http://xameleon.org/service/page/output">
-  <my:page>
+<my:session xmlns:my="http://xameleon.org/my">
+  <my:page xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:page="http://atomictalk.org/page"
+      xmlns:service="http://atomictalk.org/page/service"
+      xmlns:output="http://atomictalk.org/page/output"
+      xmlns:head="http://atomictalk.org/page/head"
+      xmlns:body="http://atomictalk.org/page/body"
+      xmlns:advice="http://aspectxml.org/advice"
+      xmlns:view="http://atomictalk.org/page/view"
+      xmlns:form="http://atomictalk.org/page/view/form"
+      xmlns:menu="http://atomictalk.org/page/view/menu"
+      xmlns:resource="http://atomictalk.org/page/resource"
+      xmlns:property="http://atomictalk.org/page/property"
+      xmlns:variable="http://atomictalk.org/page/variable"
+      xmlns:model="http://atomictalk.org/page/model"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:app="http://purl.org/atom/app#"
+      xmlns:atom="http://www.w3.org/2005/Atom">
     <page:config>
-      <bVend:bVendors>
-        <bVend:vBrowser vendor="Microsoft">
-          <page:head.include fileType="css" href="/static/css/ie.css"/>
-          <page:head.include fileType="css" href="/static/css/ie-webClipControl.css"/>
-          <page:head.include fileType="javascript" href="/static/js/ie.js"/>
-          <page:head.include fileType="javascript" href="/static/js/ie-liveclip.js"/>
-        </bVend:vBrowser>
-        <bVend:vBrowser vendor="Transformiix">
-          <page:head.include fileType="css" href="/static/css/mozilla.css"/>
-          <page:head.include fileType="css" href="/static/css/mozilla-webClipControl.css"/>
-          <page:head.include fileType="javascript" href="/static/js/mozilla.js"/>
-          <page:head.include fileType="javascript" href="/static/js/mozilla-liveclip.js"/>
-        </bVend:vBrowser>
-        <bVend:vBrowser vendor="libxslt">
-          <page:head.include fileType="css" href="/static/css/safari.css"/>
-          <page:head.include fileType="css" href="/static/css/safari-webClipControl.css"/>
-          <page:head.include fileType="javascript" href="/static/js/safari.js"/>
-          <page:head.include fileType="javascript" href="/static/js/safari-liveclip.js"/>
-        </bVend:vBrowser>
-        <bVend:vBrowser vendor="Opera">
-          <page:head.include fileType="css" href="/static/css/opera.css"/>
-          <page:head.include fileType="css" href="/static/css/opera-webClipControl.css"/>
-          <page:head.include fileType="javascript" href="/static/js/opera.js"/>
-          <page:head.include fileType="javascript" href="/static/js/opera-liveclip.js"/>
-        </bVend:vBrowser>
-      </bVend:bVendors>
+      <page:output type="xhtml-strict" cdata-section-elements="script" indent="no">
+        <output:xhtml-strict>
+          <output:doctype-system>-//W3C//DTD XHTML 1.0 Strict//EN</output:doctype-system>
+          <output:doctype-public>http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd</output:doctype-public>
+          <output:method>html</output:method>
+        </output:xhtml-strict>
+      </page:output>
+      <page:variable>
+        <variable:page>
+          <property:title>@@date@@ : @@$domain.label$@@</property:title>
+        </variable:page>
+        <variable:date>May 29th, 2007</variable:date>
+        <variable:protocol>http://</variable:protocol>
+        <variable:space></variable:space>
+        <variable:dot>.</variable:dot>
+        <variable:colon>:</variable:colon>
+        <variable:domain>
+          <property:name>sonicradar</property:name>
+          <property:tld>com</property:tld>
+          <property:sub>austin</property:sub>
+          <property:label>(son(ic()ra)dar)</property:label>
+        </variable:domain>
+        <variable:location>
+          <property:base>@@$base-uri$@@</property:base>
+          <property:path>frontpage</property:path>
+          <property:label>front page</property:label>
+        </variable:location>
+      </page:variable>
+      <page:advice>
+        <advice:hello-world>Hello, World!</advice:hello-world>
+        <advice:TODO>TODO:@@space@@[$:comment::foobar:$]</advice:TODO>
+        <advice:page-title>@@domain.label@@::@@date@@</advice:page-title>
+        <advice:date>July 1st, 2007</advice:date>
+        <advice:protocol>http://</advice:protocol>
+        <advice:space>&#160;</advice:space>
+        <advice:dot>.</advice:dot>
+        <advice:colon>:</advice:colon>
+        <advice:sub-domain>test</advice:sub-domain>
+        <advice:domain-name>atomictalk</advice:domain-name>
+        <advice:root>org</advice:root>
+        <advice:domain>|$$test:@@sub-domain@@IfTrue:@@sub-domain@@@@dot@@IfFalse:@@empty@@$$|@@domain-name@@|$$test:@@root@@IfTrue:@@dot@@@@root@@IfFalse:@@empty@@$$|</advice:domain>
+        <advice:domain.label>atomictalk.org</advice:domain.label>
+        <advice:base-uri>@@protocol@@@@domain@@|$$test:@@port@@IfTrue:@@colon@@@@port@@IfFalse:@@empty@@$$|</advice:base-uri>
+        <advice:service-gateway>@@base-uri@@/service</advice:service-gateway>
+        <advice:openid-gateway>/service/gatekeeper/login?</advice:openid-gateway>
+        <advice:search-summary>/summary?</advice:search-summary>
+        <advice:current-location>@@base-uri@@/@@location@@</advice:current-location>
+        <advice:location>frontpage</advice:location>
+        <advice:location.label>front page</advice:location.label>
+        <advice:current-location.label>Austin, TX</advice:current-location.label>
+        <advice:static>@@base-uri@@</advice:static>
+        <advice:static-css-browser>@@static@@/css/@@browser@@</advice:static-css-browser>
+        <advice:static-js-browser>@@static@@/js/@@browser@@</advice:static-js-browser>
+        <advice:empty></advice:empty>
+        <advice:lat>resource:ip-location/lat</advice:lat>
+        <advice:long>resource:ip-location/long</advice:long>
+        <advice:max-depth>8</advice:max-depth>
+        <advice:google-maps.key>ABQIAAAAEPQGOws5xNa--1d-oQQDjhTGATBBJj1ek54YiRFsu72FXrsCiBTXTbpwI990CeZRoqCkI4KdcuGiLQ</advice:google-maps.key>
+        <advice:search.box.label>Search @@domain.label@@ For...</advice:search.box.label>
+        <advice:openid.label>Authenticate w/ OpenID</advice:openid.label>
+        <advice:browser compare="xsl:vendor" compare-with="Microsoft">ie</advice:browser>
+        <advice:browser compare="xsl:vendor" compare-with="Transformiix">mozilla</advice:browser>
+        <advice:browser compare="xsl:vendor" compare-with="libxslt">safari</advice:browser>
+        <advice:browser compare="xsl:vendor" compare-with="Opera">opera</advice:browser>
+        <advice:search-form.text>@value@|default:'Search...'|</advice:search-form.text>
+        <advice:search-form.input>@value@|default:'Go!'|</advice:search-form.input>
+        <advice:search-form.maxlength>@@maxlength@@|default:'255'|</advice:search-form.maxlength>
+        <advice:search-form.method>@method@|default:@@generate@@|</advice:search-form.method>
+        <advice:search-form.action>@action@|default:@@generate@@|</advice:search-form.action>
+        <advice:search-summary>summary/default.omx?</advice:search-summary>
+        <advice:target.default>@target@|default:@@generate@@|</advice:target.default>
+        <advice:name.default>@id@|default:@@generate@@|</advice:name.default>
+        <advice:class.default>@class@|default:@@empty@@|</advice:class.default>
+        <advice:id.default>@id@|default:@@generate@@|</advice:id.default>
+        <advice:toggle.id>control-center</advice:toggle.id>
+        <advice:toggle.duration>500</advice:toggle.duration>
+        <advice:onload.mySlider>mySlider.toggle()</advice:onload.mySlider>
+        <advice:atom>application/atom+xml</advice:atom>
+      </page:advice>
     </page:config>
+    <page:service>
+      <service:ip-location href="@@service-gateway@@/ipgeolocator/geocode" />
+      <service:language-selector href="@@TODO@@" />
+    </page:service>
+    <page:model>
+      <model:lang binding="@@atom@@">
+        @@TODO|$comment: Data that binds a language code with the proper URI to gain access to content in the specified language$|@@ 
+      </model:lang>
+      <model:menu binding="@@atom@@">
+        @@TODO|$comment: $|@@
+      </model:menu>
+    </page:model>
+    <page:view>
+      <view:search-form
+          xmlns:form="http://atomictalk.org/page/view/form">
+        <form:search-form type="html"
+            id="@@id.generate|default:@id@|@@"
+            method="@@search-form.method@@"
+            action="@@search-form.action@@"
+            target="@@target.default@@"
+            class="@@class.default@@">
+          <form:input type="text"
+              name="@name@|required|"
+              id="@@id.generate|default:@id@|@@"
+              maxlength="@@search-form.maxlength@@"
+              value="@@search-form.text@@"
+              onclick="if (this.value == '@@search-form.text@@') this.value = ''; return true;"
+              onblur="if (this.value == '') this.value = '@@search-form.text@@'; return true;"
+              class="@@class.default@@" />
+          <form:input type="hidden"
+              id="@@id.generate|default:@id@|@@"
+              name="@name@|required|"
+              value="@value@|required|"
+              class="@@class.default@@" />
+          <form:input type="submit"
+              id="@@id.generate|default:@id@|@@"
+              value="@@search-form.input@@"
+              class="@@class.default@@" />
+        </form:search-form>
+      </view:search-form>
+      <view:menu>
+        <menu:list type="html"
+            id="@@id.generate|default:@id@|@@">
+          <menu:item type="label">@label@</menu:item>
+          <menu:item type="link">
+            <html:a href="@href@">@label@</html:a>
+          </menu:item>
+        </menu:list>
+      </view:menu>
+    </page:view>
+    <page:resource>
+      <resource:ip-location type="string" src="@@service-gateway@@@@service:ip-location@@" />
+      <resource:help-support type="page" href="@@base-uri@@/support/" label="Help/Support" />
+      <resource:create-new-account type="page" href="@@base-uri@@/create-new-account/" label="Create New" />
+      <resource:login type="page" href="@@base-uri@@/login/" label="Login" />
+      <resource:lang type="string" src="@src@" label="model:lang/$@@language@@/@label" />
+    </page:resource>
     <page:output>
       <page:head>
-        <page:title>Title of Entry</page:title>
-        <page:head.include fileType="css" href="/static/css/base.css"/>
-        <page:head.include fileType="javascript" href="/static/microformat/hCal.js"/>
-        <page:head.include fileType="javascript" href="/static/microformat/hCard.js"/>
-        <page:head.include fileType="javascript" href="/static/js/script.js"/>
+        <head:title>@@page-title@@</head:title>
+        <head:include fileType="css" href="@@static@@/css/base.css" />
+        <head:include fileType="css" href="@@static@@/css/transparency.css" />
+        <head:include fileType="css" href="@@static-css-browser@@.css" />
       </page:head>
       <page:body>
-        <page:content src="/service/pub/"/>
+        <body:html>
+          <ul>
+            <li>@@hello-world@@</li>
+          </ul>
+        </body:html>
       </page:body>
     </page:output>
   </my:page>
