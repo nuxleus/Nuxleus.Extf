@@ -1,1 +1,1 @@
-﻿<%@ Application Inherits="Xameleon.HttpApplication.Global" Language="C#" %>
+﻿<%@ Application CodeBehind="Global.asax.cs" Language="C#" %>
