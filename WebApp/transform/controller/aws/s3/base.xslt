@@ -26,6 +26,7 @@
     xmlns:http-util="clitype:System.Web.HttpUtility?partialname=System.Web"
     xmlns:web-response="clitype:System.Net.WebResponse?partialname=System"
     xmlns:aspnet-session="clitype:System.Web.SessionState.HttpSessionState?partialname=System.Web"
+    xmlns:aspnet-context="clitype:System.Web.HttpContext?partialname=System.Web"
     xmlns:browser="clitype:System.Web.HttpBrowserCapabilities?partialname=System.Web"
     xmlns:aspnet-server="clitype:System.Web.HttpServerUtility?partialname=System.Web"
     xmlns:aspnet-request="clitype:System.Web.HttpRequest?partialname=System.Web"
@@ -49,11 +50,12 @@
 
   <xsl:param name="aws-public-key" select="'not-set'" as="xs:string"/>
   <xsl:param name="aws-private-key" select="'not-set'" as="xs:string"/>
-  <xsl:param name="response" />
-  <xsl:param name="request"/>
-  <xsl:param name="server"/>
-  <xsl:param name="session"/>
-  <xsl:param name="timestamp"/>
+  <xsl:param name="context" />
+  <xsl:variable name="response" select="aspnet-context:Response($context)" />
+  <xsl:variable name="request" select="aspnet-context:Request($context)"/>
+  <xsl:variable name="server" select="aspnet-context:Server($context)"/>
+  <xsl:variable name="session" select="aspnet-context:Session($context)"/>
+  <xsl:variable name="timestamp" select="aspnet-context:Timestamp($context)"/>
   <xsl:variable name="debug" select="if (request-collection:GetValue($request, 'query-string', 'debug') = 'true') then true() else false()" as="xs:boolean" />
   <xsl:variable name="not-set" select="'not-set'" as="xs:string"/>
   <xsl:variable name="guid" select="request-collection:GetValue($request, 'cookie', 'guid')" as="xs:string" />
