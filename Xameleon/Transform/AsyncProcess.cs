@@ -20,7 +20,7 @@ namespace Xameleon.Transform {
 
         using (context.XmlStream) {
 
-          XsltTransformer transformer = context.XsltExecutable.Load();
+          XsltTransformer transformer = context.XsltCompiledCache.GetTransformer(context.BaseXsltUriHash, context.BaseXsltUri);
 
           if (context.XsltParams.Count > 0) {
             foreach (DictionaryEntry param in context.XsltParams) {

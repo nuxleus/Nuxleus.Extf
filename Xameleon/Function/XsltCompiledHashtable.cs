@@ -36,13 +36,21 @@ namespace Xameleon.Transform {
       string xsltUriHash = xsltUri.GetHashCode().ToString();
       string key = name + ":" + xsltUriHash;
 
+      return getTransformer(key, xsltUri);
+    }
+
+    public XsltTransformer GetTransformer(string xsltUriHash, Uri xsltUri) {
+      return getTransformer(xsltUriHash, xsltUri);
+    }
+
+    private XsltTransformer getTransformer(string key, Uri xsltUri) {
       foreach (DictionaryEntry entry in _results) {
         string uri = (string)entry.Key;
         if (uri == key) {
           return (XsltTransformer)_results[uri];
         }
       }
-      
+
       XsltTransformer transformer = _processor.NewXsltCompiler().Compile(xsltUri).Load();
       _results[key] = (XsltTransformer)transformer;
       return transformer;

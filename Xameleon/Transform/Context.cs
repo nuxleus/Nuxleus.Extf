@@ -38,20 +38,15 @@ namespace Xameleon.Transform {
     Serializer _Destination;
     MemcachedClient _MemcachedClient;
     StringBuilder _StringBuilder;
+    XsltCompiledHashtable _XsltCompiledHashtable;
+    Uri _BaseXsltUri;
+    String _BaseXsltUriHash;
     bool _INITIALIZED;
 
-    public Context(HttpContext context, Processor processor, XsltCompiler compiler, Serializer serializer, XmlUrlResolver resolver, Hashtable xsltParams, params string[] httpContextParamList) {
+    public Context(HttpContext context, Processor processor, XsltCompiler compiler, Serializer serializer, XmlUrlResolver resolver, Hashtable xsltParams, XsltCompiledHashtable xsltCompiledHashtable, Uri baseXsltUri, String baseXsltUriHash, params string[] httpContextParamList) {
       _AppSettings = (AppSettings)context.Application["appSettings"];
       _ResponseOutput = context.Response.Output;
       _RequestUriHash = context.Request.Url.GetHashCode().ToString();
-
-      //string paramPrefix = _AppSettings.GetSetting("xsltParamKeyPrefix");
-
-      //if (paramPrefix != null) {
-      //  _xsltParamKey = paramPrefix;
-      //} else {
-      //  _xsltParamKey = "xsltParam_";
-      //}
 
       _HttpContext = context;
       _BaseUri = compiler.BaseUri.ToString();
@@ -68,6 +63,9 @@ namespace Xameleon.Transform {
       _Destination = serializer;
       _MemcachedClient = null;
       _StringBuilder = null;
+      _XsltCompiledHashtable = xsltCompiledHashtable;
+      _BaseXsltUri = baseXsltUri;
+      _BaseXsltUriHash = baseXsltUriHash;
 
       _StringBuilder = new StringBuilder();
       _Writer = new StringWriter(_StringBuilder);
@@ -85,6 +83,21 @@ namespace Xameleon.Transform {
                     </message>
                   </system>";
       _INITIALIZED = true;
+    }
+
+    public XsltCompiledHashtable XsltCompiledCache {
+      get { return _XsltCompiledHashtable; }
+      set { _XsltCompiledHashtable = value; }
+    }
+
+    public Uri BaseXsltUri {
+      get { return _BaseXsltUri; }
+      set { _BaseXsltUri = value; }
+    }
+
+    public String BaseXsltUriHash {
+      get { return _BaseXsltUriHash; }
+      set { _BaseXsltUriHash = value; }
     }
 
     public HttpContext HttpContext {
