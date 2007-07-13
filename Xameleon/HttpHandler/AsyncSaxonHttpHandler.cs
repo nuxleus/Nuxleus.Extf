@@ -43,7 +43,6 @@ namespace Xameleon.Transform {
     Hashtable _sessionXsltParams;
     Hashtable _requestXsltParams;
     Hashtable _xsltParams;
-    Context _requestContext;
     String _output = "";
 
     public void ProcessRequest(HttpContext context) {
@@ -61,7 +60,7 @@ namespace Xameleon.Transform {
       _context = context;
       _writer = _context.Response.Output;
       _httpMethod = _context.Request.HttpMethod;
-      _transform = new Transform();
+      _transform = (Transform)context.Application["transform"];
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
       _processor = (Processor)context.Application["processor"];
       _compiler = (XsltCompiler)context.Application["compiler"];
@@ -69,7 +68,7 @@ namespace Xameleon.Transform {
       _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
       _resolver = (XmlUrlResolver)context.Application["resolver"];
       _globalXsltParams = (Hashtable)context.Application["globalXsltParams"];
-      _requestXsltParams = (Hashtable)context.Application["requestXsltParams"];
+      //_requestXsltParams = (Hashtable)context.Application["requestXsltParams"];
       _useMemcachedClient = (bool)context.Application["usememcached"];
       if (_useMemcachedClient) {
         _memcachedClient = (MemcachedClient)context.Application["memcached"];
@@ -90,7 +89,28 @@ namespace Xameleon.Transform {
               //  _context.Response.Output.WriteLine("Value: " + transformer.GetHashCode().ToString());
               //  _context.Response.Output.WriteLine("Value2: " + transform.GetHashCode().ToString());
               //}
+              _xsltParams = new Hashtable();
 
+              if (_globalXsltParams != null && _globalXsltParams.Count > 0) {
+                foreach (DictionaryEntry param in _globalXsltParams) {
+                  _xsltParams[param.Key] = (string)param.Value;
+                }
+              }
+              //if (_sessionXsltParams != null && _sessionXsltParams.Count > 0) {
+              //  foreach (DictionaryEntry param in _sessionXsltParams) {
+              //    _xsltParams[param.Key] = (string)param.Value;
+              //  }
+              //}
+
+              //_xsltParams["context"] = _context;
+              _xsltParams["request"] = _context.Request;
+              _xsltParams["response"] = _context.Response;
+              _xsltParams["server"] = _context.Server;
+              _xsltParams["timestamp"] = _context.Timestamp;
+              _xsltParams["session"] = _context.Session;
+              _xsltParams["errors"] = _context.AllErrors;
+              _xsltParams["cache"] = _context.Cache;
+              _xsltParams["user"] = _context.User;
 
               if (_useMemcachedClient) {
                 _output = "memcached is true";
@@ -101,32 +121,11 @@ namespace Xameleon.Transform {
                   _transformAsyncResult.CompleteCall();
                   return _transformAsyncResult;
                 } else {
-                  _xsltParams = new Hashtable();
-
-                  if (_globalXsltParams != null && _globalXsltParams.Count > 0) {
-                    foreach (DictionaryEntry param in _globalXsltParams) {
-                      _xsltParams[param.Key] = (string)param.Value;
-                    }
-                  }
-                  //if (_sessionXsltParams != null && _sessionXsltParams.Count > 0) {
-                  //  foreach (DictionaryEntry param in _sessionXsltParams) {
-                  //    _xsltParams[param.Key] = (string)param.Value;
-                  //  }
-                  //}
-
-                  _xsltParams["context"] = _context;
-                  _xsltParams["request"] = _context.Request;
-                  _xsltParams["response"] = _context.Response;
-                  _xsltParams["server"] = _context.Server;
-                  _xsltParams["timestamp"] = _context.Timestamp;
-                  _xsltParams["session"] = _context.Session;
-                  _xsltParams["errors"] = _context.AllErrors;
-                  _xsltParams["cache"] = _context.Cache;
-                  _xsltParams["user"] = _context.User;
-
+                  
                   try {
-                    _requestContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
-                    _transform.BeginAsyncProcess(_requestContext);
+                    _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
+                    _context.Response.Write(_compiler.BaseUri.ToString());
+                    _transform.BeginAsyncProcess(_transformContext);
                     _output = _transformContext.StringBuilder.ToString();
                     _transformAsyncResult.CompleteCall();
                     return _transformAsyncResult;
@@ -138,7 +137,8 @@ namespace Xameleon.Transform {
                   }
                 }
               } else {
-                _transform.BeginAsyncProcess(_requestContext);
+                _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
+                _transform.BeginAsyncProcess(_transformContext);
                 _transformAsyncResult.CompleteCall();
                 return _transformAsyncResult;
               }
@@ -147,25 +147,29 @@ namespace Xameleon.Transform {
               break;
             }
           case "PUT": {
-              _transform.BeginAsyncProcess(_requestContext);
+              _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
+              _transform.BeginAsyncProcess(_transformContext);
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
             }
           case "POST": {
-              _transform.BeginAsyncProcess(_requestContext);
+              _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
+              _transform.BeginAsyncProcess(_transformContext);
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
             }
           case "DELETE": {
-              _transform.BeginAsyncProcess(_requestContext);
+              _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
+              _transform.BeginAsyncProcess(_transformContext);
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
             }
           default: {
-              _transform.BeginAsyncProcess(_requestContext);
+              _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
+              _transform.BeginAsyncProcess(_transformContext);
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;

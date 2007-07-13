@@ -5,6 +5,7 @@ using System.Collections;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using Xameleon;
 using Xameleon.Transform;
 using Xameleon.Configuration;
 using Memcached.ClientLibrary;
@@ -19,7 +20,8 @@ namespace Xameleon.HttpApplication {
 
   public class Global : System.Web.HttpApplication {
 
-    MemcachedClient _MemcachedClient = null;
+    MemcachedClient _MemcachedClient = new MemcachedClient();
+    bool _UseMemCached = false;
     SockIOPool _pool = null;
     AppSettings _AppSettings = new AppSettings();
     AspNetXameleonConfiguration _XameleonConfiguration = AspNetXameleonConfiguration.GetConfig();
@@ -29,7 +31,7 @@ namespace Xameleon.HttpApplication {
     XsltCompiledHashtable _XsltCompiledHashtable = new XsltCompiledHashtable();
     Transform.Transform _Transform = new Transform.Transform();
     Processor _Processor = new Processor();
-    XsltCompiler _Compiler = null;
+    XsltCompiler _Compiler;
     Serializer _Serializer = new Serializer();
     XmlUrlResolver _Resolver = new XmlUrlResolver();
     Hashtable _GlobalXsltParams = new Hashtable();
@@ -37,15 +39,13 @@ namespace Xameleon.HttpApplication {
     Hashtable _RequestXsltParams = null;
     String _BaseUri = null;
     Uri _BaseTemplateUri = null;
-    //static PythonEngine _PythonEngine = PythonEngine.CurrentEngine;
 
     protected void Application_Start(object sender, EventArgs e) {
       string useMemcached = _XameleonConfiguration.UseMemcached;
-      if (useMemcached != null && useMemcached == "yes") {
-        _MemcachedClient = new MemcachedClient();
-        Application["memcached"] = _MemcachedClient;
-        Application["usememcached"] = true;
 
+      if (useMemcached == "yes") {
+        _UseMemCached = true;
+        _MemcachedClient = new MemcachedClient();
         if (_MemcachedConfiguration.UseCompression != null && _MemcachedConfiguration.UseCompression == "yes")
           _MemcachedClient.EnableCompression = true;
         else
@@ -56,9 +56,7 @@ namespace Xameleon.HttpApplication {
         foreach (MemcachedServer server in _MemcachedConfiguration.MemcachedServerCollection) {
           serverList.Add(server.IP + ":" + server.Port);
         }
-
         _pool = SockIOPool.GetInstance();
-
         _pool.SetServers(serverList.ToArray());
 
         MemcachedPoolConfig poolConfig = (MemcachedPoolConfig)_MemcachedConfiguration.PoolConfig;
@@ -73,30 +71,20 @@ namespace Xameleon.HttpApplication {
         _pool.Nagle = (bool)poolConfig.Nagle;
         _pool.Initialize();
 
-      } else
-        Application["usememcached"] = false;
+      }
 
       string baseUri = (string)_XameleonConfiguration.PreCompiledXslt.BaseUri;
       HttpContext.Current.Response.Output.WriteLine("baseUri: " + baseUri);
 
       foreach (PreCompiledXslt xslt in _XameleonConfiguration.PreCompiledXslt) {
-        if ((string)xslt.BaseUri != String.Empty) {
-          HttpContext.Current.Response.Output.WriteLine("uri: " + (string)xslt.BaseUri);
-          baseUri = (string)xslt.BaseUri;
-        }
-        Uri uri = new Uri((string)xslt.BaseUri, UriKind.Absolute);
-        HttpContext.Current.Response.Output.WriteLine("baseUri: " + baseUri);
-        HttpContext.Current.Response.Output.WriteLine("uri: " + (string)xslt.Uri);
-        HttpContext.Current.Response.Output.WriteLine("baseUri: " + (string)xslt.BaseUri);
-        _XsltCompiledHashtable.GetTransformer(xslt.Name, (string)xslt.Uri, uri, _Processor);
+        Uri xsltUri = new Uri(HttpContext.Current.Server.MapPath("~" + xslt.Uri));
+        _XsltCompiledHashtable.AddTransformer(xslt.Name, xsltUri, _Processor);
       }
 
       foreach (XsltParam xsltParam in _XameleonConfiguration.GlobalXsltParam) {
         _GlobalXsltParams[xsltParam.Name] = (string)xsltParam.Select;
       }
 
-      //_PythonEngine.AddToPath(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
-      //Application["pythonEngine"] = _PythonEngine;
       string baseTemplate = _AppSettings.GetSetting("baseTemplate");
 
       if (baseTemplate != null) {
@@ -108,15 +96,6 @@ namespace Xameleon.HttpApplication {
       _Compiler = _Processor.NewXsltCompiler();
       _Compiler.BaseUri = new Uri(HttpContext.Current.Server.MapPath("~" + baseTemplate));
       _Resolver.Credentials = CredentialCache.DefaultCredentials;
-
-      Application["transform"] = _Transform;
-      Application["processor"] = _Processor;
-      Application["compiler"] = _Compiler;
-      Application["serializer"] = _Serializer;
-      Application["resolver"] = _Resolver;
-      Application["xsltCompiledHashtable"] = _XsltCompiledHashtable;
-      Application["globalXsltParams"] = _GlobalXsltParams;
-      Application["appSettings"] = _AppSettings;
     }
 
     protected void Session_Start(object sender, EventArgs e) {
@@ -130,15 +109,33 @@ namespace Xameleon.HttpApplication {
 
     protected void Application_BeginRequest(object sender, EventArgs e) {
 
-      //if (addHttpContextParams) {
-      //  //default set of HttpContext object params
-      //  string[] paramList = { "response", "request", "server", "session", "timestamp", "errors", "cache", "user" };
-      //  if (httpContextParamList.Length > 0)
-      //    paramList = httpContextParamList;
-      //  foreach (string name in paramList) {
-      //    _XsltParams[name] = httpContextHashtable[name];
-      //  }
-      //};
+      HttpContext.Current.Response.Output.WriteLine(_XameleonConfiguration.UseMemcached);
+      Application["processor"] = _Processor;
+      HttpContext.Current.Response.Output.WriteLine("Processor: " + _Processor.ToString());
+      _Compiler = _Processor.NewXsltCompiler();
+      _Compiler.BaseUri = new Uri(HttpContext.Current.Server.MapPath("~" + _AppSettings.GetSetting("baseTemplate")));
+      HttpContext.Current.Response.Output.WriteLine("CompilerBaseUri: " + _Compiler.BaseUri.ToString());
+      Application["compiler"] = _Compiler;
+      HttpContext.Current.Response.Output.WriteLine("Compiler: " + _Compiler.ToString());
+      Application["serializer"] = _Serializer;
+      HttpContext.Current.Response.Output.WriteLine("Serializer: " + _Serializer.ToString());
+      Application["resolver"] = _Resolver;
+      HttpContext.Current.Response.Output.WriteLine("Resolver: " + _Resolver.ToString());
+      Application["transform"] = _Transform;
+      HttpContext.Current.Response.Output.WriteLine("Transform: " + _Transform.ToString());
+      Application["xsltCompiledHashtable"] = _XsltCompiledHashtable;
+      HttpContext.Current.Response.Output.WriteLine("XsltCompiledHashtable: " + _XsltCompiledHashtable.ToString());
+      Application["globalXsltParams"] = _GlobalXsltParams;
+      HttpContext.Current.Response.Output.WriteLine("GlobalXsltParms: " + _GlobalXsltParams.ToString());
+      //Application["sessionXsltParams"] = _GlobalXsltParams;
+      //Application["requestXsltParams"] = _GlobalXsltParams;
+      Application["appSettings"] = _AppSettings;
+      HttpContext.Current.Response.Output.WriteLine("AppSettings: " + _AppSettings.ToString());
+      Application["usememcached"] = _UseMemCached;
+      HttpContext.Current.Response.Output.WriteLine("UseMemcached?: " + _UseMemCached.ToString());
+      Application["memcached"] = _MemcachedClient;
+      HttpContext.Current.Response.Output.WriteLine("MemCachedClient: " + _MemcachedClient.ToString());
+      HttpContext.Current.Response.Output.WriteLine("BaseTemplate: " + _AppSettings.GetSetting("baseTemplate"));
     }
 
     protected void Application_AuthenticateRequest(object sender, EventArgs e) {
