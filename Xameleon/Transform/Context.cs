@@ -40,7 +40,7 @@ namespace Xameleon.Transform {
     StringBuilder _StringBuilder;
     bool _INITIALIZED;
 
-    public Context(HttpContext context, Processor processor, XsltCompiler compiler, Serializer serializer, XmlUrlResolver resolver, Hashtable xsltParams, bool addHttpContextParams, params string[] httpContextParamList) {
+    public Context(HttpContext context, Processor processor, XsltCompiler compiler, Serializer serializer, XmlUrlResolver resolver, Hashtable xsltParams, params string[] httpContextParamList) {
       _AppSettings = (AppSettings)context.Application["appSettings"];
       _ResponseOutput = context.Response.Output;
       _RequestUriHash = context.Request.Url.GetHashCode().ToString();

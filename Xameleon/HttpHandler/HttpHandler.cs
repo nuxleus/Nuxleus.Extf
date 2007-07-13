@@ -47,7 +47,7 @@ namespace Xameleon.Transform {
       foreach (DictionaryEntry param in _requestXsltParams) {
         xsltParams[param.Key] = param.Value;
       }
-      _transformContext = new Context(context, _processor, _compiler, _serializer, _resolver, xsltParams, true);
+      _transformContext = new Context(context, _processor, _compiler, _serializer, _resolver, xsltParams);
 
       switch (_requestMethod) {
 

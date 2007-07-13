@@ -7,42 +7,53 @@ namespace Xameleon.Transform {
 
   public class XsltCompiledHashtable {
 
-    private Hashtable results;
+    Hashtable _results;
+    Processor _processor;
 
     public XsltCompiledHashtable() {
-      this.results = new Hashtable();
+      _results = new Hashtable();
+      _processor = new Processor();
     }
     public XsltCompiledHashtable(Hashtable table) {
-      this.results = table;
+      _results = table;
+      _processor = new Processor();
     }
 
-    public void AddTransformer(string name, Uri uri, Processor processor) {
+    public void AddTransformer(string name, Uri uri, XmlUrlResolver resolver) {
       string xsltUriHash = uri.GetHashCode().ToString();
       string key = name + ":" + xsltUriHash;
-      XsltTransformer transformer = processor.NewXsltCompiler().Compile(uri).Load();
-      results[key] = (XsltTransformer)transformer;
+      XsltCompiler compiler = _processor.NewXsltCompiler();
+      compiler.BaseUri = uri;
+      compiler.XmlResolver = resolver;
+      
+      XsltTransformer transformer = compiler.Compile(uri).Load();
+      _results[key] = (XsltTransformer)transformer;
     }
 
-    public XsltTransformer GetTransformer(string name, string href, Uri baseUri, Processor processor) {
+    public XsltTransformer GetTransformer(string name, string href, Uri baseUri) {
 
       Uri xsltUri = new Uri(baseUri, href);
       string xsltUriHash = xsltUri.GetHashCode().ToString();
       string key = name + ":" + xsltUriHash;
 
-      foreach (DictionaryEntry entry in results) {
+      foreach (DictionaryEntry entry in _results) {
         string uri = (string)entry.Key;
         if (uri == key) {
-          return (XsltTransformer)results[uri];
+          return (XsltTransformer)_results[uri];
         }
       }
-
-      XsltTransformer transformer = processor.NewXsltCompiler().Compile(xsltUri).Load();
-      results[key] = (XsltTransformer)transformer;
+      
+      XsltTransformer transformer = _processor.NewXsltCompiler().Compile(xsltUri).Load();
+      _results[key] = (XsltTransformer)transformer;
       return transformer;
     }
 
     public Hashtable GetHashtable() {
-      return this.results;
+      return this._results;
+    }
+
+    public Processor GetProcessor() {
+      return this._processor;
     }
   }
 }

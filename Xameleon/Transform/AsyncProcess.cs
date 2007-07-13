@@ -28,7 +28,6 @@ namespace Xameleon.Transform {
               transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
             }
           }
-          transformer.SetParameter(new QName("", "", "context"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject((HttpContext)context.HttpContext)));
 
           transformer.InputXmlResolver = context.Resolver;
           transformer.InitialContextNode = context.Node;

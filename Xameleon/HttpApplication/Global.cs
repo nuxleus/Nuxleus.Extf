@@ -69,11 +69,11 @@ namespace Xameleon.HttpApplication {
       }
 
       string baseUri = (string)_XameleonConfiguration.PreCompiledXslt.BaseUri;
-      HttpContext.Current.Response.Output.WriteLine("baseUri: " + baseUri);
+      _Resolver.Credentials = CredentialCache.DefaultCredentials;
 
       foreach (PreCompiledXslt xslt in _XameleonConfiguration.PreCompiledXslt) {
         Uri xsltUri = new Uri(HttpContext.Current.Server.MapPath("~" + xslt.Uri));
-        _XsltCompiledHashtable.AddTransformer(xslt.Name, xsltUri, _Processor);
+        _XsltCompiledHashtable.AddTransformer(xslt.Name, xsltUri, _Resolver);
       }
 
       foreach (XsltParam xsltParam in _XameleonConfiguration.GlobalXsltParam) {
@@ -90,7 +90,6 @@ namespace Xameleon.HttpApplication {
 
       _Compiler = _Processor.NewXsltCompiler();
       _Compiler.BaseUri = new Uri(HttpContext.Current.Server.MapPath("~" + baseTemplate));
-      _Resolver.Credentials = CredentialCache.DefaultCredentials;
 
     }
 

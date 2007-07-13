@@ -99,10 +99,7 @@ namespace Xameleon.Transform {
                 } else {
                   
                   try {
-
-                    _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
-                    _context.Response.Write(_compiler.BaseUri.ToString());
-                    _transform.BeginAsyncProcess(_transformContext);
+                    _transform.BeginAsyncProcess(GetContext());
                     _output = _transformContext.StringBuilder.ToString();
                     _transformAsyncResult.CompleteCall();
                     return _transformAsyncResult;
@@ -114,41 +111,36 @@ namespace Xameleon.Transform {
                   }
                 }
               } else {
-                _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
-                _transform.BeginAsyncProcess(_transformContext);
+                _transform.BeginAsyncProcess(GetContext());
+                _output = _transformContext.StringBuilder.ToString();
                 _transformAsyncResult.CompleteCall();
                 return _transformAsyncResult;
               }
-              return _transformAsyncResult;
               break;
             }
           case "PUT": {
-              _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
-              _transform.BeginAsyncProcess(_transformContext);
+              _transform.BeginAsyncProcess(GetContext());
+              _output = _transformContext.StringBuilder.ToString();
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
-              break;
             }
           case "POST": {
-              _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
-              _transform.BeginAsyncProcess(_transformContext);
+              _transform.BeginAsyncProcess(GetContext());
+              _output = _transformContext.StringBuilder.ToString();
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
-              break;
             }
           case "DELETE": {
-              _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
-              _transform.BeginAsyncProcess(_transformContext);
+              _transform.BeginAsyncProcess(GetContext());
+              _output = _transformContext.StringBuilder.ToString();
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
-              break;
             }
           default: {
-              _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
-              _transform.BeginAsyncProcess(_transformContext);
+              _transform.BeginAsyncProcess(GetContext());
+              _output = _transformContext.StringBuilder.ToString();
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
-              break;
             }
         }
 
@@ -162,12 +154,15 @@ namespace Xameleon.Transform {
 
     public void EndProcessRequest(IAsyncResult result) {
       TransformServiceAsyncResult async = result as TransformServiceAsyncResult;
-      async._context.Response.Write(
-        "<H1>This is an <i>Asynchronous</i> response!!</H1>");
       async._context.Response.Write(_output);
       if (_useMemcachedClient)
         _memcachedClient.Set(_transformContext.RequestUriHash, _output);
       _writer.Dispose();
+    }
+
+    private Context GetContext() {
+      _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams);
+      return _transformContext;
     }
 
     private void WriteError() {
