@@ -136,29 +136,29 @@ namespace Xameleon.Transform {
                   }
                 }
               } else {
-                _transform.BeginAsyncTransform(_requestContext, cb, _transformAsyncResult);
+                _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
                 return _transformAsyncResult;
               }
 
               break;
             }
           case "PUT": {
-              _transform.BeginAsyncTransform(_requestContext, cb, _transformAsyncResult);
+              _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
               return _transformAsyncResult;
               break;
             }
           case "POST": {
-              _transform.BeginAsyncTransform(_requestContext, cb, _transformAsyncResult);
+              _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
               return _transformAsyncResult;
               break;
             }
           case "DELETE": {
-              _transform.BeginAsyncTransform(_requestContext, cb, _transformAsyncResult);
+              _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
               return _transformAsyncResult;
               break;
             }
           default: {
-              _transform.BeginAsyncTransform(_requestContext, cb, _transformAsyncResult);
+              _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
               return _transformAsyncResult;
               break;
             }
