@@ -42,6 +42,7 @@ namespace Xameleon.Transform {
     Hashtable _requestXsltParams;
     Hashtable _xsltParams;
     Context _requestContext;
+    String _output;
 
     public void ProcessRequest(HttpContext context) {
       //not called
@@ -59,7 +60,7 @@ namespace Xameleon.Transform {
       _writer = _context.Response.Output;
       _httpMethod = context.Request.HttpMethod;
       _transform = new Transform();
-      _transformAsyncResult = new TransformServiceAsyncResult(cb, context, _transform, extraData);
+      _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
       _processor = (Processor)context.Application["processor"];
       _compiler = (XsltCompiler)context.Application["compiler"];
       _serializer = (Serializer)context.Application["serializer"];
@@ -75,7 +76,6 @@ namespace Xameleon.Transform {
         _memcachedClient = (MemcachedClient)context.Application["memcached"];
         _transformContext.MemcachedClient = _memcachedClient;
       }
-      _transform = new Transform();
 
       try {
 
@@ -97,7 +97,7 @@ namespace Xameleon.Transform {
                 string key = _context.Request.Url.GetHashCode().ToString();
                 string obj = (string)_memcachedClient.Get(key);
                 if (obj != null) {
-                  _writer.Write(obj);
+                  _output = obj;
                   _transformAsyncResult.CompleteCall();
                   return _transformAsyncResult;
                 } else {
@@ -126,7 +126,8 @@ namespace Xameleon.Transform {
 
                   try {
                     _requestContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, true);
-                    _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
+                    _transform.BeginAsyncProcess(_requestContext);
+                    _output = _transformContext.StringBuilder.ToString();
                     _transformAsyncResult.CompleteCall();
                     return _transformAsyncResult;
                   } catch (Exception e) {
@@ -137,7 +138,7 @@ namespace Xameleon.Transform {
                   }
                 }
               } else {
-                _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
+                _transform.BeginAsyncProcess(_requestContext);
                 _transformAsyncResult.CompleteCall();
                 return _transformAsyncResult;
               }
@@ -145,25 +146,25 @@ namespace Xameleon.Transform {
               break;
             }
           case "PUT": {
-              _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
+              _transform.BeginAsyncProcess(_requestContext);
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
             }
           case "POST": {
-              _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
+              _transform.BeginAsyncProcess(_requestContext);
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
             }
           case "DELETE": {
-              _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
+              _transform.BeginAsyncProcess(_requestContext);
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
             }
           default: {
-              _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
+              _transform.BeginAsyncProcess(_requestContext);
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
@@ -179,6 +180,9 @@ namespace Xameleon.Transform {
     }
 
     public void EndProcessRequest(IAsyncResult result) {
+      _context.Response.Write(_output);
+      if (_useMemcachedClient)
+        _memcachedClient.Set(_transformContext.RequestUriHash, _output);
       _writer.Dispose();
     }
 

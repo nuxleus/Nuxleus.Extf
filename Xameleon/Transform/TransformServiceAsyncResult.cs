@@ -12,20 +12,13 @@ namespace Xameleon.Transform {
     AsyncCallback _callback;
     ManualResetEvent _event;
     HttpContext _context;
-    Transform _transform;
-    Context _transformContext;
-    TextWriter _writer;
-    MemcachedClient _memcachedClient;
-    bool _useMemcachedClient;
     bool _completed = false;
     object _lock = new object();
     object _state;
 
-    public TransformServiceAsyncResult(AsyncCallback callback, HttpContext context, Transform transform, object state) {
+    public TransformServiceAsyncResult(AsyncCallback callback, object state) {
       _callback = callback;
-      _context = context;
       _state = state;
-      _transform = transform;
       _completed = false;
     }
 
@@ -34,26 +27,6 @@ namespace Xameleon.Transform {
     public bool CompletedSynchronously { get { return false; } }
 
     public bool IsCompleted { get { return _completed; } }
-
-    public void StartAsyncTransformWork(Context context, MemcachedClient memcached, bool useMemcachedClient) {
-      _transformContext = context;
-      _memcachedClient = memcached;
-      _useMemcachedClient = useMemcachedClient;
-      ThreadPool.QueueUserWorkItem(new WaitCallback(StartAsyncTransformTask), null);
-    }
-
-    private void StartAsyncTransformTask(Object workItemState) {
-      _transform.BeginAsyncProcess(_transformContext);
-      if (_transformContext.IsInitialized) {
-        string output = _transformContext.StringBuilder.ToString();
-        _context.Response.Write(output);
-        if (_useMemcachedClient) {
-          _memcachedClient.Set(_transformContext.RequestUriHash, output);
-        }
-      }
-      _completed = true;
-      _callback(this);
-    }
 
     public WaitHandle AsyncWaitHandle {
       get {
