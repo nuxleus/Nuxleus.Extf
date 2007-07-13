@@ -138,6 +138,7 @@ namespace Xameleon.Transform {
                 }
               } else {
                 _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
+                _transformAsyncResult.CompleteCall();
                 return _transformAsyncResult;
               }
 
@@ -145,21 +146,25 @@ namespace Xameleon.Transform {
             }
           case "PUT": {
               _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
+              _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
             }
           case "POST": {
               _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
+              _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
             }
           case "DELETE": {
               _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
+              _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
             }
           default: {
               _transformAsyncResult.StartAsyncTransformWork(_requestContext, _memcachedClient, _useMemcachedClient);
+              _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
               break;
             }
