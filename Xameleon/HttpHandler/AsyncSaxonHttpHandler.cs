@@ -56,20 +56,20 @@ namespace Xameleon.Transform {
 
     public IAsyncResult BeginProcessRequest(HttpContext context, AsyncCallback cb, object extraData) {
 
-      //_context = context;
-      //_writer = _context.Response.Output;
-      //_httpMethod = _context.Request.HttpMethod;
-      //_transform = new Transform();
+      _context = context;
+      _writer = _context.Response.Output;
+      _httpMethod = _context.Request.HttpMethod;
+      _transform = new Transform();
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
-      //_processor = (Processor)context.Application["processor"];
-      //_compiler = (XsltCompiler)context.Application["compiler"];
-      //_serializer = (Serializer)context.Application["serializer"];
-      //_xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
-      //_resolver = (XmlUrlResolver)context.Application["resolver"];
-      //_globalXsltParams = (Hashtable)context.Application["globalXsltParams"];
-      //_sessionXsltParams = (Hashtable)context.Application["sessionXsltParams"];
-      //_requestXsltParams = (Hashtable)context.Application["requestXsltParams"];
-      ////_pythonEngine = (PythonEngine)context.Application["pythonEngine"];
+      _processor = (Processor)context.Application["processor"];
+      _compiler = (XsltCompiler)context.Application["compiler"];
+      _serializer = (Serializer)context.Application["serializer"];
+      _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
+      _resolver = (XmlUrlResolver)context.Application["resolver"];
+      _globalXsltParams = (Hashtable)context.Application["globalXsltParams"];
+      _sessionXsltParams = (Hashtable)context.Application["sessionXsltParams"];
+      _requestXsltParams = (Hashtable)context.Application["requestXsltParams"];
+      //_pythonEngine = (PythonEngine)context.Application["pythonEngine"];
       //_useMemcachedClient = (bool)context.Application["usememcached"];
 
       //if (_useMemcachedClient) {
