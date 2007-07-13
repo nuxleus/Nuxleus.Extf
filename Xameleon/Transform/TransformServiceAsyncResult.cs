@@ -1,26 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Web;
 using System.IO;
-using Memcached.ClientLibrary;
 
 namespace Xameleon.Transform {
 
   public class TransformServiceAsyncResult : IAsyncResult {
 
+    Boolean _isCompleted;
+    AsyncCallback cb = null;
+    Object _asyncState;
+    internal HttpContext _context = null;
+
     internal TransformServiceAsyncResult(AsyncCallback cb, Object extraData) {
       this.cb = cb;
-      asyncState = extraData;
-      isCompleted = false;
+      _asyncState = extraData;
+      _isCompleted = false;
     }
 
-    private AsyncCallback cb = null;
-    private Object asyncState;
+    
     public object AsyncState {
       get {
-        return asyncState;
+        return _asyncState;
       }
     }
 
@@ -30,9 +31,6 @@ namespace Xameleon.Transform {
       }
     }
 
-    // If this object was not being used solely with ASP.Net this
-    // method would need an implementation. ASP.Net never uses the
-    // event, so it is not implemented here.
     public WaitHandle AsyncWaitHandle {
       get {
         throw new InvalidOperationException(
@@ -40,21 +38,18 @@ namespace Xameleon.Transform {
       }
     }
 
-    private Boolean isCompleted;
     public bool IsCompleted {
       get {
-        return isCompleted;
+        return _isCompleted;
       }
     }
 
     internal void CompleteCall() {
-      isCompleted = true;
+      _isCompleted = true;
       if (cb != null) {
         cb(this);
       }
     }
 
-    // state internal fields
-    internal HttpContext _context = null;
   }
 }

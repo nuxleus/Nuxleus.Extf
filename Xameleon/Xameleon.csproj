@@ -203,7 +203,6 @@
     <Compile Include="HttpApplication\Global.cs" />
     <Compile Include="HttpHandler\AtomPublishingProtocolHttpHandler.cs" />
     <Compile Include="HttpHandler\AsyncSaxonHttpHandler.cs" />
-    <Compile Include="HttpHandler\HelloWorldAsyncHttpHandler.cs" />
     <Compile Include="HttpHandler\S3HttpHandler.cs" />
     <Compile Include="HttpHandler\HttpHandler.cs" />
     <Compile Include="HttpModule\AsyncRequestLogHttpModule.cs" />
