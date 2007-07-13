@@ -11,7 +11,7 @@ namespace Xameleon.Transform {
   public class TransformServiceAsyncResult : IAsyncResult {
     AsyncCallback _callback;
     ManualResetEvent _event;
-    HttpContext _context;
+    internal HttpContext _context;
     bool _completed = false;
     object _lock = new object();
     object _state;

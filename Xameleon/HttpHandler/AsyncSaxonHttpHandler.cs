@@ -77,6 +77,8 @@ namespace Xameleon.Transform {
         _transformContext.MemcachedClient = _memcachedClient;
       }
 
+      _transformAsyncResult._context = context;
+
       try {
 
         switch (_httpMethod) {
@@ -142,7 +144,7 @@ namespace Xameleon.Transform {
                 _transformAsyncResult.CompleteCall();
                 return _transformAsyncResult;
               }
-
+              _transformAsyncResult.CompleteCall();
               break;
             }
           case "PUT": {
@@ -180,7 +182,10 @@ namespace Xameleon.Transform {
     }
 
     public void EndProcessRequest(IAsyncResult result) {
-      _context.Response.Write(_output);
+      TransformServiceAsyncResult async = result as TransformServiceAsyncResult;
+      async._context.Response.Write(
+        "<H1>This is an <i>Asynchronous</i> response!!</H1>");
+      async._context.Response.Write(_output);
       if (_useMemcachedClient)
         _memcachedClient.Set(_transformContext.RequestUriHash, _output);
       _writer.Dispose();
