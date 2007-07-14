@@ -35,10 +35,11 @@
     Hashtable _GlobalXsltParams = new Hashtable();
     Hashtable _SessionXsltParams = null;
     Hashtable _RequestXsltParams = null;
-    PreCompiledXslt _BaseXslt = null;
-    String _BaseUri = null;
-    Uri _BaseXsltUri = null;
-    String _BaseXsltUriHash = null;
+    BaseXsltContext _BaseXsltContext;
+    String _BaseUri;
+    Uri _BaseXsltUri;
+    String _BaseXsltUriHash;
+    String _BaseXsltName;
     bool _DEBUG = false;
 
     protected void Application_Start(object sender, EventArgs e) {
@@ -72,21 +73,26 @@
         }
 
         _Resolver.Credentials = CredentialCache.DefaultCredentials;
-        
+
         string baseUri = (string)_XameleonConfiguration.PreCompiledXslt.BaseUri;
         if (baseUri != String.Empty)
             baseUri = (string)_XameleonConfiguration.PreCompiledXslt.BaseUri;
         else
             baseUri = "~";
-        
+
         foreach (PreCompiledXslt xslt in _XameleonConfiguration.PreCompiledXslt) {
             string localBaseUri = (string)_XameleonConfiguration.PreCompiledXslt.BaseUri;
             if (localBaseUri == String.Empty)
                 localBaseUri = baseUri;
-            Uri xsltUri = new Uri(HttpContext.Current.Server.MapPath(baseUri + xslt.Uri));
+            Uri xsltUri = new Uri(HttpContext.Current.Server.MapPath(localBaseUri + xslt.Uri));
             _XsltCompiledHashtable.AddTransformer(xslt.Name, xsltUri, _Resolver);
+            if (xslt.UseAsBaseXslt == "yes") {
+                _BaseXsltContext = new BaseXsltContext(xsltUri, xslt.Name + ":" + xsltUri.GetHashCode().ToString(), xslt.Name);
+            }
         }
 
+        Application["appStart_baseXsltContext"] = _BaseXsltContext;
+        
         foreach (XsltParam xsltParam in _XameleonConfiguration.GlobalXsltParam) {
             _GlobalXsltParams[xsltParam.Name] = (string)xsltParam.Select;
         }
@@ -97,25 +103,20 @@
     }
 
     protected void Application_BeginRequest(object sender, EventArgs e) {
+        _BaseXsltContext = (BaseXsltContext)Application["appStart_baseXsltContext"];
+        //HttpContext.Current.Response.Write(_BaseXsltContext.BaseXsltUri.ToString());
+        //HttpContext.Current.Response.Write("foo: " + this._BaseUri);
 
-        if (_BaseXslt == null)
-            _BaseXslt = _XameleonConfiguration.BaseSettings.BaseXslt;
-
-        if (_BaseXsltUri == null)
-            _BaseXsltUri = new Uri(HttpContext.Current.Request.MapPath(_BaseXslt.BaseUri + _BaseXslt.Uri));
-
-        if (_BaseXslt.BaseUri != null)
-            _BaseUri = _BaseXslt.BaseUri;
-        else
-            _BaseUri = "http://localhost/";
+        //if (_BaseXslt.BaseUri != null)
+        //    _BaseUri = _BaseXslt.BaseUri;
+        //else
+        //    _BaseUri = "http://localhost/";
 
         _Processor = _XsltCompiledHashtable.GetProcessor();
-        _Transform = _Transform;
-        _Serializer = _Serializer;
-        _Resolver = _Resolver;
-        _BaseXsltUriHash = _BaseXslt.Name + ":" + _BaseXsltUri.GetHashCode().ToString();
+        //_BaseXsltUriHash = _BaseXslt.Name + ":" + _BaseXsltUri.GetHashCode().ToString();
         _Compiler = _Processor.NewXsltCompiler();
-        _Compiler.BaseUri = _BaseXsltUri;
+        _Compiler.BaseUri = new Uri("http://localhost");
+        
 
         if (_XameleonConfiguration.UseMemcached == "yes")
             _UseMemCached = true;
@@ -134,8 +135,9 @@
         Application["resolver"] = _Resolver;
         Application["transform"] = _Transform;
         Application["xsltCompiledHashtable"] = _XsltCompiledHashtable;
-        Application["baseXsltUri"] = _BaseXsltUri;
-        Application["baseXsltUriHash"] = _BaseXsltUriHash;
+        //Application["baseXsltUri"] = _BaseXsltContext.BaseXsltUri;
+        //Application["baseXsltUriHash"] = _BaseXsltContext.UriHash;
+        Application["baseXsltContext"] = _BaseXsltContext;
         Application["xsltParams"] = xsltParams;
         Application["appSettings"] = _AppSettings;
         Application["usememcached"] = _UseMemCached;

@@ -27,10 +27,10 @@ namespace Xameleon.Configuration {
       return ((BaseSetting)element).Key;
     }
 
-    [ConfigurationProperty("baseXslt", IsRequired = true)]
-    public PreCompiledXslt BaseXslt {
+    [ConfigurationProperty("baseXsltName", IsRequired = true)]
+    public string BaseXsltName {
       get {
-        return this["baseXslt"] as PreCompiledXslt;
+        return this["baseXsltName"] as string;
       }
     }
   }

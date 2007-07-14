@@ -220,6 +220,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Transform\AsyncProcess.cs" />
+    <Compile Include="Transform\BaseXsltContext.cs" />
     <Compile Include="Transform\TransformServiceAsyncResult.cs" />
     <Compile Include="Transform\Context.cs" />
     <Compile Include="Transform\Transform.cs" />

@@ -27,5 +27,12 @@ namespace Xameleon.Configuration {
         return this["uri"] as string;
       }
     }
+
+    [ConfigurationProperty("useAsBaseXslt", IsRequired = false)]
+    public string UseAsBaseXslt {
+      get {
+        return this["useAsBaseXslt"] as string;
+      }
+    }
   }
 }

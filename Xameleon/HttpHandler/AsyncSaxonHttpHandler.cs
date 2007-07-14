@@ -45,6 +45,7 @@ namespace Xameleon.Transform {
     XmlUrlResolver _resolver;
     Hashtable _xsltParams;
     String _output;
+    BaseXsltContext _baseXsltContext;
 
     public void ProcessRequest(HttpContext context) {
       //not called
@@ -70,8 +71,9 @@ namespace Xameleon.Transform {
       _resolver = (XmlUrlResolver)context.Application["resolver"];
       _xsltParams = (Hashtable)context.Application["xsltParams"];
       _useMemcachedClient = (bool)context.Application["usememcached"];
-      _baseXsltUri = (Uri)context.Application["baseXsltUri"];
-      _baseXsltUriHash = (string)context.Application["baseXsltUriHash"];
+      _baseXsltContext = (BaseXsltContext)context.Application["baseXsltContext"];
+      _baseXsltUri = _baseXsltContext.BaseXsltUri;
+      _baseXsltUriHash = _baseXsltContext.UriHash;
 
       if (_useMemcachedClient) {
         _memcachedClient = (MemcachedClient)context.Application["memcached"];

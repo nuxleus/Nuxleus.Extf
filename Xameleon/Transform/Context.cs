@@ -57,8 +57,6 @@ namespace Xameleon.Transform {
       _Processor = processor;
       _Compiler = compiler;
       _SourceXml = (Stream)_Resolver.GetEntity(_XmlSource, null, typeof(Stream));
-      //_TemplateStream = (Stream)_Resolver.GetEntity(_BaseTemplateUri, null, typeof(Stream));
-      //_TransformExecutable = _Compiler.Compile(_TemplateStream);
       _HttpContextParams = new Hashtable();
       _Destination = serializer;
       _MemcachedClient = null;
