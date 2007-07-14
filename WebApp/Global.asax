@@ -101,15 +101,9 @@
         if (_BaseXslt == null)
             _BaseXslt = _XameleonConfiguration.BaseSettings.BaseXslt;
 
-        if (_BaseXsltUri == null) {
-            Uri baseUri;
-            if ((string)_BaseXslt.BaseUri == "~")
-                baseUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri, UriKind.Absolute);
-            else
-                baseUri = new Uri(_BaseXslt.BaseUri, UriKind.Absolute);
-            
-            _BaseXsltUri = _Resolver.ResolveUri(baseUri, _BaseXslt.Uri);
-        }
+        if (_BaseXsltUri == null)
+            _BaseXsltUri = new Uri(HttpContext.Current.Request.MapPath(_BaseXslt.BaseUri + _BaseXslt.Uri));
+
         if (_BaseXslt.BaseUri != null)
             _BaseUri = _BaseXslt.BaseUri;
         else

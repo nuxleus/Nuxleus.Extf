@@ -25,7 +25,7 @@ namespace Xameleon.Transform {
     Processor _Processor;
     XsltCompiler _Compiler;
     Stream _SourceXml;
-    Stream _TemplateStream;
+    //Stream _TemplateStream;
     XsltExecutable _TransformExecutable;
     //String _xsltParamKey;
     Hashtable _XsltParams;
@@ -57,8 +57,8 @@ namespace Xameleon.Transform {
       _Processor = processor;
       _Compiler = compiler;
       _SourceXml = (Stream)_Resolver.GetEntity(_XmlSource, null, typeof(Stream));
-      _TemplateStream = (Stream)_Resolver.GetEntity(_BaseTemplateUri, null, typeof(Stream));
-      _TransformExecutable = _Compiler.Compile(_TemplateStream);
+      //_TemplateStream = (Stream)_Resolver.GetEntity(_BaseTemplateUri, null, typeof(Stream));
+      //_TransformExecutable = _Compiler.Compile(_TemplateStream);
       _HttpContextParams = new Hashtable();
       _Destination = serializer;
       _MemcachedClient = null;
@@ -149,10 +149,10 @@ namespace Xameleon.Transform {
       get { return _SourceXml; }
       set { _SourceXml = value; }
     }
-    public Stream TemplateStream {
-      get { return _TemplateStream; }
-      set { _TemplateStream = value; }
-    }
+    //public Stream TemplateStream {
+    //  get { return _TemplateStream; }
+    //  set { _TemplateStream = value; }
+    //}
     public String BaseUri {
       get { return _BaseUri; }
       set { _BaseUri = value; }
@@ -205,8 +205,8 @@ namespace Xameleon.Transform {
       _XsltSource = null;
       _SourceXml.Close();
       _SourceXml.Dispose();
-      _TemplateStream.Close();
-      _TemplateStream.Dispose();
+      //_TemplateStream.Close();
+      //_TemplateStream.Dispose();
       _ResponseOutput.Close();
       _ResponseOutput.Dispose();
     }
