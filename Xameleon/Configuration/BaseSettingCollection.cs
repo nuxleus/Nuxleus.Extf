@@ -26,5 +26,12 @@ namespace Xameleon.Configuration {
     protected override object GetElementKey(ConfigurationElement element) {
       return ((BaseSetting)element).Key;
     }
+
+    [ConfigurationProperty("baseXslt", IsRequired = true)]
+    public PreCompiledXslt BaseXslt {
+      get {
+        return this["baseXslt"] as PreCompiledXslt;
+      }
+    }
   }
 }
