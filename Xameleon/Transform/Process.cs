@@ -6,6 +6,7 @@ using System.Xml;
 using Saxon.Api;
 using Xameleon.ResultDocumentHandler;
 using System.Text;
+using System.Web.SessionState;
 
 namespace Xameleon.Transform {
 
@@ -15,30 +16,23 @@ namespace Xameleon.Transform {
 
     public void Process(Context context) {
 
-      StringBuilder _builder = new StringBuilder();
-      TextWriter _writer = new StringWriter(_builder);
 
-      using (_writer) {
+      XsltTransformer transformer = context.XsltCompiledCache.GetTransformer(context.BaseXsltUriHash, context.BaseXsltUri);
 
-        using (context.XmlStream) {
-
-          XsltTransformer transformer = context.XsltCompiledCache.GetTransformer(context.BaseXsltUriHash, context.BaseXsltUri);
-
-          if (context.XsltParams.Count > 0) {
-            foreach (DictionaryEntry param in context.XsltParams) {
-              string name = (string)param.Key;
-              transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
-            }
-          }
-
-          transformer.InputXmlResolver = context.Resolver;
-          transformer.InitialContextNode = context.Node;
-
-          lock (transformer) {
-            transformer.Run(context.Destination);
-          }
+      if (context.XsltParams.Count > 0) {
+        foreach (DictionaryEntry param in context.XsltParams) {
+          string name = (string)param.Key;
+          transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
         }
+      }
+
+      transformer.InputXmlResolver = context.XsltCompiledCache.GetResolver();
+      transformer.InitialContextNode = context.XsltCompiledCache.GetXmlSourceStream("foo", new Uri(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath)));
+
+      lock (transformer) {
+        transformer.Run(context.Destination);
       }
     }
   }
 }
+

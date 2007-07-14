@@ -17,24 +17,12 @@ namespace Xameleon.Transform {
     HttpContext _HttpContext;
     AppSettings _AppSettings;
     String _RequestUriHash;
-    String _BaseUri;
-    Uri _BaseTemplateUri;
-    Uri _XmlSource;
-    Uri _XsltSource;
-    XmlUrlResolver _Resolver;
     Processor _Processor;
-    XsltCompiler _Compiler;
-    Stream _SourceXml;
-    //Stream _TemplateStream;
-    //XsltExecutable _TransformExecutable;
-    //String _xsltParamKey;
     Hashtable _XsltParams;
     Hashtable _HttpContextParams;
     String _Backup;
     TextWriter _Writer;
     TextWriter _ResponseOutput;
-    DocumentBuilder _Builder;
-    XdmNode _Node;
     Serializer _Destination;
     MemcachedClient _MemcachedClient;
     StringBuilder _StringBuilder;
@@ -43,20 +31,13 @@ namespace Xameleon.Transform {
     String _BaseXsltUriHash;
     bool _INITIALIZED;
 
-    public Context(HttpContext context, Processor processor, XsltCompiler compiler, Serializer serializer, XmlUrlResolver resolver, Hashtable xsltParams, XsltCompiledHashtable xsltCompiledHashtable, Uri baseXsltUri, String baseXsltUriHash, params string[] httpContextParamList) {
+    public Context(HttpContext context, Processor processor, Serializer serializer, Hashtable xsltParams, XsltCompiledHashtable xsltCompiledHashtable, Uri baseXsltUri, String baseXsltUriHash, params string[] httpContextParamList) {
       _AppSettings = (AppSettings)context.Application["appSettings"];
       _ResponseOutput = context.Response.Output;
       _RequestUriHash = context.Request.Url.GetHashCode().ToString();
 
       _HttpContext = context;
-      _BaseUri = compiler.BaseUri.ToString();
-      _BaseTemplateUri = compiler.BaseUri;
-      _XmlSource = new Uri(context.Request.MapPath(context.Request.CurrentExecutionFilePath));
-      _XsltSource = new Uri(Resources.SourceXslt);
-      _Resolver = resolver;
       _Processor = processor;
-      _Compiler = compiler;
-      _SourceXml = (Stream)_Resolver.GetEntity(_XmlSource, null, typeof(Stream));
       _HttpContextParams = new Hashtable();
       _Destination = serializer;
       _MemcachedClient = null;
@@ -68,10 +49,6 @@ namespace Xameleon.Transform {
       _StringBuilder = new StringBuilder();
       _Writer = new StringWriter(_StringBuilder);
       _Destination.SetOutputWriter(_Writer);
-
-      _Builder = _Processor.NewDocumentBuilder();
-      _Builder.BaseUri = _BaseTemplateUri;
-      _Node = _Builder.Build(_SourceXml);
 
       _XsltParams = xsltParams;
 
@@ -107,14 +84,6 @@ namespace Xameleon.Transform {
       get { return _RequestUriHash; }
       set { _RequestUriHash = value; }
     }
-    public DocumentBuilder Builder {
-      get { return _Builder; }
-      set { _Builder = value; }
-    }
-    public XdmNode Node {
-      get { return _Node; }
-      set { _Node = value; }
-    }
     public Serializer Destination {
       get { return _Destination; }
       set { _Destination = value; }
@@ -123,49 +92,13 @@ namespace Xameleon.Transform {
       get { return _AppSettings; }
       set { _AppSettings = value; }
     }
-    public Uri BaseTemplateUri {
-      get { return _BaseTemplateUri; }
-      set { _BaseTemplateUri = value; }
-    }
     public String XmlBackup {
       get { return _Backup; }
       set { _Backup = value; }
     }
-    //public XsltExecutable XsltExecutable {
-    //  get { return _TransformExecutable; }
-    //  set { _TransformExecutable = value; }
-    //}
-    public XsltCompiler Compiler {
-      get { return _Compiler; }
-      set { _Compiler = value; }
-    }
     public Processor Processor {
       get { return _Processor; }
       set { _Processor = value; }
-    }
-    public Stream XmlStream {
-      get { return _SourceXml; }
-      set { _SourceXml = value; }
-    }
-    //public Stream TemplateStream {
-    //  get { return _TemplateStream; }
-    //  set { _TemplateStream = value; }
-    //}
-    public String BaseUri {
-      get { return _BaseUri; }
-      set { _BaseUri = value; }
-    }
-    public Uri XmlSource {
-      get { return _XmlSource; }
-      set { _XmlSource = value; }
-    }
-    public Uri XsltSource {
-      get { return _XsltSource; }
-      set { _XsltSource = value; }
-    }
-    public XmlUrlResolver Resolver {
-      get { return _Resolver; }
-      set { _Resolver = value; }
     }
     public Hashtable XsltParams {
       get { return _XsltParams; }
@@ -199,12 +132,6 @@ namespace Xameleon.Transform {
     #region IDisposable Members
 
     public void Dispose() {
-      _XmlSource = null;
-      _XsltSource = null;
-      _SourceXml.Close();
-      _SourceXml.Dispose();
-      //_TemplateStream.Close();
-      //_TemplateStream.Dispose();
       _ResponseOutput.Close();
       _ResponseOutput.Dispose();
     }

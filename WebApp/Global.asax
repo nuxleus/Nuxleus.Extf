@@ -91,6 +91,7 @@
             }
         }
 
+        Application["appStart_xsltCompiledHashtable"] = _XsltCompiledHashtable;
         Application["appStart_baseXsltContext"] = _BaseXsltContext;
         
         foreach (XsltParam xsltParam in _XameleonConfiguration.GlobalXsltParam) {
@@ -103,20 +104,8 @@
     }
 
     protected void Application_BeginRequest(object sender, EventArgs e) {
-        _BaseXsltContext = (BaseXsltContext)Application["appStart_baseXsltContext"];
-        //HttpContext.Current.Response.Write(_BaseXsltContext.BaseXsltUri.ToString());
-        //HttpContext.Current.Response.Write("foo: " + this._BaseUri);
-
-        //if (_BaseXslt.BaseUri != null)
-        //    _BaseUri = _BaseXslt.BaseUri;
-        //else
-        //    _BaseUri = "http://localhost/";
-
-        _Processor = _XsltCompiledHashtable.GetProcessor();
-        //_BaseXsltUriHash = _BaseXslt.Name + ":" + _BaseXsltUri.GetHashCode().ToString();
-        _Compiler = _Processor.NewXsltCompiler();
-        _Compiler.BaseUri = new Uri("http://localhost");
         
+        _Processor = _XsltCompiledHashtable.GetProcessor();
 
         if (_XameleonConfiguration.UseMemcached == "yes")
             _UseMemCached = true;
@@ -134,10 +123,8 @@
         Application["serializer"] = _Serializer;
         Application["resolver"] = _Resolver;
         Application["transform"] = _Transform;
-        Application["xsltCompiledHashtable"] = _XsltCompiledHashtable;
-        //Application["baseXsltUri"] = _BaseXsltContext.BaseXsltUri;
-        //Application["baseXsltUriHash"] = _BaseXsltContext.UriHash;
-        Application["baseXsltContext"] = _BaseXsltContext;
+        Application["xsltCompiledHashtable"] = (XsltCompiledHashtable)Application["appStart_xsltCompiledHashtable"];
+        Application["baseXsltContext"] = (BaseXsltContext)Application["appStart_baseXsltContext"];
         Application["xsltParams"] = xsltParams;
         Application["appSettings"] = _AppSettings;
         Application["usememcached"] = _UseMemCached;

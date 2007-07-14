@@ -168,7 +168,7 @@ namespace Xameleon.Transform {
     }
 
     private Context GetContext() {
-      _transformContext = new Context(_context, _processor, _compiler, _serializer, _resolver, _xsltParams, _xsltCompiledHashtable, _baseXsltUri, _baseXsltUriHash);
+      _transformContext = new Context(_context, _processor, _serializer, _xsltParams, _xsltCompiledHashtable, _baseXsltUri, _baseXsltUriHash);
       return _transformContext;
     }
 
