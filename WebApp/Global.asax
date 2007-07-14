@@ -18,9 +18,9 @@
 <%@ Import Namespace="System.Xml" %>
 
 <script RunAt="server">
-    MemcachedClient _MemcachedClient = new MemcachedClient();
+    MemcachedClient _MemcachedClient = null;
     bool _UseMemCached = false;
-    SockIOPool _pool = null;
+    SockIOPool _Pool = null;
     AppSettings _AppSettings = new AppSettings();
     AspNetXameleonConfiguration _XameleonConfiguration = AspNetXameleonConfiguration.GetConfig();
     AspNetAwsConfiguration _AwsConfiguration = AspNetAwsConfiguration.GetConfig();
@@ -46,12 +46,12 @@
 
         if (_XameleonConfiguration.UseMemcached == "yes") {
             _MemcachedClient = new MemcachedClient();
-            _pool = SockIOPool.GetInstance();
+            _Pool = SockIOPool.GetInstance();
             List<string> serverList = new List<string>();
             foreach (MemcachedServer server in _MemcachedConfiguration.MemcachedServerCollection) {
                 serverList.Add(server.IP + ":" + server.Port);
             }
-            _pool.SetServers(serverList.ToArray());
+            _Pool.SetServers(serverList.ToArray());
 
             if (_MemcachedConfiguration.UseCompression != null && _MemcachedConfiguration.UseCompression == "yes")
                 _MemcachedClient.EnableCompression = true;
@@ -59,15 +59,15 @@
                 _MemcachedClient.EnableCompression = false;
 
             MemcachedPoolConfig poolConfig = (MemcachedPoolConfig)_MemcachedConfiguration.PoolConfig;
-            _pool.InitConnections = (int)poolConfig.InitConnections;
-            _pool.MinConnections = (int)poolConfig.MinConnections;
-            _pool.MaxConnections = (int)poolConfig.MaxConnections;
-            _pool.SocketConnectTimeout = (int)poolConfig.SocketConnectTimeout;
-            _pool.SocketTimeout = (int)poolConfig.SocketConnect;
-            _pool.MaintenanceSleep = (int)poolConfig.MaintenanceSleep;
-            _pool.Failover = (bool)poolConfig.Failover;
-            _pool.Nagle = (bool)poolConfig.Nagle;
-            _pool.Initialize();
+            _Pool.InitConnections = (int)poolConfig.InitConnections;
+            _Pool.MinConnections = (int)poolConfig.MinConnections;
+            _Pool.MaxConnections = (int)poolConfig.MaxConnections;
+            _Pool.SocketConnectTimeout = (int)poolConfig.SocketConnectTimeout;
+            _Pool.SocketTimeout = (int)poolConfig.SocketConnect;
+            _Pool.MaintenanceSleep = (int)poolConfig.MaintenanceSleep;
+            _Pool.Failover = (bool)poolConfig.Failover;
+            _Pool.Nagle = (bool)poolConfig.Nagle;
+            _Pool.Initialize();
         }
 
         string baseUri = (string)_XameleonConfiguration.PreCompiledXslt.BaseUri;
@@ -116,7 +116,7 @@
                 xsltParams[param.Key] = (string)param.Value;
             }
         }
-
+        Application["debug"] = _DEBUG;
         Application["processor"] = _Processor;
         Application["compiler"] = _Compiler;
         Application["serializer"] = _Serializer;
