@@ -26,7 +26,7 @@ namespace Xameleon.Transform {
     XsltCompiler _Compiler;
     Stream _SourceXml;
     //Stream _TemplateStream;
-    XsltExecutable _TransformExecutable;
+    //XsltExecutable _TransformExecutable;
     //String _xsltParamKey;
     Hashtable _XsltParams;
     Hashtable _HttpContextParams;
@@ -133,10 +133,10 @@ namespace Xameleon.Transform {
       get { return _Backup; }
       set { _Backup = value; }
     }
-    public XsltExecutable XsltExecutable {
-      get { return _TransformExecutable; }
-      set { _TransformExecutable = value; }
-    }
+    //public XsltExecutable XsltExecutable {
+    //  get { return _TransformExecutable; }
+    //  set { _TransformExecutable = value; }
+    //}
     public XsltCompiler Compiler {
       get { return _Compiler; }
       set { _Compiler = value; }
