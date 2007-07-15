@@ -32,7 +32,7 @@
     Serializer _Serializer = new Serializer();
     XmlUrlResolver _Resolver = new XmlUrlResolver();
     Hashtable _GlobalXsltParams = new Hashtable();
-    Hashtable _SessionXsltParams = null;
+    Hashtable _TransformContextHashtable = new Hashtable();
     Hashtable _RequestXsltParams = null;
     BaseXsltContext _BaseXsltContext;
     String _BaseUri;
@@ -89,9 +89,9 @@
 
         _XslTransformationManager.SetBaseXsltContext(_BaseXsltContext);
 
-        if (_UseMemCached && _MemcachedClient != null) {
+        if (_UseMemCached && _MemcachedClient != null)
             Application["appStart_memcached"] = _MemcachedClient;
-        }
+        
         Application["appStart_usememcached"] = _UseMemCached;
         Application["appStart_xslTransformationManager"] = _XslTransformationManager;
         Application["appStart_baseXsltContext"] = _BaseXsltContext;
@@ -109,17 +109,13 @@
         
         _Processor = _XslTransformationManager.Processor;
 
-        Hashtable xsltParams = new Hashtable();
+        Hashtable xsltParams = (Hashtable)_GlobalXsltParams.Clone();
 
-        if (_GlobalXsltParams != null && _GlobalXsltParams.Count > 0) {
-            foreach (DictionaryEntry param in _GlobalXsltParams) {
-                xsltParams[param.Key] = (string)param.Value;
-            }
-        }
         _UseMemCached = (bool)Application["appStart_usememcached"];
         Application["debug"] = _DEBUG;
         Application["xslTransformationManager"] = (XslTransformationManager)Application["appStart_xslTransformationManager"];
         Application["baseXsltContext"] = (BaseXsltContext)Application["appStart_baseXsltContext"];
+        Application["transformContextHashtable"] = _TransformContextHashtable;
         Application["xsltParams"] = xsltParams;
         Application["appSettings"] = _AppSettings;
         Application["usememcached"] = _UseMemCached;

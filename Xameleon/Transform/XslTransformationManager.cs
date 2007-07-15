@@ -81,15 +81,14 @@ namespace Xameleon.Transform {
 
     public XdmNode GetXdmNode(string name, string xmlSource) {
       Uri xmlSourceUri = new Uri(xmlSource);
-      string xmlSourceUriHash = xmlSourceUri.GetHashCode().ToString();
-      string key = name + ":" + xmlSourceUriHash;
-      return (XdmNode)getXdmNode(key, xmlSourceUri);
+      return GetXdmNode(name, xmlSourceUri);
     }
 
     public XdmNode GetXdmNode(string name, Uri xmlSourceUri) {
-      string xmlSourceUriHash = xmlSourceUri.GetHashCode().ToString();
-      string key = name + ":" + xmlSourceUriHash;
-      return (XdmNode)getXdmNode(key, xmlSourceUri);
+      Stream xmlStream = (Stream)_resolver.GetEntity(xmlSourceUri, null, typeof(Stream));
+      string xmlStreamHash = xmlStream.GetHashCode().ToString();
+      string key = name + ":" + xmlStreamHash;
+      return (XdmNode)getXdmNode(key, xmlStream);
     }
 
     public XsltTransformer GetTransformer(string name, string href, Uri baseUri) {
@@ -116,15 +115,14 @@ namespace Xameleon.Transform {
       return transformer;
     }
 
-    private XdmNode getXdmNode(string key, Uri sourceUri) {
+    private XdmNode getXdmNode(string key, Stream xmlSourceStream) {
       foreach (DictionaryEntry entry in _sourceHashtable) {
         string uri = (string)entry.Key;
         if (uri == key) {
           return (XdmNode)_sourceHashtable[uri];
         }
       }
-      Stream xmlStream = (Stream)_resolver.GetEntity(sourceUri, null, typeof(Stream));
-      XdmNode node = _builder.Build(xmlStream);
+      XdmNode node = _builder.Build(xmlSourceStream);
       _sourceHashtable[key] = (XdmNode)node;
       return (XdmNode)node;
     }

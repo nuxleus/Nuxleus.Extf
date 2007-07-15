@@ -85,6 +85,8 @@ namespace Xameleon.Transform {
         _memcachedClient = (MemcachedClient)context.Application["memcached"];
       }
       _transformAsyncResult._context = context;
+      StringBuilder builder;
+      TextWriter writer;
       
       try {
 
@@ -100,7 +102,6 @@ namespace Xameleon.Transform {
               //  _context.Response.Output.WriteLine("Value: " + transformer.GetHashCode().ToString());
               //  _context.Response.Output.WriteLine("Value2: " + transform.GetHashCode().ToString());
               //}
-              
               if (_useMemcachedClient) {
                 _output = "memcached is true";
                   string key = _context.Request.Url.GetHashCode().ToString();
@@ -109,11 +110,12 @@ namespace Xameleon.Transform {
                   _output = obj;
                   _transformAsyncResult.CompleteCall();
                   return _transformAsyncResult;
-                } else {
-                  
+                } else {  
                   try {
-                    _transform.BeginAsyncProcess(GetContext());
-                    _output = _transformContext.StringBuilder.ToString();
+                    builder = new StringBuilder();
+                    writer = new StringWriter(builder);
+                    _transform.BeginAsyncProcess(GetContext(), _xslTransformationManager, writer);
+                    _output = builder.ToString();
                     _transformAsyncResult.CompleteCall();
                     return _transformAsyncResult;
                   } catch (Exception e) {
@@ -124,34 +126,44 @@ namespace Xameleon.Transform {
                   }
                 }
               } else {
-                _transform.BeginAsyncProcess(GetContext());
-                _output = _transformContext.StringBuilder.ToString();
+                builder = new StringBuilder();
+                writer = new StringWriter(builder);
+                _transform.BeginAsyncProcess(GetContext(), _xslTransformationManager, writer);
+                _output = builder.ToString();
                 _transformAsyncResult.CompleteCall();
                 return _transformAsyncResult;
               }
               break;
             }
           case "PUT": {
-              _transform.BeginAsyncProcess(GetContext());
-              _output = _transformContext.StringBuilder.ToString();
+              builder = new StringBuilder();
+              writer = new StringWriter(builder);
+              _transform.BeginAsyncProcess(GetContext(), _xslTransformationManager, writer);
+              _output = builder.ToString();
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
             }
           case "POST": {
-              _transform.BeginAsyncProcess(GetContext());
-              _output = _transformContext.StringBuilder.ToString();
+              builder = new StringBuilder();
+              writer = new StringWriter(builder);
+              _transform.BeginAsyncProcess(GetContext(), _xslTransformationManager, writer);
+              _output = builder.ToString();
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
             }
           case "DELETE": {
-              _transform.BeginAsyncProcess(GetContext());
-              _output = _transformContext.StringBuilder.ToString();
+              builder = new StringBuilder();
+              writer = new StringWriter(builder);
+              _transform.BeginAsyncProcess(GetContext(), _xslTransformationManager, writer);
+              _output = builder.ToString();
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
             }
           default: {
-              _transform.BeginAsyncProcess(GetContext());
-              _output = _transformContext.StringBuilder.ToString();
+              builder = new StringBuilder();
+              writer = new StringWriter(builder);
+              _transform.BeginAsyncProcess(GetContext(), _xslTransformationManager, writer);
+              _output = builder.ToString();
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
             }
@@ -174,7 +186,7 @@ namespace Xameleon.Transform {
     }
 
     private Context GetContext() {
-      _transformContext = new Context(_context, _xsltParams, _xslTransformationManager);
+      _transformContext = new Context(_context, _xsltParams);
       return _transformContext;
     }
 

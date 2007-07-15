@@ -14,10 +14,10 @@ namespace Xameleon.Transform {
   ///</summary>
   public partial class Transform {
 
-    public void BeginAsyncProcess(Context context) {
+    public void BeginAsyncProcess(Context context, XslTransformationManager manager, TextWriter writer) {
 
 
-      XsltTransformer transformer = context.XslTransformationManager.GetTransformer(context.XslTransformationManager.BaseXsltUriHash, context.XslTransformationManager.BaseXsltUri);
+      XsltTransformer transformer = manager.GetTransformer(manager.BaseXsltUriHash, manager.BaseXsltUri);
 
       if (context.XsltParams.Count > 0) {
         foreach (DictionaryEntry param in context.XsltParams) {
@@ -26,11 +26,14 @@ namespace Xameleon.Transform {
         }
       }
 
-      transformer.InputXmlResolver = context.XslTransformationManager.Resolver;
-      transformer.InitialContextNode = context.XslTransformationManager.GetXdmNode("foo", new Uri(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath)));
+      transformer.InputXmlResolver = manager.Resolver;
+      transformer.InitialContextNode = manager.GetXdmNode(context.RequestUriHash, new Uri(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath)));
+      
+      Serializer destination = manager.Serializer;
+      destination.SetOutputWriter(writer);
 
       lock (transformer) {
-        transformer.Run(context.Destination);
+        transformer.Run(destination);
       }
     }
 
