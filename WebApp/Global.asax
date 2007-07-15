@@ -95,6 +95,7 @@
         Application["appStart_usememcached"] = _UseMemCached;
         Application["appStart_xslTransformationManager"] = _XslTransformationManager;
         Application["appStart_baseXsltContext"] = _BaseXsltContext;
+        Application["foobar"] = "foobar"; 
         
         foreach (XsltParam xsltParam in _XameleonConfiguration.GlobalXsltParam) {
             _GlobalXsltParams[xsltParam.Name] = (string)xsltParam.Select;

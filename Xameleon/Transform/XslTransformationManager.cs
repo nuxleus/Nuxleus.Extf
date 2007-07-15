@@ -101,7 +101,10 @@ namespace Xameleon.Transform {
     public XsltTransformer GetTransformer(string xsltUriHash, Uri xsltUri) {
       return getTransformer(xsltUriHash, xsltUri);
     }
-
+    public XsltTransformer GetTransformer(string name) {
+      //TODO: This is a weak temporary hack.
+      return (XsltTransformer)_xsltHashtable[name];
+    }
     private XsltTransformer getTransformer(string key, Uri xsltUri) {
       foreach (DictionaryEntry entry in _xsltHashtable) {
         string uri = (string)entry.Key;
@@ -109,7 +112,6 @@ namespace Xameleon.Transform {
           return (XsltTransformer)_xsltHashtable[uri];
         }
       }
-
       XsltTransformer transformer = _processor.NewXsltCompiler().Compile(xsltUri).Load();
       _xsltHashtable[key] = (XsltTransformer)transformer;
       return transformer;
