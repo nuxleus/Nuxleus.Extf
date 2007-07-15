@@ -72,8 +72,8 @@
             baseUri = (string)_XameleonConfiguration.PreCompiledXslt.BaseUri;
         else
             baseUri = "~";
-        
-        _XslTransformationManager = new XslTransformationManager(_Processor, _Serializer, _Resolver, _Transform);
+
+        _XslTransformationManager = new XslTransformationManager(_Processor, _Transform, _Resolver, _Serializer);
         _Resolver.Credentials = CredentialCache.DefaultCredentials;
 
         foreach (PreCompiledXslt xslt in _XameleonConfiguration.PreCompiledXslt) {
