@@ -27,7 +27,7 @@ namespace Xameleon.Transform {
       }
 
       transformer.InputXmlResolver = context.XslTransformationManager.Resolver;
-      transformer.InitialContextNode = context.XslTransformationManager.GetXmlSourceStream("foo", new Uri(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath)));
+      transformer.InitialContextNode = context.XslTransformationManager.GetXdmNode("foo", new Uri(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath)));
 
       lock (transformer) {
         transformer.Run(context.Destination);
