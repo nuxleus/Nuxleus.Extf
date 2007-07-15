@@ -26,7 +26,7 @@
     AspNetAwsConfiguration _AwsConfiguration = AspNetAwsConfiguration.GetConfig();
     AspNetBungeeAppConfiguration _BungeeAppConfguration = AspNetBungeeAppConfiguration.GetConfig();
     AspNetMemcachedConfiguration _MemcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
-    XsltCompiledHashtable _XsltCompiledHashtable = new XsltCompiledHashtable();
+    XslTransformationManager _XslTransformationManager = new XslTransformationManager();
     Transform _Transform = new Transform();
     Processor _Processor = null;
     XsltCompiler _Compiler = null;
@@ -85,13 +85,13 @@
             if (localBaseUri == String.Empty)
                 localBaseUri = baseUri;
             Uri xsltUri = new Uri(HttpContext.Current.Server.MapPath(localBaseUri + xslt.Uri));
-            _XsltCompiledHashtable.AddTransformer(xslt.Name, xsltUri, _Resolver);
+            _XslTransformationManager.AddTransformer(xslt.Name, xsltUri, _Resolver);
             if (xslt.UseAsBaseXslt == "yes") {
                 _BaseXsltContext = new BaseXsltContext(xsltUri, xslt.Name + ":" + xsltUri.GetHashCode().ToString(), xslt.Name);
             }
         }
 
-        Application["appStart_xsltCompiledHashtable"] = _XsltCompiledHashtable;
+        Application["appStart_xslTransformationManager"] = _XslTransformationManager;
         Application["appStart_baseXsltContext"] = _BaseXsltContext;
         
         foreach (XsltParam xsltParam in _XameleonConfiguration.GlobalXsltParam) {
@@ -105,7 +105,7 @@
 
     protected void Application_BeginRequest(object sender, EventArgs e) {
         
-        _Processor = _XsltCompiledHashtable.GetProcessor();
+        _Processor = _XslTransformationManager.GetProcessor();
 
         if (_XameleonConfiguration.UseMemcached == "yes")
             _UseMemCached = true;
@@ -123,7 +123,7 @@
         Application["serializer"] = _Serializer;
         Application["resolver"] = _Resolver;
         Application["transform"] = _Transform;
-        Application["xsltCompiledHashtable"] = (XsltCompiledHashtable)Application["appStart_xsltCompiledHashtable"];
+        Application["xslTransformationManager"] = (XslTransformationManager)Application["appStart_xslTransformationManager"];
         Application["baseXsltContext"] = (BaseXsltContext)Application["appStart_baseXsltContext"];
         Application["xsltParams"] = xsltParams;
         Application["appSettings"] = _AppSettings;
@@ -160,7 +160,7 @@
         HttpContext.Current.Response.Output.WriteLine("UseMemcached?: " + _UseMemCached.ToString());
         HttpContext.Current.Response.Output.WriteLine("Transform: " + _Transform.ToString());
         HttpContext.Current.Response.Output.WriteLine("Resolver: " + _Resolver.ToString());
-        HttpContext.Current.Response.Output.WriteLine("XsltCompiledHashtable: " + _XsltCompiledHashtable.ToString());
+        HttpContext.Current.Response.Output.WriteLine("XslTransformationManager: " + _XslTransformationManager.ToString());
         HttpContext.Current.Response.Output.WriteLine("GlobalXsltParms: " + _GlobalXsltParams.ToString());
         HttpContext.Current.Response.Output.WriteLine("AppSettings: " + _AppSettings.ToString());
         HttpContext.Current.Response.Output.WriteLine("Processor: " + _Processor.ToString());

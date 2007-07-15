@@ -14,6 +14,7 @@ using System.Text;
 namespace Xameleon.Transform {
 
   public struct Context : IDisposable {
+
     HttpContext _HttpContext;
     AppSettings _AppSettings;
     String _RequestUriHash;
@@ -26,23 +27,22 @@ namespace Xameleon.Transform {
     Serializer _Destination;
     MemcachedClient _MemcachedClient;
     StringBuilder _StringBuilder;
-    XsltCompiledHashtable _XsltCompiledHashtable;
+    XslTransformationManager _XsltTransformationManager;
     Uri _BaseXsltUri;
     String _BaseXsltUriHash;
     bool _INITIALIZED;
 
-    public Context(HttpContext context, Processor processor, Serializer serializer, Hashtable xsltParams, XsltCompiledHashtable xsltCompiledHashtable, Uri baseXsltUri, String baseXsltUriHash, params string[] httpContextParamList) {
+    public Context(HttpContext context, Serializer serializer, Hashtable xsltParams, XslTransformationManager xslTransformationManager, Uri baseXsltUri, String baseXsltUriHash, params string[] httpContextParamList) {
       _AppSettings = (AppSettings)context.Application["appSettings"];
       _ResponseOutput = context.Response.Output;
       _RequestUriHash = context.Request.Url.GetHashCode().ToString();
-
       _HttpContext = context;
-      _Processor = processor;
+      _Processor = xslTransformationManager.GetProcessor();
       _HttpContextParams = new Hashtable();
       _Destination = serializer;
       _MemcachedClient = null;
       _StringBuilder = null;
-      _XsltCompiledHashtable = xsltCompiledHashtable;
+      _XsltTransformationManager = xslTransformationManager;
       _BaseXsltUri = baseXsltUri;
       _BaseXsltUriHash = baseXsltUriHash;
 
@@ -60,9 +60,9 @@ namespace Xameleon.Transform {
       _INITIALIZED = true;
     }
 
-    public XsltCompiledHashtable XsltCompiledCache {
-      get { return _XsltCompiledHashtable; }
-      set { _XsltCompiledHashtable = value; }
+    public XslTransformationManager XslTransformationManager {
+      get { return _XsltTransformationManager; }
+      set { _XsltTransformationManager = value; }
     }
 
     public Uri BaseXsltUri {
@@ -132,8 +132,7 @@ namespace Xameleon.Transform {
     #region IDisposable Members
 
     public void Dispose() {
-      _ResponseOutput.Close();
-      _ResponseOutput.Dispose();
+
     }
 
     #endregion

@@ -28,7 +28,7 @@ namespace Xameleon.HttpApplication {
     AspNetAwsConfiguration _AwsConfiguration = AspNetAwsConfiguration.GetConfig();
     AspNetBungeeAppConfiguration _BungeeAppConfguration = AspNetBungeeAppConfiguration.GetConfig();
     AspNetMemcachedConfiguration _MemcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
-    XsltCompiledHashtable _XsltCompiledHashtable = new XsltCompiledHashtable();
+    XslTransformationManager _XsltCompiledHashtable = new XslTransformationManager();
     Transform.Transform _Transform = new Transform.Transform();
     Processor _Processor = new Processor();
     XsltCompiler _Compiler = null;

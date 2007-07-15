@@ -27,7 +27,7 @@ namespace Xameleon.Transform {
 
     MemcachedClient _memcachedClient;
     bool _useMemcachedClient = false;
-    XsltCompiledHashtable _xsltCompiledHashtable;
+    XslTransformationManager _xslTransformationManager;
     Uri _baseXsltUri;
     String _baseXsltUriHash;
     Transform _transform;
@@ -67,7 +67,7 @@ namespace Xameleon.Transform {
       _processor = (Processor)context.Application["processor"];
       _compiler = (XsltCompiler)context.Application["compiler"];
       _serializer = (Serializer)context.Application["serializer"];
-      _xsltCompiledHashtable = (XsltCompiledHashtable)context.Application["xsltCompiledHashtable"];
+      _xslTransformationManager = (XslTransformationManager)context.Application["xslTransformationManager"];
       _resolver = (XmlUrlResolver)context.Application["resolver"];
       _xsltParams = (Hashtable)context.Application["xsltParams"];
       _useMemcachedClient = (bool)context.Application["usememcached"];
@@ -168,7 +168,7 @@ namespace Xameleon.Transform {
     }
 
     private Context GetContext() {
-      _transformContext = new Context(_context, _processor, _serializer, _xsltParams, _xsltCompiledHashtable, _baseXsltUri, _baseXsltUriHash);
+      _transformContext = new Context(_context, _serializer, _xsltParams, _xslTransformationManager, _baseXsltUri, _baseXsltUriHash);
       return _transformContext;
     }
 
