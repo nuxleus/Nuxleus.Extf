@@ -28,27 +28,21 @@ namespace Xameleon.Transform {
     MemcachedClient _MemcachedClient;
     StringBuilder _StringBuilder;
     XslTransformationManager _XsltTransformationManager;
-    Uri _BaseXsltUri;
-    String _BaseXsltUriHash;
     bool _INITIALIZED;
 
-    public Context(HttpContext context, Serializer serializer, Hashtable xsltParams, XslTransformationManager xslTransformationManager, Uri baseXsltUri, String baseXsltUriHash, params string[] httpContextParamList) {
+    public Context(HttpContext context, Hashtable xsltParams, XslTransformationManager xslTransformationManager, params string[] httpContextParamList) {
       _AppSettings = (AppSettings)context.Application["appSettings"];
       _ResponseOutput = context.Response.Output;
       _RequestUriHash = context.Request.Url.GetHashCode().ToString();
       _HttpContext = context;
-      _Processor = xslTransformationManager.GetProcessor();
+      _Processor = xslTransformationManager.Processor;
       _HttpContextParams = new Hashtable();
-      _Destination = serializer;
-      _MemcachedClient = null;
-      _StringBuilder = null;
-      _XsltTransformationManager = xslTransformationManager;
-      _BaseXsltUri = baseXsltUri;
-      _BaseXsltUriHash = baseXsltUriHash;
-
+      _Destination = xslTransformationManager.Serializer;
       _StringBuilder = new StringBuilder();
       _Writer = new StringWriter(_StringBuilder);
       _Destination.SetOutputWriter(_Writer);
+      _MemcachedClient = null;
+      _XsltTransformationManager = xslTransformationManager;
 
       _XsltParams = xsltParams;
 
@@ -63,16 +57,6 @@ namespace Xameleon.Transform {
     public XslTransformationManager XslTransformationManager {
       get { return _XsltTransformationManager; }
       set { _XsltTransformationManager = value; }
-    }
-
-    public Uri BaseXsltUri {
-      get { return _BaseXsltUri; }
-      set { _BaseXsltUri = value; }
-    }
-
-    public String BaseXsltUriHash {
-      get { return _BaseXsltUriHash; }
-      set { _BaseXsltUriHash = value; }
     }
 
     public HttpContext HttpContext {

@@ -17,7 +17,7 @@ namespace Xameleon.Transform {
     public void BeginAsyncProcess(Context context) {
 
 
-      XsltTransformer transformer = context.XslTransformationManager.GetTransformer(context.BaseXsltUriHash, context.BaseXsltUri);
+      XsltTransformer transformer = context.XslTransformationManager.GetTransformer(context.XslTransformationManager.BaseXsltUriHash, context.XslTransformationManager.BaseXsltUri);
 
       if (context.XsltParams.Count > 0) {
         foreach (DictionaryEntry param in context.XsltParams) {
@@ -26,7 +26,7 @@ namespace Xameleon.Transform {
         }
       }
 
-      transformer.InputXmlResolver = context.XslTransformationManager.GetResolver();
+      transformer.InputXmlResolver = context.XslTransformationManager.Resolver;
       transformer.InitialContextNode = context.XslTransformationManager.GetXmlSourceStream("foo", new Uri(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath)));
 
       lock (transformer) {

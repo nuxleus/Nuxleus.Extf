@@ -41,7 +41,7 @@ namespace Xameleon.Transform {
     Processor _processor;
     XsltCompiler _compiler;
     Serializer _serializer;
-    PythonEngine _pythonEngine;
+    //PythonEngine _pythonEngine;
     XmlUrlResolver _resolver;
     Hashtable _xsltParams;
     String _output;
@@ -62,18 +62,24 @@ namespace Xameleon.Transform {
       _context = context;
       _writer = _context.Response.Output;
       _httpMethod = _context.Request.HttpMethod;
-      _transform = (Transform)context.Application["transform"];
-      _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
-      _processor = (Processor)context.Application["processor"];
-      _compiler = (XsltCompiler)context.Application["compiler"];
-      _serializer = (Serializer)context.Application["serializer"];
+
       _xslTransformationManager = (XslTransformationManager)context.Application["xslTransformationManager"];
-      _resolver = (XmlUrlResolver)context.Application["resolver"];
-      _xsltParams = (Hashtable)context.Application["xsltParams"];
-      _useMemcachedClient = (bool)context.Application["usememcached"];
+      _transform = _xslTransformationManager.Transform;
+      _processor = _xslTransformationManager.Processor;
+      _compiler = _xslTransformationManager.Compiler;
+      _serializer = _xslTransformationManager.Serializer;
+      _resolver = _xslTransformationManager.Resolver;
+
       _baseXsltContext = (BaseXsltContext)context.Application["baseXsltContext"];
       _baseXsltUri = _baseXsltContext.BaseXsltUri;
       _baseXsltUriHash = _baseXsltContext.UriHash;
+
+      _xsltParams = (Hashtable)context.Application["xsltParams"];
+
+      _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
+      
+      _useMemcachedClient = (bool)context.Application["usememcached"];
+      
 
       if (_useMemcachedClient) {
         _memcachedClient = (MemcachedClient)context.Application["memcached"];
@@ -168,7 +174,7 @@ namespace Xameleon.Transform {
     }
 
     private Context GetContext() {
-      _transformContext = new Context(_context, _serializer, _xsltParams, _xslTransformationManager, _baseXsltUri, _baseXsltUriHash);
+      _transformContext = new Context(_context, _xsltParams, _xslTransformationManager);
       return _transformContext;
     }
 
