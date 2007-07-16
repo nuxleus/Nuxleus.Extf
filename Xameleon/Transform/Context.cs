@@ -13,7 +13,7 @@ using System.Text;
 
 namespace Xameleon.Transform {
 
-  public struct Context {
+  public class Context : IDisposable {
 
     Uri _requestUri;
     String _requestUriHash;
@@ -81,5 +81,23 @@ namespace Xameleon.Transform {
       }
       return builder.ToString().GetHashCode();
     }
+
+    #region IDisposable Members
+
+    public void Dispose() {
+
+    }
+
+    public void Clear() {
+      _httpCookies = null;
+      _httpForm = null;
+      _httpParams = null;
+      _httpQueryString = null;
+      _requestUri = null;
+      _requestUriHash = null;
+      _xsltParams = null;
+    }
+
+    #endregion
   }
 }
