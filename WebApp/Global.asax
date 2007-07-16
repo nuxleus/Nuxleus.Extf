@@ -141,16 +141,16 @@
     }
 
     protected void WriteDebugOutput(Context context, XslTransformationManager xslTransformationManager) {
-        HttpContext.Current.Response.Output.WriteLine("CompilerBaseUri: " + xslTransformationManager.Compiler.BaseUri.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("Compiler: " + xslTransformationManager.Compiler.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("Serializer: " + xslTransformationManager.Serializer.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("BaseTemplate: " + _appSettings.GetSetting("baseTemplate") + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("UseMemcached?: " + _useMemCached.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("Transform: " + xslTransformationManager.Transform.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("Resolver: " + xslTransformationManager.Resolver.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("XslTransformationManager: " + xslTransformationManager.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("GlobalXsltParms: " + _globalXsltParams.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("Processor: " + xslTransformationManager.Processor.ToString() + "<br/>");
+        //HttpContext.Current.Response.Output.WriteLine("CompilerBaseUri: " + xslTransformationManager.Compiler.BaseUri.ToString() + "<br/>");
+        //HttpContext.Current.Response.Output.WriteLine("Compiler: " + xslTransformationManager.Compiler.ToString() + "<br/>");
+        //HttpContext.Current.Response.Output.WriteLine("Serializer: " + xslTransformationManager.Serializer.ToString() + "<br/>");
+        //HttpContext.Current.Response.Output.WriteLine("BaseTemplate: " + _appSettings.GetSetting("baseTemplate") + "<br/>");
+        //HttpContext.Current.Response.Output.WriteLine("UseMemcached?: " + _useMemCached.ToString() + "<br/>");
+        //HttpContext.Current.Response.Output.WriteLine("Transform: " + xslTransformationManager.Transform.ToString() + "<br/>");
+        //HttpContext.Current.Response.Output.WriteLine("Resolver: " + xslTransformationManager.Resolver.ToString() + "<br/>");
+        //HttpContext.Current.Response.Output.WriteLine("XslTransformationManager: " + xslTransformationManager.ToString() + "<br/>");
+        //HttpContext.Current.Response.Output.WriteLine("GlobalXsltParms: " + _globalXsltParams.ToString() + "<br/>");
+        //HttpContext.Current.Response.Output.WriteLine("Processor: " + xslTransformationManager.Processor.ToString() + "<br/>");
         HttpContext.Current.Response.Write("Request Url: " + context.RequestUri.ToString() + "<br/>");
         HttpContext.Current.Response.Write("Request WeakHashcode: " + context.GetWeakHashcode(true) + "<br/>");
         HttpContext.Current.Response.Write("Request StrongHashcode: " + context.GetStrongHashcode(true, false) + "<br/>");
