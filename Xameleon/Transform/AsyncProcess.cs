@@ -20,24 +20,26 @@ namespace Xameleon.Transform {
 
     public void BeginAsyncProcess(Context context, XslTransformationManager manager, TextWriter writer, String xsltName) {
 
-        XsltTransformer transformer = manager.GetTransformer(xsltName);
+      XsltTransformer transformer = manager.GetTransformer(xsltName);
 
-        if (context.XsltParams.Count > 0) {
-          foreach (DictionaryEntry param in context.XsltParams) {
-            string name = (string)param.Key;
-            transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
-          }
+      if (context.XsltParams.Count > 0) {
+        foreach (DictionaryEntry param in context.XsltParams) {
+          string name = (string)param.Key;
+          transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
         }
+      }
 
-        transformer.InputXmlResolver = manager.Resolver;
-        transformer.InitialContextNode = manager.GetXdmNode(context.RequestUriHash, new Uri(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath)));
+      Uri requestXmlUri = new Uri(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath));
 
-        Serializer destination = manager.Serializer;
-        destination.SetOutputWriter(writer);
+      transformer.InputXmlResolver = manager.Resolver;
+      transformer.InitialContextNode = manager.GetXdmNode(requestXmlUri.GetHashCode().ToString(), requestXmlUri);
 
-        lock (transformer) {
-          transformer.Run(destination);
-        }
+      Serializer destination = manager.Serializer;
+      destination.SetOutputWriter(writer);
+
+      lock (transformer) {
+        transformer.Run(destination);
+      }
     }
 
     public void EndAysncProcess(IAsyncResult result) {

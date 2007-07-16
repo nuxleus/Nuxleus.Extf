@@ -18,7 +18,7 @@
 <%@ Import Namespace="System.Xml" %>
 
 <script RunAt="server">
-    bool _useMemCached = true;
+    bool _useMemCached = false;
     MemcachedClient _memcachedClient = null;
     SockIOPool _pool = null;
     AppSettings _appSettings = new AppSettings();
@@ -168,25 +168,28 @@
     }
 
     protected StringBuilder WriteDebugOutput(Context context, XslTransformationManager xslTransformationManager, StringBuilder builder, bool CONTENT_IS_MEMCACHED) {
-        builder.Append("CompilerBaseUri: " + xslTransformationManager.Compiler.BaseUri.ToString() + "<br/>");
-        builder.Append("Compiler: " + xslTransformationManager.Compiler.ToString() + "<br/>");
-        builder.Append("Serializer: " + xslTransformationManager.Serializer.ToString() + "<br/>");
-        builder.Append("BaseTemplate: " + _appSettings.GetSetting("baseTemplate") + "<br/>");
-        builder.Append("UseMemcached?: " + _useMemCached.ToString() + "<br/>");
-        builder.Append("Transform: " + xslTransformationManager.Transform.ToString() + "<br/>");
-        builder.Append("Resolver: " + xslTransformationManager.Resolver.ToString() + "<br/>");
-        builder.Append("XslTransformationManager: " + xslTransformationManager.ToString() + "<br/>");
-        builder.Append("GlobalXsltParms: " + _globalXsltParams.ToString() + "<br/>");
-        builder.Append("Processor: " + xslTransformationManager.Processor.ToString() + "<br/>");
-        builder.Append("Request Url: " + context.RequestUri.ToString() + "<br/>");
+        builder.Append("CompilerBaseUri: " + xslTransformationManager.Compiler.BaseUri + "<br/>");
+        builder.Append("Compiler: " + xslTransformationManager.Compiler.GetHashCode() + "<br/>");
+        builder.Append("Serializer: " + xslTransformationManager.Serializer.GetHashCode() + "<br/>");
+        builder.Append("BaseXsltName: " + xslTransformationManager.BaseXsltName + "<br/>");
+        builder.Append("BaseXsltUri: " + xslTransformationManager.BaseXsltUri + "<br/>");
+        builder.Append("BaseXsltUriHash: " + xslTransformationManager.BaseXsltUriHash + "<br/>");
+        builder.Append("UseMemcached?: " + (bool)Application["appStart_usememcached"] + "<br/>");
+        builder.Append("Transform: " + xslTransformationManager.Transform.GetHashCode() + "<br/>");
+        builder.Append("Resolver: " + xslTransformationManager.Resolver.GetHashCode() + "<br/>");
+        builder.Append("XslTransformationManager: " + xslTransformationManager.GetHashCode() + "<br/>");
+        builder.Append("GlobalXsltParms: " + _globalXsltParams.GetHashCode()+ "<br/>");
+        builder.Append("Processor: " + xslTransformationManager.Processor.GetHashCode() + "<br/>");
+        builder.Append("Request XmlSource Execution File Path: " + HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath) + "<br/>");
+        builder.Append("Request Url: " + context.RequestUri + "<br/>");
         builder.Append("Request is Memcached? " + CONTENT_IS_MEMCACHED + "<br/>");
         builder.Append("Request WeakHashcode: " + context.GetWeakHashcode(true) + "<br/>");
         builder.Append("Request StrongHashcode: " + context.GetStrongHashcode(true, false) + "<br/>");
         builder.Append("Request ReallyStronghashcode: " + context.GetStrongHashcode(false, true) + "<br/>");
-        builder.Append("Context Hashcode: " + context.GetHashCode().ToString() + "<br/>");
-        builder.Append("Context Uri: " + context.RequestUri.ToString() + "<br/>");
+        builder.Append("Context Hashcode: " + context.GetHashCode() + "<br/>");
+        builder.Append("Context Uri: " + context.RequestUri + "<br/>");
         builder.Append("Context UriHashCode: " + context.RequestUriHash + "<br/>");
-        builder.Append("Context HttpParams Count: " + context.HttpParams.Count.ToString() + "<br/>");
+        builder.Append("Context HttpParams Count: " + context.HttpParams.Count + "<br/>");
         IEnumerator httpParamsEnum = context.HttpParams.GetEnumerator();
         int i = 0;
         while (httpParamsEnum.MoveNext()) {
@@ -195,7 +198,7 @@
             builder.Append("ParamValue: " + context.HttpParams[key] + "<br/>");
             i += 1;
         }
-        builder.Append("Context XsltParams Count:" + context.XsltParams.Count.ToString() + "<br/>");
+        builder.Append("Context XsltParams Count:" + context.XsltParams.Count + "<br/>");
         foreach (DictionaryEntry entry in context.XsltParams) {
             builder.Append("XsltParam Name:" + (string)entry.Key + "<br/>");
             builder.Append("XsltParam Value:" + (string)entry.Value + "<br/>");
