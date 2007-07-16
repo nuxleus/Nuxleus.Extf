@@ -18,8 +18,8 @@
 <%@ Import Namespace="System.Xml" %>
 
 <script RunAt="server">
+    bool _useMemCached = true;
     MemcachedClient _memcachedClient = null;
-    bool _useMemCached = false;
     SockIOPool _pool = null;
     AppSettings _appSettings = new AppSettings();
     AspNetXameleonConfiguration _xameleonConfiguration = AspNetXameleonConfiguration.GetConfig();
@@ -39,7 +39,7 @@
     bool _DEBUG = true;
 
     protected void Application_Start(object sender, EventArgs e) {
-        
+
         if (_xameleonConfiguration.UseMemcached == "yes") {
             _useMemCached = true;
             _memcachedClient = new MemcachedClient();
@@ -89,16 +89,15 @@
 
         _xslTransformationManager.SetBaseXsltContext(_baseXsltContext);
 
-        if (_useMemCached && _memcachedClient != null)
-            Application["appStart_memcached"] = (MemcachedClient)_memcachedClient;
-
         foreach (XsltParam xsltParam in _xameleonConfiguration.GlobalXsltParam) {
             _globalXsltParams[xsltParam.Name] = (string)xsltParam.Select;
         }
+
+        if (_memcachedClient != null)
+            Application["appStart_memcached"] = _memcachedClient;
         Application["appStart_usememcached"] = _useMemCached;
         Application["appStart_xslTransformationManager"] = _xslTransformationManager;
-        Application["appStart_baseXsltContext"] = _baseXsltContext;
-        Application["appStart_globalXsltParams"] = _globalXsltParams; 
+        Application["appStart_globalXsltParams"] = _globalXsltParams;
     }
 
     protected void Session_Start(object sender, EventArgs e) {
@@ -106,22 +105,41 @@
     }
 
     protected void Application_BeginRequest(object sender, EventArgs e) {
-        
+
         Hashtable xsltParams = (Hashtable)Application["appStart_globalXsltParams"];
         Context context = new Context(HttpContext.Current, (Hashtable)xsltParams.Clone());
+        StringBuilder builder = new StringBuilder();
+        TextWriter writer = new StringWriter(builder);
+        XslTransformationManager xslTransformationManager = (XslTransformationManager)Application["appStart_xslTransformationManager"];
+        bool CONTENT_IS_MEMCACHED = false;
+        bool useMemCached = (bool)Application["appStart_usememcached"];
+        MemcachedClient memcachedClient = (MemcachedClient)Application["appStart_memcached"];
+        Application["memcached"] = memcachedClient;
 
-        _useMemCached = (bool)Application["appStart_usememcached"];
-        Application["debug"] = _DEBUG;
-        Application["xslTransformationManager"] = (XslTransformationManager)Application["appStart_xslTransformationManager"];
-        Application["transformContext"] = context;
-        Application["baseXsltContext"] = (BaseXsltContext)Application["appStart_baseXsltContext"];
-        Application["transformContextHashtable"] = _transformContextHashtable;
-        Application["usememcached"] = _useMemCached;
-        if (_useMemCached)
-            Application["memcached"] = (MemcachedClient)Application["appStart_memcached"];
-        if (_DEBUG) {
-            WriteDebugOutput(context, (XslTransformationManager)Application["xslTransformationManager"]);
+        if (useMemCached) {
+            string obj = (string)memcachedClient.Get(context.RequestUriHash);
+            if (obj != null) {
+                builder.Append(obj);
+                CONTENT_IS_MEMCACHED = true;
+            } else {
+                writer = new StringWriter(builder);
+                CONTENT_IS_MEMCACHED = false;
+            }
+        } else {
+            writer = new StringWriter(builder);
         }
+
+        Application["debug"] = _DEBUG;
+        Application["textWriter"] = writer;
+        Application["stringBuilder"] = builder;
+        Application["CONTENT_IS_MEMCACHED"] = CONTENT_IS_MEMCACHED;
+        Application["xslTransformationManager"] = xslTransformationManager;
+        Application["transformContext"] = context;
+        //Application["transformContextHashtable"] = _transformContextHashtable;
+        if (_DEBUG) {
+            HttpContext.Current.Response.Write(WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString());
+        }
+
     }
 
     protected void Application_AuthenticateRequest(object sender, EventArgs e) {
@@ -132,8 +150,14 @@
 
     }
     protected void Application_EndRequest(object sender, EventArgs e) {
-        Context context = (Context)Application["transformContext"];
-        context.Clear();
+        //Context context = (Context)Application["transformContext"];
+        //StringBuilder builder = (StringBuilder)Application["stringBuilder"];
+        //using (TextWriter writer = HttpContext.Current.Response.Output) {
+        //    string output = builder.ToString();
+        //    writer.Write(output);
+        //}
+        //context.Clear();
+        //builder = null;
     }
     protected void Session_End(object sender, EventArgs e) {
 
@@ -143,38 +167,40 @@
         SockIOPool.GetInstance().Shutdown();
     }
 
-    protected void WriteDebugOutput(Context context, XslTransformationManager xslTransformationManager) {
-        HttpContext.Current.Response.Output.WriteLine("CompilerBaseUri: " + xslTransformationManager.Compiler.BaseUri.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("Compiler: " + xslTransformationManager.Compiler.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("Serializer: " + xslTransformationManager.Serializer.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("BaseTemplate: " + _appSettings.GetSetting("baseTemplate") + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("UseMemcached?: " + _useMemCached.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("Transform: " + xslTransformationManager.Transform.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("Resolver: " + xslTransformationManager.Resolver.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("XslTransformationManager: " + xslTransformationManager.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("GlobalXsltParms: " + _globalXsltParams.ToString() + "<br/>");
-        HttpContext.Current.Response.Output.WriteLine("Processor: " + xslTransformationManager.Processor.ToString() + "<br/>");
-        HttpContext.Current.Response.Write("Request Url: " + context.RequestUri.ToString() + "<br/>");
-        HttpContext.Current.Response.Write("Request WeakHashcode: " + context.GetWeakHashcode(true) + "<br/>");
-        HttpContext.Current.Response.Write("Request StrongHashcode: " + context.GetStrongHashcode(true, false) + "<br/>");
-        HttpContext.Current.Response.Write("Request ReallyStronghashcode: " + context.GetStrongHashcode(false, true) + "<br/>");
-        HttpContext.Current.Response.Write("Context Hashcode: " + context.GetHashCode().ToString() + "<br/>");
-        HttpContext.Current.Response.Write("Context Uri: " + context.RequestUri.ToString() + "<br/>");
-        HttpContext.Current.Response.Write("Context UriHashCode: " + context.RequestUriHash + "<br/>");
-        HttpContext.Current.Response.Write("Context HttpParams Count: " + context.HttpParams.Count.ToString() + "<br/>");
+    protected StringBuilder WriteDebugOutput(Context context, XslTransformationManager xslTransformationManager, StringBuilder builder, bool CONTENT_IS_MEMCACHED) {
+        builder.Append("CompilerBaseUri: " + xslTransformationManager.Compiler.BaseUri.ToString() + "<br/>");
+        builder.Append("Compiler: " + xslTransformationManager.Compiler.ToString() + "<br/>");
+        builder.Append("Serializer: " + xslTransformationManager.Serializer.ToString() + "<br/>");
+        builder.Append("BaseTemplate: " + _appSettings.GetSetting("baseTemplate") + "<br/>");
+        builder.Append("UseMemcached?: " + _useMemCached.ToString() + "<br/>");
+        builder.Append("Transform: " + xslTransformationManager.Transform.ToString() + "<br/>");
+        builder.Append("Resolver: " + xslTransformationManager.Resolver.ToString() + "<br/>");
+        builder.Append("XslTransformationManager: " + xslTransformationManager.ToString() + "<br/>");
+        builder.Append("GlobalXsltParms: " + _globalXsltParams.ToString() + "<br/>");
+        builder.Append("Processor: " + xslTransformationManager.Processor.ToString() + "<br/>");
+        builder.Append("Request Url: " + context.RequestUri.ToString() + "<br/>");
+        builder.Append("Request is Memcached? " + CONTENT_IS_MEMCACHED + "<br/>");
+        builder.Append("Request WeakHashcode: " + context.GetWeakHashcode(true) + "<br/>");
+        builder.Append("Request StrongHashcode: " + context.GetStrongHashcode(true, false) + "<br/>");
+        builder.Append("Request ReallyStronghashcode: " + context.GetStrongHashcode(false, true) + "<br/>");
+        builder.Append("Context Hashcode: " + context.GetHashCode().ToString() + "<br/>");
+        builder.Append("Context Uri: " + context.RequestUri.ToString() + "<br/>");
+        builder.Append("Context UriHashCode: " + context.RequestUriHash + "<br/>");
+        builder.Append("Context HttpParams Count: " + context.HttpParams.Count.ToString() + "<br/>");
         IEnumerator httpParamsEnum = context.HttpParams.GetEnumerator();
         int i = 0;
         while (httpParamsEnum.MoveNext()) {
             string key = context.HttpParams.AllKeys[i].ToString();
-            HttpContext.Current.Response.Write("ParamName: " + key + "<br/>");
-            HttpContext.Current.Response.Write("ParamValue: " + context.HttpParams[key] + "<br/>");
+            builder.Append("ParamName: " + key + "<br/>");
+            builder.Append("ParamValue: " + context.HttpParams[key] + "<br/>");
             i += 1;
         }
-        HttpContext.Current.Response.Write("Context XsltParams Count:" + context.XsltParams.Count.ToString() + "<br/>");
+        builder.Append("Context XsltParams Count:" + context.XsltParams.Count.ToString() + "<br/>");
         foreach (DictionaryEntry entry in context.XsltParams) {
-            HttpContext.Current.Response.Write("XsltParam Name:" + (string)entry.Key + "<br/>");
-            HttpContext.Current.Response.Write("XsltParam Value:" + (string)entry.Value + "<br/>");
+            builder.Append("XsltParam Name:" + (string)entry.Key + "<br/>");
+            builder.Append("XsltParam Value:" + (string)entry.Value + "<br/>");
         }
+        return builder;
     }
 </script>
 
