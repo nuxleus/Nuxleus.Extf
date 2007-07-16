@@ -41,7 +41,6 @@ namespace Xameleon.Transform {
     Processor _processor;
     XsltCompiler _compiler;
     Serializer _serializer;
-    //PythonEngine _pythonEngine;
     XmlUrlResolver _resolver;
     Hashtable _xsltParams;
     String _output;
@@ -52,7 +51,7 @@ namespace Xameleon.Transform {
     }
 
     public bool IsReusable {
-      get { return true; }
+      get { return false; }
     }
 
     #region IHttpAsyncHandler Members
@@ -69,12 +68,11 @@ namespace Xameleon.Transform {
       _compiler = _xslTransformationManager.Compiler;
       _serializer = _xslTransformationManager.Serializer;
       _resolver = _xslTransformationManager.Resolver;
+      _transformContext = (Context)context.Application["transformContext"];
 
       _baseXsltContext = (BaseXsltContext)context.Application["baseXsltContext"];
       _baseXsltUri = _baseXsltContext.BaseXsltUri;
       _baseXsltUriHash = _baseXsltContext.UriHash;
-
-      _xsltParams = (Hashtable)context.Application["xsltParams"];
 
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
       
@@ -114,7 +112,7 @@ namespace Xameleon.Transform {
                   try {
                     builder = new StringBuilder();
                     writer = new StringWriter(builder);
-                    _transform.BeginAsyncProcess(GetContext(), _xslTransformationManager, writer);
+                    _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, writer);
                     _output = builder.ToString();
                     _transformAsyncResult.CompleteCall();
                     return _transformAsyncResult;
@@ -128,7 +126,7 @@ namespace Xameleon.Transform {
               } else {
                 builder = new StringBuilder();
                 writer = new StringWriter(builder);
-                _transform.BeginAsyncProcess(GetContext(), _xslTransformationManager, writer);
+                _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, writer);
                 _output = builder.ToString();
                 _transformAsyncResult.CompleteCall();
                 return _transformAsyncResult;
@@ -138,7 +136,7 @@ namespace Xameleon.Transform {
           case "PUT": {
               builder = new StringBuilder();
               writer = new StringWriter(builder);
-              _transform.BeginAsyncProcess(GetContext(), _xslTransformationManager, writer);
+              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, writer);
               _output = builder.ToString();
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
@@ -146,7 +144,7 @@ namespace Xameleon.Transform {
           case "POST": {
               builder = new StringBuilder();
               writer = new StringWriter(builder);
-              _transform.BeginAsyncProcess(GetContext(), _xslTransformationManager, writer);
+              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, writer);
               _output = builder.ToString();
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
@@ -154,7 +152,7 @@ namespace Xameleon.Transform {
           case "DELETE": {
               builder = new StringBuilder();
               writer = new StringWriter(builder);
-              _transform.BeginAsyncProcess(GetContext(), _xslTransformationManager, writer);
+              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, writer);
               _output = builder.ToString();
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;
@@ -162,7 +160,7 @@ namespace Xameleon.Transform {
           default: {
               builder = new StringBuilder();
               writer = new StringWriter(builder);
-              _transform.BeginAsyncProcess(GetContext(), _xslTransformationManager, writer);
+              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, writer);
               _output = builder.ToString();
               _transformAsyncResult.CompleteCall();
               return _transformAsyncResult;

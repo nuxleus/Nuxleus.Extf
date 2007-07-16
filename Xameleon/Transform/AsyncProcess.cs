@@ -19,25 +19,25 @@ namespace Xameleon.Transform {
     }
 
     public void BeginAsyncProcess(Context context, XslTransformationManager manager, TextWriter writer, String xsltName) {
-      HttpContext.Current.Response.Write(xsltName);
-      XsltTransformer transformer = manager.GetTransformer(xsltName);
 
-      if (context.XsltParams.Count > 0) {
-        foreach (DictionaryEntry param in context.XsltParams) {
-          string name = (string)param.Key;
-          transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
+        XsltTransformer transformer = manager.GetTransformer(xsltName);
+
+        if (context.XsltParams.Count > 0) {
+          foreach (DictionaryEntry param in context.XsltParams) {
+            string name = (string)param.Key;
+            transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
+          }
         }
-      }
 
-      transformer.InputXmlResolver = manager.Resolver;
-      transformer.InitialContextNode = manager.GetXdmNode(context.RequestUriHash, new Uri(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath)));
+        transformer.InputXmlResolver = manager.Resolver;
+        transformer.InitialContextNode = manager.GetXdmNode(context.RequestUriHash, new Uri(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath)));
 
-      Serializer destination = manager.Serializer;
-      destination.SetOutputWriter(writer);
+        Serializer destination = manager.Serializer;
+        destination.SetOutputWriter(writer);
 
-      lock (transformer) {
-        transformer.Run(destination);
-      }
+        lock (transformer) {
+          transformer.Run(destination);
+        }
     }
 
     public void EndAysncProcess(IAsyncResult result) {

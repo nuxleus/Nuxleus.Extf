@@ -13,30 +13,73 @@ using System.Text;
 
 namespace Xameleon.Transform {
 
-  public struct Context : IDisposable {
+  public struct Context {
 
-    String _RequestUriHash;
-    Hashtable _XsltParams;
+    Uri _requestUri;
+    String _requestUriHash;
+    Hashtable _xsltParams;
+    NameValueCollection _httpQueryString;
+    NameValueCollection _httpForm;
+    HttpCookieCollection _httpCookies;
+    NameValueCollection _httpParams;
 
-    public Context(HttpContext context, Hashtable xsltParams, params string[] httpContextParamList) {
-      _RequestUriHash = context.Request.Url.GetHashCode().ToString();
-      _XsltParams = xsltParams;
+    public Context(HttpContext context, Hashtable xsltParams, params string[] metaDataList) {
+      _requestUri = context.Request.Url;
+      _requestUriHash = _requestUri.GetHashCode().ToString();
+      _xsltParams = xsltParams;
+      _httpQueryString = context.Request.QueryString;
+      _httpForm = context.Request.Form;
+      _httpCookies = context.Request.Cookies;
+      _httpParams = context.Request.Params;
+    }
+    public Uri RequestUri {
+      get { return _requestUri; }
+      set { _requestUri = value; }
     }
     public String RequestUriHash {
-      get { return _RequestUriHash; }
-      set { _RequestUriHash = value; }
+      get { return _requestUriHash; }
+      set { _requestUriHash = value; }
     }
     public Hashtable XsltParams {
-      get { return _XsltParams; }
-      set { _XsltParams = value; }
+      get { return _xsltParams; }
+      set { _xsltParams = value; }
     }
-    #region IDisposable Members
-
-    public void Dispose() {
-      _RequestUriHash = null;
-      _XsltParams.Clear();
+    public NameValueCollection HttpParams {
+      get { return _httpParams; }
+      set { _httpParams = value; }
     }
-
-    #endregion
+    public HttpCookieCollection HttpCookies {
+      get { return _httpCookies; }
+      set { _httpCookies = value; }
+    }
+    public NameValueCollection HttpForm {
+      get { return _httpForm; }
+      set { _httpForm = value; }
+    }
+    public NameValueCollection HttpQueryString {
+      get { return _httpQueryString; }
+      set { _httpQueryString = value; }
+    }
+    public int GetWeakHashcode(bool useQueryString) {
+      StringBuilder builder = new StringBuilder(_requestUriHash);
+      builder.Append(_xsltParams.ToString());
+      if(useQueryString)
+        builder.Append(_httpQueryString.ToString());
+      builder.Append(_httpForm.ToString());
+      return builder.ToString().GetHashCode();
+    }
+    public int GetStrongHashcode(bool useQueryString, bool useServerVariables) {
+      StringBuilder builder = new StringBuilder(_requestUriHash);
+      builder.Append(_xsltParams.GetHashCode());
+      if (useServerVariables)
+        builder.Append(_httpParams.ToString());
+      else {
+        if (useQueryString)
+          builder.Append(_httpQueryString.ToString());
+        builder.Append(_httpForm.ToString());
+        builder.Append(_httpCookies.ToString());
+      }
+      return builder.ToString().GetHashCode();
+    }
   }
 }

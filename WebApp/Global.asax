@@ -18,88 +18,87 @@
 <%@ Import Namespace="System.Xml" %>
 
 <script RunAt="server">
-    MemcachedClient _MemcachedClient = null;
-    bool _UseMemCached = false;
-    SockIOPool _Pool = null;
-    AppSettings _AppSettings = new AppSettings();
-    AspNetXameleonConfiguration _XameleonConfiguration = AspNetXameleonConfiguration.GetConfig();
-    AspNetAwsConfiguration _AwsConfiguration = AspNetAwsConfiguration.GetConfig();
-    AspNetBungeeAppConfiguration _BungeeAppConfguration = AspNetBungeeAppConfiguration.GetConfig();
-    AspNetMemcachedConfiguration _MemcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
-    XslTransformationManager _XslTransformationManager;
-    Transform _Transform = new Transform();
-    Processor _Processor = new Processor();
-    Serializer _Serializer = new Serializer();
-    XmlUrlResolver _Resolver = new XmlUrlResolver();
-    Hashtable _GlobalXsltParams = new Hashtable();
-    Hashtable _TransformContextHashtable = new Hashtable();
-    Hashtable _RequestXsltParams = null;
-    BaseXsltContext _BaseXsltContext;
-    String _BaseUri;
-    bool _DEBUG = false;
+    MemcachedClient _memcachedClient = null;
+    bool _useMemCached = false;
+    SockIOPool _pool = null;
+    AppSettings _appSettings = new AppSettings();
+    AspNetXameleonConfiguration _xameleonConfiguration = AspNetXameleonConfiguration.GetConfig();
+    AspNetAwsConfiguration _awsConfiguration = AspNetAwsConfiguration.GetConfig();
+    AspNetBungeeAppConfiguration _bungeeAppConfguration = AspNetBungeeAppConfiguration.GetConfig();
+    AspNetMemcachedConfiguration _memcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
+    XslTransformationManager _xslTransformationManager;
+    Transform _transform = new Transform();
+    Processor _processor = new Processor();
+    Serializer _serializer = new Serializer();
+    XmlUrlResolver _resolver = new XmlUrlResolver();
+    Hashtable _globalXsltParams = new Hashtable();
+    Hashtable _transformContextHashtable = new Hashtable();
+    Hashtable _requestXsltParams = null;
+    BaseXsltContext _baseXsltContext;
+    String _baseUri;
+    bool _DEBUG = true;
 
     protected void Application_Start(object sender, EventArgs e) {
         
-        if (_XameleonConfiguration.UseMemcached == "yes") {
-            _UseMemCached = true;
-            _MemcachedClient = new MemcachedClient();
-            _Pool = SockIOPool.GetInstance();
+        if (_xameleonConfiguration.UseMemcached == "yes") {
+            _useMemCached = true;
+            _memcachedClient = new MemcachedClient();
+            _pool = SockIOPool.GetInstance();
             List<string> serverList = new List<string>();
-            foreach (MemcachedServer server in _MemcachedConfiguration.MemcachedServerCollection) {
+            foreach (MemcachedServer server in _memcachedConfiguration.MemcachedServerCollection) {
                 serverList.Add(server.IP + ":" + server.Port);
             }
-            _Pool.SetServers(serverList.ToArray());
+            _pool.SetServers(serverList.ToArray());
 
-            if (_MemcachedConfiguration.UseCompression != null && _MemcachedConfiguration.UseCompression == "yes")
-                _MemcachedClient.EnableCompression = true;
+            if (_memcachedConfiguration.UseCompression != null && _memcachedConfiguration.UseCompression == "yes")
+                _memcachedClient.EnableCompression = true;
             else
-                _MemcachedClient.EnableCompression = false;
+                _memcachedClient.EnableCompression = false;
 
-            MemcachedPoolConfig poolConfig = (MemcachedPoolConfig)_MemcachedConfiguration.PoolConfig;
-            _Pool.InitConnections = (int)poolConfig.InitConnections;
-            _Pool.MinConnections = (int)poolConfig.MinConnections;
-            _Pool.MaxConnections = (int)poolConfig.MaxConnections;
-            _Pool.SocketConnectTimeout = (int)poolConfig.SocketConnectTimeout;
-            _Pool.SocketTimeout = (int)poolConfig.SocketConnect;
-            _Pool.MaintenanceSleep = (int)poolConfig.MaintenanceSleep;
-            _Pool.Failover = (bool)poolConfig.Failover;
-            _Pool.Nagle = (bool)poolConfig.Nagle;
-            _Pool.Initialize();
+            MemcachedPoolConfig poolConfig = (MemcachedPoolConfig)_memcachedConfiguration.PoolConfig;
+            _pool.InitConnections = (int)poolConfig.InitConnections;
+            _pool.MinConnections = (int)poolConfig.MinConnections;
+            _pool.MaxConnections = (int)poolConfig.MaxConnections;
+            _pool.SocketConnectTimeout = (int)poolConfig.SocketConnectTimeout;
+            _pool.SocketTimeout = (int)poolConfig.SocketConnect;
+            _pool.MaintenanceSleep = (int)poolConfig.MaintenanceSleep;
+            _pool.Failover = (bool)poolConfig.Failover;
+            _pool.Nagle = (bool)poolConfig.Nagle;
+            _pool.Initialize();
         }
 
-        string baseUri = (string)_XameleonConfiguration.PreCompiledXslt.BaseUri;
+        string baseUri = (string)_xameleonConfiguration.PreCompiledXslt.BaseUri;
         if (baseUri != String.Empty)
-            baseUri = (string)_XameleonConfiguration.PreCompiledXslt.BaseUri;
+            baseUri = (string)_xameleonConfiguration.PreCompiledXslt.BaseUri;
         else
             baseUri = "~";
 
-        _XslTransformationManager = new XslTransformationManager(_Processor, _Transform, _Resolver, _Serializer);
-        _Resolver.Credentials = CredentialCache.DefaultCredentials;
+        _xslTransformationManager = new XslTransformationManager(_processor, _transform, _resolver, _serializer);
+        _resolver.Credentials = CredentialCache.DefaultCredentials;
 
-        foreach (PreCompiledXslt xslt in _XameleonConfiguration.PreCompiledXslt) {
-            string localBaseUri = (string)_XameleonConfiguration.PreCompiledXslt.BaseUri;
+        foreach (PreCompiledXslt xslt in _xameleonConfiguration.PreCompiledXslt) {
+            string localBaseUri = (string)_xameleonConfiguration.PreCompiledXslt.BaseUri;
             if (localBaseUri == String.Empty)
                 localBaseUri = baseUri;
             Uri xsltUri = new Uri(HttpContext.Current.Server.MapPath(localBaseUri + xslt.Uri));
-            _XslTransformationManager.AddTransformer(xslt.Name, xsltUri, _Resolver);
+            _xslTransformationManager.AddTransformer(xslt.Name, xsltUri, _resolver);
             if (xslt.UseAsBaseXslt == "yes") {
-                _BaseXsltContext = new BaseXsltContext(xsltUri, xslt.Name + ":" + xsltUri.GetHashCode().ToString(), xslt.Name);
+                _baseXsltContext = new BaseXsltContext(xsltUri, xslt.Name + ":" + xsltUri.GetHashCode().ToString(), xslt.Name);
             }
         }
 
-        _XslTransformationManager.SetBaseXsltContext(_BaseXsltContext);
+        _xslTransformationManager.SetBaseXsltContext(_baseXsltContext);
 
-        if (_UseMemCached && _MemcachedClient != null)
-            Application["appStart_memcached"] = _MemcachedClient;
-        
-        Application["appStart_usememcached"] = _UseMemCached;
-        Application["appStart_xslTransformationManager"] = _XslTransformationManager;
-        Application["appStart_baseXsltContext"] = _BaseXsltContext;
-        Application["foobar"] = "foobar"; 
-        
-        foreach (XsltParam xsltParam in _XameleonConfiguration.GlobalXsltParam) {
-            _GlobalXsltParams[xsltParam.Name] = (string)xsltParam.Select;
+        if (_useMemCached && _memcachedClient != null)
+            Application["appStart_memcached"] = (MemcachedClient)_memcachedClient;
+
+        foreach (XsltParam xsltParam in _xameleonConfiguration.GlobalXsltParam) {
+            _globalXsltParams[xsltParam.Name] = (string)xsltParam.Select;
         }
+        Application["appStart_usememcached"] = _useMemCached;
+        Application["appStart_xslTransformationManager"] = _xslTransformationManager;
+        Application["appStart_baseXsltContext"] = _baseXsltContext;
+        Application["appStart_globalXsltParams"] = _globalXsltParams; 
     }
 
     protected void Session_Start(object sender, EventArgs e) {
@@ -108,23 +107,20 @@
 
     protected void Application_BeginRequest(object sender, EventArgs e) {
         
-        _Processor = _XslTransformationManager.Processor;
+        Hashtable xsltParams = (Hashtable)Application["appStart_globalXsltParams"];
+        Context context = new Context(HttpContext.Current, (Hashtable)xsltParams.Clone());
 
-        Hashtable xsltParams = (Hashtable)_GlobalXsltParams.Clone();
-
-        _UseMemCached = (bool)Application["appStart_usememcached"];
+        _useMemCached = (bool)Application["appStart_usememcached"];
         Application["debug"] = _DEBUG;
         Application["xslTransformationManager"] = (XslTransformationManager)Application["appStart_xslTransformationManager"];
+        Application["transformContext"] = context;
         Application["baseXsltContext"] = (BaseXsltContext)Application["appStart_baseXsltContext"];
-        Application["transformContextHashtable"] = _TransformContextHashtable;
-        Application["xsltParams"] = xsltParams;
-        Application["appSettings"] = _AppSettings;
-        Application["usememcached"] = _UseMemCached;
-        if (_UseMemCached)
+        Application["transformContextHashtable"] = _transformContextHashtable;
+        Application["usememcached"] = _useMemCached;
+        if (_useMemCached)
             Application["memcached"] = (MemcachedClient)Application["appStart_memcached"];
-
         if (_DEBUG) {
-            WriteDebugOutput();
+            WriteDebugOutput(context, (XslTransformationManager)Application["xslTransformationManager"]);
         }
     }
 
@@ -144,19 +140,38 @@
         SockIOPool.GetInstance().Shutdown();
     }
 
-    protected void WriteDebugOutput() {
-        HttpContext.Current.Response.Output.WriteLine("CompilerBaseUri: " + _XslTransformationManager.Compiler.BaseUri.ToString());
-        HttpContext.Current.Response.Output.WriteLine("Compiler: " + _XslTransformationManager.Compiler.ToString());
-        HttpContext.Current.Response.Output.WriteLine("Serializer: " + _XslTransformationManager.Serializer.ToString());
-        HttpContext.Current.Response.Output.WriteLine("MemCachedClient: " + _MemcachedClient.ToString());
-        HttpContext.Current.Response.Output.WriteLine("BaseTemplate: " + _AppSettings.GetSetting("baseTemplate"));
-        HttpContext.Current.Response.Output.WriteLine("UseMemcached?: " + _UseMemCached.ToString());
-        HttpContext.Current.Response.Output.WriteLine("Transform: " + _XslTransformationManager.Transform.ToString());
-        HttpContext.Current.Response.Output.WriteLine("Resolver: " + _XslTransformationManager.Resolver.ToString());
-        HttpContext.Current.Response.Output.WriteLine("XslTransformationManager: " + _XslTransformationManager.ToString());
-        HttpContext.Current.Response.Output.WriteLine("GlobalXsltParms: " + _GlobalXsltParams.ToString());
-        HttpContext.Current.Response.Output.WriteLine("AppSettings: " + _AppSettings.ToString());
-        HttpContext.Current.Response.Output.WriteLine("Processor: " + _XslTransformationManager.Processor.ToString());
+    protected void WriteDebugOutput(Context context, XslTransformationManager xslTransformationManager) {
+        HttpContext.Current.Response.Output.WriteLine("CompilerBaseUri: " + xslTransformationManager.Compiler.BaseUri.ToString() + "<br/>");
+        HttpContext.Current.Response.Output.WriteLine("Compiler: " + xslTransformationManager.Compiler.ToString() + "<br/>");
+        HttpContext.Current.Response.Output.WriteLine("Serializer: " + xslTransformationManager.Serializer.ToString() + "<br/>");
+        HttpContext.Current.Response.Output.WriteLine("BaseTemplate: " + _appSettings.GetSetting("baseTemplate") + "<br/>");
+        HttpContext.Current.Response.Output.WriteLine("UseMemcached?: " + _useMemCached.ToString() + "<br/>");
+        HttpContext.Current.Response.Output.WriteLine("Transform: " + xslTransformationManager.Transform.ToString() + "<br/>");
+        HttpContext.Current.Response.Output.WriteLine("Resolver: " + xslTransformationManager.Resolver.ToString() + "<br/>");
+        HttpContext.Current.Response.Output.WriteLine("XslTransformationManager: " + xslTransformationManager.ToString() + "<br/>");
+        HttpContext.Current.Response.Output.WriteLine("GlobalXsltParms: " + _globalXsltParams.ToString() + "<br/>");
+        HttpContext.Current.Response.Output.WriteLine("Processor: " + xslTransformationManager.Processor.ToString() + "<br/>");
+        HttpContext.Current.Response.Write("Request Url: " + context.RequestUri.ToString() + "<br/>");
+        HttpContext.Current.Response.Write("Request WeakHashcode: " + context.GetWeakHashcode(true) + "<br/>");
+        HttpContext.Current.Response.Write("Request StrongHashcode: " + context.GetStrongHashcode(true, false) + "<br/>");
+        HttpContext.Current.Response.Write("Request ReallyStronghashcode: " + context.GetStrongHashcode(false, true) + "<br/>");
+        HttpContext.Current.Response.Write("Context Hashcode: " + context.GetHashCode().ToString() + "<br/>");
+        HttpContext.Current.Response.Write("Context Uri: " + context.RequestUri.ToString() + "<br/>");
+        HttpContext.Current.Response.Write("Context UriHashCode: " + context.RequestUriHash + "<br/>");
+        HttpContext.Current.Response.Write("Context HttpParams Count: " + context.HttpParams.Count.ToString() + "<br/>");
+        IEnumerator httpParamsEnum = context.HttpParams.GetEnumerator();
+        int i = 0;
+        while (httpParamsEnum.MoveNext()) {
+            string key = context.HttpParams.AllKeys[i].ToString();
+            HttpContext.Current.Response.Write("ParamName: " + key + "<br/>");
+            HttpContext.Current.Response.Write("ParamValue: " + context.HttpParams[key] + "<br/>");
+            i += 1;
+        }
+        HttpContext.Current.Response.Write("Context XsltParams Count:" + context.XsltParams.Count.ToString() + "<br/>");
+        foreach (DictionaryEntry entry in context.XsltParams) {
+            HttpContext.Current.Response.Write("XsltParam Name:" + (string)entry.Key + "<br/>");
+            HttpContext.Current.Response.Write("XsltParam Value:" + (string)entry.Value + "<br/>");
+        }
     }
 </script>
 
