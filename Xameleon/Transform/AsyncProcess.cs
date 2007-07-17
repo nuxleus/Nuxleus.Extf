@@ -14,11 +14,11 @@ namespace Xameleon.Transform {
   ///</summary>
   public partial class Transform {
 
-    public void BeginAsyncProcess(Context context, XslTransformationManager manager, TextWriter writer) {
-      BeginAsyncProcess(context, manager, writer, manager.BaseXsltUriHash);
+    public TransformServiceAsyncResult BeginAsyncProcess(Context context, XslTransformationManager manager, TextWriter writer, AsyncCallback callback, TransformServiceAsyncResult result) {
+      return BeginAsyncProcess(context, manager, writer, manager.BaseXsltUriHash, callback, result);
     }
 
-    public void BeginAsyncProcess(Context context, XslTransformationManager manager, TextWriter writer, String xsltName) {
+    public TransformServiceAsyncResult BeginAsyncProcess(Context context, XslTransformationManager manager, TextWriter writer, String xsltName, AsyncCallback callback, TransformServiceAsyncResult result) {
 
       XsltTransformer transformer = manager.GetTransformer(xsltName);
 
@@ -40,6 +40,9 @@ namespace Xameleon.Transform {
       lock (transformer) {
         transformer.Run(destination);
       }
+
+      result.CompleteCall();
+      return result;
     }
 
     public void EndAysncProcess(IAsyncResult result) {

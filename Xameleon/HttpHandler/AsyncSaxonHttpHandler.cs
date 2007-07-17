@@ -32,6 +32,7 @@ namespace Xameleon.Transform {
     StringBuilder _builder;
     HttpContext _context;
     TransformServiceAsyncResult _transformAsyncResult;
+    AsyncCallback _callback;
     String _httpMethod;
     Exception _exception;
     Context _transformContext;
@@ -57,6 +58,7 @@ namespace Xameleon.Transform {
       _transform = _xslTransformationManager.Transform;
       _transformContext = (Context)context.Application["transformContext"];
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
+      _callback = cb;
       _CONTENT_IS_MEMCACHED = (bool)context.Application["CONTENT_IS_MEMCACHED"];
 
       _transformAsyncResult._context = context;
@@ -74,8 +76,7 @@ namespace Xameleon.Transform {
                 return _transformAsyncResult;
               } else {
                 try {
-                  _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer);
-                  _transformAsyncResult.CompleteCall();
+                  _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
                   return _transformAsyncResult;
                 } catch (Exception e) {
                   _exception = e;
@@ -86,23 +87,19 @@ namespace Xameleon.Transform {
               }
             }
           case "PUT": {
-              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer);
-              _transformAsyncResult.CompleteCall();
+              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
               return _transformAsyncResult;
             }
           case "POST": {
-              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer);
-              _transformAsyncResult.CompleteCall();
+              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
               return _transformAsyncResult;
             }
           case "DELETE": {
-              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer);
-              _transformAsyncResult.CompleteCall();
+              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
               return _transformAsyncResult;
             }
           default: {
-              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer);
-              _transformAsyncResult.CompleteCall();
+              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
               return _transformAsyncResult;
             }
         }
