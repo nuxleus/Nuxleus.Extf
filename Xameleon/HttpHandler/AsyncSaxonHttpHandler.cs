@@ -119,9 +119,8 @@ namespace Xameleon.Transform {
           writer.Write(output);
         }
         if (!_CONTENT_IS_MEMCACHED)
-          _memcachedClient.Set(_transformContext.RequestUriHash, output);
+          _memcachedClient.Set(_transformContext.GetWeakHashcode(false).ToString(), output);
       }
-      _transformContext.Clear();
     }
 
     private void WriteError() {

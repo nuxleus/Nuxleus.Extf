@@ -117,7 +117,7 @@
         Application["memcached"] = memcachedClient;
 
         if (useMemCached) {
-            string obj = (string)memcachedClient.Get(context.RequestUriHash);
+            string obj = (string)memcachedClient.Get(context.GetWeakHashcode(false).ToString());
             if (obj != null) {
                 builder.Append(obj);
                 CONTENT_IS_MEMCACHED = true;
@@ -135,7 +135,6 @@
         Application["CONTENT_IS_MEMCACHED"] = CONTENT_IS_MEMCACHED;
         Application["xslTransformationManager"] = xslTransformationManager;
         Application["transformContext"] = context;
-        //Application["transformContextHashtable"] = _transformContextHashtable;
         if (_DEBUG) {
             HttpContext.Current.Response.Write(WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString());
         }
@@ -150,14 +149,8 @@
 
     }
     protected void Application_EndRequest(object sender, EventArgs e) {
-        //Context context = (Context)Application["transformContext"];
-        //StringBuilder builder = (StringBuilder)Application["stringBuilder"];
-        //using (TextWriter writer = HttpContext.Current.Response.Output) {
-        //    string output = builder.ToString();
-        //    writer.Write(output);
-        //}
-        //context.Clear();
-        //builder = null;
+        Context context = (Context)Application["transformContext"];
+        context.Clear();
     }
     protected void Session_End(object sender, EventArgs e) {
 
@@ -170,6 +163,9 @@
     protected StringBuilder WriteDebugOutput(Context context, XslTransformationManager xslTransformationManager, StringBuilder builder, bool CONTENT_IS_MEMCACHED) {
         builder.Append("CompilerBaseUri: " + xslTransformationManager.Compiler.BaseUri + "<br/>");
         builder.Append("Compiler: " + xslTransformationManager.Compiler.GetHashCode() + "<br/>");
+        foreach(System.Reflection.PropertyInfo t in HttpContext.Current.GetType().GetProperties()){
+            builder.Append("Number of HttpContext Properties: " + t.ToString() + "<br/>");
+        }
         builder.Append("Serializer: " + xslTransformationManager.Serializer.GetHashCode() + "<br/>");
         builder.Append("BaseXsltName: " + xslTransformationManager.BaseXsltName + "<br/>");
         builder.Append("BaseXsltUri: " + xslTransformationManager.BaseXsltUri + "<br/>");
