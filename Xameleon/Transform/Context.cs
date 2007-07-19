@@ -76,7 +76,7 @@ namespace Xameleon.Transform {
       get { return _httpQueryString; }
       set { _httpQueryString = value; }
     }
-    public string GenerateETag(string key, HashAlgorithm algorithm, params object[] eTagArray) {
+    public static string GenerateETag(string key, HashAlgorithm algorithm, params object[] eTagArray) {
       return HashcodeGenerator.GetHMACHashBase64String(key, algorithm, eTagArray);
     }
     public int GetWeakHashcode(bool useQueryString, bool useETag) {

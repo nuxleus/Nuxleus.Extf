@@ -30,21 +30,5 @@ namespace Xameleon.Cryptography {
       }
       return Convert.ToBase64String(hmacProvider.ComputeHash(encoder.GetBytes(builder.ToString())));
     }
-    //public static String GetHMACSHA1Base64String(string key, params object[] hashArray) {
-    //  StringBuilder builder = new StringBuilder();
-    //  HMACSHA1 hmacMD5 = new HMACSHA1(encoder.GetBytes(key));
-    //  foreach (object obj in hashArray) {
-    //    builder.Append(obj);
-    //  }
-    //  return Convert.ToBase64String(hmacMD5.ComputeHash(encoder.GetBytes(builder.ToString())));
-    //}
-    //public static String GetHMACSHA256Base64String(string key, params object[] hashArray) {
-    //  StringBuilder builder = new StringBuilder();
-    //  HMACSHA256 hmacMD5 = new HMACSHA256(encoder.GetBytes(key));
-    //  foreach (object obj in hashArray) {
-    //    builder.Append(obj);
-    //  }
-    //  return Convert.ToBase64String(hmacMD5.ComputeHash(encoder.GetBytes(builder.ToString())));
-    //}
   }
 }
