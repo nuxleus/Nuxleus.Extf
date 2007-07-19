@@ -32,6 +32,7 @@
     Processor _processor = new Processor();
     Serializer _serializer = new Serializer();
     XmlUrlResolver _resolver = new XmlUrlResolver();
+    Hashtable _namedXsltHashtable = new Hashtable();
     Hashtable _globalXsltParams = new Hashtable();
     Hashtable _transformContextHashtable = new Hashtable();
     Hashtable _requestXsltParams = null;
@@ -76,6 +77,7 @@
 
         _xslTransformationManager = new XslTransformationManager(_processor, _transform, _resolver, _serializer);
         _resolver.Credentials = CredentialCache.DefaultCredentials;
+        _namedXsltHashtable = _xslTransformationManager.NamedXsltHashtable;
 
         foreach (PreCompiledXslt xslt in _xameleonConfiguration.PreCompiledXslt) {
             string localBaseUri = (string)_xameleonConfiguration.PreCompiledXslt.BaseUri;
@@ -83,6 +85,7 @@
                 localBaseUri = baseUri;
             Uri xsltUri = new Uri(HttpContext.Current.Server.MapPath(localBaseUri + xslt.Uri));
             _xslTransformationManager.AddTransformer(xslt.Name, xsltUri, _resolver);
+            _namedXsltHashtable.Add(xslt.Name, xsltUri);
             if (xslt.UseAsBaseXslt == "yes") {
                 _baseXsltContext = new BaseXsltContext(xsltUri, xslt.Name + ":" + xsltUri.GetHashCode().ToString(), xslt.Name);
             }
@@ -98,6 +101,7 @@
             Application["appStart_memcached"] = _memcachedClient;
         Application["appStart_usememcached"] = _useMemCached;
         Application["appStart_xslTransformationManager"] = _xslTransformationManager;
+        Application["appStart_namedXsltHashtable"] = _namedXsltHashtable;
         Application["appStart_globalXsltParams"] = _globalXsltParams;
         Application["hashkey"] = (string)_xameleonConfiguration.BaseSettings.ObjectHashKey;
     }
@@ -137,6 +141,7 @@
         Application["stringBuilder"] = builder;
         Application["CONTENT_IS_MEMCACHED"] = CONTENT_IS_MEMCACHED;
         Application["xslTransformationManager"] = xslTransformationManager;
+        Application["namedXsltHashtable"] = (Hashtable)Application["appStart_namedXsltHashtable"];
         Application["transformContext"] = context;
         HttpContext.Current.Response.Output.Write(("Request File ETag: " + context.ETag));
         if (_DEBUG) {

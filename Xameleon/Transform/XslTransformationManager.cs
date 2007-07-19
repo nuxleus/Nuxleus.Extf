@@ -3,6 +3,7 @@ using System.Collections;
 using Saxon.Api;
 using System.Xml;
 using System.IO;
+using System.Web;
 
 namespace Xameleon.Transform {
 
@@ -11,6 +12,7 @@ namespace Xameleon.Transform {
     Hashtable _xsltHashtable;
     Hashtable _sourceHashtable;
     Hashtable _xdmNodeHashtable;
+    Hashtable _namedXsltHashtable;
     Processor _processor;
     Serializer _serializer;
     DocumentBuilder _builder;
@@ -22,27 +24,30 @@ namespace Xameleon.Transform {
     String _baseXsltName;
 
     public XslTransformationManager(Processor processor)
-      : this(processor, new Transform(), new XmlUrlResolver(), new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
+      : this(processor, new Transform(), new XmlUrlResolver(), new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
     }
     public XslTransformationManager(Processor processor, Transform transform)
-      : this(processor, transform, new XmlUrlResolver(), new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
+      : this(processor, transform, new XmlUrlResolver(), new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
     }
     public XslTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver)
-      : this(processor, transform, resolver, new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
+      : this(processor, transform, resolver, new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
     }
     public XslTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer)
-      : this(processor, transform, resolver, serializer, new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
+      : this(processor, transform, resolver, serializer, new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
     }
     public XslTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable)
-      : this(processor, transform, resolver, serializer, xsltHashtable, new Hashtable(), new Hashtable(), null, null, null) {
+      : this(processor, transform, resolver, serializer, xsltHashtable, new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
     }
-    public XslTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable xmlSourceHashtable)
-      : this(processor, transform, resolver, serializer, xsltHashtable, xmlSourceHashtable, new Hashtable(), null, null, null) {
+    public XslTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable namedXsltHashtable)
+      : this(processor, transform, resolver, serializer, xsltHashtable, new Hashtable(), new Hashtable(), namedXsltHashtable, null, null, null) {
     }
-    public XslTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable xmlSourceHashtable, Hashtable xdmNodeHashtable)
-      : this(processor, transform, resolver, serializer, xsltHashtable, xmlSourceHashtable, xdmNodeHashtable, null, null, null) {
+    public XslTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable xmlSourceHashtable, Hashtable namedXsltHashtable)
+      : this(processor, transform, resolver, serializer, xsltHashtable, xmlSourceHashtable, new Hashtable(), namedXsltHashtable, null, null, null) {
     }
-    public XslTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable xmlSourceHashtable, Hashtable xdmNodeHashtable, Uri baseXsltUri, String baseXsltUriHash, String baseXsltName) {
+    public XslTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable xmlSourceHashtable, Hashtable xdmNodeHashtable, Hashtable namedXsltHashtable)
+      : this(processor, transform, resolver, serializer, xsltHashtable, xmlSourceHashtable, xdmNodeHashtable, namedXsltHashtable, null, null, null) {
+    }
+    public XslTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable xmlSourceHashtable, Hashtable xdmNodeHashtable, Hashtable namedXsltHashtable, Uri baseXsltUri, String baseXsltUriHash, String baseXsltName) {
       _baseXsltUri = baseXsltUri;
       _baseXsltUriHash = baseXsltUriHash;
       _baseXsltName = baseXsltName;
@@ -57,6 +62,7 @@ namespace Xameleon.Transform {
       _builder = _processor.NewDocumentBuilder();
       _serializer = serializer;
       _xdmNodeHashtable = xdmNodeHashtable;
+      _namedXsltHashtable = namedXsltHashtable;
     }
     public void SetBaseXsltContext(BaseXsltContext baseXsltContext) {
       _baseXsltUri = baseXsltContext.BaseXsltUri;
@@ -93,23 +99,28 @@ namespace Xameleon.Transform {
 
     public XsltTransformer GetTransformer(string name, string href, Uri baseUri) {
       Uri xsltUri = new Uri(baseUri, href);
-      string xsltUriHash = xsltUri.GetHashCode().ToString();
-      string key = name + ":" + xsltUriHash;
-      return getTransformer(key, xsltUri);
+      return getTransformer(generateKey(name, xsltUri), xsltUri);
     }
 
-    public XsltTransformer GetTransformer(string xsltUriHash, Uri xsltUri) {
-      return getTransformer(xsltUriHash, xsltUri);
-    }
+    //public XsltTransformer GetTransformer(string xsltUriHash, Uri xsltUri) {
+    //  return getTransformer(xsltUriHash, xsltUri);
+    //}
+
     public XsltTransformer GetTransformer(string name) {
-      //TODO: This is a weak temporary hack.
-      return (XsltTransformer)_xsltHashtable[name];
+      Uri xsltUri = (Uri)_namedXsltHashtable[name];
+      return getTransformer(generateKey(name, xsltUri), xsltUri);
+    }
+
+    private String generateKey(String name, Uri xsltUri) {
+      FileInfo fileInfo = new FileInfo(xsltUri.ToString());
+      string fileKey = fileInfo.LastWriteTimeUtc.GetHashCode().ToString() + fileInfo.Length.ToString() + xsltUri.GetHashCode().ToString();
+      return name + ":" + fileKey;
     }
     private XsltTransformer getTransformer(string key, Uri xsltUri) {
       foreach (DictionaryEntry entry in _xsltHashtable) {
-        string uri = (string)entry.Key;
-        if (uri == key) {
-          return (XsltTransformer)_xsltHashtable[uri];
+        string hashKey = (string)entry.Key;
+        if (hashKey == key) {
+          return (XsltTransformer)entry.Value;
         }
       }
       XsltTransformer transformer = _processor.NewXsltCompiler().Compile(xsltUri).Load();
@@ -136,6 +147,10 @@ namespace Xameleon.Transform {
     public Hashtable XmlSourceHashtable {
       get { return _sourceHashtable; }
       set { _sourceHashtable = value; }
+    }
+    public Hashtable NamedXsltHashtable {
+      get { return _namedXsltHashtable; }
+      set { _namedXsltHashtable = value; }
     }
     public Processor Processor {
       get { return _processor; }
