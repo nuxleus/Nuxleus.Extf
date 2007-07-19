@@ -77,15 +77,7 @@ namespace Xameleon.Transform {
       set { _httpQueryString = value; }
     }
     public string GenerateETag(string key, HashAlgorithm algorithm, params object[] eTagArray) {
-      switch (algorithm) {
-        case HashAlgorithm.SHA1:
-          return HashcodeGenerator.GetHMACSHA1Base64String(key, eTagArray);
-        case HashAlgorithm.SHA256:
-          return HashcodeGenerator.GetHMACSHA256Base64String(key, eTagArray);
-        case HashAlgorithm.MD5:
-        default:
-          return HashcodeGenerator.GetHMACMD5Base64String(key, eTagArray);
-      }
+      return HashcodeGenerator.GetHMACHashBase64String(key, algorithm, eTagArray);
     }
     public int GetWeakHashcode(bool useQueryString, bool useETag) {
       StringBuilder builder = new StringBuilder(_requestUriHash);
