@@ -9,7 +9,7 @@ using Xameleon.Cryptography;
 namespace Xameleon.Transform {
 
   //NOTE: TransformEngine enum PLACEHOLDER FOR FUTURE USE
-  public enum TransformEngine { SAXON, MVPXML, NET10, NET20, NET30, NET35 }
+  public enum TransformEngine { SAXON, MVPXML, NET1_1, NET2_0, NET3_0, NET3_5 }
 
   public struct XsltTransformationManager {
 
