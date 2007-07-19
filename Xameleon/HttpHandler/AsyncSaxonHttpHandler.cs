@@ -25,7 +25,7 @@ namespace Xameleon.Transform {
 
   class AsyncSaxonHttpHandler : IHttpAsyncHandler {
 
-    XslTransformationManager _xslTransformationManager;
+    XsltTransformationManager _xslTransformationManager;
     MemcachedClient _memcachedClient;
     Transform _transform;
     TextWriter _writer;
@@ -53,7 +53,7 @@ namespace Xameleon.Transform {
       _context = context;
       _httpMethod = _context.Request.HttpMethod;
 
-      _xslTransformationManager = (XslTransformationManager)context.Application["xslTransformationManager"];
+      _xslTransformationManager = (XsltTransformationManager)context.Application["xsltTransformationManager"];
       _memcachedClient = (MemcachedClient)context.Application["memcached"];
       _transform = _xslTransformationManager.Transform;
       _transformContext = (Context)context.Application["transformContext"];

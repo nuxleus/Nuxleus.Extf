@@ -27,7 +27,7 @@
     AspNetAwsConfiguration _awsConfiguration = AspNetAwsConfiguration.GetConfig();
     AspNetBungeeAppConfiguration _bungeeAppConfguration = AspNetBungeeAppConfiguration.GetConfig();
     AspNetMemcachedConfiguration _memcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
-    XslTransformationManager _xslTransformationManager;
+    XsltTransformationManager _xsltTransformationManager;
     Transform _transform = new Transform();
     Processor _processor = new Processor();
     Serializer _serializer = new Serializer();
@@ -75,23 +75,23 @@
         else
             baseUri = "~";
 
-        _xslTransformationManager = new XslTransformationManager(_processor, _transform, _resolver, _serializer);
+        _xsltTransformationManager = new XsltTransformationManager(_processor, _transform, _resolver, _serializer);
         _resolver.Credentials = CredentialCache.DefaultCredentials;
-        _namedXsltHashtable = _xslTransformationManager.NamedXsltHashtable;
+        _namedXsltHashtable = _xsltTransformationManager.NamedXsltHashtable;
 
         foreach (PreCompiledXslt xslt in _xameleonConfiguration.PreCompiledXslt) {
             string localBaseUri = (string)_xameleonConfiguration.PreCompiledXslt.BaseUri;
             if (localBaseUri == String.Empty)
                 localBaseUri = baseUri;
             Uri xsltUri = new Uri(HttpContext.Current.Server.MapPath(localBaseUri + xslt.Uri));
-            _xslTransformationManager.AddTransformer(xslt.Name, xsltUri, _resolver);
+            _xsltTransformationManager.AddTransformer(xslt.Name, xsltUri, _resolver);
             _namedXsltHashtable.Add(xslt.Name, xsltUri);
             if (xslt.UseAsBaseXslt == "yes") {
                 _baseXsltContext = new BaseXsltContext(xsltUri, xslt.Name + ":" + xsltUri.GetHashCode().ToString(), xslt.Name);
             }
         }
 
-        _xslTransformationManager.SetBaseXsltContext(_baseXsltContext);
+        _xsltTransformationManager.SetBaseXsltContext(_baseXsltContext);
 
         foreach (XsltParam xsltParam in _xameleonConfiguration.GlobalXsltParam) {
             _globalXsltParams[xsltParam.Name] = (string)xsltParam.Select;
@@ -100,7 +100,7 @@
         if (_memcachedClient != null)
             Application["appStart_memcached"] = _memcachedClient;
         Application["appStart_usememcached"] = _useMemCached;
-        Application["appStart_xslTransformationManager"] = _xslTransformationManager;
+        Application["appStart_xslTransformationManager"] = _xsltTransformationManager;
         Application["appStart_namedXsltHashtable"] = _namedXsltHashtable;
         Application["appStart_globalXsltParams"] = _globalXsltParams;
         Application["hashkey"] = (string)_xameleonConfiguration.BaseSettings.ObjectHashKey;
@@ -117,7 +117,7 @@
         Context context = new Context(HttpContext.Current, HashAlgorithm.SHA256, (string)Application["hashkey"], fileInfo, (Hashtable)xsltParams.Clone(), fileInfo.LastWriteTimeUtc, fileInfo.Length);
         StringBuilder builder = new StringBuilder();
         TextWriter writer = new StringWriter(builder);
-        XslTransformationManager xslTransformationManager = (XslTransformationManager)Application["appStart_xslTransformationManager"];
+        XsltTransformationManager xslTransformationManager = (XsltTransformationManager)Application["appStart_xslTransformationManager"];
         bool CONTENT_IS_MEMCACHED = false;
         bool useMemCached = (bool)Application["appStart_usememcached"];
         MemcachedClient memcachedClient = (MemcachedClient)Application["appStart_memcached"];
@@ -140,7 +140,7 @@
         Application["textWriter"] = writer;
         Application["stringBuilder"] = builder;
         Application["CONTENT_IS_MEMCACHED"] = CONTENT_IS_MEMCACHED;
-        Application["xslTransformationManager"] = xslTransformationManager;
+        Application["xsltTransformationManager"] = xslTransformationManager;
         Application["namedXsltHashtable"] = (Hashtable)Application["appStart_namedXsltHashtable"];
         Application["transformContext"] = context;
         if (_DEBUG) {
@@ -168,23 +168,23 @@
         SockIOPool.GetInstance().Shutdown();
     }
 
-    protected StringBuilder WriteDebugOutput(Context context, XslTransformationManager xslTransformationManager, StringBuilder builder, bool CONTENT_IS_MEMCACHED) {
+    protected StringBuilder WriteDebugOutput(Context context, XsltTransformationManager xsltTransformationManager, StringBuilder builder, bool CONTENT_IS_MEMCACHED) {
         builder.Append(("Request File ETag: " + context.ETag + "<br/>"));
-        builder.Append("CompilerBaseUri: " + xslTransformationManager.Compiler.BaseUri + "<br/>");
-        builder.Append("Compiler: " + xslTransformationManager.Compiler.GetHashCode() + "<br/>");
+        builder.Append("CompilerBaseUri: " + xsltTransformationManager.Compiler.BaseUri + "<br/>");
+        builder.Append("Compiler: " + xsltTransformationManager.Compiler.GetHashCode() + "<br/>");
         foreach(System.Reflection.PropertyInfo t in HttpContext.Current.GetType().GetProperties()){
             builder.Append("Number of HttpContext Properties: " + t.ToString() + "<br/>");
         }
-        builder.Append("Serializer: " + xslTransformationManager.Serializer.GetHashCode() + "<br/>");
-        builder.Append("BaseXsltName: " + xslTransformationManager.BaseXsltName + "<br/>");
-        builder.Append("BaseXsltUri: " + xslTransformationManager.BaseXsltUri + "<br/>");
-        builder.Append("BaseXsltUriHash: " + xslTransformationManager.BaseXsltUriHash + "<br/>");
+        builder.Append("Serializer: " + xsltTransformationManager.Serializer.GetHashCode() + "<br/>");
+        builder.Append("BaseXsltName: " + xsltTransformationManager.BaseXsltName + "<br/>");
+        builder.Append("BaseXsltUri: " + xsltTransformationManager.BaseXsltUri + "<br/>");
+        builder.Append("BaseXsltUriHash: " + xsltTransformationManager.BaseXsltUriHash + "<br/>");
         builder.Append("UseMemcached?: " + (bool)Application["appStart_usememcached"] + "<br/>");
-        builder.Append("Transform: " + xslTransformationManager.Transform.GetHashCode() + "<br/>");
-        builder.Append("Resolver: " + xslTransformationManager.Resolver.GetHashCode() + "<br/>");
-        builder.Append("XslTransformationManager: " + xslTransformationManager.GetHashCode() + "<br/>");
+        builder.Append("Transform: " + xsltTransformationManager.Transform.GetHashCode() + "<br/>");
+        builder.Append("Resolver: " + xsltTransformationManager.Resolver.GetHashCode() + "<br/>");
+        builder.Append("XslTransformationManager: " + xsltTransformationManager.GetHashCode() + "<br/>");
         builder.Append("GlobalXsltParms: " + _globalXsltParams.GetHashCode()+ "<br/>");
-        builder.Append("Processor: " + xslTransformationManager.Processor.GetHashCode() + "<br/>");
+        builder.Append("Processor: " + xsltTransformationManager.Processor.GetHashCode() + "<br/>");
         builder.Append("Request XmlSource Execution File Path: " + HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath) + "<br/>");
         builder.Append("Request Url: " + context.RequestUri + "<br/>");
         builder.Append("Request is Memcached? " + CONTENT_IS_MEMCACHED + "<br/>");

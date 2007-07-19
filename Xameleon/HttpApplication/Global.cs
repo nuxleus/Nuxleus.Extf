@@ -27,7 +27,7 @@ namespace Xameleon.HttpApplication {
     AspNetAwsConfiguration _AwsConfiguration = AspNetAwsConfiguration.GetConfig();
     AspNetBungeeAppConfiguration _BungeeAppConfguration = AspNetBungeeAppConfiguration.GetConfig();
     AspNetMemcachedConfiguration _MemcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
-    XslTransformationManager _XslTransformationManager;
+    XsltTransformationManager _XslTransformationManager;
     Transform.Transform _Transform = new Transform.Transform();
     Processor _Processor = new Processor();
     Serializer _Serializer = new Serializer();
@@ -74,7 +74,7 @@ namespace Xameleon.HttpApplication {
       else
         baseUri = "~";
 
-      _XslTransformationManager = new XslTransformationManager(_Processor, _Transform, _Resolver, _Serializer);
+      _XslTransformationManager = new XsltTransformationManager(_Processor, _Transform, _Resolver, _Serializer);
       _Resolver.Credentials = CredentialCache.DefaultCredentials;
 
       foreach (PreCompiledXslt xslt in _XameleonConfiguration.PreCompiledXslt) {
@@ -115,7 +115,7 @@ namespace Xameleon.HttpApplication {
 
       _useMemCached = (bool)Application["appStart_usememcached"];
       Application["debug"] = _DEBUG;
-      Application["xslTransformationManager"] = (XslTransformationManager)Application["appStart_xslTransformationManager"];
+      Application["xslTransformationManager"] = (XsltTransformationManager)Application["appStart_xslTransformationManager"];
       Application["baseXsltContext"] = (BaseXsltContext)Application["appStart_baseXsltContext"];
       Application["transformContextHashtable"] = _TransformContextHashtable;
       Application["xsltParams"] = xsltParams;

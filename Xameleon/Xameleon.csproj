@@ -201,7 +201,7 @@
     <Compile Include="Function\HttpRequestCollection.cs" />
     <Compile Include="Function\FileStream.cs" />
     <Compile Include="Function\HttpWebResponseStream.cs" />
-    <Compile Include="Transform\XslTransformationManager.cs" />
+    <Compile Include="Transform\XsltTransformationManager.cs" />
     <Compile Include="HttpApplication\Global.cs" />
     <Compile Include="HttpHandler\AsyncSaxonHttpHandler.cs" />
     <Compile Include="HttpModule\AsyncRequestLogHttpModule.cs" />
