@@ -8,6 +8,9 @@ using Xameleon.Cryptography;
 
 namespace Xameleon.Transform {
 
+  //NOTE: TransformEngine enum PLACEHOLDER FOR FUTURE USE
+  public enum TransformEngine { SAXON, MVPXML, NET10, NET20, NET30, NET35 }
+
   public struct XsltTransformationManager {
 
     Hashtable _xsltHashtable;
@@ -25,6 +28,8 @@ namespace Xameleon.Transform {
     String _baseXsltUriHash;
     String _baseXsltName;
     static HashAlgorithm _hashAlgorithm;
+    //NOTE: TransformEngine enum PLACEHOLDER FOR FUTURE USE
+    static TransformEngine _transformEngine;
 
     public XsltTransformationManager(Processor processor)
       : this(processor, new Transform(), new XmlUrlResolver(), new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
@@ -68,6 +73,8 @@ namespace Xameleon.Transform {
       _namedXsltHashtable = namedXsltHashtable;
       _namedXsltETagIndex = new Hashtable();
       _hashAlgorithm = HashAlgorithm.SHA256;
+      //NOTE: TransformEngine enum PLACEHOLDER FOR FUTURE USE
+      _transformEngine = TransformEngine.SAXON;
     }
 
     public void SetBaseXsltContext(BaseXsltContext baseXsltContext) {
