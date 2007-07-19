@@ -9,7 +9,7 @@
 <%@ Import Namespace="System.Web.Security" %>
 <%@ Import Namespace="System.Web.SessionState" %>
 <%@ Import Namespace="Xameleon.Transform" %>
-<%@ Import Namespace="Xameleon.Function" %>
+<%@ Import Namespace="Xameleon.Cryptography" %>
 <%@ Import Namespace="Xameleon.Configuration" %>
 <%@ Import Namespace="Memcached.ClientLibrary" %>
 <%@ Import Namespace="Saxon.Api" %>
@@ -114,7 +114,7 @@
 
         Hashtable xsltParams = (Hashtable)Application["appStart_globalXsltParams"];
         FileInfo fileInfo = new FileInfo(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath));
-        Context context = new Context(HttpContext.Current, HashAlgorithm.SHA256, (string)Application["hashkey"], fileInfo, (Hashtable)xsltParams.Clone(), fileInfo.LastWriteTimeUtc.GetHashCode(), (int)fileInfo.Length);
+        Context context = new Context(HttpContext.Current, HashAlgorithm.SHA256, (string)Application["hashkey"], fileInfo, (Hashtable)xsltParams.Clone(), fileInfo.LastWriteTimeUtc, fileInfo.Length);
         StringBuilder builder = new StringBuilder();
         TextWriter writer = new StringWriter(builder);
         XslTransformationManager xslTransformationManager = (XslTransformationManager)Application["appStart_xslTransformationManager"];
@@ -143,7 +143,6 @@
         Application["xslTransformationManager"] = xslTransformationManager;
         Application["namedXsltHashtable"] = (Hashtable)Application["appStart_namedXsltHashtable"];
         Application["transformContext"] = context;
-        HttpContext.Current.Response.Output.Write(("Request File ETag: " + context.ETag));
         if (_DEBUG) {
             HttpContext.Current.Response.Write(WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString());
         }
@@ -158,8 +157,8 @@
 
     }
     protected void Application_EndRequest(object sender, EventArgs e) {
-        Context context = (Context)Application["transformContext"];
-        context.Clear();
+        //Context context = (Context)Application["transformContext"];
+        //context.Clear();
     }
     protected void Session_End(object sender, EventArgs e) {
 
@@ -170,6 +169,7 @@
     }
 
     protected StringBuilder WriteDebugOutput(Context context, XslTransformationManager xslTransformationManager, StringBuilder builder, bool CONTENT_IS_MEMCACHED) {
+        builder.Append(("Request File ETag: " + context.ETag + "<br/>"));
         builder.Append("CompilerBaseUri: " + xslTransformationManager.Compiler.BaseUri + "<br/>");
         builder.Append("Compiler: " + xslTransformationManager.Compiler.GetHashCode() + "<br/>");
         foreach(System.Reflection.PropertyInfo t in HttpContext.Current.GetType().GetProperties()){

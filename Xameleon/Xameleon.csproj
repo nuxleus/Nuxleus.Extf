@@ -190,6 +190,7 @@
     <Compile Include="Configuration\XsltParamCollection.cs" />
     <Compile Include="Configuration\AwsKeyCollection.cs" />
     <Compile Include="Configuration\AwsKey.cs" />
+    <Compile Include="Cryptography\HashcodeGenerator.cs" />
     <Compile Include="Document\DocumentResult.cs" />
     <Compile Include="Document\S3Document.cs" />
     <Compile Include="Function\HashcodeGenerator.cs" />

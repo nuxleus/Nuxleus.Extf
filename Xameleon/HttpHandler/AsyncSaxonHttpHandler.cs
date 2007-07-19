@@ -118,6 +118,7 @@ namespace Xameleon.Transform {
         using (TextWriter writer = HttpContext.Current.Response.Output) {
           writer.Write(output);
         }
+        _transformContext.Clear();
         if (!_CONTENT_IS_MEMCACHED)
           _memcachedClient.Set(_transformContext.GetWeakHashcode(false, true).ToString(), output);
       }

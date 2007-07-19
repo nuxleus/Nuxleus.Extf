@@ -11,12 +11,12 @@ using Xameleon.Function;
 using System.Collections;
 using Memcached.ClientLibrary;
 using System.Text;
+using Xameleon.Cryptography;
+using System.Reflection;
 
 namespace Xameleon.Transform {
 
-  public enum HashAlgorithm { MD5, SHA1, SHA256 };
-
-  public class Context : IDisposable {
+  public class Context {
 
     Uri _requestUri;
     String _requestUriHash;
@@ -28,7 +28,7 @@ namespace Xameleon.Transform {
     HttpCookieCollection _httpCookies;
     NameValueCollection _httpParams;
 
-    public Context(HttpContext context, HashAlgorithm algorithm, String key, FileInfo fileInfo, Hashtable xsltParams, params int[] eTagArray) {
+    public Context(HttpContext context, HashAlgorithm algorithm, String key, FileInfo fileInfo, Hashtable xsltParams, params object[] eTagArray) {
       _requestUri = context.Request.Url;
       _requestUriHash = _requestUri.GetHashCode().ToString();
       _requestXmlFileInfo = fileInfo;
@@ -76,7 +76,7 @@ namespace Xameleon.Transform {
       get { return _httpQueryString; }
       set { _httpQueryString = value; }
     }
-    public string GenerateETag(string key, HashAlgorithm algorithm, params int[] eTagArray) {
+    public string GenerateETag(string key, HashAlgorithm algorithm, params object[] eTagArray) {
       switch (algorithm) {
         case HashAlgorithm.SHA1:
           return HashcodeGenerator.GetHMACSHA1Base64String(key, eTagArray);
@@ -111,22 +111,9 @@ namespace Xameleon.Transform {
       return builder.ToString().GetHashCode();
     }
 
-    #region IDisposable Members
-
-    public void Dispose() {
-
-    }
-
     public void Clear() {
-      _httpCookies = null;
-      _httpForm = null;
-      _httpParams = null;
-      _httpQueryString = null;
-      _requestUri = null;
-      _requestUriHash = null;
-      _xsltParams = null;
+      //FOR FUTURE USE
     }
-
-    #endregion
   }
 }
+
