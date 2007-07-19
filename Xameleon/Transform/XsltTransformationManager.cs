@@ -79,9 +79,8 @@ namespace Xameleon.Transform {
     }
 
     public void AddTransformer(string name, Uri uri, XmlUrlResolver resolver) {
-      string xsltUriHash = uri.GetHashCode().ToString();
-      string key = name + ":" + xsltUriHash;
       XsltTransformer transformer = _compiler.Compile(uri).Load();
+      string key = GenerateNamedETagKey(name, uri);
       _xsltHashtable[key] = (XsltTransformer)transformer;
     }
 
