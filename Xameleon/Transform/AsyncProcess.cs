@@ -14,11 +14,11 @@ namespace Xameleon.Transform {
   ///</summary>
   public partial class Transform {
 
-    public TransformServiceAsyncResult BeginAsyncProcess(Context context, XslTransformationManager manager, TextWriter writer, AsyncCallback callback, TransformServiceAsyncResult result) {
+    public TransformServiceAsyncResult BeginAsyncProcess(Context context, XsltTransformationManager manager, TextWriter writer, AsyncCallback callback, TransformServiceAsyncResult result) {
       return BeginAsyncProcess(context, manager, writer, manager.BaseXsltUriHash, callback, result);
     }
 
-    public TransformServiceAsyncResult BeginAsyncProcess(Context context, XslTransformationManager manager, TextWriter writer, String xsltName, AsyncCallback callback, TransformServiceAsyncResult result) {
+    public TransformServiceAsyncResult BeginAsyncProcess(Context context, XsltTransformationManager manager, TextWriter writer, String xsltName, AsyncCallback callback, TransformServiceAsyncResult result) {
 
       XsltTransformer transformer = manager.GetTransformer(xsltName);
 
