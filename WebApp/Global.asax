@@ -9,6 +9,7 @@
 <%@ Import Namespace="System.Web.Security" %>
 <%@ Import Namespace="System.Web.SessionState" %>
 <%@ Import Namespace="Xameleon.Transform" %>
+<%@ Import Namespace="Xameleon.Function" %>
 <%@ Import Namespace="Xameleon.Configuration" %>
 <%@ Import Namespace="Memcached.ClientLibrary" %>
 <%@ Import Namespace="Saxon.Api" %>
@@ -98,6 +99,7 @@
         Application["appStart_usememcached"] = _useMemCached;
         Application["appStart_xslTransformationManager"] = _xslTransformationManager;
         Application["appStart_globalXsltParams"] = _globalXsltParams;
+        Application["hashkey"] = (string)_xameleonConfiguration.BaseSettings.ObjectHashKey;
     }
 
     protected void Session_Start(object sender, EventArgs e) {
@@ -107,7 +109,8 @@
     protected void Application_BeginRequest(object sender, EventArgs e) {
 
         Hashtable xsltParams = (Hashtable)Application["appStart_globalXsltParams"];
-        Context context = new Context(HttpContext.Current, (Hashtable)xsltParams.Clone());
+        FileInfo fileInfo = new FileInfo(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath));
+        Context context = new Context(HttpContext.Current, HashAlgorithm.SHA256, (string)Application["hashkey"], fileInfo, (Hashtable)xsltParams.Clone(), fileInfo.LastWriteTimeUtc.GetHashCode(), (int)fileInfo.Length);
         StringBuilder builder = new StringBuilder();
         TextWriter writer = new StringWriter(builder);
         XslTransformationManager xslTransformationManager = (XslTransformationManager)Application["appStart_xslTransformationManager"];
@@ -115,9 +118,9 @@
         bool useMemCached = (bool)Application["appStart_usememcached"];
         MemcachedClient memcachedClient = (MemcachedClient)Application["appStart_memcached"];
         Application["memcached"] = memcachedClient;
-
+        
         if (useMemCached) {
-            string obj = (string)memcachedClient.Get(context.GetWeakHashcode(false).ToString());
+            string obj = (string)memcachedClient.Get(context.GetWeakHashcode(false, true).ToString());
             if (obj != null) {
                 builder.Append(obj);
                 CONTENT_IS_MEMCACHED = true;
@@ -128,13 +131,14 @@
         } else {
             writer = new StringWriter(builder);
         }
-
+      
         Application["debug"] = _DEBUG;
         Application["textWriter"] = writer;
         Application["stringBuilder"] = builder;
         Application["CONTENT_IS_MEMCACHED"] = CONTENT_IS_MEMCACHED;
         Application["xslTransformationManager"] = xslTransformationManager;
         Application["transformContext"] = context;
+        HttpContext.Current.Response.Output.Write(("Request File ETag: " + context.ETag));
         if (_DEBUG) {
             HttpContext.Current.Response.Write(WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString());
         }
@@ -179,7 +183,7 @@
         builder.Append("Request XmlSource Execution File Path: " + HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath) + "<br/>");
         builder.Append("Request Url: " + context.RequestUri + "<br/>");
         builder.Append("Request is Memcached? " + CONTENT_IS_MEMCACHED + "<br/>");
-        builder.Append("Request WeakHashcode: " + context.GetWeakHashcode(true) + "<br/>");
+        builder.Append("Request WeakHashcode: " + context.GetWeakHashcode(true, true) + "<br/>");
         builder.Append("Request StrongHashcode: " + context.GetStrongHashcode(true, false) + "<br/>");
         builder.Append("Request ReallyStronghashcode: " + context.GetStrongHashcode(false, true) + "<br/>");
         builder.Append("Context Hashcode: " + context.GetHashCode() + "<br/>");

@@ -192,6 +192,7 @@
     <Compile Include="Configuration\AwsKey.cs" />
     <Compile Include="Document\DocumentResult.cs" />
     <Compile Include="Document\S3Document.cs" />
+    <Compile Include="Function\HashcodeGenerator.cs" />
     <Compile Include="Function\HttpSgmlToXml.cs" />
     <Compile Include="Function\HttpWebRequest.cs" />
     <Compile Include="Function\S3ObjectCompare.cs" />

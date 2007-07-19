@@ -19,6 +19,7 @@ namespace Xameleon.Configuration {
       }
     }
 
+
     protected override ConfigurationElement CreateNewElement() {
       return new BaseSetting();
     }
@@ -31,6 +32,13 @@ namespace Xameleon.Configuration {
     public string BaseXsltName {
       get {
         return this["baseXsltName"] as string;
+      }
+    }
+
+    [ConfigurationProperty("objectHashKey", IsRequired = true)]
+    public string ObjectHashKey {
+      get {
+        return this["objectHashKey"] as string;
       }
     }
   }
