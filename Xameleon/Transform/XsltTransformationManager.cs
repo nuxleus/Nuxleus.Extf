@@ -86,8 +86,8 @@ namespace Xameleon.Transform {
     }
 
     public void AddTransformer(string name, Uri uri, XmlUrlResolver resolver) {
-      XsltTransformer transformer = _compiler.Compile(uri).Load();
       string key = GenerateNamedETagKey(name, uri);
+      XsltTransformer transformer = _compiler.Compile(uri).Load();
       _xsltHashtable[key] = (XsltTransformer)transformer;
     }
 
@@ -160,7 +160,7 @@ namespace Xameleon.Transform {
     }
 
     public static String GenerateNamedETagKey(String name, Uri sourceUri, params object[] objectParams) {
-      FileInfo fileInfo = new FileInfo(sourceUri.ToString());
+      FileInfo fileInfo = new FileInfo(sourceUri.LocalPath);
       return name + ":" + Context.GenerateETag((string)HttpContext.Current.Application["hashkey"], _hashAlgorithm, fileInfo.LastWriteTimeUtc, fileInfo.Length, sourceUri, objectParams);
     }
 

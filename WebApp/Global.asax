@@ -78,7 +78,9 @@
         _xsltTransformationManager = new XsltTransformationManager(_processor, _transform, _resolver, _serializer);
         _resolver.Credentials = CredentialCache.DefaultCredentials;
         _namedXsltHashtable = _xsltTransformationManager.NamedXsltHashtable;
-
+        
+        Application["hashkey"] = (string)_xameleonConfiguration.BaseSettings.ObjectHashKey;
+        
         foreach (PreCompiledXslt xslt in _xameleonConfiguration.PreCompiledXslt) {
             string localBaseUri = (string)_xameleonConfiguration.PreCompiledXslt.BaseUri;
             if (localBaseUri == String.Empty)
@@ -103,7 +105,7 @@
         Application["appStart_xslTransformationManager"] = _xsltTransformationManager;
         Application["appStart_namedXsltHashtable"] = _namedXsltHashtable;
         Application["appStart_globalXsltParams"] = _globalXsltParams;
-        Application["hashkey"] = (string)_xameleonConfiguration.BaseSettings.ObjectHashKey;
+        
     }
 
     protected void Session_Start(object sender, EventArgs e) {
