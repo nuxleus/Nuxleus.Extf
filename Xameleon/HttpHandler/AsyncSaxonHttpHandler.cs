@@ -70,7 +70,6 @@ namespace Xameleon.Transform {
         switch (_httpMethod) {
 
           case "GET": {
-
               if (_CONTENT_IS_MEMCACHED) {
                 _transformAsyncResult.CompleteCall();
                 return _transformAsyncResult;
