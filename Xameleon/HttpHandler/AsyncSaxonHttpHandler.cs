@@ -76,8 +76,7 @@ namespace Xameleon.Transform {
                 return _transformAsyncResult;
               } else {
                 try {
-                  _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
-                  return _transformAsyncResult;
+                  return _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
                 } catch (Exception e) {
                   _exception = e;
                   WriteError();
@@ -87,20 +86,16 @@ namespace Xameleon.Transform {
               }
             }
           case "PUT": {
-              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
-              return _transformAsyncResult;
+              return _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
             }
           case "POST": {
-              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
-              return _transformAsyncResult;
+              return _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
             }
           case "DELETE": {
-              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
-              return _transformAsyncResult;
+              return _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
             }
           default: {
-              _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
-              return _transformAsyncResult;
+              return _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
             }
         }
 
