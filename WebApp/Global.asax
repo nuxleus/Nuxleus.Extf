@@ -39,7 +39,7 @@
     BaseXsltContext _baseXsltContext;
     String _baseUri;
     HashAlgorithm _hashAlgorithm = HashAlgorithm.SHA256;
-    bool _DEBUG = true;
+    bool _DEBUG = false;
 
     protected void Application_Start(object sender, EventArgs e) {
 
