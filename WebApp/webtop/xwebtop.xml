@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<xwebtop>
+  <menu id="xwebtop">
+    <item name="Customize This Menu" call="customize" />
+    <item name="Menu Command Two" call="customize" />
+    <item name="Menu Command Three" call="customize" />
+    <item name="Menu Command Four" call="customize" />
+  </menu>
+  <menu id="perspectives">
+    <item name="BLIP Messaging" call="customize" />
+    <item name="Email" call="customize" />
+    <item name="XML Feed Reader" call="customize" />
+    <item name="Customize This Menu" call="customize" />
+  </menu>
+</xwebtop>

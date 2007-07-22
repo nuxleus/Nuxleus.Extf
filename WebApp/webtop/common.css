@@ -1,0 +1,25 @@
+body {font-family:trebuchet ms,arial,helvetica,sans-serif;}
+textarea {width:100%; height:50%; padding:3px;overflow: scroll;}
+#tabnav a.off {display:block;cursor:pointer; color:#999; text-decoration: none; padding:1px 5px 1px 5px;font-weight:600; border-top:1px solid #999;  border-left:1px solid #999; border-right:1px solid #999;background:#fff; }
+#tabnav a.on {display:block;cursor:pointer; color:#fff; text-decoration: none; padding:1px 5px 1px 5px;font-weight:600; border-top:1px solid #999;  border-left:1px solid #999; border-right:1px solid #999;background:#b4cceb; }
+#tabnav a.off:hover{background:#b4cceb; color:#555 }
+#tabnav a.on:hover{background:#b4cceb; color:#111 }
+.focus {background:#ffe; }
+.focus:hover{color:#111 }
+#formats a {font-size:small;font-weight:600; color:#555; text-decoration:none;}
+#formats a:hover {color:#933}
+#target{background:#b4cceb;height:auto;width:100%;border:1px solid #999; padding:15px; float:right;clear:both;z-index:20;display:inline;position:relative;}
+#nav {float:right;margin-left:1px;display:block;cursor:pointer; color:#999; text-decoration: none;font-weight:600;}
+#tabnav {display:block;cursor:pointer;color:#333;text-decoration:none;padding:1px 0px 0px 0px;font-weight:600;background:#fff;float:right;clear:both;width:90%}
+#perspective {position:absolute;border:1px solid #ccc;border-top:2px solid #933;left:690px;top:-7px;z-index:100;background:#fff;padding:2px;margin:0px;width:160px;display:none;}
+#xwebtop {position:absolute;border:1px solid #ccc;border-top:2px solid #933;left:2px;top:-7px;z-index:100;background:#fff;padding:2px;margin:0px;width:160px;display:none;}
+#xmenu ul {list-style:none;padding:1px;margin:0px;margin-right:5px;float:left;width:160px;}
+#xmenu ul li {list-style:none;display:block;cursor:pointer;padding:0px;clear:both;float:left;width:160px;border-bottom:1px solid #ccc;}
+#xmenu ul li a {font-size:12px;text-decoration:none;font-weight:600;color:#555;}
+#xmenu ul li a:hover {color:#933;}
+#topbar {float:left;clear:both;background:#fff; width:100%; padding:1px;border-bottom:3px solid #933; border-top:3px solid #933; z-index:100;}
+#topbar a {font-size:14px;display:block;cursor:pointer;color:#555;text-decoration:none;padding:2px 5px 0px 5px;font-weight:600;background:#fff;float:left;clear:both;}
+#topbar a:hover{color:#933}
+.menu {border:1px solid #777;padding:2px 2px 2px 2px;color:#777;font-weight:bold;font-size:small;margin-right:5px;}
+.menu:hover {background:#933; color:#fff;}
+.mred {border:1px solid #933;padding:2px 2px 2px 2px;color:#777;font-weight:bold;font-size:small}

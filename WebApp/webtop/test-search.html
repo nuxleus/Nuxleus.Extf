@@ -1,0 +1,73 @@
+< html >< head > <meta http - equiv = "Content-Type" content =
+	"text/html; charset=UTF-8" > <title >
+	XaMeLeon Webtop Project - Early Alpha < /title > <style type =
+	"text/css" > body
+{
+      font - family:trebuchet ms, arial, helvetica, sans - serif;
+      margin:10 px;
+}
+
+textarea
+{
+      width:100 %;
+      height:50 %;
+      padding:3 px;
+      overflow:scroll;
+}
+
+#tabnav a.off {display:block;cursor:pointer; color:#999; text-decoration: none; padding:1px 5px 1px 5px;font-weight:600; border-top:1px solid #999; border-left:1px solid #999; border-right:1px solid #999;background:#fff; } #tabnav a.on {display:block;cursor:pointer; color:#fff; text-decoration: none; padding:1px 5px 1px 5px;font-weight:600; border-top:1px solid #999; border-left:1px solid #999; border-right:1px solid #999;background:#b4cceb; } #tabnav a.off:hover{background:#b4cceb; color:#555 } #tabnav a.on:hover{background:#b4cceb; color:#111 } .focus {background:#ffe; } .focus:hover{color:#111 } #target{background:#b4cceb;width:75%; height:auto; border:1px solid #999; padding:15px; float:right;clear:both;z-index:20;display:inline} #nav {float:right;margin-left:1px;display:block;cursor:pointer; color:#999; text-decoration: none;font-weight:600;} #topbar {float:left;clear:both;background:#fff; width:100%; padding:2px; height:20px;border-bottom:3px solid #933; border-top:3px solid #933; font-size:14px;margin-bottom:20px;} #topbar a {display:block;cursor:pointer;color:#333;text-decoration:none;padding:1px 5px 1px 5px;margin-bottom:20px;font-weight:600;background:#fff;float:left;} #topbar a:hover{color:#933} #tabnav {display:block;cursor:pointer;color:#333;text-decoration:none;padding:1px 0px 1px 0px;font-weight:600;background:#fff;float:both;clear:both}</style>
+<script type = "text/javascript" > var foc;
+function changeDivVis (div)
+{
+	var nav = foc.concat ('nav');
+	var divnav = div.concat ('nav');
+	document.getElementById (divnav).className = 'on';
+	document.getElementById (nav).className = 'off';
+	document.getElementById (foc).style.display = 'none';
+	document.getElementById (div).style.display = 'inline';
+	foc = div;
+}
+
+function setDiv (div)
+{
+	foc = div;
+}
+
+</script > </head > <body > <center > <FORM method = GET action = http:	//www.google.com/custom>
+<TABLE bgcolor =
+#FFFFFF cellspacing=0 border=0>
+<tr valign = top >< td > <A HREF = http:	//www.google.com/search>
+<IMG SRC = http:		//www.google.com/logos/Logo_40wht.gif border=0 ALT=Google align=middle></A>
+</td > <td > <INPUT TYPE = text name = q size = 31 maxlength = 255 value =
+	"" > <INPUT type = submit name = sa VALUE =
+	"Google Search" > <INPUT type = hidden name = cof VALUE =
+	"S:http://www.xsltblog.com;GL:0;AH:left;LH:100;L:http://xsltblog.com/x.gif;LW:165;AWFID:c847fab0a6bfab5d;"
+	> <input type = hidden name = domains value =
+	"dpawson.co.uk;jenitennison.com;biglist.com;xsltblog.com;understandingxslt.com"
+	>< br >< input type = radio name = sitesearch value =
+	"" > %(domain) s < input type = radio name = sitesearch value =
+	"dpawson.co.uk" checked > %(domain) s < input type = radio name =
+	sitesearch value =
+	"jenitennison.com" checked > %(domain) s < input type = radio name =
+	sitesearch value = "biglist.com" checked > %(domain) s < input type =
+	radio name = sitesearch value =
+	"xsltblog.com" checked > %(domain) s < input type = radio name =
+	sitesearch value =
+	"understandingxslt.com" checked >
+	%(domain) s  </td >< /tr >< /TABLE > </FORM > </center > <div id =
+	"tabnav" > <div id = "nav" >< a id = "outputmxmlnav" href =
+	"#" class = "off" onclick =
+	"changeDivVis('outputmxml');" > The WWW < /a >< /div > <div id =
+	"nav" >< a id = "testgroupxslnav" href = "#" class = "on" onclick =
+	"changeDivVis('testgroupxsl');" >
+	Dave Pawson
+	's XSL-List FAQ</a></div><div id="nav"><a id="testgroupmxslnav" href="#" class="off" onclick="changeDivVis('
+	testgroupmxsl
+	');">JeniTennison.com</a></div><div id="nav"><a id="testgroupxmlnav" href="#" class="off" onclick="changeDivVis('
+	testgroupxml
+	');">XSL-List Archive</a></div><div id="nav"><a id="outputxmlnav" href="#" class="off" onclick="changeDivVis('
+	outputxml
+	');">&lt;XSLT:Blog.com/&gt;</a></div><div id="nav"><a id="outputmxmlnav" href="#" class="off" onclick="changeDivVis('
+	outputmxml ');">UnderstandingXSLT.com</a></div></div>
+</body>
+</html>

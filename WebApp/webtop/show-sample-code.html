@@ -1,0 +1,90 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+      <title>test</title>
+      <link rel="stylesheet" href="common.css" type="text/css"><script language="javascript" type="text/javascript" src="xslclient.js"></script></head>
+   <body onload="setDiv('testgroup')">
+      <div id="topbar">
+         <div style="float:left;"><a href="#" onclick="changeDivVis('nav')">Change Flight Plan Format</a></div>
+         <div style="float:left; margin:0px 5px 0px 5px">|</div>
+         <div style="float:left;"><a href="#" onclick="changeDivVis('psettings')">Edit Personal Settings</a></div>
+         <div style="float:right;"><a href="#" onclick="changeDivVis('help')">Access System Help</a></div>
+      </div>
+      <div id="form-commands">
+         <div id="nav"><a href="#" onclick="changeDivVis('testgroup')">test-group.xsl</a></div>
+         <div id="nav"><a href="#" onclick="changeDivVis('testgroupm')">test-group-m.xsl</a></div>
+         <div id="nav"><a href="#" onclick="changeDivVis('testgroup')">test-group.xml</a></div>
+         <div id="nav"><a href="#" onclick="changeDivVis('output')">output.xml</a></div>
+         <div id="nav"><a href="#" onclick="changeDivVis('outputm')">output-m.xml</a></div>
+      </div>
+      <div id="target">
+         <div id="testgroup" style="display:inline;">
+            <h3>test-group.xsl</h3>
+            <hr><textarea><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:template match="/booklist">
+    <authors>
+      <xsl:call-template name="RecursiveGrouping">
+        <xsl:with-param name="list" select="book"></xsl:with-param>
+      </xsl:call-template>
+    </authors>
+  </xsl:template>
+
+  <xsl:template name="RecursiveGrouping">
+    <xsl:param name="list"></xsl:param>
+    
+     
+                     <!-- Selecting the first author name as group identifier and the group
+    itself-->
+    <xsl:variable name="group-identifier" select="$list[1]/@author"></xsl:variable>
+    <xsl:variable name="group" select="$list[@author=$group-identifier]"></xsl:variable>
+    
+     
+                     <!-- Do some work for the group -->
+    <author name="{$group-identifier}" number-of-books="{count($group)}"></author>
+    
+     
+                     <!-- If there are other groups left, calls itself -->
+    <xsl:if test="count($list)&gt;count($group)">
+      <xsl:call-template name="RecursiveGrouping">
+        <xsl:with-param name="list" select="$list[not(@author=$group-identifier)]"></xsl:with-param>
+      </xsl:call-template>
+    </xsl:if>
+  </xsl:template>
+</xsl:stylesheet></textarea></div>
+         <div id="testgroupm" style="display:none;">
+            <h3>test-group-m.xsl</h3>
+            <hr><textarea><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:key name="author" match="@author" use="."></xsl:key>
+  <xsl:template match="/booklist">
+    <authors>
+      <xsl:apply-templates select="book[generate-id(@author) = generate-id(key('author', @author))]"></xsl:apply-templates>
+    </authors>
+  </xsl:template>
+  <xsl:template match="book">
+    <xsl:variable name="count" select="count(following-sibling::book[@author = current()/@author])"></xsl:variable>
+    <author name="{@author}" number-of-books="{$count + 1}"></author>
+  </xsl:template>
+</xsl:stylesheet></textarea></div>
+         <div id="testgroup" style="display:none;">
+            <h3>test-group.xml</h3>
+            <hr><textarea><booklist>
+  <book author="Frank Herbert" title="Dune"></book>
+  <book author="Roberto Quaglia" title="Bread, Butter and Paradoxine"></book>
+  <book author="Kate Wilhelm" title="Where Late the Sweet Bird Sang"></book>
+  <book author="Anthony Burgess" title="A Clockwork Orange"></book>
+  <book author="Frank Herbert" title="Dragon in the Sea"></book>
+  <book author="Anthony Burgess" title="Earthly Powers"></book>
+  <book author="Isaak Asimov" title="The Foundation Trilogy"></book>
+  <book author="Frank Herbert" title="Children of Dune"></book>
+  <book author="Isaak Asimov" title="The Caves of Steel"></book>
+</booklist></textarea></div>
+         <div id="output" style="display:none;">
+            <h3>output.xml</h3>
+            <hr><textarea><authors><author name="Frank Herbert" number-of-books="3"></author><author name="Roberto Quaglia" number-of-books="1"></author><author name="Kate Wilhelm" number-of-books="1"></author><author name="Anthony Burgess" number-of-books="2"></author><author name="Isaak Asimov" number-of-books="2"></author></authors></textarea></div>
+         <div id="outputm" style="display:none;">
+            <h3>output-m.xml</h3>
+            <hr><textarea><authors><author name="Frank Herbert" number-of-books="3"></author><author name="Roberto Quaglia" number-of-books="1"></author><author name="Kate Wilhelm" number-of-books="1"></author><author name="Anthony Burgess" number-of-books="2"></author><author name="Isaak Asimov" number-of-books="2"></author></authors></textarea></div>
+      </div>
+   </body>
+</html>
