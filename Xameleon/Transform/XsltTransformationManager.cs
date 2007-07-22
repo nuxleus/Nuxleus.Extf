@@ -31,8 +31,6 @@ namespace Xameleon.Transform {
     static HashAlgorithm _hashAlgorithm;
     //NOTE: TransformEngine enum PLACEHOLDER FOR FUTURE USE
     static TransformEngine _transformEngine;
-    bool _xmlInMemory;
-    bool _xsltInMemory;
 
     public XsltTransformationManager(Processor processor)
       : this(processor, new Transform(), new XmlUrlResolver(), new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
@@ -79,8 +77,6 @@ namespace Xameleon.Transform {
       _xdmNodeETagIndex = new Hashtable();
       //NOTE: TransformEngine enum PLACEHOLDER FOR FUTURE USE
       _transformEngine = TransformEngine.SAXON;
-      _xmlInMemory = false;
-      _xsltInMemory = false;
     }
 
     public void SetBaseXsltContext(BaseXsltContext baseXsltContext) {
@@ -89,6 +85,23 @@ namespace Xameleon.Transform {
       _baseXsltUriHash = baseXsltContext.UriHash;
       _compiler.BaseUri = _baseXsltUri;
       _builder.BaseUri = _baseXsltUri;
+    }
+
+    public bool HasXmlSourceChanged(string eTag) {
+      if (_xdmNodeETagIndex[eTag] != null)
+        return false;
+      else
+        return true;
+    }
+
+    public bool HasBaseXsltSourceChanged() {
+      string namedETag = (string)_namedXsltETagIndex[_baseXsltName];
+      if (namedETag != null && namedETag == GenerateNamedETagKey(_baseXsltName, _baseXsltUri))
+        return false;
+      else {
+        _namedXsltETagIndex[_baseXsltName] = (string)_baseXsltUriHash;
+        return true;
+      }
     }
 
     public void AddTransformer(string name, Uri uri, XmlUrlResolver resolver) {
@@ -112,7 +125,6 @@ namespace Xameleon.Transform {
 
       Uri xdmNodeUri = (Uri)_xdmNodeETagIndex[name];
       if (xdmNodeUri != null && xdmNodeUri == xmlSourceUri) {
-        _xmlInMemory = true;
         return getXdmNode(name, xmlSourceUri, false);
       } else {
         _xdmNodeETagIndex[name] = xmlSourceUri;
@@ -162,7 +174,6 @@ namespace Xameleon.Transform {
       string transformerKey;
       string namedETag = (string)_namedXsltETagIndex[xsltName];
       if (namedETag != null && namedETag == key) {
-        _xsltInMemory = true;
         return getTransformer(namedETag, xsltUri, false);
       } else {
         _namedXsltETagIndex[xsltName] = key;
@@ -194,14 +205,6 @@ namespace Xameleon.Transform {
       }
     }
 
-    public bool XmlInMemory {
-      get { return _xmlInMemory; }
-      set { _xmlInMemory = value; }
-    }
-    public bool XsltInMemory {
-      get { return _xsltInMemory; }
-      set { _xsltInMemory = value; }
-    }
     public Hashtable XsltHashtable {
       get { return _xsltHashtable; }
       set { _xsltHashtable = value; }

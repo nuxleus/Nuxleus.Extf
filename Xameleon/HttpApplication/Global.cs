@@ -126,7 +126,7 @@ namespace Xameleon.HttpApplication {
       Application["memcached"] = memcachedClient;
 
       if (useMemCached) {
-        string obj = (string)memcachedClient.Get(context.GetWeakHashcode(false, true).ToString());
+        string obj = (string)memcachedClient.Get(context.GetRequestHashcode(false).ToString());
         if (obj != null) {
           builder.Append(obj);
           CONTENT_IS_MEMCACHED = true;
@@ -191,12 +191,9 @@ namespace Xameleon.HttpApplication {
       builder.Append("Request XmlSource Execution File Path: " + HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath) + "<br/>");
       builder.Append("Request Url: " + context.RequestUri + "<br/>");
       builder.Append("Request is Memcached? " + CONTENT_IS_MEMCACHED + "<br/>");
-      builder.Append("Request WeakHashcode: " + context.GetWeakHashcode(true, true) + "<br/>");
-      builder.Append("Request StrongHashcode: " + context.GetStrongHashcode(true, false) + "<br/>");
-      builder.Append("Request ReallyStronghashcode: " + context.GetStrongHashcode(false, true) + "<br/>");
+      builder.Append("Request RequestHashcode: " + context.GetRequestHashcode(true) + "<br/>");
       builder.Append("Context Hashcode: " + context.GetHashCode() + "<br/>");
       builder.Append("Context Uri: " + context.RequestUri + "<br/>");
-      builder.Append("Context UriHashCode: " + context.RequestUriHash + "<br/>");
       builder.Append("Context HttpParams Count: " + context.HttpParams.Count + "<br/>");
       IEnumerator httpParamsEnum = context.HttpParams.GetEnumerator();
       int i = 0;

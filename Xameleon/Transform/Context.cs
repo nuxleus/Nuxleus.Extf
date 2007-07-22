@@ -19,7 +19,7 @@ namespace Xameleon.Transform {
   public class Context {
 
     Uri _requestUri;
-    String _requestUriHash;
+    //String _requestUriHash;
     FileInfo _requestXmlFileInfo;
     String _eTag;
     Hashtable _xsltParams;
@@ -30,7 +30,7 @@ namespace Xameleon.Transform {
 
     public Context(HttpContext context, HashAlgorithm algorithm, String key, FileInfo fileInfo, Hashtable xsltParams, params object[] eTagArray) {
       _requestUri = context.Request.Url;
-      _requestUriHash = _requestUri.GetHashCode().ToString();
+      //_requestUriHash = _requestUri.GetHashCode().ToString();
       _requestXmlFileInfo = fileInfo;
       _xsltParams = xsltParams;
       _httpQueryString = context.Request.QueryString;
@@ -44,10 +44,10 @@ namespace Xameleon.Transform {
       get { return _requestUri; }
       set { _requestUri = value; }
     }
-    public String RequestUriHash {
-      get { return _requestUriHash; }
-      set { _requestUriHash = value; }
-    }
+    //public String RequestUriHash {
+    //  get { return _requestUriHash; }
+    //  set { _requestUriHash = value; }
+    //}
     public FileInfo RequestXmlFileInfo {
       get { return _requestXmlFileInfo; }
       set { _requestXmlFileInfo = value; }
@@ -79,30 +79,14 @@ namespace Xameleon.Transform {
     public static string GenerateETag(string key, HashAlgorithm algorithm, params object[] eTagArray) {
       return HashcodeGenerator.GetHMACHashBase64String(key, algorithm, eTagArray);
     }
-    public int GetWeakHashcode(bool useQueryString, bool useETag) {
-      StringBuilder builder = new StringBuilder(_requestUriHash);
+    public int GetRequestHashcode(bool useQueryString, params object[] objectArray) {
+      StringBuilder builder = new StringBuilder(_eTag);
       builder.Append(_xsltParams.ToString());
       if (useQueryString)
         builder.Append(_httpQueryString.ToString());
-      if (useETag)
-        builder.Append(_eTag);
       builder.Append(_httpForm.ToString());
       return builder.ToString().GetHashCode();
     }
-    public int GetStrongHashcode(bool useQueryString, bool useServerVariables) {
-      StringBuilder builder = new StringBuilder(_requestUriHash);
-      builder.Append(_xsltParams.GetHashCode());
-      if (useServerVariables)
-        builder.Append(_httpParams.ToString());
-      else {
-        if (useQueryString)
-          builder.Append(_httpQueryString.ToString());
-        builder.Append(_httpForm.ToString());
-        builder.Append(_httpCookies.ToString());
-      }
-      return builder.ToString().GetHashCode();
-    }
-
     public void Clear() {
       //FOR FUTURE USE
     }

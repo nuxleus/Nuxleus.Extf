@@ -38,6 +38,7 @@
     Hashtable _requestXsltParams = null;
     BaseXsltContext _baseXsltContext;
     String _baseUri;
+    HashAlgorithm _hashAlgorithm = HashAlgorithm.SHA256;
     bool _DEBUG = true;
 
     protected void Application_Start(object sender, EventArgs e) {
@@ -79,7 +80,8 @@
         _resolver.Credentials = CredentialCache.DefaultCredentials;
         _namedXsltHashtable = _xsltTransformationManager.NamedXsltHashtable;
         
-        Application["hashkey"] = (string)_xameleonConfiguration.BaseSettings.ObjectHashKey;
+        string hashkey =  (string)_xameleonConfiguration.BaseSettings.ObjectHashKey;
+        Application["hashkey"] = hashkey;
         
         foreach (PreCompiledXslt xslt in _xameleonConfiguration.PreCompiledXslt) {
             string localBaseUri = (string)_xameleonConfiguration.PreCompiledXslt.BaseUri;
@@ -89,7 +91,7 @@
             _xsltTransformationManager.AddTransformer(xslt.Name, xsltUri, _resolver);
             _namedXsltHashtable.Add(xslt.Name, xsltUri);
             if (xslt.UseAsBaseXslt == "yes") {
-                _baseXsltContext = new BaseXsltContext(xsltUri, xslt.Name + ":" + xsltUri.GetHashCode().ToString(), xslt.Name);
+                _baseXsltContext = new BaseXsltContext(xsltUri, XsltTransformationManager.GenerateNamedETagKey(xslt.Name, xsltUri), xslt.Name);
             }
         }
 
@@ -122,12 +124,16 @@
         XsltTransformationManager xslTransformationManager = (XsltTransformationManager)Application["appStart_xslTransformationManager"];
         bool CONTENT_IS_MEMCACHED = false;
         bool useMemCached = (bool)Application["appStart_usememcached"];
+        bool hasXmlSourceChanged = xslTransformationManager.HasXmlSourceChanged(context.ETag);
+        bool hasBaseXsltSourceChanged = xslTransformationManager.HasBaseXsltSourceChanged();
+        //HttpContext.Current.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + "<br/>");
+        //HttpContext.Current.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
         MemcachedClient memcachedClient = (MemcachedClient)Application["appStart_memcached"];
         Application["memcached"] = memcachedClient;
         
         if (useMemCached) {
-            string obj = (string)memcachedClient.Get(context.GetWeakHashcode(false, true).ToString());
-            if (obj != null) {
+            string obj = (string)memcachedClient.Get(context.GetRequestHashcode(false).ToString());
+            if (obj != null && hasXmlSourceChanged && hasBaseXsltSourceChanged) {
                 builder.Append(obj);
                 CONTENT_IS_MEMCACHED = true;
             } else {
@@ -188,12 +194,9 @@
         builder.Append("Request XmlSource Execution File Path: " + HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath) + "<br/>");
         builder.Append("Request Url: " + context.RequestUri + "<br/>");
         builder.Append("Request is Memcached? " + CONTENT_IS_MEMCACHED + "<br/>");
-        builder.Append("Request WeakHashcode: " + context.GetWeakHashcode(true, true) + "<br/>");
-        builder.Append("Request StrongHashcode: " + context.GetStrongHashcode(true, false) + "<br/>");
-        builder.Append("Request ReallyStronghashcode: " + context.GetStrongHashcode(false, true) + "<br/>");
+        builder.Append("Request RequestHashcode: " + context.GetRequestHashcode(true) + "<br/>");
         builder.Append("Context Hashcode: " + context.GetHashCode() + "<br/>");
         builder.Append("Context Uri: " + context.RequestUri + "<br/>");
-        builder.Append("Context UriHashCode: " + context.RequestUriHash + "<br/>");
         builder.Append("Context HttpParams Count: " + context.HttpParams.Count + "<br/>");
         IEnumerator httpParamsEnum = context.HttpParams.GetEnumerator();
         int i = 0;
