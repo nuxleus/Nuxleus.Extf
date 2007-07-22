@@ -142,6 +142,7 @@
         Application["textWriter"] = writer;
         Application["stringBuilder"] = builder;
         Application["CONTENT_IS_MEMCACHED"] = CONTENT_IS_MEMCACHED;
+        Application["USE_MEMCACHED"] = useMemCached;
         Application["xsltTransformationManager"] = xslTransformationManager;
         Application["namedXsltHashtable"] = (Hashtable)Application["appStart_namedXsltHashtable"];
         Application["transformContext"] = context;
@@ -158,10 +159,7 @@
     protected void Application_Error(object sender, EventArgs e) {
 
     }
-    protected void Application_EndRequest(object sender, EventArgs e) {
-        //Context context = (Context)Application["transformContext"];
-        //context.Clear();
-    }
+
     protected void Session_End(object sender, EventArgs e) {
 
     }

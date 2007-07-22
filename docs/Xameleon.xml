@@ -237,6 +237,23 @@
               Looks up a localized string similar to http://xslt.googlecode.com/svn/test/extensionfunction.xsl.
             </summary>
         </member>
+        <member name="T:Mono.WebServer.UnregisterRequestEventArgs">
+            <summary>
+              This class extends <see cref="T:System.EventArgs"/> to provide arguments for
+              <see cref="T:Mono.WebServer.BaseRequestBroker.UnregisterRequestEventHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.UnregisterRequestEventArgs.#ctor(System.Int32)">
+            <summary>
+              Constructs an instance of the class for the specified request ID
+            </summary>
+            <param name="requestId">Request of the ID that has just been unregistered</param>
+        </member>
+        <member name="P:Mono.WebServer.UnregisterRequestEventArgs.RequestId">
+            <summary>
+              Contains the id of a request that has just been unregistered.
+            </summary>
+        </member>
         <member name="T:Mono.WebServer.BaseRequestBroker">
             <summary>
                This class provides a request broker covering the base
@@ -329,6 +346,26 @@
             <param name="id">
                A <see cref="T:System.Int32"/> containing the ID of the request.
             </param>
+            <remarks>
+               After unregistering the request and freeing all of its data, the method
+               invokes the <see cref="E:Mono.WebServer.BaseRequestBroker.UnregisterRequestEvent"/> handlers (if any).
+               <note type="caution"><para>
+                  At the time the event handlers are called the request ID is invalid and
+                  *MUST NOT* be used for any purpose other than referencing the event
+                  receiver's internal housekeeping records for that particular ID.
+               </para></note>
+               <note type="caution"><para>
+                  Make the event handler code as fast as possible, as until it returns no other
+                  request shall be allocated another id.
+               </para></note>
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.DoUnregisterRequest(System.Int32)">
+            <summary>
+               Invokes registered handlers of <see cref="E:Mono.WebServer.BaseRequestBroker.UnregisterRequestEvent"/>. Each handler is
+               passed an arguments object which contains the ID of a request that has just been unregistered.
+            </summary>
+            <param name="id">ID of a request that has just been unregistered</param>
         </member>
         <member name="M:Mono.WebServer.BaseRequestBroker.ValidRequest(System.Int32)">
             <summary>
@@ -453,6 +490,23 @@
             <returns>
                Always <see langword="null" />.
             </returns>
+        </member>
+        <member name="E:Mono.WebServer.BaseRequestBroker.UnregisterRequestEvent">
+            <summary>
+              This event is called right after the request has been unregistered by the broker.
+              This gives the chance to clean up any private data associated with the event.
+            </summary>
+            <remarks>
+              The event handlers are invoked with a lock held on the issuing object, so that the event receiver
+              can do the cleanup without the chance of another thread stepping in at the wrong time.
+            </remarks>
+        </member>
+        <member name="T:Mono.WebServer.BaseRequestBroker.UnregisterRequestEventHandler">
+            <summary>
+              This delegate is used to handle <see cref="E:Mono.WebServer.BaseRequestBroker.UnregisterRequestEvent"/>
+            </summary>
+            <param name="sender">Origin of the event</param>
+            <param name="args">An <see cref="T:Mono.WebServer.UnregisterRequestEventArgs"/> object with the event-specific arguments</param>
         </member>
         <member name="T:Xameleon.AmazonAWS.SQS.QueueService">
             <remarks/>

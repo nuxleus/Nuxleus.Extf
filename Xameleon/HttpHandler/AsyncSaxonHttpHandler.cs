@@ -37,6 +37,7 @@ namespace Xameleon.Transform {
     Exception _exception;
     Context _transformContext;
     bool _CONTENT_IS_MEMCACHED = false;
+    bool _USE_MEMCACHED = false;
 
     public void ProcessRequest(HttpContext context) {
       //not called
@@ -60,6 +61,7 @@ namespace Xameleon.Transform {
       _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
       _callback = cb;
       _CONTENT_IS_MEMCACHED = (bool)context.Application["CONTENT_IS_MEMCACHED"];
+      _USE_MEMCACHED = (bool)context.Application["USE_MEMCACHED"];
 
       _transformAsyncResult._context = context;
       _writer = (TextWriter)context.Application["textWriter"];
@@ -68,14 +70,13 @@ namespace Xameleon.Transform {
       try {
 
         switch (_httpMethod) {
-
           case "GET": {
               if (_CONTENT_IS_MEMCACHED) {
                 _transformAsyncResult.CompleteCall();
                 return _transformAsyncResult;
               } else {
                 try {
-                  return _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
+                  return _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
                 } catch (Exception e) {
                   _exception = e;
                   WriteError();
@@ -85,16 +86,16 @@ namespace Xameleon.Transform {
               }
             }
           case "PUT": {
-              return _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
+              return _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
             }
           case "POST": {
-              return _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
+              return _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
             }
           case "DELETE": {
-              return _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
+              return _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
             }
           default: {
-              return _transform.BeginAsyncProcess(_transformContext, _xslTransformationManager, _writer, _callback, _transformAsyncResult);
+              return _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
             }
         }
 
@@ -113,7 +114,7 @@ namespace Xameleon.Transform {
           writer.Write(output);
         }
         _transformContext.Clear();
-        if (!_CONTENT_IS_MEMCACHED)
+        if (!_CONTENT_IS_MEMCACHED && _USE_MEMCACHED)
           _memcachedClient.Set(_transformContext.GetWeakHashcode(false, true).ToString(), output);
       }
     }
