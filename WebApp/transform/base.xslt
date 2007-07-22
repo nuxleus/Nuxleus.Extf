@@ -42,18 +42,18 @@
   xmlns:timestamp="clitype:System.DateTime"
   exclude-result-prefixes="aspnet-context test http-sgml-to-xml html web-response web-request stream http-response-stream browser http-util uri at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header sortedlist param service operation session func xs xsi fn clitype response-collection request-collection">
   
-  <!-- <xsl:import href="./controller/atomicxml/base.xslt"/>
+  <xsl:import href="./controller/atomicxml/base.xslt"/>
   <xsl:import href="./controller/aws/s3/base.xslt"/>
   <xsl:import href="./controller/proxy/base.xslt"/>
+  <xsl:import href="./functions/amazonaws/funcset-s3.xslt"/>
   <xsl:import href="./functions/funcset-dateTime.xslt"/>
   <xsl:import href="./functions/funcset-Util.xslt"/>
-  <xsl:import href="./functions/amazonaws/funcset-s3.xslt"/>
   <xsl:import href="./functions/aspnet/session.xslt"/>
   <xsl:import href="./functions/aspnet/server.xslt"/>
   <xsl:import href="./functions/aspnet/request-stream.xslt"/>
   <xsl:import href="./functions/aspnet/response-stream.xslt"/>
-  <xsl:import href="./functions/aspnet/timestamp.xslt"/> -->
-
+ <xsl:import href="./functions/aspnet/timestamp.xslt"/>
+ 
   <xsl:param name="current-context" select="aspnet-context:Current()" />
   <xsl:param name="response" select="aspnet-context:Response($current-context)" />
   <xsl:param name="request" select="aspnet-context:Request($current-context)" />

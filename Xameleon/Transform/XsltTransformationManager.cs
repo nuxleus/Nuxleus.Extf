@@ -64,7 +64,6 @@ namespace Xameleon.Transform {
       _xsltHashtable = xsltHashtable;
       _processor = processor;
       _compiler = _processor.NewXsltCompiler();
-      _compiler.BaseUri = _baseXsltUri;
       _sourceHashtable = xmlSourceHashtable;
       _resolver = resolver;
       _compiler.XmlResolver = _resolver;
@@ -107,6 +106,7 @@ namespace Xameleon.Transform {
     public void AddTransformer(string name, Uri uri, XmlUrlResolver resolver) {
       string key = GenerateNamedETagKey(name, uri);
       XsltTransformer transformer = createNewTransformer(uri);
+      transformer.InputXmlResolver = _resolver;
       _xsltHashtable[key] = (XsltTransformer)transformer;
       _namedXsltETagIndex[name] = (string)key; 
     }
@@ -201,7 +201,7 @@ namespace Xameleon.Transform {
 
     private XsltTransformer createNewTransformer(Uri xsltUri) {
       using (Stream stream = createNewXmlStream(xsltUri)) {
-        return _processor.NewXsltCompiler().Compile(stream).Load();
+        return _compiler.Compile(stream).Load();
       }
     }
 

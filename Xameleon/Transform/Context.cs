@@ -30,7 +30,6 @@ namespace Xameleon.Transform {
 
     public Context(HttpContext context, HashAlgorithm algorithm, String key, FileInfo fileInfo, Hashtable xsltParams, params object[] eTagArray) {
       _requestUri = context.Request.Url;
-      //_requestUriHash = _requestUri.GetHashCode().ToString();
       _requestXmlFileInfo = fileInfo;
       _xsltParams = xsltParams;
       _httpQueryString = context.Request.QueryString;
