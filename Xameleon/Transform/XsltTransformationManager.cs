@@ -104,11 +104,19 @@ namespace Xameleon.Transform {
     }
 
     public void AddTransformer(string name, Uri uri, XmlUrlResolver resolver) {
-      string key = GenerateNamedETagKey(name, uri);
+      addTransformer(GenerateNamedETagKey(name, uri), name, uri, resolver, null);
+    }
+
+    public void AddTransformer(string name, Uri uri, XmlUrlResolver resolver, string initialMode) {
+      addTransformer(GenerateNamedETagKey(name, uri), name, uri, resolver, initialMode);
+    }
+
+    private void addTransformer(string key, string name, Uri uri, XmlUrlResolver resolver, string initialMode) {
       XsltTransformer transformer = createNewTransformer(uri);
-      transformer.InputXmlResolver = _resolver;
+      transformer.InputXmlResolver = resolver;
+      transformer.InitialMode = new QName("", "", initialMode);
       _xsltHashtable[key] = (XsltTransformer)transformer;
-      _namedXsltETagIndex[name] = (string)key; 
+      _namedXsltETagIndex[name] = (string)key;
     }
 
     public void AddXmlSource(string name, Uri uri) {
@@ -185,7 +193,7 @@ namespace Xameleon.Transform {
       XsltTransformer transformer;
       transformer = (XsltTransformer)_namedXsltHashtable[key];
 
-      if(transformer != null && !replaceExistingXsltTransformer) {
+      if (transformer != null && !replaceExistingXsltTransformer) {
         return transformer;
       } else
         transformer = createNewTransformer(xsltUri);

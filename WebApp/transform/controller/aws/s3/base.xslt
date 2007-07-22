@@ -9,6 +9,7 @@
     xmlns:at="http://atomictalk.org"
     xmlns:func="http://atomictalk.org/function"
     xmlns:aspnet="http://atomictalk.org/function/aspnet"
+    xmlns:response="http://atomictalk.org/function/aspnet/response"
     xmlns:service="http://xameleon.org/service"
     xmlns:operation="http://xameleon.org/service/operation"
     xmlns:proxy="http://xameleon.org/service/proxy"
@@ -68,8 +69,6 @@
   <xsl:variable name="request-uri" select="aspnet-request:Url($request)"/>
   <xsl:variable name="browser" select="aspnet-request:Browser($request)"/>
 
-
-
   <xsl:template match="header:*">
     <xsl:param name="sorted-list" as="clitype:System.Collections.SortedList"/>
     <xsl:variable name="key" select="local-name() cast as xs:untypedAtomic"/>
@@ -91,12 +90,12 @@
   <xsl:template match="service:operation">
     <xsl:param name="key-name"/>
     <xsl:variable name="issecure" select="false()" as="xs:boolean"/>
-    <xsl:variable name="content-type" select="if ($debug) then aspnet:response.set-content-type($response, 'text/plain') else aspnet:response.set-content-type($response, 'text/xml')"/>
+    <xsl:variable name="content-type" select="if ($debug) then response:set-content-type($response, 'text/plain') else response:set-content-type($response, 'text/xml')"/>
     <xsl:processing-instruction name="xml-stylesheet">
       <xsl:text>type="text/xsl" href="/transform/openid-redirect.xsl"</xsl:text>
     </xsl:processing-instruction>
     <message type="service:result"
-        content-type="{if (empty($content-type)) then aspnet:response.get-content-type($response) else 'not-set'}">
+        content-type="{if (empty($content-type)) then response:get-content-type($response) else 'not-set'}">
       <xsl:apply-templates/>
     </message>
   </xsl:template>

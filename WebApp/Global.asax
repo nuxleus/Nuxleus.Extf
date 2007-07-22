@@ -89,7 +89,7 @@
                 localBaseUri = baseUri;
             Uri xsltUri = new Uri(HttpContext.Current.Server.MapPath(localBaseUri + xslt.Uri));
             _xsltTransformationManager.Compiler.BaseUri = xsltUri;
-            _xsltTransformationManager.AddTransformer(xslt.Name, xsltUri, _resolver);
+            _xsltTransformationManager.AddTransformer(xslt.Name, xsltUri, _resolver, xslt.InitialMode);
             _namedXsltHashtable.Add(xslt.Name, xsltUri);
             if (xslt.UseAsBaseXslt == "yes") {
                 _baseXsltContext = new BaseXsltContext(xsltUri, XsltTransformationManager.GenerateNamedETagKey(xslt.Name, xsltUri), xslt.Name);

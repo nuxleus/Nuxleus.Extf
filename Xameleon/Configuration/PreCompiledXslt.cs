@@ -34,5 +34,12 @@ namespace Xameleon.Configuration {
         return this["useAsBaseXslt"] as string;
       }
     }
+
+    [ConfigurationProperty("initialMode", IsRequired = false)]
+    public string InitialMode {
+      get {
+        return this["initialMode"] as string;
+      }
+    }
   }
 }

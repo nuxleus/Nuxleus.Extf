@@ -13,6 +13,7 @@
     xmlns:sortedlist="clitype:System.Collections.SortedList?from=file:///usr/lib/mono/2.0/mscorlib.dll"
     xmlns:uri="clitype:System.Uri?from=file:///usr/lib/mono/2.0/System.dll"
     xmlns:aspnet="http://atomictalk.org/function/aspnet"
+    xmlns:response="http://atomictalk.org/function/aspnet/response"
     xmlns:aspnet-session="clitype:System.Web.SessionState.HttpSessionState?from=file:///usr/lib/mono/2.0/System.Web.dll"
     xmlns:browser="clitype:System.Web.HttpBrowserCapabilities?from=file:///usr/lib/mono/2.0/System.Web.dll"
     xmlns:aspnet-server="clitype:System.Web.HttpServerUtility?from=file:///usr/lib/mono/2.0/System.Web.dll"
@@ -99,7 +100,7 @@
   <xsl:template match="service:operation">
     <xsl:param name="key-name"/>
     <xsl:variable name="issecure" select="false()" as="xs:boolean"/>
-    <xsl:variable name="content-type" select="if ($debug) then aspnet:response.set-content-type($response, 'text/plain') else aspnet:response.set-content-type($response, 'text/xml')"/>
+    <xsl:variable name="content-type" select="if ($debug) then response:set-content-type($response, 'text/plain') else response:set-content-type($response, 'text/xml')"/>
     <xsl:if test="not($debug)">
       <xsl:processing-instruction name="xml-stylesheet">
         <xsl:text>type="text/xsl" href="/transform/openid-redirect.xsl"</xsl:text>

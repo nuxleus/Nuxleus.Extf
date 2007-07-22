@@ -10,6 +10,7 @@
   xmlns:at="http://atomictalk.org"
   xmlns:func="http://atomictalk.org/function"
   xmlns:aspnet="http://atomictalk.org/function/aspnet"
+  xmlns:response="http://atomictalk.org/function/aspnet/response"
   xmlns:service="http://xameleon.org/service"
   xmlns:operation="http://xameleon.org/service/operation"
   xmlns:proxy="http://xameleon.org/service/proxy"
@@ -41,6 +42,7 @@
   xmlns:html="http://www.w3.org/1999/xhtml"
   xmlns:timestamp="clitype:System.DateTime"
   exclude-result-prefixes="aspnet-context test http-sgml-to-xml html web-response web-request stream http-response-stream browser http-util uri at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header sortedlist param service operation session func xs xsi fn clitype response-collection request-collection">
+  
   
   <xsl:import href="./controller/atomicxml/base.xslt"/>
   <xsl:import href="./controller/aws/s3/base.xslt"/>
@@ -84,9 +86,9 @@
 
   <xsl:template match="/">
     <xsl:apply-templates/>
-    <xsl:value-of select="timestamp:ToShortDateString($timestamp)"/>
+    <!--<xsl:value-of select="timestamp:ToShortDateString($timestamp)"/>
     <xsl:value-of select="uri:ToString($request-uri)"/>
-    <xsl:value-of select="browser:Browser($browser)"/>
+    <xsl:value-of select="browser:Browser($browser)"/> -->
   </xsl:template>
 
 </xsl:transform>
