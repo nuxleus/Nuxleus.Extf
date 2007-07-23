@@ -21,8 +21,8 @@
   </xsl:template>
 
   <xsl:function name="func:return-xml-from-html">
-    <xsl:param name="uri"/>
-    <xsl:param name="xpath"/>
+    <xsl:param name="uri" as="xs:string" />
+    <xsl:param name="xpath" as="xs:string" />
     <xsl:variable name="html-to-xml" select="http-sgml-to-xml:GetDocXml($uri, $xpath, false())"/>
     <external-html>
       <xsl:sequence select="saxon:parse($html-to-xml)"/>

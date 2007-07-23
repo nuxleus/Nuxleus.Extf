@@ -8,7 +8,10 @@
   xmlns:aspnet-context="clitype:System.Web.HttpContext?partialname=System.Web"
   xmlns:aspnet-request="clitype:System.Web.HttpRequest?partialname=System.Web"
   xmlns:request-collection="clitype:Xameleon.Function.HttpRequestCollection?partialname=Xameleon"
-  exclude-result-prefixes="aspnet-context aspnet-request request-collection saxon xs clitype">
+  xmlns:browser="clitype:System.Web.HttpBrowserCapabilities?partialname=System.Web"
+  xmlns:timestamp="clitype:System.DateTime"
+  xmlns:uri="clitype:System.Uri?partialname=System"
+  exclude-result-prefixes="aspnet-context aspnet-request request-collection browser timestamp uri saxon xs clitype">
 
   <xsl:import href="./controller/atomicxml/base.xslt"/>
   <xsl:import href="./controller/aws/s3/base.xslt"/>
@@ -20,7 +23,7 @@
   <xsl:import href="./functions/aspnet/server.xslt"/>
   <xsl:import href="./functions/aspnet/request-stream.xslt"/>
   <xsl:import href="./functions/aspnet/response-stream.xslt"/>
- <xsl:import href="./functions/aspnet/timestamp.xslt"/>
+  <xsl:import href="./functions/aspnet/timestamp.xslt"/>
  
   <xsl:param name="current-context" select="aspnet-context:Current()" />
   <xsl:param name="response" select="aspnet-context:Response($current-context)" />
@@ -51,10 +54,10 @@
   <xsl:output method="xml" indent="yes" encoding="UTF-8" use-character-maps="xml"/>
 
   <xsl:template match="/">
-    <xsl:apply-templates/>
-    <!--<xsl:value-of select="timestamp:ToShortDateString($timestamp)"/>
+    <!-- <xsl:apply-templates/> -->
+    <xsl:value-of select="timestamp:ToShortDateString($timestamp)"/>
     <xsl:value-of select="uri:ToString($request-uri)"/>
-    <xsl:value-of select="browser:Browser($browser)"/> -->
+    <xsl:value-of select="browser:Browser($browser)"/>
   </xsl:template>
 
 </xsl:transform>
