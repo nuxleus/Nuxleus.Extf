@@ -41,5 +41,19 @@ namespace Xameleon.Configuration {
         return this["initialMode"] as string;
       }
     }
+
+    [ConfigurationProperty("initialTemplate", IsRequired = false)]
+    public string InitialTemplate {
+      get {
+        return this["initialTemplate"] as string;
+      }
+    }
+
+    [ConfigurationProperty("baseOutputUri", IsRequired = false)]
+    public string BaseOutputUri {
+      get {
+        return this["baseOutputUri"] as string;
+      }
+    }
   }
 }

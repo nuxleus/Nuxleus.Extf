@@ -103,18 +103,33 @@ namespace Xameleon.Transform {
       }
     }
 
+    public void AddTransformer(Uri uri) {
+      addTransformer(GenerateNamedETagKey(uri.LocalPath, uri), uri.LocalPath, uri, _resolver, null, null, null);
+    }
+    public void AddTransformer(string name, Uri uri) {
+      addTransformer(GenerateNamedETagKey(name, uri), name, uri, _resolver, null, null, null);
+    }
     public void AddTransformer(string name, Uri uri, XmlUrlResolver resolver) {
-      addTransformer(GenerateNamedETagKey(name, uri), name, uri, resolver, null);
+      addTransformer(GenerateNamedETagKey(name, uri), name, uri, resolver, null, null, null);
     }
-
     public void AddTransformer(string name, Uri uri, XmlUrlResolver resolver, string initialMode) {
-      addTransformer(GenerateNamedETagKey(name, uri), name, uri, resolver, initialMode);
+      addTransformer(GenerateNamedETagKey(name, uri), name, uri, resolver, initialMode, null, null);
     }
-
-    private void addTransformer(string key, string name, Uri uri, XmlUrlResolver resolver, string initialMode) {
+    public void AddTransformer(string name, Uri uri, XmlUrlResolver resolver, string initialMode, string initialTemplate) {
+      addTransformer(GenerateNamedETagKey(name, uri), name, uri, resolver, initialMode, initialTemplate, null);
+    }
+    public void AddTransformer(string name, Uri uri, XmlUrlResolver resolver, string initialMode, string initialTemplate, string baseOutputUri) {
+      addTransformer(GenerateNamedETagKey(name, uri), name, uri, resolver, initialMode, initialTemplate, baseOutputUri);
+    }
+    private void addTransformer(string key, string name, Uri uri, XmlUrlResolver resolver, string initialMode, string initialTemplate, string baseOutputUri) {
       XsltTransformer transformer = createNewTransformer(uri);
       transformer.InputXmlResolver = resolver;
-      transformer.InitialMode = new QName("", "", initialMode);
+      if (baseOutputUri != null && baseOutputUri != String.Empty)
+        transformer.BaseOutputUri = new Uri(baseOutputUri);
+      if (initialMode != null && initialTemplate != String.Empty)
+        transformer.InitialMode = new QName("", "", initialMode);
+      if(initialTemplate != null && initialTemplate != String.Empty)
+        transformer.InitialTemplate = new QName("xsl", "http://www.w3.org/1999/XSL/Transform", initialTemplate);
       _xsltHashtable[key] = (XsltTransformer)transformer;
       _namedXsltETagIndex[name] = (string)key;
     }
