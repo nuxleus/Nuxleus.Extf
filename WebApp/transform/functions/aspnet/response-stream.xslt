@@ -11,57 +11,57 @@
 
   <xsl:function name="response:get-buffer-output">
     <xsl:param name="response"/>
-    <xsl:value-of select="response-stream:BufferOutput($response)"/>
+    <xsl:sequence select="response-stream:BufferOutput($response)"/>
   </xsl:function>
 
   <xsl:function name="response:set-buffer-output">
     <xsl:param name="response"/>
     <xsl:param name="buffer-output" as="xs:boolean"/>
-    <xsl:value-of select="response-stream:set_BufferOutput($response, $buffer-output)"/>
+    <xsl:sequence select="response-stream:set_BufferOutput($response, $buffer-output)"/>
   </xsl:function>
 
   <xsl:function name="response:get-content-encoding">
     <xsl:param name="response"/>
-    <xsl:value-of select="response-stream:ContentEncoding($response)"/>
+    <xsl:sequence select="response-stream:ContentEncoding($response)"/>
   </xsl:function>
 
   <xsl:function name="response:set-content-encoding">
     <xsl:param name="response"/>
     <xsl:param name="content-encoding" as="xs:string"/>
-    <xsl:value-of select="response-stream:set_ContentEncoding($response, $content-encoding)"/>
+    <xsl:sequence select="response-stream:set_ContentEncoding($response, $content-encoding)"/>
   </xsl:function>
 
   <xsl:function name="response:get-content-type">
     <xsl:param name="response"/>
-    <xsl:value-of select="response-stream:ContentType($response)"/>
+    <xsl:sequence select="response-stream:ContentType($response)"/>
   </xsl:function>
 
   <xsl:function name="response:set-content-type">
     <xsl:param name="response"/>
     <xsl:param name="content-type" as="xs:string"/>
-    <xsl:value-of select="response-stream:set_ContentType($response, $content-type)"/>
+    <xsl:sequence select="response-stream:set_ContentType($response, $content-type)"/>
   </xsl:function>
 
   <xsl:function name="response:get-charset">
     <xsl:param name="response"/>
-    <xsl:value-of select="response-stream:Charset($response)"/>
+    <xsl:sequence select="response-stream:Charset($response)"/>
   </xsl:function>
 
   <xsl:function name="response:set-charset">
     <xsl:param name="response"/>
     <xsl:param name="charset" as="xs:string"/>
-    <xsl:value-of select="response-stream:set_Charset($response, $charset)"/>
+    <xsl:sequence select="response-stream:set_Charset($response, $charset)"/>
   </xsl:function>
 
   <xsl:function name="response:get-cookies">
     <xsl:param name="response"/>
-    <xsl:value-of select="response-stream:Cookies($response)"/>
+    <xsl:sequence select="response-stream:Cookies($response)"/>
   </xsl:function>
 
   <xsl:function name="response:transmit-file">
     <xsl:param name="response"/>
     <xsl:param name="file" as="xs:string"/>
-    <xsl:value-of select="response-stream:TransmitFile($response, $file)"/>
+    <xsl:sequence select="response-stream:TransmitFile($response, $file)"/>
   </xsl:function>
 
 </xsl:transform>
