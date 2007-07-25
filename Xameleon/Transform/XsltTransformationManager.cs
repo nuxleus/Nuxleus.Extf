@@ -9,7 +9,7 @@ using Xameleon.Cryptography;
 namespace Xameleon.Transform {
 
   //NOTE: TransformEngine enum PLACEHOLDER FOR FUTURE USE
-  public enum TransformEngine { SAXON, MVPXML, NET1_1, NET2_0, NET3_0, NET3_5 }
+  public enum TransformEngine { SAXON, MVPXML, NET_1_1, NET_2_0, NET_3_0, NET_3_5, SILVERLIGHT }
 
   public struct XsltTransformationManager {
 
@@ -77,7 +77,8 @@ namespace Xameleon.Transform {
       Uri baseXsltUri, 
       String baseXsltUriHash, 
       String baseXsltName
-      ) {
+      ) 
+    {
       _baseXsltUri = baseXsltUri;
       _baseXsltUriHash = baseXsltUriHash;
       _baseXsltName = baseXsltName;
@@ -164,7 +165,6 @@ namespace Xameleon.Transform {
       Uri xmlSourceUri = new Uri(xmlSource);
       return GetXdmNode(name, xmlSourceUri);
     }
-
     public XdmNode GetXdmNode(string name, Uri xmlSourceUri) {
 
       Uri xdmNodeUri = (Uri)_xdmNodeETagIndex[name];
@@ -175,7 +175,6 @@ namespace Xameleon.Transform {
         return getXdmNode(name, xmlSourceUri, true);
       }
     }
-
     private XdmNode getXdmNode(string key, Uri xmlSourceUri, bool replaceExistingXdmNode) {
 
       XdmNode node = (XdmNode)_xdmNodeHashtable[key];
@@ -202,17 +201,14 @@ namespace Xameleon.Transform {
     public XsltTransformer GetTransformer(string eTag, Uri xsltUri) {
       return getTransformer(eTag, xsltUri, true);
     }
-
     public XsltTransformer GetTransformer(string name, string href, Uri baseUri) {
       Uri xsltUri = new Uri(baseUri, href);
       return getTransformer(GenerateNamedETagKey(name, xsltUri), name, xsltUri);
     }
-
     public XsltTransformer GetTransformer(string name) {
       Uri xsltUri = (Uri)_namedXsltHashtable[name];
       return getTransformer(GenerateNamedETagKey(name, xsltUri), name, xsltUri);
     }
-
     private XsltTransformer getTransformer(string key, string xsltName, Uri xsltUri) {
       XsltTransformer transformer;
       string transformerKey;
@@ -224,7 +220,6 @@ namespace Xameleon.Transform {
         return getTransformer(key, xsltUri, true);
       }
     }
-
     private XsltTransformer getTransformer(string key, Uri xsltUri, bool replaceExistingXsltTransformer) {
       XsltTransformer transformer;
       transformer = (XsltTransformer)_namedXsltHashtable[key];
