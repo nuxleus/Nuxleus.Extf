@@ -7,8 +7,6 @@
   xmlns:atom="http://www.w3.org/2005/Atom"
   exclude-result-prefixes="omx app atom html"
   version="2.0">
-  
-  <!-- <xsl:import href="../controller/app.xslt"/> -->
 
   <xsl:param name="xml.base"/>
   <xsl:param name="css-base-class"/>
@@ -216,9 +214,9 @@
     <script type="{@type}" src="{@src}"/>
   </xsl:template>
 
-  <xsl:template match="omx:search"> </xsl:template>
+  <xsl:template match="omx:search"/>
 
-  <xsl:template match="omx:footer"> </xsl:template>
+  <xsl:template match="omx:footer"/>
 
   <xsl:template match="omx:rights">
     <xsl:copy-of select="$rights"/>

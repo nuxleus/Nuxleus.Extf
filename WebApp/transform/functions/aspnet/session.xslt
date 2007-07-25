@@ -4,11 +4,12 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:func="http://atomictalk.org/function"
     xmlns:saxon="http://saxon.sf.net/"
+    xmlns:session="http://atomictalk.org/function/aspnet/session"
     xmlns:aspnet-session="clitype:System.Web.SessionState.HttpSessionState?partialname=System.Web"
     xmlns:clitype="http://saxon.sf.net/clitype"
     exclude-result-prefixes="xs func clitype saxon aspnet-session">
 
-  <xsl:function name="func:placholder">
+  <xsl:function name="session:placholder">
     <xsl:param name="request"/>
   </xsl:function>
   
