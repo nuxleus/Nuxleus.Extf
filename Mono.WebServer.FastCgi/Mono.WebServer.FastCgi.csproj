@@ -147,21 +147,11 @@
     <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\XSPWorkerRequest.cs"  >
       <Link>Mono.WebServer\XSPWorkerRequest.cs</Link>
     </Compile>
-<!--     <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile> -->
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer.FastCgi\ConfigurationManager.xml" >
       <Link>ConfigurationManager.xml</Link>
     </EmbeddedResource>
-<!--     <EmbeddedResource Include="Properties\Resources.resx">
-      <SubType>Designer</SubType>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource> -->
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
