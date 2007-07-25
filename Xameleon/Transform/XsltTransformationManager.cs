@@ -33,30 +33,51 @@ namespace Xameleon.Transform {
     static TransformEngine _transformEngine;
 
     public XsltTransformationManager(Processor processor)
-      : this(processor, new Transform(), new XmlUrlResolver(), new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
+      : this(processor, new Transform(), new XmlUrlResolver(), new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
     }
     public XsltTransformationManager(Processor processor, Transform transform)
-      : this(processor, transform, new XmlUrlResolver(), new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
+      : this(processor, transform, new XmlUrlResolver(), new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
     }
     public XsltTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver)
-      : this(processor, transform, resolver, new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
+      : this(processor, transform, resolver, new Serializer(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
     }
     public XsltTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer)
-      : this(processor, transform, resolver, serializer, new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
+      : this(processor, transform, resolver, serializer, new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
     }
     public XsltTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable)
-      : this(processor, transform, resolver, serializer, xsltHashtable, new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
+      : this(processor, transform, resolver, serializer, xsltHashtable, new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), new Hashtable(), null, null, null) {
     }
     public XsltTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable namedXsltHashtable)
-      : this(processor, transform, resolver, serializer, xsltHashtable, new Hashtable(), new Hashtable(), namedXsltHashtable, null, null, null) {
+      : this(processor, transform, resolver, serializer, xsltHashtable, new Hashtable(), new Hashtable(), namedXsltHashtable, new Hashtable(), new Hashtable(), null, null, null) {
     }
     public XsltTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable xmlSourceHashtable, Hashtable namedXsltHashtable)
-      : this(processor, transform, resolver, serializer, xsltHashtable, xmlSourceHashtable, new Hashtable(), namedXsltHashtable, null, null, null) {
+      : this(processor, transform, resolver, serializer, xsltHashtable, xmlSourceHashtable, new Hashtable(), namedXsltHashtable, new Hashtable(), new Hashtable(), null, null, null) {
     }
     public XsltTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable xmlSourceHashtable, Hashtable xdmNodeHashtable, Hashtable namedXsltHashtable)
-      : this(processor, transform, resolver, serializer, xsltHashtable, xmlSourceHashtable, xdmNodeHashtable, namedXsltHashtable, null, null, null) {
+      : this(processor, transform, resolver, serializer, xsltHashtable, xmlSourceHashtable, xdmNodeHashtable, namedXsltHashtable, new Hashtable(), new Hashtable(), null, null, null) {
     }
-    public XsltTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable xmlSourceHashtable, Hashtable xdmNodeHashtable, Hashtable namedXsltHashtable, Uri baseXsltUri, String baseXsltUriHash, String baseXsltName) {
+    public XsltTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable xmlSourceHashtable, Hashtable xdmNodeHashtable, Hashtable namedXsltHashtable, Hashtable namedXsltETagIndex)
+      : this(processor, transform, resolver, serializer, xsltHashtable, xmlSourceHashtable, xdmNodeHashtable, namedXsltHashtable, namedXsltETagIndex, new Hashtable(), null, null, null) {
+    }
+    public XsltTransformationManager(Processor processor, Transform transform, XmlUrlResolver resolver, Serializer serializer, Hashtable xsltHashtable, Hashtable xmlSourceHashtable, Hashtable xdmNodeHashtable, Hashtable namedXsltHashtable, Hashtable namedXsltETagIndex, Hashtable xdmNodeETagIndex)
+      : this(processor, transform, resolver, serializer, xsltHashtable, xmlSourceHashtable, xdmNodeHashtable, namedXsltHashtable, namedXsltETagIndex, xdmNodeETagIndex, null, null, null) {
+    }
+    public XsltTransformationManager
+      (
+      Processor processor, 
+      Transform transform, 
+      XmlUrlResolver resolver, 
+      Serializer serializer, 
+      Hashtable xsltHashtable, 
+      Hashtable xmlSourceHashtable, 
+      Hashtable xdmNodeHashtable, 
+      Hashtable namedXsltHashtable,
+      Hashtable namedXsltETagIndex,
+      Hashtable xdmNodeETagIndex, 
+      Uri baseXsltUri, 
+      String baseXsltUriHash, 
+      String baseXsltName
+      ) {
       _baseXsltUri = baseXsltUri;
       _baseXsltUriHash = baseXsltUriHash;
       _baseXsltName = baseXsltName;
@@ -71,9 +92,9 @@ namespace Xameleon.Transform {
       _serializer = serializer;
       _xdmNodeHashtable = xdmNodeHashtable;
       _namedXsltHashtable = namedXsltHashtable;
-      _namedXsltETagIndex = new Hashtable();
+      _namedXsltETagIndex = namedXsltETagIndex;
       _hashAlgorithm = HashAlgorithm.SHA256;
-      _xdmNodeETagIndex = new Hashtable();
+      _xdmNodeETagIndex = namedXsltETagIndex;
       //NOTE: TransformEngine enum PLACEHOLDER FOR FUTURE USE
       _transformEngine = TransformEngine.SAXON;
     }
