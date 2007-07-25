@@ -1,0 +1,174 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.20404</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC585CAC-E83F-41F2-95FE-2BB6A4BC1F20}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mono.WebServer.FastCgi</RootNamespace>
+    <AssemblyName>xsp2fastcgi</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\WebApp\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer.FastCgi\AssemblyInfo.cs" >
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\Connection.cs"  >
+      <Link>Mono.FastCgi\Connection.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\Logger.cs"  >
+      <Link>Mono.FastCgi\Logger.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\Requests\Request.cs"  >
+      <Link>Mono.FastCgi\Requests\Request.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\Requests\ResponderRequest.cs"  >
+      <Link>Mono.FastCgi\Requests\ResponderRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\Server.cs"  >
+      <Link>Mono.FastCgi\Server.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\SocketAbstractions\ISocketAbstraction.cs"  >
+      <Link>Mono.FastCgi\SocketAbstractions\ISocketAbstraction.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\SocketAbstractions\StandardSocket.cs"  >
+      <Link>Mono.FastCgi\SocketAbstractions\StandardSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\SocketAbstractions\TcpSocket.cs"  >
+      <Link>Mono.FastCgi\SocketAbstractions\TcpSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\SocketAbstractions\UnmanagedSocket.cs"  >
+      <Link>Mono.FastCgi\SocketAbstractions\UnmanagedSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\SocketFactory.cs"  >
+      <Link>Mono.FastCgi\SocketFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\Structures\BeginRequestBody.cs"  >
+      <Link>Mono.FastCgi\Structures\BeginRequestBody.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\Structures\EndRequestBody.cs"  >
+      <Link>Mono.FastCgi\Structures\EndRequestBody.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\Structures\NameValuePair.cs"  >
+      <Link>Mono.FastCgi\Structures\NameValuePair.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\Structures\Record.cs"  >
+      <Link>Mono.FastCgi\Structures\Record.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\Structures\UnknownTypeBody.cs"  >
+      <Link>Mono.FastCgi\Structures\UnknownTypeBody.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer.FastCgi\ApplicationHost.cs"  >
+      <Link>Mono.WebServer.FastCgi\ApplicationHost.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer.FastCgi\ConfigurationManager.cs"  >
+      <Link>Mono.WebServer.FastCgi\ConfigurationManager.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer.FastCgi\Responder.cs"  >
+      <Link>Mono.WebServer.FastCgi\Responder.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer.FastCgi\server.cs"  >
+      <Link>Mono.WebServer.FastCgi\server.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer.FastCgi\WebSource.cs"  >
+      <Link>Mono.WebServer.FastCgi\WebSource.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer.FastCgi\WorkerRequest.cs" >
+      <Link>Mono.WebServer.FastCgi\WorkerRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\ApplicationManager.cs"  >
+      <Link>Mono.WebServer\ApplicationManager.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\applicationserver.cs"  >
+      <Link>Mono.WebServer\applicationserver.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\baseapplicationhost.cs"  >
+      <Link>Mono.WebServer\baseapplicationhost.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\BaseRequestBroker.cs"  >
+      <Link>Mono.WebServer\BaseRequestBroker.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\iapplicationhost.cs"  >
+      <Link>Mono.WebServer\iapplicationhost.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\InitialWorkerRequest.cs"  >
+      <Link>Mono.WebServer\InitialWorkerRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\IWebSource.cs"  >
+      <Link>Mono.WebServer\IWebSource.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\LingeringNetworkStream.cs" >
+      <Link>Mono.WebServer\LingeringNetworkStream.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\MonoWorkerRequest.cs"  >
+      <Link>Mono.WebServer\MonoWorkerRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\Tracing.cs"  >
+      <Link>Mono.WebServer\Tracing.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\XSPApplicationHost.cs"  >
+      <Link>Mono.WebServer\XSPApplicationHost.cs</Link>
+    </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer\XSPWorkerRequest.cs"  >
+      <Link>Mono.WebServer\XSPWorkerRequest.cs</Link>
+    </Compile>
+<!--     <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile> -->
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\VendorExtensions\Mono\FastCgi\src\Mono.WebServer.FastCgi\ConfigurationManager.xml" >
+      <Link>ConfigurationManager.xml</Link>
+    </EmbeddedResource>
+<!--     <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource> -->
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
