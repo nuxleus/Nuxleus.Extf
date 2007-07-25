@@ -92,10 +92,10 @@ namespace Xameleon.Transform {
       _builder = _processor.NewDocumentBuilder();
       _serializer = serializer;
       _xdmNodeHashtable = xdmNodeHashtable;
+      _xdmNodeETagIndex = xdmNodeETagIndex;
       _namedXsltHashtable = namedXsltHashtable;
       _namedXsltETagIndex = namedXsltETagIndex;
       _hashAlgorithm = HashAlgorithm.SHA1;
-      _xdmNodeETagIndex = namedXsltETagIndex;
       //NOTE: TransformEngine enum PLACEHOLDER FOR FUTURE USE
       _transformEngine = TransformEngine.SAXON;
     }
