@@ -94,7 +94,7 @@ namespace Xameleon.Transform {
       _xdmNodeHashtable = xdmNodeHashtable;
       _namedXsltHashtable = namedXsltHashtable;
       _namedXsltETagIndex = namedXsltETagIndex;
-      _hashAlgorithm = HashAlgorithm.SHA256;
+      _hashAlgorithm = HashAlgorithm.SHA1;
       _xdmNodeETagIndex = namedXsltETagIndex;
       //NOTE: TransformEngine enum PLACEHOLDER FOR FUTURE USE
       _transformEngine = TransformEngine.SAXON;

@@ -19,7 +19,6 @@ namespace Xameleon.Transform {
   public class Context {
 
     Uri _requestUri;
-    //String _requestUriHash;
     FileInfo _requestXmlFileInfo;
     String _eTag;
     Hashtable _xsltParams;
@@ -43,10 +42,6 @@ namespace Xameleon.Transform {
       get { return _requestUri; }
       set { _requestUri = value; }
     }
-    //public String RequestUriHash {
-    //  get { return _requestUriHash; }
-    //  set { _requestUriHash = value; }
-    //}
     public FileInfo RequestXmlFileInfo {
       get { return _requestXmlFileInfo; }
       set { _requestXmlFileInfo = value; }
