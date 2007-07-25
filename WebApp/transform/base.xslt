@@ -9,9 +9,9 @@
   xmlns:aspnet-request="clitype:System.Web.HttpRequest?partialname=System.Web"
   xmlns:request-collection="clitype:Xameleon.Function.HttpRequestCollection?partialname=Xameleon"
   xmlns:browser="clitype:System.Web.HttpBrowserCapabilities?partialname=System.Web"
-  xmlns:aspnet-timestamp="clitype:System.DateTime"
+  xmlns:timestamp="clitype:System.DateTime"
   xmlns:uri="clitype:System.Uri?partialname=System"
-  exclude-result-prefixes="aspnet-context aspnet-request request-collection browser aspnet-timestamp uri saxon xs clitype">
+  exclude-result-prefixes="aspnet-context aspnet-request request-collection browser timestamp uri saxon xs clitype">
 
   <xsl:import href="./controller/atomicxml/base.xslt"/>
   <xsl:import href="./controller/aws/s3/base.xslt"/>
@@ -55,9 +55,6 @@
 
   <xsl:template match="/">
     <xsl:apply-templates/>
-    <xsl:value-of select="aspnet-timestamp:ToShortDateString($timestamp)"/>
-    <xsl:value-of select="uri:ToString($request-uri)"/>
-    <xsl:value-of select="browser:Browser($browser)"/>
   </xsl:template>
 
 </xsl:transform>

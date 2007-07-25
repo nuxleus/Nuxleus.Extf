@@ -10,14 +10,14 @@
 
   <xsl:param name="request"/>
 
-  <xsl:function name="func:resolve-variable">
+  <xsl:function name="func:resolve-variable" as="xs:string">
     <xsl:param name="operator"/>
-    <xsl:value-of select="if (contains($operator, '{')) then func:evaluate-collection(substring-before(substring-after($operator, '{'), '}')) else $operator"/>
+    <xsl:sequence select="if (contains($operator, '{')) then func:evaluate-collection(substring-before(substring-after($operator, '{'), '}')) else $operator"/>
   </xsl:function>
 
-  <xsl:function name="func:evaluate-collection">
+  <xsl:function name="func:evaluate-collection" as="xs:string">
     <xsl:param name="operator"/>
-    <xsl:value-of select="if (starts-with($operator, '$')) then $session-params[local-name() = substring-after($operator, '$')] else request-collection:GetValue($request, substring-before($operator, ':'), substring-after($operator, ':'))" />
+    <xsl:sequence select="if (starts-with($operator, '$')) then $session-params[local-name() = substring-after($operator, '$')] else request-collection:GetValue($request, substring-before($operator, ':'), substring-after($operator, ':'))" />
   </xsl:function>
 
 </xsl:transform>

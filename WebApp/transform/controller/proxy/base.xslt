@@ -21,7 +21,7 @@
     <xsl:sequence select="func:return-xml-from-html(func:resolve-variable(@uri), func:resolve-variable(@xpath))"/>
   </xsl:template>
 
-  <xsl:function name="proxy:return-xml-from-html">
+  <xsl:function name="func:return-xml-from-html">
     <xsl:param name="uri" as="xs:string" />
     <xsl:param name="xpath" as="xs:string" />
     <xsl:variable name="html-to-xml" select="http-sgml-to-xml:GetDocXml($uri, $xpath, false())"/>
