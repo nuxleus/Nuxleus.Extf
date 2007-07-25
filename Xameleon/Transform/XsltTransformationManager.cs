@@ -64,19 +64,19 @@ namespace Xameleon.Transform {
     }
     public XsltTransformationManager
       (
-      Processor processor, 
-      Transform transform, 
-      XmlUrlResolver resolver, 
-      Serializer serializer, 
-      Hashtable xsltHashtable, 
-      Hashtable xmlSourceHashtable, 
-      Hashtable xdmNodeHashtable, 
-      Hashtable namedXsltHashtable,
-      Hashtable namedXsltETagIndex,
-      Hashtable xdmNodeETagIndex, 
-      Uri baseXsltUri, 
-      String baseXsltUriHash, 
-      String baseXsltName
+        Processor processor, 
+        Transform transform, 
+        XmlUrlResolver resolver, 
+        Serializer serializer, 
+        Hashtable xsltHashtable, 
+        Hashtable xmlSourceHashtable, 
+        Hashtable xdmNodeHashtable, 
+        Hashtable namedXsltHashtable,
+        Hashtable namedXsltETagIndex,
+        Hashtable xdmNodeETagIndex, 
+        Uri baseXsltUri, 
+        String baseXsltUriHash, 
+        String baseXsltName
       ) 
     {
       _baseXsltUri = baseXsltUri;

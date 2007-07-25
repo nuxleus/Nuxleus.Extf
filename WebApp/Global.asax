@@ -39,7 +39,7 @@
     BaseXsltContext _baseXsltContext;
     String _baseUri;
     HashAlgorithm _hashAlgorithm = HashAlgorithm.SHA256;
-    bool _DEBUG = false;
+    bool _DEBUG = true;
 
     protected void Application_Start(object sender, EventArgs e) {
 
@@ -127,14 +127,14 @@
         bool useMemCached = (bool)Application["appStart_usememcached"];
         bool hasXmlSourceChanged = xslTransformationManager.HasXmlSourceChanged(context.ETag);
         bool hasBaseXsltSourceChanged = xslTransformationManager.HasBaseXsltSourceChanged();
-        //HttpContext.Current.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + "<br/>");
-        //HttpContext.Current.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
+        HttpContext.Current.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + "<br/>");
+        HttpContext.Current.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
         MemcachedClient memcachedClient = (MemcachedClient)Application["appStart_memcached"];
         Application["memcached"] = memcachedClient;
         
         if (useMemCached) {
             string obj = (string)memcachedClient.Get(context.GetRequestHashcode(false).ToString());
-            if (obj != null && hasXmlSourceChanged && hasBaseXsltSourceChanged) {
+            if (obj != null && !(hasXmlSourceChanged || hasBaseXsltSourceChanged)) {
                 builder.Append(obj);
                 CONTENT_IS_MEMCACHED = true;
             } else {

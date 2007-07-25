@@ -34,7 +34,7 @@
   <xsl:variable name="debug" select="if (request-collection:GetValue($request, 'query-string', 'debug') = 'true') then true() else false()" as="xs:boolean" />
   <xsl:variable name="request-uri" select="aspnet-request:Url($request)"/>
   <xsl:variable name="browser" select="aspnet-request:Browser($request)"/>
-
+  
   <xsl:strip-space elements="*"/>
 
   <xsl:character-map name="xml">
