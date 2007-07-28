@@ -21,7 +21,9 @@ namespace Xameleon.Transform {
     Uri _requestUri;
     FileInfo _requestXmlFileInfo;
     String _eTag;
+    String _hashKey;
     Hashtable _xsltParams;
+    HashAlgorithm _hashAlgorithm;
     NameValueCollection _httpQueryString;
     NameValueCollection _httpForm;
     HttpCookieCollection _httpCookies;
@@ -35,6 +37,8 @@ namespace Xameleon.Transform {
       _httpForm = context.Request.Form;
       _httpCookies = context.Request.Cookies;
       _httpParams = context.Request.Params;
+      _hashKey = key;
+      _hashAlgorithm = algorithm;
       _eTag = GenerateETag(key, algorithm, _requestUri, eTagArray);
     }
 
@@ -73,13 +77,13 @@ namespace Xameleon.Transform {
     public static string GenerateETag(string key, HashAlgorithm algorithm, params object[] eTagArray) {
       return HashcodeGenerator.GetHMACHashBase64String(key, algorithm, eTagArray);
     }
-    public int GetRequestHashcode(bool useQueryString, params object[] objectArray) {
+    public string GetRequestHashcode(bool useQueryString, params object[] objectArray) {
       StringBuilder builder = new StringBuilder(_eTag);
-      builder.Append(_xsltParams.ToString());
+      builder.Append(_xsltParams);
       if (useQueryString)
-        builder.Append(_httpQueryString.ToString());
+        builder.Append(_httpQueryString);
       builder.Append(_httpForm.ToString());
-      return builder.ToString().GetHashCode();
+      return GenerateETag(_hashKey, _hashAlgorithm, builder);
     }
     public void Clear() {
       //FOR FUTURE USE

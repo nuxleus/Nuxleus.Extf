@@ -133,7 +133,7 @@
         Application["memcached"] = memcachedClient;
 
         if (useMemCached) {
-            string obj = (string)memcachedClient.Get(context.ETag);
+            string obj = (string)memcachedClient.Get(context.GetRequestHashcode(false));
             if (obj != null && !(hasXmlSourceChanged || hasBaseXsltSourceChanged)) {
                 builder.Append(obj);
                 CONTENT_IS_MEMCACHED = true;
@@ -195,7 +195,7 @@
         builder.Append(CreateNode("RequestXmlSourceExecutionFilePath", HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath)));
         builder.Append(CreateNode("RequestUrl", context.RequestUri, true));
         builder.Append(CreateNode("RequestIsMemcached", CONTENT_IS_MEMCACHED));
-        builder.Append(CreateNode("RequestRequestHashcode", context.GetRequestHashcode(true)));
+        builder.Append(CreateNode("RequestHashcode", context.GetRequestHashcode(false)));
         builder.Append(CreateNode("ContextHashcode", context.GetHashCode()));
         builder.Append(CreateNode("ContextUri", context.RequestUri, true));
         builder.Append(CreateNode("ContextHttpParamsCount", context.HttpParams.Count));
