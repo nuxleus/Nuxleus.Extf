@@ -154,9 +154,13 @@
         Application["namedXsltHashtable"] = (Hashtable)Application["appStart_namedXsltHashtable"];
         Application["transformContext"] = context;
         if (_DEBUG) {
-            HttpContext.Current.Response.Write("<DebugOutput>" + WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString() + "</DebugOutput>");
+            Application["debugOutput"] = (string)("<DebugOutput>" + WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString() + "</DebugOutput>");
         }
 
+    }
+
+    protected void Application_EndRequest(object sender, EventArgs e) {
+        if (_DEBUG) HttpContext.Current.Response.Write((string)Application["debugOutput"]);
     }
 
     protected void Application_AuthenticateRequest(object sender, EventArgs e) {
@@ -199,14 +203,16 @@
         builder.Append(CreateNode("ContextHashcode", context.GetHashCode()));
         builder.Append(CreateNode("ContextUri", context.RequestUri, true));
         builder.Append(CreateNode("ContextHttpParamsCount", context.HttpParams.Count));
-        //IEnumerator httpParamsEnum = context.HttpParams.GetEnumerator();
-        //int i = 0;
-        //while (httpParamsEnum.MoveNext()) {
-        //    string key = context.HttpParams.AllKeys[i].ToString();
-        //    builder.Append(CreateNode("ParamName", key));
-        //    builder.Append(CreateNode("ParamValue",  context.HttpParams[key]));
-        //    i += 1;
-        //}
+        IEnumerator httpParamsEnum = context.HttpParams.GetEnumerator();
+        int i = 0;
+        while (httpParamsEnum.MoveNext()) {
+            string key = context.HttpParams.AllKeys[i].ToString();
+            builder.Append("<Param>");
+                builder.Append(CreateNode("Name", key));
+                builder.Append(CreateNode("Value", context.HttpParams[key]));
+            builder.Append("</Param>");
+            i += 1;
+        }
         builder.Append(CreateNode("ContextXsltParamsCount", context.XsltParams.Count));
         foreach (DictionaryEntry entry in context.XsltParams) {
             builder.Append(CreateNode("XsltParamName", (string)entry.Key));
