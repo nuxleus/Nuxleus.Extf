@@ -76,7 +76,8 @@ namespace Xameleon.Transform {
                 return _transformAsyncResult;
               } else {
                 try {
-                  return _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
+                  _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
+                  return _transformAsyncResult;
                 } catch (Exception e) {
                   _exception = e;
                   WriteError();
@@ -86,16 +87,20 @@ namespace Xameleon.Transform {
               }
             }
           case "PUT": {
-              return _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
+              _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
+              return _transformAsyncResult;
             }
           case "POST": {
-              return _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
+              _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
+              return _transformAsyncResult;
             }
           case "DELETE": {
-              return _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
+              _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
+              return _transformAsyncResult;
             }
           default: {
-              return _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
+              _transform.BeginProcess(_transformContext, _xslTransformationManager, _writer, _transformAsyncResult);
+              return _transformAsyncResult;
             }
         }
 
