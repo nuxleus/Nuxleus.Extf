@@ -22,7 +22,7 @@ namespace Xameleon.Function {
             try {
                 return getXdmNode(uri, path).OuterXml;
             } catch (Exception e) {
-                throw;
+                return e.Message;
             }
         }
 

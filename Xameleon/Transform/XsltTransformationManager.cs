@@ -210,8 +210,6 @@ namespace Xameleon.Transform {
       return getTransformer(GenerateNamedETagKey(name, xsltUri), name, xsltUri);
     }
     private XsltTransformer getTransformer(string key, string xsltName, Uri xsltUri) {
-      XsltTransformer transformer;
-      string transformerKey;
       string namedETag = (string)_namedXsltETagIndex[xsltName];
       if (namedETag != null && namedETag == key) {
         return getTransformer(namedETag, xsltUri, false);

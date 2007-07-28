@@ -310,7 +310,6 @@ namespace Xameleon.Utility.S3
             {
                 foreach (string key in query.Keys)
                 {
-                    string argument = key;
                     if (firstParameter)
                     {
                         firstParameter = false;
