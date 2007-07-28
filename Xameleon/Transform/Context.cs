@@ -35,7 +35,7 @@ namespace Xameleon.Transform {
       _httpForm = context.Request.Form;
       _httpCookies = context.Request.Cookies;
       _httpParams = context.Request.Params;
-      _eTag = GenerateETag(key, algorithm, eTagArray);
+      _eTag = GenerateETag(key, algorithm, _requestUri, eTagArray);
     }
 
     public Uri RequestUri {
