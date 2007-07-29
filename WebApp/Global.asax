@@ -41,14 +41,17 @@
     HashAlgorithm _hashAlgorithm = HashAlgorithm.SHA1;
     bool _DEBUG = true;
 
-    protected void Application_Start(object sender, EventArgs e) {
+    protected void Application_Start(object sender, EventArgs e)
+    {
 
-        if (_xameleonConfiguration.UseMemcached == "yes") {
+        if (_xameleonConfiguration.UseMemcached == "yes")
+        {
             _useMemCached = true;
             _memcachedClient = new MemcachedClient();
             _pool = SockIOPool.GetInstance();
             List<string> serverList = new List<string>();
-            foreach (MemcachedServer server in _memcachedConfiguration.MemcachedServerCollection) {
+            foreach (MemcachedServer server in _memcachedConfiguration.MemcachedServerCollection)
+            {
                 serverList.Add(server.IP + ":" + server.Port);
             }
             _pool.SetServers(serverList.ToArray());
@@ -84,7 +87,8 @@
         string hashkey = (string)_xameleonConfiguration.BaseSettings.ObjectHashKey;
         Application["hashkey"] = hashkey;
 
-        foreach (PreCompiledXslt xslt in _xameleonConfiguration.PreCompiledXslt) {
+        foreach (PreCompiledXslt xslt in _xameleonConfiguration.PreCompiledXslt)
+        {
             string localBaseUri = (string)_xameleonConfiguration.PreCompiledXslt.BaseUri;
             if (localBaseUri == String.Empty)
                 localBaseUri = baseUri;
@@ -92,14 +96,16 @@
             _xsltTransformationManager.Compiler.BaseUri = xsltUri;
             _xsltTransformationManager.AddTransformer(xslt.Name, xsltUri, _resolver, xslt.InitialMode, xslt.InitialTemplate);
             _namedXsltHashtable.Add(xslt.Name, xsltUri);
-            if (xslt.UseAsBaseXslt == "yes") {
+            if (xslt.UseAsBaseXslt == "yes")
+            {
                 _baseXsltContext = new BaseXsltContext(xsltUri, XsltTransformationManager.GenerateNamedETagKey(xslt.Name, xsltUri), xslt.Name);
             }
         }
 
         _xsltTransformationManager.SetBaseXsltContext(_baseXsltContext);
 
-        foreach (XsltParam xsltParam in _xameleonConfiguration.GlobalXsltParam) {
+        foreach (XsltParam xsltParam in _xameleonConfiguration.GlobalXsltParam)
+        {
             _globalXsltParams[xsltParam.Name] = (string)xsltParam.Select;
         }
 
@@ -112,11 +118,13 @@
 
     }
 
-    protected void Session_Start(object sender, EventArgs e) {
+    protected void Session_Start(object sender, EventArgs e)
+    {
 
     }
 
-    protected void Application_BeginRequest(object sender, EventArgs e) {
+    protected void Application_BeginRequest(object sender, EventArgs e)
+    {
 
         Hashtable xsltParams = (Hashtable)Application["appStart_globalXsltParams"];
         FileInfo fileInfo = new FileInfo(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath));
@@ -133,16 +141,22 @@
         MemcachedClient memcachedClient = (MemcachedClient)Application["appStart_memcached"];
         Application["memcached"] = memcachedClient;
 
-        if (useMemCached) {
+        if (useMemCached)
+        {
             string obj = (string)memcachedClient.Get(context.GetRequestHashcode(false));
-            if (obj != null && !(hasXmlSourceChanged || hasBaseXsltSourceChanged)) {
+            if (obj != null && !(hasXmlSourceChanged || hasBaseXsltSourceChanged))
+            {
                 builder.Append(obj);
                 CONTENT_IS_MEMCACHED = true;
-            } else {
+            }
+            else
+            {
                 writer = new StringWriter(builder);
                 CONTENT_IS_MEMCACHED = false;
             }
-        } else {
+        }
+        else
+        {
             writer = new StringWriter(builder);
         }
 
@@ -154,34 +168,41 @@
         Application["xsltTransformationManager"] = xslTransformationManager;
         Application["namedXsltHashtable"] = (Hashtable)Application["appStart_namedXsltHashtable"];
         Application["transformContext"] = context;
-        if (_DEBUG) {
+        if (_DEBUG)
+        {
             Application["debugOutput"] = (string)("<DebugOutput>" + WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString() + "</DebugOutput>");
         }
 
     }
 
-    protected void Application_EndRequest(object sender, EventArgs e) {
+    protected void Application_EndRequest(object sender, EventArgs e)
+    {
         if (_DEBUG)
             HttpContext.Current.Response.Write((string)Application["debugOutput"]);
     }
 
-    protected void Application_AuthenticateRequest(object sender, EventArgs e) {
+    protected void Application_AuthenticateRequest(object sender, EventArgs e)
+    {
 
     }
 
-    protected void Application_Error(object sender, EventArgs e) {
+    protected void Application_Error(object sender, EventArgs e)
+    {
 
     }
 
-    protected void Session_End(object sender, EventArgs e) {
+    protected void Session_End(object sender, EventArgs e)
+    {
 
     }
 
-    protected void Application_End(object sender, EventArgs e) {
+    protected void Application_End(object sender, EventArgs e)
+    {
         SockIOPool.GetInstance().Shutdown();
     }
 
-    protected StringBuilder WriteDebugOutput(Context context, XsltTransformationManager xsltTransformationManager, StringBuilder builder, bool CONTENT_IS_MEMCACHED) {
+    protected StringBuilder WriteDebugOutput(Context context, XsltTransformationManager xsltTransformationManager, StringBuilder builder, bool CONTENT_IS_MEMCACHED)
+    {
         builder.Append(CreateNode("Request_File_ETag", context.ETag));
         builder.Append(CreateNode("CompilerBaseUri", xsltTransformationManager.Compiler.BaseUri));
         builder.Append(CreateNode("Compiler", xsltTransformationManager.Compiler.GetHashCode()));
@@ -207,7 +228,8 @@
         builder.Append(CreateNode("ContextHttpParamsCount", context.HttpParams.Count));
         IEnumerator httpParamsEnum = context.HttpParams.GetEnumerator();
         int i = 0;
-        while (httpParamsEnum.MoveNext()) {
+        while (httpParamsEnum.MoveNext())
+        {
             string key = context.HttpParams.AllKeys[i].ToString();
             builder.Append("<Param>");
             builder.Append(CreateNode("Name", key));
@@ -218,26 +240,31 @@
         MemcachedClient mc = (MemcachedClient)Application["appStart_memcached"];
         IDictionary stats = mc.Stats();
 
-        foreach (string key1 in stats.Keys) {
+        foreach (string key1 in stats.Keys)
+        {
             builder.Append("<Key>");
             builder.Append(CreateNode("Name", key1));
             Hashtable values = (Hashtable)stats[key1];
-            foreach (string key2 in values.Keys) {
+            foreach (string key2 in values.Keys)
+            {
                 builder.Append(CreateNode(key2, values[key2]));
             }
             builder.Append("</Key>");
         }
         builder.Append(CreateNode("ContextXsltParamsCount", context.XsltParams.Count));
-        foreach (DictionaryEntry entry in context.XsltParams) {
+        foreach (DictionaryEntry entry in context.XsltParams)
+        {
             builder.Append(CreateNode("XsltParamName", (string)entry.Key));
             builder.Append(CreateNode("XsltParamValue", (string)entry.Value));
         }
         return builder;
     }
-    protected String CreateNode(String name, object value, bool useCDATA) {
+    protected String CreateNode(String name, object value, bool useCDATA)
+    {
         return "<" + name + "><![CDATA[" + value.ToString() + "]]></" + name + ">";
     }
-    protected String CreateNode(String name, object value) {
+    protected String CreateNode(String name, object value)
+    {
         return "<" + name + ">" + value.ToString() + "</" + name + ">";
     }
 </script>

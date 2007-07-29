@@ -2,13 +2,18 @@ using System;
 using System.Diagnostics;
 using System.Web;
 
-namespace Xameleon.Function {
+namespace Xameleon.Function
+{
 
-    public class HttpResponseCollection {
+    public class HttpResponseCollection
+    {
 
-        public static void SetValue(HttpResponse response, string type, string key, string value) {
-            try {
-                switch (type) {
+        public static void SetValue(HttpResponse response, string type, string key, string value)
+        {
+            try
+            {
+                switch (type)
+                {
                     case "cookie":
                         HttpCookie cookie = new HttpCookie(key, value);
                         response.Cookies.Set(cookie);
@@ -19,7 +24,9 @@ namespace Xameleon.Function {
                     default:
                         break;
                 }
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Debug.WriteLine("Error: " + e.Message);
             }
         }

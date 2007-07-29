@@ -8,41 +8,48 @@ using Xameleon.ResultDocumentHandler;
 using System.Text;
 using System.Web.SessionState;
 
-namespace Xameleon.Transform {
+namespace Xameleon.Transform
+{
 
-  ///<summary>
-  ///</summary>
-  public partial class Transform {
+    ///<summary>
+    ///</summary>
+    public partial class Transform
+    {
 
-    public void BeginProcess(Context context, XsltTransformationManager manager, TextWriter writer, TransformServiceAsyncResult result) {
-      BeginProcess(context, manager, writer, manager.BaseXsltName, result);
-    }
-
-    public void BeginProcess(Context context, XsltTransformationManager manager, TextWriter writer, String xsltName, TransformServiceAsyncResult result) {
-      
-      XsltTransformer transformer = manager.GetTransformer(xsltName);
-
-      if (context.XsltParams.Count > 0) {
-        foreach (DictionaryEntry param in context.XsltParams) {
-          string name = (string)param.Key;
-          transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
+        public void BeginProcess(Context context, XsltTransformationManager manager, TextWriter writer, TransformServiceAsyncResult result)
+        {
+            BeginProcess(context, manager, writer, manager.BaseXsltName, result);
         }
-      }
 
-      Uri requestXmlUri = new Uri(context.RequestXmlFileInfo.FullName);
+        public void BeginProcess(Context context, XsltTransformationManager manager, TextWriter writer, String xsltName, TransformServiceAsyncResult result)
+        {
 
-      transformer.InputXmlResolver = manager.Resolver;
-      transformer.InitialContextNode = manager.GetXdmNode(context.RequestXmlETag, requestXmlUri);
+            XsltTransformer transformer = manager.GetTransformer(xsltName);
 
-      Serializer destination = manager.Serializer;
-      destination.SetOutputWriter(writer);
+            if (context.XsltParams.Count > 0)
+            {
+                foreach (DictionaryEntry param in context.XsltParams)
+                {
+                    string name = (string)param.Key;
+                    transformer.SetParameter(new QName("", "", name), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(param.Value)));
+                }
+            }
 
-      lock (transformer) {
-        transformer.Run(destination);
-      }
+            Uri requestXmlUri = new Uri(context.RequestXmlFileInfo.FullName);
 
-      result.CompleteCall();
+            transformer.InputXmlResolver = manager.Resolver;
+            transformer.InitialContextNode = manager.GetXdmNode(context.RequestXmlETag, requestXmlUri);
+
+            Serializer destination = manager.Serializer;
+            destination.SetOutputWriter(writer);
+
+            lock (transformer)
+            {
+                transformer.Run(destination);
+            }
+
+            result.CompleteCall();
+        }
     }
-  }
 }
 
