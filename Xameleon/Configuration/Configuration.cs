@@ -7,49 +7,63 @@ using System.Collections;
 using System.Collections.Specialized;
 using System.Web.Configuration;
 
-namespace Xameleon.Configuration {
+namespace Xameleon.Configuration
+{
 
-  public class AppSettings {
+    public class AppSettings
+    {
 
-    public String GetSetting(String keyName) {
-      NameValueCollection appSettings = WebConfigurationManager.AppSettings as NameValueCollection;
-      IEnumerator appSettingsEnum = appSettings.GetEnumerator();
-      int i = 0;
+        public String GetSetting(String keyName)
+        {
+            NameValueCollection appSettings = WebConfigurationManager.AppSettings as NameValueCollection;
+            IEnumerator appSettingsEnum = appSettings.GetEnumerator();
+            int i = 0;
 
-      try {
-        while (appSettingsEnum.MoveNext()) {
-          string key = appSettings.AllKeys[i].ToString();
-          if (key == keyName) {
-            return appSettings[key];
-          }
-          i += 1;
+            try
+            {
+                while (appSettingsEnum.MoveNext())
+                {
+                    string key = appSettings.AllKeys[i].ToString();
+                    if (key == keyName)
+                    {
+                        return appSettings[key];
+                    }
+                    i += 1;
+                }
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+
+            return null;
         }
-      } catch (Exception e) {
-        return e.Message;
-      }
 
-      return null;
-    }
+        public Hashtable GetSettingArray(Hashtable table, String keyName)
+        {
+            NameValueCollection appSettings = WebConfigurationManager.AppSettings as NameValueCollection;
+            IEnumerator appSettingsEnum = appSettings.GetEnumerator();
+            int i = 0;
 
-    public Hashtable GetSettingArray(Hashtable table, String keyName) {
-      NameValueCollection appSettings = WebConfigurationManager.AppSettings as NameValueCollection;
-      IEnumerator appSettingsEnum = appSettings.GetEnumerator();
-      int i = 0;
+            try
+            {
+                while (appSettingsEnum.MoveNext())
+                {
+                    string key = appSettings.AllKeys[i].ToString();
+                    if (key.StartsWith(keyName))
+                    {
+                        table[key.Substring(keyName.Length)] = appSettings[key];
+                    }
+                    i += 1;
+                }
+            }
+            catch (Exception e)
+            {
+                table["ERROR"] = e.Message;
+                return table;
+            }
 
-      try {
-        while (appSettingsEnum.MoveNext()) {
-          string key = appSettings.AllKeys[i].ToString();
-          if (key.StartsWith(keyName)) {
-            table[key.Substring(keyName.Length)] = appSettings[key];
-          }
-          i += 1;
+            return table;
         }
-      } catch (Exception e) {
-        table["ERROR"] = e.Message;
-        return table;
-      }
-
-      return table;
     }
-  }
 }

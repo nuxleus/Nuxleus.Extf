@@ -20,6 +20,7 @@
 
 <script RunAt="server">
     bool _useMemCached = false;
+    bool _DEBUG = false;
     MemcachedClient _memcachedClient = null;
     SockIOPool _pool = null;
     AppSettings _appSettings = new AppSettings();
@@ -39,10 +40,11 @@
     BaseXsltContext _baseXsltContext;
     String _baseUri;
     HashAlgorithm _hashAlgorithm = HashAlgorithm.SHA1;
-    bool _DEBUG = true;
+    
 
     protected void Application_Start(object sender, EventArgs e)
     {
+        if (_xameleonConfiguration.DebugMode == "yes") _DEBUG = true;
 
         if (_xameleonConfiguration.UseMemcached == "yes")
         {
@@ -115,6 +117,7 @@
         Application["appStart_xslTransformationManager"] = _xsltTransformationManager;
         Application["appStart_namedXsltHashtable"] = _namedXsltHashtable;
         Application["appStart_globalXsltParams"] = _globalXsltParams;
+        Application["debug"] = _DEBUG;
 
     }
 
@@ -136,8 +139,7 @@
         bool useMemCached = (bool)Application["appStart_usememcached"];
         bool hasXmlSourceChanged = xslTransformationManager.HasXmlSourceChanged(context.RequestXmlETag);
         bool hasBaseXsltSourceChanged = xslTransformationManager.HasBaseXsltSourceChanged();
-        HttpContext.Current.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + ":" + context.RequestXmlETag + "<br/>");
-        HttpContext.Current.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
+        
         MemcachedClient memcachedClient = (MemcachedClient)Application["appStart_memcached"];
         Application["memcached"] = memcachedClient;
 
@@ -160,7 +162,6 @@
             writer = new StringWriter(builder);
         }
 
-        Application["debug"] = _DEBUG;
         Application["textWriter"] = writer;
         Application["stringBuilder"] = builder;
         Application["CONTENT_IS_MEMCACHED"] = CONTENT_IS_MEMCACHED;
@@ -168,8 +169,10 @@
         Application["xsltTransformationManager"] = xslTransformationManager;
         Application["namedXsltHashtable"] = (Hashtable)Application["appStart_namedXsltHashtable"];
         Application["transformContext"] = context;
-        if (_DEBUG)
+        if ((bool)Application["debug"])
         {
+            HttpContext.Current.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + ":" + context.RequestXmlETag + "<br/>");
+            HttpContext.Current.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
             Application["debugOutput"] = (string)("<DebugOutput>" + WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString() + "</DebugOutput>");
         }
 
@@ -177,7 +180,7 @@
 
     protected void Application_EndRequest(object sender, EventArgs e)
     {
-        if (_DEBUG)
+        if ((bool)Application["debug"])
             HttpContext.Current.Response.Write((string)Application["debugOutput"]);
     }
 
