@@ -19,6 +19,7 @@ namespace Xameleon.Transform {
   public class Context {
 
     Uri _requestUri;
+    String _requestXmlETag;
     FileInfo _requestXmlFileInfo;
     String _eTag;
     String _hashKey;
@@ -39,12 +40,18 @@ namespace Xameleon.Transform {
       _httpParams = context.Request.Params;
       _hashKey = key;
       _hashAlgorithm = algorithm;
+      _requestXmlETag = GenerateETag(key, algorithm, fileInfo.LastWriteTimeUtc, fileInfo.Length, _requestUri);
       _eTag = GenerateETag(key, algorithm, _requestUri, eTagArray);
     }
 
     public Uri RequestUri {
       get { return _requestUri; }
       set { _requestUri = value; }
+    }
+    public String RequestXmlETag
+    {
+        get { return _requestXmlETag; }
+        set { _requestXmlETag = value; }
     }
     public FileInfo RequestXmlFileInfo {
       get { return _requestXmlFileInfo; }

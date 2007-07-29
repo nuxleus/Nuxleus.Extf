@@ -32,7 +32,7 @@ namespace Xameleon.Transform {
       Uri requestXmlUri = new Uri(context.RequestXmlFileInfo.FullName);
 
       transformer.InputXmlResolver = manager.Resolver;
-      transformer.InitialContextNode = manager.GetXdmNode(context.ETag, requestXmlUri);
+      transformer.InitialContextNode = manager.GetXdmNode(context.RequestXmlETag, requestXmlUri);
 
       Serializer destination = manager.Serializer;
       destination.SetOutputWriter(writer);

@@ -77,6 +77,7 @@
             baseUri = "~";
 
         _xsltTransformationManager = new XsltTransformationManager(_processor, _transform, _resolver, _serializer);
+        _xsltTransformationManager.HashAlgorithm = _hashAlgorithm;
         _resolver.Credentials = CredentialCache.DefaultCredentials;
         _namedXsltHashtable = _xsltTransformationManager.NamedXsltHashtable;
 
@@ -125,10 +126,10 @@
         XsltTransformationManager xslTransformationManager = (XsltTransformationManager)Application["appStart_xslTransformationManager"];
         bool CONTENT_IS_MEMCACHED = false;
         bool useMemCached = (bool)Application["appStart_usememcached"];
-        bool hasXmlSourceChanged = xslTransformationManager.HasXmlSourceChanged(context.ETag);
+        bool hasXmlSourceChanged = xslTransformationManager.HasXmlSourceChanged(context.RequestXmlETag);
         bool hasBaseXsltSourceChanged = xslTransformationManager.HasBaseXsltSourceChanged();
-        //HttpContext.Current.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + "<br/>");
-        //HttpContext.Current.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
+        HttpContext.Current.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + ":" + context.RequestXmlETag + "<br/>");
+        HttpContext.Current.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
         MemcachedClient memcachedClient = (MemcachedClient)Application["appStart_memcached"];
         Application["memcached"] = memcachedClient;
 
@@ -160,7 +161,8 @@
     }
 
     protected void Application_EndRequest(object sender, EventArgs e) {
-        if (_DEBUG) HttpContext.Current.Response.Write((string)Application["debugOutput"]);
+        if (_DEBUG)
+            HttpContext.Current.Response.Write((string)Application["debugOutput"]);
     }
 
     protected void Application_AuthenticateRequest(object sender, EventArgs e) {
@@ -208,10 +210,22 @@
         while (httpParamsEnum.MoveNext()) {
             string key = context.HttpParams.AllKeys[i].ToString();
             builder.Append("<Param>");
-                builder.Append(CreateNode("Name", key));
-                builder.Append(CreateNode("Value", context.HttpParams[key]));
+            builder.Append(CreateNode("Name", key));
+            builder.Append(CreateNode("Value", context.HttpParams[key]));
             builder.Append("</Param>");
             i += 1;
+        }
+        MemcachedClient mc = (MemcachedClient)Application["appStart_memcached"];
+        IDictionary stats = mc.Stats();
+
+        foreach (string key1 in stats.Keys) {
+            builder.Append("<Key>");
+            builder.Append(CreateNode("Name", key1));
+            Hashtable values = (Hashtable)stats[key1];
+            foreach (string key2 in values.Keys) {
+                builder.Append(CreateNode(key2, values[key2]));
+            }
+            builder.Append("</Key>");
         }
         builder.Append(CreateNode("ContextXsltParamsCount", context.XsltParams.Count));
         foreach (DictionaryEntry entry in context.XsltParams) {

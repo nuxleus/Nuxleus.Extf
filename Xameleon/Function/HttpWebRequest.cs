@@ -26,7 +26,6 @@ namespace Xameleon.Function {
       WebRequest myHttpWebRequest = WebRequest.Create(uri);
 
       myHttpWebRequest.Method = "POST";
-
       string postData = formValues;
       ASCIIEncoding encoding = new ASCIIEncoding();
       byte[] byte1 = encoding.GetBytes(postData);
