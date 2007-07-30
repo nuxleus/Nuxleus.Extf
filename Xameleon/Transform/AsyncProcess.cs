@@ -23,6 +23,7 @@ namespace Xameleon.Transform
 
         public void BeginProcess(Context context, XsltTransformationManager manager, TextWriter writer, String xsltName, TransformServiceAsyncResult result)
         {
+            HttpContext.Current.Response.Write("Hello from in here");
 
             XsltTransformer transformer = manager.GetTransformer(xsltName);
 
@@ -35,10 +36,10 @@ namespace Xameleon.Transform
                 }
             }
 
-            Uri requestXmlUri = new Uri(context.RequestXmlFileInfo.FullName);
+            Uri requestXmlUri = new Uri(context.RequestUri);
 
             transformer.InputXmlResolver = manager.Resolver;
-            transformer.InitialContextNode = manager.GetXdmNode(context.RequestXmlETag, requestXmlUri);
+            transformer.InitialContextNode = manager.GetXdmNode(context.RequestXmlETag, context.RequestUri);
 
             Serializer destination = manager.Serializer;
             destination.SetOutputWriter(writer);

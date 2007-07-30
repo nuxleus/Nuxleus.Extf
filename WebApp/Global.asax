@@ -128,7 +128,18 @@
 
     protected void Application_BeginRequest(object sender, EventArgs e)
     {
-
+        //HttpContext.Current.Response.Write(HttpContext.Current.Request.RawUrl);
+        //IEnumerator httpParamsEnum = HttpContext.Current.Request.Headers.GetEnumerator();
+        //int i = 0;
+        //while (httpParamsEnum.MoveNext())
+        //{
+        //    string key = HttpContext.Current.Request.Headers.AllKeys[i].ToString();
+        //    HttpContext.Current.Response.Write("<Param>");
+        //    HttpContext.Current.Response.Write(CreateNode("Name", key));
+        //    HttpContext.Current.Response.Write(CreateNode("Value", HttpContext.Current.Request.Headers[key]));
+        //    HttpContext.Current.Response.Write("</Param>");
+        //    i += 1;
+        //}
         Hashtable xsltParams = (Hashtable)Application["appStart_globalXsltParams"];
         FileInfo fileInfo = new FileInfo(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath));
         Context context = new Context(HttpContext.Current, _hashAlgorithm, (string)Application["hashkey"], fileInfo, (Hashtable)xsltParams.Clone(), fileInfo.LastWriteTimeUtc, fileInfo.Length);
@@ -139,7 +150,7 @@
         bool useMemCached = (bool)Application["appStart_usememcached"];
         bool hasXmlSourceChanged = xslTransformationManager.HasXmlSourceChanged(context.RequestXmlETag);
         bool hasBaseXsltSourceChanged = xslTransformationManager.HasBaseXsltSourceChanged();
-        
+
         MemcachedClient memcachedClient = (MemcachedClient)Application["appStart_memcached"];
         Application["memcached"] = memcachedClient;
 
@@ -173,6 +184,8 @@
         {
             HttpContext.Current.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + ":" + context.RequestXmlETag + "<br/>");
             HttpContext.Current.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
+            HttpContext.Current.Response.Write("Xml ETag: " + context.GetRequestHashcode(false) + "<br/>");
+            HttpContext.Current.Response.Write("XdmNode Count: " + xslTransformationManager.GetXdmNodeHashtableCount() + "<br/>");
             Application["debugOutput"] = (string)("<DebugOutput>" + WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString() + "</DebugOutput>");
         }
 

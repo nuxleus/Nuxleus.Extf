@@ -129,6 +129,11 @@ namespace Xameleon.Transform
                 return true;
         }
 
+        public string GetXdmNodeHashtableCount()
+        {
+            return _xdmNodeETagIndex.Count.ToString();
+        }
+
         public bool HasBaseXsltSourceChanged()
         {
             string namedETag = (string)_namedXsltETagIndex[_baseXsltName];
