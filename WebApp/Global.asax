@@ -128,18 +128,7 @@
 
     protected void Application_BeginRequest(object sender, EventArgs e)
     {
-        //HttpContext.Current.Response.Write(HttpContext.Current.Request.RawUrl);
-        //IEnumerator httpParamsEnum = HttpContext.Current.Request.Headers.GetEnumerator();
-        //int i = 0;
-        //while (httpParamsEnum.MoveNext())
-        //{
-        //    string key = HttpContext.Current.Request.Headers.AllKeys[i].ToString();
-        //    HttpContext.Current.Response.Write("<Param>");
-        //    HttpContext.Current.Response.Write(CreateNode("Name", key));
-        //    HttpContext.Current.Response.Write(CreateNode("Value", HttpContext.Current.Request.Headers[key]));
-        //    HttpContext.Current.Response.Write("</Param>");
-        //    i += 1;
-        //}
+
         Hashtable xsltParams = (Hashtable)Application["appStart_globalXsltParams"];
         FileInfo fileInfo = new FileInfo(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath));
         Context context = new Context(HttpContext.Current, _hashAlgorithm, (string)Application["hashkey"], fileInfo, (Hashtable)xsltParams.Clone(), fileInfo.LastWriteTimeUtc, fileInfo.Length);

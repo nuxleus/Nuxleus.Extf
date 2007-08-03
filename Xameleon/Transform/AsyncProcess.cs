@@ -23,8 +23,6 @@ namespace Xameleon.Transform
 
         public void BeginProcess(Context context, XsltTransformationManager manager, TextWriter writer, String xsltName, TransformServiceAsyncResult result)
         {
-            HttpContext.Current.Response.Write("Hello from in here");
-
             XsltTransformer transformer = manager.GetTransformer(xsltName);
 
             if (context.XsltParams.Count > 0)
