@@ -34,7 +34,7 @@ namespace Xameleon.Transform
 
         public Context(HttpContext context, HashAlgorithm algorithm, String key, FileInfo fileInfo, Hashtable xsltParams, params object[] eTagArray)
         {
-            _requestUri = fileInfo.FullName;
+            _requestUri = HttpContext.Current.Request.Url.ToString();
             _requestXmlFileInfo = fileInfo;
             _xsltParams = xsltParams;
             _httpQueryString = context.Request.QueryString;
