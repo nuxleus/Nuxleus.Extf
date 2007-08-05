@@ -22,8 +22,8 @@ namespace Xameleon.HttpApplication
 
     public class Global : System.Web.HttpApplication
     {
-
         bool _useMemCached = false;
+        bool _DEBUG = false;
         MemcachedClient _memcachedClient = null;
         SockIOPool _pool = null;
         AppSettings _appSettings = new AppSettings();
@@ -43,10 +43,11 @@ namespace Xameleon.HttpApplication
         BaseXsltContext _baseXsltContext;
         String _baseUri;
         HashAlgorithm _hashAlgorithm = HashAlgorithm.SHA1;
-        bool _DEBUG = true;
+
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            if (_xameleonConfiguration.DebugMode == "yes") _DEBUG = true;
 
             if (_xameleonConfiguration.UseMemcached == "yes")
             {
@@ -119,6 +120,7 @@ namespace Xameleon.HttpApplication
             Application["appStart_xslTransformationManager"] = _xsltTransformationManager;
             Application["appStart_namedXsltHashtable"] = _namedXsltHashtable;
             Application["appStart_globalXsltParams"] = _globalXsltParams;
+            Application["debug"] = _DEBUG;
 
         }
 
@@ -140,12 +142,13 @@ namespace Xameleon.HttpApplication
             bool useMemCached = (bool)Application["appStart_usememcached"];
             bool hasXmlSourceChanged = xslTransformationManager.HasXmlSourceChanged(context.RequestXmlETag);
             bool hasBaseXsltSourceChanged = xslTransformationManager.HasBaseXsltSourceChanged();
+
             MemcachedClient memcachedClient = (MemcachedClient)Application["appStart_memcached"];
             Application["memcached"] = memcachedClient;
 
             if (useMemCached)
             {
-                string obj = (string)memcachedClient.Get(context.GetRequestHashcode(false));
+                string obj = (string)memcachedClient.Get(context.GetRequestHashcode(true));
                 if (obj != null && !(hasXmlSourceChanged || hasBaseXsltSourceChanged))
                 {
                     builder.Append(obj);
@@ -162,7 +165,6 @@ namespace Xameleon.HttpApplication
                 writer = new StringWriter(builder);
             }
 
-            Application["debug"] = _DEBUG;
             Application["textWriter"] = writer;
             Application["stringBuilder"] = builder;
             Application["CONTENT_IS_MEMCACHED"] = CONTENT_IS_MEMCACHED;
@@ -170,10 +172,12 @@ namespace Xameleon.HttpApplication
             Application["xsltTransformationManager"] = xslTransformationManager;
             Application["namedXsltHashtable"] = (Hashtable)Application["appStart_namedXsltHashtable"];
             Application["transformContext"] = context;
-            if (_DEBUG)
+            if ((bool)Application["debug"])
             {
                 HttpContext.Current.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + ":" + context.RequestXmlETag + "<br/>");
                 HttpContext.Current.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
+                HttpContext.Current.Response.Write("Xml ETag: " + context.GetRequestHashcode(true) + "<br/>");
+                HttpContext.Current.Response.Write("XdmNode Count: " + xslTransformationManager.GetXdmNodeHashtableCount() + "<br/>");
                 Application["debugOutput"] = (string)("<DebugOutput>" + WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString() + "</DebugOutput>");
             }
 
@@ -181,7 +185,7 @@ namespace Xameleon.HttpApplication
 
         protected void Application_EndRequest(object sender, EventArgs e)
         {
-            if (_DEBUG)
+            if ((bool)Application["debug"])
                 HttpContext.Current.Response.Write((string)Application["debugOutput"]);
         }
 

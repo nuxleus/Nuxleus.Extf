@@ -82,6 +82,9 @@
     <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\SocketFactory.cs">
       <Link>Mono.FastCgi\SocketFactory.cs</Link>
     </Compile>
+    <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\Strings.cs">
+      <Link>Mono.FastCgi\Strings.cs</Link>
+    </Compile>
     <Compile Include="..\VendorExtensions\Mono\FastCgi\src\Mono.FastCgi\Structures\BeginRequestBody.cs">
       <Link>Mono.FastCgi\Structures\BeginRequestBody.cs</Link>
     </Compile>

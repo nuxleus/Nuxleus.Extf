@@ -145,7 +145,7 @@
 
         if (useMemCached)
         {
-            string obj = (string)memcachedClient.Get(context.GetRequestHashcode(false));
+            string obj = (string)memcachedClient.Get(context.GetRequestHashcode(true));
             if (obj != null && !(hasXmlSourceChanged || hasBaseXsltSourceChanged))
             {
                 builder.Append(obj);
@@ -173,7 +173,7 @@
         {
             HttpContext.Current.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + ":" + context.RequestXmlETag + "<br/>");
             HttpContext.Current.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
-            HttpContext.Current.Response.Write("Xml ETag: " + context.GetRequestHashcode(false) + "<br/>");
+            HttpContext.Current.Response.Write("Xml ETag: " + context.GetRequestHashcode(true) + "<br/>");
             HttpContext.Current.Response.Write("XdmNode Count: " + xslTransformationManager.GetXdmNodeHashtableCount() + "<br/>");
             Application["debugOutput"] = (string)("<DebugOutput>" + WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString() + "</DebugOutput>");
         }

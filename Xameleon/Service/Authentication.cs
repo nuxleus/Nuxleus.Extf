@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Web.Configuration;
 using System.Web.Services;
 using Extf.Net.S3;
+using System.Web;
 
 namespace Xameleon.Service {
     /// <summary>
@@ -13,38 +14,28 @@ namespace Xameleon.Service {
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class Authenticate : WebService {
 
-        static string pubKey = GetSetting("xsltParam_aws-public-key");
-        static string privKey = GetSetting("xsltParam_aws-private-key");
-        AWSAuthConnection conn = new AWSAuthConnection(pubKey, privKey, false);
+        Hashtable _NonceSessionIDHashtable = new Hashtable();
+
+        public bool CheckAuthentication(string nonce) {
+            return checkAuthentication(nonce, "SESSIONID");
+        }
+
+        public bool CheckAuthentication(string nonce, string sessionID)
+        {
+            return checkAuthentication(nonce, sessionID);
+        }
 
         [WebMethod(EnableSession = true)]
-        public bool CheckAuthentication(string nonce) {
-            return false;
+        private bool checkAuthentication(string nonce, string sessionID)
+        {
+            if ((string)_NonceSessionIDHashtable[HttpContext.Current.Request.Cookies[sessionID]] == nonce)
+                return true;
+            else
+                return false;
         }
 
-        private string GenerateNonce(string sessionKey) {
-            return "foo";
-        }
-
-
-        public static String GetSetting(String keyName) {
-
-            NameValueCollection appSettings = WebConfigurationManager.AppSettings as NameValueCollection;
-
-            IEnumerator appSettingsEnum = appSettings.GetEnumerator();
-
-            try {
-                for (int i = 0; appSettingsEnum.MoveNext(); i++) {
-                    string key = appSettings.AllKeys[i].ToString();
-                    if (key == keyName) {
-                        return appSettings[key];
-                    }
-                }
-            } catch (Exception e) {
-                return e.Message;
-            }
-
-            return null;
+        private string GenerateNonce() {
+            return new Guid().ToString();
         }
     }
 }

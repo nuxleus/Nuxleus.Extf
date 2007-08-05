@@ -143,7 +143,7 @@ namespace Xameleon.Transform
                 }
                 _transformContext.Clear();
                 if (!_CONTENT_IS_MEMCACHED && _USE_MEMCACHED)
-                    _memcachedClient.Set(_transformContext.GetRequestHashcode(false), output);
+                    _memcachedClient.Set(_transformContext.GetRequestHashcode(true), output);
             }
         }
 
