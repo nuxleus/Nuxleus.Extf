@@ -17,7 +17,7 @@ using System.Reflection;
 namespace Xameleon.Transform
 {
 
-    public class Context
+    public struct Context
     {
 
         String _requestUri;
