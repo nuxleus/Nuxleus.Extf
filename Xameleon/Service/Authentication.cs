@@ -16,7 +16,8 @@ namespace Xameleon.Service {
 
         Hashtable _NonceSessionIDHashtable = new Hashtable();
 
-        public bool CheckAuthentication(string nonce) {
+        public bool CheckAuthentication(string nonce) 
+        {
             return checkAuthentication(nonce, "SESSIONID");
         }
 
