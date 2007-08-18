@@ -25,6 +25,8 @@ namespace Xameleon.Transform
         {
             XsltTransformer transformer = manager.GetTransformer(xsltName);
 
+            transformer.SetParameter(new QName("", "", "current-context"), new XdmValue((XdmItem)XdmAtomicValue.wrapExternalObject(context.HttpContext)));
+
             if (context.XsltParams.Count > 0)
             {
                 foreach (DictionaryEntry param in context.XsltParams)

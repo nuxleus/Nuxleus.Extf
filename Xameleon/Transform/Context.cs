@@ -31,6 +31,7 @@ namespace Xameleon.Transform
         NameValueCollection _httpForm;
         HttpCookieCollection _httpCookies;
         NameValueCollection _httpParams;
+        HttpContext _httpContext;
 
         public Context(HttpContext context, HashAlgorithm algorithm, String key, FileInfo fileInfo, Hashtable xsltParams, params object[] eTagArray)
         {
@@ -45,8 +46,14 @@ namespace Xameleon.Transform
             _hashAlgorithm = algorithm;
             _requestXmlETag = GenerateETag(key, algorithm, fileInfo.LastWriteTimeUtc, fileInfo.Length, _requestUri);
             _eTag = GenerateETag(key, algorithm, _requestUri, eTagArray);
+            _httpContext = context;
         }
 
+        public HttpContext HttpContext
+        {
+            get { return _httpContext; }
+            set { _httpContext = value; }
+        }
         public String RequestUri
         {
             get { return _requestUri; }

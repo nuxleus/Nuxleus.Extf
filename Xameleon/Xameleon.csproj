@@ -119,54 +119,24 @@
     <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\xspworkerrequest.cs">
       <Link>WebServer\Mono.WebServer\xspworkerrequest.cs</Link>
     </Compile>
-    <!-- <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\connection.cs">
-      <Link>WebServer\Mono.FastCgi\Connection.cs</Link>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\VPathToHost.cs">
+      <Link>WebServer\Mono.WebServer\VPathToHost.cs</Link>
     </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Logger.cs">
-      <Link>WebServer\Mono.FastCgi\Logger.cs</Link>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\XSPWebSource.cs">
+      <Link>WebServer\Mono.WebServer\XSPWebSource.cs</Link>
     </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Server.cs">
-      <Link>WebServer\Mono.FastCgi\Server.cs</Link>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\XSPRequestBroker.cs">
+      <Link>WebServer\Mono.WebServer\XSPRequestBroker.cs</Link>
     </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketFactory.cs">
-      <Link>WebServer\Mono.FastCgi\SocketFactory.cs</Link>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\XSPWorker.cs">
+      <Link>WebServer\Mono.WebServer\XSPWorker.cs</Link>
     </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\UnixSocket.cs">
-      <Link>WebServer\Mono.FastCgi\UnixSocket.cs</Link>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\HttpErrors.cs">
+      <Link>WebServer\Mono.WebServer\HttpErrors.cs</Link>
     </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Requests\Request.cs">
-      <Link>WebServer\Mono.FastCgi\Requests\Request.cs</Link>
+    <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\Paths.cs">
+      <Link>WebServer\Mono.WebServer\Paths.cs</Link>
     </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Requests\ResponderRequest.cs">
-      <Link>WebServer\Mono.FastCgi\Requests\ResponderRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketAbstractions\ISocketAbstraction.cs">
-      <Link>WebServer\Mono.FastCgi\SocketAbstractions\ISocketAbstraction.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketAbstractions\StandardSocket.cs">
-      <Link>WebServer\Mono.FastCgi\SocketAbstractions\StandardSocket.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketAbstractions\TcpSocket.cs">
-      <Link>WebServer\Mono.FastCgi\SocketAbstractions\TcpSocket.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\SocketAbstractions\UnmanagedSocket.cs">
-      <Link>WebServer\Mono.FastCgi\SocketAbstractions\UnmanagedSocket.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\BeginRequestBody.cs">
-      <Link>WebServer\Mono.FastCgi\Structures\BeginRequestBody.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\EndRequestBody.cs">
-      <Link>WebServer\Mono.FastCgi\Structures\EndRequestBody.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\NameValuePair.cs">
-      <Link>WebServer\Mono.FastCgi\Structures\NameValuePair.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\Record.cs">
-      <Link>WebServer\Mono.FastCgi\Structures\Record.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\mono\FastCgi\mono.fastcgi\Structures\UnknownTypeBody.cs">
-      <Link>WebServer\Mono.FastCgi\Structures\UnknownTypeBody.cs</Link>
-    </Compile> -->
     <Compile Include="Asp.Net\Server.cs" />
     <Compile Include="Atom\AtomEntry.cs" />
     <Compile Include="Configuration\AspNetAwsConfiguration.cs" />
