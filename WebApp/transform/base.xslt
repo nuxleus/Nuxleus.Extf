@@ -11,8 +11,7 @@
     xmlns:browser="clitype:System.Web.HttpBrowserCapabilities?partialname=System.Web"
     xmlns:timestamp="clitype:System.DateTime"
     xmlns:uri="clitype:System.Uri?partialname=System"
-    xmlns:doc="urn:schemas-cagle-com:document"
-    exclude-result-prefixes="doc aspnet-context aspnet-request request-collection browser timestamp uri saxon xs clitype">
+    exclude-result-prefixes="aspnet-context aspnet-request request-collection browser timestamp uri saxon xs clitype">
 
   <xsl:import href="./controller/atomicxml/base.xslt"/>
   <xsl:import href="./controller/aws/s3/base.xslt"/>
@@ -37,23 +36,6 @@
   <xsl:variable name="browser" select="aspnet-request:Browser($request)"/>
 
   <xsl:strip-space elements="*"/>
-
-  <doc:summary>
-    <doc:title>Documentation Stripper</doc:title>
-    <doc:filename>stripDocumentation.xsl</doc:filename>
-    <doc:version>0.7</doc:version>
-    <doc:dateCreated>2000-01-02</doc:dateCreated>
-    <doc:lastModified>2001-01-03</doc:lastModified>
-    <doc:description>
-      <span style="color:blue;font-size:14pt;font-family:Impact;">Documentation Stripper</span> 
-        removes all doc: space documentation from a stylesheet to create a lighter weight
-        version of the stylesheet for production use. Save the resulting file under a separate
-        name from the documented file.  The details of this and Documentation Maker are included 
-        in the article <b>Document Your XSLT</b> by Kurt Cagle. Documentation Stripper is copyright 2000 by 
-        <a href="mailto:cagle@olywa.net">Kurt Cagle</a>. For use in 
-        commercial products, please contact the author for permissions.
-        </doc:description>
-  </doc:summary>
 
   <xsl:character-map name="xml">
     <xsl:output-character character="&lt;" string="&lt;"/>
