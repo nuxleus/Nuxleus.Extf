@@ -124,17 +124,12 @@ namespace Xameleon.HttpApplication
 
         }
 
-        protected void Session_Start(object sender, EventArgs e)
-        {
-
-        }
-
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-
+            System.Web.HttpApplication application = (System.Web.HttpApplication)sender;
             Hashtable xsltParams = (Hashtable)Application["appStart_globalXsltParams"];
-            FileInfo fileInfo = new FileInfo(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath));
-            Context context = new Context(HttpContext.Current, _hashAlgorithm, (string)Application["hashkey"], fileInfo, (Hashtable)xsltParams.Clone(), fileInfo.LastWriteTimeUtc, fileInfo.Length);
+            FileInfo fileInfo = new FileInfo(application.Context.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath));
+            Context context = new Context(application.Context, _hashAlgorithm, (string)Application["hashkey"], fileInfo, (Hashtable)xsltParams.Clone(), fileInfo.LastWriteTimeUtc, fileInfo.Length);
             StringBuilder builder = new StringBuilder();
             TextWriter writer = new StringWriter(builder);
             XsltTransformationManager xslTransformationManager = (XsltTransformationManager)Application["appStart_xslTransformationManager"];
@@ -195,11 +190,6 @@ namespace Xameleon.HttpApplication
         }
 
         protected void Application_Error(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Session_End(object sender, EventArgs e)
         {
 
         }
