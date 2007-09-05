@@ -45,7 +45,7 @@
     xmlns:s3object="clitype:Xameleon.Utility.S3.S3Object?partialname=Xameleon"
     xmlns:amazonaws="http://s3.amazonaws.com/doc/2006-03-01/"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    exclude-result-prefixes="aspnet-context test http-sgml-to-xml html s3-object-compare web-response web-request stream http-response-stream browser aws-gen aws-conn http-util s3object s3response uri amazonaws at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header sortedlist param service operation session aws s3 func xs xsi fn clitype response-collection request-collection">
+    exclude-result-prefixes="#all">
 
   <xsl:import href="../../../model/json-to-xml.xslt"/>
   <xsl:import href="../../test/base.xslt"/>
@@ -56,8 +56,8 @@
   <xsl:param name="server" />
   <xsl:param name="session" />
   <xsl:param name="timestamp" />
-  <xsl:param name="aws-public-key" select="'not-set'" as="xs:string"/>
-  <xsl:param name="aws-private-key" select="'not-set'" as="xs:string"/>
+  <xsl:param name="aws-public-key" />
+  <xsl:param name="aws-private-key" />
   <xsl:variable name="not-set" select="'not-set'" as="xs:string"/>
   <xsl:variable name="guid" select="request-collection:GetValue($request, 'cookie', 'guid')" as="xs:string" />
   <xsl:variable name="session-params" select="func:eval-params(/service:operation/param:*)"/>
@@ -68,6 +68,7 @@
   <xsl:variable name="expires-in" select="aws:s3-set-expires-in($aws-gen, 60000)"/>
   <xsl:variable name="request-uri" select="aspnet-request:Url($request)"/>
   <xsl:variable name="browser" select="aspnet-request:Browser($request)"/>
+  <xsl:variable name="q">"</xsl:variable>
 
   <xsl:template match="header:*">
     <xsl:param name="sorted-list" as="clitype:System.Collections.SortedList"/>
@@ -91,9 +92,11 @@
     <xsl:param name="key-name"/>
     <xsl:variable name="issecure" select="false()" as="xs:boolean"/>
     <xsl:variable name="content-type" select="if ($debug) then response:set-content-type($response, 'text/plain') else response:set-content-type($response, 'text/xml')"/>
-    <xsl:processing-instruction name="xml-stylesheet">
-      <xsl:text>type="text/xsl" href="/transform/openid-redirect.xsl"</xsl:text>
-    </xsl:processing-instruction>
+    <xsl:if test="@use-clientside-xslt">
+      <xsl:processing-instruction name="xml-stylesheet">
+        <xsl:value-of select="concat('type=', $q, 'text/xsl', $q, ' ', 'href=', $q, @use-clientside-xslt, $q)"/>
+      </xsl:processing-instruction>
+    </xsl:if>
     <message type="service:result"
         content-type="{if (empty($content-type)) then response:get-content-type($response) else 'not-set'}">
       <xsl:apply-templates/>
@@ -104,93 +107,10 @@
     <xsl:apply-templates />
   </xsl:template>
 
-  <!-- 
-  <xsl:template match="service:operation">
-    <xsl:param name="key-name"/>
-    <xsl:variable name="issecure" select="false()" as="xs:boolean"/>
-    <xsl:variable name="content-type" select="if ($debug) then aspnet:response.set-content-type($response, 'text/plain') else aspnet:response.set-content-type($response, 'text/xml')"/>
-    <xsl:if test="not($debug)">
-      <xsl:processing-instruction name="xml-stylesheet">
-        <xsl:text>type="text/xsl" href="/transform/openid-redirect.xsl"</xsl:text>
-      </xsl:processing-instruction>
-    </xsl:if>
-    <auth status="session">
-      <url>
-        <xsl:sequence select="request-collection:GetValue($request, 'query-string', 'return_uri')"/>
-      </url>
-      <message>
-        <xsl:sequence select="$content-type"/>
-        <xsl:apply-templates />
-        <xsl:if test="$debug">
-          <Params>
-            <xsl:for-each select="$session-params">
-              <xsl:element name="{local-name()}">
-                <xsl:value-of select="."/>
-              </xsl:element>
-            </xsl:for-each>
-          </Params>
-          <HttpRequest>
-            <RawUrl>
-              <xsl:sequence select="aspnet-request:RawUrl($request)" />
-            </RawUrl>
-            <UserName>
-              <xsl:sequence select="browser:ClrVersion($browser)"/>
-            </UserName>
-            <Cookies>
-              <guid>
-                <xsl:sequence select="$guid"/>
-              </guid>
-            </Cookies>
-          </HttpRequest>
-          <Operation>
-            
-            <FileName>
-              <xsl:sequence select="$key-name"/>
-            </FileName>
-            <S3PutObject>
-              <xsl:sequence
-                  select="aws:s3-put-object($s3-bucket-name, $key-name, $guid, $aws-public-key, $aws-private-key, $issecure)"/>
-            </S3PutObject> 
-            
-            <S3GetSignature>
-              <xsl:variable name="signature" select="aws:s3-get-signature($s3-bucket-name, $key-name, $issecure)" as="xs:string"/>
-              <xsl:sequence
-                  select="if (unparsed-text-available($signature)) then $signature else $signature"/>
-            </S3GetSignature>-->
-            <!--
-            <S3GetSignature>
-            <xsl:sequence
-                select="unparsed-text(aws:s3-get-signature($s3-bucket-name, $key-name, $issecure))"/>
-              <xsl:sequence select="aws:s3-get-signature($s3-bucket-name, $key-name, $issecure)"/>
-            </S3GetSignature>
-            <S3GetObject>
-              <xsl:copy-of
-                  select="document('http://s3.amazonaws.com/m.david/screen-shots/VS.NET_on_MacOSX.foo')/*"/>
-            </S3GetObject>
-            <S3ListBucket>
-              <xsl:variable name="bucket" select="aws:s3-list-bucket($s3-bucket-name, $key-name, '', 1 cast as xs:integer, '/')"/>
-              <xsl:sequence select="encode-for-uri('/')"/>
-              <xsl:copy-of
-                  select="document($bucket)/*"/>
-            </S3ListBucket>
-            </Operation>
-          <HttpResponse>
-            <ContentType>
-              <xsl:sequence select="$content-type"/>
-            </ContentType>
-            <TimeStamp>
-              <xsl:sequence select="func:get-timestamp($timestamp, 'short-time')"/>
-            </TimeStamp>
-          </HttpResponse>
-        </xsl:if>
-      </message>
-    </auth>
-  </xsl:template>-->
-
   <xsl:template match="operation:aws">
     <auth status="session">
       <url>
-        <!-- <xsl:sequence select="request-collection:GetValue($request, 'query-string', 'return_uri')"/> -->
+        <xsl:sequence select="request-collection:GetValue($request, 'query-string', 'return_uri')"/>
       </url>
       <message>
         <file>
@@ -240,14 +160,15 @@
     <xsl:variable name="key-name" select="aws:s3-normalize-key($folder-name, $file-name)"/>
     <xsl:variable name="key-uri" select="aws:s3-get-signature($s3-bucket-name, $key-name, false())"/>
     <xsl:variable name="compare" select="s3-object-compare:Compare($aws-conn, $s3-bucket-name, $key-name, $guid)"/>
-    <xsl:variable name="html-to-xml" select="http-sgml-to-xml:GetDocXml('http://beta.lessig.org/blog/archives/000384.shtml', '/html/head/title', false())"/>
+    <!-- <xsl:variable name="html-to-xml" select="http-sgml-to-xml:GetDocXml('http://beta.lessig.org/blog/archives/000384.shtml', '/html/head/title', false())"/>
     <xsl:variable name="web-request" select="web-request:GetResponse('http://www.law.stanford.edu/assets/ajax/search_publications.php', 'year_start=&amp;year_end=&amp;s=Lawrence%20Lessig&amp;format=')"/>
-    <!-- <uri>
+    <uri>
       <xsl:value-of select="$web-request"/>
-      </uri>-->
+      </uri>
     <external-html>
       <xsl:sequence select="saxon:parse($html-to-xml)/title/text()"/>
     </external-html>
+    -->
 
     <compare>
       <xsl:sequence
@@ -283,8 +204,8 @@
 
   <xsl:template match="at:IfFalse">
     <xsl:param name="key-name"/>
-    [False: <xsl:sequence
-        select="aws:s3-put-object($s3-bucket-name, $key-name, $guid, $aws-public-key, $aws-private-key, false())"/>]
+    <xsl:sequence
+        select="aws:s3-put-object($s3-bucket-name, $key-name, $guid, $aws-public-key, $aws-private-key, false())"/>
   </xsl:template>
 
   <xsl:template match="at:IfTrue">
@@ -294,11 +215,10 @@
         <xsl:with-param name="key-uri" select="$key-uri"/>
       </xsl:apply-templates>
     </xsl:variable>
-    [True: 
     <xsl:apply-templates>
       <xsl:with-param name="key-uri" select="$key-uri"/>
       <xsl:with-param name="params" select="$params"/>
-    </xsl:apply-templates>]
+    </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="param:*" mode="eval">

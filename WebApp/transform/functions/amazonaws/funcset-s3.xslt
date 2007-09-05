@@ -17,8 +17,8 @@
     xmlns:clitype="http://saxon.sf.net/clitype"
     exclude-result-prefixes="xs func enc hmacsha1 clitype sortedlist saxon string convert s3response awsAuth s3object">
 
-  <xsl:param name="aws-public-key"/>
-  <xsl:param name="aws-private-key"/>
+  <xsl:param name="aws-public-key" />
+  <xsl:param name="aws-private-key" />
   <xsl:variable name="issecure" select="false()" as="xs:boolean"/>
   <xsl:variable name="awsauth" select="auth:new($aws-public-key, $aws-private-key, $issecure)"/>
   <xsl:variable name="expires-in" select="func:s3-set-expires-in($awsauth, 15000)"/>
