@@ -12,22 +12,48 @@
     xmlns:aspnet-context="clitype:System.Web.HttpContext?partialname=System.Web"
     xmlns:proxy="http://xameleon.org/service/proxy"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    exclude-result-prefixes="http-sgml-to-xml html xs xsi fn clitype proxy aspnet-context">
-    
+    exclude-result-prefixes="xs xsl xsi fn clitype at func http-sgml-to-xml aspnet-context proxy saxon html">
 
   <xsl:import href="../../functions/funcset-Util.xslt"/>
 
   <xsl:template match="proxy:return-xml-from-html">
-    <xsl:sequence select="func:return-xml-from-html(func:resolve-variable(@uri), func:resolve-variable(@xpath))"/>
+    <xsl:variable name="uri-xpath" select="func:resolve-variable(@uri)"/>
+    <xsl:variable name="protocol" select="substring-before($uri-xpath, '://')"/>
+    <xsl:variable name="uri" select="concat($protocol, '://', substring-before(substring-after($uri-xpath, '://'), '//'))"/>
+    <xsl:variable name="xpath" select="substring-after($uri-xpath, concat($uri, '//'))"/>
+    <xsl:sequence select="func:return-xml-from-html($uri, $xpath)"/>
   </xsl:template>
 
   <xsl:function name="func:return-xml-from-html">
     <xsl:param name="uri" as="xs:string" />
     <xsl:param name="xpath" as="xs:string" />
-    <xsl:variable name="html-to-xml" select="http-sgml-to-xml:GetDocXml($uri, $xpath, false())"/>
+    <xsl:variable name="html-to-xml" select="http-sgml-to-xml:GetDocXml($uri, '/html', false())"/>
+    <xsl:variable name="html">
+      <html:html>
+        <xsl:apply-templates select="saxon:parse($html-to-xml)" mode="clean"/>
+      </html:html>
+    </xsl:variable>
     <external-html>
-      <xsl:sequence select="saxon:parse($html-to-xml)"/>
+      <xsl:apply-templates select="$html" mode="evaluate">
+        <xsl:with-param name="xpath" select="$xpath"/>
+      </xsl:apply-templates>
     </external-html>
   </xsl:function>
+
+  <xsl:template match="*" mode="clean">
+    <xsl:element name="{local-name()}" namespace="http://www.w3.org/1999/xhtml">
+      <xsl:copy-of select="@*"/>
+      <xsl:apply-templates mode="clean"/>
+    </xsl:element>
+  </xsl:template>
+  
+  <xsl:template match="text()" mode="clean">
+    <xsl:value-of select="."/>
+  </xsl:template>
+
+  <xsl:template match="*" mode="evaluate">
+    <xsl:param name="xpath"/>
+    <xsl:sequence select="saxon:evaluate($xpath)"/>
+  </xsl:template>
 
 </xsl:transform>
