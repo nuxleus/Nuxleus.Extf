@@ -8,6 +8,7 @@ using System.Web.SessionState;
 using Xameleon.Transform;
 using Xameleon.Configuration;
 using Xameleon.Cryptography;
+using Xameleon.Memcached;
 using Memcached.ClientLibrary;
 using System.Collections.Generic;
 using Saxon.Api;
@@ -24,13 +25,11 @@ namespace Xameleon.HttpApplication
     {
         bool _useMemCached = false;
         bool _DEBUG = false;
-        MemcachedClient _memcachedClient = null;
-        SockIOPool _pool = null;
+        Client _memcachedClient = null;
         AppSettings _appSettings = new AppSettings();
         AspNetXameleonConfiguration _xameleonConfiguration = AspNetXameleonConfiguration.GetConfig();
         AspNetAwsConfiguration _awsConfiguration = AspNetAwsConfiguration.GetConfig();
         AspNetBungeeAppConfiguration _bungeeAppConfguration = AspNetBungeeAppConfiguration.GetConfig();
-        AspNetMemcachedConfiguration _memcachedConfiguration = AspNetMemcachedConfiguration.GetConfig();
         XsltTransformationManager _xsltTransformationManager;
         Transform.Transform _transform = new Transform.Transform();
         Processor _processor = new Processor();
@@ -52,30 +51,7 @@ namespace Xameleon.HttpApplication
             if (_xameleonConfiguration.UseMemcached == "yes")
             {
                 _useMemCached = true;
-                _memcachedClient = new MemcachedClient();
-                _pool = SockIOPool.GetInstance();
-                List<string> serverList = new List<string>();
-                foreach (MemcachedServer server in _memcachedConfiguration.MemcachedServerCollection)
-                {
-                    serverList.Add(server.IP + ":" + server.Port);
-                }
-                _pool.SetServers(serverList.ToArray());
-
-                if (_memcachedConfiguration.UseCompression != null && _memcachedConfiguration.UseCompression == "yes")
-                    _memcachedClient.EnableCompression = true;
-                else
-                    _memcachedClient.EnableCompression = false;
-
-                MemcachedPoolConfig poolConfig = (MemcachedPoolConfig)_memcachedConfiguration.PoolConfig;
-                _pool.InitConnections = (int)poolConfig.InitConnections;
-                _pool.MinConnections = (int)poolConfig.MinConnections;
-                _pool.MaxConnections = (int)poolConfig.MaxConnections;
-                _pool.SocketConnectTimeout = (int)poolConfig.SocketConnectTimeout;
-                _pool.SocketTimeout = (int)poolConfig.SocketConnect;
-                _pool.MaintenanceSleep = (int)poolConfig.MaintenanceSleep;
-                _pool.Failover = (bool)poolConfig.Failover;
-                _pool.Nagle = (bool)poolConfig.Nagle;
-                _pool.Initialize();
+                _memcachedClient = new Client(new MemcachedClient(), AspNetMemcachedConfiguration.GetConfig());
             }
 
             string baseUri = (string)_xameleonConfiguration.PreCompiledXslt.BaseUri;
@@ -148,6 +124,10 @@ namespace Xameleon.HttpApplication
                 {
                     builder.Append(obj);
                     CONTENT_IS_MEMCACHED = true;
+                    if ((bool)Application["debug"])
+                        application.Response.ContentType = "text";
+                    else
+                        application.Response.ContentType = "text/xml";
                 }
                 else
                 {
@@ -169,19 +149,24 @@ namespace Xameleon.HttpApplication
             Application["transformContext"] = context;
             if ((bool)Application["debug"])
             {
-                HttpContext.Current.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + ":" + context.RequestXmlETag + "<br/>");
-                HttpContext.Current.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
-                HttpContext.Current.Response.Write("Xml ETag: " + context.GetRequestHashcode(true) + "<br/>");
-                HttpContext.Current.Response.Write("XdmNode Count: " + xslTransformationManager.GetXdmNodeHashtableCount() + "<br/>");
+                application.Context.Response.Write("<debug>");
+                application.Context.Response.Write("<file-info>");
+                application.Context.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + ":" + context.RequestXmlETag + "<br/>");
+                application.Context.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
+                application.Context.Response.Write("Xml ETag: " + context.GetRequestHashcode(true) + "<br/>");
+                application.Context.Response.Write("XdmNode Count: " + xslTransformationManager.GetXdmNodeHashtableCount() + "<br/>");
+                application.Context.Response.Write("</file-info>");
                 Application["debugOutput"] = (string)("<DebugOutput>" + WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString() + "</DebugOutput>");
+                application.Context.Response.Write("</debug>");
             }
 
         }
 
         protected void Application_EndRequest(object sender, EventArgs e)
         {
+            System.Web.HttpApplication application = (System.Web.HttpApplication)sender;
             if ((bool)Application["debug"])
-                HttpContext.Current.Response.Write((string)Application["debugOutput"]);
+                application.Context.Response.Write((string)Application["debugOutput"]);
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

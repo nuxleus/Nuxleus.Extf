@@ -4,5 +4,2415 @@
         <name>Xameleon</name>
     </assembly>
     <members>
+        <member name="M:Xameleon.Utility.S3.S3Object.#ctor(System.Byte[],System.Collections.SortedList)">
+            <summary>
+            Constructs an S3Object.
+            </summary>
+            <param name="bytes">Byte array representing the object</param>
+            <param name="metadata">Metadata associated with the object</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.S3Object.#ctor(System.String,System.Collections.SortedList)">
+            <summary>
+            Constructs an S3Object.
+            </summary>
+            <param name="data">String representation of the data; this will be decoded via ASCII</param>
+            <param name="metadata">Metadata associated with the object</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.S3Object.#ctor(System.String)">
+            <summary>
+            Constructs an S3Object.
+            </summary>
+            <param name="data">String representation of the data; this will be decoded via ASCII</param>
+            <param name="metadata">Metadata associated with the object</param>
+        </member>
+        <member name="P:Xameleon.Utility.S3.S3Object.Bytes">
+            <summary>
+            Acquires the binary representation of an object.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Utility.S3.S3Object.Data">
+            <summary>
+            Acquires the ASCII Encoding representation of an object.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Utility.S3.S3Object.Metadata">
+            <summary>
+            Acquires the metadata.
+            </summary>
+        </member>
+        <member name="T:Xameleon.Service.Authenticate">
+            <summary>
+            Summary description for Authenticate service
+            </summary>
+        </member>
+        <member name="T:Xameleon.Bucker.Operation">
+            <summary>
+            Possible operations carried by a message.
+            </summary>
+        </member>
+        <member name="T:Xameleon.Bucker.MessageType">
+            <summary>
+            Type of message.
+            </summary>
+        </member>
+        <member name="T:Xameleon.Bucker.IMessage">
+            <summary>
+            Interface definition supported by all the different message types.
+            </summary>
+        </member>
+        <member name="M:Xameleon.Bucker.IMessage.Serialize">
+            <summary>
+            Serializes a message instance into an XML string.
+            </summary>
+            <returns>XML string representing the Message instance.</returns>
+        </member>
+        <member name="P:Xameleon.Bucker.IMessage.RequestId">
+            <summary>
+            Get or sets the identifier for the request message.
+            </summary>
+            <value>Identifier string set by the client to track the message.</value>
+            <remarks>Ensure this value is as unique as possible.</remarks>
+        </member>
+        <member name="P:Xameleon.Bucker.IMessage.ResponseId">
+            <summary>
+            Get or sets the identifier for the response message.
+            </summary>
+            <value>Identifier string set by the server to track the message response.</value>
+        </member>
+        <member name="P:Xameleon.Bucker.IMessage.Op">
+            <summary>
+            Get or sets the operation carried by this message.
+            </summary>
+            <value>One of the Operation enumeration's value.</value>
+        </member>
+        <member name="P:Xameleon.Bucker.IMessage.Type">
+            <summary>
+            Get or sets the type of message.
+            </summary>
+            <value>One of the MessageType enumeration's value.</value>
+        </member>
+        <member name="P:Xameleon.Bucker.IMessage.QueueId">
+            <summary>
+            Get or sets the queue identifier.
+            </summary>
+            <value>A string denoting the identifier of a queue.</value>
+        </member>
+        <member name="P:Xameleon.Bucker.IMessage.MessageId">
+            <summary>
+            Get or sets the message identifier.
+            </summary>
+            <value>A string denoting the identifier of a message.</value>
+        </member>
+        <member name="P:Xameleon.Bucker.IMessage.Force">
+            <summary>
+            Get or sets the force attribute of the operation.
+            </summary>
+            <value>Indicates if the operation carried 
+            by the message should be forced on the server.
+            </value>
+            <remarks>Not all operations support this feature.</remarks>
+        </member>
+        <member name="P:Xameleon.Bucker.IMessage.ErrorCode">
+            <summary>
+            Get or sets the error code.
+            </summary>
+            <value>An integer denoting the error type.</value>
+            <remarks>Because one code can be used for many distinct error types,
+            you should correlate this with the ErrorType value.
+            </remarks>
+        </member>
+        <member name="P:Xameleon.Bucker.IMessage.ErrorType">
+            <summary>
+            Get or sets the error type.
+            </summary>
+            <value>A string specifying the exact error type.</value>
+        </member>
+        <member name="P:Xameleon.Bucker.IMessage.ErrorMessage">
+            <summary>
+            Get or sets the error message.
+            </summary>
+            <value>A string specifying the explanation associated 
+            with this error for information purpose.</value>
+        </member>
+        <member name="T:Xameleon.Bucker.Message">
+            <summary> 
+            Base class of all the message types.
+            </summary>
+        </member>
+        <member name="M:Xameleon.Bucker.Message.SetDefaultSettings">
+            <summary>
+            Sets the default XmlWriterSettings instance used for the serialization.
+            </summary>
+            <list type="bullet">
+               <item>
+                   <term>Indent</term>
+                   <description>Indentation is disabled by default.</description>
+               </item>
+               <item>
+                   <term>Encoding</term>
+                   <description>Default encoding to be used: UTF-8.</description>
+               </item>
+               <item>
+                   <term>OmitXmlDeclaration</term>
+                   <description>The XML declaration is not included by default.</description>
+               </item>
+            </list>
+        </member>
+        <member name="M:Xameleon.Bucker.Message.Parse(System.String)">
+            <summary>
+            Parses an XML string and maps it into a Message instance.
+            The returned instance depends on the type of operations carried by the message.
+            </summary>
+            <param name="xml">Message representation as an XML string.</param>
+            <returns>An instance of one of the message classes.</returns>
+        </member>
+        <member name="P:Xameleon.Bucker.Message.Settings">
+            <summary>
+            Get or sets settings to be used during serialization.
+            </summary>
+            <value>An instance of the XmlWriterSettings class.</value>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.name">
+            <summary>
+            The name of the bucket being listed.  Null if the request fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.prefix">
+            <summary>
+            The prefix echoed back from the request.  Null if the request fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.marker">
+            <summary>
+            The marker echoed back from the request.  Null if the request fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.delimiter">
+            <summary>
+            The delimiter echoed back from the request.  Null if not specified in
+            the request or it fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.maxKeys">
+            <summary>
+            The maxKeys echoed back from the request if specified.  0 if the request fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.isTruncated">
+            <summary>
+            Indicates if there are more results to the list.  True if the current
+            list results have been truncated.  The value will be false if the request
+            fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.nextMarker">
+            <summary>
+            Indicates what to use as a marker for subsequent list requests in the event
+            that the results are truncated.  Present only when a delimiter is specified.
+            Null if the requests fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.entries">
+            <summary>
+            A list of ListEntry objects representing the objects in the given bucket.
+            Null if the request fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.ListBucketResponse.commonPrefixEntries">
+            <summary>
+            A list of CommonPrefixEntry objects representing the common prefixes of the
+            keys that matched up to the delimiter.  Null if the request fails.
+            </summary>
+        </member>
+        <member name="F:Xameleon.Utility.S3.CommonPrefixEntry.prefix">
+            <summary>
+            The prefix common to the delimited keys it represents.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Bucker.PushMessage.Payload">
+            <summary>
+            Message payload.
+            </summary>
+        </member>
+        <member name="T:Mono.WebServer.IApplicationHost">
+            <summary>
+               This interface is used for classes that serve as application
+               hosts.
+            </summary>
+            <remarks>
+               An application, as created through a <see cref="T:Mono.WebServer.ApplicationServer"/>, exists in its own <see cref="T:System.AppDomain"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.IApplicationHost.Unload">
+            <summary>
+               Unloads the application host.
+            </summary>
+        </member>
+        <member name="P:Mono.WebServer.IApplicationHost.Path">
+            <summary>
+               Gets the physical path of the hosted application.
+            </summary>
+            <value>
+               A <see cref="T:System.String"/> containing the physical path of
+               the hosted application.
+            </value>
+        </member>
+        <member name="P:Mono.WebServer.IApplicationHost.VPath">
+            <summary>
+               Gets the virtual path of the hosted application.
+            </summary>
+            <value>
+               A <see cref="T:System.String"/> containing the virtual path of
+               the hosted application.
+            </value>
+        </member>
+        <member name="P:Mono.WebServer.IApplicationHost.Domain">
+            <summary>
+               Gets the app-domain the application host exists in.
+            </summary>
+            <value>
+               A <see cref="T:System.AppDomain"/> object containing the
+               app-domain the application host exists in.
+            </value>
+        </member>
+        <member name="P:Mono.WebServer.IApplicationHost.RequestBroker">
+            <summary>
+               Gets and sets the request broker that manages the hosted
+               requests.
+            </summary>
+            <value>
+               A <see cref="T:Mono.WebServer.IRequestBroker"/> object containing the
+               request broker that manages the hosted requests.
+            </value>
+        </member>
+        <member name="P:Mono.WebServer.IApplicationHost.Server">
+            <summary>
+               Gets the application server that created the application
+               host.
+            </summary>
+            <value>
+               A <see cref="T:Mono.WebServer.ApplicationServer"/> object containing the
+               application server that created the application host.
+            </value>
+        </member>
+        <member name="T:Mono.WebServer.IRequestBroker">
+            <summary>
+               This interface is used for classes that manage requests.
+            </summary>
+            <remarks>
+               A request broker serves as an intermediary between <see cref="T:Mono.WebServer.Worker"/> and <see cref="T:Mono.WebServer.MonoWorkerRequest"/> to handle
+               the interaction between app-domains. In addition it should
+               inherit <see cref="T:System.MarshalByRefObject"/>.
+            </remarks>
+        </member>
+        <member name="T:Xameleon.ResultDocumentHandler.S3ResultDocumentHandler">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Xameleon.ResultDocumentHandler.S3ResultDocumentHandler.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Xameleon.ResultDocumentHandler.S3ResultDocumentHandler.#ctor(System.Collections.Hashtable)">
+            <summary>
+            </summary>
+            <param name="table"></param>
+        </member>
+        <member name="T:Mono.WebServer.Worker">
+            <summary>
+               This abstract is used for running implementation specific
+               requests.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.Worker.SetReuseCount(System.Int32)">
+            <summary>
+               Sets the number of times the current instance has been
+               reused by the server.
+            </summary>
+            <param name="reuses">
+               A <see cref="T:System.Int32"/> containing the number of times the
+               current instance has been reused.
+            </param>
+        </member>
+        <member name="M:Mono.WebServer.Worker.GetRemainingReuses">
+            <summary>
+               Gets the number of times the current instance can be
+               reused by the server.
+            </summary>
+            <returns>
+               A <see cref="T:System.Int32"/> containing the number of times the
+               current instance can be reused by the server.
+            </returns>
+            <remarks>
+               If less than or equal to zero, the current instance
+               should not be reused and the resources associated with it
+               should be freed.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.Worker.Run(System.Object)">
+            <summary>
+               Runs the current instance.
+            </summary>
+            <param name="state">
+               A <see cref="T:System.Object"/> containing state information from
+               the worker that evoked the method. Always <see langref="null"/>.
+            </param>
+            <remarks>
+               If the entire process of running the request is done in
+               the method, <see cref="P:Mono.WebServer.Worker.IsAsync"/> should be set to <see langword="false"/>. If, however, the method evokes an
+               asynchronous or threaded call, like <see cref="M:System.Net.Sockets.Socket.BeginReceive(System.Byte[],System.Int32,System.Int32,System.Net.Sockets.SocketFlags,System.AsyncCallback,System.Object)"/>, <see cref="P:Mono.WebServer.Worker.IsAsync"/>
+               should be set to <see langword="true"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.Worker.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+               Reads a block of request data from the current
+               implementation.
+            </summary>
+            <param name="buffer">
+               A <see cref="!:byte[]"/> to be populated with the read
+               data.
+            </param>
+            <param name="position">
+               A <see cref="T:System.Int32"/> containing the position in <paramref name="buffer"/> it which to start storing the read data.
+            </param>
+            <param name="size">
+               A <see cref="T:System.Int32"/> containing the number of bytes to
+               read.
+            </param>
+            <returns>
+               A <see cref="T:System.Int32"/> containing the number of bytes that
+               were actually read.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.Worker.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+               Writes a block of response data from the current
+               implementation.
+            </summary>
+            <param name="buffer">
+               A <see cref="!:byte[]"/> containing data to write.
+            </param>
+            <param name="position">
+               A <see cref="T:System.Int32"/> containing the position in <paramref name="buffer"/> it which to start writing from.
+            </param>
+            <param name="size">
+               A <see cref="T:System.Int32"/> containing the number of bytes to
+               write.
+            </param>
+        </member>
+        <member name="M:Mono.WebServer.Worker.Close">
+            <summary>
+               Closes the current instance and releases the resources
+               associated with the data transfer.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.Worker.Flush">
+            <summary>
+               Causes all response data to be written.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.Worker.IsConnected">
+            <summary>
+               Gets whether or not the current instance is connected.
+            </summary>
+            <returns>
+               A <see cref="T:System.Boolean"/> indicating whether or not the
+               current instance is connected.
+            </returns>
+        </member>
+        <member name="P:Mono.WebServer.Worker.IsAsync">
+            <summary>
+               Gets whether or not the current instance is asynchronous.
+            </summary>
+            <value>
+               A <see cref="T:System.Boolean"/> indicating whether or not the
+               current instance is asynchronous.
+            </value>
+            <remarks>
+               This property indicates whether or not a call to <see cref="M:Mono.WebServer.Worker.Run(System.Object)"/> will spawn its own worker thread. <see langword="false"/> indicates that the entire process
+               will be completed in a single thread during the duration
+               of <see cref="M:Mono.WebServer.Worker.Run(System.Object)"/>.
+            </remarks>
+        </member>
+        <member name="T:Mono.WebServer.WebSource">
+            <summary>
+               This abstract class produces the implementation specific
+               components needed to run the <see cref="T:Mono.WebServer.ApplicationServer"/>.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.WebSource.CreateSocket">
+            <summary>
+               Creates a bound socket to be used for listening for new
+               connections.
+            </summary>
+            <returns>
+               A <see cref="T:System.Net.Sockets.Socket"/> object containing a socket to be
+               used for listening for new connections.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.WebSource.CreateWorker(System.Net.Sockets.Socket,Mono.WebServer.ApplicationServer)">
+            <summary>
+               Creates a worker to use to run a request on a client
+               socket.
+            </summary>
+            <param name="client">
+               A <see cref="T:System.Net.Sockets.Socket"/> object containing a client
+               socket accepted from the listen socket created by <see cref="M:Mono.WebServer.WebSource.CreateSocket"/>.
+            </param>
+            <param name="server">
+               A <see cref="T:Mono.WebServer.ApplicationServer"/> object containing the
+               server that created the current instance.
+            </param>
+            <returns>
+               A <see cref="T:Mono.WebServer.Worker"/> to use to run a request.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.WebSource.GetApplicationHostType">
+            <summary>
+               Gets the type of application host to use with the current
+               instance.
+            </summary>
+            <returns>
+               A <see cref="T:System.Type"/> containing the type of application
+               host to use with the current instance.
+            </returns>
+            <remarks>
+               <para>The type of class returned must implement <see cref="T:Mono.WebServer.IApplicationHost"/>.</para>
+               <para>This type is used internally to create a <see cref="T:Mono.WebServer.IApplicationHost"/> in a specified <see cref="T:System.AppDomain"/> via <see cref="!:Web.Hosting.ApplicationHost.CreateApplicationHost"/>.</para>
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.WebSource.CreateRequestBroker">
+            <summary>
+               Creates a request broker for managing requests.
+            </summary>
+            <returns>
+               A <see cref="T:Mono.WebServer.IRequestBroker"/> containing a request
+               broker for managing requests.
+            </returns>
+            <remarks>
+               Each application host receives its own request broker.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.WebSource.Dispose">
+            <summary>
+               Disposes of the the resources contained in the current
+               instance.
+            </summary>
+            <remarks>
+               Implemented for <see cref="T:System.IDisposable"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.WebSource.Dispose(System.Boolean)">
+            <summary>
+               Disposes of the the resources contained in the current
+               instance.
+            </summary>
+            <param name="disposing">
+               A <see cref="T:System.Boolean"/> indicating whether or not the
+               current instance is disposing. If <see langword="false"/>, the method was called by the class and not the
+               garbage collector.
+            </param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.Utils.buildUrlBase(System.String,System.Int32,System.String,Xameleon.Utility.S3.CallingFormat)">
+            <summary>
+            Calculates the endpoint based on the calling format.
+            </summary>
+        </member>
+        <member name="T:Xameleon.Transform.Transform">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Xameleon.Transform.Transform.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Xameleon.Utility.S3.QueryStringAuthGenerator">
+            This class mimics the behavior of AWSAuthConnection, except instead of actually performing
+            the operation, QueryStringAuthGenerator will return URLs with query string parameters that
+            can be used to do the same thing.  These parameters include an expiration date, so that
+            if you hand them off to someone else, they will only work for a limited amount of time.
+        </member>
+        <member name="P:Xameleon.Utility.S3.QueryStringAuthGenerator.Expires">
+            <summary>
+            Sets/Gets the milliseconds since the Epoch that this
+            expires at
+            </summary>
+        </member>
+        <member name="T:Xameleon.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Properties.Resources.SourceXml">
+            <summary>
+              Looks up a localized string similar to http://xslt.googlecode.com/svn/trunk/Modules/DataFilter/init.xml.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Properties.Resources.SourceXslt">
+            <summary>
+              Looks up a localized string similar to http://xslt.googlecode.com/svn/test/extensionfunction.xsl.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Bucker.GetMessage.Payload">
+            <summary>
+            Message payload.
+            </summary>
+        </member>
+        <member name="T:Xameleon.Bucker.MessageState">
+            <summary>
+            Wrapper carrying necessary information when using the asynchronous methods
+            of the QueueClient class.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Bucker.MessageState.Sock">
+            <summary>
+            Gets or sets the connected client socket.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Bucker.MessageState.Event">
+            <summary>
+            Gets or sets the synchronisation event on which
+            another thread is waiting on.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Bucker.MessageState.Data">
+            <summary>
+            Gets or sets the content read from the socket so far.
+            </summary>
+        </member>
+        <member name="P:Xameleon.Bucker.MessageState.Buffer">
+            <summary>
+            Gets the buffer where the data was read into.
+            </summary>
+        </member>
+        <member name="T:Xameleon.Bucker.QueueClient">
+            <summary> 
+            Manages a connection to a bucker queue.
+            Allows to perform actions on a queue and its messages
+            </summary>
+        </member>
+        <member name="M:Xameleon.Bucker.QueueClient.Connect">
+            <summary> 
+            Connect to the queue server.
+            </summary>    
+        </member>
+        <member name="M:Xameleon.Bucker.QueueClient.Disconnect">
+            <summary> 
+            Gracefully disconnect from the queue server.
+            </summary>   
+        </member>
+        <member name="M:Xameleon.Bucker.QueueClient.Send(System.String)">
+            <summary> 
+            Send a message as an XML string.
+            </summary>   
+            <param name="xml">Message representation as an XML string.</param>
+        </member>
+        <member name="M:Xameleon.Bucker.QueueClient.Send(Xameleon.Bucker.IMessage)">
+            <summary> 
+            Send a message instance.
+            </summary>   
+            <param name="m">Message instance.</param>
+        </member>
+        <member name="M:Xameleon.Bucker.QueueClient.AsyncSend(System.String,System.Threading.ManualResetEvent)">
+            <summary> 
+            Asynchronously send a message as an XML string.
+            </summary>   
+            <param name="xml">Message representation as an XML string.</param>
+            <param name="ev">Synchronisation event used by the calling thread.</param>
+        </member>
+        <member name="M:Xameleon.Bucker.QueueClient.AsyncSend(Xameleon.Bucker.IMessage,System.Threading.ManualResetEvent)">
+            <summary> 
+            Asynchronously send a message instance.
+            </summary> 
+            <param name="m">Message instance.</param>  
+            <param name="ev">Synchronisation event used by the calling thread.</param>
+        </member>
+        <member name="M:Xameleon.Bucker.QueueClient.Recv">
+            <summary> 
+            Read up to 1024 bytes from the queue.
+            </summary>   
+            <remarks>Block the caller execution.</remarks>
+            <returns>Whatever could be read from the queue connection.</returns>
+        </member>
+        <member name="M:Xameleon.Bucker.QueueClient.Recv(System.Int32)">
+            <summary> 
+            Read up to the specified number of bytes from the queue.
+            </summary>   
+            <remarks>Block the caller execution.</remarks>
+            <param name="size">Maximum to be read from the queue.</param>  
+            <returns>Whatever could be read from the queue connection.</returns>
+        </member>
+        <member name="M:Xameleon.Bucker.QueueClient.AsyncRecv(System.Text.StringBuilder,System.Threading.ManualResetEvent)">
+            <summary> 
+            Asynchronously read from the queue and put the content into 
+            the provided StringBuilder.
+            <param name="sb">Hold the read content.</param>  
+            <param name="ev">Synchronisation event used by the calling thread.</param>  
+            </summary>   
+        </member>
+        <member name="T:Mono.WebServer.UnregisterRequestEventArgs">
+            <summary>
+              This class extends <see cref="T:System.EventArgs"/> to provide arguments for
+              <see cref="T:Mono.WebServer.BaseRequestBroker.UnregisterRequestEventHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.UnregisterRequestEventArgs.#ctor(System.Int32)">
+            <summary>
+              Constructs an instance of the class for the specified request ID
+            </summary>
+            <param name="requestId">Request of the ID that has just been unregistered</param>
+        </member>
+        <member name="P:Mono.WebServer.UnregisterRequestEventArgs.RequestId">
+            <summary>
+              Contains the id of a request that is about to be unregistered.
+            </summary>
+        </member>
+        <member name="T:Mono.WebServer.BaseRequestBroker">
+            <summary>
+               This class provides a request broker covering the base
+               functionality.
+            </summary>
+            <remarks>
+               A request broker serves as an intermediary between <see cref="T:Mono.WebServer.Worker"/> and <see cref="T:Mono.WebServer.MonoWorkerRequest"/> to handle
+               the interaction between app-domains.
+            </remarks>
+        </member>
+        <member name="F:Mono.WebServer.BaseRequestBroker.INITIAL_REQUESTS">
+            <summary>
+               Contains the initial request capacity of a <see cref="T:Mono.WebServer.BaseRequestBroker"/>.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.BaseRequestBroker.reqlock">
+            <summary>
+               Contains a lock to use when accessing and modifying the
+                request allocation tables.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.BaseRequestBroker.request_ids">
+            <summary>
+               Contains the request ID's.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.BaseRequestBroker.requests">
+            <summary>
+               Contains the registered workers.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.BaseRequestBroker.buffers">
+            <summary>
+               Contains buffers for the requests to use.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.BaseRequestBroker.requests_count">
+            <summary>
+               Contains the number of active requests.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.BaseRequestBroker.requests_served">
+            <summary>
+               Contains the total number of requests served so far.
+               May freely wrap around.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.GrowRequests(System.Int32@,System.Int32@)">
+            <summary>
+               Grows the size of the request allocation tables by 33%.
+            </summary>
+            <param name="curlen">
+               A <see cref="T:System.Int32"/> containing the current length of the
+               allocation tables.
+            </param>
+            <param name="newid">
+               A <see cref="T:System.Int32"/> containing the ID to use for a new
+               request.
+            </param>
+            <remarks>
+               <note type="caution"><para>
+                   This *MUST* be called with the reqlock held!
+               </para></note>
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.GetNextRequestId">
+            <summary>
+               Gets the next available request ID, expanding the array
+               of possible ID's if necessary.
+            </summary>
+            <returns>
+               A <see cref="T:System.Int32"/> containing the ID of the request.
+            </returns>
+            <remarks>
+               <note type="caution"><para>
+                   This *MUST* be called with the reqlock held!
+               </para></note>
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.RegisterRequest(Mono.WebServer.Worker)">
+            <summary>
+               Registers a request with the current instance.
+            </summary>
+            <param name="worker">
+               A <see cref="T:Mono.WebServer.Worker"/> object containing the request to
+               register.
+            </param>
+            <returns>
+               A <see cref="T:System.Int32"/> containing the ID of the request.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.UnregisterRequest(System.Int32)">
+            <summary>
+               Unregisters a request with the current instance.
+            </summary>
+            <param name="id">
+               A <see cref="T:System.Int32"/> containing the ID of the request.
+            </param>
+            <remarks>
+               Before unregistering the request and freeing all of its data, the method
+               invokes the <see cref="E:Mono.WebServer.BaseRequestBroker.UnregisterRequestEvent"/> handlers (if any).
+               <note type="caution"><para>
+                  After the event handlers return the request ID is invalid and
+                  *MUST NOT* be used for any purpose other than referencing the event
+                  receiver's internal housekeeping records for that particular ID.
+               </para></note>
+               <note type="caution"><para>
+                  Make the event handler code as fast as possible, as until it returns no other
+                  request shall be allocated another id.
+               </para></note>
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.DoUnregisterRequest(System.Int32)">
+            <summary>
+               Invokes registered handlers of <see cref="E:Mono.WebServer.BaseRequestBroker.UnregisterRequestEvent"/>. Each handler is
+               passed an arguments object which contains the ID of a request that is about to be unregistered.
+            </summary>
+            <param name="id">ID of a request that is about to be unregistered</param>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.ValidRequest(System.Int32)">
+            <summary>
+               Gets whether or not the request with a specified ID is
+               valid.
+            </summary>
+            <param name="requestId">
+               A <see cref="T:System.Int32"/> containing the ID of the request.
+            </param>
+            <returns>
+               A <see cref="T:System.Boolean"/> indicating whether or not the
+               request is valid.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.Read(System.Int32,System.Int32,System.Byte[]@)">
+            <summary>
+               Reads a block of request data from the request with a
+               specified ID.
+            </summary>
+            <param name="requestId">
+               A <see cref="T:System.Int32"/> containing the ID of the request.
+            </param>
+            <param name="size">
+               A <see cref="T:System.Int32"/> containing the number of bytes to
+               read.
+            </param>
+            <param name="buffer">
+               A <see cref="!:byte[]"/> containing the read data.
+            </param>
+            <returns>
+               A <see cref="T:System.Int32"/> containing the number of bytes that
+               were actually read.
+            </returns>
+            <remarks>
+               <para>See <see cref="M:Mono.WebServer.Worker.Read(System.Byte[],System.Int32,System.Int32)"/>.</para>
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.GetWorker(System.Int32)">
+            <summary>
+               Gets the request with a specified ID.
+            </summary>
+            <param name="requestId">
+               A <see cref="T:System.Int32"/> containing the ID of the request.
+            </param>
+            <returns>
+               A <see cref="T:Mono.WebServer.Worker"/> object containing the request
+               with the specified ID, or <see langword="null"/> if the
+               request does not exist.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.Write(System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+               Writes a block of response data to the request with a
+               specified ID.
+            </summary>
+            <param name="requestId">
+               A <see cref="T:System.Int32"/> containing the ID of the request.
+            </param>
+            <param name="buffer">
+               A <see cref="!:byte[]"/> containing data to write.
+            </param>
+            <param name="position">
+               A <see cref="T:System.Int32"/> containing the position in <paramref name="buffer"/> it which to start writing from.
+            </param>
+            <param name="size">
+               A <see cref="T:System.Int32"/> containing the number of bytes to
+               write.
+            </param>
+            <remarks>
+               <para>See <see cref="M:Mono.WebServer.Worker.Write(System.Byte[],System.Int32,System.Int32)"/>.</para>
+               <para>If the request does not exist, no action is
+               taken.</para>
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.Close(System.Int32)">
+            <summary>
+               Closes the request with a specified ID.
+            </summary>
+            <param name="requestId">
+               A <see cref="T:System.Int32"/> containing the ID of the request.
+            </param>
+            <remarks>
+               <para>See <see cref="M:Mono.WebServer.Worker.Close"/>.</para>
+               <para>If the request does not exist, no action is
+               taken.</para>
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.Flush(System.Int32)">
+            <summary>
+               Flushes the request with a specified ID.
+            </summary>
+            <param name="requestId">
+               A <see cref="T:System.Int32"/> containing the ID of the request.
+            </param>
+            <remarks>
+               <para>See <see cref="M:Mono.WebServer.Worker.Flush"/>.</para>
+               <para>If the request does not exist, no action is
+               taken.</para>
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.IsConnected(System.Int32)">
+            <summary>
+               Gets whether or not the request with a specified ID is
+               connected.
+            </summary>
+            <param name="requestId">
+               A <see cref="T:System.Int32"/> containing the ID of the request.
+            </param>
+            <returns>
+               A <see cref="T:System.Boolean"/> indicating whether or not the
+               request is connected. If the request doesn't exist, <see langref="false"/> will be returned.
+            </returns>
+            <remarks>
+               See <see cref="M:Mono.WebServer.Worker.IsConnected"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.BaseRequestBroker.InitializeLifetimeService">
+            <summary>
+               Obtains a lifetime service object for the current
+               instance.
+            </summary>
+            <returns>
+               Always <see langword="null" />.
+            </returns>
+        </member>
+        <member name="E:Mono.WebServer.BaseRequestBroker.UnregisterRequestEvent">
+            <summary>
+              This event is called just before the request is unregistered by the broker.
+              This gives the chance to clean up any private data associated with the event.
+            </summary>
+            <remarks>
+              The event handlers are invoked with a lock held on the issuing object, so that the event receiver
+              can do the cleanup without the chance of another thread stepping in at the wrong time.
+            </remarks>
+        </member>
+        <member name="T:Mono.WebServer.BaseRequestBroker.UnregisterRequestEventHandler">
+            <summary>
+              This delegate is used to handle <see cref="E:Mono.WebServer.BaseRequestBroker.UnregisterRequestEvent"/>
+            </summary>
+            <param name="sender">Origin of the event</param>
+            <param name="args">An <see cref="T:Mono.WebServer.UnregisterRequestEventArgs"/> object with the event-specific arguments</param>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.QueueService">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.ListQueues(Xameleon.AmazonAWS.SQS.ListQueues)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.ListQueuesAsync(Xameleon.AmazonAWS.SQS.ListQueues)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.ListQueuesAsync(Xameleon.AmazonAWS.SQS.ListQueues,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.CreateQueue(Xameleon.AmazonAWS.SQS.CreateQueue)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.CreateQueueAsync(Xameleon.AmazonAWS.SQS.CreateQueue)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.CreateQueueAsync(Xameleon.AmazonAWS.SQS.CreateQueue,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.QueueService.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.QueueService.ListQueuesCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.QueueService.CreateQueueCompleted">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.MessageQueue">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.SendMessage(Xameleon.AmazonAWS.SQS.SendMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.SendMessageAsync(Xameleon.AmazonAWS.SQS.SendMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.SendMessageAsync(Xameleon.AmazonAWS.SQS.SendMessage,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.ReceiveMessage(Xameleon.AmazonAWS.SQS.ReceiveMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.ReceiveMessageAsync(Xameleon.AmazonAWS.SQS.ReceiveMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.ReceiveMessageAsync(Xameleon.AmazonAWS.SQS.ReceiveMessage,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.PeekMessage(Xameleon.AmazonAWS.SQS.PeekMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.PeekMessageAsync(Xameleon.AmazonAWS.SQS.PeekMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.PeekMessageAsync(Xameleon.AmazonAWS.SQS.PeekMessage,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteMessage(Xameleon.AmazonAWS.SQS.DeleteMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteMessageAsync(Xameleon.AmazonAWS.SQS.DeleteMessage)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteMessageAsync(Xameleon.AmazonAWS.SQS.DeleteMessage,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteQueue(Xameleon.AmazonAWS.SQS.DeleteQueue)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteQueueAsync(Xameleon.AmazonAWS.SQS.DeleteQueue)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteQueueAsync(Xameleon.AmazonAWS.SQS.DeleteQueue,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeout(Xameleon.AmazonAWS.SQS.SetVisibilityTimeout)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeoutAsync(Xameleon.AmazonAWS.SQS.SetVisibilityTimeout)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeoutAsync(Xameleon.AmazonAWS.SQS.SetVisibilityTimeout,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeout(Xameleon.AmazonAWS.SQS.GetVisibilityTimeout)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeoutAsync(Xameleon.AmazonAWS.SQS.GetVisibilityTimeout)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeoutAsync(Xameleon.AmazonAWS.SQS.GetVisibilityTimeout,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.AddGrant(Xameleon.AmazonAWS.SQS.AddGrantRequest)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.AddGrantAsync(Xameleon.AmazonAWS.SQS.AddGrantRequest)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.AddGrantAsync(Xameleon.AmazonAWS.SQS.AddGrantRequest,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.RemoveGrant(Xameleon.AmazonAWS.SQS.RemoveGrantRequest)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.RemoveGrantAsync(Xameleon.AmazonAWS.SQS.RemoveGrantRequest)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.RemoveGrantAsync(Xameleon.AmazonAWS.SQS.RemoveGrantRequest,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.ListGrants(Xameleon.AmazonAWS.SQS.ListGrantsRequest)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.ListGrantsAsync(Xameleon.AmazonAWS.SQS.ListGrantsRequest)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.ListGrantsAsync(Xameleon.AmazonAWS.SQS.ListGrantsRequest,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Xameleon.AmazonAWS.SQS.MessageQueue.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.SendMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.ReceiveMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.PeekMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.DeleteQueueCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.SetVisibilityTimeoutCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.GetVisibilityTimeoutCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.AddGrantCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.RemoveGrantCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Xameleon.AmazonAWS.SQS.MessageQueue.ListGrantsCompleted">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListQueues">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListQueues.QueueNamePrefix">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.Grant">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.Grant.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.Grant.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.Grantee">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.Group">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.Group.URI">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.User">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.CanonicalUser">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CanonicalUser.ID">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CanonicalUser.DisplayName">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.AmazonCredential">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.AmazonCredential.Credential">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.AmazonCustomerByEmail">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.AmazonCustomerByEmail.EmailAddress">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListGrantsResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListGrantsResponse.GrantList">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListGrantsResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ResponseStatus1">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ResponseStatus1.StatusCode">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ResponseStatus1.StatusMessage">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListGrantsRequest">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListGrantsRequest.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListGrantsRequest.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.RemoveGrantResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.RemoveGrantResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.RemoveGrantRequest">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.RemoveGrantRequest.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.RemoveGrantRequest.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.AddGrantResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.AddGrantResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.AddGrantRequest">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.AddGrantRequest.Grantee">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.AddGrantRequest.Permission">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListQueuesResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListQueuesResponse.QueueUrl">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListQueuesResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ResponseStatus.StatusCode">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ResponseStatus.Message">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ResponseStatus.RequestId">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.CreateQueue">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CreateQueue.QueueName">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CreateQueue.DefaultVisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.CreateQueueResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CreateQueueResponse.QueueUrl">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CreateQueueResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SendMessage">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SendMessage.MessageBody">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SendMessageResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SendMessageResponse.MessageId">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SendMessageResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ReceiveMessage">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ReceiveMessage.NumberOfMessages">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ReceiveMessage.VisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ReceiveMessageResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ReceiveMessageResponse.Message">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ReceiveMessageResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.Message">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.Message.MessageId">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.Message.MessageBody">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.PeekMessage">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.PeekMessage.MessageId">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.PeekMessageResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.PeekMessageResponse.Message">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.PeekMessageResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteMessage">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.DeleteMessage.MessageId">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteMessageResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.DeleteMessageResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteQueue">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteQueueResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.DeleteQueueResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SetVisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SetVisibilityTimeout.VisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SetVisibilityTimeoutResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SetVisibilityTimeoutResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.GetVisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.GetVisibilityTimeoutResponse">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.GetVisibilityTimeoutResponse.VisibilityTimeout">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.GetVisibilityTimeoutResponse.ResponseStatus">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListQueuesCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListQueuesCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListQueuesCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.CreateQueueCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.CreateQueueCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.CreateQueueCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SendMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SendMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SendMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ReceiveMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ReceiveMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ReceiveMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.PeekMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.PeekMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.PeekMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.DeleteMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteQueueCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.DeleteQueueCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.DeleteQueueCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SetVisibilityTimeoutCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.SetVisibilityTimeoutCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.SetVisibilityTimeoutCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.GetVisibilityTimeoutCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.GetVisibilityTimeoutCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.GetVisibilityTimeoutCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.AddGrantCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.AddGrantCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.AddGrantCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.RemoveGrantCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.RemoveGrantCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.RemoveGrantCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListGrantsCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Xameleon.AmazonAWS.SQS.ListGrantsCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Xameleon.AmazonAWS.SQS.ListGrantsCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="M:Mono.WebServer.BaseApplicationHost.#ctor">
+            <summary>
+              Creates the <see cref="M:Mono.WebServer.BaseApplicationHost.EndOfRequest(Mono.WebServer.MonoWorkerRequest)"/> event handler and registers
+              a handler (<see cref="M:Mono.WebServer.BaseApplicationHost.OnUnload(System.Object,System.EventArgs)"/>) with the <see cref="E:System.AppDomain.DomainUnload"/> event.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.BaseApplicationHost.Unload">
+            <summary>
+              Unloads the current application domain by calling <see cref="M:System.Web.HttpRuntime.UnloadAppDomain"/>
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.BaseApplicationHost.OnUnload(System.Object,System.EventArgs)">
+            <summary>
+              Event handler for the <see cref="E:System.AppDomain.DomainUnload"/>
+              event. Calls <see cref="M:Mono.WebServer.ApplicationServer.DestroyHost(Mono.WebServer.IApplicationHost)"/>
+              to shut the host down.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.BaseApplicationHost.ProcessRequest(Mono.WebServer.MonoWorkerRequest)">
+            <summary>
+              Process a request.
+            </summary>
+            <param name="mwr">A worker object to actually process the request</param>
+            <remarks>
+              If the mwr parameter is null or no request data can be read, the request will be ended
+              immediately. Otherwise, registers an event handler for the worker's <see cref="M:Mono.WebServer.MonoWorkerRequest.EndOfRequest"/> event and calls the worker's <see cref="M:Mono.WebServer.MonoWorkerRequest.ProcessRequest"/> method to actually process the request. If an unhandled exception
+              occurs during that phase, it is printed to the console and <see cref="M:Mono.WebServer.BaseApplicationHost.EndOfRequest(Mono.WebServer.MonoWorkerRequest)"/> is called
+              immediately.
+            </remarks>
+        </member>
+        <member name="P:Mono.WebServer.BaseApplicationHost.Server">
+            <summary>
+              Reference to the associated <see cref="T:Mono.WebServer.ApplicationServer"/>
+            </summary>
+        </member>
+        <member name="P:Mono.WebServer.BaseApplicationHost.Path">
+            <summary>
+              Physical path to the application root directory.
+            </summary>
+        </member>
+        <member name="P:Mono.WebServer.BaseApplicationHost.VPath">
+            <summary>
+              Virtual path to the application root.
+            </summary>
+        </member>
+        <member name="P:Mono.WebServer.BaseApplicationHost.Domain">
+            <summary>
+              Returns the current application domain.
+            </summary>
+        </member>
+        <member name="P:Mono.WebServer.BaseApplicationHost.RequestBroker">
+            <summary>
+              Reference to the associated request broker
+            </summary>
+        </member>
+        <member name="T:Mono.WebServer.MonoWorkerRequest">
+            <summary>
+               This abstract class extends <see cref="T:System.Web.Hosting.SimpleWorkerRequest"/>,
+               adding support for security certificates and implementing methods
+               for use with a web server.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.appHostBase">
+            <summary>
+               Contains the application host used by the current
+               instance.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.encoding">
+            <summary>
+               Contains the encoding used for content in the current
+               instance.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.headerEncoding">
+            <summary>
+               Contains the encoding used for headers in the current
+               instance.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.queryStringBytes">
+            <summary>
+               Contains a <see cref="!:byte[]"/> representation of the
+               query string.
+            </summary>
+            <remarks>
+               When <see cref="M:Mono.WebServer.MonoWorkerRequest.GetQueryStringRawBytes"/> is called, it
+               stores the encoded query string in this property so it
+               only has to be converted once.
+            </remarks>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.hostVPath">
+            <summary>
+               Contains the host virtual path of the current instance as
+               read from the application host.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.hostPath">
+            <summary>
+               Contains the host physical path of the current instance
+               as read from the application host.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.end_send">
+            <summary>
+               Contains the <see cref="!:EndOfSendNotification"/>
+               callback to call once all data has been sent.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.end_send_data">
+            <summary>
+               Contains the data to send to <see cref="F:Mono.WebServer.MonoWorkerRequest.end_send"/>.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.server_raw">
+            <summary>
+               Contains the raw server certificate used for
+               authenticating the current instance, if secure.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.client_raw">
+            <summary>
+               Contains the raw client certificate used for
+               authenticating the current instance, if secure.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.client_cert">
+            <summary>
+               Contains the X509 client certificate used for
+               authenticating the current instance, if secure.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.server_variables">
+            <summary>
+               Contains the server variables in the current instance.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.inUnhandledException">
+            <summary>
+               Indicates whether or not an unhandled exception has
+               occurred while processing the request.
+            </summary>
+            <remarks>
+               Being within an unhandled exception can cause problems
+               when accessing properties of the <see cref="T:System.Web.HttpResponse"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.#ctor(Mono.WebServer.IApplicationHost)">
+            <summary>
+               Constructs and initializes a new instance of <see cref="T:Mono.WebServer.MonoWorkerRequest"/> for a specified application
+               host.
+            </summary>
+            <param name="appHost">
+               A <see cref="T:Mono.WebServer.IApplicationHost"/> object containing the
+               application host that created the new instance.
+            </param>
+            <remarks>
+               <paramref name="appHost"/> <B>MUST</B> be the <see cref="T:Mono.WebServer.IApplicationHost"/> that created the new
+               instance so they will be in the same <see cref="T:System.AppDomain"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetAppPath">
+            <summary>
+               Gets the virtual host path of the file used by of the
+               current instance.
+            </summary>
+            <returns>
+               A <see cref="T:System.String"/> containing the virtual host path
+               of the file used by the current instance.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetAppPathTranslated">
+            <summary>
+               Gets the physical host path of the file used by of the
+               current instance.
+            </summary>
+            <returns>
+               A <see cref="T:System.String"/> containing the physical host path
+               of the file used by the current instance.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetFilePathTranslated">
+            <summary>
+               Gets the mapped path of the file used by of the current
+               instance.
+            </summary>
+            <returns>
+               A <see cref="T:System.String"/> containing the mapped path of the
+               file used by the current instance.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetLocalAddress">
+            <summary>
+               Gets the local address of the current instance.
+            </summary>
+            <returns>
+               A <see cref="T:System.String"/> containing the local address of
+               the current instance.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetServerName">
+            <summary>
+               Gets the server name of the current instance.
+            </summary>
+            <returns>
+               A <see cref="T:System.String"/> containing the server name of
+               the current instance.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetLocalPort">
+            <summary>
+               Gets the local port of the current instance.
+            </summary>
+            <returns>
+               A <see cref="T:System.Int32"/> containing the port number of the
+               current instance.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetPreloadedEntityBody">
+            <summary>
+               Gets the preloaded entity data for the current instance.
+            </summary>
+            <returns>
+               A <see cref="!:byte[]"/> containing the preloaded entity
+               data contained from the request.
+            </returns>
+            <remarks>
+               If the request was receiving data before being processed,
+               entity (form) data may have been accumulated. This method
+               allows that data to be read directly.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetQueryStringRawBytes">
+            <summary>
+               Gets the bytes representing the query string of the
+               current instance.
+            </summary>
+            <returns>
+               A <see cref="!:byte[]"/> containing the bytes representing
+               the query string.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.DoMapPathEvent(System.String)">
+            <summary>
+               Evokes the registered <see cref="T:Mono.WebServer.MapPathEventHandler"/>
+               delegates one by one until the path is mapped.
+            </summary>
+            <param name="path">
+               A <see cref="T:System.String"/> containing the virutal path of
+               the request.
+            </param>
+            <returns>
+               A <see cref="T:System.String"/> containing the mapped physical
+               path of the request, or <see langword="null"/> if the
+               path was not successfully mapped.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.MapPath(System.String)">
+            <summary>
+               Maps the virtual path of the request to a physical path.
+            </summary>
+            <param name="path">
+               A <see cref="T:System.String"/> containing the virutal path of
+               the request.
+            </param>
+            <returns>
+               A <see cref="T:System.String"/> containing the mapped physical
+               path of the request.
+            </returns>
+            <remarks>
+               By default, the path will be mapped using the virtual and
+               physical paths of the <see cref="T:Mono.WebServer.IApplicationHost"/>
+               used to create the current instance. To override this,
+               register a <see cref="T:Mono.WebServer.MapPathEventHandler"/> with <see cref="E:Mono.WebServer.MonoWorkerRequest.MapPathEvent"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetRequestData">
+            <summary>
+               Gets the request data.
+            </summary>
+            <returns>
+               A <see cref="T:System.Boolean"/> indicating whether or not the data
+               was gotten successfully.
+            </returns>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.ReadRequestData">
+            <summary>
+               Reads the request data.
+            </summary>
+            <returns>
+               A <see cref="T:System.Boolean"/> indicating whether or not the data
+               was read successfully.
+            </returns>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.defaultExceptionHtml">
+            <summary>
+               Contains the default exception HTML to be used if all
+               other renderers fail.
+            </summary>
+            <remarks>
+               This string is to be passed into <see cref="M:System.String.Format(System.String,System.Object)"/> where the
+               exception is the second argument.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.ProcessRequest">
+            <summary>
+               Processes the request contained in the current instance.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.EndOfRequest">
+            <summary>
+               Does final processing after the request has been
+               completed.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.SetEndOfSendNotification(System.Web.HttpWorkerRequest.EndOfSendNotification,System.Object)">
+            <summary>
+               Sets the end-of-status notification callback and its
+               complementary data.
+            </summary>
+            <param name="callback">
+               A <see cref="!:EndOfSendNotification"/> delegate to be
+               called when the current instance is finished sending data
+               to the response.
+            </param>
+            <param name="extraData">
+               A <see cref="T:System.Object"/> containing data to be sent to
+               <paramref name="callback"/> when it is called.
+            </param>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.SendCalculatedContentLength(System.Int32)">
+            <summary>
+               Sends the calculated content length of the response.
+            </summary>
+            <param name="contentLength">
+               A <see cref="T:System.Int32"/> containing the content length of the
+               response.
+            </param>
+            <remarks>
+               Including the content length in the header allows the
+               client to show download progress.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.SendKnownResponseHeader(System.Int32,System.String)">
+            <summary>
+               Sends a known response header with a specified index and
+               value.
+            </summary>
+            <param name="index">
+               A <see cref="T:System.Int32"/> containing a known response header
+               index.
+            </param>
+            <param name="value">
+               A <see cref="T:System.String"/> containing the response value.
+            </param>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.SendFromStream(System.IO.Stream,System.Int64,System.Int64)">
+            <summary>
+               Sends a response directly from stream at a specified
+               offset with a specified length.
+            </summary>
+            <param name="stream">
+               A <see cref="T:System.IO.Stream"/> object to send from.
+            </param>
+            <param name="offset">
+               A <see cref="T:System.Int64"/> specifying at what seek position to
+               start sending from.
+            </param>
+            <param name="length">
+               A <see cref="T:System.Int64"/> specifying the number of bytes to
+               send.
+            </param>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.SendResponseFromFile(System.String,System.Int64,System.Int64)">
+            <summary>
+               Sends a response directly from file at a specified offset
+               with a specified length.
+            </summary>
+            <param name="filename">
+               A <see cref="T:System.String"/> containing the name of the file
+               to send from.
+            </param>
+            <param name="offset">
+               A <see cref="T:System.Int64"/> specifying at what seek position to
+               start sending from.
+            </param>
+            <param name="length">
+               A <see cref="T:System.Int64"/> specifying the number of bytes to
+               send.
+            </param>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.SendResponseFromFile(System.IntPtr,System.Int64,System.Int64)">
+            <summary>
+               Sends a response directly from a raw file descriptor at a
+               specified offset with a specified length.
+            </summary>
+            <param name="handle">
+               A <see cref="T:System.IntPtr"/> pointing to a raw file
+               descriptor.
+            </param>
+            <param name="offset">
+               A <see cref="T:System.Int64"/> specifying at what seek position to
+               start sending from.
+            </param>
+            <param name="length">
+               A <see cref="T:System.Int64"/> specifying the number of bytes to
+               send.
+            </param>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.cert_cookie">
+            <summary>
+               Contains the certificate cookie as used by <see cref="M:Mono.WebServer.MonoWorkerRequest.GetServerVariable(System.String)"/>.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.cert_issuer">
+            <summary>
+               Contains the certificate issuer as used by <see cref="M:Mono.WebServer.MonoWorkerRequest.GetServerVariable(System.String)"/>.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.cert_serial">
+            <summary>
+               Contains the certificate serial as used by <see cref="M:Mono.WebServer.MonoWorkerRequest.GetServerVariable(System.String)"/>.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MonoWorkerRequest.cert_subject">
+            <summary>
+               Contains the certificate subject as used by <see cref="M:Mono.WebServer.MonoWorkerRequest.GetServerVariable(System.String)"/>.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetServerVariable(System.String)">
+            <summary>
+               Gets a server variable with a specified name from the
+               current instance.
+            </summary>
+            <param name="name">
+               A <see cref="T:System.String"/> containing the name of the
+               server variable to get.
+            </param>
+            <returns>
+               A <see cref="T:System.String"/> containing the value of the
+               server variable, or <see cref="F:System.String.Empty"/> if the
+               variable was not found.
+            </returns>
+            <remarks>
+               Server variables are like environment variables and
+               contain name/value pairs of information.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.AddServerVariable(System.String,System.String)">
+            <summary>
+               Adds a server variable to the current instance.
+            </summary>
+            <param name="name">
+               A <see cref="T:System.String"/> containing the name of the
+               server variable to add.
+            </param>
+            <param name="value">
+               A <see cref="T:System.String"/> containing the value of the
+               server variable to add.
+            </param>
+            <remarks>
+               Server variables are like environment variables and
+               contain name/value pairs of information.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.SetClientCertificate(System.Byte[])">
+            <summary>
+               Sets the raw client certificate used by the current
+               instance.
+            </summary>
+            <param name="rawcert">
+               A <see cref="!:byte[]"/> containing the raw client
+               certificate used by the current instance.
+            </param>
+            <remarks>
+               This method should only be called if <see cref="!:IsSecure"/> is <see langword="true"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetClientCertificate">
+            <summary>
+               Gets the raw client certificate used by the current
+               instance.
+            </summary>
+            <returns>
+               A <see cref="!:byte[]"/> containing the raw client
+               certificate used by the current instance.
+            </returns>
+            <remarks>
+               This method should only be called if <see cref="!:IsSecure"/> is <see langword="true"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetClientCertificateBinaryIssuer">
+            <summary>
+               Gets the binary issuer of the client certificate used by
+               the current instance.
+            </summary>
+            <returns>
+               A <see cref="!:byte[]"/> containing the binary issuer of
+               the client certificate used by the current instance.
+            </returns>
+            <remarks>
+               This method should only be called if <see cref="!:IsSecure"/> is <see langword="true"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetClientCertificateEncoding">
+            <summary>
+               Gets the encoding of the client certificate used by the
+               current instance.
+            </summary>
+            <returns>
+               A <see cref="T:System.Int32"/> indicating the encoding of the
+               client certificate used by the current instance.
+            </returns>
+            <remarks>
+               This method should only be called if <see cref="!:IsSecure"/> is <see langword="true"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetClientCertificatePublicKey">
+            <summary>
+               Gets the public key of the client certificate used by the
+               current instance.
+            </summary>
+            <returns>
+               A <see cref="!:byte[]"/> containing the public key
+               the client certificate used by the current instance.
+            </returns>
+            <remarks>
+               This method should only be called if <see cref="!:IsSecure"/> is <see langword="true"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetClientCertificateValidFrom">
+            <summary>
+               Gets the date and time the client certificate used by the
+               current instance is valid from.
+            </summary>
+            <returns>
+               A <see cref="T:System.DateTime"/> containing the date and time
+               the client certificate used by the current instance is
+               valid from.
+            </returns>
+            <remarks>
+               This method should only be called if <see cref="!:IsSecure"/> is <see langword="true"/>.
+            </remarks>
+        </member>
+        <member name="M:Mono.WebServer.MonoWorkerRequest.GetClientCertificateValidUntil">
+            <summary>
+               Gets the date and time the client certificate used by the
+               current instance is valid until.
+            </summary>
+            <returns>
+               A <see cref="T:System.DateTime"/> containing the date and time
+               the client certificate used by the current instance is
+               valid until.
+            </returns>
+            <remarks>
+               This method should only be called if <see cref="!:IsSecure"/> is <see langword="true"/>.
+            </remarks>
+        </member>
+        <member name="E:Mono.WebServer.MonoWorkerRequest.MapPathEvent">
+            <summary>
+               This event is called by <see cref="M:Mono.WebServer.MonoWorkerRequest.MapPath(System.String)"/> and is
+               used for custom path mapping.
+            </summary>
+            <remarks>
+               <para>See <see cref="T:Mono.WebServer.MapPathEventHandler"/> for an
+               example.</para>
+               <note type="caution">
+                   <para>Handlers added to are not guaranteed to be
+                   called. The class will evoke the handlers in order
+                   until the path is mapped, and then stop.</para>
+               </note>
+            </remarks>
+        </member>
+        <member name="E:Mono.WebServer.MonoWorkerRequest.EndOfRequestEvent">
+            <summary>
+               This event is called after the request has been completed
+               and should be used by request brokers to perform final
+               operations.
+            </summary>
+        </member>
+        <member name="P:Mono.WebServer.MonoWorkerRequest.HostPath">
+            <summary>
+               Gets the physical path of the application host of the
+               current instance.
+            </summary>
+            <value>
+               A <see cref="T:System.String"/> containing the physical path of
+               the application host of the current instance.
+            </value>
+        </member>
+        <member name="P:Mono.WebServer.MonoWorkerRequest.HostVPath">
+            <summary>
+               Gets the virtual path of the application host of the
+               current instance.
+            </summary>
+            <value>
+               A <see cref="T:System.String"/> containing the virtual path of
+               the application host of the current instance.
+            </value>
+        </member>
+        <member name="P:Mono.WebServer.MonoWorkerRequest.Encoding">
+            <summary>
+               Gets the content encoding used by the current instance.
+            </summary>
+            <value>
+               A <see cref="T:System.String"/> containing the content encoding
+               used by the current instance.
+            </value>
+        </member>
+        <member name="P:Mono.WebServer.MonoWorkerRequest.HeaderEncoding">
+            <summary>
+               Gets the header encoding used by the current instance.
+            </summary>
+            <value>
+               A <see cref="T:System.String"/> containing the header encoding
+               used by the current instance.
+            </value>
+        </member>
+        <member name="P:Mono.WebServer.MonoWorkerRequest.RequestId">
+            <summary>
+               Gets the request ID as used by the <see cref="T:Mono.WebServer.IApplicationHost"/>'s request broker.
+            </summary>
+            <value>
+               A <see cref="T:System.Int32"/> containing the request ID.
+            </value>
+        </member>
+        <member name="P:Mono.WebServer.MonoWorkerRequest.ClientCertificate">
+            <summary>
+               Gets the X509 client certificate used by the current
+               instance.
+            </summary>
+            <value>
+               A <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate"/> object containing the
+               client certificate used by the current instance.
+            </value>
+            <remarks>
+               This property should only be used if <see cref="!:IsSecure"/> is <see langword="true"/>.
+            </remarks>
+        </member>
+        <member name="T:Xameleon.UrlResolver.S3XmlResolver">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Xameleon.Utility.S3.AWSAuthConnection">
+            An interface into the S3 system.  It is initially configured with
+            authentication and connection parameters and exposes methods to access and
+            manipulate S3 data.
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.createBucket(System.String)">
+            <summary>
+            Creates a new bucket.
+            </summary>
+            <param name="bucket">The name of the bucket to create</param>
+            <param name="headers">A Map of string to string representing the headers to pass (can be null)</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.listBucket(System.String,System.String,System.String,System.Int32,System.Collections.SortedList)">
+            <summary>
+            Lists the contents of a bucket.
+            </summary>
+            <param name="bucket">The name of the bucket to list</param>
+            <param name="prefix">All returned keys will start with this string (can be null)</param>
+            <param name="marker">All returned keys will be lexographically greater than this string (can be null)</param>
+            <param name="maxKeys">The maximum number of keys to return (can be 0)</param>
+            <param name="headers">A Map of string to string representing HTTP headers to pass.</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.listBucket(System.String,System.String,System.String,System.Int32,System.String,System.Collections.SortedList)">
+            <summary>
+            Lists the contents of a bucket.
+            </summary>
+            <param name="bucket">The name of the bucket to list</param>
+            <param name="prefix">All returned keys will start with this string (can be null)</param>
+            <param name="marker">All returned keys will be lexographically greater than this string (can be null)</param>
+            <param name="maxKeys">The maximum number of keys to return (can be 0)</param>
+            <param name="headers">A Map of string to string representing HTTP headers to pass.</param>
+            <param name="delimiter">Keys that contain a string between the prefix and the first
+            occurrence of the delimiter will be rolled up into a single element.</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.deleteBucket(System.String,System.Collections.SortedList)">
+            <summary>
+            Deletes an empty Bucket.
+            </summary>
+            <param name="bucket">The name of the bucket to delete</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.put(System.String,System.String,Xameleon.Utility.S3.S3Object)">
+            <summary>
+            Writes an object to S3.
+            </summary>
+            <param name="bucket">The name of the bucket to which the object will be added.</param>
+            <param name="key">The name of the key to use</param>
+            <param name="obj">An S3Object containing the data to write.</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.put(System.String,System.String,Xameleon.Utility.S3.S3Object,System.Collections.SortedList)">
+            <summary>
+            Writes an object to S3.
+            </summary>
+            <param name="bucket">The name of the bucket to which the object will be added.</param>
+            <param name="key">The name of the key to use</param>
+            <param name="obj">An S3Object containing the data to write.</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.get(System.String,System.String,System.Collections.SortedList)">
+            <summary>
+            Reads an object from S3
+            </summary>
+            <param name="bucket">The name of the bucket where the object lives</param>
+            <param name="key">The name of the key to use</param>
+            <param name="headers">A Map of string to string representing the HTTP headers to pass (can be null)</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.delete(System.String,System.String,System.Collections.SortedList)">
+            <summary>
+            Delete an object from S3.
+            </summary>
+            <param name="bucket">The name of the bucket where the object lives.</param>
+            <param name="key">The name of the key to use.</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.getBucketLogging(System.String,System.Collections.SortedList)">
+            <summary>
+            Get the logging xml document for a given bucket
+            </summary>
+            <param name="bucket">The name of the bucket</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.putBucketLogging(System.String,System.String,System.Collections.SortedList)">
+            <summary>
+            Write a new logging xml document for a given bucket
+            </summary>
+            <param name="bucket">The name of the bucket to enable/disable logging on</param>
+            <param name="loggingXMLDoc">The xml representation of the logging configuration as a String.</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.getBucketACL(System.String,System.Collections.SortedList)">
+            <summary>
+            Get the ACL for a given bucket.
+            </summary>
+            <param name="bucket">The the bucket to get the ACL from.</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.getACL(System.String,System.String,System.Collections.SortedList)">
+            <summary>
+            Get the ACL for a given object
+            </summary>
+            <param name="bucket">The name of the bucket where the object lives</param>
+            <param name="key">The name of the key to use.</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.putBucketACL(System.String,System.String,System.Collections.SortedList)">
+            <summary>
+            Write a new ACL for a given bucket
+            </summary>
+            <param name="bucket">The name of the bucket to change the ACL.</param>
+            <param name="aclXMLDoc">An XML representation of the ACL as a string.</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.putACL(System.String,System.String,System.String,System.Collections.SortedList)">
+            <summary>
+            Write a new ACL for a given object
+            </summary>
+            <param name="bucket">The name of the bucket where the object lives or the
+            name of the bucket to change the ACL if key is null.</param>
+            <param name="key">The name of the key to use; can be null.</param>
+            <param name="aclXMLDoc">An XML representation of the ACL as a string.</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.listAllMyBuckets(System.Collections.SortedList)">
+            <summary>
+            List all the buckets created by this account.
+            </summary>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.makeRequest(System.String,System.String,System.String,System.Collections.SortedList)">
+            <summary>
+            Make a new WebRequest without an S3Object.
+            </summary>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.makeRequest(System.String,System.String,System.String,System.Collections.SortedList,Xameleon.Utility.S3.S3Object)">
+            <summary>
+            Make a new WebRequest with an S3Object.
+            </summary>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.makeRequest(System.String,System.String,System.String,System.Collections.SortedList,System.Collections.SortedList,Xameleon.Utility.S3.S3Object)">
+            <summary>
+            Make a new WebRequest
+            </summary>
+            <param name="method">The HTTP method to use (GET, PUT, DELETE)</param>
+            <param name="bucket">The bucket name for this request</param>
+            <param name="key">The key this request is for</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+            <param name="obj">S3Object that is to be written (can be null).</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.addHeaders(System.Net.WebRequest,System.Collections.SortedList)">
+            <summary>
+            Add the given headers to the WebRequest
+            </summary>
+            <param name="req">Web request to add the headers to.</param>
+            <param name="headers">A map of string to string representing the HTTP headers to pass (can be null)</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.addMetadataHeaders(System.Net.WebRequest,System.Collections.SortedList)">
+            <summary>
+            Add the given metadata fields to the WebRequest.
+            </summary>
+            <param name="req">Web request to add the headers to.</param>
+            <param name="metadata">A map of string to string representing the S3 metadata for this resource.</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.addHeaders(System.Net.WebRequest,System.Collections.SortedList,System.String)">
+            <summary>
+            Add the given headers to the WebRequest with a prefix before the keys.
+            </summary>
+            <param name="req">WebRequest to add the headers to.</param>
+            <param name="headers">Headers to add.</param>
+            <param name="prefix">String to prepend to each before ebfore adding it to the WebRequest</param>
+        </member>
+        <member name="M:Xameleon.Utility.S3.AWSAuthConnection.addAuthHeader(System.Net.WebRequest,System.String,System.String,System.Collections.SortedList)">
+            <summary>
+            Add the appropriate Authorization header to the WebRequest
+            </summary>
+            <param name="request">Request to add the header to</param>
+            <param name="resource">The resource name (bucketName + "/" + key)</param>
+        </member>
+        <member name="M:Xameleon.Bucker.ListQueue.Add(System.String)">
+            <summary>
+            Add a new queue identifier to the list of queues.
+            </summary>
+            <param name="qid">Queue identifier.</param>
+        </member>
+        <member name="M:Xameleon.Bucker.ListQueue.Remove(System.String)">
+            <summary>
+            Remove a queue identifier from the list of queues.
+            </summary>
+            <param name="qid">Queue identifier.</param>
+        </member>
+        <member name="P:Xameleon.Bucker.ListQueue.Queues">
+            <summary>
+            Gets the list of queue identifiers.
+            </summary>
+        </member>
+        <member name="M:Xameleon.Function.HttpWebResponseStream.GetResponseString(System.IO.Stream)">
+            <summary>
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mono.WebServer.MapPathEventArgs">
+            <summary>
+               This class extends <see cref="T:System.EventArgs"/> to provide arguments
+               for <see cref="T:Mono.WebServer.MapPathEventHandler"/>.
+            </summary>
+            <remarks>
+               When <see cref="E:Mono.WebServer.MonoWorkerRequest.MapPathEvent"/> is called, the
+               handler has an option of setting <see cref="P:Mono.WebServer.MapPathEventArgs.MappedPath"/> to a mapped path.
+            </remarks>
+        </member>
+        <member name="F:Mono.WebServer.MapPathEventArgs.path">
+            <summary>
+               Contains the virtual path, as used in the request.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MapPathEventArgs.mapped">
+            <summary>
+               Contains the physical "mapped" path.
+            </summary>
+        </member>
+        <member name="F:Mono.WebServer.MapPathEventArgs.isMapped">
+            <summary>
+               Indicates whether or not the path has been mapped.
+            </summary>
+        </member>
+        <member name="M:Mono.WebServer.MapPathEventArgs.#ctor(System.String)">
+            <summary>
+               Constructs and initializes a new instance of <see cref="T:Mono.WebServer.MapPathEventArgs"/> for a specified virtual path.
+            </summary>
+            <param name="path">
+               A <see cref="T:System.String"/> containing the virtual path, as
+               contained in the request.
+            </param>
+        </member>
+        <member name="P:Mono.WebServer.MapPathEventArgs.Path">
+            <summary>
+               Gets the virtual path of the current instance.
+            </summary>
+            <value>
+               A <see cref="T:System.String"/> containing the virtual path of
+               the current instance.
+            </value>
+        </member>
+        <member name="P:Mono.WebServer.MapPathEventArgs.IsMapped">
+            <summary>
+               Gets whether or not the path is mapped.
+            </summary>
+            <value>
+               A <see cref="T:System.Boolean"/> indicating whether or not the path
+               has been mapped.
+            </value>
+        </member>
+        <member name="P:Mono.WebServer.MapPathEventArgs.MappedPath">
+            <summary>
+               Gets and sets the physical "mapped" path for the current
+               instance.
+            </summary>
+            <value>
+               A <see cref="T:System.String"/> containing the physical "mapped"
+               path of the current instance.
+            </value>
+        </member>
+        <member name="T:Mono.WebServer.MapPathEventHandler">
+            <summary>
+               This delegate is used to handle <see cref="E:Mono.WebServer.MonoWorkerRequest.MapPathEvent"/> and performs custom path
+               mapping.
+            </summary>
+            <param name="sender">
+               The <see cref="T:System.Object"/> that sent the event.
+            </param>
+            <param name="args">
+               A <see cref="T:Mono.WebServer.MapPathEventArgs"/> object containing the arguments
+               for the event.
+            </param>
+            <remarks>
+               This method is used for custom path mapping within <see cref="M:Mono.WebServer.MonoWorkerRequest.MapPath(System.String)"/>.
+            </remarks>
+            <example>
+               An example <see cref="T:Mono.WebServer.MapPathEventHandler"/>
+               <code language="C#">
+                   void OnMapPathEvent (object sender, MapPathEventArgs args)
+                   {
+                       if (args.Path.StartsWith ("/blog"))
+                           args.MappedPath = @"C:\Documents and Settings\John Doe\My Documents\Visual Studio 2005\WebSites\blog";
+                   }
+               </code>
+            </example>
+        </member>
+        <member name="T:Mono.WebServer.EndOfRequestHandler">
+            <summary>
+               This delegate is used to handle <see cref="E:Mono.WebServer.MonoWorkerRequest.EndOfRequestEvent"/>.
+            </summary>
+            <param name="request">
+               The <see cref="T:Mono.WebServer.MonoWorkerRequest"/> that sent the event.
+            </param>
+        </member>
+        <member name="M:Xameleon.Bucker.ListMessages.Add(System.String)">
+            <summary>
+            Add a new message identifier to the list of messages.
+            </summary>
+            <param name="mid">Message identifier.</param>
+        </member>
+        <member name="M:Xameleon.Bucker.ListMessages.Remove(System.String)">
+            <summary>
+            Remove a message identifier from the list of messages.
+            </summary>
+            <param name="mid">Message identifier.</param>
+        </member>
+        <member name="P:Xameleon.Bucker.ListMessages.Messages">
+            <summary>
+            Gets the list of message identifiers.
+            </summary>
+        </member>
     </members>
 </doc>
