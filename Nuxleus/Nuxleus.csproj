@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Core.cs" />
     <Compile Include="FileSystem\Watcher.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
