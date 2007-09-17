@@ -6,7 +6,7 @@
       <include name="VendorExtensions/Mono/xsp/Mono.WebServer/*.cs"/>
     </sources>
     <resources dynamicprefix="true">
-      <include name="Properties/**/*.resx"/>
+      <include name="Xameleon/Properties/**/*.resx"/>
     </resources>
     <references>
       <include name="System.Drawing.dll"/>
@@ -30,6 +30,17 @@
       <include name="./Dependencies/saxon8.dll"/>
       <include name="./Dependencies/SgmlReaderDll.dll"/>
       <include name="./Dependencies/GlobalClip.dll"/>
+    </references>
+  </csc>
+  <csc target="library" output="Nuxleus.dll">
+    <sources>
+      <include name="Nuxleus/**/*.cs"/>
+    </sources>
+    <references>
+      <include name="Xameleon.dll"/>
+      <include name="System.dll"/>
+      <include name="System.Xml.dll"/>
+      <include name="System.Configuration.dll"/>
     </references>
   </csc>
 </project>
