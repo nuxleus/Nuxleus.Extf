@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Specialized;
 using System.Web.Configuration;
 using System.Web.Services;
-using Extf.Net.S3;
+//using Extf.Net.S3;
 using System.Web;
 
 namespace Xameleon.Service {

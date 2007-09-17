@@ -164,49 +164,18 @@
     <Compile Include="..\vendorextensions\defuze.org\bucker\csharp\src\createqueue.cs">
       <Link>Bucker\createqueue.cs</Link>
     </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\Workspace.cs">
-      <Link>Amplee\Workspace.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\StoreManager.cs">
-      <Link>Amplee\StoreManager.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\Service.cs">
-      <Link>Amplee\Service.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\Member.cs">
-      <Link>Amplee\Member.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\Collection.cs">
-      <Link>Amplee\Collection.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\Category.cs">
-      <Link>Amplee\Category.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\Categories.cs">
-      <Link>Amplee\Categories.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\atom\Author.cs">
-      <Link>Atom\Author.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\atom\Entry.cs">
-      <Link>Atom\Entry.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\atom\Link.cs">
-      <Link>Atom\Link.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\atom\TextConstruct.cs">
-      <Link>Atom\TextConstruct.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\lib\Hash.cs">
-      <Link>Amplee\Lib\Hash.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\storage\FS.cs">
-      <Link>Storage\FS.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\storage\IStorage.cs">
-      <Link>Storage\IStorage.cs</Link>
-    </Compile>
+    <Compile Include="Amplee\Categories.cs" />
+    <Compile Include="Amplee\Category.cs" />
+    <Compile Include="Amplee\Collection.cs" />
+    <Compile Include="Amplee\Member.cs" />
+    <Compile Include="Amplee\Service.cs" />
+    <Compile Include="Amplee\StoreManager.cs" />
+    <Compile Include="Amplee\Workspace.cs" />
     <Compile Include="Asp.Net\Server.cs" />
+    <Compile Include="Atom\Author.cs" />
+    <Compile Include="Atom\Entry.cs" />
+    <Compile Include="Atom\Link.cs" />
+    <Compile Include="Atom\TextConstruct.cs" />
     <Compile Include="Configuration\AspNetAwsConfiguration.cs" />
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="Configuration\AspNetXameleonTransform.cs" />
@@ -228,6 +197,7 @@
     <Compile Include="Configuration\XsltParamCollection.cs" />
     <Compile Include="Configuration\AwsKeyCollection.cs" />
     <Compile Include="Configuration\AwsKey.cs" />
+    <Compile Include="Cryptography\Hash.cs" />
     <Compile Include="Cryptography\HashcodeGenerator.cs" />
     <Compile Include="Document\DocumentResult.cs" />
     <Compile Include="Document\S3Document.cs" />
@@ -242,6 +212,8 @@
     <Compile Include="HttpHandler\XameleonAmpleeAsyncHttpHandler.cs" />
     <Compile Include="HttpHandler\XameleonAsyncHttpHandler.cs" />
     <Compile Include="Memcached\Memcached.cs" />
+    <Compile Include="Storage\FS.cs" />
+    <Compile Include="Storage\IStorage.cs" />
     <Compile Include="Transform\XsltTransformationManager.cs" />
     <Compile Include="HttpApplication\Global.cs" />
     <Compile Include="HttpHandler\AsyncSaxonHttpHandler.cs" />
@@ -369,10 +341,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Base\Extf.Net.Base.csproj">
-      <Project>{0EFC77D9-E940-4C1C-805F-F236FDB64B32}</Project>
-      <Name>Extf.Net.Base</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GlobalClip\GlobalClip.csproj">
       <Project>{9B9C08A7-0E8A-45AA-AEB4-7A5796DB1C26}</Project>
       <Name>GlobalClip</Name>
