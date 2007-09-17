@@ -137,33 +137,6 @@
     <Compile Include="..\vendorextensions\mono\xsp\mono.webserver\Paths.cs">
       <Link>WebServer\Mono.WebServer\Paths.cs</Link>
     </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\bucker\csharp\src\listqueue.cs">
-      <Link>Bucker\listqueues.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\bucker\csharp\src\listmessages.cs">
-      <Link>Bucker\listmessages.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\bucker\csharp\src\queueclient.cs">
-      <Link>Bucker\queueclient.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\bucker\csharp\src\getmessage.cs">
-      <Link>Bucker\getmessage.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\bucker\csharp\src\message.cs">
-      <Link>Bucker\message.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\bucker\csharp\src\pushmessage.cs">
-      <Link>Bucker\pushmessage.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\bucker\csharp\src\deletequeue.cs">
-      <Link>Bucker\deletequeue.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\bucker\csharp\src\deletemessage.cs">
-      <Link>Bucker\deletemessage.cs</Link>
-    </Compile>
-    <Compile Include="..\vendorextensions\defuze.org\bucker\csharp\src\createqueue.cs">
-      <Link>Bucker\createqueue.cs</Link>
-    </Compile>
     <Compile Include="Amplee\Categories.cs" />
     <Compile Include="Amplee\Category.cs" />
     <Compile Include="Amplee\Collection.cs" />
@@ -176,6 +149,15 @@
     <Compile Include="Atom\Entry.cs" />
     <Compile Include="Atom\Link.cs" />
     <Compile Include="Atom\TextConstruct.cs" />
+    <Compile Include="Bucker\createqueue.cs" />
+    <Compile Include="Bucker\deletemessage.cs" />
+    <Compile Include="Bucker\deletequeue.cs" />
+    <Compile Include="Bucker\getmessage.cs" />
+    <Compile Include="Bucker\listmessages.cs" />
+    <Compile Include="Bucker\listqueue.cs" />
+    <Compile Include="Bucker\message.cs" />
+    <Compile Include="Bucker\pushmessage.cs" />
+    <Compile Include="Bucker\queueclient.cs" />
     <Compile Include="Configuration\AspNetAwsConfiguration.cs" />
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="Configuration\AspNetXameleonTransform.cs" />
@@ -382,7 +364,6 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AsyncTransform\" />
     <Folder Include="WSGI\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
