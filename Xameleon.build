@@ -1,46 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<project name="Xameleon">
-  <csc target="library" output="Xameleon.dll" unsafe="True">
-    <sources>
-      <include name="Xameleon/**/*.cs"/>
-      <include name="VendorExtensions/Mono/xsp/Mono.WebServer/*.cs"/>
-    </sources>
-    <resources dynamicprefix="true">
-      <include name="Xameleon/Properties/**/*.resx"/>
-    </resources>
-    <references>
-      <include name="System.Drawing.dll"/>
-      <include name="System.Data.dll"/>
-      <include name="System.dll"/>
-      <include name="System.Xml.dll"/>
-      <include name="System.Configuration.dll"/>
-      <include name="System.Web.dll"/>
-      <include name="System.Web.Services.dll"/>
-      <include name="./Dependencies/IKVM.GNU.Classpath.dll"/>
-      <include name="./Dependencies/IKVM.Runtime.dll"/>
-      <include name="./Dependencies/IronPython.dll"/>
-      <include name="./Dependencies/IronPython.Modules.dll"/>
-      <include name="./Dependencies/Lucene.Net.dll"/>
-      <include name="./Dependencies/Memcached.ClientLibrary.dll"/>
-      <include name="./Dependencies/Microsoft.Scripting.dll"/>
-      <include name="./Dependencies/Mono.Posix.dll"/>
-      <include name="./Dependencies/Mono.Security.dll"/>
-      <include name="./Dependencies/Mvp.Xml.dll"/>
-      <include name="./Dependencies/Saxon.Api.dll"/>
-      <include name="./Dependencies/saxon8.dll"/>
-      <include name="./Dependencies/SgmlReaderDll.dll"/>
-      <include name="./Dependencies/GlobalClip.dll"/>
-    </references>
-  </csc>
-  <csc target="library" output="Nuxleus.dll">
-    <sources>
-      <include name="Nuxleus/**/*.cs"/>
-    </sources>
-    <references>
-      <include name="Xameleon.dll"/>
-      <include name="System.dll"/>
-      <include name="System.Xml.dll"/>
-      <include name="System.Configuration.dll"/>
-    </references>
-  </csc>
+<project name="Xameleon" default="all">
+  <target name="Xameleon">
+    <csc target="library" output="Xameleon.dll" unsafe="True">
+      <sources>
+        <include name="Xameleon/**/*.cs"/>
+        <include name="VendorExtensions/Mono/xsp/Mono.WebServer/*.cs"/>
+      </sources>
+      <resources dynamicprefix="true">
+        <include name="Xameleon/Properties/**/*.resx"/>
+      </resources>
+      <references>
+        <include name="System.Drawing.dll"/>
+        <include name="System.Data.dll"/>
+        <include name="System.dll"/>
+        <include name="System.Xml.dll"/>
+        <include name="System.Configuration.dll"/>
+        <include name="System.Web.dll"/>
+        <include name="System.Web.Services.dll"/>
+        <include name="./Dependencies/IKVM.GNU.Classpath.dll"/>
+        <include name="./Dependencies/IKVM.Runtime.dll"/>
+        <include name="./Dependencies/IronPython.dll"/>
+        <include name="./Dependencies/IronPython.Modules.dll"/>
+        <include name="./Dependencies/Lucene.Net.dll"/>
+        <include name="./Dependencies/Memcached.ClientLibrary.dll"/>
+        <include name="./Dependencies/Microsoft.Scripting.dll"/>
+        <include name="./Dependencies/Mono.Posix.dll"/>
+        <include name="./Dependencies/Mono.Security.dll"/>
+        <include name="./Dependencies/Mvp.Xml.dll"/>
+        <include name="./Dependencies/Saxon.Api.dll"/>
+        <include name="./Dependencies/saxon8.dll"/>
+        <include name="./Dependencies/SgmlReaderDll.dll"/>
+        <include name="./Dependencies/GlobalClip.dll"/>
+      </references>
+    </csc>
+  </target>
+  <target name="Nuxleus" depends="Xameleon">
+    <csc target="library" output="Nuxleus.dll">
+      <sources>
+        <include name="Nuxleus/**/*.cs"/>
+      </sources>
+      <references>
+        <include name="Xameleon.dll"/>
+        <include name="System.dll"/>
+      </references>
+    </csc>
+  </target>
+  <target name="Watcher" depends="Nuxleus">
+    <csc target="exe" output="Watcher.exe">
+      <sources>
+        <include name="Nuxleus.FileSystemWatcher/Watcher.cs"/>
+      </sources>
+      <references>
+        <include name="Nuxleus.dll"/>
+        <include name="System.dll"/>
+      </references>
+    </csc>
+  </target>
+  <target name="all">
+    <call target="Xameleon" />
+    <call target="Nuxleus" />
+    <call target="Watcher" />
+  </target>
+  <target name="clean">
+    <delete failonerror="false" file="Xameleon.dll" />
+    <delete failonerror="false" file="Nuxleus.dll" />
+    <delete failonerror="false" file="Watcher.exe" />
+  </target>
 </project>
