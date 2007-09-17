@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio Codename Orcas
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xameleon", "Xameleon\Xameleon.csproj", "{A800D9F1-D877-4076-99BA-CBD73BCFB203}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extf.Net.Base", "Base\Extf.Net.Base.csproj", "{0EFC77D9-E940-4C1C-805F-F236FDB64B32}"
@@ -30,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transform", "Transform\Transform.csproj", "{1760D02A-A435-4025-8D68-0504DFB33EDC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.WebServer.FastCgi", "Mono.WebServer.FastCgi\Mono.WebServer.FastCgi.csproj", "{EC585CAC-E83F-41F2-95FE-2BB6A4BC1F20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuxleus.FileSystem.Watcher", "Nuxleus.FileSystemWatcher\Nuxleus.FileSystem.Watcher.csproj", "{64C1203C-1912-4FE0-BA73-01BA2B0758E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -189,6 +191,16 @@ Global
 		{EC585CAC-E83F-41F2-95FE-2BB6A4BC1F20}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EC585CAC-E83F-41F2-95FE-2BB6A4BC1F20}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{EC585CAC-E83F-41F2-95FE-2BB6A4BC1F20}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{64C1203C-1912-4FE0-BA73-01BA2B0758E4}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{64C1203C-1912-4FE0-BA73-01BA2B0758E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C1203C-1912-4FE0-BA73-01BA2B0758E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C1203C-1912-4FE0-BA73-01BA2B0758E4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{64C1203C-1912-4FE0-BA73-01BA2B0758E4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{64C1203C-1912-4FE0-BA73-01BA2B0758E4}.Release|.NET.ActiveCfg = Release|Any CPU
+		{64C1203C-1912-4FE0-BA73-01BA2B0758E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C1203C-1912-4FE0-BA73-01BA2B0758E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C1203C-1912-4FE0-BA73-01BA2B0758E4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{64C1203C-1912-4FE0-BA73-01BA2B0758E4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

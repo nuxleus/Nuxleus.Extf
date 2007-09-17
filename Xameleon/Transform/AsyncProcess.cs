@@ -16,12 +16,12 @@ namespace Xameleon.Transform
     public partial class Transform
     {
 
-        public void BeginProcess(Context context, XsltTransformationManager manager, TextWriter writer, TransformServiceAsyncResult result)
+        public void BeginProcess(Context context, HttpContext httpContext, XsltTransformationManager manager, TextWriter writer, TransformServiceAsyncResult result)
         {
-            BeginProcess(context, manager, writer, manager.BaseXsltName, result);
+            BeginProcess(context, httpContext, manager, writer, manager.BaseXsltName, result);
         }
 
-        public void BeginProcess(Context context, XsltTransformationManager manager, TextWriter writer, String xsltName, TransformServiceAsyncResult result)
+        public void BeginProcess(Context context, HttpContext httpContext, XsltTransformationManager manager, TextWriter writer, String xsltName, TransformServiceAsyncResult result)
         {
             XsltTransformer transformer = manager.GetTransformer(xsltName);
 

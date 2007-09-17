@@ -125,7 +125,7 @@
     {
         HttpApplication application = (HttpApplication)sender;
         Hashtable xsltParams = (Hashtable)Application["appStart_globalXsltParams"];
-        FileInfo fileInfo = new FileInfo(application.Context.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath));
+        FileInfo fileInfo = new FileInfo(application.Context.Request.MapPath(application.Context.Request.CurrentExecutionFilePath));
         Context context = new Context(application.Context, _hashAlgorithm, (string)Application["hashkey"], fileInfo, (Hashtable)xsltParams.Clone(), fileInfo.LastWriteTimeUtc, fileInfo.Length);
         StringBuilder builder = new StringBuilder();
         TextWriter writer = new StringWriter(builder);
@@ -145,6 +145,10 @@
             {
                 builder.Append(obj);
                 CONTENT_IS_MEMCACHED = true;
+                if((bool)Application["debug"])
+                    application.Response.ContentType = "text";
+                else
+                    application.Response.ContentType = "text/xml";
             }
             else
             {
@@ -166,19 +170,24 @@
         Application["transformContext"] = context;
         if ((bool)Application["debug"])
         {
-            HttpContext.Current.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + ":" + context.RequestXmlETag + "<br/>");
-            HttpContext.Current.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
-            HttpContext.Current.Response.Write("Xml ETag: " + context.GetRequestHashcode(true) + "<br/>");
-            HttpContext.Current.Response.Write("XdmNode Count: " + xslTransformationManager.GetXdmNodeHashtableCount() + "<br/>");
+            application.Context.Response.Write("<debug>");
+            application.Context.Response.Write("<file-info>");
+            application.Context.Response.Write("Has Xml Changed: " + hasXmlSourceChanged + ":" + context.RequestXmlETag + "<br/>");
+            application.Context.Response.Write("Has Xslt Changed: " + hasBaseXsltSourceChanged + "<br/>");
+            application.Context.Response.Write("Xml ETag: " + context.GetRequestHashcode(true) + "<br/>");
+            application.Context.Response.Write("XdmNode Count: " + xslTransformationManager.GetXdmNodeHashtableCount() + "<br/>");
+            application.Context.Response.Write("</file-info>");
             Application["debugOutput"] = (string)("<DebugOutput>" + WriteDebugOutput(context, xslTransformationManager, new StringBuilder(), CONTENT_IS_MEMCACHED).ToString() + "</DebugOutput>");
+            application.Context.Response.Write("</debug>");
         }
 
     }
 
     protected void Application_EndRequest(object sender, EventArgs e)
     {
+        HttpApplication application = (HttpApplication)sender;
         if ((bool)Application["debug"])
-            HttpContext.Current.Response.Write((string)Application["debugOutput"]);
+            application.Context.Response.Write((string)Application["debugOutput"]);
     }
 
     protected void Application_AuthenticateRequest(object sender, EventArgs e)

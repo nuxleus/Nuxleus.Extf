@@ -19,17 +19,18 @@ using Saxon.Api;
 using IronPython.Hosting;
 using System.Xml;
 using Xameleon.Configuration;
+using Xameleon.Transform;
 using System.Collections.Generic;
 
-namespace Xameleon.Transform
+namespace Xameleon.HttpHandler
 {
 
-    class AsyncSaxonHttpHandler : IHttpAsyncHandler
+    class XameleonHttpAsyncHandler : IHttpAsyncHandler
     {
 
         XsltTransformationManager _xslTransformationManager;
         MemcachedClient _memcachedClient;
-        Transform _transform;
+        Transform.Transform _transform;
         TextWriter _writer;
         StringBuilder _builder;
         HttpContext _context;

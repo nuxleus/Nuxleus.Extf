@@ -128,7 +128,7 @@ namespace Xameleon.HttpApplication
         {
             System.Web.HttpApplication application = (System.Web.HttpApplication)sender;
             Hashtable xsltParams = (Hashtable)Application["appStart_globalXsltParams"];
-            FileInfo fileInfo = new FileInfo(application.Context.Request.MapPath(HttpContext.Current.Request.CurrentExecutionFilePath));
+            FileInfo fileInfo = new FileInfo(application.Context.Request.MapPath(application.Context.Request.CurrentExecutionFilePath));
             Context context = new Context(application.Context, _hashAlgorithm, (string)Application["hashkey"], fileInfo, (Hashtable)xsltParams.Clone(), fileInfo.LastWriteTimeUtc, fileInfo.Length);
             StringBuilder builder = new StringBuilder();
             TextWriter writer = new StringWriter(builder);
