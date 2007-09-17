@@ -34,6 +34,17 @@
       </references>
     </csc>
   </target>
+  <target name="AmpleeTest" depends="Xameleon">
+    <csc target="exe" output="AmpleeTest.exe">
+      <sources>
+        <include name="AmpleeConsole/Program.cs"/>
+      </sources>
+      <references>
+        <include name="Xameleon.dll"/>
+        <include name="System.dll"/>
+      </references>
+    </csc>
+  </target>
   <target name="Nuxleus" depends="Xameleon">
     <csc target="library" output="Nuxleus.dll">
       <sources>
@@ -58,6 +69,7 @@
   </target>
   <target name="all">
     <call target="Xameleon" />
+    <call target="AmpleeTest" />
     <call target="Nuxleus" />
     <call target="Watcher" />
   </target>
@@ -65,5 +77,6 @@
     <delete failonerror="false" file="Xameleon.dll" />
     <delete failonerror="false" file="Nuxleus.dll" />
     <delete failonerror="false" file="Watcher.exe" />
+    <delete failonerror="false" file="AmpleeTest.exe" />
   </target>
 </project>
