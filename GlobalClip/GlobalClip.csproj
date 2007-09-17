@@ -40,7 +40,6 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
@@ -132,6 +131,10 @@
     <ProjectReference Include="..\Base\Extf.Net.Base.csproj">
       <Project>{0EFC77D9-E940-4C1C-805F-F236FDB64B32}</Project>
       <Name>Extf.Net.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VendorExtensions\S3\AmazonAWS.S3\AmazonAWS.S3.csproj">
+      <Project>{8D92E7E5-ECF3-4F24-BBB3-D03D273D6A80}</Project>
+      <Name>AmazonAWS.S3</Name>
     </ProjectReference>
     <ProjectReference Include="..\VendorExtensions\Saxonica\Saxon.Api\Saxon.Api.csproj">
       <Project>{A0598E7E-BF5D-4E6A-91A2-6E6A63CC9F9E}</Project>

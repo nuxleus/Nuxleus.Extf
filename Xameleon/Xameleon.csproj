@@ -83,7 +83,6 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
@@ -237,12 +236,6 @@
     <Compile Include="Utility\S3\Response.cs" />
     <Compile Include="Utility\S3\S3Object.cs" />
     <Compile Include="Utility\S3\Utils.cs" />
-    <Compile Include="Web References\AmazonAWS.SQS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="UrlResolver\S3XmlUrlResolver.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -254,77 +247,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Utility\S3\README" />
-    <None Include="Web References\AmazonAWS.SQS\AccessControl.xsd">
-      <SubType>
-      </SubType>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\AddGrantResponse.datasource">
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\AddGrantResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\CreateQueueResponse.datasource">
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\CreateQueueResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\DeleteMessageResponse.datasource">
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\DeleteMessageResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\DeleteQueueResponse.datasource">
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\DeleteQueueResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\GetVisibilityTimeoutResponse.datasource">
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\GetVisibilityTimeoutResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\ListGrantsResponse.datasource">
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\ListGrantsResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\ListQueuesResponse.datasource">
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\ListQueuesResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\PeekMessageResponse.datasource">
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\PeekMessageResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\QueueService.wsdl" />
-    <None Include="Web References\AmazonAWS.SQS\QueueService.xsd">
-      <SubType>
-      </SubType>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\ReceiveMessageResponse.datasource">
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\ReceiveMessageResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\RemoveGrantResponse.datasource">
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\RemoveGrantResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\SendMessageResponse.datasource">
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\SendMessageResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AmazonAWS.SQS\SetVisibilityTimeoutResponse.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GlobalClip\GlobalClip.csproj">
@@ -353,19 +275,6 @@
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://queue.amazonaws.com/doc/2006-04-01/QueueService.wsdl%3f">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\AmazonAWS.SQS\</RelPath>
-      <UpdateFromURL>http://queue.amazonaws.com/doc/2006-04-01/QueueService.wsdl%3f</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>Xameleon_AmazonAWS_SQS_QueueService</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="WSGI\" />
