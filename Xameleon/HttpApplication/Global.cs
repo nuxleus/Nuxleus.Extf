@@ -114,7 +114,7 @@ namespace Xameleon.HttpApplication
             bool hasXmlSourceChanged = xslTransformationManager.HasXmlSourceChanged(context.RequestXmlETag);
             bool hasBaseXsltSourceChanged = xslTransformationManager.HasBaseXsltSourceChanged();
 
-            MemcachedClient memcachedClient = (MemcachedClient)Application["appStart_memcached"];
+            Client memcachedClient = (Client)Application["appStart_memcached"];
             Application["memcached"] = memcachedClient;
 
             if (useMemCached)
@@ -220,7 +220,7 @@ namespace Xameleon.HttpApplication
                 builder.Append("</Param>");
                 i += 1;
             }
-            MemcachedClient mc = (MemcachedClient)Application["appStart_memcached"];
+            Client mc = (Client)Application["appStart_memcached"];
             IDictionary stats = mc.Stats();
 
             foreach (string key1 in stats.Keys)

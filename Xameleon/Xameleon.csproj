@@ -186,28 +186,27 @@
       <Link>Amplee\Categories.cs</Link>
     </Compile>
     <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\atom\Author.cs">
-      <Link>Amplee\Atom\Author.cs</Link>
+      <Link>Atom\Author.cs</Link>
     </Compile>
     <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\atom\Entry.cs">
-      <Link>Amplee\Atom\Entry.cs</Link>
+      <Link>Atom\Entry.cs</Link>
     </Compile>
     <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\atom\Link.cs">
-      <Link>Amplee\Atom\Link.cs</Link>
+      <Link>Atom\Link.cs</Link>
     </Compile>
     <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\atom\TextConstruct.cs">
-      <Link>Amplee\Atom\TextConstruct.cs</Link>
+      <Link>Atom\TextConstruct.cs</Link>
     </Compile>
     <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\lib\Hash.cs">
       <Link>Amplee\Lib\Hash.cs</Link>
     </Compile>
     <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\storage\FS.cs">
-      <Link>Amplee\Storage\FS.cs</Link>
+      <Link>Storage\FS.cs</Link>
     </Compile>
     <Compile Include="..\vendorextensions\defuze.org\amplee\csharp\src\storage\IStorage.cs">
-      <Link>Amplee\Storage\IStorage.cs</Link>
+      <Link>Storage\IStorage.cs</Link>
     </Compile>
     <Compile Include="Asp.Net\Server.cs" />
-    <Compile Include="Atom\AtomEntry.cs" />
     <Compile Include="Configuration\AspNetAwsConfiguration.cs" />
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="Configuration\AspNetXameleonTransform.cs" />
