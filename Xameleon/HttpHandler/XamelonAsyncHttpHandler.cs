@@ -16,7 +16,6 @@ using System.Collections;
 using Memcached.ClientLibrary;
 using System.Text;
 using Saxon.Api;
-using IronPython.Hosting;
 using System.Xml;
 using Xameleon.Configuration;
 using Xameleon.Transform;

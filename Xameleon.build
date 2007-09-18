@@ -1,9 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <project name="Xameleon" default="all">
   <target name="Xameleon">
-    <csc target="library" output="Xameleon.dll" unsafe="True">
+    <csc target="library" output="WebApp/bin/Xameleon.dll" unsafe="True">
       <sources>
         <include name="Xameleon/**/*.cs"/>
+        <include name="Xameleon/HttpHandler/XameleonAsyncHttpHandler.cs"/>
         <include name="VendorExtensions/Mono/xsp/Mono.WebServer/*.cs"/>
       </sources>
       <resources dynamicprefix="true">
@@ -34,49 +35,65 @@
       </references>
     </csc>
   </target>
+  <target name="XSP" depends="Xameleon">
+    <csc target="exe" output="./WebApp/bin/xsp2.exe">
+      <sources>
+        <include name="Xameleon.XSP/**/*.cs"/>
+      </sources>
+      <references>
+        <include name="./WebApp/bin/Xameleon.dll"/>
+        <include name="./Dependencies/Mono.Posix.dll"/>
+        <include name="./Dependencies/Mono.Security.dll"/>
+        <include name="System.Web.dll"/>
+        <include name="System.dll"/>
+      </references>
+    </csc>
+  </target>
   <target name="AmpleeTest" depends="Xameleon">
-    <csc target="exe" output="AmpleeTest.exe">
+    <csc target="exe" output="./WebApp/bin/AmpleeTest.exe">
       <sources>
         <include name="AmpleeConsole/Program.cs"/>
       </sources>
       <references>
-        <include name="Xameleon.dll"/>
+        <include name="./WebApp/bin/Xameleon.dll"/>
         <include name="System.dll"/>
       </references>
     </csc>
   </target>
   <target name="Nuxleus" depends="Xameleon">
-    <csc target="library" output="Nuxleus.dll">
+    <csc target="library" output="./WebApp/bin/Nuxleus.dll">
       <sources>
         <include name="Nuxleus/**/*.cs"/>
       </sources>
       <references>
-        <include name="Xameleon.dll"/>
+        <include name="./WebApp/bin/Xameleon.dll"/>
         <include name="System.dll"/>
       </references>
     </csc>
   </target>
   <target name="Watcher" depends="Nuxleus">
-    <csc target="exe" output="Watcher.exe">
+    <csc target="exe" output="./WebApp/bin/Watcher.exe">
       <sources>
         <include name="Nuxleus.FileSystemWatcher/Watcher.cs"/>
       </sources>
       <references>
-        <include name="Nuxleus.dll"/>
+        <include name="./WebApp/bin/Nuxleus.dll"/>
         <include name="System.dll"/>
       </references>
     </csc>
   </target>
   <target name="all">
-    <call target="Xameleon" />
-    <call target="AmpleeTest" />
-    <call target="Nuxleus" />
-    <call target="Watcher" />
+    <call target="Xameleon"/>
+    <call target="XSP"/>
+    <call target="AmpleeTest"/>
+    <call target="Nuxleus"/>
+    <call target="Watcher"/>
   </target>
   <target name="clean">
-    <delete failonerror="false" file="Xameleon.dll" />
-    <delete failonerror="false" file="Nuxleus.dll" />
-    <delete failonerror="false" file="Watcher.exe" />
-    <delete failonerror="false" file="AmpleeTest.exe" />
+    <delete failonerror="false" file="./WebApp/bin/Xameleon.dll"/>
+    <delete failonerror="false" file="./WebApp/bin/xsp2.exe"/>
+    <delete failonerror="false" file="./WebApp/bin/Nuxleus.dll"/>
+    <delete failonerror="false" file="./WebApp/bin/Watcher.exe"/>
+    <delete failonerror="false" file="./WebApp/bin/AmpleeTest.exe"/>
   </target>
 </project>
