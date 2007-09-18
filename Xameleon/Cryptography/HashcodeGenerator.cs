@@ -14,7 +14,7 @@ namespace Xameleon.Cryptography
         static HashAlgorithm _defaultAlgorithm = HashAlgorithm.MD5;
         static string _defaultFormat = "x2";
         static bool _defaultReturnBase64 = true;
-        static string _defaultKey = Guid.NewGuid().ToString(_defaultFormat);
+        static string _defaultKey = Guid.NewGuid().ToString();
 
         string _key;
         HashAlgorithm _algorithm;

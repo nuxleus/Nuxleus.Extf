@@ -25,7 +25,7 @@ using System.Collections.Generic;
 namespace Xameleon.HttpHandler
 {
 
-    class XameleonHttpAsyncHandler : IHttpAsyncHandler
+    public class XameleonHttpAsyncHandler : IHttpAsyncHandler
     {
 
         XsltTransformationManager _xslTransformationManager;

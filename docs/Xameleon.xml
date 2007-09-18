@@ -40,11 +40,6 @@
             Acquires the metadata.
             </summary>
         </member>
-        <member name="T:Xameleon.Service.Authenticate">
-            <summary>
-            Summary description for Authenticate service
-            </summary>
-        </member>
         <member name="T:Xameleon.Bucker.Message">
             <summary> 
             Base class of all the message types.
@@ -1794,6 +1789,11 @@
         <member name="P:Xameleon.Bucker.GetMessage.Payload">
             <summary>
             Message payload.
+            </summary>
+        </member>
+        <member name="T:Xameleon.Service.Authenticate">
+            <summary>
+            Summary description for Authenticate service
             </summary>
         </member>
         <member name="M:Xameleon.Function.HttpWebResponseStream.GetResponseString(System.IO.Stream)">

@@ -148,6 +148,9 @@
     <Compile Include="Atom\Entry.cs" />
     <Compile Include="Atom\Link.cs" />
     <Compile Include="Atom\TextConstruct.cs" />
+    <Compile Include="Authentication\Authenticate.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bucker\createqueue.cs" />
     <Compile Include="Bucker\deletemessage.cs" />
     <Compile Include="Bucker\deletequeue.cs" />
@@ -216,9 +219,6 @@
     </Compile>
     <Compile Include="ResultDocumentHandler\S3ResultDocumentHandler.cs" />
     <Compile Include="SemWeb\Select.cs" />
-    <Compile Include="Service\Authentication.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Transform\AsyncProcess.cs" />
     <Compile Include="Transform\BaseXsltContext.cs" />
     <Compile Include="Transform\TransformServiceAsyncResult.cs" />
@@ -277,6 +277,7 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Service\" />
     <Folder Include="WSGI\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
