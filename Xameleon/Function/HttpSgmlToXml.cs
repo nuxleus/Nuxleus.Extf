@@ -6,6 +6,8 @@ using Sgml;
 using System.Web;
 using Xameleon.Memcached;
 using Xameleon.Transform;
+using System.IO;
+using System.Text;
 
 namespace Xameleon.Function
 {
@@ -55,19 +57,20 @@ namespace Xameleon.Function
             string decodedUri = HttpUtility.UrlDecode(uri);
             string eTag = Context.GenerateETag(decodedUri, Xameleon.Cryptography.HashAlgorithm.SHA1);
             string xhtmlDocString = (string)memcachedClient.Get(eTag);
+            SgmlReader sr = new SgmlReader();
             XmlDocument xDoc = new XmlDocument();
 
             if (xhtmlDocString != null)
             {
-                xDoc.LoadXml(xhtmlDocString);
-                context.Response.Write(xDoc.Value);
+                TextReader stringReader = new StringReader(xhtmlDocString);
+                sr.InputStream = stringReader;
+                xDoc.Load(sr);
             }
             else
             {
-                SgmlReader sr = new SgmlReader();
                 sr.Href = decodedUri;
                 xDoc.Load(sr);
-                memcachedClient.Set(eTag, xDoc.Value);
+                memcachedClient.Set(eTag, xDoc.OuterXml);
             }
 
             XmlNode xhtml = xDoc.SelectSingleNode(HttpUtility.UrlDecode(path));
