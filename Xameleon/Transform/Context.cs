@@ -94,7 +94,7 @@ namespace Xameleon.Transform
         }
         public static string GenerateETag(string key, HashAlgorithm algorithm, params object[] eTagArray)
         {
-            return HashcodeGenerator.GetHmacHashBase64String(key, algorithm, eTagArray);
+            return HashcodeGenerator.GetHMACHashBase64String(key, algorithm, eTagArray);
         }
         public string GetRequestHashcode(bool useQueryString, params object[] objectArray)
         {

@@ -88,7 +88,7 @@ namespace Xameleon.Cryptography
             return getHMACHashString(_key, algorithm, _returnBase64, _hashArray, hashArray);
         }
 
-        public static String GetHmacHashBase64String(string key, HashAlgorithm algorithm, params object[] hashArray)
+        public static String GetHMACHashBase64String(string key, HashAlgorithm algorithm, params object[] hashArray)
         {
             return getHMACHashString(key, algorithm, true, hashArray);
         }

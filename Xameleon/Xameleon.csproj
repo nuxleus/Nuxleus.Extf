@@ -193,13 +193,7 @@
     <Compile Include="Function\HttpRequestCollection.cs" />
     <Compile Include="Function\FileStream.cs" />
     <Compile Include="Function\HttpWebResponseStream.cs" />
-    <Compile Include="HttpHandler\AsyncSaxonHttpHandler.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="HttpHandler\XamelonAsyncHttpHandler.cs" />
-    <Compile Include="HttpHandler\XamelonAmpleeHttpAsyncHandler.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="HttpHandler\XamelonHttpAsyncHandler.cs" />
     <Compile Include="Memcached\Memcached.cs" />
     <Compile Include="Storage\FS.cs" />
     <Compile Include="Storage\IStorage.cs" />
