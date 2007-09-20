@@ -60,13 +60,14 @@ namespace Xameleon.Function
             if (xhtmlDocString != null)
             {
                 xDoc.LoadXml(xhtmlDocString);
+                context.Response.Write(xDoc.Value);
             }
             else
             {
                 SgmlReader sr = new SgmlReader();
                 sr.Href = decodedUri;
                 xDoc.Load(sr);
-                memcachedClient.Set(eTag, xDoc.OuterXml);
+                memcachedClient.Set(eTag, xDoc.Value);
             }
 
             XmlNode xhtml = xDoc.SelectSingleNode(HttpUtility.UrlDecode(path));
