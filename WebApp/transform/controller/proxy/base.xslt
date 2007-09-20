@@ -15,6 +15,7 @@
     exclude-result-prefixes="xs xsl xsi fn clitype at func http-sgml-to-xml aspnet-context proxy saxon html">
 
   <xsl:import href="../../functions/funcset-Util.xslt"/>
+  <xsl:param name="current-context"/>
 
   <xsl:template match="proxy:return-xml-from-html">
     <xsl:variable name="uri-xpath" select="func:resolve-variable(@uri)"/>
@@ -27,7 +28,7 @@
   <xsl:function name="func:return-xml-from-html">
     <xsl:param name="uri" as="xs:string" />
     <xsl:param name="xpath" as="xs:string" />
-    <xsl:variable name="html-to-xml" select="http-sgml-to-xml:GetDocXml($uri, '/html', false())"/>
+    <xsl:variable name="html-to-xml" select="http-sgml-to-xml:GetDocXml($uri, '/html', false(), $current-context)"/>
     <xsl:variable name="html">
       <html:html>
         <xsl:apply-templates select="saxon:parse($html-to-xml)" mode="clean"/>

@@ -91,11 +91,11 @@ namespace Xameleon.HttpApplication
             }
 
             if (_memcachedClient != null)
-                Application["appStart_memcached"] = _memcachedClient;
-            Application["appStart_usememcached"] = _useMemCached;
-            Application["appStart_xslTransformationManager"] = _xsltTransformationManager;
-            Application["appStart_namedXsltHashtable"] = _namedXsltHashtable;
-            Application["appStart_globalXsltParams"] = _globalXsltParams;
+                Application["memcached"] = _memcachedClient;
+            Application["usememcached"] = _useMemCached;
+            Application["xslTransformationManager"] = _xsltTransformationManager;
+            Application["namedXsltHashtable"] = _namedXsltHashtable;
+            Application["globalXsltParams"] = _globalXsltParams;
             Application["debug"] = _DEBUG;
 
         }

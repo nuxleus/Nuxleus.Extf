@@ -36,6 +36,7 @@ namespace Xameleon.HttpHandler
         StringBuilder _builder;
         HttpContext _context;
         Hashtable _xsltParams;
+        Hashtable _namedXsltHashtable;
         TransformServiceAsyncResult _transformAsyncResult;
         AsyncCallback _callback;
         String _httpMethod;
@@ -63,24 +64,21 @@ namespace Xameleon.HttpHandler
 
             _context = context;
             _httpMethod = _context.Request.HttpMethod;
-
-            _memcachedClient = (Client)context.Application["appStart_memcached"];
-            _xslTransformationManager = (XsltTransformationManager)context.Application["appStart_xslTransformationManager"];
+            _memcachedClient = (Client)context.Application["memcached"];
+            _xslTransformationManager = (XsltTransformationManager)context.Application["xslTransformationManager"];
             _transform = _xslTransformationManager.Transform;
-            _xsltParams = (Hashtable)context.Application["appStart_globalXsltParams"];
-
+            _xsltParams = (Hashtable)context.Application["globalXsltParams"];
+            _namedXsltHashtable = (Hashtable)context.Application["namedXsltHashtable"];
             _transformContext = new Context(context, _hashAlgorithm, (string)context.Application["hashkey"], fileInfo, (Hashtable)_xsltParams.Clone(), fileInfo.LastWriteTimeUtc, fileInfo.Length);
             _transformAsyncResult = new TransformServiceAsyncResult(cb, extraData);
             _callback = cb;
+            _transformAsyncResult._context = context;
+            _builder = new StringBuilder();
             _CONTENT_IS_MEMCACHED = false;
-            _USE_MEMCACHED = (bool)context.Application["appStart_usememcached"];
+            _USE_MEMCACHED = (bool)context.Application["usememcached"];
 
             bool hasXmlSourceChanged = _xslTransformationManager.HasXmlSourceChanged(_transformContext.RequestXmlETag);
             bool hasBaseXsltSourceChanged = _xslTransformationManager.HasBaseXsltSourceChanged();
-
-            _transformAsyncResult._context = context;
-            _builder = new StringBuilder();
-
 
             if (_USE_MEMCACHED)
             {

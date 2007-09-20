@@ -3,56 +3,78 @@ using System.Xml;
 using net.sf.saxon.value;
 using Saxon.Api;
 using Sgml;
+using System.Web;
+using Xameleon.Memcached;
+using Xameleon.Transform;
 
-namespace Xameleon.Function {
+namespace Xameleon.Function
+{
 
-    public class HttpSgmlToXml {
+    public class HttpSgmlToXml
+    {
 
         public HttpSgmlToXml() { }
 
-        public static Value GetDocXml(String uri) {
-            return getDocXml(uri, "/html");
+        public static Value GetDocXml(String uri, HttpContext context)
+        {
+            return getDocXml(uri, "/html", context);
         }
 
-        public static Value GetDocXml(String uri, String path) {
-            return getDocXml(uri, path);
+        public static Value GetDocXml(String uri, String path, HttpContext context)
+        {
+            return getDocXml(uri, path, context);
         }
 
-        public static String GetDocXml(String uri, String path, bool stripNS) {
-            try {
-                return getXdmNode(uri, path).OuterXml;
-            } catch (Exception e) {
+        public static String GetDocXml(String uri, String path, bool stripNS, HttpContext context)
+        {
+            try
+            {
+                return getXdmNode(uri, path, context).OuterXml;
+            }
+            catch (Exception e)
+            {
                 return e.Message;
             }
         }
 
-        private static Value getDocXml(String uri, String path) {
-            try {
-                return Value.asValue(getXdmNode(uri, path).Unwrap());
-            } catch (Exception e) {
+        private static Value getDocXml(String uri, String path, HttpContext context)
+        {
+            try
+            {
+                return Value.asValue(getXdmNode(uri, path, context).Unwrap());
+            }
+            catch (Exception e)
+            {
                 throw;
             }
         }
 
-        private static XdmNode getXdmNode(String uri, String path) {
-            try {
+        private static XdmNode getXdmNode(String uri, String path, HttpContext context)
+        {
+            Client memcachedClient = (Client)context.Application["memcached"];
+            string decodedUri = HttpUtility.UrlDecode(uri);
+            string eTag = Context.GenerateETag(decodedUri, Xameleon.Cryptography.HashAlgorithm.SHA1);
+            string xhtmlDocString = (string)memcachedClient.Get(eTag);
+            XmlDocument xDoc = new XmlDocument();
 
+            if (xhtmlDocString != null)
+            {
+                xDoc.LoadXml(xhtmlDocString);
+            }
+
+            try
+            {
                 SgmlReader sr = new SgmlReader();
-                sr.Href = uri;
-
-                XmlDocument htmlDoc = new XmlDocument();
-
-                try {
-                    htmlDoc.Load(sr);
-                } catch (Exception e) {
-                    throw;
-                }
-
-                XmlNode html = htmlDoc.SelectSingleNode(path);
+                sr.Href = decodedUri;
+                xDoc.Load(sr);
+                memcachedClient.Set(eTag, xDoc.OuterXml);
+                XmlNode xhtml = xDoc.SelectSingleNode(HttpUtility.UrlDecode(path));
                 Processor processor = new Processor();
-                return processor.NewDocumentBuilder().Build(html);
+                return processor.NewDocumentBuilder().Build(xhtml);
 
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 throw;
             }
         }
