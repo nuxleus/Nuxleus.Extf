@@ -61,22 +61,18 @@ namespace Xameleon.Function
             {
                 xDoc.LoadXml(xhtmlDocString);
             }
-
-            try
+            else
             {
                 SgmlReader sr = new SgmlReader();
                 sr.Href = decodedUri;
                 xDoc.Load(sr);
                 memcachedClient.Set(eTag, xDoc.OuterXml);
-                XmlNode xhtml = xDoc.SelectSingleNode(HttpUtility.UrlDecode(path));
-                Processor processor = new Processor();
-                return processor.NewDocumentBuilder().Build(xhtml);
+            }
 
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
+            XmlNode xhtml = xDoc.SelectSingleNode(HttpUtility.UrlDecode(path));
+            Processor processor = new Processor();
+            return processor.NewDocumentBuilder().Build(xhtml);
+
         }
     }
 }
