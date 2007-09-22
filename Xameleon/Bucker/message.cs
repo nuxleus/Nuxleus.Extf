@@ -218,7 +218,7 @@ namespace Xameleon.Bucker
     /// </list>
     public void SetDefaultSettings() {
       this.settings.Indent = false;
-      this.settings.Encoding = Encoding.GetEncoding("utf-8");
+      this.settings.Encoding = Encoding.UTF8;
       this.settings.OmitXmlDeclaration = true;
     }
 
