@@ -126,8 +126,8 @@ namespace Xameleon.Bucker
     /// </summary>   
     /// <param name="xml">Message representation as an XML string.</param>
     public void Send(string xml) {
-      byte[] buffer = System.Text.Encoding.ASCII.GetBytes(xml);
-      this._sock.Send(buffer, buffer.Length, 0);
+      byte[] buffer = System.Text.Encoding.UTF8.GetBytes(xml);
+      this._sock.Send(buffer, buffer.Length, SocketFlags.None);
     }
 
     /// <summary> 
