@@ -1,23 +1,22 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Net;
 using System.Security.Permissions;
 
 namespace Nuxleus.FileSystem
 {
     public class Watcher : FileSystemWatcher
     {
-      Entity _entity = null;
         string _path;
         TextWriter _logWriter;
         NotifyFilters _notifyFilters;
         string _filter;
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
-	  public Watcher(Entity entity, string path, string filter, TextWriter logWriter)
+        public Watcher(string path, string filter, TextWriter logWriter)
         {
-	  _entity = entity;
             _path = path;
             _logWriter = logWriter;
             _filter = filter;
@@ -35,7 +34,6 @@ namespace Nuxleus.FileSystem
         public string Folder { get { return _path; } set { _path = value; } }
         public NotifyFilters NotifyFilters { get { return _notifyFilters; } set { _notifyFilters = value; } }
         public string FileFilter { get { return _filter; } set { _filter = value; } }
-	public Entity Entity { get { return this._entity; } set { this._entity = value; } }
 
         public void Watch(bool watchSubDirectories)
         {
@@ -46,25 +44,26 @@ namespace Nuxleus.FileSystem
             base.Filter = _filter;
 
             this.Changed += new FileSystemEventHandler(OnChanged);
-            this.Created += new FileSystemEventHandler(OnCreated);
+            this.Created += new FileSystemEventHandler(OnChanged);
             this.Deleted += new FileSystemEventHandler(OnChanged);
             this.Renamed += new RenamedEventHandler(OnRenamed);
 
             this.EnableRaisingEvents = true;
         }
 
-	private static void OnCreated(object source, FileSystemEventArgs e)
-        {
-            Watcher watcher = (Watcher)source;
-            watcher.LogWriter.WriteLine("File: " + e.FullPath + " " + e.ChangeType);
-	    watcher.Entity.Process(e.FullPath);
-        }
-
         private static void OnChanged(object source, FileSystemEventArgs e)
         {
+	 
             Watcher watcher = (Watcher)source;
             watcher.LogWriter.WriteLine("File: " + e.FullPath + " " + e.ChangeType);
-	    watcher.Entity.Process(e.FullPath);
+
+	    if(e.ChangeType == WatcherChangeTypes.Created) {
+	       HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:8080/service/atom/build-atom-entry/");
+	       req.Headers.Add("Slug", e.Name);
+	       
+	       HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+	       resp.Close();
+	    }
         }
 
         private static void OnRenamed(object source, RenamedEventArgs e)
