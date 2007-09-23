@@ -10,7 +10,7 @@
     xmlns:func="http://atomictalk.org/function"
     xmlns:http-atompub-utils="clitype:Xameleon.Function.HttpAtompubUtils?partialname=Xameleon"
     xmlns:aspnet-context="clitype:System.Web.HttpContext?partialname=System.Web"
-    xmlns:atompub="http://xameleon.org/service/atom/pub"
+    xmlns:atompub="http://xameleon.org/service/atom"
     xmlns:html="http://www.w3.org/1999/xhtml"
     exclude-result-prefixes="xs xsl xsi fn clitype at func http-atompub-utils aspnet-context atompub saxon html">
     
@@ -23,7 +23,7 @@
     
     <xsl:function name="func:build-atom-entry">
         <xsl:variable name="atom-entry" select="http-atompub-utils:GenerateEntry($current-context)"/>
-        <xsl:apply-templates select="saxon:parse($atom-entry)" />
+        <xsl:message select="$atom-entry"></xsl:message>
     </xsl:function>
    
 </xsl:transform>
