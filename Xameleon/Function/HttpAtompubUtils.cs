@@ -7,8 +7,11 @@ namespace Xameleon.Function {
 
       public HttpAtompubUtils() { }
 
-    public static String GenerateEntry(HttpContext context) {
-      return "hi";
+    public static XmlNode GenerateEntry(HttpContext context) {
+      XmlDocument doc = new XmlDocument();
+      doc.Load("<b>hey there</b>");
+      
+      return doc.DocumentElement;
     }
   }
 }
