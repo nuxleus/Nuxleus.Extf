@@ -23,7 +23,7 @@
     
     <xsl:function name="func:build-atom-entry">
         <xsl:variable name="atom-entry" select="http-atompub-utils:GenerateEntry($current-context)"/>
-        <xsl:apply-templates select="$atom-entry" />
+        <xsl:apply-templates select="saxon:parse($atom-entry)" />
     </xsl:function>
    
 </xsl:transform>
