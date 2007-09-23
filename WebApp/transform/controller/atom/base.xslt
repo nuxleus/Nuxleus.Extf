@@ -8,7 +8,7 @@
     xmlns:clitype="http://saxon.sf.net/clitype"
     xmlns:at="http://atomictalk.org"
     xmlns:func="http://atomictalk.org/function"
-    xmlns:http-atompub-utils="clitype:Xameleon.Function.AtomPub?partialname=Xameleon"
+    xmlns:http-atompub-utils="clitype:Xameleon.Function.HttpAtompubUtils?partialname=Xameleon"
     xmlns:aspnet-context="clitype:System.Web.HttpContext?partialname=System.Web"
     xmlns:atompub="http://xameleon.org/service/atom/pub"
     xmlns:html="http://www.w3.org/1999/xhtml"
