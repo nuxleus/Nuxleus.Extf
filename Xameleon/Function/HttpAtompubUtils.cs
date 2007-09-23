@@ -9,12 +9,8 @@ namespace Xameleon.Function {
 
       public HttpAtompubUtils() { }
 
-    public static XdmNode GenerateEntry(HttpContext context) {
-      XmlDocument doc = new XmlDocument();
-      doc.Load("<b>hey there</b>");
-      
-      Processor processor = new Processor();
-      return processor.NewDocumentBuilder().Build(doc.DocumentElement);
+    public static string GenerateEntry(HttpContext context) {
+      return "<b>hey there</b>";
     }
   }
 }
