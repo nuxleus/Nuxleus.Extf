@@ -11,7 +11,6 @@ public class Test
     public static void Main()
     {
 
-      Console.WriteLine(HashcodeGenerator.GetHmacHashBase64String("test", HashAlgorithm.MD5));
         StoreManager sm = new StoreManager();
         sm.MemberStorage = new FileSystemStorage(Directory.GetCurrentDirectory());
 
