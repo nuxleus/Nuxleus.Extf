@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using Nuxleus.Process;
 using System.Text;
 using System.IO;
 using System.Net;
@@ -14,7 +14,7 @@ namespace Nuxleus.FileSystem
         TextWriter _logWriter;
         NotifyFilters _notifyFilters;
         string _filter;
-        Process _svnProc;
+        SVNProcess _svnProc;
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         public Watcher(string path, string filter, TextWriter logWriter)
@@ -27,10 +27,8 @@ namespace Nuxleus.FileSystem
                 NotifyFilters.LastWrite     |
                 NotifyFilters.FileName      |
                 NotifyFilters.DirectoryName |
-                NotifyFilters.Size          |
-                NotifyFilters.CreationTime  |
-                NotifyFilters.Attributes;
-            _svnProc = new Process();
+                NotifyFilters.Size;         
+            _svnProc = new SVNProcess();
             _svnProc.EnableRaisingEvents = false;
             _svnProc.StartInfo.FileName = "svn";
             
@@ -60,7 +58,7 @@ namespace Nuxleus.FileSystem
         private static void OnChanged(object source, FileSystemEventArgs e)
         {
             Watcher watcher = (Watcher)source;
-            Process proc = watcher._svnProc;
+            SVNProcess proc = watcher._svnProc;
             watcher.LogWriter.WriteLine("File: " + e.FullPath + " " + e.ChangeType);
             
             switch(e.ChangeType)
@@ -73,17 +71,17 @@ namespace Nuxleus.FileSystem
         	        HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
         	        resp.Close();
                        
-        	        AddFileToSVN(proc, e.FullPath);
+        	        proc.AddFileToSVN(e.FullPath);
         	        break;
                 }
                 case WatcherChangeTypes.Changed:
                 {
-                    CommitFileToSVN(proc, e.FullPath);
+                    proc.CommitFileToSVN(e.FullPath);
                     break;
                 }
                 case WatcherChangeTypes.Deleted:
                 {
-                    RemoveFileFromSVN(proc, e.FullPath);
+                    proc.RemoveFileFromSVN(e.FullPath);
                     break;
                 }
                 default:
@@ -97,37 +95,9 @@ namespace Nuxleus.FileSystem
         private static void OnRenamed(object source, RenamedEventArgs e)
         {
             Watcher watcher = (Watcher)source;
+            SVNProcess proc = watcher._svnProc;
             watcher.LogWriter.WriteLine("File: {0} renamed to {1}", e.OldFullPath, e.FullPath);
-            MoveFileInSVN(watcher._svnProc, e.OldFullPath, e.FullPath);
-        }
-        
-        private static void AddFileToSVN(Process proc, string fullPath)
-        {
-            proc.StartInfo.Arguments="add " + fullPath;
-            proc.Start();
-            proc.WaitForExit();
-            CommitFileToSVN(proc, fullPath);
-        }
-        
-        private static void CommitFileToSVN(Process proc, string fullPath)
-        {
-            proc.StartInfo.Arguments="ci " + fullPath + " -m 'addition of '" + fullPath;
-            proc.Start();
-            proc.WaitForExit();
-        }
-        
-        private static void MoveFileInSVN(Process proc, string oldPath, string newPath)
-        {
-            AddFileToSVN(proc, newPath);
-            RemoveFileFromSVN(proc, oldPath);
-        }
-        
-        private static void RemoveFileFromSVN(Process proc, string fullPath)
-        {
-            proc.StartInfo.Arguments="rm " + fullPath;
-            proc.Start();
-            proc.WaitForExit();
-            CommitFileToSVN(proc, fullPath);
+            proc.MoveFileInSVN(e.OldFullPath, e.FullPath);
         }
     }
 }
