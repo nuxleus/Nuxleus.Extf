@@ -50,6 +50,7 @@ namespace Nuxleus.Process
                 lock(fullPath)
                 {
                     this.Start();
+                    this.Close();
                 }
                 now = DateTime.Now;
                 diff = now.Subtract(_lastTransaction).Ticks;
