@@ -72,16 +72,19 @@ namespace Nuxleus.FileSystem
         	        resp.Close();
                        
         	        proc.AddFileToSVN(e.FullPath);
+			watcher.LogWriter.Write("{0} created", e.FullPath);
         	        break;
                 }
                 case WatcherChangeTypes.Changed:
                 {
                     proc.CommitFileToSVN(e.FullPath);
+		    watcher.LogWriter.Write("{0} changed", e.FullPath);
                     break;
                 }
                 case WatcherChangeTypes.Deleted:
                 {
                     proc.RemoveFileFromSVN(e.FullPath);
+		    watcher.LogWriter.Write("{0} deleted", e.FullPath);
                     break;
                 }
                 default:
