@@ -12,14 +12,12 @@ namespace Nuxleus.Process
     {
         string _path;
         TextWriter _logWriter;
-        DarcsProcess _proc;
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         public DarcsProcess()
         {
-            base.EnableRaisingEvents = false;
             base.StartInfo.FileName = "darcs";
-            
+            base.EnableRaisingEvents = false;
         }
         
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
@@ -27,9 +25,8 @@ namespace Nuxleus.Process
         {
             _path = path;
             _logWriter = logWriter;
-            _proc = new DarcsProcess();
-            _proc.EnableRaisingEvents = false;
-            _proc.StartInfo.FileName = "darcs";
+            this.StartInfo.FileName = "darcs";
+            this.EnableRaisingEvents = false;
             
         }
 
@@ -38,17 +35,17 @@ namespace Nuxleus.Process
 
         public void AddFileToDarcs(string fullPath)
         {
-            this.StartInfo.Arguments="add " + fullPath;
+            this.StartInfo.Arguments="add --case-ok " + fullPath;
             this.Start();
-            this.WaitForExit();
+            //this.WaitForExit();
             CommitFileToDarcs(fullPath);
         }
         
         public void CommitFileToDarcs(string fullPath)
         {
-            this.StartInfo.Arguments="ci " + fullPath + " -m 'addition of '" + fullPath;
+            this.StartInfo.Arguments = "record -a --skip-long-comment --patch-name=" + fullPath + ":" + Guid.NewGuid().ToString() + " " + fullPath;
             this.Start();
-            this.WaitForExit();
+            //this.WaitForExit();
         }
         
         public void MoveFileInDarcs(string oldPath, string newPath)
@@ -59,10 +56,15 @@ namespace Nuxleus.Process
         
         public void RemoveFileFromDarcs(string fullPath)
         {
-            this.StartInfo.Arguments="rm " + fullPath;
+            this.StartInfo.Arguments = "remove " + fullPath;
             this.Start();
-            this.WaitForExit();
+            //this.WaitForExit();
             CommitFileToDarcs(fullPath);
+        }
+        
+        public void KillProcess()
+        { 
+            this.Kill(); 
         }
     }
 }

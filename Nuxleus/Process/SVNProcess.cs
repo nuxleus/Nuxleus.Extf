@@ -17,7 +17,6 @@ namespace Nuxleus.Process
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         public SVNProcess()
         {
-            base.EnableRaisingEvents = false;
             base.StartInfo.FileName = "svn";
             
         }
@@ -28,7 +27,6 @@ namespace Nuxleus.Process
             _path = path;
             _logWriter = logWriter;
             _proc = new SVNProcess();
-            _proc.EnableRaisingEvents = false;
             _proc.StartInfo.FileName = "svn";
             
         }

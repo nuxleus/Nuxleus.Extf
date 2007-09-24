@@ -14,7 +14,7 @@ namespace Nuxleus.FileSystem
         TextWriter _logWriter;
         NotifyFilters _notifyFilters;
         string _filter;
-        SVNProcess _svnProc;
+        DarcsProcess _darcsProc;
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         public Watcher(string path, string filter, TextWriter logWriter)
@@ -27,11 +27,16 @@ namespace Nuxleus.FileSystem
                 NotifyFilters.LastWrite     |
                 NotifyFilters.FileName      |
                 NotifyFilters.DirectoryName |
-                NotifyFilters.Size;         
-            _svnProc = new SVNProcess();
-            _svnProc.EnableRaisingEvents = false;
-            _svnProc.StartInfo.FileName = "svn";
-            
+                NotifyFilters.Size          |
+                NotifyFilters.Attributes    |
+                NotifyFilters.CreationTime  |
+                NotifyFilters.Security;   
+                
+            _darcsProc = new DarcsProcess(path, logWriter);
+            this.Path = _path;
+            this.NotifyFilter = _notifyFilters;
+            this.Filter = _filter;
+
         }
 
         public TextWriter LogWriter { get { return _logWriter; } set { _logWriter = value; } }
@@ -41,24 +46,19 @@ namespace Nuxleus.FileSystem
 
         public void Watch(bool watchSubDirectories)
         {
-            base.Path = _path;
-            base.NotifyFilter = _notifyFilters;
-
-            base.IncludeSubdirectories = watchSubDirectories;
-            base.Filter = _filter;
-
             this.Changed += new FileSystemEventHandler(OnChanged);
             this.Created += new FileSystemEventHandler(OnChanged);
             this.Deleted += new FileSystemEventHandler(OnChanged);
             this.Renamed += new RenamedEventHandler(OnRenamed);
-
+            this.IncludeSubdirectories = watchSubDirectories;
+            
             this.EnableRaisingEvents = true;
         }
 
         private static void OnChanged(object source, FileSystemEventArgs e)
         {
             Watcher watcher = (Watcher)source;
-            SVNProcess proc = watcher._svnProc;
+            DarcsProcess proc = watcher._darcsProc;
             watcher.LogWriter.WriteLine("File: " + e.FullPath + " " + e.ChangeType);
             
             switch(e.ChangeType)
@@ -71,24 +71,26 @@ namespace Nuxleus.FileSystem
         	        HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
         	        resp.Close();
                        
-        	        proc.AddFileToSVN(e.FullPath);
-			watcher.LogWriter.Write("{0} created", e.FullPath);
+        	        proc.AddFileToDarcs(e.FullPath);
+			        watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
         	        break;
                 }
                 case WatcherChangeTypes.Changed:
                 {
-                    proc.CommitFileToSVN(e.FullPath);
-		    watcher.LogWriter.Write("{0} changed", e.FullPath);
+                    proc.CommitFileToDarcs(e.FullPath);
+		            watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
                     break;
                 }
                 case WatcherChangeTypes.Deleted:
                 {
-                    proc.RemoveFileFromSVN(e.FullPath);
-		    watcher.LogWriter.Write("{0} deleted", e.FullPath);
+                    proc.RemoveFileFromDarcs(e.FullPath);
+		            watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
                     break;
                 }
                 default:
                 {
+                    watcher.LogWriter.Write("No ChangeType was caught. \n");
+                    watcher.LogWriter.Write("Event Information: File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
                     break;
                 }
 
@@ -98,9 +100,9 @@ namespace Nuxleus.FileSystem
         private static void OnRenamed(object source, RenamedEventArgs e)
         {
             Watcher watcher = (Watcher)source;
-            SVNProcess proc = watcher._svnProc;
+            DarcsProcess proc = watcher._darcsProc;
             watcher.LogWriter.WriteLine("File: {0} renamed to {1}", e.OldFullPath, e.FullPath);
-            proc.MoveFileInSVN(e.OldFullPath, e.FullPath);
+            proc.MoveFileInDarcs(e.OldFullPath, e.FullPath);
         }
     }
 }
