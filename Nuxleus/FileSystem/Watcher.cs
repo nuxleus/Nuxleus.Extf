@@ -65,11 +65,11 @@ namespace Nuxleus.FileSystem
             {
                 case WatcherChangeTypes.Created:
                 {
-                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:8080/service/atom/build-atom-entry/");
-        	        req.Headers.Add("Slug", e.Name);
+                    //HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:8080/service/atom/build-atom-entry/");
+        	        //req.Headers.Add("Slug", e.Name);
                      
-        	        HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-        	        resp.Close();
+        	        //HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+        	        //resp.Close();
                        
         	        proc.AddFileToDarcs(e.FullPath);
 			        watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
