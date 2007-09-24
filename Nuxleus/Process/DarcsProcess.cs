@@ -13,8 +13,8 @@ namespace Nuxleus.Process
         string _path;
         TextWriter _logWriter;
         DateTime _lastTransaction;
-        static long _tickMultiplier = 10;
-        long _tickBuffer = 100 * 100 * 100 *  _tickMultiplier;
+        static long _tickMultiplier = 1;
+        long _tickBuffer = 100 * 10 * 10 *  _tickMultiplier;
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         public DarcsProcess()
@@ -46,13 +46,19 @@ namespace Nuxleus.Process
             
             if(diff > _tickBuffer)
             {
-                this.StartInfo.Arguments="add --case-ok " + fullPath;
-                this.Start();
+                this.StartInfo.Arguments="add --case-ok -r";
+                lock(fullPath)
+                {
+                    this.Start();
+                }
                 now = DateTime.Now;
                 diff = now.Subtract(_lastTransaction).Ticks;
                 _logWriter.WriteLine("Ticks since last transactions: {0}", diff);
                 if(diff > _tickBuffer)
+                lock(fullPath)
+                {
                     CommitFileToDarcs(fullPath);
+                }
                 else
                     _logWriter.WriteLine("Too many transactions...");
             }
