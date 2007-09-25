@@ -19,16 +19,12 @@ namespace Nuxleus.Process
         Queue _addQueue = new Queue();
         Queue _updateQueue = new Queue();
         Queue _deleteQueue = new Queue();
-        DateTime _lastTransaction;
-        static long _tickMultiplier = 1;
-        long _tickBuffer = 100 * 100 * 10 *  _tickMultiplier;
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         public DarcsProcess()
         {
             base.StartInfo.FileName = "darcs";
             base.EnableRaisingEvents = false;
-            _lastTransaction = DateTime.Now;
         }
         
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
@@ -48,19 +44,35 @@ namespace Nuxleus.Process
         {    
             if(_addQueue.Count == 0)
             {
-                _addQueueLock = true;
-                addFileTransaction(filePath);
-                _addQueueLock = false;
-
+                LockQueue(filePath)
             }
             else if (_addQueueLock)
             {
-                _addQueue.Enqueue(filePath);
+                Enqueue(filePath)
             }
             else 
             {
-                ProcessQueue(_addQueue);
+                LockQueue(_addQueue)
             }
+        }
+        
+        private void LockQueue(Queue queue)
+        {
+            _addQueueLock = true;
+            ProcessQueue(queue);
+            _addQueueLock = false;
+        }
+        
+        private void LockQueue(string filePath)
+        {
+            _addQueueLock = true;
+            ProcessQueue(queue);
+            _addQueueLock = false;
+        }
+        
+        private void Enqueue(filePath)
+        {
+            _addQueue.Enqueue(filePath);
         }
         
         private void ProcessQueue(Queue queue)  
