@@ -9,29 +9,28 @@ namespace Nuxleus
 {
     public class FileSystemWatcher
     {
-        Watcher _fileSystemWatcher;
+	static Watcher _fileSystemWatcher;
         
         public static void Main()
         {
-            Run();
+	    	string[] args = System.Environment.GetCommandLineArgs();
+
+            	if (args.Length != 2)
+            	{
+                	Console.WriteLine("Usage: Watcher.exe (directory)");
+                	return;
+            	}
+            	Console.WriteLine(args[1]);
+            	_fileSystemWatcher = new Watcher(args[1], "", Console.Out);
+		Run(_fileSystemWatcher);
         }
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
-        public static void Run()
-        {
-            string[] args = System.Environment.GetCommandLineArgs();
-
-            if (args.Length != 2)
-            {
-                Console.WriteLine("Usage: Watcher.exe (directory)");
-                return;
-            }
-            Console.WriteLine(args[1]);
-            _fileSystemWatcher = new Watcher(args[1], "", Console.Out);
-            _fileSystemWatcher.Watch(true);
-
-            Console.WriteLine("Press \'q\' to quit the sample.");
-            while (Console.Read() != 'q') ;
+        public static void Run(Watcher fileSystemWatcher)
+	{
+		fileSystemWatcher.Watch(true);
+            	Console.WriteLine("Press \'q\' to quit the sample.");
+            	while (Console.Read() != 'q') ;
         }
 
     }
