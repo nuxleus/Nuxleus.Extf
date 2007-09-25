@@ -68,19 +68,19 @@ namespace Nuxleus.FileSystem
         	        //resp.Close();
                        
         	        proc.AddFileToDarcs(e.FullPath);
-		        watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
+		            watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
         	        break;
                 }
                 case WatcherChangeTypes.Changed:
                 {
                     proc.CommitFileToDarcs(e.FullPath);
-	            watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
+	                watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
                     break;
                 }
                 case WatcherChangeTypes.Deleted:
                 {
                     proc.RemoveFileFromDarcs(e.FullPath);
-	            watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
+	                watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
                     break;
                 }
                 default:

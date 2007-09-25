@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -12,6 +13,12 @@ namespace Nuxleus.Process
     {
         string _path;
         TextWriter _logWriter;
+        bool _addQueueLock = false;
+        bool _updateQueueLock = false;
+        bool _deleteQueueLock = false;
+        Queue _addQueue = new Queue();
+        Queue _updateQueue = new Queue();
+        Queue _deleteQueue = new Queue();
         DateTime _lastTransaction;
         static long _tickMultiplier = 1;
         long _tickBuffer = 100 * 100 * 10 *  _tickMultiplier;
@@ -37,26 +44,52 @@ namespace Nuxleus.Process
         public TextWriter LogWriter { get { return _logWriter; } set { _logWriter = value; } }
         public string Folder { get { return _path; } set { _path = value; } }
 
-        public void AddFileToDarcs(string fullPath)
-        {
-            DateTime now = DateTime.Now;
-            long diff = now.Subtract(_lastTransaction).Ticks;
-            _logWriter.WriteLine("Ticks since last transactions: {0}", diff);
-            _lastTransaction = now;
-            
-            if(diff > _tickBuffer)
+        public void AddFileToDarcs(string filePath)
+        {    
+            if(_addQueue.Count == 0)
             {
-                this.StartInfo.Arguments="add --case-ok -r";
-                lock(fullPath)
-                {
-                    this.Start();
-                }
-                _logWriter.WriteLine("Ticks since last transactions: {0}", diff);
-                lock(fullPath)
-                {
-                    CommitFileToDarcs(fullPath);
-                }
+                _addQueueLock = true;
+                addFileTransaction(filePath);
+                _addQueueLock = false;
+
             }
+            else if (_addQueueLock)
+            {
+                _addQueue.Enqueue(filePath);
+            }
+            else 
+            {
+                ProcessQueue(_addQueue);
+            }
+        }
+        
+        private void ProcessQueue(Queue queue)  
+        {
+            while(queue.Count >= 0)
+              {
+                 addFileTransaction((string)queue.Dequeue());
+              }
+        }
+        
+        private void addFileTransaction(string filePath) 
+        {
+            DateTime start = DateTime.Now;
+            
+            
+            this.StartInfo.Arguments="add --case-ok " + filePath;
+            lock(filePath)
+            {
+                this.Start();
+                CommitFileToDarcs(filePath);
+            }
+            
+            DateTime stop = DateTime.Now;
+            long diff = stop.Subtract(start).Ticks;
+            
+            _logWriter.WriteLine("Start time in ticks: {0}", start.Ticks);
+            _logWriter.WriteLine("Stop time in ticks: {0}", stop.Ticks);
+            _logWriter.WriteLine("Total elapsed ticks: {0}", diff);
+            _logWriter.WriteLine("{0} was committed to the repository in {1} ticks", filePath, diff);
         }
         
         public void CommitFileToDarcs(string fullPath)
