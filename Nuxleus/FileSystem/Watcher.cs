@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Nuxleus.Process;
 using System.Text;
@@ -26,11 +26,7 @@ namespace Nuxleus.FileSystem
                 NotifyFilters.LastAccess    |
                 NotifyFilters.LastWrite     |
                 NotifyFilters.FileName      |
-                NotifyFilters.DirectoryName |
-                NotifyFilters.Size          |
-                NotifyFilters.Attributes    |
-                NotifyFilters.CreationTime  |
-                NotifyFilters.Security;   
+                NotifyFilters.DirectoryName;
                 
             _darcsProc = new DarcsProcess(path, logWriter);
             this.Path = _path;
@@ -60,8 +56,8 @@ namespace Nuxleus.FileSystem
             Watcher watcher = (Watcher)source;
             DarcsProcess proc = watcher._darcsProc;
             watcher.LogWriter.WriteLine("File: " + e.FullPath + " " + e.ChangeType);
-            
-            switch(e.ChangeType)
+
+	    switch(e.ChangeType)
             {
                 case WatcherChangeTypes.Created:
                 {
@@ -72,19 +68,19 @@ namespace Nuxleus.FileSystem
         	        //resp.Close();
                        
         	        proc.AddFileToDarcs(e.FullPath);
-			        watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
+		        watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
         	        break;
                 }
                 case WatcherChangeTypes.Changed:
                 {
                     proc.CommitFileToDarcs(e.FullPath);
-		            watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
+	            watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
                     break;
                 }
                 case WatcherChangeTypes.Deleted:
                 {
                     proc.RemoveFileFromDarcs(e.FullPath);
-		            watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
+	            watcher.LogWriter.Write("File: {0} {1} at Path: {2} \n", e.Name, e.ChangeType, e.FullPath);
                     break;
                 }
                 default:

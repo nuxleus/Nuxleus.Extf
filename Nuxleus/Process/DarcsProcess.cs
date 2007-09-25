@@ -14,7 +14,7 @@ namespace Nuxleus.Process
         TextWriter _logWriter;
         DateTime _lastTransaction;
         static long _tickMultiplier = 1;
-        long _tickBuffer = 100 * 10 * 10 *  _tickMultiplier;
+        long _tickBuffer = 100 * 100 * 10 *  _tickMultiplier;
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         public DarcsProcess()
@@ -50,26 +50,24 @@ namespace Nuxleus.Process
                 lock(fullPath)
                 {
                     this.Start();
-                    this.Close();
                 }
-                now = DateTime.Now;
-                diff = now.Subtract(_lastTransaction).Ticks;
                 _logWriter.WriteLine("Ticks since last transactions: {0}", diff);
-                if(diff > _tickBuffer)
                 lock(fullPath)
                 {
                     CommitFileToDarcs(fullPath);
                 }
-                else
-                    _logWriter.WriteLine("Too many transactions...");
             }
-            
-            
         }
         
         public void CommitFileToDarcs(string fullPath)
         {
-            this.StartInfo.Arguments = "record -a --skip-long-comment --patch-name=" + fullPath + ":" + Guid.NewGuid().ToString();
+            this.StartInfo.Arguments = "record -a --skip-long-comment --patch-name=" + fullPath + ":" + Guid.NewGuid().ToString() + " " + fullPath;
+            this.Start();
+        }
+
+	public void CommitFileToDarcs()
+        {
+            this.StartInfo.Arguments = "record -a --skip-long-comment --patch-name=" + Guid.NewGuid().ToString();
             this.Start();
         }
 
