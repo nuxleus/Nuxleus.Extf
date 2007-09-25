@@ -9,7 +9,8 @@ namespace Nuxleus
 {
     public class FileSystemWatcher
     {
-
+        Watcher _fileSystemWatcher;
+        
         public static void Main()
         {
             Run();
@@ -26,8 +27,8 @@ namespace Nuxleus
                 return;
             }
             Console.WriteLine(args[1]);
-            Watcher fileSystemWatcher = new Watcher(args[1], "", Console.Out);
-            fileSystemWatcher.Watch(true);
+            _fileSystemWatcher = new Watcher(args[1], "", Console.Out);
+            _fileSystemWatcher.Watch(true);
 
             Console.WriteLine("Press \'q\' to quit the sample.");
             while (Console.Read() != 'q') ;
