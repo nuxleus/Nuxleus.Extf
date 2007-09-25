@@ -106,14 +106,14 @@ namespace Nuxleus.Process
 
         public void MoveFileInDarcs(string oldPath, string newPath)
         {
-            AddFileToDarcs(newPath);
             RemoveFileFromDarcs(oldPath);
+            AddFileToDarcs(newPath);
         }
         
         public void RemoveFileFromDarcs(string fullPath)
         {
-            //this.StartInfo.Arguments = "remove " + fullPath;
-            //this.Start();
+            this.StartInfo.Arguments = "remove " + fullPath;
+            this.Start();
             CommitFileToDarcs(fullPath);
         }
         
