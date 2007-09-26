@@ -44,15 +44,15 @@ namespace Nuxleus.Process
         {    
             if(_addQueue.Count == 0)
             {
-                LockQueue(filePath)
+                LockQueue(filePath);
             }
             else if (_addQueueLock)
             {
-                Enqueue(filePath)
+                Enqueue(filePath);
             }
             else 
             {
-                LockQueue(_addQueue)
+                LockQueue(_addQueue);
             }
         }
         
@@ -66,11 +66,11 @@ namespace Nuxleus.Process
         private void LockQueue(string filePath)
         {
             _addQueueLock = true;
-            ProcessQueue(queue);
+            addFileTransaction(filePath);
             _addQueueLock = false;
         }
         
-        private void Enqueue(filePath)
+        private void Enqueue(string filePath)
         {
             _addQueue.Enqueue(filePath);
         }
