@@ -85,7 +85,9 @@ namespace Xameleon.Llup
       this.xmpp.Password = password;
       this.xmpp.Open();
       xmpp.OnLogin += delegate(object o) { 
+	Console.WriteLine("Logged in");
 	this.ConnectToPeer(peerIp, peerPort);
+	Console.WriteLine("Connected to LLUP");
 	this.AsyncRecv();
 // 	byte[] buffer = new byte[4096];
   
