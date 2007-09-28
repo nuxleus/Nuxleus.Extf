@@ -28,6 +28,8 @@ namespace Xameleon.Atom
     private TextConstruct summary = null;
     private TextConstruct rights = null;
     private TextConstruct content = null;
+    private IList<Category> categories = new List<Category>();
+    private IList<ForeignElement> foreigns = new List<ForeignElement>();
 
     public AtomEntry() {}
 
@@ -85,6 +87,18 @@ namespace Xameleon.Atom
     public IList<Author> Authors {
       get {
 	return this.authors;
+      }
+    }
+
+    public IList<Category> Categories {
+      get {
+	return this.categories;
+      }
+    }
+
+    public IList<ForeignElement> Foreigns {
+      get { 
+	return this.foreigns;
       }
     }
 
@@ -168,9 +182,19 @@ namespace Xameleon.Atom
 	  root.AppendChild(node);
 	}
 
+	foreach(Category cat in this.Categories) {
+	  node = doc.ImportNode(cat.Node, true);
+	  root.AppendChild(node);
+	}
+
 	if(this.Summary != null) {
 	  node = doc.ImportNode(this.Summary.Node, true);
 	  root.AppendChild(node);
+	}
+
+	foreach(ForeignElement foreign in this.Foreigns) {
+	   node = doc.ImportNode(foreign.Node, true);
+	   root.AppendChild(node);
 	}
 
 	if(this.Content != null) {
@@ -224,6 +248,13 @@ namespace Xameleon.Atom
 	  Link l = new Link();
 	  l.Node = link;
 	  this.Links.Add(l);
+	}
+	
+	XmlNodeList categories = root.SelectNodes("./atom:category", nsmgr); 
+	foreach (XmlNode category in categories){
+	  Category c = new Category();
+	  c.Node = category;
+	  this.Categories.Add(c);
 	}
 
 	XmlNodeList authors = root.SelectNodes("./atom:author", nsmgr); 

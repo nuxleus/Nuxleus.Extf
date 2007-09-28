@@ -11,8 +11,9 @@ namespace Xameleon.Llup
 {
   internal class MessageState {
 
+    public const int BufferSize = 4096;
     private ManualResetEvent ev = null;
-    private byte[] buffer = new byte[4096];
+    private byte[] buffer = new byte[BufferSize];
     private StringBuilder sb = new StringBuilder();
 
     public MessageState() {}
@@ -106,7 +107,7 @@ namespace Xameleon.Llup
 
     public void AsyncRecv() {
       MessageState ms = new MessageState();
-      this.peer.BeginReceive(ms.Buffer, 0, 4096, 0,
+      this.peer.BeginReceive(ms.Buffer, 0, MessageState.BufferSize, 0,
 			     new AsyncCallback(this.ReceiveCallback), ms);
     }
 

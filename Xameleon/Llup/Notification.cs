@@ -108,7 +108,7 @@ namespace Xameleon.Llup {
       return n;
     }
 
-    public static string Xml(Notification n) {
+    public static string Serialize(Notification n) {
       MemoryStream ms = new MemoryStream();
       
       XmlWriterSettings settings = new XmlWriterSettings();

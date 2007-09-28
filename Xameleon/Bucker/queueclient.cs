@@ -16,16 +16,43 @@ using System.Threading;
 
 namespace Xameleon.Bucker
 {
+  
+  public delegate string TransmitQueueMessage(MessageInfo info);
+
+  public class MessageInfo {
+    private QueueClient q = null;
+    private IMessage m = null;
+
+    public MessageInfo() {}
+    public MessageInfo(QueueClient qc, IMessage m) {
+      this.q = qc;
+      this.m = m;
+    }
+
+    public QueueClient Client {
+      get { return q; }
+      set { q = value; }
+    }
+    
+    public IMessage Message {
+      get { return m; }
+      set { m = value; }
+    }
+  }
+
   /// <summary>
   /// Wrapper carrying necessary information when using the asynchronous methods
   /// of the QueueClient class.
   /// </summary>
   internal class MessageState
   {
+    public const int BufferSize = 4096;
     private ManualResetEvent ev = null;
     private Socket sock = null;
-    private byte[] buffer = new byte[1024];
+    private byte[] buffer = new byte[BufferSize];
     public StringBuilder sb = new StringBuilder();
+
+    public MessageState() {}
 
     public MessageState(Socket sock) {
       this.sock = sock;
@@ -103,6 +130,10 @@ namespace Xameleon.Bucker
       this._sock = new Socket(this.endpoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
     }
 
+    public IPEndPoint EndPoint {
+      get { return this.endpoint; }
+    }
+
     /// <summary> 
     /// Connect to the queue server.
     /// </summary>    
@@ -173,7 +204,7 @@ namespace Xameleon.Bucker
     /// <remarks>Block the caller execution.</remarks>
     /// <returns>Whatever could be read from the queue connection.</returns>
     public string Recv() { 
-      return this.Recv(1024);
+      return this.Recv(MessageState.BufferSize);
     }
 
     /// <summary> 
@@ -203,17 +234,17 @@ namespace Xameleon.Bucker
     public void AsyncRecv(StringBuilder sb, ManualResetEvent ev) {
       MessageState ms = new MessageState(this._sock, ev);
       ms.Data = sb;
-      this._sock.BeginReceive(ms.Buffer, 0, 1024, 0,
+      this._sock.BeginReceive(ms.Buffer, 0,MessageState.BufferSize, 0,
 			      new AsyncCallback(this.ReceiveCallback), ms);
-    }
+    } 
 
     private void ReceiveCallback(IAsyncResult ar) {
       MessageState ms = (MessageState) ar.AsyncState;
       int bytesRead = ms.Sock.EndReceive(ar);
 
       if (bytesRead > 0) {
-            ms.Data.Append(Encoding.ASCII.GetString(ms.Buffer, 0, bytesRead));
-	    ms.Sock.BeginReceive(ms.Buffer, 0, 1024, 0, new AsyncCallback(ReceiveCallback), ms);
+	ms.Data.Append(Encoding.ASCII.GetString(ms.Buffer, 0, bytesRead));
+	ms.Sock.BeginReceive(ms.Buffer, 0, MessageState.BufferSize, 0, new AsyncCallback(ReceiveCallback), ms);
       } else {
 	if(ms.Event != null){
 	  ms.Event.Set();
@@ -221,5 +252,9 @@ namespace Xameleon.Bucker
       }
     }
 
+    public static string Transmit(MessageInfo info) {
+      info.Client.Send(info.Message);
+      return info.Client.Recv();
+    }
   }
 }
